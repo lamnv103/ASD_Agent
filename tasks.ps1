@@ -87,7 +87,22 @@ Outputs go to reports/verification_runs/<name>_<time>/ (git-ignored). Historical
     }
     'setup' {
         if (-not (Test-Path $Py)) {
-            Invoke-Checked 'create venv (Python 3.13)' { py -3.13 -m venv (Join-Path $Root '.venv-embedding') }
+            # Python 3.13 is required (tested 3.13.9). Order: $env:ASD_PYTHON, py launcher, python on PATH.
+            $candidates = @()
+            if ($env:ASD_PYTHON) { $candidates += , @($env:ASD_PYTHON) }
+            $candidates += , @('py', '-3.13')
+            $candidates += , @('python')
+            $base = $null
+            foreach ($c in $candidates) {
+                $exe = $c[0]; $pre = @($c | Select-Object -Skip 1)
+                $previous = $ErrorActionPreference; $ErrorActionPreference = 'Continue'
+                $ver = & $exe @pre -c "import sys; print('%d.%d' % sys.version_info[:2])" 2>$null
+                $ErrorActionPreference = $previous
+                if ($LASTEXITCODE -eq 0 -and $ver -eq '3.13') { $base = $c; break }
+            }
+            if (-not $base) { throw 'Python 3.13 not found. Install it or set $env:ASD_PYTHON to a python 3.13 executable.' }
+            $exe = $base[0]; $pre = @($base | Select-Object -Skip 1)
+            Invoke-Checked "create venv with $($base -join ' ')" { & $exe @pre -m venv (Join-Path $Root '.venv-embedding') }
         }
         Invoke-Checked 'install locked dependencies' { & $Py -m pip install --disable-pip-version-check -r (Join-Path $Root 'requirements.lock.txt') }
     }
