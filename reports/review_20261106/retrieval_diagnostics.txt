@@ -1,3 +1,6 @@
+SUPERSEDED 2026-11-07: this output came from a script that skipped retrieval_v1 labels and double-counted H05.
+Use: .	asks.ps1 diag  (scripts/evaluation/diagnose_retrieval_offline.py, corrected).
+
 docs 33
 
 questions analysed: 73  with cached vector: 73

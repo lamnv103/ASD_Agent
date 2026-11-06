@@ -27,9 +27,9 @@
 
 | Bộ câu hỏi | Trace hợp lệ | Trạng thái khớp nhãn AI sơ bộ |
 |---|---:|---:|
-| 6 c?u ph?t tri?n | 6/6 | 5/6 |
-| 12 c?u h?i quy m? r?ng | 12/12 | 11/12 |
-| 5 c?u b? sung cu?i | 5/5 | 4/5 |
+| 6 câu phát triển | 6/6 | 5/6 |
+| 12 câu hồi quy mở rộng | 12/12 | 11/12 |
+| 5 câu bổ sung cuối | 5/5 | 4/5 |
 
 Tổng cộng 23/23 trace hợp lệ và 20/23 trạng thái khớp nhãn sơ bộ. Nguồn tham chiếu xuất hiện trong top 5 ở 16/18 câu có nguồn dự kiến.
 

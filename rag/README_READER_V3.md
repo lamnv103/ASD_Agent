@@ -99,4 +99,10 @@ Tham chiếu kỹ thuật: [NVIDIA API](https://docs.api.nvidia.com/nim/referenc
 
 Sau lượt sửa schema kế hoạch, neo câu hỏi phối hợp được phép đối chiếu theo thứ tự từ thực và giữ nguyên khoảng văn bản gốc cùng mọi điều kiện xen giữa. Không áp dụng cách đối chiếu này cho ID hoặc trích dẫn nguồn.
 
-Assessment: sufficient = ?? c?n c? theo c?c nh?n ??nh ?? ki?m tra; partially_sufficient = h? tr? m?t ph?n; insufficient = ch?a c? ?? c?n c? ?? x?c minh trong ng? c?nh th?c t?; conflicting = c? b?ng ch?ng m?u thu?n theo c?ng m?nh ??. Nh?ng tr?ng th?i n?y kh?ng ch?ng nh?n ??ng y khoa ho?c kh?ng ??nh to?n b? kho thi?u th?ng tin.
+Assessment: sufficient = đủ căn cứ theo các nhận định đã kiểm tra; partially_sufficient = hỗ trợ một phần; insufficient = chưa có đủ căn cứ để xác minh trong ngữ cảnh thực tế; conflicting = có bằng chứng mâu thuẫn theo cùng mệnh đề. Những trạng thái này không chứng nhận đúng y khoa hoặc khẳng định toàn bộ kho thiếu thông tin.
+
+<!-- 2026-11-07: dòng trên bị lỗi mã hóa (ký tự có dấu thành "?") và được khôi phục theo mẫu chữ còn lại; nội dung không đổi. -->
+
+## Chạy với kiểm tra đầu vào trước truy xuất (khuyến nghị từ 07/11/2026)
+
+`python -m rag.prepare_evidence "câu hỏi"` chạy cùng reader v3 nhưng che định danh trực tiếp tại máy và lập kế hoạch câu hỏi **trước** khi gửi câu hỏi tới Cohere. Yêu cầu chẩn đoán/liều cá nhân, pháp lý hoặc dịch vụ hiện hành dừng trước truy xuất. `rag.read_evidence` giữ nguyên vì các run nghiệm thu ghim hash của nó. Xem [SETUP.md](../SETUP.md).

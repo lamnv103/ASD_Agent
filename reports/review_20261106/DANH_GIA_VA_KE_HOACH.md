@@ -1,3 +1,10 @@
+> **ĐÍNH CHÍNH 07/11/2026 — đọc trước.** Một số số liệu trong tài liệu này đã được kiểm định lại và sửa trong [KIEM_DINH_DOC_LAP_VA_UU_TIEN.md](KIEM_DINH_DOC_LAP_VA_UU_TIEN.md):
+> - Chỉ số truy xuất ở A2 thiếu 27 câu của retrieval_v1 và đếm lặp H05. Số đúng: hit@5 0,964, MRR 0,779 trên 55 câu duy nhất; hit@1 khoảng 0,66 (xem `.	asks.ps1 diag`).
+> - "Vector trung bình nhiều chủ đề" là giả thuyết, chưa được chứng minh.
+> - 22/156 lỗi (14%) là lịch sử phát triển, không phải độ tin cậy khi phục vụ. Độ trễ đã có telemetry: tổng các stage NIM mỗi câu có trung vị khoảng 27 giây.
+> - Tổng số test là 149 (nay 157), không phải 133. Con số "35% hoàn thành" không có cơ sở tính.
+> - Kế hoạch 8 tuần ở Phần C được thay bằng thứ tự ưu tiên trong bản kiểm định độc lập và [docs/MVP_SCOPE_DRAFT.md](../../docs/MVP_SCOPE_DRAFT.md).
+
 # ASD_AGENT — Đánh giá hiện trạng và kế hoạch hoàn thiện RAG Agent
 
 Ngày đánh giá: 06/11/2026. Người đánh giá: rà soát kỹ thuật bằng AI (không phải thẩm định lâm sàng).

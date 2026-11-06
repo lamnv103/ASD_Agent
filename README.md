@@ -1,9 +1,15 @@
 # Dữ liệu toàn văn ASD cho ASD_AGENT
 
-> Cập nhật 02/11/2026: [bàn giao reader v3](reports/reader_refinement_20261101_232742/BAN_GIAO_CAI_THIEN_READER_V3.md) — 115 kiểm thử, 23 trace hợp lệ; 33 tài liệu/33 vector giữ nguyên. Chưa bật tầng trả lời người dùng.
+> **Trạng thái 07/11/2026:** nguyên mẫu nghiên cứu (truy xuất + đọc bằng chứng + context). **Chưa có tầng trả lời cho người dùng; chưa có thẩm định lâm sàng độc lập.**
+>
+> - Bắt đầu: [SETUP.md](SETUP.md) — dựng môi trường, database, sao lưu/khôi phục; `.\tasks.ps1 all` chạy toàn bộ kiểm tra (157 test, 4 verifier, chỉ dùng cache).
+> - Việc vừa làm: [bàn giao nền tảng 07/11](reports/foundation_20261107/BAN_GIAO_NEN_TANG.md). Đánh giá hiện trạng: [kiểm định độc lập 06/11](reports/review_20261106/KIEM_DINH_DOC_LAP_VA_UU_TIEN.md).
+> - Chờ chủ dự án và chuyên gia chốt: [phạm vi MVP (bản nháp)](docs/MVP_SCOPE_DRAFT.md).
+> - Chạy một câu hỏi, có kiểm tra đầu vào trước truy xuất: `python -m rag.prepare_evidence "câu hỏi"`.
+>
+> Trước đó: [bàn giao reader v3, 02/11/2026](reports/reader_refinement_20261101_232742/BAN_GIAO_CAI_THIEN_READER_V3.md).
 
-
-Kho chính nằm tại E:/AI4LIFE/ASD_AGENT/knowledge/rag/source_library. Đây là kho dữ liệu của dự án mới; chương trình và database của dự án trước vẫn ở Carobud_ASD_2026.
+Kho chính nằm tại `knowledge/rag/source_library` trong thư mục gốc dự án (trước 06/11/2026 dự án ở ổ E:, nay ở D:; mã nguồn không còn phụ thuộc vị trí ổ đĩa). Chương trình và database của dự án trước vẫn ở Carobud_ASD_2026.
 
 Đợt bổ sung ngày 30/10/2026 đã giữ nguyên 27 tài liệu ban đầu, bổ sung 6 tài liệu đạt kiểm tra chuyển đổi. Hiện tập chính có **33 tài liệu, 2,307,606 ký tự nội dung**; tăng 399,532 ký tự. Mỗi tài liệu/phiên bản vẫn ở một tệp đầy đủ. Không chia đoạn mới hoặc cắt ngắn tài liệu nguồn. Sau đợt bổ sung và pilot NVIDIA, đã nhúng đủ 33 tài liệu nguyên văn bằng Cohere embed-v4.0 và nạp vào collection PostgreSQL mới.
 

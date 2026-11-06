@@ -81,7 +81,8 @@ Tasks:
   verify            4 cache-only verifiers (evidence/context, reader v2, reader v3, input guard)
   diag              Offline retrieval diagnostics (per dataset + unique questions)
   secrets           Scan git-tracked files for credentials
-  all               db-health, test, verify, secrets
+  pins              Fast check (no DB) that no hash-pinned file was edited; run before every commit
+  all               pins, db-health, test, verify, secrets
 Outputs go to reports/verification_runs/<name>_<time>/ (git-ignored). Historical reports are never modified.
 '@ | Write-Host
     }
@@ -171,8 +172,12 @@ Outputs go to reports/verification_runs/<name>_<time>/ (git-ignored). Historical
         Test-Python
         Invoke-Checked 'secret scan' { & $Py -B (Join-Path $Root 'scripts\dev\secret_scan.py') }
     }
+    'pins' {
+        Test-Python
+        Invoke-Checked 'hash pins' { & $Py -B (Join-Path $Root 'scripts\dev\check_pins.py') }
+    }
     'all' {
-        foreach ($t in 'db-health', 'test', 'verify', 'secrets') {
+        foreach ($t in 'pins', 'db-health', 'test', 'verify', 'secrets') {
             & $PSCommandPath $t
             if (-not $?) { throw "Task $t failed" }
         }
