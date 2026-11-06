@@ -1,84 +1,118 @@
-"""Offline, read-only retrieval diagnostics using cached query vectors (no API calls)."""
-import json, glob, sys, collections, statistics as st
-from pathlib import Path
-sys.stdout.reconfigure(encoding="utf-8")
-ROOT = Path(r"D:\AI4LIFE\ASD_AGENT"); sys.path.insert(0, str(ROOT))
-from rag.retriever import PostgresRetriever
+"""Offline, read-only retrieval diagnostics from cached query vectors (no provider calls).
 
-r = PostgresRetriever()
-with r._connection() as cur:
-    cur.execute("""select d.source_id, e.embedding::text, length(d.content) from carobud_rag.documents d
-        join carobud_rag.embeddings e using(collection_id,chunk_id)
-        where d.collection_id=%s and e.space_id=%s and d.enabled""", (r.config["collection_id"], r.config["space_id"]))
-    docs = {sid: (json.loads(v), n) for sid, v, n in cur.fetchall()}
-print("docs", len(docs))
+Ranks all 33 whole-document vectors for every labelled question and reports, per dataset and
+for unique questions, how high the first labelled reference source ranks.
 
-def cos(a, b):
-    import math
-    return sum(x*y for x, y in zip(a, b)) / (math.sqrt(sum(x*x for x in a)) * math.sqrt(sum(y*y for y in b)))
+Corrections vs. the first version (2026-11-06 review):
+  * retrieval_v1 labels live in reference_labels.json -> labels[*].references (were skipped);
+  * results are reported per dataset AND per unique question text (H05 appears in two sets);
+  * "hit" = at least one labelled source in top-k; reference lists are not exhaustive, so a
+    miss is not proof that every returned source is wrong.
+Output: a new folder under reports/verification_runs/ with rankings.json and summary.json.
+"""
+from __future__ import annotations
 
-cache = {}
-for f in glob.glob(str(ROOT/"reports/retriever/query_cache/*.json")):
-    d = json.loads(Path(f).read_text(encoding="utf-8")); cache[d["identity"]["query"]] = d["embedding"]
-
-# Collect (set, qid, question, expected source ids)
-items = []
-def load_jsonl(p): return [json.loads(l) for l in Path(p).read_text(encoding="utf-8").splitlines() if l.strip()]
-for setname in ["reader_v3_development", "reader_v3_holdout", "reader_v3_final_holdout", "semantic_reader_v1", "semantic_reader_holdout_v1"]:
-    qs = {q["question_id"]: q for q in load_jsonl(ROOT/f"evaluation/{setname}/questions.jsonl")}
-    for lab in load_jsonl(ROOT/f"evaluation/{setname}/reference_labels.jsonl"):
-        exp = sorted({e["source_id"] for e in lab.get("expected_sources", [])})
-        q = qs.get(lab["question_id"])
-        if q: items.append((setname, lab["question_id"], q.get("query", q["question"]), exp))
-rl = json.loads((ROOT/"evaluation/retrieval_v1/reference_labels.json").read_text(encoding="utf-8"))
-qs = {q["question_id"]: q for q in load_jsonl(ROOT/"evaluation/retrieval_v1/questions.jsonl")}
-labs = rl if isinstance(rl, list) else rl.get("labels", rl.get("questions", []))
-if isinstance(labs, dict): labs = [dict(question_id=k, **v) for k, v in labs.items()]
-for lab in labs:
-    srcs = lab.get("expected_sources") or lab.get("sources") or lab.get("candidates") or []
-    exp = sorted({(s["source_id"] if isinstance(s, dict) else s) for s in srcs})
-    q = qs.get(lab["question_id"])
-    if q: items.append(("retrieval_v1", lab["question_id"], q["query"], exp))
-
-seen = set(); rows = []; top5_counter = collections.Counter(); gaps = []; spreads = []
-for setname, qid, query, exp in items:
-    key = (setname, qid)
-    if key in seen: continue
-    seen.add(key)
-    vec = cache.get(query)
-    if vec is None: rows.append((setname, qid, "NO_CACHE", exp, None)); continue
-    ranked = sorted(((1 - cos(vec, dv), sid) for sid, (dv, _) in docs.items()))
-    order = [s for _, s in ranked]
-    for s in order[:5]: top5_counter[s] += 1
-    dists = [d for d, _ in ranked]
-    gaps.append(dists[4] - dists[0]); spreads.append(dists[-1] - dists[0])
-    ranks = {e: order.index(e) + 1 for e in exp if e in order}
-    rows.append((setname, qid, query[:70], ranks, round(dists[4]-dists[0], 4)))
-
-print("\nquestions analysed:", len(rows), " with cached vector:", sum(1 for r_ in rows if r_[2] != "NO_CACHE"))
-with_exp = [r_ for r_ in rows if r_[2] != "NO_CACHE" and r_[3]]
-best = [min(r_[3].values()) for r_ in with_exp]
-print("questions with expected sources:", len(with_exp))
-for k in (1, 3, 5, 10):
-    print(f"hit@{k}: {sum(b <= k for b in best)}/{len(best)} = {sum(b <= k for b in best)/len(best):.3f}")
-print("MRR (full ranking):", round(sum(1/b for b in best)/len(best), 3))
-print("median best rank:", st.median(best), " worst:", max(best))
-print("\ndistance gap rank1->rank5: median", round(st.median(gaps), 4), "min", round(min(gaps), 4), "max", round(max(gaps), 4))
-print("distance spread rank1->rank33: median", round(st.median(spreads), 4))
-print("\nby set:")
-for s in sorted({r_[0] for r_ in with_exp}):
-    b = [min(r_[3].values()) for r_ in with_exp if r_[0] == s]
-    print(f"  {s:28s} n={len(b):2d} hit@1={sum(x<=1 for x in b)/len(b):.2f} hit@5={sum(x<=5 for x in b)/len(b):.2f} MRR={sum(1/x for x in b)/len(b):.3f}")
-print("\nmisses beyond top5:")
-for r_ in with_exp:
-    if min(r_[3].values()) > 5: print("  ", r_[0], r_[1], r_[3], r_[2])
-n = sum(1 for r_ in rows if r_[2] != "NO_CACHE")
-print(f"\nhubness: share of {n} queries where doc is in top5")
-for sid, c in top5_counter.most_common(8): print(f"  {sid:32s} {c:3d}  {c/n:.0%}  len={docs[sid][1]}")
-never = [s for s in docs if top5_counter[s] == 0]
-print("docs never in any top5:", len(never), never)
-lens = [(docs[s][1], top5_counter[s]) for s in docs]
+import json
 import math
-mx = st.mean(l for l, _ in lens); my = st.mean(c for _, c in lens)
-cov = sum((l-mx)*(c-my) for l, c in lens); vx = math.sqrt(sum((l-mx)**2 for l, _ in lens)); vy = math.sqrt(sum((c-my)**2 for _, c in lens))
-print("corr(doc length, top5 frequency):", round(cov/(vx*vy), 3))
+import sys
+from collections import Counter
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT))
+sys.path.insert(0, str(ROOT / "scripts/evaluation"))
+from audit_output import new_run_dir  # noqa: E402
+
+from rag.retriever import PostgresRetriever, atomic_json  # noqa: E402
+
+DATASETS = ["retrieval_v1", "semantic_reader_v1", "semantic_reader_holdout_v1",
+            "reader_v3_development", "reader_v3_holdout", "reader_v3_final_holdout"]
+
+
+def no_api():
+    raise AssertionError("Cache miss: provider access is prohibited in offline diagnostics")
+
+
+def jsonl(path: Path):
+    return [json.loads(s) for s in path.read_text(encoding="utf-8").splitlines() if s.strip()]
+
+
+def load_items():
+    items = []
+    for name in DATASETS:
+        folder = ROOT / "evaluation" / name
+        questions = {q["question_id"]: q for q in jsonl(folder / "questions.jsonl")}
+        if name == "retrieval_v1":
+            labels = json.loads((folder / "reference_labels.json").read_text(encoding="utf-8"))["labels"]
+            refs = lambda lab: lab["references"]  # noqa: E731
+        else:
+            labels = jsonl(folder / "reference_labels.jsonl")
+            refs = lambda lab: lab["expected_sources"]  # noqa: E731
+        for lab in labels:
+            q = questions[lab["question_id"]]
+            items.append(dict(dataset=name, question_id=lab["question_id"], query=q.get("query") or q["question"],
+                              expected=sorted({r["source_id"] for r in refs(lab)})))
+    return items
+
+
+def metrics(rows):
+    best = [min(r["ranks"].values()) for r in rows if r["ranks"]]
+    if not best:
+        return dict(n=0)
+    return dict(n=len(best), **{f"hit@{k}": round(sum(b <= k for b in best) / len(best), 3) for k in (1, 3, 5, 10)},
+                mrr=round(sum(1 / b for b in best) / len(best), 3), worst_rank=max(best))
+
+
+def main():
+    sys.stdout.reconfigure(encoding="utf-8")
+    retriever = PostgresRetriever(key_supplier=no_api)
+    retriever.health()
+    with retriever._connection() as cur:
+        cur.execute("""select d.source_id, e.embedding::text, length(d.content)
+            from carobud_rag.documents d join carobud_rag.embeddings e using(collection_id,chunk_id)
+            where d.collection_id=%s and e.space_id=%s and d.enabled""",
+                    (retriever.config["collection_id"], retriever.config["space_id"]))
+        docs = {sid: (json.loads(v), n) for sid, v, n in cur.fetchall()}
+
+    def rank(query):
+        vec, usage = retriever.embedder.embed(query)  # validated cache read; raises on miss
+        assert usage["cache_hit"]
+        nq = math.sqrt(sum(x * x for x in vec))
+        scored = sorted((1 - sum(a * b for a, b in zip(vec, dv)) / (nq * math.sqrt(sum(b * b for b in dv))), sid)
+                        for sid, (dv, _) in docs.items())
+        return [sid for _, sid in scored]
+
+    rows = []
+    for item in load_items():
+        order = rank(item["query"])
+        rows.append(dict(item, ranks={s: order.index(s) + 1 for s in item["expected"]}, top5=order[:5]))
+
+    unique = {}
+    for r in rows:
+        u = unique.setdefault(r["query"], dict(query=r["query"], datasets=[], ranks={}, top5=r["top5"]))
+        u["datasets"].append(f"{r['dataset']}:{r['question_id']}")
+        u["ranks"].update(r["ranks"])
+
+    top5_share = Counter(s for u in unique.values() for s in u["top5"])
+    summary = dict(
+        dataset_rows=len(rows), unique_questions=len(unique),
+        by_dataset={d: metrics([r for r in rows if r["dataset"] == d]) for d in DATASETS},
+        unique_questions_union_labels=metrics(list(unique.values())),
+        misses_beyond_top5=[dict(datasets=u["datasets"], ranks=u["ranks"]) for u in unique.values()
+                            if u["ranks"] and min(u["ranks"].values()) > 5],
+        top5_frequency_unique_questions={s: c for s, c in top5_share.most_common()},
+        never_in_top5=sorted(s for s in docs if top5_share[s] == 0),
+        notes=["hit = at least one labelled source in top-k; labels are AI-made and non-exhaustive.",
+               "Datasets were used for development; these are regression descriptions, not a benchmark.",
+               "Top-5 frequency is descriptive; it does not prove a causal 'hub' effect."],
+    )
+    out = new_run_dir("retrieval_diagnostics")
+    atomic_json(out / "rankings.json", rows)
+    atomic_json(out / "summary.json", summary)
+    print(json.dumps({k: v for k, v in summary.items() if k != "top5_frequency_unique_questions"}, ensure_ascii=False, indent=2))
+    print("AUDIT_DIR=" + str(out))
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

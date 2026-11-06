@@ -1,0 +1,36 @@
+# PostgreSQL + pgvector for ASD_AGENT (replaces the lost file
+# D:\Carobud-ASD-master\Carobud-ASD-master\deployments\compose.rag.yml).
+#
+# Matches the running container "deployments-rag-db-1" exactly:
+# same compose project ("deployments"), service ("rag-db"), image digest, port and data volume.
+# The data volume is EXTERNAL: `docker compose down` never deletes the database.
+#
+#   docker compose -f deployments/compose.rag.yml --env-file deployments/rag-db.env up -d
+#
+# deployments/rag-db.env (git-ignored) must define RAG_DB_PASSWORD; copy rag-db.env.example.
+# The password only takes effect when a volume is initialised for the first time.
+name: deployments
+
+services:
+  rag-db:
+    # pgvector 0.8.6 on PostgreSQL 16.15, pinned by digest (same image as the 2026-10-30 build).
+    image: pgvector/pgvector:pg16@sha256:ccc6e83d6e35e931dc7c5def2022729d5a6c370318d099181995567ff1fb4d6b
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: asd_rag
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${RAG_DB_PASSWORD:?Set RAG_DB_PASSWORD in deployments/rag-db.env}
+    ports:
+      - "127.0.0.1:5433:5432"   # local only; never expose publicly
+    volumes:
+      - carobud_rag_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d asd_rag"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+volumes:
+  carobud_rag_data:
+    external: true
+    name: deployments_carobud_rag_data

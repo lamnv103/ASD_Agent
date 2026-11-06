@@ -260,7 +260,8 @@ def plan():
  return old,materials,held
 
 def publish():
- if str(ROOT).casefold()!=r'E:\AI4LIFE\ASD_AGENT'.casefold():raise ValueError('Only the new ASD_AGENT workspace may be published')
+ # Location-independent guard: publish only into the ASD_AGENT workspace, never the old Carobud project.
+ if 'name = "asd-agent"' not in ((ROOT/'pyproject.toml').read_text(encoding='utf-8') if (ROOT/'pyproject.toml').is_file() else '') or 'carobud' in str(ROOT).casefold():raise ValueError('Only the new ASD_AGENT workspace may be published')
  before_status=json.loads((LIB/'BUILD_STATUS.json').read_text(encoding='utf-8'))
  if before_status['documents_json_sha256']!=PARENT or digest((LIB/'documents.json').read_bytes())!=PARENT:raise ValueError('Dataset changed; create a new intake version rather than overwrite')
  old,materials,held=plan();backup=REPORT/'before_release'

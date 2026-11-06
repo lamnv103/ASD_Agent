@@ -1,0 +1,41 @@
+# Exact, tested environment for ASD_AGENT (Python 3.13.9, Windows).
+# Generated 2026-11-06 with: pip freeze --all  (all 149 tests pass with these versions).
+# Install: python -m pip install -r requirements.lock.txt
+annotated-doc==0.0.5
+anyio==4.15.1
+beautifulsoup4==4.15.0
+certifi==2026.10.23
+click==8.5.0
+colorama==0.4.6
+filelock==4.2.5
+fsspec==2026.9.0
+h11==0.16.0
+hf-xet==1.8.0
+httpcore2==2.16.0
+httpx2==2.16.0
+huggingface_hub==2.4.0
+idna==3.20
+Jinja2==3.1.6
+markdown-it-py==4.2.0
+markdownify==1.2.3
+MarkupSafe==3.0.4
+mdurl==0.1.2
+numpy==2.5.4
+packaging==26.3
+psycopg2-binary==2.9.13
+Pygments==2.21.0
+pypdf==7.0.0
+python-dotenv==1.2.4
+PyYAML==6.0.3
+regex==2026.9.29
+rich==15.0.0
+safetensors==0.8.0
+shellingham==1.5.4
+six==1.17.0
+soupsieve==4.0.1
+tokenizers==0.23.3
+tqdm==4.70.1
+transformers==5.22.1
+truststore==0.10.5
+typer==0.27.3
+typing_extensions==4.16.0

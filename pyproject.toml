@@ -1,0 +1,27 @@
+[project]
+name = "asd-agent"
+version = "0.3.1"
+description = "Research RAG pipeline for ASD information: PostgreSQL retrieval, source-grounded evidence reading, bounded context. No patient-facing answer generation yet."
+requires-python = ">=3.13,<3.14"
+# Direct dependencies. Exact tested versions (incl. transitive) are in requirements.lock.txt.
+dependencies = [
+    # database + config
+    "psycopg2-binary==2.9.13",
+    "python-dotenv==1.2.4",
+    "PyYAML==6.0.3",
+    "certifi==2026.10.23",
+    # pinned NVIDIA tokenizer / chat template (context budget)
+    "transformers==5.22.1",
+    "tokenizers==0.23.3",
+    "Jinja2==3.1.6",
+    "huggingface_hub==2.4.0",
+    # source library conversion (scripts/source_library)
+    "beautifulsoup4==4.15.0",
+    "markdownify==1.2.3",
+    "pypdf==7.0.0",
+]
+
+[tool.asd_agent]
+# Expected number of test methods across the three suites; tasks.ps1 test fails if it differs.
+# tests/ = 123 (115 + 8 input-guard), scripts/embedding = 17, scripts/source_library = 17
+expected_tests = 157

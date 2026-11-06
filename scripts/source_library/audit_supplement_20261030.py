@@ -22,7 +22,7 @@ def docs_and_guides(core,pending,held,publication):
  originals=sum(p.is_file() for p in (LIB/'originals').rglob('*'))
  main_guide=f"""# Dữ liệu toàn văn ASD cho ASD_AGENT
 
-Kho chính nằm tại E:/AI4LIFE/ASD_AGENT/knowledge/rag/source_library. Đây là kho dữ liệu của dự án mới; chương trình và database của dự án trước vẫn ở Carobud_ASD_2026.
+Kho chính nằm tại knowledge/rag/source_library trong thư mục gốc dự án ASD_AGENT. Đây là kho dữ liệu của dự án mới; chương trình và database của dự án trước vẫn ở Carobud_ASD_2026.
 
 Đợt bổ sung ngày 30/10/2026 đã giữ nguyên 27 tài liệu ban đầu, bổ sung 6 tài liệu đạt kiểm tra chuyển đổi. Hiện tập chính có **{n} tài liệu, {characters:,} ký tự nội dung**; tăng {delta:,} ký tự. Mỗi tài liệu/phiên bản vẫn ở một tệp đầy đủ. Không chia đoạn mới, không cắt ngắn để vừa mô hình và chưa thực hiện embedding.
 
@@ -86,12 +86,12 @@ Mỗi nghiên cứu được nhận giữ nguyên bản XML và các bảng, tà
 
 ## Kiểm tra lặp lại
 
-Dùng Python đã có của dự án trước, không cần khóa API hay kết nối database:
+Dùng môi trường Python của dự án (xem SETUP.md), không cần khóa API hay kết nối database:
 
-    & 'E:\\AI4LIFE\\Carobud_ASD_2026\\.venv-rag\\Scripts\\python.exe' -B scripts/source_library/export_json.py --check
-    & 'E:\\AI4LIFE\\Carobud_ASD_2026\\.venv-rag\\Scripts\\python.exe' -B scripts/source_library/audit_supplement_20261030.py
+    .\\.venv-embedding\\Scripts\\python.exe -B scripts/source_library/export_json.py --check
+    .\\.venv-embedding\\Scripts\\python.exe -B scripts/source_library/audit_supplement_20261030.py
 
-Chạy từ E:/AI4LIFE/ASD_AGENT. Lệnh đầu chỉ đọc và đối chiếu JSON/Markdown/hash. Lệnh audit đọc kho, chạy kiểm thử và cập nhật báo cáo/hướng dẫn/manifest cục bộ; không gọi mạng, LLM, embedding hoặc database.
+Chạy từ thư mục gốc dự án. Lệnh đầu chỉ đọc và đối chiếu JSON/Markdown/hash. Lệnh audit đọc kho, chạy kiểm thử và cập nhật báo cáo/hướng dẫn/manifest cục bộ; không gọi mạng, LLM, embedding hoặc database.
 
 scripts/source_library/supplement_20261030.py plan tái dựng kế hoạch đợt bổ sung từ cache và danh mục cha đã sao lưu. Lệnh publish chỉ dùng một lần và sẽ từ chối ghi đè bản đã phát hành. Mọi bổ sung tiếp cần phiên bản mới thay vì sửa âm thầm dữ liệu nguồn.
 
@@ -105,7 +105,7 @@ Chưa làm embedding, chưa đếm lại token cho bộ mới, chưa cập nhậ
 """
  write(LIB/'README.md',library_guide)
  byid={r['source_id']:r for r in core+pending+held}
- doc_lines=["# Bổ sung nguồn theo bốn chủ đề còn thiếu","","Ngày đối chiếu: 30/10/2026. Kho đích: E:/AI4LIFE/ASD_AGENT.","",
+ doc_lines=["# Bổ sung nguồn theo bốn chủ đề còn thiếu","","Ngày đối chiếu: 30/10/2026. Kho đích: thư mục gốc dự án ASD_AGENT.","",
   f"Giữ nguyên 27 tài liệu; thêm 6 tài liệu đạt kiểm tra chuyển đổi. Tập chính hiện có **{n} tài liệu, {characters:,} ký tự**, tăng {delta:,} ký tự. Đã lưu thêm {len(pending)} bản gốc và bản chuyển đổi chờ xử lý, không cộng chúng vào tập chính. Chưa thực hiện embedding, gọi LLM hoặc thay database.","",
   "**Đây là kho nguồn nghiên cứu chưa có thẩm định lâm sàng độc lập.** Các nhận xét dưới đây là metadata biên tập/đối chiếu, không phải văn bản nguồn hay quyết định điều trị.","",
   "## Kết quả theo yêu cầu","",
