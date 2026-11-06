@@ -1,8 +1,11 @@
 # --- Secrets: never commit ---
+# Any *.env file anywhere (e.g. secrets.env, deployments/database.env); *.env.example stays tracked.
+*.env
 .env
 .env.*
 !.env.example
-deployments/*.env
+!*.env.example
+secrets/
 continue*.yaml
 *.pem
 *.key

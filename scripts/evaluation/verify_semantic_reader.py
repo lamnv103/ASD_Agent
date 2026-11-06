@@ -9,7 +9,7 @@ from rag.retriever import PostgresRetriever,atomic_json,sha
 from rag.evidence_pipeline import EvidencePipeline
 from rag.semantic_reader import NimEvidenceReader
 from evaluate_retriever import snapshot
-from audit_output import new_run_dir
+from audit_output import new_run_dir,assert_protected
 
 def no_api_key():
     raise AssertionError('Audit requires existing caches: an API request would be needed.')
@@ -24,7 +24,7 @@ def run():
     before=json.loads((work/'before.json').read_text(encoding='utf-8'))
     assert snapshot(r)==before,'Database/source baseline changed'
     protected=json.loads((work/'protected_before.json').read_text(encoding='utf-8'))
-    assert all(sha((ROOT/p).read_bytes())==h for p,h in protected.items())
+    assert_protected(protected)
     pipe=EvidencePipeline(r)
     pipe.semantic_reader=NimEvidenceReader(counter=pipe.counter,key_supplier=no_api_key)
     results=[];reviewed_spans=0;passage_count=0;token_deltas=[];source_cache={}
@@ -76,7 +76,7 @@ def run():
             print('AUDIT',row['question_id'],'cache-only replay/positions/budget verified',flush=True)
     after=snapshot(r)
     assert after==before
-    assert all(sha((ROOT/p).read_bytes())==h for p,h in protected.items())
+    assert_protected(protected)
     regression=json.loads((work/'retrieval_regression.json').read_text(encoding='utf-8'))
     assert regression['questions']==30 and regression['ranks_and_distances_identical'] is True
     out=io.StringIO()

@@ -1,15 +1,19 @@
 # PostgreSQL + pgvector for ASD_AGENT (replaces the lost file
 # D:\Carobud-ASD-master\Carobud-ASD-master\deployments\compose.rag.yml).
 #
-# Matches the running container "deployments-rag-db-1" exactly:
-# same compose project ("deployments"), service ("rag-db"), image digest, port and data volume.
-# The data volume is EXTERNAL: `docker compose down` never deletes the database.
+# Defaults match the running container "deployments-rag-db-1" on the original machine:
+# compose project "deployments" (the folder name), service "rag-db", image digest, port 5433
+# and data volume deployments_carobud_rag_data.
+# The data volume is EXTERNAL: `docker compose down` never deletes the database, and the
+# volume must exist first. Use tasks.ps1, which creates it when missing:
 #
-#   docker compose -f deployments/compose.rag.yml --env-file deployments/rag-db.env up -d
+#   .\tasks.ps1 db-up                       # start existing DB, or create volume + container
+#   .\tasks.ps1 db-bootstrap <file.dump>    # new machine: restore a backup into the empty DB
 #
 # deployments/rag-db.env (git-ignored) must define RAG_DB_PASSWORD; copy rag-db.env.example.
 # The password only takes effect when a volume is initialised for the first time.
-name: deployments
+# Overrides (e.g. a second, isolated test cluster): ASD_DB_PROJECT, ASD_DB_VOLUME, ASD_DB_PORT
+# in tasks.ps1, which pass RAG_DB_VOLUME / RAG_DB_PORT here and `-p <project>` to compose.
 
 services:
   rag-db:
@@ -21,7 +25,7 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: ${RAG_DB_PASSWORD:?Set RAG_DB_PASSWORD in deployments/rag-db.env}
     ports:
-      - "127.0.0.1:5433:5432"   # local only; never expose publicly
+      - "127.0.0.1:${RAG_DB_PORT:-5433}:5432"   # local only; never expose publicly
     volumes:
       - carobud_rag_data:/var/lib/postgresql/data
     healthcheck:
@@ -33,4 +37,4 @@ services:
 volumes:
   carobud_rag_data:
     external: true
-    name: deployments_carobud_rag_data
+    name: ${RAG_DB_VOLUME:-deployments_carobud_rag_data}

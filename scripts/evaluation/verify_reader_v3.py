@@ -9,7 +9,7 @@ from rag.evidence_pipeline import EvidencePipeline
 from rag.semantic_reader import NimEvidenceReader
 from rag.semantic_reader_v3 import AtomicNeedsReader
 from evaluate_retriever import snapshot
-from audit_output import new_run_dir
+from audit_output import new_run_dir,assert_protected
 
 def no_api():raise AssertionError('Audit cache miss: API calls are prohibited.')
 def stable_comparison(new,old):
@@ -27,7 +27,7 @@ def run():
     r=PostgresRetriever(key_supplier=no_api);r.health()
     baseline=json.loads((work/'before.json').read_text(encoding='utf-8'));assert snapshot(r)==baseline
     protected=json.loads((work/'protected_before.json').read_text(encoding='utf-8'))
-    assert all(sha((ROOT/p).read_bytes())==h for p,h in protected.items())
+    assert_protected(protected)
     pipe=EvidencePipeline(r);pipe.semantic_reader=AtomicNeedsReader(counter=pipe.counter,key_supplier=no_api)
     results=[];span_count=0;prompt_deltas=[]
     for name in selection['runs']:
@@ -99,7 +99,7 @@ def run():
         assert new['query_embedding']['cache_hit'];ranking_count+=1
     assert ranking_count==30 and legacy_count==20
     assert snapshot(r)==baseline
-    assert all(sha((ROOT/p).read_bytes())==h for p,h in protected.items())
+    assert_protected(protected)
     stream=io.StringIO();suite=unittest.defaultTestLoader.discover(str(ROOT/'tests'))
     tests=unittest.TextTestRunner(stream=stream,verbosity=2).run(suite)
     (out/'final_tests.txt').write_text(stream.getvalue(),encoding='utf-8');assert tests.wasSuccessful(),stream.getvalue()

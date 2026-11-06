@@ -64,6 +64,21 @@ class ScreenTests(unittest.TestCase):
         self.assertNotIn("12/03/2019", s.text)
         self.assertEqual(s.redactions, dict(email=1, phone=1, national_id=1, full_date=1))
 
+    def test_every_supported_full_date_form_is_redacted(self):
+        for raw in ["12/03/2019", "12-3-2019", "12.03.2019", "2019-03-12", "2019/3/12", "2019.03.12",
+                    "ngày 12 tháng 3 năm 2019", "Ngày 2 tháng 11 năm 2020", "12 tháng 3, năm 2019"]:
+            s = screen_question(f"Con tôi sinh {raw}, có cần đánh giá không?")
+            self.assertIn("[NGÀY]", s.text, raw)
+            self.assertNotRegex(s.text, r"2019|2020", raw)
+            self.assertEqual(s.redactions, dict(full_date=1), raw)
+
+    def test_numbers_that_are_not_full_dates_are_kept(self):
+        q = ("Bé 3 tuổi, năm 2019 mới chuyển nhà, tổng quan 2015–2024 và 2015-2024 nói gì? "
+             "Sinh tháng 3/2019, điểm 12/30, cân nặng 15.5 kg, 2 tháng 3 lần.")
+        s = screen_question(q)
+        self.assertEqual(s.text, q)
+        self.assertFalse(s.changed)
+
     def test_ordinary_question_is_unchanged(self):
         q = "Trẻ 3 tuổi chưa nói được nhiều từ có cần đánh giá phát triển không? Năm 2025 có hướng dẫn mới không?"
         s = screen_question(q)
@@ -119,6 +134,33 @@ class GuardedPipelineTests(unittest.TestCase):
         client = PlanThenStopClient(record(dict(intent="not-an-intent", needs=[], required_personal_information=[])))
         with self.assertRaises(EvidenceError):
             pipeline(client, RecordingRetriever(forbid=True)).prepare(QUESTION)
+
+    def test_fails_closed_without_reader_v3(self):
+        # Default constructor (no reader) and a reader of another type must not reach retrieval.
+        for reader in [None, object()]:
+            p = GuardedEvidencePipeline(retriever=RecordingRetriever(forbid=True), config=config(),
+                                        counter=FixtureCounter(), semantic_reader=reader)
+            with self.assertRaises(EvidenceError) as caught:
+                p.prepare("Con tôi có bị tự kỷ không?")
+            self.assertEqual(caught.exception.code, "input_guard_unavailable")
+
+    def test_explicit_review_requires_explicit_unchecked_mode(self):
+        client = PlanThenStopClient(record(plan()))
+        p = pipeline(client, RecordingRetriever(forbid=True))
+        with self.assertRaises(EvidenceError) as caught:
+            p.prepare(QUESTION, review=dict(reviewer=dict(kind="test_fixture")))
+        self.assertEqual(caught.exception.code, "input_guard_unavailable")
+        self.assertEqual(client.messages, [])
+
+    def test_unchecked_mode_is_opt_in_and_recorded(self):
+        retriever = RecordingRetriever()
+        p = GuardedEvidencePipeline(retriever=retriever, config=config(), counter=FixtureCounter(),
+                                    allow_unchecked_retrieval=True)
+        p.prepare_retrieved = lambda q, retrieved, review=None: {}
+        trace = p.prepare(QUESTION)
+        self.assertEqual(retriever.queries, [QUESTION])
+        self.assertEqual(trace["input_guard"]["decision"], "unchecked_explicitly_allowed")
+        self.assertFalse(trace["input_guard"]["intent_checked_before_retrieval"])
 
     def test_rejected_input_contacts_nobody(self):
         client = PlanThenStopClient(record(plan()))

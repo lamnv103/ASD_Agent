@@ -41,16 +41,36 @@ class _PlanOnlyClient:
         return self.inner.complete(messages)
 
 
+UNCHECKED = "unchecked_explicitly_allowed"
+
+
 class GuardedEvidencePipeline(EvidencePipeline):
+    """Fail-closed: without a v3 reader (the only component that classifies intent) nothing is retrieved.
+
+    allow_unchecked_retrieval=True is for evaluation replays with an explicit reference review or a
+    reader without a plan stage; it is recorded in the trace and must never be used for user questions.
+    """
+
+    def __init__(self, retriever=None, *, allow_unchecked_retrieval=False, **kwargs):
+        super().__init__(retriever, **kwargs)
+        self.allow_unchecked_retrieval = bool(allow_unchecked_retrieval)
+
     def prepare(self, question, *, top_k=5, review=None, trace_path=None):
         screened = screen_question(question)
         q = screened.text
         reader = self.semantic_reader
+        can_classify = review is None and isinstance(reader, AtomicNeedsReader)
 
-        if review is None and isinstance(reader, AtomicNeedsReader):
+        if can_classify:
             decision = self._plan_gate(reader, q)
+        elif self.allow_unchecked_retrieval:
+            decision = UNCHECKED
         else:
-            decision = "not_checked_reader_has_no_plan_stage"
+            reason = ("an explicit review was supplied" if review is not None
+                      else "no reader v3 (AtomicNeedsReader) is attached")
+            raise EvidenceError("input_guard_unavailable",
+                                f"Intent cannot be checked before retrieval because {reason}; nothing was sent. "
+                                "Attach AtomicNeedsReader, or pass allow_unchecked_retrieval=True for evaluation replays only.")
 
         if decision == "blocked_before_retrieval":
             trace = self.prepare_retrieved(q, self._no_retrieval(q), review=review)
@@ -61,7 +81,7 @@ class GuardedEvidencePipeline(EvidencePipeline):
         trace["input_guard"] = dict(
             version=GUARD_VERSION,
             decision=decision,
-            intent_checked_before_retrieval=decision != "not_checked_reader_has_no_plan_stage",
+            intent_checked_before_retrieval=decision != UNCHECKED,
             retrieval_performed=decision != "blocked_before_retrieval",
             redactions=[dict(type=k, count=n) for k, n in screened.redactions.items()],
             provider_question_sha256=sha(q),

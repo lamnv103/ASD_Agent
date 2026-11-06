@@ -1,0 +1,18 @@
+{
+  "purpose": "Non-secret, machine-independent part of deployments/database.env for release baseline-v3-20261102. The connection (host, port, user, password) in RAG_DATABASE_URL is local and may differ per machine; everything below must match exactly.",
+  "local_file": "deployments/database.env",
+  "historical_pin_sha256": "1526d236ad5c68111bcfab3ea489e7d2280cc00dc26f32096212c81a1eddd4c5",
+  "historical_pin_note": "Accepted runs of 2026-10-31..2026-11-02 pinned the whole file of the original machine. An exact match still passes; otherwise the functional settings below are checked instead.",
+  "url": {
+    "scheme": "postgresql",
+    "database": "asd_rag"
+  },
+  "functional": {
+    "RAG_COLLECTION": "asd_fulltext_33_20261030_26eb017efca5",
+    "RAG_EMBEDDING_SPACE": "cohere4_whole_1536_e83c596b9070",
+    "RAG_EMBEDDING_PROVIDER": "cohere",
+    "RAG_EMBEDDING_MODEL": "embed-v4.0",
+    "RAG_EMBEDDING_DIMENSIONS": "1536",
+    "RAG_WHOLE_DOCUMENT": "true"
+  }
+}

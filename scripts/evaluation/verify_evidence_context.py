@@ -6,13 +6,13 @@ ROOT=Path(__file__).resolve().parents[2];sys.path.insert(0,str(ROOT));sys.path.i
 from rag.retriever import PostgresRetriever,atomic_json,sha,canonical
 from rag.evidence_pipeline import EvidencePipeline
 from evaluate_retriever import snapshot,load_inputs
-from audit_output import new_run_dir,assert_frozen_json
+from audit_output import new_run_dir,assert_frozen_json,assert_protected
 
 def main():
     run=ROOT/(ROOT/'reports/.evidence_context_current_run').read_text(encoding='utf-8')
     r=PostgresRetriever();before=json.loads((run/'before.json').read_text(encoding='utf-8'));assert snapshot(r)==before
     protected=json.loads((run/'protected_code_before.json').read_text(encoding='utf-8'))
-    assert all(sha((ROOT/n).read_bytes())==v for n,v in protected.items())
+    assert_protected(protected)
     questions,labels,frozen=load_inputs(r)
     baseline=ROOT/'reports/retrieval_evaluation/R33_20261031_124523_966748'
     old={x['question_id']:x['result'] for x in map(json.loads,(baseline/'raw_results.jsonl').read_text(encoding='utf-8').splitlines())}
@@ -67,7 +67,7 @@ def main():
     test_output=io.StringIO();suite=unittest.defaultTestLoader.discover(str(ROOT/'tests'));test_result=unittest.TextTestRunner(stream=test_output,verbosity=2).run(suite)
     (out/'tests.txt').write_text(test_output.getvalue(),encoding='utf-8');assert test_result.wasSuccessful(),test_output.getvalue()
     after=snapshot(r);atomic_json(out/'after.json',after);assert after==before
-    assert all(sha((ROOT/n).read_bytes())==v for n,v in protected.items())
+    assert_protected(protected)
     summary=dict(status='verified',documents_before=33,documents_after=33,vectors_before=33,vectors_after=33,
         database_unchanged=True,protected_source_files_unchanged=132,existing_retrieval_code_and_config_unchanged=True,
         retrieval_regression_queries=30,ranks_and_distances_unchanged=True,query_api_calls=0,answer_generation_calls=0,

@@ -6,12 +6,21 @@ ASD_AGENT task runner (Windows PowerShell 5.1+). Run from the project root:
 
 No task calls Cohere or NVIDIA. All verification is cache-only and read-only on the database.
 #>
-param([Parameter(Position = 0)][string]$Task = 'help')
+param(
+    [Parameter(Position = 0)][string]$Task = 'help',
+    [Parameter(Position = 1)][string]$Arg = ''
+)
 
 $ErrorActionPreference = 'Stop'
 $Root = $PSScriptRoot
 $Py = Join-Path $Root '.venv-embedding\Scripts\python.exe'
-$Container = 'deployments-rag-db-1'
+# Database instance. Defaults = the original machine; override to run an isolated second cluster.
+$DbProject = if ($env:ASD_DB_PROJECT) { $env:ASD_DB_PROJECT } else { 'deployments' }
+$DbVolume = if ($env:ASD_DB_VOLUME) { $env:ASD_DB_VOLUME } else { 'deployments_carobud_rag_data' }
+$DbPort = if ($env:ASD_DB_PORT) { $env:ASD_DB_PORT } else { '5433' }
+$Container = "$DbProject-rag-db-1"
+$env:RAG_DB_VOLUME = $DbVolume
+$env:RAG_DB_PORT = $DbPort
 $Compose = Join-Path $Root 'deployments\compose.rag.yml'
 $ComposeEnv = Join-Path $Root 'deployments\rag-db.env'
 $Backups = Join-Path $Root 'backups'
@@ -68,20 +77,38 @@ function Get-RowHashes([string]$Database) {
     return ($rows -join "`n")
 }
 
+function Test-DumpChecksum([string]$Path) {
+    $sumFile = "$Path.sha256"
+    if (-not (Test-Path $sumFile)) { throw "Missing checksum file $sumFile (copy it together with the dump)" }
+    $expected = (Get-Content $sumFile -TotalCount 1).Split(' ')[0].Trim().ToLower()
+    $actual = (Get-FileHash -Algorithm SHA256 $Path).Hash.ToLower()
+    if ($actual -ne $expected) { throw "Checksum mismatch: $Path" }
+}
+
+function Get-NativeOutput([scriptblock]$Block) {
+    # Runs a native command; returns stdout (stderr discarded) and leaves $LASTEXITCODE for the caller.
+    $previous = $ErrorActionPreference
+    $ErrorActionPreference = 'Continue'
+    try { return (& $Block 2>$null) } finally { $ErrorActionPreference = $previous }
+}
+
 switch ($Task) {
     'help' {
         @'
 Tasks:
   setup             Create .venv-embedding (Python 3.13) and install requirements.lock.txt
-  db-up             Start PostgreSQL+pgvector (existing container, else deployments/compose.rag.yml)
+  db-up             Start the DB container; on a new machine create the volume + container (empty DB)
+  db-bootstrap F    New machine: restore backup F (.dump + .sha256) into the EMPTY asd_rag; refuses if data exists
   db-health         Check collection pins: 33 documents / 33 vectors / 1536 dims, read-only
   db-backup         pg_dump -Fc to backups/asd_rag_<time>.dump (+ .sha256)
-  db-restore-check  Restore the newest backup into a temporary DB, compare row hashes, drop it
+  db-restore-check  Restore the newest backup into a new uniquely named DB, compare row hashes, drop only that DB
+DB instance: ASD_DB_PROJECT (deployments), ASD_DB_VOLUME (deployments_carobud_rag_data), ASD_DB_PORT (5433).
   test              All 3 test suites; fails on any failure/skip or unexpected test count
   verify            4 cache-only verifiers (evidence/context, reader v2, reader v3, input guard)
   diag              Offline retrieval diagnostics (per dataset + unique questions)
   secrets           Scan git-tracked files for credentials
   pins              Fast check (no DB) that no hash-pinned file was edited; run before every commit
+  hooks             Install a git pre-commit hook: staged secret scan + pins (blocks the commit on failure)
   all               pins, db-health, test, verify, secrets
 Outputs go to reports/verification_runs/<name>_<time>/ (git-ignored). Historical reports are never modified.
 '@ | Write-Host
@@ -108,15 +135,40 @@ Outputs go to reports/verification_runs/<name>_<time>/ (git-ignored). Historical
         Invoke-Checked 'install locked dependencies' { & $Py -m pip install --disable-pip-version-check -r (Join-Path $Root 'requirements.lock.txt') }
     }
     'db-up' {
-        $exists = docker ps -a --filter "name=^$Container$" --format '{{.Names}}'
+        $exists = Get-NativeOutput { docker ps -a --filter "name=^$Container$" --format '{{.Names}}' }
         if ($exists) {
             Invoke-Checked "docker start $Container" { docker start $Container | Out-Null }
         } else {
             if (-not (Test-Path $ComposeEnv)) { throw "Create $ComposeEnv from deployments\rag-db.env.example first" }
-            Invoke-Checked 'docker compose up' { docker compose -f $Compose --env-file $ComposeEnv up -d }
+            $null = Get-NativeOutput { docker volume inspect $DbVolume }
+            if ($LASTEXITCODE -ne 0) {
+                # The compose volume is external (so `down` can never delete data): create it explicitly.
+                Invoke-Checked "create volume $DbVolume" { docker volume create --label asd_agent=rag-db $DbVolume | Out-Null }
+                Write-Host "New EMPTY volume $DbVolume. Next: .\tasks.ps1 db-bootstrap <backup.dump>" -ForegroundColor Yellow
+            }
+            Invoke-Checked "docker compose up (project $DbProject)" { docker compose -p $DbProject -f $Compose --env-file $ComposeEnv up -d }
         }
         Wait-DbHealthy
-        Write-Host "PostgreSQL healthy on 127.0.0.1:5433" -ForegroundColor Green
+        Write-Host "PostgreSQL healthy on 127.0.0.1:$DbPort ($Container)" -ForegroundColor Green
+    }
+    'db-bootstrap' {
+        if (-not $Arg) { throw 'Usage: .\tasks.ps1 db-bootstrap <path\to\asd_rag_<time>.dump>  (copy the .sha256 file next to it)' }
+        $dump = (Resolve-Path $Arg).Path
+        Test-DumpChecksum $dump
+        Wait-DbHealthy
+        # Never overwrite: the target must not contain the RAG schema yet.
+        $has = Get-NativeOutput { docker exec $Container psql -U postgres -d asd_rag -Atc "select count(*) from pg_namespace where nspname='carobud_rag'" }
+        if ($LASTEXITCODE -ne 0) { throw "Cannot query asd_rag in $Container" }
+        if ("$has".Trim() -ne '0') { throw "asd_rag in $Container already contains schema carobud_rag; refusing to restore over it" }
+        $tmpFile = "/tmp/asd_bootstrap_$([guid]::NewGuid().ToString('N')).dump"
+        try {
+            Invoke-Checked 'copy dump into container' { docker cp $dump "${Container}:$tmpFile" }
+            Invoke-Checked 'pg_restore into asd_rag' { docker exec $Container pg_restore -U postgres -d asd_rag --no-owner $tmpFile }
+        } finally {
+            Invoke-Quiet { docker exec $Container rm -f $tmpFile }
+        }
+        Write-Host (Get-RowHashes 'asd_rag')
+        Write-Host "Restored. Next: create deployments\database.env for port $DbPort, then .\tasks.ps1 all" -ForegroundColor Green
     }
     'db-health' {
         Test-Python
@@ -135,22 +187,25 @@ Outputs go to reports/verification_runs/<name>_<time>/ (git-ignored). Historical
     'db-restore-check' {
         $dump = Get-ChildItem $Backups -Filter 'asd_rag_*.dump' | Sort-Object Name | Select-Object -Last 1
         if (-not $dump) { throw 'No backup found. Run: .\tasks.ps1 db-backup' }
-        $expected = (Get-Content (Join-Path $Backups "$($dump.Name).sha256")).Split(' ')[0]
-        if ((Get-FileHash -Algorithm SHA256 $dump.FullName).Hash.ToLower() -ne $expected) { throw "Checksum mismatch: $($dump.Name)" }
-        $tmp = 'asd_rag_restore_check'
+        Test-DumpChecksum $dump.FullName
+        # Unique per run: never touches a database or file this run did not create.
+        $token = [guid]::NewGuid().ToString('N')
+        $tmp = "asd_restore_check_$token"
+        $tmpFile = "/tmp/asd_restore_check_$token.dump"
+        $created = $false
         try {
-            Invoke-Checked 'copy dump into container' { docker cp $dump.FullName "${Container}:/tmp/$($dump.Name)" }
-            Invoke-Quiet { docker exec $Container dropdb -U postgres --if-exists $tmp }
-            Invoke-Checked 'createdb' { docker exec $Container createdb -U postgres $tmp }
-            Invoke-Checked 'pg_restore' { docker exec $Container pg_restore -U postgres -d $tmp --no-owner "/tmp/$($dump.Name)" }
+            Invoke-Checked 'copy dump into container' { docker cp $dump.FullName "${Container}:$tmpFile" }
+            Invoke-Checked "createdb $tmp" { docker exec $Container createdb -U postgres $tmp }
+            $created = $true
+            Invoke-Checked 'pg_restore' { docker exec $Container pg_restore -U postgres -d $tmp --no-owner $tmpFile }
             $live = Get-RowHashes 'asd_rag'
             $restored = Get-RowHashes $tmp
             Write-Host $live
             if ($live -ne $restored) { throw 'Restored database differs from live database' }
             Write-Host "RESTORE CHECK PASS: $($dump.Name) reproduces every row of asd_rag" -ForegroundColor Green
         } finally {
-            Invoke-Quiet { docker exec $Container dropdb -U postgres --if-exists $tmp }
-            Invoke-Quiet { docker exec $Container rm -f "/tmp/$($dump.Name)" }
+            if ($created) { Invoke-Quiet { docker exec $Container dropdb -U postgres $tmp } }
+            Invoke-Quiet { docker exec $Container rm -f $tmpFile }
         }
     }
     'test' {
@@ -175,6 +230,19 @@ Outputs go to reports/verification_runs/<name>_<time>/ (git-ignored). Historical
     'pins' {
         Test-Python
         Invoke-Checked 'hash pins' { & $Py -B (Join-Path $Root 'scripts\dev\check_pins.py') }
+    }
+    'hooks' {
+        Test-Python
+        $hook = Join-Path $Root '.git\hooks\pre-commit'
+        $body = @'
+#!/bin/sh
+# Installed by tasks.ps1 hooks. Blocks commits that stage a credential or edit a hash-pinned file.
+PY=".venv-embedding/Scripts/python.exe"
+"$PY" -B scripts/dev/secret_scan.py --staged || exit 1
+"$PY" -B scripts/dev/check_pins.py || exit 1
+'@
+        [IO.File]::WriteAllText($hook, $body.Replace("`r`n", "`n"), (New-Object Text.UTF8Encoding $false))
+        Write-Host "Installed $hook" -ForegroundColor Green
     }
     'all' {
         foreach ($t in 'pins', 'db-health', 'test', 'verify', 'secrets') {
