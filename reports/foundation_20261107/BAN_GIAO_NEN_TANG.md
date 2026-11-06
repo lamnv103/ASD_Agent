@@ -7,7 +7,7 @@ Phạm vi: gói việc đầu tiên của kế hoạch đã thống nhất, gồ
 | Tiêu chí (theo kế hoạch) | Kết quả | Bằng chứng |
 |---|---|---|
 | Môi trường sạch chạy đủ ba nhóm kiểm thử | **Đạt.** Clone mới + venv mới từ lockfile: `.\tasks.ps1 all` → ALL CHECKS PASSED | Chạy 07/11 trong thư mục clone riêng; 0 file bị thay đổi sau khi chạy |
-| Đếm test tự động, giải thích mọi trường hợp bỏ qua | **Đạt.** 157 test: tests/ 123, embedding 17, source_library 17; 0 fail, 0 error, 0 skip. Runner báo lỗi nếu tổng khác `pyproject.toml` | `scripts/dev/run_all_tests.py` |
+| Đếm test tự động, giải thích mọi trường hợp bỏ qua | **Đạt.** 157 test (nay 167, xem phụ lục): tests/ 123, embedding 17, source_library 17; 0 fail, 0 error, 0 skip. Runner báo lỗi nếu tổng khác `pyproject.toml` | `scripts/dev/run_all_tests.py` |
 | Collection 33/33 giữ nguyên toàn vẹn | **Đạt.** 4 verifier: DB snapshot và 132 tệp nguồn không đổi; 61 file bị ghim hash không đổi | `.\tasks.ps1 verify`, `.\tasks.ps1 pins` |
 | Người khác làm theo hướng dẫn được | **Đạt về kỹ thuật.** SETUP.md đã được kiểm bằng clone sạch; chỉ cần tự tạo `deployments/database.env` | [SETUP.md](../../SETUP.md) |
 | Kiểm định không ghi đè báo cáo cũ | **Đạt.** Mỗi lần chạy tạo `reports/verification_runs/<tên>_<thời điểm>/`; input đóng băng chỉ được so byte | `git status` sạch sau mọi lần verify |
@@ -56,7 +56,7 @@ Lịch sử git: `347f77b` baseline (tag `baseline-v3-20261102`) → `f701098` v
 **Chủ dự án cần làm:**
 1. **Thu hồi khóa NVIDIA cũ và tạo khóa mới** trên trang quản lý của NVIDIA. Khóa cũ từng hiện trong log rà soát ngày 06/11. Đặt khóa mới vào biến `NVIDIA_API_KEY`, không ghi vào file trong dự án.
 2. Xóa biến hệ thống `CURL_CA_BUNDLE`, hoặc trỏ nó tới một file CA có thật.
-3. Duyệt [docs/MVP_SCOPE_DRAFT.md](../../docs/MVP_SCOPE_DRAFT.md) cùng người phụ trách chuyên môn và chốt 8 quyết định ở mục 5.
+3. Duyệt [docs/MVP_SCOPE_DRAFT.md](../../docs/MVP_SCOPE_DRAFT.md) cùng người phụ trách chuyên môn và chốt 11 quyết định ở mục 5 (các quyết định 9–11 về lưu, xóa và xem dữ liệu được bổ sung sau review).
 4. Nếu đưa repo lên máy chủ git: dùng remote **riêng tư** (kho có tài liệu CC BY-NC), clone với `core.longpaths=true`.
 
 **Giai đoạn kỹ thuật tiếp theo (chỉ sau khi chốt MVP):**
@@ -69,3 +69,24 @@ Lịch sử git: `347f77b` baseline (tag `baseline-v3-20261102`) → `f701098` v
 - Query cache vẫn lưu nguyên văn câu hỏi (đã che) trên đĩa, chưa có thời hạn lưu. Việc này thuộc chính sách dữ liệu ở bước 6.
 - Mã trong các file bị ghim vẫn viết dày đặc và khó bảo trì. Chỉ nên refactor như một bản phát hành mới với baseline nghiệm thu mới.
 - Mọi phép phát lại dùng câu hỏi đã có cache và nhãn do AI gán; đây không phải đánh giá chất lượng mới.
+
+## Phụ lục — sửa theo review ngày 07/11/2026
+
+Review: [reports/review_20261107/REVIEW_GOI_NEN_TANG.md](../review_20261107/REVIEW_GOI_NEN_TANG.md). Cả 6 phát hiện đã được tái hiện độc lập trước khi sửa (probe của người review: `retrieval_called=true`, ngày ISO không bị che, `database.env` bị ghim, `secrets.env` không bị bỏ qua). Commit sửa: `914518c`.
+
+| # | Vấn đề | Đã sửa | Kiểm chứng |
+|---|---|---|---|
+| F1 | `database.env` của từng máy bị ghim hash | Khớp chính xác hash lịch sử thì đạt; nếu không, các thiết lập phát hành phải khớp `deployments/database.release.json`, còn host, cổng, user và mật khẩu được tự do. Quy tắc dùng chung cho `pins` và 3 verifier. Hash lịch sử giữ nguyên | 5 test mới; trên cluster mới với **mật khẩu và cổng khác**: `pins` báo NOTE và đạt, 4 verifier đạt |
+| F2 | Thiếu bước tạo volume external trên máy mới | `db-up` tạo volume khi chưa có. Lệnh mới `db-bootstrap` kiểm checksum, khôi phục vào `asd_rag` trống, và từ chối nếu đã có dữ liệu | Docker **chưa có** volume hay container của bài thử: tạo, khôi phục, chạy `all`, tất cả đạt; chạy bootstrap lần 2 bị từ chối |
+| F3 | Guard rơi xuống retriever khi thiếu reader v3 | Fail-closed với lỗi `input_guard_unavailable`; chỉ được bỏ qua khi đặt `allow_unchecked_retrieval=True`, và việc này được ghi vào trace | 3 test mới: constructor mặc định, reader sai loại, review truyền sẵn; retriever không được gọi |
+| F4 | Restore-check có thể xóa DB không do nó tạo | Tên DB và tên file tạm riêng cho mỗi lượt; chỉ xóa sau khi `createdb` của chính lượt đó thành công; không còn bước xóa trước | DB tên cũ `asd_rag_restore_check` có sẵn **vẫn còn**; 2 lượt chạy đồng thời đều đạt; không để lại DB tạm |
+| F5 | Tệp bí mật được hướng dẫn tạo không bị git bỏ qua | `*.env` ở mọi thư mục và `secrets/` bị bỏ qua, `*.env.example` vẫn được theo dõi. Trình quét đọc cả blob đã staged (`--staged` dùng cho hook) và gọi git một lần duy nhất | `git check-ignore` đúng cho 6 tên bí mật và 4 tệp mẫu; khóa giả đã staged (trong khi đĩa sạch) bị phát hiện |
+| F6 | Ngày ISO không bị che | Thêm dạng `2019-03-12`, `2019/03/12`, `2019.03.12` và `ngày 12 tháng 3 năm 2019`; ghi rõ dạng được che và dạng được giữ | 2 test mới: 9 dạng ngày bị che; tuổi, năm đứng riêng, khoảng năm, tháng/năm, điểm số và cân nặng được giữ |
+
+**Bằng chứng nghiệm thu máy mới** (lưu trong git): [acceptance_20261107_004204/new_machine_bootstrap.log](acceptance_20261107_004204/new_machine_bootstrap.log) cùng script đã chạy. Clone sạch tại `914518c`, venv mới, cluster riêng (`asdboot`, cổng 5435, mật khẩu ngẫu nhiên không được ghi log), khôi phục từ `asd_rag_20261107_000554.dump`, chạy `all` với 167 test. Hash từng hàng của DB gốc trước và sau bài thử **giống nhau**.
+
+Ghi chú trung thực: bước dọn dẹp tự động của script không xóa được volume thử, vì Windows PowerShell 5.1 làm rơi dấu nháy kép trong template `docker inspect`. Volume `asdboot_rag_data` (do chính bài thử tạo, có nhãn `asd_agent=rag-db`, không container nào gắn) được xóa thủ công và ghi cuối log. Bản script lưu kèm đã được sửa để đọc nhãn qua JSON. `tasks.ps1` không có template nào dùng dấu nháy kép lồng nhau.
+
+**Chưa làm được:** cài pre-commit hook bị hệ thống quyền của phiên làm việc từ chối, vì đây là thay đổi lâu dài trong `.git/hooks`. Chủ dự án có thể tự bật bằng `.	asks.ps1 hooks`.
+
+**Thu hẹp tuyên bố:** trình quét bí mật không quét lịch sử commit cũ. Khóa NVIDIA đã hiện nguyên văn trong output một lệnh đọc tệp ở phiên ngày 06/11; đây là quan sát trực tiếp, không có tệp log lưu lại. Việc thu hồi khóa chưa được thực hiện hay kiểm chứng.

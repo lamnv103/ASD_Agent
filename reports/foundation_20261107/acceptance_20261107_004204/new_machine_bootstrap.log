@@ -1,0 +1,94 @@
+﻿
+######## precondition: isolated test resources do not exist yet
+volume asdboot_rag_data exists: False ; container asdboot-rag-db-1 exists: False
+original DB row hashes (before):
+collections|3|fc0b762bdf565e22b2b858236ddb6376
+documents|150|89c4a809367c9d577ebbca9c8998755b
+embeddings|40|80045e02b8cb95b1825edaa457e0c983
+embedding_spaces|2|2980c5dc1cc8a4545fc17e77ad132dbb
+
+######## clean clone
+commit: 914518c89153bacba6b48bdc2239ba94dd58915f
+tracked files: 1316
+
+######## fresh venv from lockfile
+==> create venv with C:\Users\Admin\miniconda3\python.exe
+==> install locked dependencies
+Successfully installed Jinja2-3.1.6 MarkupSafe-3.0.4 PyYAML-6.0.3 Pygments-2.21.0 annotated-doc-0.0.5 anyio-4.15.1 beautifulsoup4-4.15.0 certifi-2026.10.23 clic
+Python 3.13.9
+
+######## local configuration written by the 'new user' (different password + port; values not logged)
+git ignores local config: deployments/rag-db.env, deployments/database.env
+
+######## transfer backup (not in git): copy dump + .sha256
+
+######## db-up on Docker WITHOUT the volume (must create volume + container)
+==> create volume asdboot_rag_data
+New EMPTY volume asdboot_rag_data. Next: .\tasks.ps1 db-bootstrap <backup.dump>
+==> docker compose up (project asdboot)
+ Network asdboot_default Creating 
+ Network asdboot_default Creating 
+ Network asdboot_default Created 
+ Network asdboot_default Created 
+ Container asdboot-rag-db-1 Creating 
+ Container asdboot-rag-db-1 Created 
+ Container asdboot-rag-db-1 Starting 
+ Container asdboot-rag-db-1 Started 
+PostgreSQL healthy on 127.0.0.1:5435 (asdboot-rag-db-1)
+
+######## db-bootstrap from the transferred backup
+==> copy dump into container
+==> pg_restore into asd_rag
+collections|3|fc0b762bdf565e22b2b858236ddb6376
+documents|150|89c4a809367c9d577ebbca9c8998755b
+embeddings|40|80045e02b8cb95b1825edaa457e0c983
+embedding_spaces|2|2980c5dc1cc8a4545fc17e77ad132dbb
+Restored. Next: create deployments\database.env for port 5435, then .\tasks.ps1 all
+
+######## db-bootstrap again must REFUSE (never restore over existing data)
+refused as expected: asd_rag in asdboot-rag-db-1 already contains schema carobud_rag; refusing to restore over it
+
+######## tasks.ps1 all on the new cluster (pins must accept the different local connection)
+==> hash pins
+NOTE deployments/database.env: local connection differs; release settings match
+pins: 61 files checked, PASS
+==> retriever health
+{"status": "ok", "collection_id": "asd_fulltext_33_20261030_26eb017efca5", "space_id": "cohere4_whole_1536_e83c596b9070", "documents": 33, "vectors": 33, "dimensions": 15
+==> all test suites
+TOTAL                          167     0     0     0   expected 167
+RESULT: PASS
+==> verify_evidence_context
+VERIFIED {"status": "verified", "documents_before": 33, "documents_after": 33, "vectors_before": 33, "vectors_after": 33, "database_unchanged": true, "protected_source_fi
+==> verify_semantic_reader
+  "status": "technical_verification_passed_semantic_review_pending",
+==> verify_reader_v3
+  "status": "technical_passed_semantic_results_require_adjudication",
+==> verify_guarded_pipeline
+  "status": "verified",
+==> secret scan
+secret scan: PASS (0 finding(s))
+ALL CHECKS PASSED
+
+######## F4: an existing DB with the old fixed name must survive; two restore-checks run concurrently
+==> createdb asd_restore_check_22c85ac24f0646cf8f20ff437eb7fcd0
+RESTORE CHECK PASS: asd_rag_20261107_000554.dump reproduces every row of asd_rag
+==> createdb asd_restore_check_7679f440a1694a6f9eaa80f2fd67d5a1
+RESTORE CHECK PASS: asd_rag_20261107_000554.dump reproduces every row of asd_rag
+databases left in test cluster:
+asd_rag
+asd_rag_restore_check
+pre-existing DB kept; no temporary DBs left
+
+######## teardown: only the isolated test container + the test volume created above
+ Container asdboot-rag-db-1 Stopping 
+ Container asdboot-rag-db-1 Stopped 
+ Container asdboot-rag-db-1 Removing 
+ Container asdboot-rag-db-1 Removed 
+ Network asdboot_default Removing 
+ Network asdboot_default Removed 
+original DB unchanged: True
+original container: healthy
+
+######## manual teardown (scripted label check did not remove it; see BAN_GIAO note)
+removed test volume asdboot_rag_data (label asd_agent=rag-db, no container attached)
+remaining volumes: bsl_bsl-minio-data bsl_bsl-pgadmin-data bsl_bsl-timescale-data deployments_carobud_rag_data 

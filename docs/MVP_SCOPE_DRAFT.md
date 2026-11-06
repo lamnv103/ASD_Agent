@@ -52,16 +52,21 @@
 
 ## 5. Quyết định cần chốt
 
+Các quyết định 9–11 được bổ sung theo review ngày 07/11/2026.
+
 | # | Quyết định | Phương án đề xuất | Chốt |
 |---|---|---|---|
 | 1 | Người dùng chính | Phụ huynh, trẻ 0–18 tuổi | ☐ |
 | 2 | Nhóm câu hỏi MVP | A–D ở mục 2 | ☐ |
 | 3 | Gửi câu hỏi tới nhà cung cấp nước ngoài (Cohere, NVIDIA) | Chấp nhận cho nội bộ và pilot, kèm thông báo; định danh trực tiếp được che tại máy | ☐ |
-| 4 | Độ trễ chấp nhận | Hiện tổng thời gian các stage NIM mỗi câu có trung vị khoảng 27 giây. Đề xuất: streaming, và thử model nhỏ hơn cho bước lập kế hoạch và chọn đoạn | ☐ |
+| 4 | Ngưỡng độ trễ (đo trên bản cố định, câu hỏi mới) | Chốt một ngưỡng p50/p95 trước khi đo, ví dụ p95 ≤ 30 giây cho đến khi bắt đầu hiển thị nội dung. Hiện tổng thời gian các stage NIM mỗi câu có trung vị khoảng 27 giây. Streaming và model nhỏ hơn là phương án kỹ thuật để thử, không phải tiêu chí nghiệm thu | ☐ |
 | 5 | Mục đích sử dụng và giấy phép | 6/33 nguồn là CC BY-NC: nếu có thương mại hóa phải loại hoặc xin phép | ☐ |
 | 6 | Người phụ trách chuyên môn, thời gian duyệt | Ít nhất 1 người; khoảng 10–15 giờ cho 50 câu kiểm tra | ☐ |
 | 7 | Quy mô bộ đánh giá | 30 câu phát triển và 50 câu kiểm tra, không ghi tên nguồn, có người giữ bộ kiểm tra | ☐ |
 | 8 | Nội dung khẩn cấp | Chuyên gia soạn và xác minh | ☐ |
+| 9 | Lưu và xóa dữ liệu | Query cache, reader cache và trace hiện lưu vô thời hạn trên đĩa. Chốt thời hạn lưu (ví dụ 30 ngày với câu hỏi người dùng thật), quy trình xóa theo yêu cầu, và việc không lưu cache trong chế độ phục vụ nếu cần | ☐ |
+| 10 | Ai được xem trace và phản hồi | Chỉ nhóm kỹ thuật và người duyệt chuyên môn được chỉ định; trace không chứa định danh đã che, nhưng có thể chứa mô tả tự do về trẻ | ☐ |
+| 11 | Thông tin cá nhân guard không nhận diện được (tên, địa chỉ, trường, mô tả trẻ) | Cảnh báo người dùng không nhập trước khi gửi; chấp nhận rủi ro còn lại cho pilot có giám sát, hoặc bổ sung bước lọc trước pilot | ☐ |
 
 ## 6. Ví dụ
 

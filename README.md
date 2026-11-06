@@ -2,7 +2,7 @@
 
 > **Trạng thái 07/11/2026:** nguyên mẫu nghiên cứu (truy xuất + đọc bằng chứng + context). **Chưa có tầng trả lời cho người dùng; chưa có thẩm định lâm sàng độc lập.**
 >
-> - Bắt đầu: [SETUP.md](SETUP.md) — dựng môi trường, database, sao lưu/khôi phục; `.\tasks.ps1 all` chạy toàn bộ kiểm tra (157 test, 4 verifier, chỉ dùng cache).
+> - Bắt đầu: [SETUP.md](SETUP.md) — dựng môi trường, database, sao lưu/khôi phục; `.\tasks.ps1 all` chạy toàn bộ kiểm tra (167 test, 4 verifier, chỉ dùng cache).
 > - Việc vừa làm: [bàn giao nền tảng 07/11](reports/foundation_20261107/BAN_GIAO_NEN_TANG.md). Đánh giá hiện trạng: [kiểm định độc lập 06/11](reports/review_20261106/KIEM_DINH_DOC_LAP_VA_UU_TIEN.md).
 > - Chờ chủ dự án và chuyên gia chốt: [phạm vi MVP (bản nháp)](docs/MVP_SCOPE_DRAFT.md).
 > - Chạy một câu hỏi, có kiểm tra đầu vào trước truy xuất: `python -m rag.prepare_evidence "câu hỏi"`.

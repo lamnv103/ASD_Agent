@@ -2,7 +2,10 @@
 
 Dành cho người phát triển hoặc người nghiệm thu muốn chạy lại dự án trên một máy Windows khác. Mọi lệnh kiểm tra chỉ đọc database và dùng cache: **không gọi Cohere/NVIDIA, không tốn phí API.**
 
-Đã kiểm chứng ngày 07/11/2026 trên một bản clone sạch: venv mới từ lockfile, `.\tasks.ps1 all` đạt toàn bộ (157 test, 4 verifier, quét bí mật).
+Đã kiểm chứng ngày 07/11/2026 bằng mô phỏng một máy mới: clone sạch, venv mới từ lockfile, cluster PostgreSQL **riêng** (volume mới, cổng 5435, mật khẩu khác) dựng từ backup được chuyển sang, rồi `.\tasks.ps1 all` đạt toàn bộ: 167 test, 4 verifier, pins, quét bí mật. Log: [reports/foundation_20261107/acceptance_20261107_004204/](reports/foundation_20261107/acceptance_20261107_004204/new_machine_bootstrap.log).
+
+> Nếu PowerShell báo script bị chặn ("running scripts is disabled"), chạy theo tiến trình mà không đổi policy của Windows:
+> `powershell -NoProfile -ExecutionPolicy Bypass -File .\tasks.ps1 all`
 
 ## 1. Yêu cầu
 
@@ -35,36 +38,55 @@ Tạo `.venv-embedding` và cài đúng phiên bản trong `requirements.lock.tx
 
 | Tệp / biến | Dùng cho | Tạo từ |
 |---|---|---|
-| `deployments/database.env` | Retriever đọc PostgreSQL (`RAG_DATABASE_URL`, collection, embedding space) | `deployments/database.env.example` |
-| `deployments/rag-db.env` | Mật khẩu khi compose **tạo mới** volume (`RAG_DB_PASSWORD`) | `deployments/rag-db.env.example` |
-| `COHERE_API_KEY` (biến môi trường) hoặc `--cohere-key-file <dotenv>` | Nhúng câu hỏi **mới** | — |
-| `NVIDIA_API_KEY` (biến môi trường) hoặc `--nvidia-key-file <dotenv>` | Reader NIM cho câu hỏi **mới** | — |
+| `deployments/database.env` | Retriever đọc PostgreSQL (`RAG_DATABASE_URL`, collection, embedding space) | `deployments/database.env.example`: chỉ sửa **mật khẩu/host/cổng** trong `RAG_DATABASE_URL` |
+| `deployments/rag-db.env` | Mật khẩu khi compose **tạo mới** volume (`RAG_DB_PASSWORD`), phải trùng mật khẩu trong URL | `deployments/rag-db.env.example` |
+| `secrets.env` (thư mục gốc) hoặc biến môi trường `COHERE_API_KEY` | Nhúng câu hỏi **mới** (`--cohere-key-file secrets.env`) | `.env.example` |
+| `secrets.env` hoặc biến môi trường `NVIDIA_API_KEY` | Reader NIM cho câu hỏi **mới** (`--nvidia-key-file secrets.env`) | `.env.example` |
 
 - Câu hỏi đã có trong cache và mọi lệnh kiểm tra **không cần khóa**.
-- Không dùng tệp `.env` ở thư mục gốc cho NVIDIA: tệp đó là cấu hình YAML của Continue, không phải dotenv. Ưu tiên biến môi trường cho phiên làm việc.
-- `.gitignore` chặn `*.env`, `.env*`, `continue*.yaml`. Chạy `.\tasks.ps1 secrets` trước khi commit hoặc chia sẻ repo.
-- **Cần làm ngay:** khóa NVIDIA trong `.env` cũ đã từng hiện trong log rà soát ngày 06/11/2026. Hãy thu hồi và tạo khóa mới trên trang quản lý của NVIDIA, rồi đặt khóa mới vào `NVIDIA_API_KEY`.
+- `deployments/database.env` khác nhau giữa các máy là bình thường. `pins` và các verifier chấp nhận file này nếu nó khớp hash lịch sử, **hoặc** nếu các thiết lập phát hành khớp [deployments/database.release.json](deployments/database.release.json) (collection, embedding space, provider, model, số chiều, whole-document, tên DB `asd_rag`). Đổi các thiết lập này là đổi bản phát hành và sẽ bị từ chối.
+- Không dùng tệp `.env` ở thư mục gốc cho NVIDIA: tệp đó là cấu hình YAML của Continue, không phải dotenv.
+- `.gitignore` bỏ qua **mọi tệp `*.env` ở mọi thư mục**, `.env*`, `secrets/`, `continue*.yaml`; các tệp `*.env.example` vẫn được theo dõi. Kiểm tra bằng `git check-ignore -v secrets.env`.
+- `.\tasks.ps1 secrets` quét working tree **và nội dung đã staged trong index** (thứ `git commit` sẽ ghi), nhưng không quét lịch sử commit cũ. Có thể bật pre-commit hook chặn commit khi có bí mật hoặc file bị ghim bị sửa: `.\tasks.ps1 hooks` (ghi `.git/hooks/pre-commit`; hook không được git đồng bộ, mỗi người tự bật).
+- **Cần làm ngay:** khóa NVIDIA trong `.env` cũ đã hiện nguyên văn trong output một lệnh đọc tệp ở phiên rà soát ngày 06/11/2026 (quan sát trực tiếp trong phiên đó; không có tệp log lưu lại). Hãy thu hồi khóa và tạo khóa mới trên trang quản lý của NVIDIA.
 
 ## 5. Database
 
+### 5a. Máy đã có DB (máy gốc)
+
 ```powershell
-.\tasks.ps1 db-up            # khởi động container sẵn có, hoặc tạo bằng deployments/compose.rag.yml
+.\tasks.ps1 db-up            # khởi động container deployments-rag-db-1 sẵn có
 .\tasks.ps1 db-health        # phải thấy 33 documents, 33 vectors, 1536 dims, read_only
 .\tasks.ps1 db-backup        # backups\asd_rag_<thời điểm>.dump + .sha256 (thư mục bị git bỏ qua)
-.\tasks.ps1 db-restore-check # khôi phục bản mới nhất vào DB tạm, so hash từng hàng, rồi xóa DB tạm
+.\tasks.ps1 db-restore-check # khôi phục bản mới nhất vào một DB tên riêng cho lượt chạy, so hash từng hàng, chỉ xóa DB đó
 ```
 
-- Dữ liệu nằm trong volume Docker **`deployments_carobud_rag_data`**, được khai báo `external` trong compose: `docker compose down` không xóa dữ liệu. **Không chạy `docker volume rm` với volume này.**
-- File compose gốc ở `D:\Carobud-ASD-master\...` đã mất. `deployments/compose.rag.yml` tái tạo đúng project, service, image digest, cổng `127.0.0.1:5433` và volume.
-- Khôi phục trên máy mới: `db-up` (volume trống sẽ được khởi tạo bằng `RAG_DB_PASSWORD`), sau đó `docker cp` bản dump vào container rồi chạy `pg_restore -U postgres -d asd_rag --clean --if-exists /tmp/<file>.dump`. Cuối cùng chạy `db-health` và `.\tasks.ps1 verify`.
-- Bản sao lưu đã kiểm chứng: `asd_rag_20261106_235335.dump` và `asd_rag_20261107_000554.dump`, cả hai khôi phục khớp từng hàng: collections 3, documents 150, embedding_spaces 2, embeddings 40 (gồm cả collection cũ).
+- Dữ liệu nằm trong volume Docker **`deployments_carobud_rag_data`**, khai báo `external`: `docker compose down` không xóa dữ liệu. **Không chạy `docker volume rm` với volume này.**
+- File compose gốc ở `D:\Carobud-ASD-master\...` đã mất. `deployments/compose.rag.yml` tái tạo đúng image digest, cổng, volume và service.
+
+### 5b. Máy mới (chưa có container, chưa có volume)
+
+Backup **không nằm trong git**. Chuyển riêng hai tệp `asd_rag_<thời điểm>.dump` và `.dump.sha256` từ máy gốc (thư mục `backups\`) qua kênh nội bộ.
+
+```powershell
+Copy-Item deployments\rag-db.env.example deployments\rag-db.env        # đặt RAG_DB_PASSWORD=<mật khẩu mới>
+Copy-Item deployments\database.env.example deployments\database.env    # sửa USER:PASSWORD trong RAG_DATABASE_URL thành postgres:<cùng mật khẩu>
+.\tasks.ps1 db-up                                  # tạo volume trống + container, chờ healthy
+.\tasks.ps1 db-bootstrap D:\chuyen\asd_rag_<thời điểm>.dump   # kiểm checksum, khôi phục vào asd_rag trống
+.\tasks.ps1 all
+```
+
+- `db-bootstrap` **từ chối** nếu `asd_rag` đã có schema `carobud_rag`; nó không bao giờ khôi phục đè lên dữ liệu có sẵn.
+- Dump được khôi phục với `--no-owner`; cluster mới chỉ cần user `postgres` của image.
+- Muốn chạy một cluster thứ hai, độc lập để thử nghiệm mà không đụng DB thật, đặt trước các biến sau: `$env:ASD_DB_PROJECT='asdtest'; $env:ASD_DB_VOLUME='asdtest_rag_data'; $env:ASD_DB_PORT='5435'`. Cổng trong `database.env` phải trùng. Đây là cách bài nghiệm thu ngày 07/11 đã chạy.
+- Bản sao lưu đã kiểm chứng: `asd_rag_20261106_235335.dump` và `asd_rag_20261107_000554.dump`. Cả hai khôi phục khớp từng hàng: collections 3, documents 150, embedding_spaces 2, embeddings 40 (gồm cả collection cũ).
 
 ## 6. Kiểm tra
 
 ```powershell
 .\tasks.ps1 all      # pins + db-health + test + verify + secrets
 .\tasks.ps1 pins     # vài giây, không cần DB: không file nào bị ghim hash bị sửa
-.\tasks.ps1 test     # 3 bộ test; lỗi nếu có fail/skip hoặc tổng khác 157
+.\tasks.ps1 test     # 3 bộ test; lỗi nếu có fail/skip hoặc tổng khác 167
 .\tasks.ps1 verify   # 4 verifier chỉ dùng cache
 .\tasks.ps1 diag     # chẩn đoán truy xuất offline, theo từng bộ và theo câu duy nhất
 ```
@@ -79,12 +101,16 @@ Kết quả được ghi vào `reports/verification_runs/<tên>_<thời điểm>
 
 - Thứ tự xử lý: che định danh trực tiếp tại máy → lập kế hoạch câu hỏi (NVIDIA) → dừng nếu là chẩn đoán/liều cá nhân, pháp lý hoặc dịch vụ hiện hành → truy xuất (Cohere + PostgreSQL) → đọc bằng chứng → context. Chưa sinh câu trả lời cho người dùng.
 - `python -m rag.read_evidence` (thứ tự cũ: truy xuất trước) được giữ nguyên để đối chiếu, vì các run nghiệm thu ghim hash của nó.
+- Khi tích hợp bằng Python, dùng `GuardedEvidencePipeline` **kèm** `AtomicNeedsReader`. Nếu thiếu reader v3, hoặc truyền sẵn `review`, lớp này **dừng trước truy xuất** với lỗi `input_guard_unavailable`. Chỉ khi phát lại đánh giá mới được bật `allow_unchecked_retrieval=True`; chế độ này được ghi vào trace (`unchecked_explicitly_allowed`) và không được dùng cho câu hỏi của người dùng.
+- Che tại máy: email; số điện thoại Việt Nam; số định danh 9/12 chữ số; ngày đầy đủ (có cả ngày, tháng và năm) ở các dạng `12/03/2019`, `12-03-2019`, `12.03.2019`, `2019-03-12`, `2019/03/12`, `2019.03.12`, `ngày 12 tháng 3 năm 2019`. Được giữ lại: tuổi, năm đứng riêng, khoảng năm, tháng/năm không có ngày. Đây là giảm định danh trực tiếp, không phải ẩn danh hóa.
 - Giới hạn của guard: không phát hiện tên người, địa chỉ hoặc mô tả tự do về trẻ; câu hỏi vẫn được gửi tới NVIDIA để phân loại; việc phân loại do model thực hiện. Chính sách dữ liệu (bước 6 của kế hoạch) phải quyết định phần còn lại.
 
 ## 8. Quy tắc với file bị ghim hash
 
 61 file được các run nghiệm thu ghim SHA-256, gồm `rag/{__init__,__main__,retriever,tools,evidence_pipeline,evidence,context,semantic_reader,semantic_reader_v3,read_evidence}.py`, `deployments/{retriever,evidence_context,semantic_reader,semantic_reader_v3}.json`, `deployments/database.env`, `scripts/evaluation/evaluate_reader_v3.py` và 45 input trong `evaluation/`. Ngoài ra, 132 tệp nguồn và snapshot DB được kiểm tra riêng.
 
+- Ngoại lệ duy nhất: `deployments/database.env` là cấu hình kết nối của từng máy (xem mục 4).
+- `scripts/evaluation/evaluate_reader_v3.py` (chạy đánh giá **mới**, có gọi API) cũng bị ghim và vẫn so hash nguyên tệp `database.env`. Trên máy khác, đánh giá mới thuộc về bản phát hành tiếp theo, kèm script đánh giá mới; các verifier chỉ dùng cache không bị ảnh hưởng.
 - Thêm chức năng bằng **module mới** (như `rag/guarded_pipeline.py`), không sửa file bị ghim.
 - Khi buộc phải sửa file bị ghim (refactor, đổi prompt), làm như một **bản phát hành mới**: tag git trước, chạy đánh giá mới để tạo manifest mới, rồi cập nhật verifier sang baseline mới. Các verifier cũ vẫn chạy được trên tag cũ (`git worktree add ..\asd_baseline baseline-v3-20261102`).
 - `.\tasks.ps1 pins` báo ngay file nào bị đổi.
