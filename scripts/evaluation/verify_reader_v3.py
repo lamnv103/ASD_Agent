@@ -9,6 +9,7 @@ from rag.evidence_pipeline import EvidencePipeline
 from rag.semantic_reader import NimEvidenceReader
 from rag.semantic_reader_v3 import AtomicNeedsReader
 from evaluate_retriever import snapshot
+from audit_output import new_run_dir
 
 def no_api():raise AssertionError('Audit cache miss: API calls are prohibited.')
 def stable_comparison(new,old):
@@ -21,6 +22,7 @@ def stable_comparison(new,old):
 def run():
     if hasattr(sys.stdout,'reconfigure'):sys.stdout.reconfigure(encoding='utf-8')
     work=ROOT/(ROOT/'reports/.reader_refinement_current_run').read_text(encoding='utf-8')
+    out=new_run_dir('reader_v3')
     selection=json.loads((work/'evaluation_selection.json').read_text(encoding='utf-8'))
     r=PostgresRetriever(key_supplier=no_api);r.health()
     baseline=json.loads((work/'before.json').read_text(encoding='utf-8'));assert snapshot(r)==baseline
@@ -100,14 +102,14 @@ def run():
     assert all(sha((ROOT/p).read_bytes())==h for p,h in protected.items())
     stream=io.StringIO();suite=unittest.defaultTestLoader.discover(str(ROOT/'tests'))
     tests=unittest.TextTestRunner(stream=stream,verbosity=2).run(suite)
-    (work/'final_tests.txt').write_text(stream.getvalue(),encoding='utf-8');assert tests.wasSuccessful(),stream.getvalue()
+    (out/'final_tests.txt').write_text(stream.getvalue(),encoding='utf-8');assert tests.wasSuccessful(),stream.getvalue()
     report=dict(status='technical_passed_semantic_results_require_adjudication',recorded_at=datetime.now(timezone(timedelta(hours=7))).isoformat(),
         documents=33,vectors=33,source_files_unchanged=132,database_unchanged=True,
         v3_cached_replays=len(results),v2_replays_identical=legacy_count,original_rankings_identical=ranking_count,
         validated_item_spans=span_count,prompt_token_deltas=sorted(set(prompt_deltas)),api_calls_during_audit=0,
         tests=tests.testsRun,tests_failed=len(tests.failures),tests_errors=len(tests.errors),tests_skipped=len(tests.skipped),
         patient_generation_enabled=False,independent_clinical_validation=False,semantic_accuracy_established=False,results=results)
-    atomic_json(work/'verification.json',report);atomic_json(work/'after.json',baseline)
+    atomic_json(out/'verification.json',report);atomic_json(out/'after.json',baseline);print('AUDIT_DIR='+str(out),flush=True)
     print(json.dumps({k:v for k,v in report.items() if k!='results'},ensure_ascii=False,indent=2))
     return 0
 if __name__=='__main__':sys.exit(run())

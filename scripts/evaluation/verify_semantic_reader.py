@@ -9,6 +9,7 @@ from rag.retriever import PostgresRetriever,atomic_json,sha
 from rag.evidence_pipeline import EvidencePipeline
 from rag.semantic_reader import NimEvidenceReader
 from evaluate_retriever import snapshot
+from audit_output import new_run_dir
 
 def no_api_key():
     raise AssertionError('Audit requires existing caches: an API request would be needed.')
@@ -16,6 +17,7 @@ def no_api_key():
 def run():
     if hasattr(sys.stdout,'reconfigure'):sys.stdout.reconfigure(encoding='utf-8')
     work=ROOT/(ROOT/'reports/.semantic_reader_current_run').read_text(encoding='utf-8')
+    out_dir=new_run_dir('semantic_reader')
     selection=json.loads((work/'latest_evaluation_runs.json').read_text(encoding='utf-8'))
     r=PostgresRetriever(key_supplier=no_api_key)
     r.health()
@@ -80,9 +82,9 @@ def run():
     out=io.StringIO()
     suite=unittest.defaultTestLoader.discover(str(ROOT/'tests'))
     result=unittest.TextTestRunner(stream=out,verbosity=2).run(suite)
-    (work/'final_tests.txt').write_text(out.getvalue(),encoding='utf-8')
+    (out_dir/'final_tests.txt').write_text(out.getvalue(),encoding='utf-8')
     assert result.wasSuccessful(),out.getvalue()
-    atomic_json(work/'after.json',after)
+    atomic_json(out_dir/'after.json',after)
     report=dict(status='technical_verification_passed_semantic_review_pending',recorded_at=datetime.now(timezone(timedelta(hours=7))).isoformat(),
         current_collection=r.config['collection_id'],current_space=r.config['space_id'],documents=33,vectors=33,
         accepted_pilot_questions=len(results),cache_only_replays=len(results),api_calls_during_audit=0,
@@ -96,7 +98,7 @@ def run():
         reference_labels_are_ai_reviewed_not_clinically_adjudicated=True,semantic_accuracy_established=False,
         independent_clinical_validation=False,patient_answer_generation_enabled=False,
         runs=selection['runs'],results=results)
-    atomic_json(work/'verification.json',report)
+    atomic_json(out_dir/'verification.json',report);print('AUDIT_DIR='+str(out_dir),flush=True)
     print(json.dumps({k:v for k,v in report.items() if k not in {'results','runs'}},ensure_ascii=False,indent=2))
     return 0
 if __name__=='__main__':sys.exit(run())
