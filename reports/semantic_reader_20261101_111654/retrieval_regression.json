@@ -1,0 +1,9 @@
+{
+  "status": "verified",
+  "questions": 30,
+  "ranks_and_distances_identical": true,
+  "api_calls": 0,
+  "database_and_132_source_files_unchanged": true,
+  "documents": 33,
+  "vectors": 33
+}

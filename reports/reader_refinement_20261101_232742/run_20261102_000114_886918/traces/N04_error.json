@@ -1,0 +1,60 @@
+{
+  "question": "Nghiên cứu về đi lang thang ở trẻ có khó khăn phát triển dựa trên báo cáo của phụ huynh như thế nào, và kiểu dữ liệu đó có những giới hạn gì?",
+  "error_code": "v3_verifier_schema",
+  "error_stage": "source_verification",
+  "message": "Unknown/duplicate decision.",
+  "reader_calls": [
+    {
+      "stage": "question_plan",
+      "content_sha256": "ba35de7c2a7d3e14f2a34720ed6b1d018c592f241b61daff9d64242113f59f88",
+      "request_id": "chatcmpl-d4890093-c494-45e8-a065-6eb55d633836",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "usage": {
+        "prompt_tokens": 377,
+        "completion_tokens": 297,
+        "total_tokens": 674
+      },
+      "local_prompt_tokens": 377,
+      "provider_prompt_tokens": 377,
+      "prompt_token_delta": 0,
+      "elapsed_seconds": 51.378,
+      "cache_hit": true,
+      "recorded_at": "2026-11-01T16:51:18.170739+00:00"
+    },
+    {
+      "stage": "source_selection",
+      "content_sha256": "2911834b83d41eea4b3bc3cc07773992197f762d7376e904bb80eff01dd83fb1",
+      "request_id": "chatcmpl-8f927105-7dc9-4982-bc1c-3ba92f6ddcd7",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "usage": {
+        "prompt_tokens": 23567,
+        "completion_tokens": 557,
+        "total_tokens": 24124
+      },
+      "local_prompt_tokens": 23567,
+      "provider_prompt_tokens": 23567,
+      "prompt_token_delta": 0,
+      "elapsed_seconds": 13.972,
+      "cache_hit": true,
+      "recorded_at": "2026-11-01T16:58:08.792924+00:00"
+    },
+    {
+      "stage": "source_verification",
+      "content_sha256": "41b3664227bd8bec0cd61722c988475af0c6c81760d219e0ade7b467af9b2ebf",
+      "request_id": "chatcmpl-074dbdd6-7588-4e02-ae43-5d4449be9e32",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "usage": {
+        "prompt_tokens": 24437,
+        "completion_tokens": 1098,
+        "total_tokens": 25535
+      },
+      "local_prompt_tokens": 24437,
+      "provider_prompt_tokens": 24437,
+      "prompt_token_delta": 0,
+      "elapsed_seconds": 49.689,
+      "cache_hit": false,
+      "recorded_at": "2026-11-01T17:02:11.749795+00:00"
+    }
+  ],
+  "generation_enabled": false
+}

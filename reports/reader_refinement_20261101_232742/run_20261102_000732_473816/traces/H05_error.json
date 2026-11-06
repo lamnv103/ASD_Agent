@@ -1,0 +1,43 @@
+{
+  "question": "Hai trẻ đều được chẩn đoán tự kỷ có nhất thiết có biểu hiện, điểm mạnh và nhu cầu hỗ trợ giống nhau không?",
+  "error_code": "v3_selection_schema",
+  "error_stage": "source_selection",
+  "message": "Unknown/duplicate passage or item.",
+  "reader_calls": [
+    {
+      "stage": "question_plan",
+      "content_sha256": "d090b4b3fe369f3b24c165f113c4efea47e885a939bd8a1f35b1d233fb86370d",
+      "request_id": "chatcmpl-e4917043-4a04-4ccf-84dd-29f42ab5f50b",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "usage": {
+        "prompt_tokens": 424,
+        "completion_tokens": 171,
+        "total_tokens": 595
+      },
+      "local_prompt_tokens": 424,
+      "provider_prompt_tokens": 424,
+      "prompt_token_delta": 0,
+      "elapsed_seconds": 4.515,
+      "cache_hit": false,
+      "recorded_at": "2026-11-01T17:10:18.885760+00:00"
+    },
+    {
+      "stage": "source_selection",
+      "content_sha256": "b3de18d77c42c1852bd49e70a44af2951152bc2a59b5fa5a7c2da6e425222fd3",
+      "request_id": "chatcmpl-6aa99a29-22a4-4a9a-9755-2752a83dc29a",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "usage": {
+        "prompt_tokens": 23317,
+        "completion_tokens": 173,
+        "total_tokens": 23490
+      },
+      "local_prompt_tokens": 23317,
+      "provider_prompt_tokens": 23317,
+      "prompt_token_delta": 0,
+      "elapsed_seconds": 15.726,
+      "cache_hit": false,
+      "recorded_at": "2026-11-01T17:10:35.784639+00:00"
+    }
+  ],
+  "generation_enabled": false
+}

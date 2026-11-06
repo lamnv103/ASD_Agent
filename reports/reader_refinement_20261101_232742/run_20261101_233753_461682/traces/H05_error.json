@@ -1,0 +1,26 @@
+{
+  "question": "Hai trẻ đều được chẩn đoán tự kỷ có nhất thiết có biểu hiện, điểm mạnh và nhu cầu hỗ trợ giống nhau không?",
+  "error_code": "reader_no_context",
+  "error_stage": "source_selection",
+  "message": "No complete source unit fits; no semantic assessment.",
+  "reader_calls": [
+    {
+      "stage": "question_plan",
+      "content_sha256": "6513b2f17a8322bacc63a80f000d90985b98c9211e69638d2c90930866dfe4d0",
+      "request_id": "chatcmpl-e0c3a92b-cd96-456d-afbb-470b6d5c9307",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "usage": {
+        "prompt_tokens": 364,
+        "completion_tokens": 298,
+        "total_tokens": 662
+      },
+      "local_prompt_tokens": 364,
+      "provider_prompt_tokens": 364,
+      "prompt_token_delta": 0,
+      "elapsed_seconds": 33.224,
+      "cache_hit": false,
+      "recorded_at": "2026-11-01T16:39:53.027571+00:00"
+    }
+  ],
+  "generation_enabled": false
+}

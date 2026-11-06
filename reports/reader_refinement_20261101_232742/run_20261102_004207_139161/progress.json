@@ -1,0 +1,85 @@
+[
+  {
+    "question_id": "S07",
+    "question": "Gia đình có thể tiếp tục nói chuyện khi dùng bảng tranh cho con không, và có chắc con sẽ tăng lời nói nhờ bảng tranh không?",
+    "status": "ok",
+    "error_code": "",
+    "error_stage": "",
+    "assessment": "partially_sufficient",
+    "policy": "general_education_with_source_limits",
+    "top5_sources": [
+      "ASD-CSV-084",
+      "ASD-SUP-PMC11754701",
+      "ASD-OA-PMC10900867",
+      "NIH-NIDCD-ASD-COMMUNICATION-2020",
+      "ASD-OA-PMC13005892"
+    ],
+    "expected_source_in_top5": true,
+    "expected_source_used": true,
+    "reference_span_overlap_sent": true,
+    "reference_span_overlap_used": true,
+    "reference_units_total": 1,
+    "reference_units_fully_sent": 1,
+    "reference_status_agreement": true,
+    "need_count": 2,
+    "missing_required_needs": [
+      "n1"
+    ],
+    "selected_evidence_count": 1,
+    "query_cache_hit": true,
+    "model_calls": [
+      {
+        "stage": "question_plan",
+        "content_sha256": "9196fe0976c3a37ab167f195f84e2230a459eae427aaa812a340ad0f4a8426a1",
+        "request_id": "chatcmpl-b0d7e601-2476-4f55-9d08-0e01a53a3be6",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "usage": {
+          "prompt_tokens": 428,
+          "completion_tokens": 264,
+          "total_tokens": 692
+        },
+        "local_prompt_tokens": 428,
+        "provider_prompt_tokens": 428,
+        "prompt_token_delta": 0,
+        "elapsed_seconds": 13.004,
+        "cache_hit": true,
+        "recorded_at": "2026-11-01T17:08:25.760702+00:00"
+      },
+      {
+        "stage": "source_selection",
+        "content_sha256": "2552ab2d1dffd0d8862d0e542e4f3b35ff638b4b342d845751886c589362477f",
+        "request_id": "chatcmpl-6e52770b-8b06-4ff3-bf59-94ece4450882",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "usage": {
+          "prompt_tokens": 22631,
+          "completion_tokens": 163,
+          "total_tokens": 22794
+        },
+        "local_prompt_tokens": 22631,
+        "provider_prompt_tokens": 22631,
+        "prompt_token_delta": 0,
+        "elapsed_seconds": 15.116,
+        "cache_hit": true,
+        "recorded_at": "2026-11-01T17:08:41.829494+00:00"
+      },
+      {
+        "stage": "source_verification",
+        "content_sha256": "b5177e5d99f73effade837ea693866855942d450cea44c0869154cf346856c0c",
+        "request_id": "chatcmpl-20903f91-e2a2-4147-805c-c7dda7bb9544",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "usage": {
+          "prompt_tokens": 5871,
+          "completion_tokens": 302,
+          "total_tokens": 6173
+        },
+        "local_prompt_tokens": 5871,
+        "provider_prompt_tokens": 5871,
+        "prompt_token_delta": 0,
+        "elapsed_seconds": 12.525,
+        "cache_hit": false,
+        "recorded_at": "2026-11-01T17:42:21.018278+00:00"
+      }
+    ],
+    "elapsed_seconds": 13.938
+  }
+]

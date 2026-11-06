@@ -1,0 +1,19 @@
+{
+  "status": "verified",
+  "usable": true,
+  "release_id": "asd-agent-fulltext-supplement-20261030-v1",
+  "parent_release_sha256": "840ce10a6b688e4de4ab90d9c03f9fb2bb3e2354d1d5114c0ccc298912e5e0a9",
+  "checked_at": "2026-10-30",
+  "catalog_sha256": "e8885db46f2d85fb684dd550f68d5612640261dd03f78483b4b5c27b5280b03e",
+  "documents_json_sha256": "26eb017efca593ed18aa4044c9b8185d871bd0f512cda0cb4b9edf82658c5331",
+  "core_documents": 33,
+  "body_characters": 2307606,
+  "clinical_reviewed": false,
+  "usable_for": "source_review_only",
+  "production_ingest": false,
+  "embedding_ready": false,
+  "index_preview_scope": "Original 183 units cover the original 27 documents only; additions not indexed in this phase",
+  "original_project_and_database_unchanged": true,
+  "embedding_called": false,
+  "llm_called": false
+}

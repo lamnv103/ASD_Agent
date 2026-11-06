@@ -1,0 +1,7 @@
+{
+  "status": "stopped_for_protocol_correction",
+  "processed": 7,
+  "reason": "quote_and_metadata_rejections_plus_provider_errors",
+  "not_a_completed_evaluation": true,
+  "inflight_request_after_interrupt": "unknown_if_not_saved"
+}

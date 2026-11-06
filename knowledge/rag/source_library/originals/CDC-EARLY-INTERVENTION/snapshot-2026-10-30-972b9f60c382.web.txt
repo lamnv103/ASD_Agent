@@ -1,0 +1,95 @@
+Early Intervention | Learn the Signs. Act Early. | CDC (https://www.cdc.gov/act-early/early-intervention/)
+citeturn131view0 [wordlim: 200] Crawled: today; Content type: text/html; Source: open({"ref_id":"https://www.cdc.gov/act-early/early-intervention/","lineno":null}); Total lines: 93
+L0: 【0†Skip directly to site content】 【1†Skip directly to search】
+L1: 
+L2: 【2†Learn the Signs. Act Early.】
+L3: 
+L4: [Button: Explore This Topic ]
+L5: 
+L6: [Button: Search]
+L7: 
+L8: [Input: Search]
+L9: 
+L10: [Input: Search]
+L11: 
+L12: 【2†Learn the Signs. Act Early.】 Menu
+L13: 
+L14: [Input: Search]
+L15: 
+L16: 【2†Learn the Signs. Act Early.】
+L17: 
+L18: 
+L19: 
+L20: 【3†About】 【4†Early Intervention】 【5†CDC's Developmental Milestones】 【6†Milestone Tracker App】 【7†All Resources】 【8†Resources for Families】 【9†Resources for Early Childhood Educators】 【10†Other Programs for Children】 【11†View Menu】
+L21: # Early Intervention
+L22: 
+L23: For Everyone
+L24: 
+L25: Feb. 17, 2026
+L26: 
+L27: 【11†Languages】
+L28: ## What to know
+L29: 
+L30:   * Early intervention is the term used to describe services and supports available to babies and young children with developmental delays and disabilities and their families.
+L31:   * Eligibility for early intervention services is based on an evaluation of your child's skills.
+L32:   * Each state, territory, or commonwealth has its own early intervention program and rules about eligibility and services. Contact the program near you to learn more.
+L33: 【12†Image: A baby girl sits on the floor of a room with toys and a bucket, a child care professional watches nearby.】
+L34: ## What is "Early Intervention"?
+L35: ### Early Intervention...
+L36:   * Is the term used to describe services and supports available to babies and young children with developmental delays and disabilities and their families.
+L37:   * May include speech therapy, physical therapy, occupational therapy, and other types of therapies or services based on the needs of the child and family.
+L38:   * Can have a significant impact on a child's ability to learn new skills and overcome challenges and can increase success in school and life.
+L39:   * Programs are available in every state and territory. These publicly funded programs provide services for free or at reduced cost for any child who is eligible.
+L40: ### Early Intervention Contact Information
+L41: 
+L42: 【13†Click here to find early intervention contact information for your state or territory.】
+L43: ## How do I find out if my child is eligible for services?
+L44: 
+L45: Eligibility for early intervention services is based on an evaluation of your child's skills and abilities.
+L46: 
+L47: If you, your child's doctor, or other care provider is concerned about your child's development, ask to be connected with your state or territory's early intervention program to find out if your child can get services to help. If your doctor is not able to connect you, you can reach out yourself. A doctor's referral is not necessary.
+L48:   * If your child is under age 3: Call your 【13†state or territory's early intervention program】 and say: "I have concerns about my child's development and I would like to have my child evaluated to find out if he/she is eligible for early intervention services."
+L49:   * If your child is age 3 or older: call any local public elementary school (even if your child does not go to school there) and say: "I have concerns about my child's development and I would like to have my child evaluated through the school system for preschool special education services."
+L50:     * If the person who answers is unfamiliar with preschool special education, ask to speak with the school or district's special education director.
+L51:     * 【14†Learn more about this process†www.parentcenterhub.org】
+L52: Feb. 17, 2026
+L53: 
+L54: 【15†Sources and Page Info】 【16†Share】
+L55: 
+L56: Content Source
+L57: 
+L58: 【17†National Center on Birth Defects and Developmental Disabilities (NCBDDD)】
+L59: 
+L60: About This Page
+L61: 
+L62: Published: September 4, 2025
+L63: 
+L64: Updated: February 16, 2026
+L65: 
+L66: This page was last updated on this date. Updates may include minor edits, image changes, or other modifications to page content.
+L67: 
+L68: Reviewed: February 17, 2026
+L69: 
+L70: The information on this page was last reviewed by subject matter experts to ensure accuracy.
+L71: ## 【2†Learn the Signs. Act Early. 】
+L72: 
+L73: From birth to 5 years, your child should reach development milestones. Track your child’s development and act early if you have a concern.
+L74: 
+L75: 【18†View All】
+L76: 
+L77: ### 【19†For Everyone】
+L78: 
+L79:   * 【3†About】
+L80:   * 【4†Early Intervention】
+L81:   * 【5†CDC's Developmental Milestones】
+L82:   * 【6†Milestone Tracker App】
+L83:   * 【7†All Resources】
+L84:   * 【8†Resources for Families】
+L85:   * 【9†Resources for Early Childhood Educators】
+L86:   * 【10†Other Programs for Children】
+L87:   * 【20†View all】
+L88: ### 【21†Health Care Providers】
+L89: 
+L90:   * 【22†Resources for Healthcare Providers】
+L91: 
+L92: 【23†Sign up for Email Updates†tools.cdc.gov】

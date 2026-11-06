@@ -1,0 +1,41 @@
+# Tài liệu toàn văn trong tập chính
+
+**Kho nguồn phục vụ nghiên cứu; chưa thẩm định lâm sàng độc lập.**
+
+33 tài liệu; 2,307,606 ký tự nội dung. Chỉ tính tài liệu được nhận; không cộng bản chờ, hình hoặc phụ lục.
+
+| ID và tài liệu | Phạm vi gốc |
+|---|---|
+| [ASD-CSV-002: Assessment of Autism Spectrum Disorder](documents/ASD-CSV-002.md) | Assessment across ages, including very young children; not one recruited pediatric cohort |
+| [ASD-CSV-062: The Presence of Comorbid ADHD and Anxiety Symptoms in Autism Spectrum Disorder: Clinical Presentation and Predictors](documents/ASD-CSV-062.md) | 260 Hebrew-speaking children aged 5–12 at a tertiary autism center; mean age 7 years 5 months |
+| [ASD-CSV-078: Variations in Anxiety and Related Psychiatric Comorbidity Levels Among Youths With Individual Diagnoses of Autism Spectrum Disorder or Attention Deficit Hyperactivity Disorder and Those With Both Diagnoses](documents/ASD-CSV-078.md) | Narrative review of eight studies involving children with ASD, ADHD or both; no single common age interval |
+| [ASD-CSV-081: Inclusivity in education for autism spectrum disorders: Experiences of support from the perspective of parent/carers, school teaching staff and young people on the autism spectrum](documents/ASD-CSV-081.md) | UK mainstream primary/secondary education; four pupils, eight parent/carers and twelve staff |
+| [ASD-CSV-084: The role of augmentative and alternative communication for children with autism: current status and future trends](documents/ASD-CSV-084.md) | AAC evidence reviews include children/young people up to 21; pediatric and older-youth scope retained |
+| [ASD-CSV-088: Psychiatric Comorbidity in Children with Autism Spectrum Disorders: A Comparison with Children with ADHD](documents/ASD-CSV-088.md) | Dutch outpatient sample aged 7–18, 40 with ASD and 40 with ADHD |
+| [ASD-CSV-091: Early Autism Screening: A Comprehensive Review](documents/ASD-CSV-091.md) | Narrative review of early autism screening in children; age-specific tools, not a single recruited cohort |
+| [ASD-NEW-003: Food Selectivity in Children with Autism: Guidelines for Assessment and Clinical Interventions](documents/ASD-NEW-003.md) | Childhood/adolescent food-selectivity narrative review; examples include 2–18-year-olds and some mixed older samples |
+| [ASD-OA-PMC10018050: Swimming Lessons for Children With Autism: Parent and Teacher Experiences](documents/ASD-OA-PMC10018050.md) | South African parents of formally diagnosed autistic children under 18 and swimming teachers; 11 adult interviewees |
+| [ASD-OA-PMC10774556: Behavioral Interventions for Autism Spectrum Disorder: A Brief Review and Guidelines With a Specific Focus on Applied Behavior Analysis](documents/ASD-OA-PMC10774556.md) | Children and adolescents with ASD; narrative review, not one recruited age cohort |
+| [ASD-OA-PMC10900867: The importance and challenges of observing social interactions in autistic preschoolers during inclusive educational settings: A scoping review](documents/ASD-OA-PMC10900867.md) | Autistic preschool children in inclusive preschool settings; 17 observational studies |
+| [ASD-OA-PMC11638897: How auditory processing influences the autistic profile: A review](documents/ASD-OA-PMC11638897.md) | Lifespan narrative review with explicit child and adolescent evidence, including 2–5-year-olds |
+| [ASD-OA-PMC12468522: Autism Spectrum Disorder: What Do We Know and Where Do We Go?](documents/ASD-OA-PMC12468522.md) | Lifespan narrative overview, including childhood and adolescence; no single enrolled cohort |
+| [ASD-OA-PMC12593641: Transition to adolescence in neurodevelopmental disorders: challenges and clinical perspectives](documents/ASD-OA-PMC12593641.md) | Transition to adolescence and adulthood in neurodevelopmental disorders, including ASD, ADHD and intellectual disability |
+| [ASD-OA-PMC13005892: Autism in Viet Nam: A systematic scoping review](documents/ASD-OA-PMC13005892.md) | Vietnamese cultural contexts; ages often unreported; most specified populations under 18, one study includes a 19-year-old |
+| [ASD-OA-PMC13427885: Parent Perspectives on Water Safety for Children with Autism](documents/ASD-OA-PMC13427885.md) | Texas parents of autistic children; eligibility 0–17, reported child ages 3–18; 21 adults describe 25 children |
+| [ASD-OA-PMC4271434: The relationship between sleep and behavior in autism spectrum disorder (ASD): a review](documents/ASD-OA-PMC4271434.md) | Sleep and behavior in children with ASD; broader low-functioning/all-age discussion retained |
+| [ASD-OA-PMC4742252: Prevalence and Correlates of Elopement in a Nationally Representative Sample of Children with Developmental Disabilities in the United States](documents/ASD-OA-PMC4742252.md) | US 2011 Pathways survey of children aged 6–17 with ASD, ID and/or developmental delay |
+| [ASD-OA-PMC6487529: Prevalence of autism spectrum disorders and their relation to selected socio-demographic factors among children aged 18–30 months in northern Vietnam, 2017](documents/ASD-OA-PMC6487529.md) | Children aged 18–30 months in three northern Vietnamese sites, sampled in 2017 |
+| [ASD-OA-PMC7407189: Sleeping without Prescription: Management of Sleep Disorders in Children with Autism with Non-Pharmacological Interventions and Over-the-Counter Treatments](documents/ASD-OA-PMC7407189.md) | Children and adolescents with ASD; narrative review of sleep approaches |
+| [ASD-OA-PMC9003052: Gastrointestinal Symptoms in Autism Spectrum Disorder: A Systematic Review](documents/ASD-OA-PMC9003052.md) | Children and adolescents under 18 with ASD; 30 empirical studies in an English-language systematic review |
+| [ASD-SUP-PMC11754701: Autism Spectrum Social Stories in Schools Trial 2 (ASSSIST‐2): a pragmatic randomised controlled trial of the Social Stories™ intervention to address the social and emotional health of autistic children in UK primary schools](documents/ASD-SUP-PMC11754701.md) | UK primary-school autistic children aged 4–11; 87 schools, 249 children, cluster randomized trial. |
+| [ASD-SUP-PMC12658592: Systematic review of sensory-based interventions for children and youth (2015–2024)](documents/ASD-SUP-PMC12658592.md) | Review inclusion range 0–21 years with sensory-processing challenges, mixed diagnoses; not an ASD-only sample or evidence for every age. |
+| [ASD-SUP-PMC4513196: Naturalistic Developmental Behavioral Interventions: Empirically Validated Treatments for Autism Spectrum Disorder](documents/ASD-SUP-PMC4513196.md) | Young autistic children, especially toddlers and preschoolers; conceptual narrative review, not one recruited cohort. |
+| [ASD-SUP-PMC6590432: A systematic review of ayres sensory integration intervention for children with autism](documents/ASD-SUP-PMC6590432.md) | Review conclusion concerns autistic children aged 4–12; study-selection and cognitive criteria retained in full text. |
+| [CDC-ASD-TREATMENT: Treatment and Intervention for Autism Spectrum Disorder](documents/CDC-ASD-TREATMENT.md) | All ages overview; ESDM subsection explicitly 12–48 months. US context; not a child-specific clinical prescription. |
+| [CDC-EARLY-INTERVENTION: Early Intervention](documents/CDC-EARLY-INTERVENTION.md) | Babies/young children with developmental delays/disabilities and families; US under-3 EI and age-3+ preschool referral pathways, not ASD-only. |
+| [NIH-NIDCD-ASD-COMMUNICATION-2020: Autism Spectrum Disorder: Communication Problems in Children](documents/NIH-NIDCD-ASD-COMMUNICATION-2020.md) | Children with ASD; preschool and school-age communication; no single study age range |
+| [NIH-NIMH-ADHD: Attention-Deficit/Hyperactivity Disorder: What You Need to Know](documents/NIH-NIMH-ADHD.md) | All ages; child/adolescent considerations retained |
+| [NIH-NIMH-ASD-2025: Autism Spectrum Disorder](documents/NIH-NIMH-ASD-2025.md) | All ages; separate young-child, older-child and adult sections retained |
+| [NIH-NIMH-MEDICATIONS: Mental Health Medications](documents/NIH-NIMH-MEDICATIONS.md) | All ages; child/adolescent considerations retained |
+| [NIH-NIMH-TEEN-BRAIN: The Teen Brain: 7 Things to Know](documents/NIH-NIMH-TEEN-BRAIN.md) | Adolescents |
+| [NIH-NIMH-TEEN-DEPRESSION: Teen Depression: More Than Just Moodiness](documents/NIH-NIMH-TEEN-DEPRESSION.md) | Adolescents |

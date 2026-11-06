@@ -1,0 +1,13 @@
+{
+  "status": "all_33_native_vectors_cached",
+  "documents": 33,
+  "collection": "asd_fulltext_33_20261030_26eb017efca5",
+  "space": "cohere4_whole_1536_e83c596b9070",
+  "model": "embed-v4.0",
+  "dimensions": 1536,
+  "source_bodies_truncated": false,
+  "chunk_vectors_averaged": false,
+  "database_loaded": true,
+  "database_verified_at": "2026-10-31T00:38:44+07:00",
+  "database_verification_file": "database_verification.json"
+}

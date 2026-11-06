@@ -1,0 +1,115 @@
+{
+  "status": "ok",
+  "trace": "E:\\AI4LIFE\\ASD_AGENT\\reports\\reader_refinement_20261101_232742\\cli_N09_v3.json",
+  "assessment": {
+    "status": "insufficient",
+    "assessment_state": "model_semantic_review_not_independent_clinical_validation",
+    "reason": "Computed from review assertions and source spans actually available; model assertions remain provisional.",
+    "claims": [
+      {
+        "claim_id": "n1",
+        "text": "Identify sleep medications appropriate for a 4-year-old child weighing 17 kg with difficulty sleeping",
+        "required": true,
+        "direct": [],
+        "indirect": [],
+        "direct_refutation": [],
+        "indirect_refutation": [],
+        "opposing": []
+      },
+      {
+        "claim_id": "n2",
+        "text": "Determine exact medication names and precise dosages for tonight's use for a 4-year-old, 17 kg child with sleep difficulty",
+        "required": true,
+        "direct": [],
+        "indirect": [],
+        "direct_refutation": [],
+        "indirect_refutation": [],
+        "opposing": []
+      }
+    ],
+    "reviewer": {
+      "kind": "model_semantic_review",
+      "name": "nvidia/nemotron-3-ultra-550b-a55b",
+      "date": "2026-11-02"
+    },
+    "review_id": "nim-guard-2cce547fcbcd724ca48f58c6",
+    "conflicts": [],
+    "unresolved_conflict_comparisons": false,
+    "missing_claims": [
+      "n1",
+      "n2"
+    ],
+    "missing_review_sources": [],
+    "used_evidence_ids": [],
+    "independent_clinical_reviewed": false
+  },
+  "policy": {
+    "intent": "personalized_medication",
+    "action": "do_not_prescribe_or_calculate_personal_dose",
+    "clarification_fields": [
+      "child's complete medical history",
+      "current medications and supplements",
+      "allergies and adverse drug reactions",
+      "previous sleep evaluations or diagnoses",
+      "pediatrician's contact information"
+    ],
+    "individual_diagnosis_allowed": false,
+    "individual_prescribing_allowed": false,
+    "retrieved_content_is_untrusted_data": true,
+    "instruction_detection_complete": false,
+    "clinical_reviewed": false
+  },
+  "context_status": "empty_reviewed_context",
+  "context_token_budget": {
+    "model_id": "nvidia/nemotron-3-ultra-550b-a55b",
+    "context_window_tokens": 32768,
+    "input_tokens": 328,
+    "system_chat_tokens": 159,
+    "base_input_tokens": 328,
+    "question_and_envelope_increment_tokens": 169,
+    "evidence_increment_tokens": 0,
+    "reserved_output_tokens": 4096,
+    "safety_margin_tokens": 512,
+    "max_evidence_tokens": 24576,
+    "remaining_tokens": 27832,
+    "within_budget": true,
+    "components_note": "Marginal deltas from whole rendered chat; not independent text-token sums."
+  },
+  "reader_provider": {
+    "content_sha256": "2cce547fcbcd724ca48f58c641732aafad850a4514bbbfe884bd767833a8fc0e",
+    "request_id": "chatcmpl-b09f1842-a9bb-4b60-bd47-e04ad573a689",
+    "model": "nvidia/nemotron-3-ultra-550b-a55b",
+    "usage": {
+      "prompt_tokens": 429,
+      "completion_tokens": 325,
+      "total_tokens": 754
+    },
+    "local_prompt_tokens": 429,
+    "provider_prompt_tokens": 429,
+    "prompt_token_delta": 0,
+    "elapsed_seconds": 27.808,
+    "cache_hit": true,
+    "recorded_at": "2026-11-01T17:21:57.129491+00:00"
+  },
+  "reader_protocol": "atomic_needs_v3",
+  "model_calls": [
+    {
+      "stage": "question_plan",
+      "content_sha256": "2cce547fcbcd724ca48f58c641732aafad850a4514bbbfe884bd767833a8fc0e",
+      "request_id": "chatcmpl-b09f1842-a9bb-4b60-bd47-e04ad573a689",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "usage": {
+        "prompt_tokens": 429,
+        "completion_tokens": 325,
+        "total_tokens": 754
+      },
+      "local_prompt_tokens": 429,
+      "provider_prompt_tokens": 429,
+      "prompt_token_delta": 0,
+      "elapsed_seconds": 27.808,
+      "cache_hit": true,
+      "recorded_at": "2026-11-01T17:21:57.129491+00:00"
+    }
+  ],
+  "generation_enabled": false
+}

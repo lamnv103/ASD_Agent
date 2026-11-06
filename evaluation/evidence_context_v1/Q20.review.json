@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "review_id": "reference-replay-Q20",
+  "question": "Nghiên cứu về hòa nhập học đường cho ASD đã thu thập góc nhìn của phụ huynh, giáo viên và học sinh như thế nào?",
+  "question_sha256": "244eb35433dd469a79ce00724401c9785d6709bc2a70885a769f3c46fe4a3122",
+  "reviewer": {
+    "kind": "ai_reference_review",
+    "name": "AI source-content review; not an independent clinical expert",
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "origin": "existing_retrieval_v1_label_replay_not_independent_semantic_evaluation",
+    "frozen_input_hashes": {
+      "questions.jsonl": "749f0a48e30de346e0521bae016f81e05e787b885ae132dced1cc03365f252c6",
+      "reference_labels.json": "b3c0f8c7e083c463750c358288b1439d4a2b1ef5533d976a6fae2901523deb99"
+    }
+  },
+  "intent": "general_information",
+  "claims": [
+    {
+      "claim_id": "c1",
+      "text": "Nghiên cứu về hòa nhập học đường cho ASD đã thu thập góc nhìn của phụ huynh, giáo viên và học sinh như thế nào?",
+      "required": true
+    }
+  ],
+  "items": [
+    {
+      "item_id": "item-0",
+      "source_id": "ASD-CSV-081",
+      "content_sha256": "d44ef856a5e7adac8bba4cc55c9003bc80b9e1755d0874e766e18176cc87df33",
+      "start": 1322,
+      "end": 2768,
+      "quote": "Inclusive practices mean many children with autism spectrum disorders (ASD) attend mainstream education settings. To manage the stressors involved and access its benefits, support can be critical. Indeed, insufficient support can detrimentally impact wellbeing, longer-term development, and the inclusivity agenda. Expanding a limited evidence-base on educational support after diagnosis, focus groups and interviews were conducted for eight parent/carers of children with ASD, twelve special education needs (SEN) school staff, and four children with ASD attending mainstream school. An inductive thematic analysis on the data elicited three themes: a system overwhelmed by unmet needs, the impact on quality of life, and hope for the future. The overwhelming finding was a significant lack of education support for parent/carers and school staff, with the mainstream education system poorly designed and insufficiently resourced to facilitate the inclusion of children with ASD, particularly for those impacted by historic difficulties with access. The tireless work of parent/carers and frontline SEN educators fostered a sense of hope and engendered inclusivity for the children who participated, who felt supported. Given their buffering role, protecting and supporting parent/carer and SEN teacher wellbeing requires a policy shift supporting longer term inclusivity alongside improvements in funding streams and accessibility in provision.",
+      "relation": "direct",
+      "stance": "supports",
+      "claim_ids": [
+        "c1"
+      ],
+      "scope_limits": "Nghiên cứu định tính mẫu nhỏ, không đại diện mọi trường hoặc chính sách Việt Nam."
+    }
+  ],
+  "conflicts": [],
+  "review_notes": "Nghiên cứu định tính mẫu nhỏ, không đại diện mọi trường hoặc chính sách Việt Nam."
+}

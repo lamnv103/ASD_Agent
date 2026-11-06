@@ -1,0 +1,27 @@
+{
+  "status": "verified",
+  "recorded_at": "2026-10-31T05:54:26.485274+00:00",
+  "test_cases_passed": 16,
+  "live_api_queries_completed": 30,
+  "cached_queries_replayed_without_credentials": 30,
+  "replayed_ranks_and_distances_match": true,
+  "expected_reference_sources": 21,
+  "sources_returned": 31,
+  "fulltext_hashes_match": true,
+  "all_evidence_spans_match_database": true,
+  "protected_source_files_unchanged": 132,
+  "database_snapshot_unchanged": true,
+  "whole_document_vectors": 33,
+  "chunking": false,
+  "clinical_reviewed": false,
+  "production_ingest": false,
+  "implementation_files": {
+    "rag/retriever.py": "887ee3b963f4f0fc93a8b815a753d0a95d593a2eeacde373e66b920b4b9566f8",
+    "rag/tools.py": "311ec825d56f8efcbbc30d64c6462bef22b6527a040e6b841352af85ed336080",
+    "rag/__init__.py": "a32e9a1886cad3c2259efb5bf38e26a21590dca8fd6afceb4bf008cc4dfbc51b",
+    "rag/__main__.py": "843de6b3e6bda2b56668f2f9b9b9f3fd99c884c68fc06d43c03ae87f8efc9659",
+    "deployments/retriever.json": "5ccd6ed225f67bf417d287dc8c83667aad80ea1be90b43204840a390891cd599",
+    "scripts/evaluation/evaluate_retriever.py": "00881c39be7b870cef70891e2e44b650bc3217cffaf04790c4165a3764617fb9",
+    "tests/test_retriever.py": "21a3c920f943a69bd392e1a3abc4ab06013d321de54fa887dc53eb27760bf2b3"
+  }
+}

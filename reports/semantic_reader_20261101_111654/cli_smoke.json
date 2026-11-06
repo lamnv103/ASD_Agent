@@ -1,0 +1,16 @@
+[
+  {
+    "question_id": "S02",
+    "status": "passed",
+    "context_status": "prepared",
+    "assessment": "sufficient",
+    "api_calls": 0
+  },
+  {
+    "question_id": "S13",
+    "status": "passed",
+    "context_status": "empty_reviewed_context",
+    "assessment": "insufficient",
+    "api_calls": 0
+  }
+]

@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "review_id": "reference-replay-Q08",
+  "question": "Trẻ chưa nói được có thể giao tiếp bằng tranh hoặc thiết bị phát giọng nói không?",
+  "question_sha256": "6e3b4c5115c7ff1021edc17cde818795cae02c16a893d13e86d062cd007d6f2a",
+  "reviewer": {
+    "kind": "ai_reference_review",
+    "name": "AI source-content review; not an independent clinical expert",
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "origin": "existing_retrieval_v1_label_replay_not_independent_semantic_evaluation",
+    "frozen_input_hashes": {
+      "questions.jsonl": "749f0a48e30de346e0521bae016f81e05e787b885ae132dced1cc03365f252c6",
+      "reference_labels.json": "b3c0f8c7e083c463750c358288b1439d4a2b1ef5533d976a6fae2901523deb99"
+    }
+  },
+  "intent": "general_information",
+  "claims": [
+    {
+      "claim_id": "c1",
+      "text": "Trẻ chưa nói được có thể giao tiếp bằng tranh hoặc thiết bị phát giọng nói không?",
+      "required": true
+    }
+  ],
+  "items": [
+    {
+      "item_id": "item-0",
+      "source_id": "NIH-NIDCD-ASD-COMMUNICATION-2020",
+      "content_sha256": "167221060bae5a46446346dae3f89336f1dc008495f27dca3051277d6a17febc",
+      "start": 8184,
+      "end": 8650,
+      "quote": "Some children with ASD may never develop oral speech and language skills. For these children, the goal may be learning to communicate using gestures, such as sign language. For others, the goal may be to communicate by means of a symbol system in which pictures are used to convey thoughts. Symbol systems can range from picture boards or cards to sophisticated electronic devices that generate speech through the use of buttons to represent common items or actions.",
+      "relation": "direct",
+      "stance": "supports",
+      "claim_ids": [
+        "c1"
+      ],
+      "scope_limits": "Lựa chọn hỗ trợ phải phù hợp với từng trẻ, không dự đoán một trẻ sẽ không bao giờ nói."
+    }
+  ],
+  "conflicts": [],
+  "review_notes": "Lựa chọn hỗ trợ phải phù hợp với từng trẻ, không dự đoán một trẻ sẽ không bao giờ nói."
+}

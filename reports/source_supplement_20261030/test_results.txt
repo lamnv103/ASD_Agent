@@ -1,0 +1,22 @@
+test_clinical_numeric_signs_and_null_primary_outcome_preserved (test_supplement_20261030.SupplementTests.test_clinical_numeric_signs_and_null_primary_outcome_preserved) ... ok
+test_complete_sources_have_no_conversion_gaps_or_clinical_approval (test_supplement_20261030.SupplementTests.test_complete_sources_have_no_conversion_gaps_or_clinical_approval) ... ok
+test_duplicate_doi_rejected (test_supplement_20261030.SupplementTests.test_duplicate_doi_rejected) ... ok
+test_existing_source_identity_reused (test_supplement_20261030.SupplementTests.test_existing_source_identity_reused) ... ok
+test_incomplete_plots_cannot_enter_core (test_supplement_20261030.SupplementTests.test_incomplete_plots_cannot_enter_core) ... ok
+test_incomplete_reader_snapshot_rejected (test_supplement_20261030.SupplementTests.test_incomplete_reader_snapshot_rejected) ... ok
+test_linked_commentary_is_not_misrepresented_as_correction (test_supplement_20261030.SupplementTests.test_linked_commentary_is_not_misrepresented_as_correction) ... ok
+test_mixed_age_and_diagnosis_scope_not_relabeled (test_supplement_20261030.SupplementTests.test_mixed_age_and_diagnosis_scope_not_relabeled) ... ok
+test_no_abstract_only_article (test_supplement_20261030.SupplementTests.test_no_abstract_only_article) ... ok
+test_peers_actual_and_eligible_ages_differ (test_supplement_20261030.SupplementTests.test_peers_actual_and_eligible_ages_differ) ... ok
+test_reader_does_not_invent_original_html (test_supplement_20261030.SupplementTests.test_reader_does_not_invent_original_html) ... ok
+test_request_rejected_html_not_a_source (test_supplement_20261030.SupplementTests.test_request_rejected_html_not_a_source) ... ok
+test_reviewed_asset_hash_change_rejected (test_supplement_20261030.SupplementTests.test_reviewed_asset_hash_change_rejected) ... ok
+test_senita_original_is_full_but_conversion_is_pending (test_supplement_20261030.SupplementTests.test_senita_original_is_full_but_conversion_is_pending) ... ok
+test_six_complete_additions_and_seven_pending (test_supplement_20261030.SupplementTests.test_six_complete_additions_and_seven_pending) ... ok
+test_unknown_rights_and_metadata_only_not_admitted (test_supplement_20261030.SupplementTests.test_unknown_rights_and_metadata_only_not_admitted) ... ok
+test_whole_document_not_split_or_truncated (test_supplement_20261030.SupplementTests.test_whole_document_not_split_or_truncated) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 5.014s
+
+OK

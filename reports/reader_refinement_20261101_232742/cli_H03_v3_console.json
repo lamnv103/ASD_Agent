@@ -1,0 +1,134 @@
+{
+  "status": "ok",
+  "trace": "E:\\AI4LIFE\\ASD_AGENT\\reports\\reader_refinement_20261101_232742\\cli_H03_v3.json",
+  "assessment": {
+    "status": "sufficient",
+    "assessment_state": "model_semantic_review_not_independent_clinical_validation",
+    "reason": "Computed from review assertions and source spans actually available; model assertions remain provisional.",
+    "claims": [
+      {
+        "claim_id": "n1",
+        "text": "Guidance on whether to stop prescribed medication for a child when symptoms improve",
+        "required": true,
+        "direct": [
+          "ev-c5698bd1f21e05a484db5171"
+        ],
+        "indirect": [],
+        "direct_refutation": [],
+        "indirect_refutation": [],
+        "opposing": []
+      }
+    ],
+    "reviewer": {
+      "kind": "model_semantic_review",
+      "name": "nvidia/nemotron-3-ultra-550b-a55b",
+      "date": "2026-11-02"
+    },
+    "review_id": "nim-needs-e1416ee4b12992ffa6c30bbe",
+    "conflicts": [],
+    "unresolved_conflict_comparisons": false,
+    "missing_claims": [],
+    "missing_review_sources": [],
+    "used_evidence_ids": [
+      "ev-c5698bd1f21e05a484db5171"
+    ],
+    "independent_clinical_reviewed": false
+  },
+  "policy": {
+    "intent": "general_information",
+    "action": "general_education_with_source_limits",
+    "clarification_fields": [],
+    "individual_diagnosis_allowed": false,
+    "individual_prescribing_allowed": false,
+    "retrieved_content_is_untrusted_data": true,
+    "instruction_detection_complete": false,
+    "clinical_reviewed": false
+  },
+  "context_status": "prepared",
+  "context_token_budget": {
+    "model_id": "nvidia/nemotron-3-ultra-550b-a55b",
+    "context_window_tokens": 32768,
+    "input_tokens": 2880,
+    "system_chat_tokens": 159,
+    "base_input_tokens": 284,
+    "question_and_envelope_increment_tokens": 125,
+    "evidence_increment_tokens": 2596,
+    "reserved_output_tokens": 4096,
+    "safety_margin_tokens": 512,
+    "max_evidence_tokens": 24576,
+    "remaining_tokens": 25280,
+    "within_budget": true,
+    "components_note": "Marginal deltas from whole rendered chat; not independent text-token sums."
+  },
+  "reader_provider": {
+    "content_sha256": "6f100a40aed4da4f9b5f2340a2afde0452eb71b80d3cb0f46450834a3ee380b9",
+    "request_id": "chatcmpl-c6bbcc2b-4781-4c48-b265-5b66d3ccee9d",
+    "model": "nvidia/nemotron-3-ultra-550b-a55b",
+    "usage": {
+      "prompt_tokens": 23969,
+      "completion_tokens": 75,
+      "total_tokens": 24044
+    },
+    "local_prompt_tokens": 23969,
+    "provider_prompt_tokens": 23969,
+    "prompt_token_delta": 0,
+    "elapsed_seconds": 2.754,
+    "cache_hit": true,
+    "recorded_at": "2026-11-01T17:09:24.296482+00:00"
+  },
+  "reader_protocol": "atomic_needs_v3",
+  "model_calls": [
+    {
+      "stage": "question_plan",
+      "content_sha256": "079569545d7f8fd7a88cb37305599df3cbd9604c84a95230eebacddae023bc39",
+      "request_id": "chatcmpl-0e697100-fd59-4747-b9a1-5d5ea55a65d5",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "usage": {
+        "prompt_tokens": 424,
+        "completion_tokens": 168,
+        "total_tokens": 592
+      },
+      "local_prompt_tokens": 424,
+      "provider_prompt_tokens": 424,
+      "prompt_token_delta": 0,
+      "elapsed_seconds": 3.69,
+      "cache_hit": true,
+      "recorded_at": "2026-11-01T17:09:20.057202+00:00"
+    },
+    {
+      "stage": "source_selection",
+      "content_sha256": "6f100a40aed4da4f9b5f2340a2afde0452eb71b80d3cb0f46450834a3ee380b9",
+      "request_id": "chatcmpl-c6bbcc2b-4781-4c48-b265-5b66d3ccee9d",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "usage": {
+        "prompt_tokens": 23969,
+        "completion_tokens": 75,
+        "total_tokens": 24044
+      },
+      "local_prompt_tokens": 23969,
+      "provider_prompt_tokens": 23969,
+      "prompt_token_delta": 0,
+      "elapsed_seconds": 2.754,
+      "cache_hit": true,
+      "recorded_at": "2026-11-01T17:09:24.296482+00:00"
+    },
+    {
+      "stage": "source_verification",
+      "content_sha256": "59d2ac424183c4895df5661a75aab75557dcb680b0dd445f11543fd9826917aa",
+      "request_id": "chatcmpl-0a636277-53f0-4c80-b9b0-8c6746bb8cd4",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "usage": {
+        "prompt_tokens": 1942,
+        "completion_tokens": 128,
+        "total_tokens": 2070
+      },
+      "local_prompt_tokens": 1942,
+      "provider_prompt_tokens": 1942,
+      "prompt_token_delta": 0,
+      "elapsed_seconds": 3.923,
+      "cache_hit": true,
+      "recorded_at": "2026-11-01T17:09:28.235889+00:00"
+    }
+  ],
+  "generation_enabled": false
+}

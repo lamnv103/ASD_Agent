@@ -1,0 +1,26 @@
+[
+  {
+    "question_id": "H03",
+    "version": "v3",
+    "status": "passed",
+    "assessment": "sufficient",
+    "context_status": "prepared",
+    "api_calls": 0
+  },
+  {
+    "question_id": "N09",
+    "version": "v3",
+    "status": "passed",
+    "assessment": "insufficient",
+    "context_status": "empty_reviewed_context",
+    "api_calls": 0
+  },
+  {
+    "question_id": "H03",
+    "version": "v2",
+    "status": "passed",
+    "assessment": "insufficient",
+    "context_status": "empty_reviewed_context",
+    "api_calls": 0
+  }
+]

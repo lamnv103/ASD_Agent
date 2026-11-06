@@ -1,0 +1,20 @@
+{
+  "collection_id": "asd_fulltext_33_20261030_26eb017efca5",
+  "space_id": "cohere4_whole_1536_e83c596b9070",
+  "profile": {
+    "provider": "cohere",
+    "model": "embed-v4.0",
+    "dimensions": 1536,
+    "document_input_type": "search_document",
+    "query_input_type": "search_query",
+    "truncate": "NONE",
+    "max_tokens": 128000,
+    "whole_document": true,
+    "pooling": "native_model_single_input",
+    "schema_version": 1
+  },
+  "document_count": 33,
+  "query_input_type": "search_query",
+  "clinical_reviewed": false,
+  "production_ingest": false
+}

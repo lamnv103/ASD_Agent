@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "review_id": "reference-replay-Q09",
+  "question": "Dùng AAC có làm trẻ mất kỹ năng nói hoặc chắc chắn tăng lời nói không?",
+  "question_sha256": "0b5b2ad148b54e233e27272595f6f365acc5ce591a804e40afd73a3ec7d404e6",
+  "reviewer": {
+    "kind": "ai_reference_review",
+    "name": "AI source-content review; not an independent clinical expert",
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "origin": "existing_retrieval_v1_label_replay_not_independent_semantic_evaluation",
+    "frozen_input_hashes": {
+      "questions.jsonl": "749f0a48e30de346e0521bae016f81e05e787b885ae132dced1cc03365f252c6",
+      "reference_labels.json": "b3c0f8c7e083c463750c358288b1439d4a2b1ef5533d976a6fae2901523deb99"
+    }
+  },
+  "intent": "general_information",
+  "claims": [
+    {
+      "claim_id": "c1",
+      "text": "Phần được nguồn hỗ trợ theo nhãn tham chiếu hiện có",
+      "required": true
+    },
+    {
+      "claim_id": "c2",
+      "text": "Phần chưa đủ căn cứ theo nhãn hiện có: Tổng quan các nghiên cứu cũ; không suy thành bảo đảm tăng lời nói cho mọi trẻ.",
+      "required": true
+    }
+  ],
+  "items": [
+    {
+      "item_id": "item-0",
+      "source_id": "ASD-CSV-084",
+      "content_sha256": "221eed836312a706d07dc537d0b04bf915a838c599348bfc75bb477caa984302",
+      "start": 16533,
+      "end": 17191,
+      "quote": "In many reviews, speech as an outcome, but usually not as a primary target of intervention, was examined. Results point mostly to negligible or small effects.25,28,32 The two reviews focused on speech outcomes were motivated by a concern often expressed in AAC literature about the potential for AAC to impede speech development, as well as a desire to investigate the potential for speech to be enhanced.33,34 These reviews indicate variable outcomes, with Schlosser and Wendt34 finding that, for individuals with autism, although modest gains in speech could not be attributable directly to AAC intervention, there was no evidence of loss of speech skills.",
+      "relation": "direct",
+      "stance": "supports",
+      "claim_ids": [
+        "c1"
+      ],
+      "scope_limits": "Tổng quan các nghiên cứu cũ; không suy thành bảo đảm tăng lời nói cho mọi trẻ."
+    }
+  ],
+  "conflicts": [],
+  "review_notes": "Tổng quan các nghiên cứu cũ; không suy thành bảo đảm tăng lời nói cho mọi trẻ."
+}

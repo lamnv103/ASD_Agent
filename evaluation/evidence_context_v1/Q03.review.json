@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "review_id": "reference-replay-Q03",
+  "question": "Chuyên gia chẩn đoán tự kỷ dựa vào điều gì?",
+  "question_sha256": "e49148179709d574f445c423d6b2c7c4a3198bbefc6187af2a8e3a0e1ce56a94",
+  "reviewer": {
+    "kind": "ai_reference_review",
+    "name": "AI source-content review; not an independent clinical expert",
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "origin": "existing_retrieval_v1_label_replay_not_independent_semantic_evaluation",
+    "frozen_input_hashes": {
+      "questions.jsonl": "749f0a48e30de346e0521bae016f81e05e787b885ae132dced1cc03365f252c6",
+      "reference_labels.json": "b3c0f8c7e083c463750c358288b1439d4a2b1ef5533d976a6fae2901523deb99"
+    }
+  },
+  "intent": "general_information",
+  "claims": [
+    {
+      "claim_id": "c1",
+      "text": "Chuyên gia chẩn đoán tự kỷ dựa vào điều gì?",
+      "required": true
+    }
+  ],
+  "items": [
+    {
+      "item_id": "item-0",
+      "source_id": "NIH-NIMH-ASD-2025",
+      "content_sha256": "8a387613d1126abbcc28145fd54347db63e67b67783717b86e6f48984f455fa8",
+      "start": 4630,
+      "end": 4905,
+      "quote": "Health care providers diagnose ASD by evaluating a person’s behavior and development. ASD can usually be reliably diagnosed by the age of 2. It is important to seek an evaluation as soon as possible. The earlier ASD is diagnosed, the sooner treatments and services can begin.",
+      "relation": "direct",
+      "stance": "supports",
+      "claim_ids": [
+        "c1"
+      ],
+      "scope_limits": "Cần đánh giá chuyên môn; không kết luận từ một tin nhắn."
+    }
+  ],
+  "conflicts": [],
+  "review_notes": "Cần đánh giá chuyên môn; không kết luận từ một tin nhắn."
+}

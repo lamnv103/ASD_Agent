@@ -1,0 +1,8 @@
+{
+  "created_at": "2026-11-01T22:48:12.582868+07:00",
+  "purpose": "unseen questions after protocol correction; no independent clinical adjudication",
+  "files": {
+    "questions.jsonl": "34be0c7e27e720a234fe0f2e9d8ed8c1aeaa7ab873a4486233b661a03e4f47d3",
+    "reference_labels.jsonl": "bd49d2006f09dc4c0e9f7707fd7b9e4d91c7e0ff39bb69d031827c64eb176e36"
+  }
+}

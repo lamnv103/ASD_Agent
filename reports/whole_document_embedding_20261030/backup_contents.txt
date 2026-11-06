@@ -1,0 +1,41 @@
+﻿;
+; Archive created at 2026-10-30 16:58:24 UTC
+;     dbname: asd_rag
+;     TOC Entries: 30
+;     Compression: gzip
+;     Dump Version: 1.15-0
+;     Format: CUSTOM
+;     Integer: 4 bytes
+;     Offset: 8 bytes
+;     Dumped from database version: 16.15 (Debian 16.15-1.pgdg12+2)
+;     Dumped by pg_dump version: 16.15 (Debian 16.15-1.pgdg12+2)
+;
+;
+; Selected TOC Entries:
+;
+8; 2615 24577 SCHEMA - asd_knowledge_v2_pilot postgres
+7; 2615 16717 SCHEMA - carobud_rag postgres
+2; 3079 16389 EXTENSION - vector 
+3658; 0 0 COMMENT - EXTENSION vector 
+222; 1259 24578 TABLE asd_knowledge_v2_pilot chunks postgres
+218; 1259 16718 TABLE carobud_rag collections postgres
+219; 1259 16726 TABLE carobud_rag documents postgres
+220; 1259 16747 TABLE carobud_rag embedding_spaces postgres
+221; 1259 16758 TABLE carobud_rag embeddings postgres
+3651; 0 24578 TABLE DATA asd_knowledge_v2_pilot chunks postgres
+3647; 0 16718 TABLE DATA carobud_rag collections postgres
+3648; 0 16726 TABLE DATA carobud_rag documents postgres
+3649; 0 16747 TABLE DATA carobud_rag embedding_spaces postgres
+3650; 0 16758 TABLE DATA carobud_rag embeddings postgres
+3499; 2606 24597 CONSTRAINT asd_knowledge_v2_pilot chunks chunks_pkey postgres
+3486; 2606 16725 CONSTRAINT carobud_rag collections collections_pkey postgres
+3488; 2606 16740 CONSTRAINT carobud_rag documents documents_collection_id_source_id_key postgres
+3490; 2606 16738 CONSTRAINT carobud_rag documents documents_pkey postgres
+3493; 2606 16755 CONSTRAINT carobud_rag embedding_spaces embedding_spaces_pkey postgres
+3495; 2606 16757 CONSTRAINT carobud_rag embedding_spaces embedding_spaces_space_id_dimensions_key postgres
+3497; 2606 16766 CONSTRAINT carobud_rag embeddings embeddings_pkey postgres
+3500; 1259 24598 INDEX asd_knowledge_v2_pilot chunks_text_gin postgres
+3491; 1259 16746 INDEX carobud_rag rag_documents_fts_idx postgres
+3501; 2606 16741 FK CONSTRAINT carobud_rag documents documents_collection_id_fkey postgres
+3502; 2606 16767 FK CONSTRAINT carobud_rag embeddings embeddings_collection_id_chunk_id_fkey postgres
+3503; 2606 16772 FK CONSTRAINT carobud_rag embeddings embeddings_space_id_dimensions_fkey postgres

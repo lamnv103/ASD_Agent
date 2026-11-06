@@ -1,0 +1,26 @@
+{
+  "question": "Gia đình có thể tiếp tục nói chuyện khi dùng bảng tranh cho con không, và có chắc con sẽ tăng lời nói nhờ bảng tranh không?",
+  "error_code": "nim_http",
+  "error_stage": "source_selection",
+  "message": "NVIDIA HTTP 503; response body/credentials omitted. No automatic retry.",
+  "reader_calls": [
+    {
+      "stage": "question_plan",
+      "content_sha256": "79ad6448cb3d35327f13443dfa2d18f84e4ed39debd872eb278098abf74f0a22",
+      "request_id": "chatcmpl-3d2cc75a-95bd-444b-b246-3ae87031c442",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "usage": {
+        "prompt_tokens": 368,
+        "completion_tokens": 253,
+        "total_tokens": 621
+      },
+      "local_prompt_tokens": 368,
+      "provider_prompt_tokens": 368,
+      "prompt_token_delta": 0,
+      "elapsed_seconds": 25.542,
+      "cache_hit": true,
+      "recorded_at": "2026-11-01T16:38:38.018235+00:00"
+    }
+  ],
+  "generation_enabled": false
+}

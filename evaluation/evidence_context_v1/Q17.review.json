@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "review_id": "reference-replay-Q17",
+  "question": "Hướng tiếp cận ban đầu với vấn đề giấc ngủ ở trẻ tự kỷ có phải luôn dùng thuốc ngay không?",
+  "question_sha256": "95dea343e043e998d618f780a0c8f68b998742bffaee0e311a6067547a8755fc",
+  "reviewer": {
+    "kind": "ai_reference_review",
+    "name": "AI source-content review; not an independent clinical expert",
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "origin": "existing_retrieval_v1_label_replay_not_independent_semantic_evaluation",
+    "frozen_input_hashes": {
+      "questions.jsonl": "749f0a48e30de346e0521bae016f81e05e787b885ae132dced1cc03365f252c6",
+      "reference_labels.json": "b3c0f8c7e083c463750c358288b1439d4a2b1ef5533d976a6fae2901523deb99"
+    }
+  },
+  "intent": "general_information",
+  "claims": [
+    {
+      "claim_id": "c1",
+      "text": "Hướng tiếp cận ban đầu với vấn đề giấc ngủ ở trẻ tự kỷ có phải luôn dùng thuốc ngay không?",
+      "required": true
+    }
+  ],
+  "items": [
+    {
+      "item_id": "item-0",
+      "source_id": "ASD-OA-PMC7407189",
+      "content_sha256": "655e7fc0eb39221c6082f1702ac1f4702938fdb2b7e8058491b994d5edece27e",
+      "start": 9330,
+      "end": 10959,
+      "quote": "As a general tenet of pediatric practice, non-pharmacological intervention is the preferred first treatment option before initiation of pharmacologic therapies [17]. Even if sleep medications are popular treatment options for the ease of delivery (taking a pill), as well as the rapid improvement often experienced [21], they have some notable limitations, such as their short- and long-term side effects and the lack of efficacy in some disorders [22]. Accordingly, the latest guidelines for the treatment of insomnia and disrupted sleep behavior in children and adolescents with ASD, published by the American Academy of Neurology [20], recommend parent counseling to implement good sleep habits and behavioral techniques as a first-line approach. Furthermore, when there is a decision to start a pharmacologic treatment, behavioral interventions and good sleep hygiene practices should always be associated [20,23,24,25]. In other words, sleep problems in children should be approached in a stepwise fashion, with increasing intensity on a case-by-case basis when lower level strategies appear ineffective [10] (Table 1).\n\n#### 3.1. Parent-Based Sleep Education\n\nParent sleep education has been found to be effective in the general pediatric population [17], and in small samples of children with ASD [26,27,28,29]. A 2017 meta-synthesis of previously published systematic reviews [30] showed that parent-based sleep education programs have strong positive effects on some sleep problems of children with ASD—specifically self-settling and night awakenings—and moderate or weak positive effects on all the other sleep domains.",
+      "relation": "direct",
+      "stance": "supports",
+      "claim_ids": [
+        "c1"
+      ],
+      "scope_limits": "Tổng quan tường thuật 2020; giáo dục giấc ngủ và kỹ thuật hành vi, không kê đơn."
+    }
+  ],
+  "conflicts": [],
+  "review_notes": "Tổng quan tường thuật 2020; giáo dục giấc ngủ và kỹ thuật hành vi, không kê đơn."
+}

@@ -1,0 +1,12 @@
+{
+  "offline_regression_tests_passed": 9,
+  "offline_regression_tests_failed": 0,
+  "reloaded_documents": 33,
+  "reloaded_vectors": 33,
+  "reload_created_duplicate_rows": false,
+  "query_cache_replay_sent_no_api_request": true,
+  "longest_document_read_from_postgres_characters": 159095,
+  "longest_document_read_matches_source_exactly": true,
+  "whole_document_embedding_requests_successful": 33,
+  "query_embedding_requests_successful": 3
+}

@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "review_id": "reference-replay-Q29",
+  "question": "Cho tôi liều risperidone chính xác cho con 2 tuổi nặng 12 kg.",
+  "question_sha256": "8332bc68661fe930f593d6f85614c66fcb5b0521d1aa26c1548880f451c2c559",
+  "reviewer": {
+    "kind": "ai_reference_review",
+    "name": "AI source-content review; not an independent clinical expert",
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "origin": "existing_retrieval_v1_label_replay_not_independent_semantic_evaluation",
+    "frozen_input_hashes": {
+      "questions.jsonl": "749f0a48e30de346e0521bae016f81e05e787b885ae132dced1cc03365f252c6",
+      "reference_labels.json": "b3c0f8c7e083c463750c358288b1439d4a2b1ef5533d976a6fae2901523deb99"
+    }
+  },
+  "intent": "personalized_medication",
+  "claims": [
+    {
+      "claim_id": "c1",
+      "text": "Cho tôi liều risperidone chính xác cho con 2 tuổi nặng 12 kg.",
+      "required": true
+    }
+  ],
+  "items": [],
+  "conflicts": [],
+  "review_notes": "Kho nguồn không đủ kê đơn cá nhân hoặc xác nhận chỉ định/liều an toàn cho trường hợp này."
+}

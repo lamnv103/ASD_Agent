@@ -1,0 +1,49 @@
+test_budget_excludes_whole_unit_never_truncates (test_evidence_context.EvidenceTests.test_budget_excludes_whole_unit_never_truncates) ... ok
+test_complete_conflict_detected_from_explicit_review (test_evidence_context.EvidenceTests.test_complete_conflict_detected_from_explicit_review) ... ok
+test_conflicting_pair_never_cherry_picked_by_budget (test_evidence_context.EvidenceTests.test_conflicting_pair_never_cherry_picked_by_budget) ... ok
+test_empty_required_claims_not_sufficient (test_evidence_context.EvidenceTests.test_empty_required_claims_not_sufficient) ... ok
+test_indirect_remains_partial (test_evidence_context.EvidenceTests.test_indirect_remains_partial) ... ok
+test_invalid_conflict_comparison_rejected (test_evidence_context.EvidenceTests.test_invalid_conflict_comparison_rejected) ... ok
+test_medical_diagnosis_and_dose_actions (test_evidence_context.EvidenceTests.test_medical_diagnosis_and_dose_actions) ... ok
+test_model_counter_mismatch_rejected (test_evidence_context.EvidenceTests.test_model_counter_mismatch_rejected) ... ok
+test_opposing_annotations_without_comparison_not_sufficient (test_evidence_context.EvidenceTests.test_opposing_annotations_without_comparison_not_sufficient) ... ok
+test_oversized_question_blocked (test_evidence_context.EvidenceTests.test_oversized_question_blocked) ... ok
+test_personal_factors_request_clarification (test_evidence_context.EvidenceTests.test_personal_factors_request_clarification) ... ok
+test_pipeline_retrieval_error_not_insufficient (test_evidence_context.EvidenceTests.test_pipeline_retrieval_error_not_insufficient) ... ok
+test_pipeline_trace_and_input_not_mutated (test_evidence_context.EvidenceTests.test_pipeline_trace_and_input_not_mutated) ... ok
+test_prompt_injection_quarantined_without_execution (test_evidence_context.EvidenceTests.test_prompt_injection_quarantined_without_execution) ... ok
+test_quote_offsets_and_hash_checked (test_evidence_context.EvidenceTests.test_quote_offsets_and_hash_checked) ... ok
+test_review_question_identity_not_transferable (test_evidence_context.EvidenceTests.test_review_question_identity_not_transferable) ... ok
+test_source_hash_tamper_rejected (test_evidence_context.EvidenceTests.test_source_hash_tamper_rejected) ... ok
+test_sufficient_requires_reviewed_direct_support (test_evidence_context.EvidenceTests.test_sufficient_requires_reviewed_direct_support) ... ok
+test_table_and_fence_headings_not_split (test_evidence_context.EvidenceTests.test_table_and_fence_headings_not_split) ... ok
+test_tokenizer_error_not_approximated (test_evidence_context.EvidenceTests.test_tokenizer_error_not_approximated) ... ok
+test_topical_cannot_be_upgraded (test_evidence_context.EvidenceTests.test_topical_cannot_be_upgraded) ... ok
+test_unconfigured_tokenizer_has_no_estimate (test_evidence_context.EvidenceTests.test_unconfigured_tokenizer_has_no_estimate) ... ok
+test_unicode_offsets_are_characters_not_bytes (test_evidence_context.EvidenceTests.test_unicode_offsets_are_characters_not_bytes) ... ok
+test_unknown_query_not_automatically_sufficient (test_evidence_context.EvidenceTests.test_unknown_query_not_automatically_sufficient) ... ok
+test_unretrieved_source_cannot_raise_score (test_evidence_context.EvidenceTests.test_unretrieved_source_cannot_raise_score) ... ok
+test_whole_section_keeps_limit_and_negation (test_evidence_context.EvidenceTests.test_whole_section_keeps_limit_and_negation) ... ok
+test_real_tokenizer_budget_fits_without_character_estimate (test_evidence_context.OfficialTokenizerTests.test_real_tokenizer_budget_fits_without_character_estimate) ... ok
+test_vietnamese_units_and_chat_special_tokens_match_rendered_encoding (test_evidence_context.OfficialTokenizerTests.test_vietnamese_units_and_chat_special_tokens_match_rendered_encoding) ... ok
+test_integrity_checks_content_and_attribution (test_retriever.LiveReadOnlyTests.test_integrity_checks_content_and_attribution) ... ok
+test_integrity_refuses_changed_vector_and_content_pin (test_retriever.LiveReadOnlyTests.test_integrity_refuses_changed_vector_and_content_pin) ... ok
+test_real_cached_query_reads_fulltext_from_database_without_api (test_retriever.LiveReadOnlyTests.test_real_cached_query_reads_fulltext_from_database_without_api) ... ok
+test_real_db_fulltext_and_blocked_sources (test_retriever.LiveReadOnlyTests.test_real_db_fulltext_and_blocked_sources) ... ok
+test_real_db_readonly (test_retriever.LiveReadOnlyTests.test_real_db_readonly) ... ok
+test_bad_vectors (test_retriever.RetrieverTests.test_bad_vectors) ... ok
+test_cache_hit_needs_no_api_or_key (test_retriever.RetrieverTests.test_cache_hit_needs_no_api_or_key) ... ok
+test_configuration_rejects_wrong_space_profile (test_retriever.RetrieverTests.test_configuration_rejects_wrong_space_profile) ... ok
+test_database_error_not_empty_result (test_retriever.RetrieverTests.test_database_error_not_empty_result) ... ok
+test_invalid_query_and_topk_before_db (test_retriever.RetrieverTests.test_invalid_query_and_topk_before_db) ... ok
+test_nvidia_key_not_sent_to_cohere (test_retriever.RetrieverTests.test_nvidia_key_not_sent_to_cohere) ... ok
+test_provider_failures_are_not_retried_or_cached (test_retriever.RetrieverTests.test_provider_failures_are_not_retried_or_cached) ... ok
+test_provider_payload_is_query_only_and_no_truncation (test_retriever.RetrieverTests.test_provider_payload_is_query_only_and_no_truncation) ... ok
+test_source_id_traversal_rejected (test_retriever.RetrieverTests.test_source_id_traversal_rejected) ... ok
+test_tampered_cache_fails_without_api (test_retriever.RetrieverTests.test_tampered_cache_fails_without_api) ... ok
+test_tools_do_not_execute_unknown_calls (test_retriever.RetrieverTests.test_tools_do_not_execute_unknown_calls) ... ok
+
+----------------------------------------------------------------------
+Ran 44 tests in 1.160s
+
+OK

@@ -1,0 +1,233 @@
+{
+  "ok": true,
+  "checked_at": "2026-10-31T00:38:45+07:00",
+  "database": {
+    "status": "verified_33_documents_33_vectors",
+    "checked_at": "2026-10-31T00:38:45+07:00",
+    "database": "asd_rag",
+    "collection_id": "asd_fulltext_33_20261030_26eb017efca5",
+    "space_id": "cohere4_whole_1536_e83c596b9070",
+    "documents": 33,
+    "vectors": 33,
+    "enabled_for_retrieval": true,
+    "model": "embed-v4.0",
+    "dimensions": 1536,
+    "one_document_one_vector": true,
+    "whole_texts_match_exactly": true,
+    "source_file_sha256": "26eb017efca593ed18aa4044c9b8185d871bd0f512cda0cb4b9edf82658c5331",
+    "legacy_data_unchanged": true,
+    "legacy": {
+      "collections": {
+        "rows": 2,
+        "row_hashes_sha256": "17500efa8bde365620b3122ee793d8a44ae826fa1cb15edb217ace40ac5db42f"
+      },
+      "documents": {
+        "rows": 117,
+        "row_hashes_sha256": "995747e6f0bfc878a0f34dc3ebc1c28a8af0dbb865b0672c305247503c0e90a6"
+      },
+      "embedding_spaces": {
+        "rows": 1,
+        "row_hashes_sha256": "56cf82afb9fb32254d590bedf62477775fec20f58a03615d9e7a9976b91ca465"
+      },
+      "embeddings": {
+        "rows": 7,
+        "row_hashes_sha256": "694418a6a88474275ed367e8cc7687cbaf4f62acb9ef8cbdc6d9fdb009e67e48"
+      },
+      "curated_chunks": {
+        "rows": 113,
+        "row_hashes_sha256": "f6f544f0a7897d393bfb86167d022ffb01748c8036b29f24a8670c8f79cba094"
+      }
+    },
+    "clinical_reviewed": false,
+    "production_ingest": false
+  },
+  "whole_documents": 33,
+  "whole_document_vectors": 33,
+  "dimensions": 1536,
+  "model": "embed-v4.0",
+  "provider": "cohere",
+  "source_characters": 2307606,
+  "maximum_document_characters": 159095,
+  "provider_billed_input_tokens": 640696,
+  "maximum_provider_billed_tokens_per_document": 41266,
+  "successful_unique_document_requests": 33,
+  "recorded_rejected_requests": 1,
+  "all_inputs_sent_unmodified": true,
+  "truncate": "NONE",
+  "all_vectors_finite": true,
+  "duplicate_vector_across_spaces_rejected_by_postgres": true,
+  "legacy_rows_unchanged": true,
+  "protected_library_files_verified": 132,
+  "cached_files": 33,
+  "aggregate_sha256": "3864ee3bee784c44e063eded1079dc3065ad0f9875cb78706cfe079806cc5a5c",
+  "retrieval_smoke": {
+    "status": "completed",
+    "purpose": "Small semantic retrieval smoke check, not a validated clinical retrieval benchmark",
+    "model": "embed-v4.0",
+    "space_id": "cohere4_whole_1536_e83c596b9070",
+    "queries": 3,
+    "expected_in_top5": 3,
+    "generated_answers": false,
+    "clinical_answer_quality_evaluated": false,
+    "results": [
+      {
+        "id": "SMOKE-01",
+        "query": "Can thiệp phát triển hành vi tự nhiên NDBI là gì?",
+        "expected_sources": [
+          "ASD-SUP-PMC4513196"
+        ],
+        "top5_source_ids": [
+          "ASD-SUP-PMC4513196",
+          "ASD-OA-PMC10774556",
+          "ASD-OA-PMC12593641",
+          "ASD-OA-PMC4742252",
+          "NIH-NIDCD-ASD-COMMUNICATION-2020"
+        ],
+        "expected_in_top5": true,
+        "full_source_read_from_postgres_and_matches": true,
+        "results": [
+          {
+            "source_id": "ASD-SUP-PMC4513196",
+            "title": "Naturalistic Developmental Behavioral Interventions: Empirically Validated Treatments for Autism Spectrum Disorder",
+            "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4513196/",
+            "cosine_distance": 0.5355076223528139
+          },
+          {
+            "source_id": "ASD-OA-PMC10774556",
+            "title": "Behavioral Interventions for Autism Spectrum Disorder: A Brief Review and Guidelines With a Specific Focus on Applied Behavior Analysis",
+            "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10774556/",
+            "cosine_distance": 0.7014036043449269
+          },
+          {
+            "source_id": "ASD-OA-PMC12593641",
+            "title": "Transition to adolescence in neurodevelopmental disorders: challenges and clinical perspectives",
+            "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12593641/",
+            "cosine_distance": 0.7077092528343181
+          },
+          {
+            "source_id": "ASD-OA-PMC4742252",
+            "title": "Prevalence and Correlates of Elopement in a Nationally Representative Sample of Children with Developmental Disabilities in the United States",
+            "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4742252/",
+            "cosine_distance": 0.7192550238474191
+          },
+          {
+            "source_id": "NIH-NIDCD-ASD-COMMUNICATION-2020",
+            "title": "Autism Spectrum Disorder: Communication Problems in Children",
+            "source_url": "https://www.nidcd.nih.gov/health/autism-spectrum-disorder-communication-problems-children",
+            "cosine_distance": 0.729569453674056
+          }
+        ]
+      },
+      {
+        "id": "SMOKE-02",
+        "query": "Social Stories có cải thiện kết quả chính về đáp ứng xã hội trong ASSSIST-2 không?",
+        "expected_sources": [
+          "ASD-SUP-PMC11754701"
+        ],
+        "top5_source_ids": [
+          "ASD-SUP-PMC11754701",
+          "ASD-CSV-084",
+          "ASD-CSV-062",
+          "ASD-SUP-PMC6590432",
+          "ASD-NEW-003"
+        ],
+        "expected_in_top5": true,
+        "full_source_read_from_postgres_and_matches": true,
+        "results": [
+          {
+            "source_id": "ASD-SUP-PMC11754701",
+            "title": "Autism Spectrum Social Stories in Schools Trial 2 (ASSSIST‐2): a pragmatic randomised controlled trial of the Social Stories™ intervention to address the social and emotional health of autistic children in UK primary schools",
+            "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11754701/",
+            "cosine_distance": 0.42143717411440806
+          },
+          {
+            "source_id": "ASD-CSV-084",
+            "title": "The role of augmentative and alternative communication for children with autism: current status and future trends",
+            "source_url": "https://doi.org/10.2147/ndt.s95967",
+            "cosine_distance": 0.6099981641647589
+          },
+          {
+            "source_id": "ASD-CSV-062",
+            "title": "The Presence of Comorbid ADHD and Anxiety Symptoms in Autism Spectrum Disorder: Clinical Presentation and Predictors",
+            "source_url": "https://doi.org/10.3389/fpsyt.2018.00717",
+            "cosine_distance": 0.670426414440937
+          },
+          {
+            "source_id": "ASD-SUP-PMC6590432",
+            "title": "A systematic review of ayres sensory integration intervention for children with autism",
+            "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6590432/",
+            "cosine_distance": 0.6759724996432737
+          },
+          {
+            "source_id": "ASD-NEW-003",
+            "title": "Food Selectivity in Children with Autism: Guidelines for Assessment and Clinical Interventions",
+            "source_url": "https://doi.org/10.3390/ijerph20065092",
+            "cosine_distance": 0.6768980301734363
+          }
+        ]
+      },
+      {
+        "id": "SMOKE-03",
+        "query": "Nhận biết trầm cảm ở tuổi vị thành niên và tìm trợ giúp như thế nào?",
+        "expected_sources": [
+          "NIH-NIMH-TEEN-DEPRESSION"
+        ],
+        "top5_source_ids": [
+          "NIH-NIMH-TEEN-DEPRESSION",
+          "NIH-NIMH-TEEN-BRAIN",
+          "ASD-OA-PMC12593641",
+          "NIH-NIMH-ASD-2025",
+          "NIH-NIMH-MEDICATIONS"
+        ],
+        "expected_in_top5": true,
+        "full_source_read_from_postgres_and_matches": true,
+        "results": [
+          {
+            "source_id": "NIH-NIMH-TEEN-DEPRESSION",
+            "title": "Teen Depression: More Than Just Moodiness",
+            "source_url": "https://www.nimh.nih.gov/health/publications/teen-depression",
+            "cosine_distance": 0.5094778222779345
+          },
+          {
+            "source_id": "NIH-NIMH-TEEN-BRAIN",
+            "title": "The Teen Brain: 7 Things to Know",
+            "source_url": "https://www.nimh.nih.gov/health/publications/the-teen-brain-7-things-to-know",
+            "cosine_distance": 0.6454442864126793
+          },
+          {
+            "source_id": "ASD-OA-PMC12593641",
+            "title": "Transition to adolescence in neurodevelopmental disorders: challenges and clinical perspectives",
+            "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12593641/",
+            "cosine_distance": 0.7039254484221025
+          },
+          {
+            "source_id": "NIH-NIMH-ASD-2025",
+            "title": "Autism Spectrum Disorder",
+            "source_url": "https://www.nimh.nih.gov/health/publications/autism-spectrum-disorder",
+            "cosine_distance": 0.7161172116959864
+          },
+          {
+            "source_id": "NIH-NIMH-MEDICATIONS",
+            "title": "Mental Health Medications",
+            "source_url": "https://www.nimh.nih.gov/health/topics/mental-health-medications",
+            "cosine_distance": 0.7177825570106426
+          }
+        ]
+      }
+    ]
+  },
+  "clinical_answer_quality_evaluated": false,
+  "existing_chatbot_configuration_changed": false,
+  "runtime_controls": {
+    "offline_regression_tests_passed": 9,
+    "offline_regression_tests_failed": 0,
+    "reloaded_documents": 33,
+    "reloaded_vectors": 33,
+    "reload_created_duplicate_rows": false,
+    "query_cache_replay_sent_no_api_request": true,
+    "longest_document_read_from_postgres_characters": 159095,
+    "longest_document_read_matches_source_exactly": true,
+    "whole_document_embedding_requests_successful": 33,
+    "query_embedding_requests_successful": 3
+  }
+}

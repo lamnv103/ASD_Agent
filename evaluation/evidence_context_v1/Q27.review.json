@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "review_id": "reference-replay-Q27",
+  "question": "Quyền nhận dịch vụ can thiệp sớm miễn phí theo trang CDC có tự động áp dụng tại Việt Nam không?",
+  "question_sha256": "377a0c2497fe25eeb4f3ab528ea820b995cc5fff48125514e5bab4991df88dbe",
+  "reviewer": {
+    "kind": "ai_reference_review",
+    "name": "AI source-content review; not an independent clinical expert",
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "origin": "existing_retrieval_v1_label_replay_not_independent_semantic_evaluation",
+    "frozen_input_hashes": {
+      "questions.jsonl": "749f0a48e30de346e0521bae016f81e05e787b885ae132dced1cc03365f252c6",
+      "reference_labels.json": "b3c0f8c7e083c463750c358288b1439d4a2b1ef5533d976a6fae2901523deb99"
+    }
+  },
+  "intent": "scope_legal",
+  "claims": [
+    {
+      "claim_id": "c1",
+      "text": "Phần được nguồn hỗ trợ theo nhãn tham chiếu hiện có",
+      "required": true
+    },
+    {
+      "claim_id": "c2",
+      "text": "Phần chưa đủ căn cứ theo nhãn hiện có: Chỉ xác định phạm vi chương trình Hoa Kỳ; không đủ kết luận nghĩa vụ pháp lý tại Việt Nam.",
+      "required": true
+    }
+  ],
+  "items": [
+    {
+      "item_id": "item-0",
+      "source_id": "CDC-EARLY-INTERVENTION",
+      "content_sha256": "18b221d39ba20430520880a3b8285f6f5dc72601b83cc1454788fefd306275ed",
+      "start": 355,
+      "end": 522,
+      "quote": "  * Each state, territory, or commonwealth has its own early intervention program and rules about eligibility and services. Contact the program near you to learn more.",
+      "relation": "direct",
+      "stance": "supports",
+      "claim_ids": [
+        "c1"
+      ],
+      "scope_limits": "Chỉ xác định phạm vi chương trình Hoa Kỳ; không đủ kết luận nghĩa vụ pháp lý tại Việt Nam."
+    }
+  ],
+  "conflicts": [],
+  "review_notes": "Chỉ xác định phạm vi chương trình Hoa Kỳ; không đủ kết luận nghĩa vụ pháp lý tại Việt Nam."
+}

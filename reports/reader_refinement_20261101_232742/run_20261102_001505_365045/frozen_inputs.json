@@ -1,0 +1,8 @@
+{
+  "created_at": "2026-11-01T23:37:50.656372+07:00",
+  "purpose": "Development regression from six previously reviewed cases; old labels copied verbatim, not clinical gold",
+  "files": {
+    "questions.jsonl": "e6e795e0d61f3e46cc5d9b2609cba7ddd7f5a0c5e9a8fe6ffdcd1e3c55756a70",
+    "reference_labels.jsonl": "3851d7c125673f67277f25c2187e79a363efcee4be783d02ffdd831cc9807ce9"
+  }
+}

@@ -1,0 +1,163 @@
+{
+  "status": "technical_passed_semantic_results_require_adjudication",
+  "recorded_at": "2026-11-06T20:49:15.645061+07:00",
+  "documents": 33,
+  "vectors": 33,
+  "source_files_unchanged": 132,
+  "database_unchanged": true,
+  "v3_cached_replays": 23,
+  "v2_replays_identical": 20,
+  "original_rankings_identical": 30,
+  "validated_item_spans": 44,
+  "prompt_token_deltas": [
+    0
+  ],
+  "api_calls_during_audit": 0,
+  "tests": 115,
+  "tests_failed": 0,
+  "tests_errors": 0,
+  "tests_skipped": 0,
+  "patient_generation_enabled": false,
+  "independent_clinical_validation": false,
+  "semantic_accuracy_established": false,
+  "results": [
+    {
+      "question_id": "S05",
+      "assessment": "sufficient",
+      "provisional_agreement": true,
+      "trace_sha256": "cb3c7f093738c633d4adf0d3b3f15ccf4d25a75819e50c3c15b4da9c2cc1d156"
+    },
+    {
+      "question_id": "S07",
+      "assessment": "partially_sufficient",
+      "provisional_agreement": true,
+      "trace_sha256": "9f2c6e50b3706aebf92827f2ac25bc87472d85904fc9a52fa367bdd1a98e692e"
+    },
+    {
+      "question_id": "S08",
+      "assessment": "sufficient",
+      "provisional_agreement": true,
+      "trace_sha256": "8b6677e6b363e9b2fa0639ad0139e600c9b5da0c6d0a7f8823fb2d1d3426161c"
+    },
+    {
+      "question_id": "H03",
+      "assessment": "sufficient",
+      "provisional_agreement": true,
+      "trace_sha256": "7b14e6d7a31473be08a0f9a86a27292f9f2f341ad5f4354c04218fcfe523aa42"
+    },
+    {
+      "question_id": "H04",
+      "assessment": "sufficient",
+      "provisional_agreement": true,
+      "trace_sha256": "82ae1b32a4ffd6e040c3e051d55f976937b9ebafb5268c2cd21276ed3d069c73"
+    },
+    {
+      "question_id": "H05",
+      "assessment": "insufficient",
+      "provisional_agreement": false,
+      "trace_sha256": "dbe6e68fe08f2290b29986492503613366e49d61e08c6cc4aca1b77ff0b57229"
+    },
+    {
+      "question_id": "N01",
+      "assessment": "sufficient",
+      "provisional_agreement": true,
+      "trace_sha256": "167d349e2740da68944ed18219818467c19b4ffca718c20dadb131df4a52f8b2"
+    },
+    {
+      "question_id": "N02",
+      "assessment": "insufficient",
+      "provisional_agreement": false,
+      "trace_sha256": "ea0d3d7f06524d53a92fb04f13a3d67a0a966138662547388aef0ba3ac91d503"
+    },
+    {
+      "question_id": "N03",
+      "assessment": "sufficient",
+      "provisional_agreement": true,
+      "trace_sha256": "b8d76ee95a181f3625244f5c27458e039cbed77c88293d12480b453b08f10c6f"
+    },
+    {
+      "question_id": "N04",
+      "assessment": "partially_sufficient",
+      "provisional_agreement": true,
+      "trace_sha256": "ecc038f18835fa4ed1d8fb10cc03e690ee04579edf24b135e13816995f5316c2"
+    },
+    {
+      "question_id": "N05",
+      "assessment": "sufficient",
+      "provisional_agreement": true,
+      "trace_sha256": "82d199115a94110942dd7b2c4b3cd9b7385b679cb462cd96d678e467e34e096a"
+    },
+    {
+      "question_id": "N06",
+      "assessment": "sufficient",
+      "provisional_agreement": true,
+      "trace_sha256": "49204f8b791be338475f58b89667aae33d5ab2b2bcada031f7dfc947598b1c05"
+    },
+    {
+      "question_id": "N07",
+      "assessment": "sufficient",
+      "provisional_agreement": true,
+      "trace_sha256": "ae558f9b88f18e93acb29a634ecc111435bcce3691a6188cea710e5294b32249"
+    },
+    {
+      "question_id": "N08",
+      "assessment": "sufficient",
+      "provisional_agreement": true,
+      "trace_sha256": "07bfe0500c1ab929aef15d54df42ed3f593dc63e3cd8d51e5559fa7d8687ccfe"
+    },
+    {
+      "question_id": "N09",
+      "assessment": "insufficient",
+      "provisional_agreement": true,
+      "trace_sha256": "988259ee7217bd2b5680f75b5e17e7a85610d990cf8b63fbf38bd1cc2b1b4366"
+    },
+    {
+      "question_id": "N10",
+      "assessment": "insufficient",
+      "provisional_agreement": true,
+      "trace_sha256": "404193cf76f295b002cbe4f5a4ed876e9e9cd7f0cc33b27c098cbf898777bc88"
+    },
+    {
+      "question_id": "N11",
+      "assessment": "insufficient",
+      "provisional_agreement": true,
+      "trace_sha256": "a1f0475657f6314a24db09ea461505e1a7421a45d075a2c970b39eae4cb3f77a"
+    },
+    {
+      "question_id": "N12",
+      "assessment": "insufficient",
+      "provisional_agreement": true,
+      "trace_sha256": "23f410ca7db0e2a0f93b30d5809f3af026db1c50e84d3d6b84ef77f66ddb3729"
+    },
+    {
+      "question_id": "F01",
+      "assessment": "sufficient",
+      "provisional_agreement": true,
+      "trace_sha256": "af34cd5566990d1da506d4570e699503f6ff308f6a83c292bf4ec4ddeaea9e9a"
+    },
+    {
+      "question_id": "F02",
+      "assessment": "partially_sufficient",
+      "provisional_agreement": false,
+      "trace_sha256": "99a328ecabb9547fc0402b53992e0d5baf7c72b35ae1a360361f3badc0716d70"
+    },
+    {
+      "question_id": "F03",
+      "assessment": "sufficient",
+      "provisional_agreement": true,
+      "trace_sha256": "7195ece762180ed83202510873388a403e0933c956566b56696089dc76ca6333"
+    },
+    {
+      "question_id": "F04",
+      "assessment": "sufficient",
+      "provisional_agreement": true,
+      "trace_sha256": "7af483950adeeac47bf017c295d790bc4f2fcb0ab82834a832eda1e007ae5c9f"
+    },
+    {
+      "question_id": "F05",
+      "assessment": "insufficient",
+      "provisional_agreement": true,
+      "trace_sha256": "d539f7e04de4dbcf0df1b26451e2cf33a75cd774f918dceff915f06430a528ed"
+    }
+  ]
+}

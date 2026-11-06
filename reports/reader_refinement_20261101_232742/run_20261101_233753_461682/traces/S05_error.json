@@ -1,0 +1,26 @@
+{
+  "question": "Khó ngủ có liên quan đến hành vi ở trẻ tự kỷ, nhưng đã đủ để kết luận quan hệ nhân quả hai chiều chắc chắn chưa?",
+  "error_code": "reader_no_context",
+  "error_stage": "source_selection",
+  "message": "No complete source unit fits; no semantic assessment.",
+  "reader_calls": [
+    {
+      "stage": "question_plan",
+      "content_sha256": "8291e8b98ddbb174a3da094ef0a24a3688d29494fc3c63a6bf3025ea4f0520dc",
+      "request_id": "chatcmpl-7b0fdc3a-ba2a-45d3-8f29-afd551e776a3",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "usage": {
+        "prompt_tokens": 369,
+        "completion_tokens": 180,
+        "total_tokens": 549
+      },
+      "local_prompt_tokens": 369,
+      "provider_prompt_tokens": 369,
+      "prompt_token_delta": 0,
+      "elapsed_seconds": 17.529,
+      "cache_hit": false,
+      "recorded_at": "2026-11-01T16:38:11.744275+00:00"
+    }
+  ],
+  "generation_enabled": false
+}

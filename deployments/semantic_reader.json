@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "enabled_for_research_only": true,
+  "answer_generation_enabled": false,
+  "model": "nvidia/nemotron-3-ultra-550b-a55b",
+  "endpoint": "https://integrate.api.nvidia.com/v1/chat/completions",
+  "context_window_tokens": 32768,
+  "max_output_tokens": 1536,
+  "safety_margin_tokens": 512,
+  "per_source_input_tokens": 2800,
+  "timeout_seconds": 55,
+  "temperature": 0,
+  "chat_template_kwargs": {
+    "enable_thinking": false
+  },
+  "max_evidence_items": 6,
+  "output_protocol": "passage_ids_v2",
+  "verify_claim_links": true
+}

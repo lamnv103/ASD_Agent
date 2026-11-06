@@ -1,0 +1,311 @@
+{
+  "status": "verified",
+  "documents_before": 33,
+  "documents_after": 33,
+  "vectors_before": 33,
+  "vectors_after": 33,
+  "database_unchanged": true,
+  "protected_source_files_unchanged": 132,
+  "existing_retrieval_code_and_config_unchanged": true,
+  "retrieval_regression_queries": 30,
+  "ranks_and_distances_unchanged": true,
+  "query_api_calls": 0,
+  "answer_generation_calls": 0,
+  "all_exact_spans_and_selected_contexts_valid": true,
+  "all_normal_contexts_within_budget": true,
+  "evidence_state_counts_before": {
+    "sufficient": 25,
+    "partially_sufficient": 2,
+    "insufficient": 3
+  },
+  "evidence_state_counts_after": {
+    "sufficient": 25,
+    "partially_sufficient": 2,
+    "insufficient": 3
+  },
+  "results": [
+    {
+      "question_id": "Q01",
+      "before": "sufficient",
+      "after": "sufficient",
+      "context_status": "prepared",
+      "input_tokens": 1134,
+      "policy": "general_education_with_source_limits"
+    },
+    {
+      "question_id": "Q02",
+      "before": "sufficient",
+      "after": "sufficient",
+      "context_status": "prepared",
+      "input_tokens": 1112,
+      "policy": "general_education_with_source_limits"
+    },
+    {
+      "question_id": "Q03",
+      "before": "sufficient",
+      "after": "sufficient",
+      "context_status": "prepared",
+      "input_tokens": 1834,
+      "policy": "general_education_with_source_limits"
+    },
+    {
+      "question_id": "Q04",
+      "before": "sufficient",
+      "after": "sufficient",
+      "context_status": "prepared",
+      "input_tokens": 1886,
+      "policy": "general_education_with_source_limits"
+    },
+    {
+      "question_id": "Q05",
+      "before": "sufficient",
+      "after": "sufficient",
+      "context_status": "prepared",
+      "input_tokens": 2107,
+      "policy": "general_education_with_source_limits"
+    },
+    {
+      "question_id": "Q06",
+      "before": "sufficient",
+      "after": "sufficient",
+      "context_status": "prepared",
+      "input_tokens": 1736,
+      "policy": "general_education_with_source_limits"
+    },
+    {
+      "question_id": "Q07",
+      "before": "sufficient",
+      "after": "sufficient",
+      "context_status": "prepared",
+      "input_tokens": 1546,
+      "policy": "general_education_with_source_limits"
+    },
+    {
+      "question_id": "Q08",
+      "before": "sufficient",
+      "after": "sufficient",
+      "context_status": "prepared",
+      "input_tokens": 1517,
+      "policy": "general_education_with_source_limits"
+    },
+    {
+      "question_id": "Q09",
+      "before": "partially_sufficient",
+      "after": "partially_sufficient",
+      "context_status": "prepared",
+      "input_tokens": 1905,
+      "policy": "general_education_with_source_limits"
+    },
+    {
+      "question_id": "Q10",
+      "before": "sufficient",
+      "after": "sufficient",
+      "context_status": "prepared",
+      "input_tokens": 1976,
+      "policy": "general_education_with_source_limits"
+    },
+    {
+      "question_id": "Q11",
+      "before": "sufficient",
+      "after": "sufficient",
+      "context_status": "prepared",
+      "input_tokens": 1648,
+      "policy": "general_education_with_source_limits"
+    },
+    {
+      "question_id": "Q12",
+      "before": "sufficient",
+      "after": "sufficient",
+      "context_status": "prepared",
+      "input_tokens": 4235,
+      "policy": "general_education_with_source_limits"
+    },
+    {
+      "question_id": "Q13",
+      "before": "sufficient",
+      "after": "sufficient",
+      "context_status": "prepared",
+      "input_tokens": 1755,
+      "policy": "general_education_with_source_limits"
+    },
+    {
+      "question_id": "Q14",
+      "before": "sufficient",
+      "after": "sufficient",
+      "context_status": "prepared",
+      "input_tokens": 5441,
+      "policy": "general_education_with_source_limits"
+    },
+    {
+      "question_id": "Q15",
+      "before": "sufficient",
+      "after": "sufficient",
+      "context_status": "prepared",
+      "input_tokens": 1729,
+      "policy": "general_education_with_source_limits"
+    },
+    {
+      "question_id": "Q16",
+      "before": "sufficient",
+      "after": "sufficient",
+      "context_status": "prepared",
+      "input_tokens": 6408,
+      "policy": "general_education_with_source_limits"
+    },
+    {
+      "question_id": "Q17",
+      "before": "sufficient",
+      "after": "sufficient",
+      "context_status": "prepared",
+      "input_tokens": 4984,
+      "policy": "general_education_with_source_limits"
+    },
+    {
+      "question_id": "Q18",
+      "before": "sufficient",
+      "after": "sufficient",
+      "context_status": "prepared",
+      "input_tokens": 1712,
+      "policy": "general_education_with_source_limits"
+    },
+    {
+      "question_id": "Q19",
+      "before": "sufficient",
+      "after": "sufficient",
+      "context_status": "prepared",
+      "input_tokens": 18734,
+      "policy": "general_education_with_source_limits"
+    },
+    {
+      "question_id": "Q20",
+      "before": "sufficient",
+      "after": "sufficient",
+      "context_status": "prepared",
+      "input_tokens": 1896,
+      "policy": "general_education_with_source_limits"
+    },
+    {
+      "question_id": "Q21",
+      "before": "sufficient",
+      "after": "sufficient",
+      "context_status": "prepared",
+      "input_tokens": 22470,
+      "policy": "general_education_with_source_limits"
+    },
+    {
+      "question_id": "Q22",
+      "before": "sufficient",
+      "after": "sufficient",
+      "context_status": "prepared",
+      "input_tokens": 1380,
+      "policy": "general_education_with_source_limits"
+    },
+    {
+      "question_id": "Q23",
+      "before": "sufficient",
+      "after": "sufficient",
+      "context_status": "prepared",
+      "input_tokens": 1068,
+      "policy": "general_education_with_source_limits"
+    },
+    {
+      "question_id": "Q24",
+      "before": "sufficient",
+      "after": "sufficient",
+      "context_status": "prepared",
+      "input_tokens": 1863,
+      "policy": "general_education_with_source_limits"
+    },
+    {
+      "question_id": "Q25",
+      "before": "sufficient",
+      "after": "sufficient",
+      "context_status": "prepared",
+      "input_tokens": 1358,
+      "policy": "general_education_with_source_limits"
+    },
+    {
+      "question_id": "Q26",
+      "before": "sufficient",
+      "after": "sufficient",
+      "context_status": "prepared",
+      "input_tokens": 1301,
+      "policy": "general_education_with_source_limits"
+    },
+    {
+      "question_id": "Q27",
+      "before": "partially_sufficient",
+      "after": "partially_sufficient",
+      "context_status": "prepared",
+      "input_tokens": 1147,
+      "policy": "explain_scope_only_no_local_legal_conclusion"
+    },
+    {
+      "question_id": "Q28",
+      "before": "insufficient",
+      "after": "insufficient",
+      "context_status": "empty_reviewed_context",
+      "input_tokens": 278,
+      "policy": "do_not_confirm_personal_diagnosis"
+    },
+    {
+      "question_id": "Q29",
+      "before": "insufficient",
+      "after": "insufficient",
+      "context_status": "empty_reviewed_context",
+      "input_tokens": 283,
+      "policy": "do_not_prescribe_or_calculate_personal_dose"
+    },
+    {
+      "question_id": "Q30",
+      "before": "insufficient",
+      "after": "insufficient",
+      "context_status": "empty_reviewed_context",
+      "input_tokens": 287,
+      "policy": "explain_insufficient_evidence"
+    }
+  ],
+  "unit_and_integration_tests_run": 44,
+  "tests_failed": 0,
+  "tests_errors": 0,
+  "tests_skipped": 0,
+  "configured_model": "nvidia/nemotron-3-ultra-550b-a55b",
+  "tokenizer": {
+    "kind": "huggingface_local",
+    "model_id": "nvidia/nemotron-3-ultra-550b-a55b",
+    "repository": "nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-NVFP4",
+    "revision": "02462641f13d3af838b904f48195b9bb8a1e4ebc",
+    "artifact_hashes": {
+      "chat_template.jinja": "82753bef5cedc4932c1ed509b5c9a12be680fd86d1adb65bc3f7398d11c8eebc",
+      "special_tokens_map.json": "e9435fefd6d838fd9fcbbc44b97a8e3ff322be7f6dfb7e4fd2468586574bb52b",
+      "tokenizer.json": "623c34567aebb18582765289fbe23d901c62704d6518d71866e0e58db892b5b7",
+      "tokenizer_config.json": "10f93eabcb9b1602fbb991d6308e787ce1df28ee9cd7a1c6d1e8c3f338b957bc"
+    },
+    "request_profile": {
+      "add_generation_prompt": true,
+      "template_kwargs": {
+        "enable_thinking": false
+      }
+    },
+    "exactness": "exact_for_pinned_local_chat_template",
+    "hosted_endpoint_prompt_token_parity_verified": false
+  },
+  "context_window_tokens": 32768,
+  "real_conflicting_clinical_case_validated": false,
+  "synthetic_conflict_logic_tested": true,
+  "autonomous_semantic_reader_implemented": false,
+  "reviewer_annotation_replay_not_independent_accuracy_score": true,
+  "independent_clinical_review": false,
+  "limitations": [
+    "Existing reviewed references exercise the pipeline; they are not independent semantic judgments.",
+    "Default unreviewed questions remain pending/insufficient; no automatic clinical sufficiency inference.",
+    "Conflicting case is synthetic only; no medical contradiction was invented.",
+    "Hosted NVIDIA NIM token usage parity and endpoint window remain unverified; no generation call was made."
+  ],
+  "dependency_versions": {
+    "transformers": "5.22.1",
+    "tokenizers": "0.23.3",
+    "jinja2": "3.1.6",
+    "huggingface-hub": "2.4.0"
+  }
+}

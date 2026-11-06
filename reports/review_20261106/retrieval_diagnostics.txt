@@ -1,0 +1,37 @@
+docs 33
+
+questions analysed: 73  with cached vector: 73
+questions with expected sources: 34
+hit@1: 22/34 = 0.647
+hit@3: 29/34 = 0.853
+hit@5: 31/34 = 0.912
+hit@10: 31/34 = 0.912
+MRR (full ranking): 0.758
+median best rank: 1.0  worst: 20
+
+distance gap rank1->rank5: median 0.0987 min 0.0103 max 0.2427
+distance spread rank1->rank33: median 0.2943
+
+by set:
+  reader_v3_development        n= 6 hit@1=0.67 hit@5=0.83 MRR=0.759
+  reader_v3_final_holdout      n= 4 hit@1=0.75 hit@5=1.00 MRR=0.800
+  reader_v3_holdout            n= 8 hit@1=0.50 hit@5=0.88 MRR=0.652
+  semantic_reader_holdout_v1   n= 5 hit@1=0.60 hit@5=0.80 MRR=0.711
+  semantic_reader_v1           n=11 hit@1=0.73 hit@5=1.00 MRR=0.841
+
+misses beyond top5:
+   reader_v3_development H05 {'NIH-NIMH-ASD-2025': 19} Hai trẻ đều được chẩn đoán tự kỷ có nhất thiết có biểu hiện, điểm mạnh
+   reader_v3_holdout N02 {'NIH-NIMH-ASD-2025': 20} Khi giáo viên nhận thấy trẻ tuổi đi học khó hiểu giọng điệu, nét mặt h
+   semantic_reader_holdout_v1 H05 {'NIH-NIMH-ASD-2025': 19} Hai trẻ đều được chẩn đoán tự kỷ có nhất thiết có biểu hiện, điểm mạnh
+
+hubness: share of 73 queries where doc is in top5
+  ASD-OA-PMC6487529                 32  44%  len=73020
+  ASD-OA-PMC13005892                29  40%  len=110269
+  ASD-CSV-002                       28  38%  len=99873
+  ASD-CSV-091                       22  30%  len=129271
+  ASD-SUP-PMC11754701               21  29%  len=101974
+  ASD-OA-PMC7407189                 16  22%  len=138197
+  ASD-SUP-PMC4513196                16  22%  len=100426
+  ASD-OA-PMC4742252                 15  21%  len=58131
+docs never in any top5: 2 ['CDC-ASD-TREATMENT', 'ASD-OA-PMC10018050']
+corr(doc length, top5 frequency): 0.324

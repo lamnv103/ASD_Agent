@@ -1,0 +1,408 @@
+{
+  "question": "Gia đình có thể tiếp tục nói chuyện khi dùng bảng tranh cho con không, và có chắc con sẽ tăng lời nói nhờ bảng tranh không?",
+  "error_code": "reader_quote",
+  "message": "Quote absent or ambiguous in material actually read; no fuzzy match.",
+  "reader_provider": {
+    "content_sha256": "60243a793c33d14c5c09445a146fcbfea55e0ef9007b5cc49085e65df772bbef",
+    "request_id": "chatcmpl-fc0f5613-e87d-4cf1-9838-3d6c8379f316",
+    "model": "nvidia/nemotron-3-ultra-550b-a55b",
+    "usage": {
+      "prompt_tokens": 20813,
+      "completion_tokens": 642,
+      "total_tokens": 21455
+    },
+    "local_prompt_tokens": 20813,
+    "provider_prompt_tokens": 20813,
+    "prompt_token_delta": 0,
+    "elapsed_seconds": 23.211,
+    "cache_hit": false,
+    "recorded_at": "2026-11-01T15:32:18.304537+00:00"
+  },
+  "retrieved_sources": [
+    {
+      "source_id": "ASD-CSV-084",
+      "title": "The role of augmentative and alternative communication for children with autism: current status and future trends",
+      "source": {
+        "tac_gia": [
+          "Teresa Iacono",
+          "David Trembath",
+          "Shane Erickson"
+        ],
+        "to_chuc": null,
+        "ten_nguon": "Neuropsychiatric Disease and Treatment",
+        "link_nguon": "https://doi.org/10.2147/ndt.s95967",
+        "loai_nguon": "research",
+        "link_toan_van": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5036660/"
+      },
+      "dates": {
+        "ngay_cap_nhat": null,
+        "ngay_xuat_ban": "2016",
+        "ngay_doi_chieu_nguon": "2026-10-17"
+      },
+      "scope": {
+        "gioi_han": [
+          "Keep actual study ages; pediatric and mixed adult findings cannot be generalized to every age from birth to 18.",
+          "No independent clinical appraisal; no individualized treatment or dosing inference.",
+          "Review of 17 systematic reviews, searches through March 2016; underlying evidence overlaps and many targets are requesting.",
+          "Do not infer speech suppression or guaranteed speech acquisition from aggregate AAC findings."
+        ],
+        "ngon_ngu": "en",
+        "phien_ban": "snapshot-20261017-b09029e5368f",
+        "ho_so_day_du": "knowledge/rag/source_library/catalog.jsonl#ASD-CSV-084",
+        "tep_markdown": "knowledge/rag/source_library/documents/ASD-CSV-084.md",
+        "quyen_su_dung": {
+          "status": "verified_noncommercial_research",
+          "license": "https://creativecommons.org/licenses/by-nc/3.0/",
+          "evidence_url": "https://pmc.ncbi.nlm.nih.gov/api/oai/v1/mh/?verb=GetRecord&metadataPrefix=pmc&identifier=oai:pubmedcentral.nih.gov:5036660",
+          "license_text": "© 2016 Iacono et al. This work is published and licensed by Dove Medical Press Limited2016https://creativecommons.org/licenses/by-nc/3.0/The full terms of this license are available at https://www.dovepress.com/terms.php and incorporate the Creative Commons Attribution – Non Commercial (unported, v3.0) License (http://creativecommons.org/licenses/by-nc/3.0/). By accessing the work you hereby accept the Terms. Non-commercial uses of the work are permitted without any further permission from Dove Medical Press Limited, provided the work is properly attributed.",
+          "third_party_exceptions": "Retain per-figure credit lines; not adjudicated independently"
+        },
+        "tai_san_nguon": [
+          {
+            "pmc": "PMC5036660",
+            "kind": "image",
+            "xml_xpath": "/article/floats-group[1]/fig[1]/graphic[1]",
+            "cached_path": "reports/source_library_20261017/cache/PMC5036660_ndt-12-2349Fig1.jpg",
+            "reviewed_by": "AI source/conversion review, 2026-10-17; not independent clinical approval",
+            "asset_sha256": "8b4b7f288055ab79d771095b14da1f6067b2556f094a5156e50e799e5e55955f",
+            "archived_path": "knowledge/rag/source_library/originals/assets/PMC5036660/ndt-12-2349Fig1.jpg",
+            "original_href": "ndt-12-2349Fig1.jpg",
+            "review_method": "Visual comparison of the original image; exact labels, counts and arrows, no quantitative correction or interpretation",
+            "source_cloud_url": "s3://pmc-oa-opendata/PMC5036660.1/ndt-12-2349Fig1.jpg?md5=a398936f435504dc7f23629b58a0ae93",
+            "clinical_reviewed": false,
+            "source_xml_sha256": "b09029e5368fb185428a87b5c28895091dfc092aa6289fced0fa0f1ab3af3ad8",
+            "transcribed_text_sha256": "5d78067bfba53e89821a0dd0fce510a914cc2483488928c896f577be75a33551"
+          }
+        ],
+        "tep_nguon_goc": "knowledge/rag/source_library/originals/ASD-CSV-084/snapshot-20261017-b09029e5368f.xml",
+        "sha256_markdown": "21f8cd2ca2880402b6f5348f917c0c108fb8bfa96af735f656354263af819d24",
+        "sha256_noi_dung": "221eed836312a706d07dc537d0b04bf915a838c599348bfc75bb477caa984302",
+        "pham_vi_tuoi_goc": "AAC evidence reviews include children/young people up to 21; pediatric and older-youth scope retained",
+        "sha256_nguon_goc": "b09029e5368fb185428a87b5c28895091dfc092aa6289fced0fa0f1ab3af3ad8",
+        "phien_ban_chuyen_doi": "jats-readable-front-v3-20261020",
+        "da_tham_dinh_lam_sang_doc_lap": false
+      },
+      "content_sha256": "221eed836312a706d07dc537d0b04bf915a838c599348bfc75bb477caa984302",
+      "clinical_reviewed": false,
+      "whole_document": true,
+      "rank": 1,
+      "cosine_distance": 0.6846836997420807
+    },
+    {
+      "source_id": "ASD-SUP-PMC11754701",
+      "title": "Autism Spectrum Social Stories in Schools Trial 2 (ASSSIST‐2): a pragmatic randomised controlled trial of the Social Stories™ intervention to address the social and emotional health of autistic children in UK primary schools",
+      "source": {
+        "tac_gia": [
+          "Barry Wright",
+          "Jane E. Blackwell",
+          "Kerry J. Bell",
+          "Catarina Teige",
+          "Laura Mandefield",
+          "Han‐I Wang",
+          "Charlie Welch",
+          "Arabella Scantlebury",
+          "Judith Watson",
+          "Dean McMillan",
+          "Emma Standley",
+          "Leah Attwell",
+          "Hayley Carrick",
+          "Amelia Taylor",
+          "Olivia Taylor",
+          "Rachel Hodkinson",
+          "Hannah Edwards",
+          "Hannah Pearson",
+          "Steve Parrott",
+          "David Marshall",
+          "Danielle Varley",
+          "Rebecca Hargate",
+          "Anne Mclaren",
+          "Catherine Hewitt"
+        ],
+        "to_chuc": null,
+        "ten_nguon": "Child and Adolescent Mental Health",
+        "link_nguon": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11754701/",
+        "loai_nguon": "research",
+        "link_toan_van": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11754701/"
+      },
+      "dates": {
+        "ngay_cap_nhat": null,
+        "ngay_xuat_ban": "2024-12-17",
+        "ngay_doi_chieu_nguon": "2026-10-30"
+      },
+      "scope": {
+        "gioi_han": [
+          "Primary intention-to-treat social responsiveness outcome was not statistically significant; individual socio-emotional goals improved.",
+          "Do not claim global social-skill, anxiety, depression or caregiver-stress improvement from individual-goal findings.",
+          "Social Stories are not PEERS and this trial does not reproduce a licensed PEERS treatment manual.",
+          "No independent clinical review; research/internal noncommercial use, no individual diagnosis or prescription."
+        ],
+        "ngon_ngu": "en",
+        "phien_ban": "PMC11754701.1; acquired 2026-10-30",
+        "ho_so_day_du": "knowledge/rag/source_library/catalog.jsonl#ASD-SUP-PMC11754701",
+        "tep_markdown": "knowledge/rag/source_library/documents/ASD-SUP-PMC11754701.md",
+        "quyen_su_dung": {
+          "status": "verified_noncommercial_research",
+          "license": "https://creativecommons.org/licenses/by/4.0/",
+          "evidence_url": "https://pmc.ncbi.nlm.nih.gov/api/oai/v1/mh/?verb=GetRecord&metadataPrefix=pmc&identifier=oai:pubmedcentral.nih.gov:11754701",
+          "license_text": "© 2024 The Author(s). Child and Adolescent Mental Health published by John Wiley & Sons Ltd on behalf of Association for Child and Adolescent Mental Health.https://creativecommons.org/licenses/by/4.0/This is an open access article under the terms of the http://creativecommons.org/licenses/by/4.0/ License, which permits use, distribution and reproduction in any medium, provided the original work is properly cited.",
+          "third_party_exceptions": "Retain per-figure credit lines; not adjudicated independently"
+        },
+        "tai_san_nguon": [
+          {
+            "pmc": "PMC11754701",
+            "kind": "image",
+            "reviewer": "AI visual/text transcription check on 2026-10-30; not independent clinical review",
+            "xml_xpath": "/article/body[1]/sec[3]/fig[1]/graphic[1]",
+            "cached_path": "reports/source_supplement_20261030/cache/assets/PMC11754701/CAMH-30-4-g001.jpg",
+            "asset_sha256": "31bae36fcd90c8cfbef5e66e369e212de145870b1b9e45b9b3794fa99d1a444a",
+            "archived_path": "knowledge/rag/source_library/originals/assets/PMC11754701/CAMH-30-4-g001.jpg",
+            "original_href": "CAMH-30-4-g001.jpg",
+            "verbatim_text": "Screened (98 schools, 295 children)\nEligibility unknown (1 child)\nMissing age (n=1)\nIneligible (26 children)\nTook part in ASSSIST feasibility study (n=1)\nDid not attend school in Yorkshire/Humber (n=1)\nSchool used Social Stories during current/preceding term (n=15)\nParent doesn’t feel their child has behavioural problems in school (n=16)\nPre-randomisation withdrawal (11 schools*, 45 children)\nSchool lacking in capacity/unable to facilitate study (n=14)\nSchool or parent no longer wanted to be involved/withdrew consent (n=10)\nChild moved schools before randomisation could be completed (n=9)\nSchool or parent not responding/uncontactable (n=8)\nChild reached 12+ years before randomisation could be completed (n=3)\nBaseline measures not received prior to end of recruitment period (n=1)\nBaseline teacher CRF’s completed (87 schools, 247** children)\nSRS-2 Total Score (87 schools, 246 children)\nGoal based outcome (86 schools, 240 children)\nBaseline parent CRF’s completed (87 schools, 249 children)\nSRS-2 Total Score (87 schools, 249 children)\nPSI Total Stress Score (87 schools, 244 children)\nRCADS Total Score (87 schools, 248 children)\nEQ-5D-Y VAS Score (87 schools, 249 children)\nRandomised (87 schools, 249 children)\nSocial Stories (44 schools, 129 children)\n0 Social Stories sessions delivered (n=1)\n1-5 Social Stories sessions delivered (n=13)\n6+ Social Stories sessions delivered (n=81)\nNumber of sessions missing (n=34)\nUsual care (43 schools, 120 children)\nWithdrawn (1 child)\nParent unhappy with timescale/organisation of research (n=1)\nWeek 6 teacher CRF’s not completed (23 children)\nWeek 6 teacher CRF’s completed (104 children)\nSRS-2 Total score (104 children)\nGoal based outcome (104 children)\nWeek 6 parent CRF’s not completed (31 children)\nWeek 6 parent CRF’s completed (97 children)\nSRS-2 Total score (97 children)\nPSI Total stress score (89 children)\nRCADS Total score (97 children)\nEQ-5D-Y VAS score (97 children)\nWeek 6 teacher CRF’s not completed (10 children)\nWeek 6 teacher CRF’s completed (110 children)\nSRS-2 Total score (110 children)\nGoal based outcome (109 children)\nWeek 6 parent CRF’s not completed (23 children)\nWeek 6 parent CRF’s completed (97 children)\nSRS-2 Total score (97 children)\nPSI Total stress score (95 children)\nRCADS Total score (97 children)\nEQ-5D-Y VAS score (97 children)\nWithdrawn (2 children)\nChild left school/absent for prolonged period (n=1)\nQuestionnaire lost in the post and parent did not want to complete again (n=1)\nWithdrawn (3 children)\nChild left school/absent for prolonged period (n=1)\nParent did not want to complete questionnaire (n=1)\nParent no longer has enough time (n=1)\nMonth 6 teacher CRF’s not completed (23 children)\nMonth 6 teacher CRF’s completed (104 children)\nSRS-2 Total score (104 children)\nGoal based outcome (102 children)\nMonth 6 parent CRF’s not completed (32 children)\nMonth 6 parent CRF’s completed (95 children)\nSRS-2 Total score (95 children)\nPSI Total stress score (90 children)\nRCADS Total score (94 children)\nEQ-5D-Y VAS score (93 children)\nMonth 6 teacher CRF’s not completed (11 children)\nMonth 6 teacher CRF’s completed (108 children)\nSRS-2 Total score (108 children)\nGoal based outcome (105 children)\nMonth 6 parent CRF’s not completed (29 children)\nMonth 6 parent CRF’s completed (89 children)\nSRS-2 Total score (89 children)\nPSI Total stress score (84 children)\nRCADS Total score (88 children)\nEQ-5D-Y VAS score (89 children)\nSocial Stories:\nInc. in primary analysis (41 schools, 117 children)\nExc. from primary analysis (3 schools, 12 children)\nNo Wk6/M6 primary outcome data available (n=9)\nMissing baseline covariate data (n=3)\nUsual care:\nInc. in primary analysis (42 schools, 118 children)\nExc. from primary analysis (1 schools, 2 children)\nNo Wk6/M6 primary outcome data available (n=2)\n*11 schools where all participants withdrew prior to randomisation\n**Two participants with no teacher completed baseline data\n",
+            "source_cloud_url": "s3://pmc-oa-opendata/PMC11754701.1/CAMH-30-4-g001.jpg?md5=aea00e350db7bf340aa1cd7c3063d64f",
+            "source_xml_sha256": "35f351a68beb5fe571797a6b173561b7a6697a868ab4a0c443c03fd637a6102d",
+            "cloud_md5_verified": true,
+            "transcription_scope": "Printed labels and counts, reading order follows flow; branch labels repeated for layout association; blank source fields remain blank. No values inferred.",
+            "transcribed_text_sha256": "32b04702cdb473a2a6782653ef32027527833c303ca789a9ad776aadeb70c294"
+          },
+          {
+            "pmc": "PMC11754701",
+            "kind": "docx",
+            "reviewer": "AI visual/text transcription check on 2026-10-30; not independent clinical review",
+            "xml_xpath": "/article/body[1]/sec[9]/supplementary-material[1]/media[1]",
+            "cached_path": "reports/source_supplement_20261030/cache/assets/PMC11754701/CAMH-30-4-s001.docx",
+            "asset_sha256": "a13e42c80996ecee4d98c16eb5efaf768772fd6b1b6b18126238c9bca1d46ba7",
+            "archived_path": "knowledge/rag/source_library/originals/assets/PMC11754701/CAMH-30-4-s001.docx",
+            "original_href": "CAMH-30-4-s001.docx",
+            "conversion_check": {
+              "gaps": [],
+              "part": "word/document.xml",
+              "charts": [],
+              "format": "docx",
+              "body_sha256": "7c1fd2b83edf5e8f283755443015b75c56067396f29b8e158591f34bc4eb4841",
+              "checked_text_runs": 1883
+            },
+            "source_cloud_url": "s3://pmc-oa-opendata/PMC11754701.1/CAMH-30-4-s001.docx?md5=0a20eeba805a5071ba6bbdd2dcb7a405",
+            "source_xml_sha256": "35f351a68beb5fe571797a6b173561b7a6697a868ab4a0c443c03fd637a6102d",
+            "cloud_md5_verified": true,
+            "transcribed_text_sha256": "7c1fd2b83edf5e8f283755443015b75c56067396f29b8e158591f34bc4eb4841"
+          }
+        ],
+        "tep_nguon_goc": "knowledge/rag/source_library/originals/ASD-SUP-PMC11754701/snapshot-2026-10-30-35f351a68beb.xml",
+        "sha256_markdown": "8ab114959a48a692d2b94a2d0a5de0cdd50b9c6b0ddb498575bc226fb37d8dcc",
+        "sha256_noi_dung": "698fcac9c466769bda1b90ad2951b4477949c4db4de58b477bbf7697368ab7e8",
+        "pham_vi_tuoi_goc": "UK primary-school autistic children aged 4–11; 87 schools, 249 children, cluster randomized trial.",
+        "sha256_nguon_goc": "35f351a68beb5fe571797a6b173561b7a6697a868ab4a0c443c03fd637a6102d",
+        "phien_ban_chuyen_doi": "asd-agent-fulltext-supplement-20261030-v1",
+        "da_tham_dinh_lam_sang_doc_lap": false
+      },
+      "content_sha256": "698fcac9c466769bda1b90ad2951b4477949c4db4de58b477bbf7697368ab7e8",
+      "clinical_reviewed": false,
+      "whole_document": true,
+      "rank": 2,
+      "cosine_distance": 0.6879490909464147
+    },
+    {
+      "source_id": "ASD-OA-PMC10900867",
+      "title": "The importance and challenges of observing social interactions in autistic preschoolers during inclusive educational settings: A scoping review",
+      "source": {
+        "tac_gia": [
+          "Stella Tsamitrou",
+          "Marie-Hélène Plumet"
+        ],
+        "to_chuc": null,
+        "ten_nguon": "Autism & Developmental Language Impairments",
+        "link_nguon": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10900867/",
+        "loai_nguon": "research",
+        "link_toan_van": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10900867/"
+      },
+      "dates": {
+        "ngay_cap_nhat": null,
+        "ngay_xuat_ban": "2024-2-28",
+        "ngay_doi_chieu_nguon": "2026-10-17"
+      },
+      "scope": {
+        "gioi_han": [
+          "Preschool observation methods, not evidence that a named school programme works for every child.",
+          "Sparse longitudinal evidence; findings do not establish school services or rights in Vietnam.",
+          "Source/provenance review only; no independent clinical appraisal.",
+          "Retain actual ages, geography and study limitations; no individualized diagnosis, treatment or dosing inference."
+        ],
+        "ngon_ngu": "en",
+        "phien_ban": "PMC distributed version 1",
+        "ho_so_day_du": "knowledge/rag/source_library/catalog.jsonl#ASD-OA-PMC10900867",
+        "tep_markdown": "knowledge/rag/source_library/documents/ASD-OA-PMC10900867.md",
+        "quyen_su_dung": {
+          "status": "verified_noncommercial_research",
+          "license": "https://creativecommons.org/licenses/by-nc/4.0/",
+          "evidence_url": "https://pmc.ncbi.nlm.nih.gov/api/oai/v1/mh/?verb=GetRecord&metadataPrefix=pmc&identifier=oai:pubmedcentral.nih.gov:10900867",
+          "license_text": "© The Author(s) 20242024SAGE Publications Ltd unless otherwise noted. Manuscript content on this site is licensed under Creative Commons Licenseshttps://creativecommons.org/licenses/by-nc/4.0/This article is distributed under the terms of the Creative Commons Attribution-NonCommercial 4.0 License (https://creativecommons.org/licenses/by-nc/4.0/) which permits non-commercial use, reproduction and distribution of the work without further permission provided the original work is attributed as specified on the SAGE and Open Access page (https://us.sagepub.com/en-us/nam/open-access-at-sage).",
+          "third_party_exceptions": "Retain per-figure credit lines; not adjudicated independently"
+        },
+        "tai_san_nguon": [],
+        "tep_nguon_goc": "knowledge/rag/source_library/originals/ASD-OA-PMC10900867/snapshot-20261017-5d4083f4fcea.xml",
+        "sha256_markdown": "5db859dee7bd531664c077b8a67371e354c175d070d3c1b88892175f09df77ba",
+        "sha256_noi_dung": "f09b35bc1d8f3a71916b0545f4601deefd9a8ada9a3515707ac73cb39179d16b",
+        "pham_vi_tuoi_goc": "Autistic preschool children in inclusive preschool settings; 17 observational studies",
+        "sha256_nguon_goc": "5d4083f4fcea92697a229f4edb3d70a1d28ece2a9cbdd4820da9c009bf7835f7",
+        "phien_ban_chuyen_doi": "jats-readable-front-v3-20261020",
+        "da_tham_dinh_lam_sang_doc_lap": false
+      },
+      "content_sha256": "f09b35bc1d8f3a71916b0545f4601deefd9a8ada9a3515707ac73cb39179d16b",
+      "clinical_reviewed": false,
+      "whole_document": true,
+      "rank": 3,
+      "cosine_distance": 0.7084571538823539
+    },
+    {
+      "source_id": "NIH-NIDCD-ASD-COMMUNICATION-2020",
+      "title": "Autism Spectrum Disorder: Communication Problems in Children",
+      "source": {
+        "tac_gia": [],
+        "to_chuc": "National Institute on Deafness and Other Communication Disorders (NIDCD), NIH",
+        "ten_nguon": "National Institute on Deafness and Other Communication Disorders (NIDCD), NIH",
+        "link_nguon": "https://www.nidcd.nih.gov/health/autism-spectrum-disorder-communication-problems-children",
+        "loai_nguon": "official_patient_information",
+        "link_toan_van": null
+      },
+      "dates": {
+        "ngay_cap_nhat": "2020-04-13",
+        "ngay_xuat_ban": "2020-04",
+        "ngay_doi_chieu_nguon": "2026-10-17"
+      },
+      "scope": {
+        "gioi_han": [
+          "2020 educational publication: historical US prevalence (1 in 54) is not a current estimate or Vietnam estimate.",
+          "Communication/AAC background, not an individualized speech therapy plan or evidence that every approach suits every child.",
+          "US services and contacts retain US jurisdiction."
+        ],
+        "ngon_ngu": "en",
+        "phien_ban": "NIH Pub. No. 97–4315; April 2020",
+        "ho_so_day_du": "knowledge/rag/source_library/catalog.jsonl#NIH-NIDCD-ASD-COMMUNICATION-2020",
+        "tep_markdown": "knowledge/rag/source_library/documents/NIH-NIDCD-ASD-COMMUNICATION-2020.md",
+        "quyen_su_dung": {
+          "status": "verified",
+          "license": "NIDCD public-domain text, unless individually credited otherwise",
+          "conditions": "Credit source; no endorsement or logo reuse. External links do not grant rights to linked works.",
+          "evidence_url": "https://www.nidcd.nih.gov/policies",
+          "evidence_path": "reports/source_library_20261017/cache/rights_nidcd.html"
+        },
+        "tai_san_nguon": [],
+        "tep_nguon_goc": "knowledge/rag/source_library/originals/NIH-NIDCD-ASD-COMMUNICATION-2020/snapshot-20261017-77a6b79701c5.html",
+        "sha256_markdown": "7ed007f168b63e466ae5c2531be3eb786bd770096e2dd529a75e6bcc363af082",
+        "sha256_noi_dung": "167221060bae5a46446346dae3f89336f1dc008495f27dca3051277d6a17febc",
+        "pham_vi_tuoi_goc": "Children with ASD; preschool and school-age communication; no single study age range",
+        "sha256_nguon_goc": "77a6b79701c5ba05be254ab4ec57bf7799aa5daa1111ee76088cf07e966db66e",
+        "phien_ban_chuyen_doi": null,
+        "da_tham_dinh_lam_sang_doc_lap": false
+      },
+      "content_sha256": "167221060bae5a46446346dae3f89336f1dc008495f27dca3051277d6a17febc",
+      "clinical_reviewed": false,
+      "whole_document": true,
+      "rank": 4,
+      "cosine_distance": 0.7266786722327843
+    },
+    {
+      "source_id": "ASD-OA-PMC13005892",
+      "title": "Autism in Viet Nam: A systematic scoping review",
+      "source": {
+        "tac_gia": [
+          "Leoni Boyle",
+          "Prithvi Perepa",
+          "Kerry Thalia",
+          "Laura Crane"
+        ],
+        "to_chuc": null,
+        "ten_nguon": "Autism",
+        "link_nguon": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13005892/",
+        "loai_nguon": "research",
+        "link_toan_van": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13005892/"
+      },
+      "dates": {
+        "ngay_cap_nhat": null,
+        "ngay_xuat_ban": "2026-3-8",
+        "ngay_doi_chieu_nguon": "2026-10-17"
+      },
+      "scope": {
+        "gioi_han": [
+          "137-study scoping review; 87% conducted in Vietnam, others in diaspora contexts; underlying studies largely low quality.",
+          "Research perceptions of causes are not established causes of ASD. Historical legal/service statements require current primary Vietnamese verification.",
+          "PRISMA figure has internal count discrepancies (274 + 3688 differs from 3960; displayed database subtotals differ from displayed total). Preserve originals; do not silently reconcile or treat flow counts as verified quantitative evidence.",
+          "Supplement MMAT chart counts are criterion ratings, not independent study counts.",
+          "Source/provenance review only; no independent clinical appraisal.",
+          "Retain actual ages, geography and study limitations; no individualized diagnosis, treatment or dosing inference."
+        ],
+        "ngon_ngu": "en",
+        "phien_ban": "PMC distributed version 1",
+        "ho_so_day_du": "knowledge/rag/source_library/catalog.jsonl#ASD-OA-PMC13005892",
+        "tep_markdown": "knowledge/rag/source_library/documents/ASD-OA-PMC13005892.md",
+        "quyen_su_dung": {
+          "status": "verified_noncommercial_research",
+          "license": "https://creativecommons.org/licenses/by/4.0/",
+          "evidence_url": "https://pmc.ncbi.nlm.nih.gov/api/oai/v1/mh/?verb=GetRecord&metadataPrefix=pmc&identifier=oai:pubmedcentral.nih.gov:13005892",
+          "license_text": "© The Author(s) 20262026The National Autistic Society, SAGE Publicationshttps://creativecommons.org/licenses/by/4.0/This article is distributed under the terms of the Creative Commons Attribution 4.0 License (https://creativecommons.org/licenses/by/4.0/) which permits any use, reproduction and distribution of the work without further permission provided the original work is attributed as specified on the SAGE and Open Access pages (https://us.sagepub.com/en-us/nam/open-access-at-sage).",
+          "third_party_exceptions": "Retain per-figure credit lines; not adjudicated independently"
+        },
+        "tai_san_nguon": [
+          {
+            "pmc": "PMC13005892",
+            "kind": "image",
+            "xml_xpath": "/article/body[1]/sec[3]/sec[3]/sec[3]/fig[1]/graphic[1]",
+            "cached_path": "reports/source_library_20261017/cache/PMC13005892_10.1177_13623613261425838-fig1.jpg",
+            "reviewed_by": "AI source/conversion review, 2026-10-17; not independent clinical approval",
+            "asset_sha256": "7dc0463fb806d4653d26e6088ae5479174017030aa5801282e078b135fd81958",
+            "archived_path": "knowledge/rag/source_library/originals/assets/PMC13005892/10.1177_13623613261425838-fig1.jpg",
+            "original_href": "10.1177_13623613261425838-fig1.jpg",
+            "review_method": "Visual comparison of the original image; exact labels, counts and arrows, no quantitative correction or interpretation",
+            "source_cloud_url": "s3://pmc-oa-opendata/PMC13005892.1/10.1177_13623613261425838-fig1.jpg?md5=b78ea37158734bb8dc040ec441c1b9f0",
+            "clinical_reviewed": false,
+            "source_xml_sha256": "5d05937ca7646e89d59b4c70054a5201637bed517916dd067509e1a9bb099399",
+            "transcribed_text_sha256": "719870d497bab808e6640dc5086d9affb12bc092b2ff0df28208dafe813cf931"
+          },
+          {
+            "pmc": "PMC13005892",
+            "kind": "image",
+            "xml_xpath": "/article/body[1]/sec[4]/sec[2]/fig[1]/graphic[1]",
+            "cached_path": "reports/source_library_20261017/cache/PMC13005892_10.1177_13623613261425838-fig2.jpg",
+            "reviewed_by": "AI source/conversion review, 2026-10-17; not independent clinical approval",
+            "asset_sha256": "bc29669b4a4dc6cbe93984b910790d8e3423626f981805b254edce6ce6aa0967",
+            "archived_path": "knowledge/rag/source_library/originals/assets/PMC13005892/10.1177_13623613261425838-fig2.jpg",
+            "original_href": "10.1177_13623613261425838-fig2.jpg",
+            "review_method": "Visual comparison of the original image; exact labels, counts and arrows, no quantitative correction or interpretation",
+            "source_cloud_url": "s3://pmc-oa-opendata/PMC13005892.1/10.1177_13623613261425838-fig2.jpg?md5=27d9767748f28c0503e69d5c08fa1048",
+            "clinical_reviewed": false,
+            "source_xml_sha256": "5d05937ca7646e89d59b4c70054a5201637bed517916dd067509e1a9bb099399",
+            "transcribed_text_sha256": "3e5dbaf6cb0d960fdfc86f96050ca1dcc5cd0089228d27a48882cbed165794e4"
+          },
+          {
+            "pmc": "PMC13005892",
+            "kind": "docx",
+            "xml_xpath": "/article/body[1]/sec[7]/supplementary-material[1]/media[1]",
+            "cached_path": "reports/source_library_20261017/cache/PMC13005892_sj-docx-1-aut-10.1177_13623613261425838.docx",
+            "reviewed_by": "AI source/conversion review, 2026-10-17; not independent clinical approval",
+            "asset_sha256": "f9edce793a3bf843c81aea3c4d46f276af6fbb98f0437318cb6017fa2a3cbfc3",
+            "archived_path": "knowledge/rag/source_library/originals/assets/PMC13005892/sj-docx-1-aut-10.1177_13623613261425838.docx",
+            "original_href": "sj-docx-1-aut-10.1177_13623613261425838.docx",
+            "review_method": "OOXML original text, tables, cell spans and chart caches; no summarization",
+            "source_cloud_url": "s3://pmc-oa-opendata/PMC13005892.1/sj-docx-1-aut-10.1177_13623613261425838.docx?md5=e5e3d7997887277c377e3f3a44458dce",
+            "clinical_reviewed": false,
+            "source_xml_sha256": "5d05937ca7646e89d59b4c70054a5201637bed517916dd067509e1a9bb099399",
+            "transcribed_text_sha256": "69e56444ce0411b09d99679f0e5ae6a087115513bfcbcdfc61561d2512bbe1a1"
+          }
+        ],
+        "tep_nguon_goc": "knowledge/rag/source_library/originals/ASD-OA-PMC13005892/snapshot-20261017-5d05937ca764.xml",
+        "sha256_markdown": "292955f6698525d296d81cf70cb77e8ca882f61cf6d11047063a068734d13a44",
+        "sha256_noi_dung": "e6790fdf41afe41230ad9d748e317a1622de21f0b61c97646310bb6f4302c0d6",
+        "pham_vi_tuoi_goc": "Vietnamese cultural contexts; ages often unreported; most specified populations under 18, one study includes a 19-year-old",
+        "sha256_nguon_goc": "5d05937ca7646e89d59b4c70054a5201637bed517916dd067509e1a9bb099399",
+        "phien_ban_chuyen_doi": "jats-readable-front-v3-20261020",
+        "da_tham_dinh_lam_sang_doc_lap": false
+      },
+      "content_sha256": "e6790fdf41afe41230ad9d748e317a1622de21f0b61c97646310bb6f4302c0d6",
+      "clinical_reviewed": false,
+      "whole_document": true,
+      "rank": 5,
+      "cosine_distance": 0.73150043166073
+    }
+  ],
+  "answer_generation_performed": false
+}

@@ -1,0 +1,20 @@
+{"recorded_at": "2026-10-31T00:08:46+07:00", "source_id": "ASD-OA-PMC4271434", "event": "provider_rejected", "http_status": 429, "recorded_after_previous_process_exit": true}
+{"recorded_at": "2026-10-31T00:09:03+07:00", "source_id": "ASD-OA-PMC4271434", "event": "provider_success", "provider_request_id": "07bb707c-6e93-4b5a-afd4-f6270c49f096"}
+{"recorded_at": "2026-10-31T00:09:04+07:00", "source_id": "ASD-CSV-088", "event": "provider_success", "provider_request_id": "c3c55f9f-5e4e-4749-888b-67028c73579e"}
+{"recorded_at": "2026-10-31T00:09:06+07:00", "source_id": "ASD-OA-PMC6487529", "event": "provider_success", "provider_request_id": "cfa96a35-57ca-4f28-932d-a2ec69b3193b"}
+{"recorded_at": "2026-10-31T00:09:08+07:00", "source_id": "ASD-OA-PMC13427885", "event": "provider_success", "provider_request_id": "1bc6ed7a-e089-4711-9102-03c2e789d5ca"}
+{"recorded_at": "2026-10-31T00:10:09+07:00", "source_id": "ASD-CSV-081", "event": "provider_success", "provider_request_id": "5fb3856f-cd3a-4225-baec-26279ec61927"}
+{"recorded_at": "2026-10-31T00:10:13+07:00", "source_id": "ASD-OA-PMC10900867", "event": "provider_success", "provider_request_id": "998f9415-a9ee-4280-b8f3-d06756fef2dc"}
+{"recorded_at": "2026-10-31T00:10:14+07:00", "source_id": "ASD-SUP-PMC6590432", "event": "provider_success", "provider_request_id": "35ae07ba-d46e-48e5-a7fa-1a8a5625e29e"}
+{"recorded_at": "2026-10-31T00:11:32+07:00", "source_id": "ASD-OA-PMC9003052", "event": "provider_success", "provider_request_id": "72d0e671-8ac1-4111-9152-8b5b1a2f0c08"}
+{"recorded_at": "2026-10-31T00:11:34+07:00", "source_id": "ASD-SUP-PMC12658592", "event": "provider_success", "provider_request_id": "523fc885-a48c-4216-a0bc-d637cb61f73f"}
+{"recorded_at": "2026-10-31T00:11:36+07:00", "source_id": "ASD-CSV-002", "event": "provider_success", "provider_request_id": "1dfada9c-9152-481d-89f7-282f52afd899"}
+{"recorded_at": "2026-10-31T00:12:40+07:00", "source_id": "ASD-SUP-PMC4513196", "event": "provider_success", "provider_request_id": "515ff47d-9d3b-4ca0-a397-ac51d954f9cf"}
+{"recorded_at": "2026-10-31T00:12:42+07:00", "source_id": "ASD-SUP-PMC11754701", "event": "provider_success", "provider_request_id": "4da651c2-f6b2-4d31-baec-4c1fd9a3f811"}
+{"recorded_at": "2026-10-31T00:13:47+07:00", "source_id": "ASD-CSV-062", "event": "provider_success", "provider_request_id": "b9eeadaf-2514-4fb2-9479-052da6926f3f"}
+{"recorded_at": "2026-10-31T00:13:49+07:00", "source_id": "ASD-OA-PMC13005892", "event": "provider_success", "provider_request_id": "d828fc95-f4e6-49e0-80c5-ef13cb7605d2"}
+{"recorded_at": "2026-10-31T00:14:54+07:00", "source_id": "ASD-OA-PMC12468522", "event": "provider_success", "provider_request_id": "6c1e4186-d400-47aa-880b-dc70fb6fd3a6"}
+{"recorded_at": "2026-10-31T00:14:56+07:00", "source_id": "ASD-OA-PMC11638897", "event": "provider_success", "provider_request_id": "a021b5c5-8385-4eb3-9e7f-39365d799ce7"}
+{"recorded_at": "2026-10-31T00:16:02+07:00", "source_id": "ASD-CSV-091", "event": "provider_success", "provider_request_id": "ec26f90e-6fe7-4923-a962-20c66f54f69e"}
+{"recorded_at": "2026-10-31T00:16:04+07:00", "source_id": "ASD-OA-PMC7407189", "event": "provider_success", "provider_request_id": "e659f806-4534-476a-bdef-8a1d825ea119"}
+{"recorded_at": "2026-10-31T00:17:11+07:00", "source_id": "ASD-NEW-003", "event": "provider_success", "provider_request_id": "89886753-32ed-4c50-9fc8-286a07071915"}

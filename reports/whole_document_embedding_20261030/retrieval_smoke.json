@@ -1,0 +1,156 @@
+{
+  "status": "completed",
+  "purpose": "Small semantic retrieval smoke check, not a validated clinical retrieval benchmark",
+  "model": "embed-v4.0",
+  "space_id": "cohere4_whole_1536_e83c596b9070",
+  "queries": 3,
+  "expected_in_top5": 3,
+  "generated_answers": false,
+  "clinical_answer_quality_evaluated": false,
+  "results": [
+    {
+      "id": "SMOKE-01",
+      "query": "Can thiệp phát triển hành vi tự nhiên NDBI là gì?",
+      "expected_sources": [
+        "ASD-SUP-PMC4513196"
+      ],
+      "top5_source_ids": [
+        "ASD-SUP-PMC4513196",
+        "ASD-OA-PMC10774556",
+        "ASD-OA-PMC12593641",
+        "ASD-OA-PMC4742252",
+        "NIH-NIDCD-ASD-COMMUNICATION-2020"
+      ],
+      "expected_in_top5": true,
+      "full_source_read_from_postgres_and_matches": true,
+      "results": [
+        {
+          "source_id": "ASD-SUP-PMC4513196",
+          "title": "Naturalistic Developmental Behavioral Interventions: Empirically Validated Treatments for Autism Spectrum Disorder",
+          "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4513196/",
+          "cosine_distance": 0.5355076223528139
+        },
+        {
+          "source_id": "ASD-OA-PMC10774556",
+          "title": "Behavioral Interventions for Autism Spectrum Disorder: A Brief Review and Guidelines With a Specific Focus on Applied Behavior Analysis",
+          "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10774556/",
+          "cosine_distance": 0.7014036043449269
+        },
+        {
+          "source_id": "ASD-OA-PMC12593641",
+          "title": "Transition to adolescence in neurodevelopmental disorders: challenges and clinical perspectives",
+          "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12593641/",
+          "cosine_distance": 0.7077092528343181
+        },
+        {
+          "source_id": "ASD-OA-PMC4742252",
+          "title": "Prevalence and Correlates of Elopement in a Nationally Representative Sample of Children with Developmental Disabilities in the United States",
+          "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4742252/",
+          "cosine_distance": 0.7192550238474191
+        },
+        {
+          "source_id": "NIH-NIDCD-ASD-COMMUNICATION-2020",
+          "title": "Autism Spectrum Disorder: Communication Problems in Children",
+          "source_url": "https://www.nidcd.nih.gov/health/autism-spectrum-disorder-communication-problems-children",
+          "cosine_distance": 0.729569453674056
+        }
+      ]
+    },
+    {
+      "id": "SMOKE-02",
+      "query": "Social Stories có cải thiện kết quả chính về đáp ứng xã hội trong ASSSIST-2 không?",
+      "expected_sources": [
+        "ASD-SUP-PMC11754701"
+      ],
+      "top5_source_ids": [
+        "ASD-SUP-PMC11754701",
+        "ASD-CSV-084",
+        "ASD-CSV-062",
+        "ASD-SUP-PMC6590432",
+        "ASD-NEW-003"
+      ],
+      "expected_in_top5": true,
+      "full_source_read_from_postgres_and_matches": true,
+      "results": [
+        {
+          "source_id": "ASD-SUP-PMC11754701",
+          "title": "Autism Spectrum Social Stories in Schools Trial 2 (ASSSIST‐2): a pragmatic randomised controlled trial of the Social Stories™ intervention to address the social and emotional health of autistic children in UK primary schools",
+          "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11754701/",
+          "cosine_distance": 0.42143717411440806
+        },
+        {
+          "source_id": "ASD-CSV-084",
+          "title": "The role of augmentative and alternative communication for children with autism: current status and future trends",
+          "source_url": "https://doi.org/10.2147/ndt.s95967",
+          "cosine_distance": 0.6099981641647589
+        },
+        {
+          "source_id": "ASD-CSV-062",
+          "title": "The Presence of Comorbid ADHD and Anxiety Symptoms in Autism Spectrum Disorder: Clinical Presentation and Predictors",
+          "source_url": "https://doi.org/10.3389/fpsyt.2018.00717",
+          "cosine_distance": 0.670426414440937
+        },
+        {
+          "source_id": "ASD-SUP-PMC6590432",
+          "title": "A systematic review of ayres sensory integration intervention for children with autism",
+          "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6590432/",
+          "cosine_distance": 0.6759724996432737
+        },
+        {
+          "source_id": "ASD-NEW-003",
+          "title": "Food Selectivity in Children with Autism: Guidelines for Assessment and Clinical Interventions",
+          "source_url": "https://doi.org/10.3390/ijerph20065092",
+          "cosine_distance": 0.6768980301734363
+        }
+      ]
+    },
+    {
+      "id": "SMOKE-03",
+      "query": "Nhận biết trầm cảm ở tuổi vị thành niên và tìm trợ giúp như thế nào?",
+      "expected_sources": [
+        "NIH-NIMH-TEEN-DEPRESSION"
+      ],
+      "top5_source_ids": [
+        "NIH-NIMH-TEEN-DEPRESSION",
+        "NIH-NIMH-TEEN-BRAIN",
+        "ASD-OA-PMC12593641",
+        "NIH-NIMH-ASD-2025",
+        "NIH-NIMH-MEDICATIONS"
+      ],
+      "expected_in_top5": true,
+      "full_source_read_from_postgres_and_matches": true,
+      "results": [
+        {
+          "source_id": "NIH-NIMH-TEEN-DEPRESSION",
+          "title": "Teen Depression: More Than Just Moodiness",
+          "source_url": "https://www.nimh.nih.gov/health/publications/teen-depression",
+          "cosine_distance": 0.5094778222779345
+        },
+        {
+          "source_id": "NIH-NIMH-TEEN-BRAIN",
+          "title": "The Teen Brain: 7 Things to Know",
+          "source_url": "https://www.nimh.nih.gov/health/publications/the-teen-brain-7-things-to-know",
+          "cosine_distance": 0.6454442864126793
+        },
+        {
+          "source_id": "ASD-OA-PMC12593641",
+          "title": "Transition to adolescence in neurodevelopmental disorders: challenges and clinical perspectives",
+          "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12593641/",
+          "cosine_distance": 0.7039254484221025
+        },
+        {
+          "source_id": "NIH-NIMH-ASD-2025",
+          "title": "Autism Spectrum Disorder",
+          "source_url": "https://www.nimh.nih.gov/health/publications/autism-spectrum-disorder",
+          "cosine_distance": 0.7161172116959864
+        },
+        {
+          "source_id": "NIH-NIMH-MEDICATIONS",
+          "title": "Mental Health Medications",
+          "source_url": "https://www.nimh.nih.gov/health/topics/mental-health-medications",
+          "cosine_distance": 0.7177825570106426
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "question": "Hai trẻ đều được chẩn đoán tự kỷ có nhất thiết có biểu hiện, điểm mạnh và nhu cầu hỗ trợ giống nhau không?",
+  "error_code": "v3_verifier_schema",
+  "error_stage": "source_verification",
+  "message": "Inconsistent support decision.",
+  "reader_calls": [
+    {
+      "stage": "question_plan",
+      "content_sha256": "6513b2f17a8322bacc63a80f000d90985b98c9211e69638d2c90930866dfe4d0",
+      "request_id": "chatcmpl-e0c3a92b-cd96-456d-afbb-470b6d5c9307",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "usage": {
+        "prompt_tokens": 364,
+        "completion_tokens": 298,
+        "total_tokens": 662
+      },
+      "local_prompt_tokens": 364,
+      "provider_prompt_tokens": 364,
+      "prompt_token_delta": 0,
+      "elapsed_seconds": 33.224,
+      "cache_hit": true,
+      "recorded_at": "2026-11-01T16:39:53.027571+00:00"
+    },
+    {
+      "stage": "source_selection",
+      "content_sha256": "2a0bcb22b13a3c21456947164b2850bba59275ff4bfcd8c8c964ab7ee7254c81",
+      "request_id": "chatcmpl-e099825d-b12a-44e3-b6f4-73c0fa023742",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "usage": {
+        "prompt_tokens": 23149,
+        "completion_tokens": 301,
+        "total_tokens": 23450
+      },
+      "local_prompt_tokens": 23149,
+      "provider_prompt_tokens": 23149,
+      "prompt_token_delta": 0,
+      "elapsed_seconds": 7.571,
+      "cache_hit": false,
+      "recorded_at": "2026-11-01T16:44:03.350425+00:00"
+    },
+    {
+      "stage": "source_verification",
+      "content_sha256": "4ab553ddfe174c9e4a027c1fc8c140c0e196d867458cddf095cabad17aabbe69",
+      "request_id": "chatcmpl-d448a814-8261-441a-95b5-0dba6bcf1d9c",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "usage": {
+        "prompt_tokens": 23763,
+        "completion_tokens": 677,
+        "total_tokens": 24440
+      },
+      "local_prompt_tokens": 23763,
+      "provider_prompt_tokens": 23763,
+      "prompt_token_delta": 0,
+      "elapsed_seconds": 19.481,
+      "cache_hit": false,
+      "recorded_at": "2026-11-01T16:44:22.876894+00:00"
+    }
+  ],
+  "generation_enabled": false
+}

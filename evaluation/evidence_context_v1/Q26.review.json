@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "review_id": "reference-replay-Q26",
+  "question": "Khi thấy khỏe hơn có nên tự ngừng thuốc tâm thần đang được kê không?",
+  "question_sha256": "4d99d2d49afc53b2d15b7a33f14a5eae997f488bf23ed0158032a457b1926539",
+  "reviewer": {
+    "kind": "ai_reference_review",
+    "name": "AI source-content review; not an independent clinical expert",
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "origin": "existing_retrieval_v1_label_replay_not_independent_semantic_evaluation",
+    "frozen_input_hashes": {
+      "questions.jsonl": "749f0a48e30de346e0521bae016f81e05e787b885ae132dced1cc03365f252c6",
+      "reference_labels.json": "b3c0f8c7e083c463750c358288b1439d4a2b1ef5533d976a6fae2901523deb99"
+    }
+  },
+  "intent": "general_information",
+  "claims": [
+    {
+      "claim_id": "c1",
+      "text": "Khi thấy khỏe hơn có nên tự ngừng thuốc tâm thần đang được kê không?",
+      "required": true
+    }
+  ],
+  "items": [
+    {
+      "item_id": "item-0",
+      "source_id": "NIH-NIMH-MEDICATIONS",
+      "content_sha256": "9898db3db043c6618127b0fa3faaf61045d1c87c24d35283c6b24738af506bf2",
+      "start": 13762,
+      "end": 14124,
+      "quote": "People should not stop taking a prescribed medication, even if they are feeling better, without the help of a health care provider. A provider can adjust the treatment plan to slowly and safely decrease the medication dose. It’s important to give the body time to adjust to the change. Stopping a medication too soon may cause unpleasant or harmful side effects.",
+      "relation": "direct",
+      "stance": "supports",
+      "claim_ids": [
+        "c1"
+      ],
+      "scope_limits": "Giáo dục chung về thuốc; thay đổi đơn cần người kê đơn, không tự giảm liều."
+    }
+  ],
+  "conflicts": [],
+  "review_notes": "Giáo dục chung về thuốc; thay đổi đơn cần người kê đơn, không tự giảm liều."
+}

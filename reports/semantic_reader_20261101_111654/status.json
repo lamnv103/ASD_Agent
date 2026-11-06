@@ -1,0 +1,8 @@
+{
+  "status": "research_reader_technical_milestone_complete",
+  "semantic_acceptance": "pending_adjudication_and_improvement",
+  "patient_answer_generation": false,
+  "handoff": "reports/semantic_reader_20261101_111654/BAN_GIAO_READER_NGU_NGHIA.md",
+  "verification": "reports/semantic_reader_20261101_111654/verification.json",
+  "review_queue_count": 6
+}

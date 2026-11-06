@@ -1,0 +1,321 @@
+{
+  "ok": true,
+  "local_date": "2026-10-30",
+  "source_library": "E:\\AI4LIFE\\ASD_AGENT\\knowledge\\rag\\source_library",
+  "new_release": {
+    "status": "verified",
+    "usable": true,
+    "release_id": "asd-agent-fulltext-supplement-20261030-v1",
+    "parent_release_sha256": "840ce10a6b688e4de4ab90d9c03f9fb2bb3e2354d1d5114c0ccc298912e5e0a9",
+    "checked_at": "2026-10-30",
+    "catalog_sha256": "e8885db46f2d85fb684dd550f68d5612640261dd03f78483b4b5c27b5280b03e",
+    "documents_json_sha256": "26eb017efca593ed18aa4044c9b8185d871bd0f512cda0cb4b9edf82658c5331",
+    "core_documents": 33,
+    "body_characters": 2307606,
+    "clinical_reviewed": false,
+    "usable_for": "source_review_only",
+    "production_ingest": false,
+    "embedding_ready": false,
+    "index_preview_scope": "Original 183 units cover the original 27 documents only; additions not indexed in this phase",
+    "original_project_and_database_unchanged": true,
+    "embedding_called": false,
+    "llm_called": false
+  },
+  "original_core_documents": 27,
+  "additions_accepted": [
+    "ASD-SUP-PMC4513196",
+    "ASD-SUP-PMC6590432",
+    "ASD-SUP-PMC12658592",
+    "ASD-SUP-PMC11754701",
+    "CDC-EARLY-INTERVENTION",
+    "CDC-ASD-TREATMENT"
+  ],
+  "acquired_pending_sources": [
+    {
+      "source_id": "ASD-SUP-PMC9399988",
+      "title": "Effects of Social Skills Training for Adolescents on the Autism Spectrum: a Randomized Controlled Trial of the Polish Adaptation of the PEERS® Intervention via Hybrid and In-Person Delivery",
+      "gaps": [
+        {
+          "type": "graphic",
+          "xml_xpath": "/article/body[1]/sec[1]/sec[1]/p[4]/fig[1]/graphic[1]",
+          "original_href": "10803_2022_5714_Fig1_HTML.jpg",
+          "status": "asset_not_transcribed"
+        },
+        {
+          "type": "graphic",
+          "xml_xpath": "/article/body[1]/sec[2]/sec[2]/p[3]/fig[1]/graphic[1]",
+          "original_href": "10803_2022_5714_Fig2_HTML.jpg",
+          "status": "asset_not_transcribed"
+        },
+        {
+          "type": "graphic",
+          "xml_xpath": "/article/body[1]/sec[2]/sec[4]/p[3]/fig[1]/graphic[1]",
+          "original_href": "10803_2022_5714_Fig3_HTML.jpg",
+          "status": "asset_not_transcribed"
+        },
+        {
+          "type": "media",
+          "xml_xpath": "/article/body[1]/sec[5]/sec[1]/p[2]/supplementary-material[1]/media[1]",
+          "original_href": "10803_2022_5714_MOESM1_ESM.docx",
+          "status": "asset_not_transcribed"
+        },
+        {
+          "type": "supplementary-material",
+          "xml_xpath": "/article/body[1]/sec[5]/sec[1]/p[2]/supplementary-material[1]",
+          "status": "external_supplement_not_transcribed"
+        }
+      ]
+    },
+    {
+      "source_id": "ASD-CSV-017",
+      "title": "The Effect of Naturalistic Developmental Behavioral Interventions and Aided AAC on the Language Development of Children on the Autism Spectrum with Minimal Speech: A Systematic Review and Meta-analysis",
+      "gaps": [
+        {
+          "type": "graphic",
+          "xml_xpath": "/article/body[1]/sec[1]/sec[2]/p[1]/fig[1]/graphic[1]",
+          "original_href": "10803_2024_6382_Fig1_HTML.jpg",
+          "status": "asset_not_transcribed"
+        },
+        {
+          "type": "graphic",
+          "xml_xpath": "/article/body[1]/sec[2]/sec[7]/p[1]/fig[1]/graphic[1]",
+          "original_href": "10803_2024_6382_Fig2_HTML.jpg",
+          "status": "asset_not_transcribed"
+        }
+      ]
+    },
+    {
+      "source_id": "ASD-SUP-PMC7726187",
+      "title": "Evaluating Sensory Integration/Sensory Processing Treatment: Issues and Analysis",
+      "gaps": [
+        {
+          "type": "graphic",
+          "xml_xpath": "/article/body[1]/sec[4]/table-wrap[1]/table[1]/tbody[1]/tr[1]/td[1]/graphic[1]",
+          "original_href": "fnint-14-556660-i0001.jpg",
+          "status": "asset_not_transcribed"
+        },
+        {
+          "type": "graphic",
+          "xml_xpath": "/article/body[1]/sec[4]/table-wrap[1]/table[1]/tbody[1]/tr[2]/td[1]/graphic[1]",
+          "original_href": "fnint-14-556660-i0001.jpg",
+          "status": "asset_not_transcribed"
+        },
+        {
+          "type": "graphic",
+          "xml_xpath": "/article/body[1]/sec[4]/table-wrap[1]/table[1]/tbody[1]/tr[3]/td[1]/graphic[1]",
+          "original_href": "fnint-14-556660-i0001.jpg",
+          "status": "asset_not_transcribed"
+        },
+        {
+          "type": "graphic",
+          "xml_xpath": "/article/body[1]/sec[4]/fig[1]/graphic[1]",
+          "original_href": "fnint-14-556660-g0001.jpg",
+          "status": "asset_not_transcribed"
+        },
+        {
+          "type": "graphic",
+          "xml_xpath": "/article/body[1]/sec[7]/sec[1]/fig[1]/graphic[1]",
+          "original_href": "fnint-14-556660-g0002.jpg",
+          "status": "asset_not_transcribed"
+        },
+        {
+          "type": "graphic",
+          "xml_xpath": "/article/body[1]/sec[7]/sec[1]/fig[2]/graphic[1]",
+          "original_href": "fnint-14-556660-g0003.jpg",
+          "status": "asset_not_transcribed"
+        },
+        {
+          "type": "graphic",
+          "xml_xpath": "/article/body[1]/sec[7]/sec[2]/fig[1]/graphic[1]",
+          "original_href": "fnint-14-556660-g0004.jpg",
+          "status": "asset_not_transcribed"
+        },
+        {
+          "type": "graphic",
+          "xml_xpath": "/article/body[1]/sec[7]/sec[2]/fig[2]/graphic[1]",
+          "original_href": "fnint-14-556660-g0005.jpg",
+          "status": "asset_not_transcribed"
+        }
+      ]
+    },
+    {
+      "source_id": "ASD-SUP-PMC10981608",
+      "title": "The Methodological Quality and Intervention Fidelity of Randomised Controlled Trials Evaluating Social Skills Group Programs in Autistic Adolescents: A Systematic Review and Meta-analysis",
+      "gaps": [
+        {
+          "type": "graphic",
+          "xml_xpath": "/article/body[1]/sec[3]/sec[1]/p[2]/fig[1]/graphic[1]",
+          "original_href": "10803_2023_5893_Fig1_HTML.jpg",
+          "status": "asset_not_transcribed"
+        },
+        {
+          "type": "graphic",
+          "xml_xpath": "/article/body[1]/sec[3]/sec[5]/sec[1]/p[1]/fig[1]/graphic[1]",
+          "original_href": "10803_2023_5893_Fig2_HTML.jpg",
+          "status": "asset_not_transcribed"
+        },
+        {
+          "type": "graphic",
+          "xml_xpath": "/article/body[1]/sec[3]/sec[5]/sec[1]/p[3]/fig[1]/graphic[1]",
+          "original_href": "10803_2023_5893_Fig3_HTML.jpg",
+          "status": "asset_not_transcribed"
+        },
+        {
+          "type": "graphic",
+          "xml_xpath": "/article/body[1]/sec[3]/sec[5]/sec[2]/p[1]/fig[1]/graphic[1]",
+          "original_href": "10803_2023_5893_Fig4_HTML.jpg",
+          "status": "asset_not_transcribed"
+        },
+        {
+          "type": "graphic",
+          "xml_xpath": "/article/body[1]/sec[3]/sec[5]/sec[3]/sec[1]/p[4]/fig[1]/graphic[1]",
+          "original_href": "10803_2023_5893_Fig5_HTML.jpg",
+          "status": "asset_not_transcribed"
+        },
+        {
+          "type": "graphic",
+          "xml_xpath": "/article/body[1]/sec[3]/sec[5]/sec[3]/sec[2]/p[2]/fig[1]/graphic[1]",
+          "original_href": "10803_2023_5893_Fig6_HTML.jpg",
+          "status": "asset_not_transcribed"
+        },
+        {
+          "type": "graphic",
+          "xml_xpath": "/article/body[1]/sec[3]/sec[5]/sec[3]/sec[3]/p[2]/fig[1]/graphic[1]",
+          "original_href": "10803_2023_5893_Fig7_HTML.jpg",
+          "status": "asset_not_transcribed"
+        }
+      ]
+    },
+    {
+      "source_id": "ASD-SUP-PMC13414371",
+      "title": "Interventions to Promote Communication in Minimally Verbal Autistic Children: A Systematic Review",
+      "gaps": [
+        {
+          "type": "media",
+          "xml_xpath": "/article/back[1]/app-group[1]/app[1]/supplementary-material[1]/media[1]",
+          "original_href": "medsci-14-00388-s001.zip",
+          "status": "asset_not_transcribed"
+        },
+        {
+          "type": "supplementary-material",
+          "xml_xpath": "/article/back[1]/app-group[1]/app[1]/supplementary-material[1]",
+          "status": "external_supplement_not_transcribed"
+        },
+        {
+          "type": "graphic",
+          "xml_xpath": "/article/floats-group[1]/fig[1]/graphic[1]",
+          "original_href": "medsci-14-00388-g001.jpg",
+          "status": "asset_not_transcribed"
+        },
+        {
+          "type": "graphic",
+          "xml_xpath": "/article/floats-group[1]/fig[2]/graphic[1]",
+          "original_href": "medsci-14-00388-g002.jpg",
+          "status": "asset_not_transcribed"
+        },
+        {
+          "type": "graphic",
+          "xml_xpath": "/article/floats-group[1]/fig[3]/graphic[1]",
+          "original_href": "medsci-14-00388-g003.jpg",
+          "status": "asset_not_transcribed"
+        }
+      ]
+    },
+    {
+      "source_id": "ASD-SUP-PMC10783429",
+      "title": "Autism intervention meta-analysis of early childhood studies (Project AIM): updated systematic review and secondary analysis",
+      "gaps": [
+        {
+          "type": "graphic",
+          "xml_xpath": "/article/body[1]/sec[6]/sec[1]/fig[1]/graphic[1]",
+          "original_href": "sanm076733.f1.jpg",
+          "status": "asset_not_transcribed"
+        },
+        {
+          "type": "graphic",
+          "xml_xpath": "/article/body[1]/sec[6]/sec[2]/fig[1]/graphic[1]",
+          "original_href": "sanm076733.f2.jpg",
+          "status": "asset_not_transcribed"
+        },
+        {
+          "type": "graphic",
+          "xml_xpath": "/article/body[1]/sec[6]/sec[3]/fig[1]/graphic[1]",
+          "original_href": "sanm076733.f3.jpg",
+          "status": "asset_not_transcribed"
+        },
+        {
+          "type": "graphic",
+          "xml_xpath": "/article/body[1]/sec[6]/sec[3]/fig[2]/graphic[1]",
+          "original_href": "sanm076733.f4.jpg",
+          "status": "asset_not_transcribed"
+        },
+        {
+          "type": "graphic",
+          "xml_xpath": "/article/body[1]/sec[6]/sec[3]/fig[3]/graphic[1]",
+          "original_href": "sanm076733.f5.jpg",
+          "status": "asset_not_transcribed"
+        },
+        {
+          "type": "media",
+          "xml_xpath": "/article/back[1]/notes[1]/supplementary-material[1]/media[1]",
+          "original_href": "sanm076733.ww.pdf",
+          "status": "asset_not_transcribed"
+        },
+        {
+          "type": "supplementary-material",
+          "xml_xpath": "/article/back[1]/notes[1]/supplementary-material[1]",
+          "status": "external_supplement_not_transcribed"
+        },
+        {
+          "type": "bibliographic_version",
+          "status": "needs_relationship_review",
+          "related_pmc": "PMC10644209"
+        }
+      ]
+    },
+    {
+      "source_id": "NIHR-SENITA-2022",
+      "title": "Sensory integration therapy for children with autism and sensory processing difficulties: the SenITA RCT",
+      "gaps": [
+        {
+          "type": "pdf_layout",
+          "status": "needs_table_order_and_symbol_review"
+        },
+        {
+          "type": "figures",
+          "status": "needs_complete_visual_transcription"
+        }
+      ]
+    }
+  ],
+  "metadata_only_held": [
+    {
+      "source_id": "AAP-ASD-CLINICAL-2020",
+      "title": "Identification, Evaluation, and Management of Children With Autism Spectrum Disorder",
+      "status": "pending_reuse_permission",
+      "reason": "Free to read is not verified permission to reproduce full content for this AI corpus. Publisher PDF says copyrighted AAP property; reaffirmed October 2025."
+    },
+    {
+      "source_id": "ASHA-AUTISM-PORTAL",
+      "title": "Autism and Autism Spectrum Disorder",
+      "status": "pending_reuse_permission",
+      "reason": "Practice Portal consulted; no explicit corpus/AI reuse permission established. Metadata/link only, no copied full-text substitute."
+    },
+    {
+      "source_id": "AOTA-ASD-SERVICES-2022",
+      "title": "Autism Spectrum Disorders Across the Life Course and Occupational Therapy Services",
+      "status": "pending_reuse_permission",
+      "reason": "Official AOTA document; copyright reserved. General AOTA terms restrict reproduction; no separate AI reuse permission established."
+    },
+    {
+      "source_id": "ASD-SUP-PMC8862714",
+      "title": "Understanding the Effects of Naturalistic Developmental Behavioral Interventions: A Project AIM Meta-analysis",
+      "status": "pending_reuse_permission",
+      "reason": "No recognized permitted OA reuse license established by the OAI/license gate; do not add full article to accepted corpus."
+    }
+  ],
+  "original_27_entries_and_source_assets_unchanged": true,
+  "clinical_reviewed": false,
+  "embedding_called": false,
+  "database_changed": false
+}

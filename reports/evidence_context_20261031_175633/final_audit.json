@@ -1,0 +1,10 @@
+{
+  "status": "verified",
+  "documentation_links_valid": true,
+  "implementation_manifest_matches": true,
+  "protected_retrieval_code_and_env_unchanged": true,
+  "database_and_132_source_files_unchanged": true,
+  "cli_Q15_tested": true,
+  "cli_Q15_input_tokens": 2471,
+  "generation_enabled": false
+}

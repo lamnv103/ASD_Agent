@@ -1,0 +1,337 @@
+{
+  "question": "Bé nhà tôi 20 tháng, nói rất ít và chưa được chẩn đoán. Gia đình nên bắt đầu tìm đánh giá và hỗ trợ từ đâu?",
+  "error_code": "nim_http",
+  "message": "NVIDIA HTTP 503; response body/credentials omitted. No automatic retry.",
+  "reader_provider": {},
+  "retrieved_sources": [
+    {
+      "source_id": "NIH-NIDCD-ASD-COMMUNICATION-2020",
+      "title": "Autism Spectrum Disorder: Communication Problems in Children",
+      "source": {
+        "tac_gia": [],
+        "to_chuc": "National Institute on Deafness and Other Communication Disorders (NIDCD), NIH",
+        "ten_nguon": "National Institute on Deafness and Other Communication Disorders (NIDCD), NIH",
+        "link_nguon": "https://www.nidcd.nih.gov/health/autism-spectrum-disorder-communication-problems-children",
+        "loai_nguon": "official_patient_information",
+        "link_toan_van": null
+      },
+      "dates": {
+        "ngay_cap_nhat": "2020-04-13",
+        "ngay_xuat_ban": "2020-04",
+        "ngay_doi_chieu_nguon": "2026-10-17"
+      },
+      "scope": {
+        "gioi_han": [
+          "2020 educational publication: historical US prevalence (1 in 54) is not a current estimate or Vietnam estimate.",
+          "Communication/AAC background, not an individualized speech therapy plan or evidence that every approach suits every child.",
+          "US services and contacts retain US jurisdiction."
+        ],
+        "ngon_ngu": "en",
+        "phien_ban": "NIH Pub. No. 97–4315; April 2020",
+        "ho_so_day_du": "knowledge/rag/source_library/catalog.jsonl#NIH-NIDCD-ASD-COMMUNICATION-2020",
+        "tep_markdown": "knowledge/rag/source_library/documents/NIH-NIDCD-ASD-COMMUNICATION-2020.md",
+        "quyen_su_dung": {
+          "status": "verified",
+          "license": "NIDCD public-domain text, unless individually credited otherwise",
+          "conditions": "Credit source; no endorsement or logo reuse. External links do not grant rights to linked works.",
+          "evidence_url": "https://www.nidcd.nih.gov/policies",
+          "evidence_path": "reports/source_library_20261017/cache/rights_nidcd.html"
+        },
+        "tai_san_nguon": [],
+        "tep_nguon_goc": "knowledge/rag/source_library/originals/NIH-NIDCD-ASD-COMMUNICATION-2020/snapshot-20261017-77a6b79701c5.html",
+        "sha256_markdown": "7ed007f168b63e466ae5c2531be3eb786bd770096e2dd529a75e6bcc363af082",
+        "sha256_noi_dung": "167221060bae5a46446346dae3f89336f1dc008495f27dca3051277d6a17febc",
+        "pham_vi_tuoi_goc": "Children with ASD; preschool and school-age communication; no single study age range",
+        "sha256_nguon_goc": "77a6b79701c5ba05be254ab4ec57bf7799aa5daa1111ee76088cf07e966db66e",
+        "phien_ban_chuyen_doi": null,
+        "da_tham_dinh_lam_sang_doc_lap": false
+      },
+      "content_sha256": "167221060bae5a46446346dae3f89336f1dc008495f27dca3051277d6a17febc",
+      "clinical_reviewed": false,
+      "whole_document": true,
+      "rank": 1,
+      "cosine_distance": 0.6191025007305978
+    },
+    {
+      "source_id": "ASD-CSV-002",
+      "title": "Assessment of Autism Spectrum Disorder",
+      "source": {
+        "tac_gia": [
+          "Yue Yu",
+          "Sally Ozonoff",
+          "Meghan Miller"
+        ],
+        "to_chuc": null,
+        "ten_nguon": "Assessment",
+        "link_nguon": "https://doi.org/10.1177/10731911231173089",
+        "loai_nguon": "research",
+        "link_toan_van": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10676043/"
+      },
+      "dates": {
+        "ngay_cap_nhat": null,
+        "ngay_xuat_ban": "2024-Jan",
+        "ngay_doi_chieu_nguon": "2026-10-17"
+      },
+      "scope": {
+        "gioi_han": [
+          "Keep actual study ages; pediatric and mixed adult findings cannot be generalized to every age from birth to 18.",
+          "No independent clinical appraisal; no individualized treatment or dosing inference.",
+          "Assessment review is background for professional evaluation, not a family self-diagnosis tool."
+        ],
+        "ngon_ngu": "en",
+        "phien_ban": "snapshot-20261017-21dc8929f5a6",
+        "ho_so_day_du": "knowledge/rag/source_library/catalog.jsonl#ASD-CSV-002",
+        "tep_markdown": "knowledge/rag/source_library/documents/ASD-CSV-002.md",
+        "quyen_su_dung": {
+          "status": "verified_noncommercial_research",
+          "license": "https://creativecommons.org/licenses/by-nc/4.0/",
+          "evidence_url": "https://pmc.ncbi.nlm.nih.gov/api/oai/v1/mh/?verb=GetRecord&metadataPrefix=pmc&identifier=oai:pubmedcentral.nih.gov:10676043",
+          "license_text": "© The Author(s) 20232023SAGE Publicationshttps://creativecommons.org/licenses/by-nc/4.0/This article is distributed under the terms of the Creative Commons Attribution-NonCommercial 4.0 License (https://creativecommons.org/licenses/by-nc/4.0/) which permits non-commercial use, reproduction and distribution of the work without further permission provided the original work is attributed as specified on the SAGE and Open Access pages (https://us.sagepub.com/en-us/nam/open-access-at-sage).",
+          "third_party_exceptions": "Retain per-figure credit lines; not adjudicated independently"
+        },
+        "tai_san_nguon": [],
+        "tep_nguon_goc": "knowledge/rag/source_library/originals/ASD-CSV-002/snapshot-20261017-21dc8929f5a6.xml",
+        "sha256_markdown": "45bde55160f9f8022339cfe3a57f4cec9a954866c078084670585f0e4010102c",
+        "sha256_noi_dung": "b18a9e2383e4f38086cad33f223cf322de234b9c772d08aaffacf8a18aefc07b",
+        "pham_vi_tuoi_goc": "Assessment across ages, including very young children; not one recruited pediatric cohort",
+        "sha256_nguon_goc": "21dc8929f5a63db81a0fb38db8402352762e8cf798a551213a562d16ba248434",
+        "phien_ban_chuyen_doi": "jats-readable-front-v3-20261020",
+        "da_tham_dinh_lam_sang_doc_lap": false
+      },
+      "content_sha256": "b18a9e2383e4f38086cad33f223cf322de234b9c772d08aaffacf8a18aefc07b",
+      "clinical_reviewed": false,
+      "whole_document": true,
+      "rank": 2,
+      "cosine_distance": 0.6215767062865525
+    },
+    {
+      "source_id": "ASD-OA-PMC13005892",
+      "title": "Autism in Viet Nam: A systematic scoping review",
+      "source": {
+        "tac_gia": [
+          "Leoni Boyle",
+          "Prithvi Perepa",
+          "Kerry Thalia",
+          "Laura Crane"
+        ],
+        "to_chuc": null,
+        "ten_nguon": "Autism",
+        "link_nguon": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13005892/",
+        "loai_nguon": "research",
+        "link_toan_van": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13005892/"
+      },
+      "dates": {
+        "ngay_cap_nhat": null,
+        "ngay_xuat_ban": "2026-3-8",
+        "ngay_doi_chieu_nguon": "2026-10-17"
+      },
+      "scope": {
+        "gioi_han": [
+          "137-study scoping review; 87% conducted in Vietnam, others in diaspora contexts; underlying studies largely low quality.",
+          "Research perceptions of causes are not established causes of ASD. Historical legal/service statements require current primary Vietnamese verification.",
+          "PRISMA figure has internal count discrepancies (274 + 3688 differs from 3960; displayed database subtotals differ from displayed total). Preserve originals; do not silently reconcile or treat flow counts as verified quantitative evidence.",
+          "Supplement MMAT chart counts are criterion ratings, not independent study counts.",
+          "Source/provenance review only; no independent clinical appraisal.",
+          "Retain actual ages, geography and study limitations; no individualized diagnosis, treatment or dosing inference."
+        ],
+        "ngon_ngu": "en",
+        "phien_ban": "PMC distributed version 1",
+        "ho_so_day_du": "knowledge/rag/source_library/catalog.jsonl#ASD-OA-PMC13005892",
+        "tep_markdown": "knowledge/rag/source_library/documents/ASD-OA-PMC13005892.md",
+        "quyen_su_dung": {
+          "status": "verified_noncommercial_research",
+          "license": "https://creativecommons.org/licenses/by/4.0/",
+          "evidence_url": "https://pmc.ncbi.nlm.nih.gov/api/oai/v1/mh/?verb=GetRecord&metadataPrefix=pmc&identifier=oai:pubmedcentral.nih.gov:13005892",
+          "license_text": "© The Author(s) 20262026The National Autistic Society, SAGE Publicationshttps://creativecommons.org/licenses/by/4.0/This article is distributed under the terms of the Creative Commons Attribution 4.0 License (https://creativecommons.org/licenses/by/4.0/) which permits any use, reproduction and distribution of the work without further permission provided the original work is attributed as specified on the SAGE and Open Access pages (https://us.sagepub.com/en-us/nam/open-access-at-sage).",
+          "third_party_exceptions": "Retain per-figure credit lines; not adjudicated independently"
+        },
+        "tai_san_nguon": [
+          {
+            "pmc": "PMC13005892",
+            "kind": "image",
+            "xml_xpath": "/article/body[1]/sec[3]/sec[3]/sec[3]/fig[1]/graphic[1]",
+            "cached_path": "reports/source_library_20261017/cache/PMC13005892_10.1177_13623613261425838-fig1.jpg",
+            "reviewed_by": "AI source/conversion review, 2026-10-17; not independent clinical approval",
+            "asset_sha256": "7dc0463fb806d4653d26e6088ae5479174017030aa5801282e078b135fd81958",
+            "archived_path": "knowledge/rag/source_library/originals/assets/PMC13005892/10.1177_13623613261425838-fig1.jpg",
+            "original_href": "10.1177_13623613261425838-fig1.jpg",
+            "review_method": "Visual comparison of the original image; exact labels, counts and arrows, no quantitative correction or interpretation",
+            "source_cloud_url": "s3://pmc-oa-opendata/PMC13005892.1/10.1177_13623613261425838-fig1.jpg?md5=b78ea37158734bb8dc040ec441c1b9f0",
+            "clinical_reviewed": false,
+            "source_xml_sha256": "5d05937ca7646e89d59b4c70054a5201637bed517916dd067509e1a9bb099399",
+            "transcribed_text_sha256": "719870d497bab808e6640dc5086d9affb12bc092b2ff0df28208dafe813cf931"
+          },
+          {
+            "pmc": "PMC13005892",
+            "kind": "image",
+            "xml_xpath": "/article/body[1]/sec[4]/sec[2]/fig[1]/graphic[1]",
+            "cached_path": "reports/source_library_20261017/cache/PMC13005892_10.1177_13623613261425838-fig2.jpg",
+            "reviewed_by": "AI source/conversion review, 2026-10-17; not independent clinical approval",
+            "asset_sha256": "bc29669b4a4dc6cbe93984b910790d8e3423626f981805b254edce6ce6aa0967",
+            "archived_path": "knowledge/rag/source_library/originals/assets/PMC13005892/10.1177_13623613261425838-fig2.jpg",
+            "original_href": "10.1177_13623613261425838-fig2.jpg",
+            "review_method": "Visual comparison of the original image; exact labels, counts and arrows, no quantitative correction or interpretation",
+            "source_cloud_url": "s3://pmc-oa-opendata/PMC13005892.1/10.1177_13623613261425838-fig2.jpg?md5=27d9767748f28c0503e69d5c08fa1048",
+            "clinical_reviewed": false,
+            "source_xml_sha256": "5d05937ca7646e89d59b4c70054a5201637bed517916dd067509e1a9bb099399",
+            "transcribed_text_sha256": "3e5dbaf6cb0d960fdfc86f96050ca1dcc5cd0089228d27a48882cbed165794e4"
+          },
+          {
+            "pmc": "PMC13005892",
+            "kind": "docx",
+            "xml_xpath": "/article/body[1]/sec[7]/supplementary-material[1]/media[1]",
+            "cached_path": "reports/source_library_20261017/cache/PMC13005892_sj-docx-1-aut-10.1177_13623613261425838.docx",
+            "reviewed_by": "AI source/conversion review, 2026-10-17; not independent clinical approval",
+            "asset_sha256": "f9edce793a3bf843c81aea3c4d46f276af6fbb98f0437318cb6017fa2a3cbfc3",
+            "archived_path": "knowledge/rag/source_library/originals/assets/PMC13005892/sj-docx-1-aut-10.1177_13623613261425838.docx",
+            "original_href": "sj-docx-1-aut-10.1177_13623613261425838.docx",
+            "review_method": "OOXML original text, tables, cell spans and chart caches; no summarization",
+            "source_cloud_url": "s3://pmc-oa-opendata/PMC13005892.1/sj-docx-1-aut-10.1177_13623613261425838.docx?md5=e5e3d7997887277c377e3f3a44458dce",
+            "clinical_reviewed": false,
+            "source_xml_sha256": "5d05937ca7646e89d59b4c70054a5201637bed517916dd067509e1a9bb099399",
+            "transcribed_text_sha256": "69e56444ce0411b09d99679f0e5ae6a087115513bfcbcdfc61561d2512bbe1a1"
+          }
+        ],
+        "tep_nguon_goc": "knowledge/rag/source_library/originals/ASD-OA-PMC13005892/snapshot-20261017-5d05937ca764.xml",
+        "sha256_markdown": "292955f6698525d296d81cf70cb77e8ca882f61cf6d11047063a068734d13a44",
+        "sha256_noi_dung": "e6790fdf41afe41230ad9d748e317a1622de21f0b61c97646310bb6f4302c0d6",
+        "pham_vi_tuoi_goc": "Vietnamese cultural contexts; ages often unreported; most specified populations under 18, one study includes a 19-year-old",
+        "sha256_nguon_goc": "5d05937ca7646e89d59b4c70054a5201637bed517916dd067509e1a9bb099399",
+        "phien_ban_chuyen_doi": "jats-readable-front-v3-20261020",
+        "da_tham_dinh_lam_sang_doc_lap": false
+      },
+      "content_sha256": "e6790fdf41afe41230ad9d748e317a1622de21f0b61c97646310bb6f4302c0d6",
+      "clinical_reviewed": false,
+      "whole_document": true,
+      "rank": 3,
+      "cosine_distance": 0.6240998211398108
+    },
+    {
+      "source_id": "CDC-EARLY-INTERVENTION",
+      "title": "Early Intervention",
+      "source": {
+        "tac_gia": [],
+        "to_chuc": "Centers for Disease Control and Prevention (CDC), National Center on Birth Defects and Developmental Disabilities",
+        "ten_nguon": "Centers for Disease Control and Prevention (CDC), National Center on Birth Defects and Developmental Disabilities",
+        "link_nguon": "https://www.cdc.gov/act-early/early-intervention/",
+        "loai_nguon": "official_health_education",
+        "link_toan_van": "https://www.cdc.gov/act-early/early-intervention/"
+      },
+      "dates": {
+        "ngay_cap_nhat": "2026-02-16",
+        "ngay_xuat_ban": "2025-09-04",
+        "ngay_doi_chieu_nguon": "2026-10-30"
+      },
+      "scope": {
+        "gioi_han": [
+          "Official health education, not an AAP/ASHA/AOTA practice guideline or a treatment-effect trial.",
+          "US access/eligibility and service rights must not be applied as Vietnamese legal entitlements.",
+          "Overview mentions different approaches without establishing equal evidence or universal benefit; no individualized treatment or medication instructions.",
+          "Original HTML download returned 403; this source is a complete numbered reader snapshot, not an original HTML archive.",
+          "No independent clinical review."
+        ],
+        "ngon_ngu": "en",
+        "phien_ban": "CDC public article reader captured 2026-10-30",
+        "ho_so_day_du": "knowledge/rag/source_library/catalog.jsonl#CDC-EARLY-INTERVENTION",
+        "tep_markdown": "knowledge/rag/source_library/documents/CDC-EARLY-INTERVENTION.md",
+        "quyen_su_dung": {
+          "status": "verified",
+          "license": "CDC public-domain agency text; no logos or third-party photographs copied",
+          "attribution": "Source: CDC. Available free on the CDC website. Use does not imply endorsement by CDC, ATSDR, HHS or the US Government.",
+          "evidence_url": "https://www.cdc.gov/other/agencymaterials.html",
+          "review_basis": "Official CDC reuse policy read; selected article text attributed to CDC; no third-party copyright notice in the selected article text. Photographs excluded."
+        },
+        "tai_san_nguon": [],
+        "tep_nguon_goc": "knowledge/rag/source_library/originals/CDC-EARLY-INTERVENTION/snapshot-2026-10-30-972b9f60c382.web.txt",
+        "sha256_markdown": "cb45ab6c144652d2c857eefa285b3bcd24aaeaceabc2e23a68b258642bc8f1e9",
+        "sha256_noi_dung": "18b221d39ba20430520880a3b8285f6f5dc72601b83cc1454788fefd306275ed",
+        "pham_vi_tuoi_goc": "Babies/young children with developmental delays/disabilities and families; US under-3 EI and age-3+ preschool referral pathways, not ASD-only.",
+        "sha256_nguon_goc": "972b9f60c382fb32721bb635314e398b1493de4dbceafc8a2309401737a9f3a9",
+        "phien_ban_chuyen_doi": "asd-agent-fulltext-supplement-20261030-v1",
+        "da_tham_dinh_lam_sang_doc_lap": false
+      },
+      "content_sha256": "18b221d39ba20430520880a3b8285f6f5dc72601b83cc1454788fefd306275ed",
+      "clinical_reviewed": false,
+      "whole_document": true,
+      "rank": 4,
+      "cosine_distance": 0.6414445318083044
+    },
+    {
+      "source_id": "ASD-OA-PMC6487529",
+      "title": "Prevalence of autism spectrum disorders and their relation to selected socio-demographic factors among children aged 18–30 months in northern Vietnam, 2017",
+      "source": {
+        "tac_gia": [
+          "Van Minh Hoang",
+          "Thi Vui Le",
+          "Thi Thuy Quynh Chu",
+          "Bich Ngoc Le",
+          "Minh Duc Duong",
+          "Ngoc Minh Thanh",
+          "Van Tac Pham",
+          "Harry Minas",
+          "Thi Thu Ha Bui"
+        ],
+        "to_chuc": null,
+        "ten_nguon": "International Journal of Mental Health Systems",
+        "link_nguon": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6487529/",
+        "loai_nguon": "research",
+        "link_toan_van": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6487529/"
+      },
+      "dates": {
+        "ngay_cap_nhat": null,
+        "ngay_xuat_ban": "2019-4-29",
+        "ngay_doi_chieu_nguon": "2026-10-17"
+      },
+      "scope": {
+        "gioi_han": [
+          "Cross-sectional study, DSM-IV diagnostic context; regional historical prevalence is not current national prevalence.",
+          "Sociodemographic associations do not establish causes or justify blaming parents.",
+          "May overlap populations/evidence in other 2017–2018 Vietnam surveys and reviews; do not count as independent replication.",
+          "Source/provenance review only; no independent clinical appraisal.",
+          "Retain actual ages, geography and study limitations; no individualized diagnosis, treatment or dosing inference."
+        ],
+        "ngon_ngu": "en",
+        "phien_ban": "PMC distributed version 1",
+        "ho_so_day_du": "knowledge/rag/source_library/catalog.jsonl#ASD-OA-PMC6487529",
+        "tep_markdown": "knowledge/rag/source_library/documents/ASD-OA-PMC6487529.md",
+        "quyen_su_dung": {
+          "status": "verified_noncommercial_research",
+          "license": "https://creativecommons.org/licenses/by/4.0/",
+          "evidence_url": "https://pmc.ncbi.nlm.nih.gov/api/oai/v1/mh/?verb=GetRecord&metadataPrefix=pmc&identifier=oai:pubmedcentral.nih.gov:6487529",
+          "license_text": "© The Author(s) 2019https://creativecommons.org/licenses/by/4.0/Open AccessThis article is distributed under the terms of the Creative Commons Attribution 4.0 International License (http://creativecommons.org/licenses/by/4.0/), which permits unrestricted use, distribution, and reproduction in any medium, provided you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The Creative Commons Public Domain Dedication waiver (http://creativecommons.org/publicdomain/zero/1.0/) applies to the data made available in this article, unless otherwise stated.",
+          "third_party_exceptions": "Retain per-figure credit lines; not adjudicated independently"
+        },
+        "tai_san_nguon": [
+          {
+            "pmc": "PMC6487529",
+            "kind": "image",
+            "xml_xpath": "/article/body[1]/sec[2]/sec[6]/sec[2]/p[1]/fig[1]/graphic[1]",
+            "cached_path": "reports/source_library_20261017/cache/PMC6487529_13033_2019_285_Fig1_HTML.jpg",
+            "reviewed_by": "AI source/conversion review, 2026-10-17; not independent clinical approval",
+            "asset_sha256": "02bcfb58b79e9909d230e39df257f018d029449fc9558e2689c3452abe34e433",
+            "archived_path": "knowledge/rag/source_library/originals/assets/PMC6487529/13033_2019_285_Fig1_HTML.jpg",
+            "original_href": "13033_2019_285_Fig1_HTML.jpg",
+            "review_method": "Visual comparison of the original image; exact labels, counts and arrows, no quantitative correction or interpretation",
+            "source_cloud_url": "s3://pmc-oa-opendata/PMC6487529.1/13033_2019_285_Fig1_HTML.jpg?md5=8e9c0f2ef1d6dcc184d3c1e9ee194eb6",
+            "clinical_reviewed": false,
+            "source_xml_sha256": "8ddd0db617b18ce1716a76d1c4897e2239a040a914b5e2d2abb780dac07c2a8a",
+            "transcribed_text_sha256": "1b6f502dddeb23b1b4b956a054b7aa38c6c738d768cbd232792a420575cd1041"
+          }
+        ],
+        "tep_nguon_goc": "knowledge/rag/source_library/originals/ASD-OA-PMC6487529/snapshot-20261017-8ddd0db617b1.xml",
+        "sha256_markdown": "0930ddca9c1f8ca1913bad4391f344be89efb597afebc2b6de3e39b870994b44",
+        "sha256_noi_dung": "dc761b1a52e8c6f2ccfb6da4cfb45fba063f5fcbee9a1b1d5c927f2b5223ca8d",
+        "pham_vi_tuoi_goc": "Children aged 18–30 months in three northern Vietnamese sites, sampled in 2017",
+        "sha256_nguon_goc": "8ddd0db617b18ce1716a76d1c4897e2239a040a914b5e2d2abb780dac07c2a8a",
+        "phien_ban_chuyen_doi": "jats-readable-front-v3-20261020",
+        "da_tham_dinh_lam_sang_doc_lap": false
+      },
+      "content_sha256": "dc761b1a52e8c6f2ccfb6da4cfb45fba063f5fcbee9a1b1d5c927f2b5223ca8d",
+      "clinical_reviewed": false,
+      "whole_document": true,
+      "rank": 5,
+      "cosine_distance": 0.6437547773320703
+    }
+  ],
+  "answer_generation_performed": false
+}

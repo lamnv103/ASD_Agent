@@ -1,0 +1,26 @@
+{
+  "question": "Khi thấy triệu chứng đã đỡ, gia đình có nên tự dừng thuốc đang được bác sĩ kê cho trẻ không?",
+  "error_code": "reader_no_context",
+  "error_stage": "source_selection",
+  "message": "No complete source unit fits; no semantic assessment.",
+  "reader_calls": [
+    {
+      "stage": "question_plan",
+      "content_sha256": "7cee634b66b1eddf2f536b0fcf749012a97f4aa3dc93a8469adcd09113bba93e",
+      "request_id": "chatcmpl-95d1f1e8-2e13-417f-857f-d3fdc5ebf689",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "usage": {
+        "prompt_tokens": 364,
+        "completion_tokens": 276,
+        "total_tokens": 640
+      },
+      "local_prompt_tokens": 364,
+      "provider_prompt_tokens": 364,
+      "prompt_token_delta": 0,
+      "elapsed_seconds": 9.173,
+      "cache_hit": false,
+      "recorded_at": "2026-11-01T16:39:10.237292+00:00"
+    }
+  ],
+  "generation_enabled": false
+}

@@ -1,0 +1,189 @@
+{
+  "schema_version": 1,
+  "collection_id": "asd_fulltext_33_20261030_26eb017efca5",
+  "space_id": "cohere4_whole_1536_e83c596b9070",
+  "corpus_sha256": "26eb017efca593ed18aa4044c9b8185d871bd0f512cda0cb4b9edf82658c5331",
+  "profile": {
+    "provider": "cohere",
+    "model": "embed-v4.0",
+    "dimensions": 1536,
+    "document_input_type": "search_document",
+    "query_input_type": "search_query",
+    "truncate": "NONE",
+    "max_tokens": 128000,
+    "whole_document": true,
+    "pooling": "native_model_single_input",
+    "schema_version": 1
+  },
+  "document_count": 33,
+  "database_env": "deployments/database.env",
+  "sources": {
+    "ASD-CSV-002": {
+      "content_sha256": "b18a9e2383e4f38086cad33f223cf322de234b9c772d08aaffacf8a18aefc07b",
+      "database_vector_sha256": "7f7220d203c04fb64e6f99ce91c4d8c6d043d1af66eb3168ac3266aed89c640e",
+      "metadata_sha256": "bdfe57e171303720ade333079466f1a3d44f4db1a85ce2a4fd8e6738d1c72a31"
+    },
+    "ASD-CSV-062": {
+      "content_sha256": "f7301444bef01b7f3a4538baafcdc4c271c27c996eba18f1a59e42a313e2e7b8",
+      "database_vector_sha256": "526500345abf0533a41dc18a9b13c152a923ac6e082754e4c487b414da4fb2d2",
+      "metadata_sha256": "ff4a54a94512de82b0ab2a98905cce84d77bf7e8907d614012920771999789a2"
+    },
+    "ASD-CSV-078": {
+      "content_sha256": "1fcfd0b62ca17d7508ba5c090e18fe685a1375789455e3bb79226de40a4b1359",
+      "database_vector_sha256": "30e199e3454b3d4cf798b8d6ddde3e9e5bcff7ae554d75d725140a7fa28216c1",
+      "metadata_sha256": "e4fe487c327568a3074e42194f4c45b2aeeb2ed6f41aaadfc6105cb39046b6b6"
+    },
+    "ASD-CSV-081": {
+      "content_sha256": "d44ef856a5e7adac8bba4cc55c9003bc80b9e1755d0874e766e18176cc87df33",
+      "database_vector_sha256": "642a540d9bbea89f3297183cf059133c33e59702cc9af86b84ea83a8e1bebd58",
+      "metadata_sha256": "a75406ea95582bc19839418b2c1e9704bbfccdb909f2791afedba6b0c493499c"
+    },
+    "ASD-CSV-084": {
+      "content_sha256": "221eed836312a706d07dc537d0b04bf915a838c599348bfc75bb477caa984302",
+      "database_vector_sha256": "0a185a19d300ec62cb919840d22e64c17c690c04c227f5aec1c7a4b20a0f492b",
+      "metadata_sha256": "d931f0b1506d252d19eae8c069e839b2472ac6d77420b74818b733a1672fa567"
+    },
+    "ASD-CSV-088": {
+      "content_sha256": "9b2b597797d1f29996caf15a3c3b239bc16188278b6765075f95a7a285150298",
+      "database_vector_sha256": "f5f0b20a44f745ddf76c0ba361ef5d994051844f5667dffa0e451b1fbc07ae51",
+      "metadata_sha256": "526aa447464166665fa4bb6f18e31d2f13a569f1e6e9d2ea838b7f3bee0ea347"
+    },
+    "ASD-CSV-091": {
+      "content_sha256": "834278051e53eaeffc67a1b720c9521f576b121cd79bff9cceac9b6556e110e9",
+      "database_vector_sha256": "c538226cefd3b7ab3ddfb3748780d187730c1e7ac6c568784a2af8c5c68df583",
+      "metadata_sha256": "5cc02c082b62345bf1f8fe54d77a248cf7118d9dac1629b16c380a06833c1261"
+    },
+    "ASD-NEW-003": {
+      "content_sha256": "339b8af5c5aa58837558e3123e811fa78f0fd2ef92df57e1ce0bd101cfbbf733",
+      "database_vector_sha256": "5fef81c82212ef0e63cbeb381452d60892cf1a043c494435c3592b68860475d6",
+      "metadata_sha256": "57bd4e73b3d05ab3b9282844a41245dfe5e0da6ee87f850c0a9c60b0c93e0473"
+    },
+    "ASD-OA-PMC10018050": {
+      "content_sha256": "fed529973a5f5a7d0b3ba0715f1b637afce253a4d6a1cb71e4f60428cdee957a",
+      "database_vector_sha256": "3f3d226aa01646a9fb0f9c8fba9abf51fae670107bb7150d259735a9d27fef89",
+      "metadata_sha256": "cfb2b49b69781a90a004fd791d599a6b05f648dd143b3c00057c9094846f8da7"
+    },
+    "ASD-OA-PMC10774556": {
+      "content_sha256": "1f1edd4a099b5ec457c32c972b6499fc091a549dac75f96e01d7b51d598363d8",
+      "database_vector_sha256": "e8db12cb3d2ed18f405b9327e04ebd959170ff81759da15244bf53a9d91d2a14",
+      "metadata_sha256": "229a8f64b77da44730336ed5c3ef8e0ff6b17a75bf4607c20bfb55f1c568be11"
+    },
+    "ASD-OA-PMC10900867": {
+      "content_sha256": "f09b35bc1d8f3a71916b0545f4601deefd9a8ada9a3515707ac73cb39179d16b",
+      "database_vector_sha256": "2355d3a654d852ffb41b2f4eec5bd7cfca6e99d28e4046f5a2fb0525555dade2",
+      "metadata_sha256": "5084d21a68353c045c06492f7dcde68f3783a0d4b09f07dcf21785f4a57b7873"
+    },
+    "ASD-OA-PMC11638897": {
+      "content_sha256": "1abc68f21365b20fa0d414424fc7402aded85753172ec4a7ce14453753e4cb6f",
+      "database_vector_sha256": "d16070b75471a51db2a2c2dc26efa4f3e0933b66f17a4dcbf10e5ce4db544862",
+      "metadata_sha256": "5fd2f5db50ab9591b9b20c8eeef76e7125a2e81a614681733133adee794131ed"
+    },
+    "ASD-OA-PMC12468522": {
+      "content_sha256": "6f9745947e05ce1c2836f29a8f60310950855c6c0a45c07808c336e85e6c69fc",
+      "database_vector_sha256": "36f668e24a69d48368cc519be25cedfcb269e2c89b5c6f5e34f7eb8e20b3d4cf",
+      "metadata_sha256": "24e40499e390344a5b32dd8fb34a13c178f5800629e5b63edfdb1d768beb8553"
+    },
+    "ASD-OA-PMC12593641": {
+      "content_sha256": "f62b1358f1af986758d4ff583f4e861c0743d28f4318b5d1c2d3c6ea3735b2a8",
+      "database_vector_sha256": "dec05846bfb0e8f7a9043d64f94b4ef8ccbd61113296baaf0f952dc10a23b9e5",
+      "metadata_sha256": "67ef7d1e523e90b08795e67bf90603723146e782701890d26014316f7171d161"
+    },
+    "ASD-OA-PMC13005892": {
+      "content_sha256": "e6790fdf41afe41230ad9d748e317a1622de21f0b61c97646310bb6f4302c0d6",
+      "database_vector_sha256": "9f6724e8b1839fb0c97e1baa6209664f8e215bee7523c3f99923ae93a7fa3130",
+      "metadata_sha256": "e08d5e63d3547aef93b31e8c748eab033b08048596ee725ac3ed3043f1a26c5a"
+    },
+    "ASD-OA-PMC13427885": {
+      "content_sha256": "030634ce00915f55cee07da2c28677dee9277d0c8c48e48587cfc597401641db",
+      "database_vector_sha256": "157c1de46c5ce4b51d973ea0cd5c1dac61f23d3a223acd0cb12e0f2a7ffd3ecc",
+      "metadata_sha256": "75a1e35f8bf77e2a04d6d6c350a3a1231b5626c7bf605c431ce4a72692c1cd56"
+    },
+    "ASD-OA-PMC4271434": {
+      "content_sha256": "451f034040454eee0199996f02e71e144592e66463cd8bb95a0a2449c75f17b3",
+      "database_vector_sha256": "091e0a7a27daa3a926fb0653ccfe49a92ddecce9eeab4f02b3bd1df9b7d6fd81",
+      "metadata_sha256": "9dc6243caf240eb1821a3e208499436ffdd54c12fc250c5f2691988f549ad860"
+    },
+    "ASD-OA-PMC4742252": {
+      "content_sha256": "4a2f9b1ac53b772aa8d9dda13bcea338d8adbd872f228a5f256776cb1fcaf7fb",
+      "database_vector_sha256": "2059a9cea230db2197583d412f8d74ec96c74797f508215fabec65931b0dc475",
+      "metadata_sha256": "f9af37805647367fe78f3a67b43a469f1ade816f24caebbabac80649c6113ce6"
+    },
+    "ASD-OA-PMC6487529": {
+      "content_sha256": "dc761b1a52e8c6f2ccfb6da4cfb45fba063f5fcbee9a1b1d5c927f2b5223ca8d",
+      "database_vector_sha256": "1edd3ebe84b6fed7d9a154b31186a56d6be494a5a1ea5859e719c660d7006dfc",
+      "metadata_sha256": "facf89522810028a349452f7507adde028becdd31586cc64294d1776fdafb341"
+    },
+    "ASD-OA-PMC7407189": {
+      "content_sha256": "655e7fc0eb39221c6082f1702ac1f4702938fdb2b7e8058491b994d5edece27e",
+      "database_vector_sha256": "9610e511e7796f42562884b466d9cfb61cd08510643cc4ca2e96cf523e73ce39",
+      "metadata_sha256": "f90f710b6f88b752acf380266252bde9b70aeeaaff9a87e9b7c0281c959acf5a"
+    },
+    "ASD-OA-PMC9003052": {
+      "content_sha256": "63443ce35b2053c9bc6f462aef294efd6d16bab0e59659101d59a4985a556242",
+      "database_vector_sha256": "274cbde56d41bcc88faffdf25477d5273d9ff0f937f0830503c6d9af0632912d",
+      "metadata_sha256": "dfdb719eeb03064a799b6d6374c28fb7db964d593ee9fe505016dd7340d2ec2f"
+    },
+    "ASD-SUP-PMC11754701": {
+      "content_sha256": "698fcac9c466769bda1b90ad2951b4477949c4db4de58b477bbf7697368ab7e8",
+      "database_vector_sha256": "6c61fff324489c1fb0e4db7164c276ae1a44b1bb79bc205896ac4fe57571a9f5",
+      "metadata_sha256": "42c728197047ee5b75180a9a0045d7f2fd85f9641ef0033a2d2d141234527e98"
+    },
+    "ASD-SUP-PMC12658592": {
+      "content_sha256": "83db662a4f98c9e1010806a7560a971dc62ac309ab4702f52a518284649df50c",
+      "database_vector_sha256": "79bd4bc8fb2c05d1f1cb2a9932d1841dbd5dd2bf0be0e36ef60ff849afa30ede",
+      "metadata_sha256": "47ea549ebfad79fee0ac4ea324b2624332faf4caa3556d1acf48a374057402ec"
+    },
+    "ASD-SUP-PMC4513196": {
+      "content_sha256": "696678ebc365fd6d6312dcc3fe10e6e0e6b529fcb8af1bafc1008e271043daa9",
+      "database_vector_sha256": "0267ab0473a52f4d27c25164bd2f36526cb9f206558c59f5c10444e4fed4d812",
+      "metadata_sha256": "faf7976ef0df6378f22e35709aa54a839ab16ce3d067b7881f7fb53f91aaf49e"
+    },
+    "ASD-SUP-PMC6590432": {
+      "content_sha256": "9fbff71468cdbd07333b59e9a379e8569582bf48f7edadb32cc72c7efbb9b651",
+      "database_vector_sha256": "e3a8447775ad490fafb950846f53ca810b6128087ed2e54a5de342544dcd1326",
+      "metadata_sha256": "ebe0a70e4c5575a5b7edf025ded5e4f01076473a176450ac15b55cf81d1a17fd"
+    },
+    "CDC-ASD-TREATMENT": {
+      "content_sha256": "587f9238ac019876bcccd7b6c19e6d8b5516f2eb5d7aa8d3cbd88f480c67faa1",
+      "database_vector_sha256": "ff353cc75226cbb750c71d4318c824c93df83365a1538606443208e34dd53cda",
+      "metadata_sha256": "3fa2226db8269241868743ace1109567ae48f0e42d4549fe263e943ac58f1e9f"
+    },
+    "CDC-EARLY-INTERVENTION": {
+      "content_sha256": "18b221d39ba20430520880a3b8285f6f5dc72601b83cc1454788fefd306275ed",
+      "database_vector_sha256": "ba428fe818d89d28694915311bc4b1f8174db96653af023f36c8fc5b08a9a980",
+      "metadata_sha256": "b72f1fc6647307a0e1768925e873cd3167d59cabbe271ee67ba4192a0fa7527a"
+    },
+    "NIH-NIDCD-ASD-COMMUNICATION-2020": {
+      "content_sha256": "167221060bae5a46446346dae3f89336f1dc008495f27dca3051277d6a17febc",
+      "database_vector_sha256": "7e92a9bf8b0f42e6cf4cdca50ba2b4e0ce5cc5cb889a620a72a17b832c1b879a",
+      "metadata_sha256": "d86f2798f726fb4644b842a762e24eb0043d5869ef4c8182527489370747a206"
+    },
+    "NIH-NIMH-ADHD": {
+      "content_sha256": "2bcf03eda872766fe5216a38376a084558f0b4c07472eec69d5ac4eda3573c7c",
+      "database_vector_sha256": "0a9fef7f990212d5c708f53eb0394c5289b9407d589914d5048102b66b227101",
+      "metadata_sha256": "36a8b80e1ce0f6e3c270f9d75c4c68adeb65db93b7f5e191be401e1e0be9ea5d"
+    },
+    "NIH-NIMH-ASD-2025": {
+      "content_sha256": "8a387613d1126abbcc28145fd54347db63e67b67783717b86e6f48984f455fa8",
+      "database_vector_sha256": "ef069264f432fa86c4fee67a45d426a7c13c36985c9683fc238628d11a99014d",
+      "metadata_sha256": "6f7299cfc6c446eb1ef0db29c50bab99fffb22c445214fb6729279ecdb06612c"
+    },
+    "NIH-NIMH-MEDICATIONS": {
+      "content_sha256": "9898db3db043c6618127b0fa3faaf61045d1c87c24d35283c6b24738af506bf2",
+      "database_vector_sha256": "d560d0cb0d5216b18cb52967b4a3cdf197cfc27d1d4402775d38388fbb6e9411",
+      "metadata_sha256": "aac01241537ae4dd10f47ca5c5a1db1bd46e3953fc6e96357cdfd8a80971b7f8"
+    },
+    "NIH-NIMH-TEEN-BRAIN": {
+      "content_sha256": "1ad37695e06dcecd937537f3f0047cd639972dd0b636608c02b97d5e70060729",
+      "database_vector_sha256": "00fa3d0c1b24facd218007eb4fabb3f36ab7c0531e3850fe9a7ce088964e5f67",
+      "metadata_sha256": "d68aae05e6109a0ea9082738916b0263679d77156e2c46a1fd69dac76efa312f"
+    },
+    "NIH-NIMH-TEEN-DEPRESSION": {
+      "content_sha256": "89e0839e872b2f60c55dbc0848692bc39a9e909ab92dd5c62d3081b1f83be565",
+      "database_vector_sha256": "5d66e8dbc8bc7be0096747be827129dbc2d10ce4070dcb101433f67ca51c8e6d",
+      "metadata_sha256": "825d84c96d8943fd6ba57084c9a7a9fa0c14c29eb721717cd98a9de76a1809b8"
+    }
+  },
+  "clinical_reviewed": false,
+  "production_ingest": false
+}

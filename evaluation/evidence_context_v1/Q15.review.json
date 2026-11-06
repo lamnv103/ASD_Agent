@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "review_id": "reference-replay-Q15",
+  "question": "Trẻ tự kỷ kén ăn cần đánh giá dinh dưỡng và tiền sử ăn uống như thế nào?",
+  "question_sha256": "4c7eaa50b364ecae16219970d9d703effce2165afda8eceedf46e5686ab99b02",
+  "reviewer": {
+    "kind": "ai_reference_review",
+    "name": "AI source-content review; not an independent clinical expert",
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "origin": "existing_retrieval_v1_label_replay_not_independent_semantic_evaluation",
+    "frozen_input_hashes": {
+      "questions.jsonl": "749f0a48e30de346e0521bae016f81e05e787b885ae132dced1cc03365f252c6",
+      "reference_labels.json": "b3c0f8c7e083c463750c358288b1439d4a2b1ef5533d976a6fae2901523deb99"
+    }
+  },
+  "intent": "general_information",
+  "claims": [
+    {
+      "claim_id": "c1",
+      "text": "Trẻ tự kỷ kén ăn cần đánh giá dinh dưỡng và tiền sử ăn uống như thế nào?",
+      "required": true
+    }
+  ],
+  "items": [
+    {
+      "item_id": "item-0",
+      "source_id": "ASD-NEW-003",
+      "content_sha256": "339b8af5c5aa58837558e3123e811fa78f0fd2ef92df57e1ce0bd101cfbbf733",
+      "start": 33019,
+      "end": 34925,
+      "quote": "Concerning the nutritional assessment for children with ASD, clinicians should detect the causal nutritional inadequacies connected to the restricted intake, since children with ASD stereotypically choose diets such as junk snacks and candies limiting fruits and vegetables [19,49]. Consequently, nutrition assessment refers to dietary repertoire and corresponding nutrients consumed and recurrently excluded food categories influencing child development. Likewise, clinicians should gather anthropometric data, current diet, and related eating history. Evidence gathered throughout a comprehensive feeding diary includes food group intake, concerning fruit, vegetable, legumes, meat/dairy, and grains/cereals, and compares the child with well-known dietary recommendations. Specifically, clinical staff should ask parents for a weekly food diary investigating the current food categories accepted by the child as well as providing them with standardized questionnaires on feeding issues. On the other hand, since feeding problems could be influenced by gastrointestinal issues, a medical assessment to exclude this comorbidity is recommended so as to explore possible essential organic pathologies (food intolerances/allergies, diarrhea/constipation, reflux, and so on). Conversely, regarding low-functioning children, some infrequent behavior should be observed (without a clear antecedent) to identify gastrointestinal issues such as infrequent posturing, self-injurious and aggressive behaviors, bruxism, uncommon facial expressions, pica, and other unclear postures (also associated with dental problems). Similarly, since sensorial processing anomalies are shared between children with ASD, as well as over/under-responsivity and sensory seeking, an investigation of sensory stimuli having an impact on feeding behaviors (texture, temperature, taste, flavor, movement, and color) should be addressed.",
+      "relation": "direct",
+      "stance": "supports",
+      "claim_ids": [
+        "c1"
+      ],
+      "scope_limits": "Cần đánh giá lâm sàng nguyên nhân và nguy cơ; không chỉ chọn một kỹ thuật hành vi."
+    }
+  ],
+  "conflicts": [],
+  "review_notes": "Cần đánh giá lâm sàng nguyên nhân và nguy cơ; không chỉ chọn một kỹ thuật hành vi."
+}

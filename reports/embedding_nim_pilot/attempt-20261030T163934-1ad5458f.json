@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "started_at": "2026-10-30T23:39:34+07:00",
+  "request_fingerprint": "f52ffbdfbbda0ed6f129b513f607cd35def41cbba280d04b7ef16639b23cede5",
+  "source_id": "CDC-EARLY-INTERVENTION",
+  "model": "nvidia/nemotron-3.5-embed-8b",
+  "endpoint": "https://integrate.api.nvidia.com/v1/embeddings",
+  "output": "reports\\embedding_nim_pilot\\pilot_embedding.json",
+  "automatic_retries": 0,
+  "finished_at": "2026-10-30T23:39:35+07:00",
+  "result_sha256": "85dcf3c2f4c8beb4872b0516e4dd903f4fb3429c60ed5cd393853ef13d772e94",
+  "dimensions": 4096,
+  "elapsed_seconds": 0.966639
+}

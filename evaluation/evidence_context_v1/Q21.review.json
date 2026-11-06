@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "review_id": "reference-replay-Q21",
+  "question": "Tổng quan nghiên cứu tự kỷ tại Việt Nam thấy những chủ đề chính và hạn chế chất lượng nào?",
+  "question_sha256": "acbb1c45dd2204a3923b871e3e97e535c6b077a00f02348b108b69f3c95ee7e7",
+  "reviewer": {
+    "kind": "ai_reference_review",
+    "name": "AI source-content review; not an independent clinical expert",
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "origin": "existing_retrieval_v1_label_replay_not_independent_semantic_evaluation",
+    "frozen_input_hashes": {
+      "questions.jsonl": "749f0a48e30de346e0521bae016f81e05e787b885ae132dced1cc03365f252c6",
+      "reference_labels.json": "b3c0f8c7e083c463750c358288b1439d4a2b1ef5533d976a6fae2901523deb99"
+    }
+  },
+  "intent": "general_information",
+  "claims": [
+    {
+      "claim_id": "c1",
+      "text": "Tổng quan nghiên cứu tự kỷ tại Việt Nam thấy những chủ đề chính và hạn chế chất lượng nào?",
+      "required": true
+    }
+  ],
+  "items": [
+    {
+      "item_id": "item-0",
+      "source_id": "ASD-OA-PMC13005892",
+      "content_sha256": "e6790fdf41afe41230ad9d748e317a1622de21f0b61c97646310bb6f4302c0d6",
+      "start": 1588,
+      "end": 2901,
+      "quote": "Autism research has predominantly focused on Western contexts, with limited studies in Vietnamese cultural settings. Through conducting a systematic scoping review, we aimed to map (a) the landscape of autism research in Vietnamese cultural contexts, (b) the quality of the research, and (c) the extent of autism community involvement in the research. A total of 137 studies met our inclusion criteria. A growing body of literature pertained to autism in Vietnamese cultural contexts, largely conducted in Viet Nam (87%). Much of the literature focused on Services and Supports (39%), as well as Interventions (20%). Key themes identified from the research were the centrality of family, the importance of school and education, and identifying a cause of autism. Quality appraisals of the studies – using the Mixed Methods Appraisal Tool, a Westernised tool – indicated that the studies were largely of low quality. There was limited autism community involvement in the research, with studies often lacking an explicit description of the nature of community involvement. Priority areas for future research include better understanding how rigour is understood in a Vietnamese research context, improving the clarity of data reporting and actively involving the Vietnamese autism community in the research process.",
+      "relation": "direct",
+      "stance": "supports",
+      "claim_ids": [
+        "c1"
+      ],
+      "scope_limits": "Tổng quan phạm vi, MMAT là công cụ phương Tây; không phải hướng dẫn chẩn đoán/pháp lý."
+    }
+  ],
+  "conflicts": [],
+  "review_notes": "Tổng quan phạm vi, MMAT là công cụ phương Tây; không phải hướng dẫn chẩn đoán/pháp lý."
+}

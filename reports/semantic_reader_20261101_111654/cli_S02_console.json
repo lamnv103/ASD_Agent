@@ -1,0 +1,84 @@
+{
+  "status": "ok",
+  "trace": "E:\\AI4LIFE\\ASD_AGENT\\reports\\semantic_reader_20261101_111654\\cli_S02.json",
+  "assessment": {
+    "status": "sufficient",
+    "assessment_state": "model_semantic_review_not_independent_clinical_validation",
+    "reason": "Computed from review assertions and source spans actually available; model assertions remain provisional.",
+    "claims": [
+      {
+        "claim_id": "c1",
+        "text": "Are there ways for a child who speaks little to express needs using pictures or devices (AAC) besides speech training?",
+        "required": true,
+        "direct": [
+          "ev-4a9289a01aef6ff48b62632f",
+          "ev-44c0705ff7f60f9fc4a5f098",
+          "ev-72da64b05fe701e94ed7f661"
+        ],
+        "indirect": [],
+        "direct_refutation": [],
+        "indirect_refutation": [],
+        "opposing": []
+      }
+    ],
+    "reviewer": {
+      "kind": "model_semantic_review",
+      "name": "nvidia/nemotron-3-ultra-550b-a55b",
+      "date": "2026-11-01"
+    },
+    "review_id": "nim-passages-4ee9e33aa0c0a11a4c5148d8",
+    "conflicts": [],
+    "unresolved_conflict_comparisons": false,
+    "missing_claims": [],
+    "missing_review_sources": [],
+    "used_evidence_ids": [
+      "ev-4a9289a01aef6ff48b62632f",
+      "ev-44c0705ff7f60f9fc4a5f098",
+      "ev-72da64b05fe701e94ed7f661"
+    ],
+    "independent_clinical_reviewed": false
+  },
+  "policy": {
+    "intent": "general_information",
+    "action": "general_education_with_source_limits",
+    "clarification_fields": [],
+    "individual_diagnosis_allowed": false,
+    "individual_prescribing_allowed": false,
+    "retrieved_content_is_untrusted_data": true,
+    "instruction_detection_complete": false,
+    "clinical_reviewed": false
+  },
+  "context_status": "prepared",
+  "context_token_budget": {
+    "model_id": "nvidia/nemotron-3-ultra-550b-a55b",
+    "context_window_tokens": 32768,
+    "input_tokens": 6219,
+    "system_chat_tokens": 159,
+    "base_input_tokens": 283,
+    "question_and_envelope_increment_tokens": 124,
+    "evidence_increment_tokens": 5936,
+    "reserved_output_tokens": 4096,
+    "safety_margin_tokens": 512,
+    "max_evidence_tokens": 24576,
+    "remaining_tokens": 21941,
+    "within_budget": true,
+    "components_note": "Marginal deltas from whole rendered chat; not independent text-token sums."
+  },
+  "reader_provider": {
+    "content_sha256": "4ee9e33aa0c0a11a4c5148d8acaab0664a13776969a9cbd7724acccb667b42b4",
+    "request_id": "chatcmpl-20ad8d3c-422d-4424-8b1a-7229dd3ad104",
+    "model": "nvidia/nemotron-3-ultra-550b-a55b",
+    "usage": {
+      "prompt_tokens": 13203,
+      "completion_tokens": 431,
+      "total_tokens": 13634
+    },
+    "local_prompt_tokens": 13203,
+    "provider_prompt_tokens": 13203,
+    "prompt_token_delta": 0,
+    "elapsed_seconds": 8.493,
+    "cache_hit": true,
+    "recorded_at": "2026-11-01T15:43:57.028711+00:00"
+  },
+  "generation_enabled": false
+}

@@ -1,0 +1,11 @@
+{
+  "rag/retriever.py": "887ee3b963f4f0fc93a8b815a753d0a95d593a2eeacde373e66b920b4b9566f8",
+  "rag/tools.py": "311ec825d56f8efcbbc30d64c6462bef22b6527a040e6b841352af85ed336080",
+  "rag/__main__.py": "843de6b3e6bda2b56668f2f9b9b9f3fd99c884c68fc06d43c03ae87f8efc9659",
+  "rag/__init__.py": "a32e9a1886cad3c2259efb5bf38e26a21590dca8fd6afceb4bf008cc4dfbc51b",
+  "deployments/retriever.json": "5ccd6ed225f67bf417d287dc8c83667aad80ea1be90b43204840a390891cd599",
+  "deployments/database.env": "1526d236ad5c68111bcfab3ea489e7d2280cc00dc26f32096212c81a1eddd4c5",
+  "evaluation/retrieval_v1/frozen_inputs.json": "ccfe09796b323a6182a7329b4608312fc4886463fccbec46cb5ba49cf28a3ade",
+  "evaluation/retrieval_v1/questions.jsonl": "749f0a48e30de346e0521bae016f81e05e787b885ae132dced1cc03365f252c6",
+  "evaluation/retrieval_v1/reference_labels.json": "b3c0f8c7e083c463750c358288b1439d4a2b1ef5533d976a6fae2901523deb99"
+}

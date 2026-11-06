@@ -1,0 +1,308 @@
+{
+  "question": "Khi chơi với trẻ tự kỷ ở nhà, đi theo thứ con thích có giúp tạo cơ hội học và giao tiếp như thế nào?",
+  "error_code": "nim_network",
+  "message": "NVIDIA request failed/timed out; no automatic retry.",
+  "reader_provider": {},
+  "retrieved_sources": [
+    {
+      "source_id": "ASD-SUP-PMC4513196",
+      "title": "Naturalistic Developmental Behavioral Interventions: Empirically Validated Treatments for Autism Spectrum Disorder",
+      "source": {
+        "tac_gia": [
+          "Laura Schreibman",
+          "Geraldine Dawson",
+          "Aubyn C. Stahmer",
+          "Rebecca Landa",
+          "Sally J. Rogers",
+          "Gail G. McGee",
+          "Connie Kasari",
+          "Brooke Ingersoll",
+          "Ann P. Kaiser",
+          "Yvonne Bruinsma",
+          "Erin McNerney",
+          "Amy Wetherby",
+          "Alycia Halladay"
+        ],
+        "to_chuc": null,
+        "ten_nguon": "Journal of Autism and Developmental Disorders",
+        "link_nguon": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4513196/",
+        "loai_nguon": "research",
+        "link_toan_van": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4513196/"
+      },
+      "dates": {
+        "ngay_cap_nhat": null,
+        "ngay_xuat_ban": "2015-3-4",
+        "ngay_doi_chieu_nguon": "2026-10-30"
+      },
+      "scope": {
+        "gioi_han": [
+          "Foundational 2015 description of NDBIs, not a current professional practice guideline or a head-to-head trial.",
+          "Intervention choices and goals must be individualized; no guaranteed language gain, cure or fixed intensity for all children.",
+          "Reviews/program descriptions can overlap underlying studies; not independent replication.",
+          "No independent clinical review; research/internal noncommercial use, no individual diagnosis or prescription.",
+          "Linked 2022 commentary (PMC9561015) revisits simplification of adult language input; this foundational 2015 review is not a settled language-input prescription. The commentary link is not a retraction or correction notice."
+        ],
+        "ngon_ngu": "en",
+        "phien_ban": "PMC4513196.1; acquired 2026-10-30",
+        "ho_so_day_du": "knowledge/rag/source_library/catalog.jsonl#ASD-SUP-PMC4513196",
+        "tep_markdown": "knowledge/rag/source_library/documents/ASD-SUP-PMC4513196.md",
+        "quyen_su_dung": {
+          "status": "verified_noncommercial_research",
+          "license": "https://creativecommons.org/licenses/by/4.0/",
+          "evidence_url": "https://pmc.ncbi.nlm.nih.gov/api/oai/v1/mh/?verb=GetRecord&metadataPrefix=pmc&identifier=oai:pubmedcentral.nih.gov:4513196",
+          "license_text": "© The Author(s) 2015https://creativecommons.org/licenses/by/4.0/ Open AccessThis article is distributed under the terms of the Creative Commons Attribution License which permits any use, distribution, and reproduction in any medium, provided the original author(s) and the source are credited.",
+          "third_party_exceptions": "Retain per-figure credit lines; not adjudicated independently"
+        },
+        "tai_san_nguon": [],
+        "tep_nguon_goc": "knowledge/rag/source_library/originals/ASD-SUP-PMC4513196/snapshot-2026-10-30-304763f5f717.xml",
+        "sha256_markdown": "4caa1d9ffa6bb86c3bcd0def0d486d8b07d8ace1fc25c3f6d2b366ae0c9d3739",
+        "sha256_noi_dung": "696678ebc365fd6d6312dcc3fe10e6e0e6b529fcb8af1bafc1008e271043daa9",
+        "pham_vi_tuoi_goc": "Young autistic children, especially toddlers and preschoolers; conceptual narrative review, not one recruited cohort.",
+        "sha256_nguon_goc": "304763f5f7174a96cf80dee3bbcf6d151360c4360aca73a4ae719d7bc0d1ebc7",
+        "phien_ban_chuyen_doi": "asd-agent-fulltext-supplement-20261030-v1",
+        "da_tham_dinh_lam_sang_doc_lap": false
+      },
+      "content_sha256": "696678ebc365fd6d6312dcc3fe10e6e0e6b529fcb8af1bafc1008e271043daa9",
+      "clinical_reviewed": false,
+      "whole_document": true,
+      "rank": 1,
+      "cosine_distance": 0.6180087739240001
+    },
+    {
+      "source_id": "ASD-NEW-003",
+      "title": "Food Selectivity in Children with Autism: Guidelines for Assessment and Clinical Interventions",
+      "source": {
+        "tac_gia": [
+          "Marco Esposito",
+          "Paolo Mirizzi",
+          "Roberta Fadda",
+          "Chiara Pirollo",
+          "Orlando Ricciardi",
+          "Monica Mazza",
+          "Marco Valenti"
+        ],
+        "to_chuc": null,
+        "ten_nguon": "International Journal of Environmental Research and Public Health",
+        "link_nguon": "https://doi.org/10.3390/ijerph20065092",
+        "loai_nguon": "research",
+        "link_toan_van": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10048794/"
+      },
+      "dates": {
+        "ngay_cap_nhat": null,
+        "ngay_xuat_ban": "2023-Mar-14",
+        "ngay_doi_chieu_nguon": "2026-10-17"
+      },
+      "scope": {
+        "gioi_han": [
+          "A narrative clinical review with guidelines in its title is not an official society guideline.",
+          "Clinician-directed feeding procedures are not instructions for unsupervised family implementation.",
+          "Keep actual study ages; pediatric and mixed adult findings cannot be generalized to every age from birth to 18.",
+          "No independent clinical appraisal; no individualized treatment or dosing inference.",
+          "Title uses Guidelines but this is not a formal professional-society guideline.",
+          "Clinician-directed behavioral feeding procedures, physical guidance and escape extinction are not instructions for unsupervised family implementation.",
+          "Food selectivity does not by itself establish deficiency, food allergy or a need for restrictive diets."
+        ],
+        "ngon_ngu": "en",
+        "phien_ban": "snapshot-20261017-03d7bc132930",
+        "ho_so_day_du": "knowledge/rag/source_library/catalog.jsonl#ASD-NEW-003",
+        "tep_markdown": "knowledge/rag/source_library/documents/ASD-NEW-003.md",
+        "quyen_su_dung": {
+          "status": "verified_noncommercial_research",
+          "license": "https://creativecommons.org/licenses/by/4.0/",
+          "evidence_url": "https://pmc.ncbi.nlm.nih.gov/api/oai/v1/mh/?verb=GetRecord&metadataPrefix=pmc&identifier=oai:pubmedcentral.nih.gov:10048794",
+          "license_text": "© 2023 by the authors.2023https://creativecommons.org/licenses/by/4.0/Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license (https://creativecommons.org/licenses/by/4.0/).",
+          "third_party_exceptions": "Retain per-figure credit lines; not adjudicated independently"
+        },
+        "tai_san_nguon": [],
+        "tep_nguon_goc": "knowledge/rag/source_library/originals/ASD-NEW-003/snapshot-20261017-03d7bc132930.xml",
+        "sha256_markdown": "85275f943ba7263fffdb8a3c8d5aee182761e4793be86d131b23470444808a0a",
+        "sha256_noi_dung": "339b8af5c5aa58837558e3123e811fa78f0fd2ef92df57e1ce0bd101cfbbf733",
+        "pham_vi_tuoi_goc": "Childhood/adolescent food-selectivity narrative review; examples include 2–18-year-olds and some mixed older samples",
+        "sha256_nguon_goc": "03d7bc1329303452c366a0c20c529ce6195cf7215a84754fe0f3a44595f01177",
+        "phien_ban_chuyen_doi": "jats-readable-front-v3-20261020",
+        "da_tham_dinh_lam_sang_doc_lap": false
+      },
+      "content_sha256": "339b8af5c5aa58837558e3123e811fa78f0fd2ef92df57e1ce0bd101cfbbf733",
+      "clinical_reviewed": false,
+      "whole_document": true,
+      "rank": 2,
+      "cosine_distance": 0.6272858051102638
+    },
+    {
+      "source_id": "ASD-OA-PMC10900867",
+      "title": "The importance and challenges of observing social interactions in autistic preschoolers during inclusive educational settings: A scoping review",
+      "source": {
+        "tac_gia": [
+          "Stella Tsamitrou",
+          "Marie-Hélène Plumet"
+        ],
+        "to_chuc": null,
+        "ten_nguon": "Autism & Developmental Language Impairments",
+        "link_nguon": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10900867/",
+        "loai_nguon": "research",
+        "link_toan_van": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10900867/"
+      },
+      "dates": {
+        "ngay_cap_nhat": null,
+        "ngay_xuat_ban": "2024-2-28",
+        "ngay_doi_chieu_nguon": "2026-10-17"
+      },
+      "scope": {
+        "gioi_han": [
+          "Preschool observation methods, not evidence that a named school programme works for every child.",
+          "Sparse longitudinal evidence; findings do not establish school services or rights in Vietnam.",
+          "Source/provenance review only; no independent clinical appraisal.",
+          "Retain actual ages, geography and study limitations; no individualized diagnosis, treatment or dosing inference."
+        ],
+        "ngon_ngu": "en",
+        "phien_ban": "PMC distributed version 1",
+        "ho_so_day_du": "knowledge/rag/source_library/catalog.jsonl#ASD-OA-PMC10900867",
+        "tep_markdown": "knowledge/rag/source_library/documents/ASD-OA-PMC10900867.md",
+        "quyen_su_dung": {
+          "status": "verified_noncommercial_research",
+          "license": "https://creativecommons.org/licenses/by-nc/4.0/",
+          "evidence_url": "https://pmc.ncbi.nlm.nih.gov/api/oai/v1/mh/?verb=GetRecord&metadataPrefix=pmc&identifier=oai:pubmedcentral.nih.gov:10900867",
+          "license_text": "© The Author(s) 20242024SAGE Publications Ltd unless otherwise noted. Manuscript content on this site is licensed under Creative Commons Licenseshttps://creativecommons.org/licenses/by-nc/4.0/This article is distributed under the terms of the Creative Commons Attribution-NonCommercial 4.0 License (https://creativecommons.org/licenses/by-nc/4.0/) which permits non-commercial use, reproduction and distribution of the work without further permission provided the original work is attributed as specified on the SAGE and Open Access page (https://us.sagepub.com/en-us/nam/open-access-at-sage).",
+          "third_party_exceptions": "Retain per-figure credit lines; not adjudicated independently"
+        },
+        "tai_san_nguon": [],
+        "tep_nguon_goc": "knowledge/rag/source_library/originals/ASD-OA-PMC10900867/snapshot-20261017-5d4083f4fcea.xml",
+        "sha256_markdown": "5db859dee7bd531664c077b8a67371e354c175d070d3c1b88892175f09df77ba",
+        "sha256_noi_dung": "f09b35bc1d8f3a71916b0545f4601deefd9a8ada9a3515707ac73cb39179d16b",
+        "pham_vi_tuoi_goc": "Autistic preschool children in inclusive preschool settings; 17 observational studies",
+        "sha256_nguon_goc": "5d4083f4fcea92697a229f4edb3d70a1d28ece2a9cbdd4820da9c009bf7835f7",
+        "phien_ban_chuyen_doi": "jats-readable-front-v3-20261020",
+        "da_tham_dinh_lam_sang_doc_lap": false
+      },
+      "content_sha256": "f09b35bc1d8f3a71916b0545f4601deefd9a8ada9a3515707ac73cb39179d16b",
+      "clinical_reviewed": false,
+      "whole_document": true,
+      "rank": 3,
+      "cosine_distance": 0.6343560213495829
+    },
+    {
+      "source_id": "ASD-OA-PMC4742252",
+      "title": "Prevalence and Correlates of Elopement in a Nationally Representative Sample of Children with Developmental Disabilities in the United States",
+      "source": {
+        "tac_gia": [
+          "Bridget Kiely",
+          "Talia R. Migdal",
+          "Sujit Vettam",
+          "Andrew Adesman"
+        ],
+        "to_chuc": null,
+        "ten_nguon": "PLoS ONE",
+        "link_nguon": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4742252/",
+        "loai_nguon": "research",
+        "link_toan_van": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4742252/"
+      },
+      "dates": {
+        "ngay_cap_nhat": null,
+        "ngay_xuat_ban": "2016-2-4",
+        "ngay_doi_chieu_nguon": "2026-10-17"
+      },
+      "scope": {
+        "gioi_han": [
+          "Parent-reported, cross-sectional historical survey; no causal inference or proof tracking devices prevent injury.",
+          "Reported proportions are not current Vietnam prevalence or an individual child's risk.",
+          "Source/provenance review only; no independent clinical appraisal.",
+          "Retain actual ages, geography and study limitations; no individualized diagnosis, treatment or dosing inference."
+        ],
+        "ngon_ngu": "en",
+        "phien_ban": "PMC distributed version 1",
+        "ho_so_day_du": "knowledge/rag/source_library/catalog.jsonl#ASD-OA-PMC4742252",
+        "tep_markdown": "knowledge/rag/source_library/documents/ASD-OA-PMC4742252.md",
+        "quyen_su_dung": {
+          "status": "verified_noncommercial_research",
+          "license": "http://creativecommons.org/licenses/by/4.0/",
+          "evidence_url": "https://pmc.ncbi.nlm.nih.gov/api/oai/v1/mh/?verb=GetRecord&metadataPrefix=pmc&identifier=oai:pubmedcentral.nih.gov:4742252",
+          "license_text": "© 2016 Kiely et al2016Kiely et alhttps://creativecommons.org/licenses/by/4.0/This is an open access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.",
+          "third_party_exceptions": "Retain per-figure credit lines; not adjudicated independently"
+        },
+        "tai_san_nguon": [],
+        "tep_nguon_goc": "knowledge/rag/source_library/originals/ASD-OA-PMC4742252/snapshot-20261017-982870c9b511.xml",
+        "sha256_markdown": "6a6fa79ba12d737699b674a86839532e533c807d181e9656ba3cf4cd32878b90",
+        "sha256_noi_dung": "4a2f9b1ac53b772aa8d9dda13bcea338d8adbd872f228a5f256776cb1fcaf7fb",
+        "pham_vi_tuoi_goc": "US 2011 Pathways survey of children aged 6–17 with ASD, ID and/or developmental delay",
+        "sha256_nguon_goc": "982870c9b5115bd75da582ab0865b36b1c93e776e77d493fdd41931cd91fb034",
+        "phien_ban_chuyen_doi": "jats-readable-front-v3-20261020",
+        "da_tham_dinh_lam_sang_doc_lap": false
+      },
+      "content_sha256": "4a2f9b1ac53b772aa8d9dda13bcea338d8adbd872f228a5f256776cb1fcaf7fb",
+      "clinical_reviewed": false,
+      "whole_document": true,
+      "rank": 4,
+      "cosine_distance": 0.6465090153381685
+    },
+    {
+      "source_id": "ASD-CSV-084",
+      "title": "The role of augmentative and alternative communication for children with autism: current status and future trends",
+      "source": {
+        "tac_gia": [
+          "Teresa Iacono",
+          "David Trembath",
+          "Shane Erickson"
+        ],
+        "to_chuc": null,
+        "ten_nguon": "Neuropsychiatric Disease and Treatment",
+        "link_nguon": "https://doi.org/10.2147/ndt.s95967",
+        "loai_nguon": "research",
+        "link_toan_van": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5036660/"
+      },
+      "dates": {
+        "ngay_cap_nhat": null,
+        "ngay_xuat_ban": "2016",
+        "ngay_doi_chieu_nguon": "2026-10-17"
+      },
+      "scope": {
+        "gioi_han": [
+          "Keep actual study ages; pediatric and mixed adult findings cannot be generalized to every age from birth to 18.",
+          "No independent clinical appraisal; no individualized treatment or dosing inference.",
+          "Review of 17 systematic reviews, searches through March 2016; underlying evidence overlaps and many targets are requesting.",
+          "Do not infer speech suppression or guaranteed speech acquisition from aggregate AAC findings."
+        ],
+        "ngon_ngu": "en",
+        "phien_ban": "snapshot-20261017-b09029e5368f",
+        "ho_so_day_du": "knowledge/rag/source_library/catalog.jsonl#ASD-CSV-084",
+        "tep_markdown": "knowledge/rag/source_library/documents/ASD-CSV-084.md",
+        "quyen_su_dung": {
+          "status": "verified_noncommercial_research",
+          "license": "https://creativecommons.org/licenses/by-nc/3.0/",
+          "evidence_url": "https://pmc.ncbi.nlm.nih.gov/api/oai/v1/mh/?verb=GetRecord&metadataPrefix=pmc&identifier=oai:pubmedcentral.nih.gov:5036660",
+          "license_text": "© 2016 Iacono et al. This work is published and licensed by Dove Medical Press Limited2016https://creativecommons.org/licenses/by-nc/3.0/The full terms of this license are available at https://www.dovepress.com/terms.php and incorporate the Creative Commons Attribution – Non Commercial (unported, v3.0) License (http://creativecommons.org/licenses/by-nc/3.0/). By accessing the work you hereby accept the Terms. Non-commercial uses of the work are permitted without any further permission from Dove Medical Press Limited, provided the work is properly attributed.",
+          "third_party_exceptions": "Retain per-figure credit lines; not adjudicated independently"
+        },
+        "tai_san_nguon": [
+          {
+            "pmc": "PMC5036660",
+            "kind": "image",
+            "xml_xpath": "/article/floats-group[1]/fig[1]/graphic[1]",
+            "cached_path": "reports/source_library_20261017/cache/PMC5036660_ndt-12-2349Fig1.jpg",
+            "reviewed_by": "AI source/conversion review, 2026-10-17; not independent clinical approval",
+            "asset_sha256": "8b4b7f288055ab79d771095b14da1f6067b2556f094a5156e50e799e5e55955f",
+            "archived_path": "knowledge/rag/source_library/originals/assets/PMC5036660/ndt-12-2349Fig1.jpg",
+            "original_href": "ndt-12-2349Fig1.jpg",
+            "review_method": "Visual comparison of the original image; exact labels, counts and arrows, no quantitative correction or interpretation",
+            "source_cloud_url": "s3://pmc-oa-opendata/PMC5036660.1/ndt-12-2349Fig1.jpg?md5=a398936f435504dc7f23629b58a0ae93",
+            "clinical_reviewed": false,
+            "source_xml_sha256": "b09029e5368fb185428a87b5c28895091dfc092aa6289fced0fa0f1ab3af3ad8",
+            "transcribed_text_sha256": "5d78067bfba53e89821a0dd0fce510a914cc2483488928c896f577be75a33551"
+          }
+        ],
+        "tep_nguon_goc": "knowledge/rag/source_library/originals/ASD-CSV-084/snapshot-20261017-b09029e5368f.xml",
+        "sha256_markdown": "21f8cd2ca2880402b6f5348f917c0c108fb8bfa96af735f656354263af819d24",
+        "sha256_noi_dung": "221eed836312a706d07dc537d0b04bf915a838c599348bfc75bb477caa984302",
+        "pham_vi_tuoi_goc": "AAC evidence reviews include children/young people up to 21; pediatric and older-youth scope retained",
+        "sha256_nguon_goc": "b09029e5368fb185428a87b5c28895091dfc092aa6289fced0fa0f1ab3af3ad8",
+        "phien_ban_chuyen_doi": "jats-readable-front-v3-20261020",
+        "da_tham_dinh_lam_sang_doc_lap": false
+      },
+      "content_sha256": "221eed836312a706d07dc537d0b04bf915a838c599348bfc75bb477caa984302",
+      "clinical_reviewed": false,
+      "whole_document": true,
+      "rank": 5,
+      "cosine_distance": 0.6500051395278824
+    }
+  ],
+  "answer_generation_performed": false
+}

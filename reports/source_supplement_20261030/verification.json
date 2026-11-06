@@ -1,0 +1,46 @@
+{
+  "ok": true,
+  "checked_on": "2026-10-30",
+  "scope": "Technical data audit; not independent clinical appraisal or a RAG quality evaluation",
+  "checks": {
+    "json_export": {
+      "ok": true,
+      "mode": "check",
+      "file": "E:\\AI4LIFE\\ASD_AGENT\\knowledge\\rag\\source_library\\documents.json",
+      "documents": 33,
+      "body_characters": 2307606,
+      "all_bodies_match_markdown": true,
+      "database_changed": false,
+      "embedding_called": false
+    },
+    "original_27_json_entries_unchanged": true,
+    "protected_original_files_verified": 62,
+    "old_project_original_files_verified_read_only": 62,
+    "all_supplement_materials_match_offline_reconversion": true,
+    "pending_sources_excluded_from_main_json": 7,
+    "pending_json_bodies_match_markdown": true,
+    "unknown_permission_sources_metadata_only": 4,
+    "index_preview_unchanged_old_27_only": true,
+    "original_clinical_review_notes_preserved_and_no_approval_fabricated": true,
+    "new_markdown_original_asset_links_valid": true,
+    "invalid_download_pages_excluded": 3,
+    "regression_tests": {
+      "passed": 17,
+      "failed": 0,
+      "log": "reports/source_supplement_20261030/test_results.txt"
+    },
+    "current_library_files_in_manifest": 132,
+    "release_hashes_match_status": true,
+    "core_documents": 33,
+    "accepted_additions": 6,
+    "acquired_supplement_pending": 7,
+    "metadata_only_supplement_held": 4,
+    "catalog_records": 174,
+    "body_characters": 2307606,
+    "new_index_units_created": 0
+  },
+  "clinical_reviewed": false,
+  "embedding_called": false,
+  "llm_called": false,
+  "database_accessed": false
+}

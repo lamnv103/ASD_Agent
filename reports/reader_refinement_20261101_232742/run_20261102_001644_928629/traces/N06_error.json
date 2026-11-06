@@ -1,0 +1,60 @@
+{
+  "question": "Theo NIMH, sàng lọc phát triển và đánh giá chẩn đoán có phải cùng một bước không, và những chuyên môn nào có thể tham gia đánh giá chuyên sâu cho trẻ nhỏ?",
+  "error_code": "v3_verifier_schema",
+  "error_stage": "source_verification",
+  "message": "Proof ID absent from this source packet.",
+  "reader_calls": [
+    {
+      "stage": "question_plan",
+      "content_sha256": "3cd5d7ea39b159b46584894ea7ff14303305c75876ef34e89a09958c18f86e0f",
+      "request_id": "chatcmpl-68d69ce5-eabe-4435-8290-83eeeebe4402",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "usage": {
+        "prompt_tokens": 438,
+        "completion_tokens": 289,
+        "total_tokens": 727
+      },
+      "local_prompt_tokens": 438,
+      "provider_prompt_tokens": 438,
+      "prompt_token_delta": 0,
+      "elapsed_seconds": 10.554,
+      "cache_hit": false,
+      "recorded_at": "2026-11-01T17:19:50.445404+00:00"
+    },
+    {
+      "stage": "source_selection",
+      "content_sha256": "bbba81bfcf2e93f88efd389198399c550f814009cc7832d4c9fdbd225f6f4107",
+      "request_id": "chatcmpl-dde5d099-266a-45a7-b660-261e2591380b",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "usage": {
+        "prompt_tokens": 24022,
+        "completion_tokens": 259,
+        "total_tokens": 24281
+      },
+      "local_prompt_tokens": 24022,
+      "provider_prompt_tokens": 24022,
+      "prompt_token_delta": 0,
+      "elapsed_seconds": 19.306,
+      "cache_hit": false,
+      "recorded_at": "2026-11-01T17:20:11.567057+00:00"
+    },
+    {
+      "stage": "source_verification",
+      "content_sha256": "88e0947221b8f4226e09c3b9dbc0b124e67154ef8431d6687e00a3b0ff88ead5",
+      "request_id": "chatcmpl-3da4bbf1-8ac1-40f7-8ca3-1331485f00e6",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "usage": {
+        "prompt_tokens": 4015,
+        "completion_tokens": 311,
+        "total_tokens": 4326
+      },
+      "local_prompt_tokens": 4015,
+      "provider_prompt_tokens": 4015,
+      "prompt_token_delta": 0,
+      "elapsed_seconds": 9.697,
+      "cache_hit": false,
+      "recorded_at": "2026-11-01T17:20:21.281578+00:00"
+    }
+  ],
+  "generation_enabled": false
+}

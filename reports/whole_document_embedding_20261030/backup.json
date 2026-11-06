@@ -1,0 +1,8 @@
+{
+  "file": "reports/whole_document_embedding_20261030/postgres_before.dump",
+  "sha256": "fc7633419da89ada7c31094a826c1c75dad7e19d81b4b9308614b8ddbfc2dc72",
+  "bytes": 1419505,
+  "format": "PostgreSQL pg_dump custom",
+  "database": "asd_rag",
+  "created_before_this_collection": true
+}

@@ -1,0 +1,7 @@
+﻿question_id,question,v2_status,v3_status,v3_trace
+S05,"Khó ngủ có liên quan đến hành vi ở trẻ tự kỷ, nhưng đã đủ để kết luận quan hệ nhân quả hai chiều chắc chắn chưa?",insufficient,sufficient,reports/reader_refinement_20261101_232742/run_20261102_004612_154953/traces/S05.json
+S07,"Gia đình có thể tiếp tục nói chuyện khi dùng bảng tranh cho con không, và có chắc con sẽ tăng lời nói nhờ bảng tranh không?",insufficient,partially_sufficient,reports/reader_refinement_20261101_232742/run_20261102_004612_154953/traces/S07.json
+S08,Các hoạt động kích thích cảm giác có phải đều giống phương pháp tích hợp cảm giác đã được nghiên cứu cho trẻ tự kỷ không?,insufficient,sufficient,reports/reader_refinement_20261101_232742/run_20261102_004612_154953/traces/S08.json
+H03,"Khi thấy triệu chứng đã đỡ, gia đình có nên tự dừng thuốc đang được bác sĩ kê cho trẻ không?",insufficient,sufficient,reports/reader_refinement_20261101_232742/run_20261102_004612_154953/traces/H03.json
+H04,"Trong tài liệu về ADHD, khó tập trung, tăng hoạt động và hành động bốc đồng được phân biệt ra sao?",sufficient,sufficient,reports/reader_refinement_20261101_232742/run_20261102_004612_154953/traces/H04.json
+H05,"Hai trẻ đều được chẩn đoán tự kỷ có nhất thiết có biểu hiện, điểm mạnh và nhu cầu hỗ trợ giống nhau không?",sufficient,insufficient,reports/reader_refinement_20261101_232742/run_20261102_004612_154953/traces/H05.json

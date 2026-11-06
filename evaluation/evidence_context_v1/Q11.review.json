@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "review_id": "reference-replay-Q11",
+  "question": "Trong NDBI, đi theo sở thích và lựa chọn của trẻ để tạo cơ hội học có nghĩa là gì?",
+  "question_sha256": "afa3e4b5f9f6f1bce16d4ac25b0f69de395fd187dd10ede453d659c972d898c9",
+  "reviewer": {
+    "kind": "ai_reference_review",
+    "name": "AI source-content review; not an independent clinical expert",
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "origin": "existing_retrieval_v1_label_replay_not_independent_semantic_evaluation",
+    "frozen_input_hashes": {
+      "questions.jsonl": "749f0a48e30de346e0521bae016f81e05e787b885ae132dced1cc03365f252c6",
+      "reference_labels.json": "b3c0f8c7e083c463750c358288b1439d4a2b1ef5533d976a6fae2901523deb99"
+    }
+  },
+  "intent": "general_information",
+  "claims": [
+    {
+      "claim_id": "c1",
+      "text": "Trong NDBI, đi theo sở thích và lựa chọn của trẻ để tạo cơ hội học có nghĩa là gì?",
+      "required": true
+    }
+  ],
+  "items": [
+    {
+      "item_id": "item-0",
+      "source_id": "ASD-SUP-PMC4513196",
+      "content_sha256": "696678ebc365fd6d6312dcc3fe10e6e0e6b529fcb8af1bafc1008e271043daa9",
+      "start": 40541,
+      "end": 41941,
+      "quote": "These are also referred to as following the child’s lead or interest, or child choice. This strategy involves the presentation of an instruction or opportunity to respond within the context of a child-chosen or child-preferred activity or familiar routine. The child indicates an interest in an activity or engages in a familiar routine and the adult then presents a teaching opportunity within that activity. The goal of child-initiated teaching episodes is to increase the child’s motivation for participation and to use the child’s achievement of his or her goal as the positive consequence for the child’s use of the target skill set up by the adult. The degree to which the child must initiate the teaching episode differs across interventions. For example, Incidental Teaching requires the child to initiate an interaction (make a communication bid) prior to presenting a prompt for an elaborated response. Other approaches (PRT, ESDM, Project ImPACT, Early Achievements) may also present a stimulus to gain child approach behavior or child attention, and then prompt the child for a target skill, and RIT presents an instructional cue (play model) based on the child’s current attentional focus every minute on average; such follow-in directives are associated with language development in young minimally verbal children with autism (Haebig et al. 2013). Most approaches use a blend of these.",
+      "relation": "direct",
+      "stance": "supports",
+      "claim_ids": [
+        "c1"
+      ],
+      "scope_limits": "Giữ mô tả cơ hội dạy trong hoạt động trẻ chọn; không thay chương trình cá nhân hóa."
+    }
+  ],
+  "conflicts": [],
+  "review_notes": "Giữ mô tả cơ hội dạy trong hoạt động trẻ chọn; không thay chương trình cá nhân hóa."
+}

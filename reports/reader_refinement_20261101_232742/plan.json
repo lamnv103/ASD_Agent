@@ -1,0 +1,17 @@
+{
+  "scope": "Canonical propositions, atomic needs, parent-section selection, source-grounded verification and fresh evaluation",
+  "source_documents": 33,
+  "document_vectors": 33,
+  "patient_generation": false,
+  "database_mutation": false,
+  "document_embedding": false,
+  "reference_labels_independent_clinical_review": false,
+  "criteria": [
+    "Keep old code/config/source/labels hashes unchanged except explicitly backed-up CLI/docs",
+    "Anchor every need to exact user text; keep unsupported needs required",
+    "Classify polarity only against immutable declarative propositions",
+    "Classify explanatory coverage separately from yes/no truth",
+    "Check original spans and whole-unit token budget",
+    "Compare development cases and a new frozen question set; preserve API errors separately"
+  ]
+}

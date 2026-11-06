@@ -1,0 +1,321 @@
+{
+  "collection_id": "asd_fulltext_33_20261030_26eb017efca5",
+  "space_id": "cohere4_whole_1536_e83c596b9070",
+  "profile": {
+    "provider": "cohere",
+    "model": "embed-v4.0",
+    "dimensions": 1536,
+    "document_input_type": "search_document",
+    "query_input_type": "search_query",
+    "truncate": "NONE",
+    "max_tokens": 128000,
+    "whole_document": true,
+    "pooling": "native_model_single_input",
+    "schema_version": 1
+  },
+  "dataset_sha256": "26eb017efca593ed18aa4044c9b8185d871bd0f512cda0cb4b9edf82658c5331",
+  "documents": 33,
+  "whole_document_vectors": 33,
+  "aggregate_file": "reports/whole_document_embedding_20261030/whole_document_embeddings.jsonl",
+  "aggregate_sha256": "3864ee3bee784c44e063eded1079dc3065ad0f9875cb78706cfe079806cc5a5c",
+  "no_chunk_averaging": true,
+  "records": [
+    {
+      "source_id": "CDC-EARLY-INTERVENTION",
+      "content_sha256": "18b221d39ba20430520880a3b8285f6f5dc72601b83cc1454788fefd306275ed",
+      "cache_file": "reports/whole_document_embedding_20261030/vectors/asd_fulltext_33_20261030_26eb017efca5/cohere4_whole_1536_e83c596b9070/CDC-EARLY-INTERVENTION.json",
+      "cache_sha256": "3ef6451f997c7154f2a5f535ac3ffac038d0b9411a5baaa806238e8f6c801eb2",
+      "embedding_sha256": "ba428fe818d89d28694915311bc4b1f8174db96653af023f36c8fc5b08a9a980",
+      "dimensions": 1536,
+      "provider_request_id": "ad13f4e5-7f3f-4168-ab1c-a052abcd2734"
+    },
+    {
+      "source_id": "NIH-NIMH-TEEN-DEPRESSION",
+      "content_sha256": "89e0839e872b2f60c55dbc0848692bc39a9e909ab92dd5c62d3081b1f83be565",
+      "cache_file": "reports/whole_document_embedding_20261030/vectors/asd_fulltext_33_20261030_26eb017efca5/cohere4_whole_1536_e83c596b9070/NIH-NIMH-TEEN-DEPRESSION.json",
+      "cache_sha256": "46251bab8cc55cd10f40a47f41e2682729bec1dace5c96e700cff36f72beddcf",
+      "embedding_sha256": "5d66e8dbc8bc7be0096747be827129dbc2d10ce4070dcb101433f67ca51c8e6d",
+      "dimensions": 1536,
+      "provider_request_id": "3752dcdb-f6d1-49f1-8896-01ee16cf098c"
+    },
+    {
+      "source_id": "NIH-NIMH-TEEN-BRAIN",
+      "content_sha256": "1ad37695e06dcecd937537f3f0047cd639972dd0b636608c02b97d5e70060729",
+      "cache_file": "reports/whole_document_embedding_20261030/vectors/asd_fulltext_33_20261030_26eb017efca5/cohere4_whole_1536_e83c596b9070/NIH-NIMH-TEEN-BRAIN.json",
+      "cache_sha256": "8e490782879d980d17febdaa731c41e6b8bb42b15b972f052d49d61a9ff5332c",
+      "embedding_sha256": "00fa3d0c1b24facd218007eb4fabb3f36ab7c0531e3850fe9a7ce088964e5f67",
+      "dimensions": 1536,
+      "provider_request_id": "a1288eae-a638-45c4-a0a3-ec2172669175"
+    },
+    {
+      "source_id": "CDC-ASD-TREATMENT",
+      "content_sha256": "587f9238ac019876bcccd7b6c19e6d8b5516f2eb5d7aa8d3cbd88f480c67faa1",
+      "cache_file": "reports/whole_document_embedding_20261030/vectors/asd_fulltext_33_20261030_26eb017efca5/cohere4_whole_1536_e83c596b9070/CDC-ASD-TREATMENT.json",
+      "cache_sha256": "2fa618c422d9ba1b67e82a8aa94b7c73a486a70f809c91df3acb8d37ac76748e",
+      "embedding_sha256": "ff353cc75226cbb750c71d4318c824c93df83365a1538606443208e34dd53cda",
+      "dimensions": 1536,
+      "provider_request_id": "f09873a3-6aee-4539-a755-85b9361e579c"
+    },
+    {
+      "source_id": "NIH-NIDCD-ASD-COMMUNICATION-2020",
+      "content_sha256": "167221060bae5a46446346dae3f89336f1dc008495f27dca3051277d6a17febc",
+      "cache_file": "reports/whole_document_embedding_20261030/vectors/asd_fulltext_33_20261030_26eb017efca5/cohere4_whole_1536_e83c596b9070/NIH-NIDCD-ASD-COMMUNICATION-2020.json",
+      "cache_sha256": "f1a244d79a0a1641c3f0ba9b8b3b70772de5969623900422cf19329b819281fd",
+      "embedding_sha256": "7e92a9bf8b0f42e6cf4cdca50ba2b4e0ce5cc5cb889a620a72a17b832c1b879a",
+      "dimensions": 1536,
+      "provider_request_id": "f9d579f1-c975-4147-8576-43051b2241ac"
+    },
+    {
+      "source_id": "NIH-NIMH-ASD-2025",
+      "content_sha256": "8a387613d1126abbcc28145fd54347db63e67b67783717b86e6f48984f455fa8",
+      "cache_file": "reports/whole_document_embedding_20261030/vectors/asd_fulltext_33_20261030_26eb017efca5/cohere4_whole_1536_e83c596b9070/NIH-NIMH-ASD-2025.json",
+      "cache_sha256": "dc8ee6b2acb9f29e840d1a5b54f4bad3f2057703850ff0b7c35efbdd48c480d7",
+      "embedding_sha256": "ef069264f432fa86c4fee67a45d426a7c13c36985c9683fc238628d11a99014d",
+      "dimensions": 1536,
+      "provider_request_id": "b7051254-b455-46fb-8a59-8be42dee83cb"
+    },
+    {
+      "source_id": "NIH-NIMH-ADHD",
+      "content_sha256": "2bcf03eda872766fe5216a38376a084558f0b4c07472eec69d5ac4eda3573c7c",
+      "cache_file": "reports/whole_document_embedding_20261030/vectors/asd_fulltext_33_20261030_26eb017efca5/cohere4_whole_1536_e83c596b9070/NIH-NIMH-ADHD.json",
+      "cache_sha256": "62aa46c29b0069bfc8ab1852a2f1b6045453e9312c303a78eb0f837fcc62e1b9",
+      "embedding_sha256": "0a9fef7f990212d5c708f53eb0394c5289b9407d589914d5048102b66b227101",
+      "dimensions": 1536,
+      "provider_request_id": "a47d55d8-334b-458f-bab3-4c0436a864c2"
+    },
+    {
+      "source_id": "NIH-NIMH-MEDICATIONS",
+      "content_sha256": "9898db3db043c6618127b0fa3faaf61045d1c87c24d35283c6b24738af506bf2",
+      "cache_file": "reports/whole_document_embedding_20261030/vectors/asd_fulltext_33_20261030_26eb017efca5/cohere4_whole_1536_e83c596b9070/NIH-NIMH-MEDICATIONS.json",
+      "cache_sha256": "2ca601f3fb332a578c05d62bc2c7192ea301efa3a843ff8fe6cd622b34daeed1",
+      "embedding_sha256": "d560d0cb0d5216b18cb52967b4a3cdf197cfc27d1d4402775d38388fbb6e9411",
+      "dimensions": 1536,
+      "provider_request_id": "ee1679f8-50f8-4444-936a-4531a8dbdc20"
+    },
+    {
+      "source_id": "ASD-OA-PMC12593641",
+      "content_sha256": "f62b1358f1af986758d4ff583f4e861c0743d28f4318b5d1c2d3c6ea3735b2a8",
+      "cache_file": "reports/whole_document_embedding_20261030/vectors/asd_fulltext_33_20261030_26eb017efca5/cohere4_whole_1536_e83c596b9070/ASD-OA-PMC12593641.json",
+      "cache_sha256": "f01379e62f696a25dc1c43d4c48f61cd0dbdf23314e884f1ee475baefa221da1",
+      "embedding_sha256": "dec05846bfb0e8f7a9043d64f94b4ef8ccbd61113296baaf0f952dc10a23b9e5",
+      "dimensions": 1536,
+      "provider_request_id": "bc72407d-f1d5-4b7f-ba91-a9a7c9dd1da5"
+    },
+    {
+      "source_id": "ASD-CSV-078",
+      "content_sha256": "1fcfd0b62ca17d7508ba5c090e18fe685a1375789455e3bb79226de40a4b1359",
+      "cache_file": "reports/whole_document_embedding_20261030/vectors/asd_fulltext_33_20261030_26eb017efca5/cohere4_whole_1536_e83c596b9070/ASD-CSV-078.json",
+      "cache_sha256": "081f5ca5a2a80bf7c67c85088470e1b3c857c9bd03873c1ca6a42f98dc588bc0",
+      "embedding_sha256": "30e199e3454b3d4cf798b8d6ddde3e9e5bcff7ae554d75d725140a7fa28216c1",
+      "dimensions": 1536,
+      "provider_request_id": "73169d33-f13c-415f-830f-44b207d4371c"
+    },
+    {
+      "source_id": "ASD-OA-PMC10018050",
+      "content_sha256": "fed529973a5f5a7d0b3ba0715f1b637afce253a4d6a1cb71e4f60428cdee957a",
+      "cache_file": "reports/whole_document_embedding_20261030/vectors/asd_fulltext_33_20261030_26eb017efca5/cohere4_whole_1536_e83c596b9070/ASD-OA-PMC10018050.json",
+      "cache_sha256": "6e77b2803d795d7a59be2bc01044f5155a1cae489489bcb8774d2868af700962",
+      "embedding_sha256": "3f3d226aa01646a9fb0f9c8fba9abf51fae670107bb7150d259735a9d27fef89",
+      "dimensions": 1536,
+      "provider_request_id": "52d40d37-09ad-4375-8c8b-73118bcbb4f8"
+    },
+    {
+      "source_id": "ASD-OA-PMC4742252",
+      "content_sha256": "4a2f9b1ac53b772aa8d9dda13bcea338d8adbd872f228a5f256776cb1fcaf7fb",
+      "cache_file": "reports/whole_document_embedding_20261030/vectors/asd_fulltext_33_20261030_26eb017efca5/cohere4_whole_1536_e83c596b9070/ASD-OA-PMC4742252.json",
+      "cache_sha256": "179f3adecd75072f8449eaf01cceb856fdfa1296ad077e4f4e30a4f97162c9f3",
+      "embedding_sha256": "2059a9cea230db2197583d412f8d74ec96c74797f508215fabec65931b0dc475",
+      "dimensions": 1536,
+      "provider_request_id": "84c415e2-7358-4eba-83f8-e2e7ea992f51"
+    },
+    {
+      "source_id": "ASD-OA-PMC10774556",
+      "content_sha256": "1f1edd4a099b5ec457c32c972b6499fc091a549dac75f96e01d7b51d598363d8",
+      "cache_file": "reports/whole_document_embedding_20261030/vectors/asd_fulltext_33_20261030_26eb017efca5/cohere4_whole_1536_e83c596b9070/ASD-OA-PMC10774556.json",
+      "cache_sha256": "7215f86f41e8631acdd3886d1b2f9058e2e6ce0b962cef220030e9461a14966e",
+      "embedding_sha256": "e8db12cb3d2ed18f405b9327e04ebd959170ff81759da15244bf53a9d91d2a14",
+      "dimensions": 1536,
+      "provider_request_id": "62fa06b1-9dc5-48cd-a4fd-d39cc5813911"
+    },
+    {
+      "source_id": "ASD-CSV-084",
+      "content_sha256": "221eed836312a706d07dc537d0b04bf915a838c599348bfc75bb477caa984302",
+      "cache_file": "reports/whole_document_embedding_20261030/vectors/asd_fulltext_33_20261030_26eb017efca5/cohere4_whole_1536_e83c596b9070/ASD-CSV-084.json",
+      "cache_sha256": "13134b6af66072a6f18ce84e1b60eec30a96a9ad86615bd26f0faef45e9d2e85",
+      "embedding_sha256": "0a185a19d300ec62cb919840d22e64c17c690c04c227f5aec1c7a4b20a0f492b",
+      "dimensions": 1536,
+      "provider_request_id": "275a0dee-8bcd-47a8-a43e-6057aabebece"
+    },
+    {
+      "source_id": "ASD-OA-PMC4271434",
+      "content_sha256": "451f034040454eee0199996f02e71e144592e66463cd8bb95a0a2449c75f17b3",
+      "cache_file": "reports/whole_document_embedding_20261030/vectors/asd_fulltext_33_20261030_26eb017efca5/cohere4_whole_1536_e83c596b9070/ASD-OA-PMC4271434.json",
+      "cache_sha256": "d0b07a2a3f67a297a23f40c31b318638a920b0e42fcfb4f5141f210b85a49455",
+      "embedding_sha256": "091e0a7a27daa3a926fb0653ccfe49a92ddecce9eeab4f02b3bd1df9b7d6fd81",
+      "dimensions": 1536,
+      "provider_request_id": "07bb707c-6e93-4b5a-afd4-f6270c49f096"
+    },
+    {
+      "source_id": "ASD-CSV-088",
+      "content_sha256": "9b2b597797d1f29996caf15a3c3b239bc16188278b6765075f95a7a285150298",
+      "cache_file": "reports/whole_document_embedding_20261030/vectors/asd_fulltext_33_20261030_26eb017efca5/cohere4_whole_1536_e83c596b9070/ASD-CSV-088.json",
+      "cache_sha256": "21c341444c2fc8d70a939c1ef5fd2aa3e17df26f90caebbae641d6f0d10a11ec",
+      "embedding_sha256": "f5f0b20a44f745ddf76c0ba361ef5d994051844f5667dffa0e451b1fbc07ae51",
+      "dimensions": 1536,
+      "provider_request_id": "c3c55f9f-5e4e-4749-888b-67028c73579e"
+    },
+    {
+      "source_id": "ASD-OA-PMC6487529",
+      "content_sha256": "dc761b1a52e8c6f2ccfb6da4cfb45fba063f5fcbee9a1b1d5c927f2b5223ca8d",
+      "cache_file": "reports/whole_document_embedding_20261030/vectors/asd_fulltext_33_20261030_26eb017efca5/cohere4_whole_1536_e83c596b9070/ASD-OA-PMC6487529.json",
+      "cache_sha256": "5e33a8020d4dd7f704004f44958e7452cd8788bd55d3861fc89aa4778403a81b",
+      "embedding_sha256": "1edd3ebe84b6fed7d9a154b31186a56d6be494a5a1ea5859e719c660d7006dfc",
+      "dimensions": 1536,
+      "provider_request_id": "cfa96a35-57ca-4f28-932d-a2ec69b3193b"
+    },
+    {
+      "source_id": "ASD-OA-PMC13427885",
+      "content_sha256": "030634ce00915f55cee07da2c28677dee9277d0c8c48e48587cfc597401641db",
+      "cache_file": "reports/whole_document_embedding_20261030/vectors/asd_fulltext_33_20261030_26eb017efca5/cohere4_whole_1536_e83c596b9070/ASD-OA-PMC13427885.json",
+      "cache_sha256": "eae8e2c3f35db8daf5850a47bc9d0af7d7295916e429d26b331fd230651b2180",
+      "embedding_sha256": "157c1de46c5ce4b51d973ea0cd5c1dac61f23d3a223acd0cb12e0f2a7ffd3ecc",
+      "dimensions": 1536,
+      "provider_request_id": "1bc6ed7a-e089-4711-9102-03c2e789d5ca"
+    },
+    {
+      "source_id": "ASD-CSV-081",
+      "content_sha256": "d44ef856a5e7adac8bba4cc55c9003bc80b9e1755d0874e766e18176cc87df33",
+      "cache_file": "reports/whole_document_embedding_20261030/vectors/asd_fulltext_33_20261030_26eb017efca5/cohere4_whole_1536_e83c596b9070/ASD-CSV-081.json",
+      "cache_sha256": "e68fe8d80051f4c2096e07781dd3db4d666a38517bb25feddc9424c76ad5ea2f",
+      "embedding_sha256": "642a540d9bbea89f3297183cf059133c33e59702cc9af86b84ea83a8e1bebd58",
+      "dimensions": 1536,
+      "provider_request_id": "5fb3856f-cd3a-4225-baec-26279ec61927"
+    },
+    {
+      "source_id": "ASD-OA-PMC10900867",
+      "content_sha256": "f09b35bc1d8f3a71916b0545f4601deefd9a8ada9a3515707ac73cb39179d16b",
+      "cache_file": "reports/whole_document_embedding_20261030/vectors/asd_fulltext_33_20261030_26eb017efca5/cohere4_whole_1536_e83c596b9070/ASD-OA-PMC10900867.json",
+      "cache_sha256": "12da5aa228138ba78d0a62055cff835845ce2ba3046e982af56b429dfadad7c4",
+      "embedding_sha256": "2355d3a654d852ffb41b2f4eec5bd7cfca6e99d28e4046f5a2fb0525555dade2",
+      "dimensions": 1536,
+      "provider_request_id": "998f9415-a9ee-4280-b8f3-d06756fef2dc"
+    },
+    {
+      "source_id": "ASD-SUP-PMC6590432",
+      "content_sha256": "9fbff71468cdbd07333b59e9a379e8569582bf48f7edadb32cc72c7efbb9b651",
+      "cache_file": "reports/whole_document_embedding_20261030/vectors/asd_fulltext_33_20261030_26eb017efca5/cohere4_whole_1536_e83c596b9070/ASD-SUP-PMC6590432.json",
+      "cache_sha256": "84fc9d8ddbef5f1d6c253fe876d941d8ff5f5e92ad1c36a28d51e5724a85b677",
+      "embedding_sha256": "e3a8447775ad490fafb950846f53ca810b6128087ed2e54a5de342544dcd1326",
+      "dimensions": 1536,
+      "provider_request_id": "35ae07ba-d46e-48e5-a7fa-1a8a5625e29e"
+    },
+    {
+      "source_id": "ASD-OA-PMC9003052",
+      "content_sha256": "63443ce35b2053c9bc6f462aef294efd6d16bab0e59659101d59a4985a556242",
+      "cache_file": "reports/whole_document_embedding_20261030/vectors/asd_fulltext_33_20261030_26eb017efca5/cohere4_whole_1536_e83c596b9070/ASD-OA-PMC9003052.json",
+      "cache_sha256": "8b043bb6f83c186a471ed9fdfac0ffecac5a1e61708a02750810a3497aef4cf0",
+      "embedding_sha256": "274cbde56d41bcc88faffdf25477d5273d9ff0f937f0830503c6d9af0632912d",
+      "dimensions": 1536,
+      "provider_request_id": "72d0e671-8ac1-4111-9152-8b5b1a2f0c08"
+    },
+    {
+      "source_id": "ASD-SUP-PMC12658592",
+      "content_sha256": "83db662a4f98c9e1010806a7560a971dc62ac309ab4702f52a518284649df50c",
+      "cache_file": "reports/whole_document_embedding_20261030/vectors/asd_fulltext_33_20261030_26eb017efca5/cohere4_whole_1536_e83c596b9070/ASD-SUP-PMC12658592.json",
+      "cache_sha256": "09e8f3610bb8bf3127779b07db2fa035f9745ea9400027f2cee90b6e827f0925",
+      "embedding_sha256": "79bd4bc8fb2c05d1f1cb2a9932d1841dbd5dd2bf0be0e36ef60ff849afa30ede",
+      "dimensions": 1536,
+      "provider_request_id": "523fc885-a48c-4216-a0bc-d637cb61f73f"
+    },
+    {
+      "source_id": "ASD-CSV-002",
+      "content_sha256": "b18a9e2383e4f38086cad33f223cf322de234b9c772d08aaffacf8a18aefc07b",
+      "cache_file": "reports/whole_document_embedding_20261030/vectors/asd_fulltext_33_20261030_26eb017efca5/cohere4_whole_1536_e83c596b9070/ASD-CSV-002.json",
+      "cache_sha256": "1fb69ba7742d315b573374cd47db02a3a6e110f37ac711d05e81215b9dc395cb",
+      "embedding_sha256": "7f7220d203c04fb64e6f99ce91c4d8c6d043d1af66eb3168ac3266aed89c640e",
+      "dimensions": 1536,
+      "provider_request_id": "1dfada9c-9152-481d-89f7-282f52afd899"
+    },
+    {
+      "source_id": "ASD-SUP-PMC4513196",
+      "content_sha256": "696678ebc365fd6d6312dcc3fe10e6e0e6b529fcb8af1bafc1008e271043daa9",
+      "cache_file": "reports/whole_document_embedding_20261030/vectors/asd_fulltext_33_20261030_26eb017efca5/cohere4_whole_1536_e83c596b9070/ASD-SUP-PMC4513196.json",
+      "cache_sha256": "37c623f73db43148bccd0398a9c097687f832fd6fc243ac64c0bbcb46b47f3ca",
+      "embedding_sha256": "0267ab0473a52f4d27c25164bd2f36526cb9f206558c59f5c10444e4fed4d812",
+      "dimensions": 1536,
+      "provider_request_id": "515ff47d-9d3b-4ca0-a397-ac51d954f9cf"
+    },
+    {
+      "source_id": "ASD-SUP-PMC11754701",
+      "content_sha256": "698fcac9c466769bda1b90ad2951b4477949c4db4de58b477bbf7697368ab7e8",
+      "cache_file": "reports/whole_document_embedding_20261030/vectors/asd_fulltext_33_20261030_26eb017efca5/cohere4_whole_1536_e83c596b9070/ASD-SUP-PMC11754701.json",
+      "cache_sha256": "2a5830b546af5476530f569bc5c875ecc851442cdc0016e641863464599d493e",
+      "embedding_sha256": "6c61fff324489c1fb0e4db7164c276ae1a44b1bb79bc205896ac4fe57571a9f5",
+      "dimensions": 1536,
+      "provider_request_id": "4da651c2-f6b2-4d31-baec-4c1fd9a3f811"
+    },
+    {
+      "source_id": "ASD-CSV-062",
+      "content_sha256": "f7301444bef01b7f3a4538baafcdc4c271c27c996eba18f1a59e42a313e2e7b8",
+      "cache_file": "reports/whole_document_embedding_20261030/vectors/asd_fulltext_33_20261030_26eb017efca5/cohere4_whole_1536_e83c596b9070/ASD-CSV-062.json",
+      "cache_sha256": "9b5b7274939300c1ffaef7507f94a6ef72dd8f9ef163fc229ec0a55b83803b87",
+      "embedding_sha256": "526500345abf0533a41dc18a9b13c152a923ac6e082754e4c487b414da4fb2d2",
+      "dimensions": 1536,
+      "provider_request_id": "b9eeadaf-2514-4fb2-9479-052da6926f3f"
+    },
+    {
+      "source_id": "ASD-OA-PMC13005892",
+      "content_sha256": "e6790fdf41afe41230ad9d748e317a1622de21f0b61c97646310bb6f4302c0d6",
+      "cache_file": "reports/whole_document_embedding_20261030/vectors/asd_fulltext_33_20261030_26eb017efca5/cohere4_whole_1536_e83c596b9070/ASD-OA-PMC13005892.json",
+      "cache_sha256": "3355deff842b32a1b4c15c3b3dc8b478a29afaf330612326f9fd3824ff7df8b5",
+      "embedding_sha256": "9f6724e8b1839fb0c97e1baa6209664f8e215bee7523c3f99923ae93a7fa3130",
+      "dimensions": 1536,
+      "provider_request_id": "d828fc95-f4e6-49e0-80c5-ef13cb7605d2"
+    },
+    {
+      "source_id": "ASD-OA-PMC12468522",
+      "content_sha256": "6f9745947e05ce1c2836f29a8f60310950855c6c0a45c07808c336e85e6c69fc",
+      "cache_file": "reports/whole_document_embedding_20261030/vectors/asd_fulltext_33_20261030_26eb017efca5/cohere4_whole_1536_e83c596b9070/ASD-OA-PMC12468522.json",
+      "cache_sha256": "9e33423270d45bb619713194147881212fb4157a733fb8bd3d8a374ac6eb66f9",
+      "embedding_sha256": "36f668e24a69d48368cc519be25cedfcb269e2c89b5c6f5e34f7eb8e20b3d4cf",
+      "dimensions": 1536,
+      "provider_request_id": "6c1e4186-d400-47aa-880b-dc70fb6fd3a6"
+    },
+    {
+      "source_id": "ASD-OA-PMC11638897",
+      "content_sha256": "1abc68f21365b20fa0d414424fc7402aded85753172ec4a7ce14453753e4cb6f",
+      "cache_file": "reports/whole_document_embedding_20261030/vectors/asd_fulltext_33_20261030_26eb017efca5/cohere4_whole_1536_e83c596b9070/ASD-OA-PMC11638897.json",
+      "cache_sha256": "d412e13adffcf731e5e688ded6d1108759d1fd33d24924878c84f18634ae292d",
+      "embedding_sha256": "d16070b75471a51db2a2c2dc26efa4f3e0933b66f17a4dcbf10e5ce4db544862",
+      "dimensions": 1536,
+      "provider_request_id": "a021b5c5-8385-4eb3-9e7f-39365d799ce7"
+    },
+    {
+      "source_id": "ASD-CSV-091",
+      "content_sha256": "834278051e53eaeffc67a1b720c9521f576b121cd79bff9cceac9b6556e110e9",
+      "cache_file": "reports/whole_document_embedding_20261030/vectors/asd_fulltext_33_20261030_26eb017efca5/cohere4_whole_1536_e83c596b9070/ASD-CSV-091.json",
+      "cache_sha256": "cf8e6ddf1fe2103a8ef8eabf1d9e0962bd3589b55437b19865eb31d65b5e52ee",
+      "embedding_sha256": "c538226cefd3b7ab3ddfb3748780d187730c1e7ac6c568784a2af8c5c68df583",
+      "dimensions": 1536,
+      "provider_request_id": "ec26f90e-6fe7-4923-a962-20c66f54f69e"
+    },
+    {
+      "source_id": "ASD-OA-PMC7407189",
+      "content_sha256": "655e7fc0eb39221c6082f1702ac1f4702938fdb2b7e8058491b994d5edece27e",
+      "cache_file": "reports/whole_document_embedding_20261030/vectors/asd_fulltext_33_20261030_26eb017efca5/cohere4_whole_1536_e83c596b9070/ASD-OA-PMC7407189.json",
+      "cache_sha256": "411ddca9e7051102c2adbceefae879d2fd3001d0bd1526dbf5f272ae70c8d2ec",
+      "embedding_sha256": "9610e511e7796f42562884b466d9cfb61cd08510643cc4ca2e96cf523e73ce39",
+      "dimensions": 1536,
+      "provider_request_id": "e659f806-4534-476a-bdef-8a1d825ea119"
+    },
+    {
+      "source_id": "ASD-NEW-003",
+      "content_sha256": "339b8af5c5aa58837558e3123e811fa78f0fd2ef92df57e1ce0bd101cfbbf733",
+      "cache_file": "reports/whole_document_embedding_20261030/vectors/asd_fulltext_33_20261030_26eb017efca5/cohere4_whole_1536_e83c596b9070/ASD-NEW-003.json",
+      "cache_sha256": "6c8dcb38441f32cef16c42e0cb887e426f3f3e4314fe432d900cff46cf85a67a",
+      "embedding_sha256": "5fef81c82212ef0e63cbeb381452d60892cf1a043c494435c3592b68860475d6",
+      "dimensions": 1536,
+      "provider_request_id": "89886753-32ed-4c50-9fc8-286a07071915"
+    }
+  ]
+}

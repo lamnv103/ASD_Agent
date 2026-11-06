@@ -1,0 +1,26 @@
+{
+  "question": "Trong tài liệu về ADHD, khó tập trung, tăng hoạt động và hành động bốc đồng được phân biệt ra sao?",
+  "error_code": "reader_no_context",
+  "error_stage": "source_selection",
+  "message": "No complete source unit fits; no semantic assessment.",
+  "reader_calls": [
+    {
+      "stage": "question_plan",
+      "content_sha256": "ab7aab35d728ca340e54630a2e2c6d904da47f34c26ea6bda80db8d835508a0b",
+      "request_id": "chatcmpl-f5e7543c-9ba6-42eb-9d2d-5f62bc2386b4",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "usage": {
+        "prompt_tokens": 361,
+        "completion_tokens": 170,
+        "total_tokens": 531
+      },
+      "local_prompt_tokens": 361,
+      "provider_prompt_tokens": 361,
+      "prompt_token_delta": 0,
+      "elapsed_seconds": 8.584,
+      "cache_hit": false,
+      "recorded_at": "2026-11-01T16:39:19.333931+00:00"
+    }
+  ],
+  "generation_enabled": false
+}

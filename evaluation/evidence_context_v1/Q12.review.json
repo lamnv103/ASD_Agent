@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "review_id": "reference-replay-Q12",
+  "question": "Ayres Sensory Integration có giống mọi hoạt động kích thích cảm giác không? Vì sao cần kiểm tra fidelity?",
+  "question_sha256": "225c2ae58a205c4552c9fef2adc0f31ba15bce0cd52da4661ee8d77d81d7d945",
+  "reviewer": {
+    "kind": "ai_reference_review",
+    "name": "AI source-content review; not an independent clinical expert",
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "origin": "existing_retrieval_v1_label_replay_not_independent_semantic_evaluation",
+    "frozen_input_hashes": {
+      "questions.jsonl": "749f0a48e30de346e0521bae016f81e05e787b885ae132dced1cc03365f252c6",
+      "reference_labels.json": "b3c0f8c7e083c463750c358288b1439d4a2b1ef5533d976a6fae2901523deb99"
+    }
+  },
+  "intent": "general_information",
+  "claims": [
+    {
+      "claim_id": "c1",
+      "text": "Ayres Sensory Integration có giống mọi hoạt động kích thích cảm giác không? Vì sao cần kiểm tra fidelity?",
+      "required": true
+    }
+  ],
+  "items": [
+    {
+      "item_id": "item-0",
+      "source_id": "ASD-SUP-PMC6590432",
+      "content_sha256": "9fbff71468cdbd07333b59e9a379e8569582bf48f7edadb32cc72c7efbb9b651",
+      "start": 5465,
+      "end": 8223,
+      "quote": "For children with autism spectrum disorders (ASD), occupational therapy is a frequently utilized service in special education that is designed to support a child's ability to access the educational curriculum and benefit from his or her education in the least restrictive environment [Hess, Morrier, Heflin, &amp; Ivey, 2008; Wei, Wagner, Christiano, Shattuck, &amp; Yu, 2014]. Occupational therapy using the principles of Ayres Sensory Integration® (ASI) intervention is among the most requested services by parents of children with ASD [Goin‐Kochel, Mackintosh, &amp; Myers, 2009; Green et al., 2006; Mandell, Novak, &amp; Levy, 2005], and is one of the most frequently utilized treatment approaches in pediatric occupational therapy [Case‐Smith &amp; Miller, 1999; Mailloux &amp; Smith Roley, 2010]. However, despite the high utilization of ASI for children who receive special education, there is lack of consensus regarding its evidence base. One reason for this is that many studies included in existing systematic reviews and meta‐analyses report on sensory‐based interventions which are not consistent with the principles of ASI as described by Ayres [Ayres, 1972, 1979, 1989; Ayres &amp; Robbins, 2005] and operationalized in the Ayres Sensory Integration Fidelity Measure (ASIFM) [May‐Benson et al., 2014; Parham et al., 2007]. Instead, many reviews and meta‐analyses include studies of interventions that use isolated sensory stimuli as the active ingredient of the intervention (hereafter referred to as sensory‐based interventions) and do not adhere to the core principles of ASI [Barton, Reichow, Schnitz, Smith, &amp; Sherlock, 2015; Lang et al., 2012]. These sensory‐based interventions are largely characterized as protocols that are passively applied to the child and have been found to have few positive effects [Case‐Smith, Weaver, &amp; Fristad, 2015]. They lack many of the key ingredients of the ASI such as individual‐tailoring, active engagement of the child, the establishment of a therapeutic alliance between the child and therapist, targeting the just right challenge and provided within the context of play ([Parham et al., 2011]. In contrast, one recent review by Schaaf, Dumont, Arbesman, and May‐Benson [2018] that included only studies where “the intervention approach adhered to the principles of ASI” (p.3) concluded that ASI has strong evidence for positive outcomes on individual goals, moderate evidence supporting improvements in autistic behaviors and caregiver assistance for self‐care activities, and emerging but insufficient evidence for outcomes related to play, sensory‐motor skills, language, and social skills. Consequently, the conclusions of many of these prior reviews are inaccurate and misrepresentative.",
+      "relation": "direct",
+      "stance": "supports",
+      "claim_ids": [
+        "c1"
+      ],
+      "scope_limits": "Chỉ phân biệt phương pháp; tổng quan 2019 không phải kết luận mới nhất về hiệu quả."
+    }
+  ],
+  "conflicts": [],
+  "review_notes": "Chỉ phân biệt phương pháp; tổng quan 2019 không phải kết luận mới nhất về hiệu quả."
+}

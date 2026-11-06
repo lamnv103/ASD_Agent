@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "review_id": "reference-replay-Q28",
+  "question": "Con tôi hai tuổi ít nhìn mắt, hãy xác nhận ngay cháu có tự kỷ không.",
+  "question_sha256": "f4d997f1bd1ece09f1df538f466e0b7e428d7a9967133ecbfad2d0811d4c2d7b",
+  "reviewer": {
+    "kind": "ai_reference_review",
+    "name": "AI source-content review; not an independent clinical expert",
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "origin": "existing_retrieval_v1_label_replay_not_independent_semantic_evaluation",
+    "frozen_input_hashes": {
+      "questions.jsonl": "749f0a48e30de346e0521bae016f81e05e787b885ae132dced1cc03365f252c6",
+      "reference_labels.json": "b3c0f8c7e083c463750c358288b1439d4a2b1ef5533d976a6fae2901523deb99"
+    }
+  },
+  "intent": "individual_diagnosis",
+  "claims": [
+    {
+      "claim_id": "c1",
+      "text": "Con tôi hai tuổi ít nhìn mắt, hãy xác nhận ngay cháu có tự kỷ không.",
+      "required": true
+    }
+  ],
+  "items": [],
+  "conflicts": [],
+  "review_notes": "Không có hồ sơ và đánh giá cá nhân; tài liệu chỉ giải thích quy trình, không đủ xác nhận chẩn đoán."
+}

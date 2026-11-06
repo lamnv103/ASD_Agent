@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "review_id": "reference-replay-Q30",
+  "question": "Giá khám tự kỷ tại từng phòng khám Hà Nội trong tháng 11 năm 2026 là bao nhiêu?",
+  "question_sha256": "5449066627765f48ba6dc159dd3fcbe97865b6045bb22b603458b28178fe3311",
+  "reviewer": {
+    "kind": "ai_reference_review",
+    "name": "AI source-content review; not an independent clinical expert",
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "origin": "existing_retrieval_v1_label_replay_not_independent_semantic_evaluation",
+    "frozen_input_hashes": {
+      "questions.jsonl": "749f0a48e30de346e0521bae016f81e05e787b885ae132dced1cc03365f252c6",
+      "reference_labels.json": "b3c0f8c7e083c463750c358288b1439d4a2b1ef5533d976a6fae2901523deb99"
+    }
+  },
+  "intent": "current_services",
+  "claims": [
+    {
+      "claim_id": "c1",
+      "text": "Giá khám tự kỷ tại từng phòng khám Hà Nội trong tháng 11 năm 2026 là bao nhiêu?",
+      "required": true
+    }
+  ],
+  "items": [],
+  "conflicts": [],
+  "review_notes": "Không có bảng giá theo thời gian thực đã xác minh trong collection."
+}

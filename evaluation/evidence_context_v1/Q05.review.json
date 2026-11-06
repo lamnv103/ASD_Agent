@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "review_id": "reference-replay-Q05",
+  "question": "Kết quả sàng lọc M-CHAT-R/F dương tính có chắc chắn là tự kỷ không?",
+  "question_sha256": "f11b6ab4baa141c7093d016428ea13a8ed9f53913e76390e6d48e6b566b90ed8",
+  "reviewer": {
+    "kind": "ai_reference_review",
+    "name": "AI source-content review; not an independent clinical expert",
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "origin": "existing_retrieval_v1_label_replay_not_independent_semantic_evaluation",
+    "frozen_input_hashes": {
+      "questions.jsonl": "749f0a48e30de346e0521bae016f81e05e787b885ae132dced1cc03365f252c6",
+      "reference_labels.json": "b3c0f8c7e083c463750c358288b1439d4a2b1ef5533d976a6fae2901523deb99"
+    }
+  },
+  "intent": "general_information",
+  "claims": [
+    {
+      "claim_id": "c1",
+      "text": "Kết quả sàng lọc M-CHAT-R/F dương tính có chắc chắn là tự kỷ không?",
+      "required": true
+    }
+  ],
+  "items": [
+    {
+      "item_id": "item-0",
+      "source_id": "ASD-CSV-002",
+      "content_sha256": "b18a9e2383e4f38086cad33f223cf322de234b9c772d08aaffacf8a18aefc07b",
+      "start": 16921,
+      "end": 18705,
+      "quote": "The validation sample for the M-CHAT-R/F was large (Robins et al., 2014), and the internal consistency reliability of M-CHAT-R/F is acceptable (Cronbach’s α = 0.79; Robins et al., 2014) as are sensitivity (0.85) and specificity (0.99) values (Robins et al., 2014). The positive-predictive value (PPV) is 0.48 for autism and 0.95 for any developmental disorder (Robins et al., 2014), indicating that 48% of the children who screened positive received an ASD diagnosis and 95% of the children had some sort of developmental delay or concerns, including ASD, that warranted referrals to early intervention services (Robins et al., 2014). Similar rates have been found in other countries (PPV for ASD = 0.55, PPV for any developmental disorder = 0.91; Guo et al., 2019). This indicates that the predictive value of the M-CHAT-R/F for any developmental concerns is higher than for autism specifically. Nevertheless, it should be noted that PPVs are impacted by the base rate of the disorder in the sample studied, such that when the prevalence of a disorder is higher, the probability of having the disorder after a positive test is higher (Monaghan et al., 2021). Robins et al. (2014) do not recommend using M-CHAT-R/F as a broader screening tool because its sensitivity for non-ASD delays has not been well studied (e.g., sensitivity for global developmental delays, communication delays, etc.). The M-CHAT-R/F has been translated into more than 40 languages ([www.mchatscreen.com](https://www.mchatscreen.com)) and has demonstrated satisfactory sensitivity and specificity in adaptations in some countries and regions (e.g., Spain, China, Taiwan; Dai et al., 2021). Screening accuracy was shown to be similar across race and ethnic groups in a recent large study (Guthrie et al., 2019).",
+      "relation": "direct",
+      "stance": "supports",
+      "claim_ids": [
+        "c1"
+      ],
+      "scope_limits": "PPV phụ thuộc mẫu và tỷ lệ nền; không áp số liệu mẫu nghiên cứu cho một trẻ."
+    }
+  ],
+  "conflicts": [],
+  "review_notes": "PPV phụ thuộc mẫu và tỷ lệ nền; không áp số liệu mẫu nghiên cứu cho một trẻ."
+}

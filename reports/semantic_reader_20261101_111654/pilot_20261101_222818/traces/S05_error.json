@@ -1,0 +1,320 @@
+{
+  "question": "Khó ngủ có liên quan đến hành vi ở trẻ tự kỷ, nhưng đã đủ để kết luận quan hệ nhân quả hai chiều chắc chắn chưa?",
+  "error_code": "reader_quote",
+  "message": "Quote absent or ambiguous in material actually read; no fuzzy match.",
+  "reader_provider": {
+    "content_sha256": "8669ffa5dd5902931a4428f6d3aee2337c1511a0a444633c550527e0a5a873ef",
+    "request_id": "chatcmpl-1be61433-8c94-40ac-bb43-f6e23d180e71",
+    "model": "nvidia/nemotron-3-ultra-550b-a55b",
+    "usage": {
+      "prompt_tokens": 22255,
+      "completion_tokens": 1066,
+      "total_tokens": 23321
+    },
+    "local_prompt_tokens": 22255,
+    "provider_prompt_tokens": 22255,
+    "prompt_token_delta": 0,
+    "elapsed_seconds": 19.012,
+    "cache_hit": false,
+    "recorded_at": "2026-11-01T15:31:17.733784+00:00"
+  },
+  "retrieved_sources": [
+    {
+      "source_id": "ASD-OA-PMC4271434",
+      "title": "The relationship between sleep and behavior in autism spectrum disorder (ASD): a review",
+      "source": {
+        "tac_gia": [
+          "Simonne Cohen",
+          "Russell Conduit",
+          "Steven W Lockley",
+          "Shantha MW Rajaratnam",
+          "Kim M Cornish"
+        ],
+        "to_chuc": null,
+        "ten_nguon": "Journal of Neurodevelopmental Disorders",
+        "link_nguon": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4271434/",
+        "loai_nguon": "research",
+        "link_toan_van": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4271434/"
+      },
+      "dates": {
+        "ngay_cap_nhat": null,
+        "ngay_xuat_ban": "2014-12-11",
+        "ngay_doi_chieu_nguon": "2026-10-17"
+      },
+      "scope": {
+        "gioi_han": [
+          "2014 review: prevalence estimates, terminology and practice context are historical.",
+          "Associations between sleep and behavior do not establish a universal causal mechanism; authors call conclusions premature.",
+          "Source/provenance review only; no independent clinical appraisal.",
+          "Retain actual ages, geography and study limitations; no individualized diagnosis, treatment or dosing inference."
+        ],
+        "ngon_ngu": "en",
+        "phien_ban": "PMC distributed version 1",
+        "ho_so_day_du": "knowledge/rag/source_library/catalog.jsonl#ASD-OA-PMC4271434",
+        "tep_markdown": "knowledge/rag/source_library/documents/ASD-OA-PMC4271434.md",
+        "quyen_su_dung": {
+          "status": "verified_noncommercial_research",
+          "license": "https://creativecommons.org/licenses/by/4.0/",
+          "evidence_url": "https://pmc.ncbi.nlm.nih.gov/api/oai/v1/mh/?verb=GetRecord&metadataPrefix=pmc&identifier=oai:pubmedcentral.nih.gov:4271434",
+          "license_text": "© Cohen et al.; licensee BioMed Central Ltd. 2014https://creativecommons.org/licenses/by/4.0/This article is published under license to BioMed Central Ltd. This is an Open Access article distributed under the terms of the Creative Commons Attribution License (http://creativecommons.org/licenses/by/4.0), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly credited. The Creative Commons Public Domain Dedication waiver (http://creativecommons.org/publicdomain/zero/1.0/) applies to the data made available in this article, unless otherwise stated.",
+          "third_party_exceptions": "Retain per-figure credit lines; not adjudicated independently"
+        },
+        "tai_san_nguon": [],
+        "tep_nguon_goc": "knowledge/rag/source_library/originals/ASD-OA-PMC4271434/snapshot-20261017-c0c603f93411.xml",
+        "sha256_markdown": "8e41b3c3709439e592e3ab2435f9db3822262e01ec23e594da871e32302f2ede",
+        "sha256_noi_dung": "451f034040454eee0199996f02e71e144592e66463cd8bb95a0a2449c75f17b3",
+        "pham_vi_tuoi_goc": "Sleep and behavior in children with ASD; broader low-functioning/all-age discussion retained",
+        "sha256_nguon_goc": "c0c603f9341129af76142b2c2725e7bb607cbc44fb53b5137adc81d55e15b56d",
+        "phien_ban_chuyen_doi": "jats-readable-front-v3-20261020",
+        "da_tham_dinh_lam_sang_doc_lap": false
+      },
+      "content_sha256": "451f034040454eee0199996f02e71e144592e66463cd8bb95a0a2449c75f17b3",
+      "clinical_reviewed": false,
+      "whole_document": true,
+      "rank": 1,
+      "cosine_distance": 0.49157644677339307
+    },
+    {
+      "source_id": "ASD-OA-PMC7407189",
+      "title": "Sleeping without Prescription: Management of Sleep Disorders in Children with Autism with Non-Pharmacological Interventions and Over-the-Counter Treatments",
+      "source": {
+        "tac_gia": [
+          "Dario Esposito",
+          "Arianna Belli",
+          "Raffaele Ferri",
+          "Oliviero Bruni"
+        ],
+        "to_chuc": null,
+        "ten_nguon": "Brain Sciences",
+        "link_nguon": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7407189/",
+        "loai_nguon": "research",
+        "link_toan_van": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7407189/"
+      },
+      "dates": {
+        "ngay_cap_nhat": null,
+        "ngay_xuat_ban": "2020-7-11",
+        "ngay_doi_chieu_nguon": "2026-10-17"
+      },
+      "scope": {
+        "gioi_han": [
+          "2020 narrative review, not a current prescribing guideline.",
+          "Non-prescription status does not establish safety or efficacy; herbal, vitamin and supplement claims retain the authors' evidence limits.",
+          "No dosing, extinction procedure or supplement should be presented as an individualized recommendation from this corpus.",
+          "Source/provenance review only; no independent clinical appraisal.",
+          "Retain actual ages, geography and study limitations; no individualized diagnosis, treatment or dosing inference."
+        ],
+        "ngon_ngu": "en",
+        "phien_ban": "PMC distributed version 1",
+        "ho_so_day_du": "knowledge/rag/source_library/catalog.jsonl#ASD-OA-PMC7407189",
+        "tep_markdown": "knowledge/rag/source_library/documents/ASD-OA-PMC7407189.md",
+        "quyen_su_dung": {
+          "status": "verified_noncommercial_research",
+          "license": "https://creativecommons.org/licenses/by/4.0/",
+          "evidence_url": "https://pmc.ncbi.nlm.nih.gov/api/oai/v1/mh/?verb=GetRecord&metadataPrefix=pmc&identifier=oai:pubmedcentral.nih.gov:7407189",
+          "license_text": "© 2020 by the authors.2020https://creativecommons.org/licenses/by/4.0/Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license (http://creativecommons.org/licenses/by/4.0/).",
+          "third_party_exceptions": "Retain per-figure credit lines; not adjudicated independently"
+        },
+        "tai_san_nguon": [],
+        "tep_nguon_goc": "knowledge/rag/source_library/originals/ASD-OA-PMC7407189/snapshot-20261017-010440fc59d9.xml",
+        "sha256_markdown": "84dc8961a64708c5203e77fdb675daca469f4bed00380c6ca287a5900165bc45",
+        "sha256_noi_dung": "655e7fc0eb39221c6082f1702ac1f4702938fdb2b7e8058491b994d5edece27e",
+        "pham_vi_tuoi_goc": "Children and adolescents with ASD; narrative review of sleep approaches",
+        "sha256_nguon_goc": "010440fc59d9ba7482bca6f6de2717811b0f49a346cbeb820339a709a4110edf",
+        "phien_ban_chuyen_doi": "jats-readable-front-v3-20261020",
+        "da_tham_dinh_lam_sang_doc_lap": false
+      },
+      "content_sha256": "655e7fc0eb39221c6082f1702ac1f4702938fdb2b7e8058491b994d5edece27e",
+      "clinical_reviewed": false,
+      "whole_document": true,
+      "rank": 2,
+      "cosine_distance": 0.5876169419375168
+    },
+    {
+      "source_id": "ASD-OA-PMC9003052",
+      "title": "Gastrointestinal Symptoms in Autism Spectrum Disorder: A Systematic Review",
+      "source": {
+        "tac_gia": [
+          "Geraldine Leader",
+          "Cathal Abberton",
+          "Stephen Cunningham",
+          "Katie Gilmartin",
+          "Margo Grudzien",
+          "Emily Higgins",
+          "Lokesh Joshi",
+          "Sally Whelan",
+          "Arlene Mannion"
+        ],
+        "to_chuc": null,
+        "ten_nguon": "Nutrients",
+        "link_nguon": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9003052/",
+        "loai_nguon": "research",
+        "link_toan_van": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9003052/"
+      },
+      "dates": {
+        "ngay_cap_nhat": null,
+        "ngay_xuat_ban": "2022-4-01",
+        "ngay_doi_chieu_nguon": "2026-10-17"
+      },
+      "scope": {
+        "gioi_han": [
+          "English-only literature and heterogeneous symptom measurements; relationships with co-occurring conditions can be contradictory.",
+          "Observational associations are not sufficient evidence that probiotics, restrictive diets or FMT treat core ASD features.",
+          "Medical discomfort may require professional assessment; the source does not provide an individualized GI diagnosis.",
+          "Source/provenance review only; no independent clinical appraisal.",
+          "Retain actual ages, geography and study limitations; no individualized diagnosis, treatment or dosing inference."
+        ],
+        "ngon_ngu": "en",
+        "phien_ban": "PMC distributed version 1",
+        "ho_so_day_du": "knowledge/rag/source_library/catalog.jsonl#ASD-OA-PMC9003052",
+        "tep_markdown": "knowledge/rag/source_library/documents/ASD-OA-PMC9003052.md",
+        "quyen_su_dung": {
+          "status": "verified_noncommercial_research",
+          "license": "https://creativecommons.org/licenses/by/4.0/",
+          "evidence_url": "https://pmc.ncbi.nlm.nih.gov/api/oai/v1/mh/?verb=GetRecord&metadataPrefix=pmc&identifier=oai:pubmedcentral.nih.gov:9003052",
+          "license_text": "© 2022 by the authors.2022https://creativecommons.org/licenses/by/4.0/Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license (https://creativecommons.org/licenses/by/4.0/).",
+          "third_party_exceptions": "Retain per-figure credit lines; not adjudicated independently"
+        },
+        "tai_san_nguon": [
+          {
+            "pmc": "PMC9003052",
+            "kind": "image",
+            "xml_xpath": "/article/floats-group[1]/fig[1]/graphic[1]",
+            "cached_path": "reports/source_library_20261017/cache/PMC9003052_nutrients-14-01471-g001.jpg",
+            "reviewed_by": "AI visual comparison, 2026-10-17; not clinical approval",
+            "asset_sha256": "ccd50bf4ab16eee31a79195ade1b1c6ddec4552a2ed6f0168aab86bbcfc22492",
+            "archived_path": "knowledge/rag/source_library/originals/assets/PMC9003052/nutrients-14-01471-g001.jpg",
+            "original_href": "nutrients-14-01471-g001.jpg",
+            "review_method": "Exact figure box labels, counts and arrow relationships; no corrected or inferred numbers.",
+            "source_cloud_url": "s3://pmc-oa-opendata/PMC9003052.1/nutrients-14-01471-g001.jpg?md5=2f74ab66e05073eb743421da94eb0f42",
+            "clinical_reviewed": false,
+            "source_xml_sha256": "05061cd6126899942ec256fd5cf57407a6a4c7dedafa804abd018883e1aae719",
+            "transcribed_text_sha256": "778d90fec0e15c0107a665850f90463677c897ccdcc50b15d930f06cb7fe0969"
+          }
+        ],
+        "tep_nguon_goc": "knowledge/rag/source_library/originals/ASD-OA-PMC9003052/snapshot-20261017-05061cd61268.xml",
+        "sha256_markdown": "e2ce8fe9c8062da96f1c5c13a79d8d493534645cdaf15d8a5209306efd3bf71c",
+        "sha256_noi_dung": "63443ce35b2053c9bc6f462aef294efd6d16bab0e59659101d59a4985a556242",
+        "pham_vi_tuoi_goc": "Children and adolescents under 18 with ASD; 30 empirical studies in an English-language systematic review",
+        "sha256_nguon_goc": "05061cd6126899942ec256fd5cf57407a6a4c7dedafa804abd018883e1aae719",
+        "phien_ban_chuyen_doi": "jats-readable-front-v3-20261020",
+        "da_tham_dinh_lam_sang_doc_lap": false
+      },
+      "content_sha256": "63443ce35b2053c9bc6f462aef294efd6d16bab0e59659101d59a4985a556242",
+      "clinical_reviewed": false,
+      "whole_document": true,
+      "rank": 3,
+      "cosine_distance": 0.6273939023348635
+    },
+    {
+      "source_id": "ASD-OA-PMC4742252",
+      "title": "Prevalence and Correlates of Elopement in a Nationally Representative Sample of Children with Developmental Disabilities in the United States",
+      "source": {
+        "tac_gia": [
+          "Bridget Kiely",
+          "Talia R. Migdal",
+          "Sujit Vettam",
+          "Andrew Adesman"
+        ],
+        "to_chuc": null,
+        "ten_nguon": "PLoS ONE",
+        "link_nguon": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4742252/",
+        "loai_nguon": "research",
+        "link_toan_van": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4742252/"
+      },
+      "dates": {
+        "ngay_cap_nhat": null,
+        "ngay_xuat_ban": "2016-2-4",
+        "ngay_doi_chieu_nguon": "2026-10-17"
+      },
+      "scope": {
+        "gioi_han": [
+          "Parent-reported, cross-sectional historical survey; no causal inference or proof tracking devices prevent injury.",
+          "Reported proportions are not current Vietnam prevalence or an individual child's risk.",
+          "Source/provenance review only; no independent clinical appraisal.",
+          "Retain actual ages, geography and study limitations; no individualized diagnosis, treatment or dosing inference."
+        ],
+        "ngon_ngu": "en",
+        "phien_ban": "PMC distributed version 1",
+        "ho_so_day_du": "knowledge/rag/source_library/catalog.jsonl#ASD-OA-PMC4742252",
+        "tep_markdown": "knowledge/rag/source_library/documents/ASD-OA-PMC4742252.md",
+        "quyen_su_dung": {
+          "status": "verified_noncommercial_research",
+          "license": "http://creativecommons.org/licenses/by/4.0/",
+          "evidence_url": "https://pmc.ncbi.nlm.nih.gov/api/oai/v1/mh/?verb=GetRecord&metadataPrefix=pmc&identifier=oai:pubmedcentral.nih.gov:4742252",
+          "license_text": "© 2016 Kiely et al2016Kiely et alhttps://creativecommons.org/licenses/by/4.0/This is an open access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.",
+          "third_party_exceptions": "Retain per-figure credit lines; not adjudicated independently"
+        },
+        "tai_san_nguon": [],
+        "tep_nguon_goc": "knowledge/rag/source_library/originals/ASD-OA-PMC4742252/snapshot-20261017-982870c9b511.xml",
+        "sha256_markdown": "6a6fa79ba12d737699b674a86839532e533c807d181e9656ba3cf4cd32878b90",
+        "sha256_noi_dung": "4a2f9b1ac53b772aa8d9dda13bcea338d8adbd872f228a5f256776cb1fcaf7fb",
+        "pham_vi_tuoi_goc": "US 2011 Pathways survey of children aged 6–17 with ASD, ID and/or developmental delay",
+        "sha256_nguon_goc": "982870c9b5115bd75da582ab0865b36b1c93e776e77d493fdd41931cd91fb034",
+        "phien_ban_chuyen_doi": "jats-readable-front-v3-20261020",
+        "da_tham_dinh_lam_sang_doc_lap": false
+      },
+      "content_sha256": "4a2f9b1ac53b772aa8d9dda13bcea338d8adbd872f228a5f256776cb1fcaf7fb",
+      "clinical_reviewed": false,
+      "whole_document": true,
+      "rank": 4,
+      "cosine_distance": 0.6650871196064072
+    },
+    {
+      "source_id": "ASD-OA-PMC11638897",
+      "title": "How auditory processing influences the autistic profile: A review",
+      "source": {
+        "tac_gia": [
+          "R. Poulsen",
+          "Z. Williams",
+          "P. Dwyer",
+          "E. Pellicano",
+          "P. F. Sowman",
+          "D. McAlpine"
+        ],
+        "to_chuc": null,
+        "ten_nguon": "Autism Research",
+        "link_nguon": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11638897/",
+        "loai_nguon": "research",
+        "link_toan_van": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11638897/"
+      },
+      "dates": {
+        "ngay_cap_nhat": null,
+        "ngay_xuat_ban": "2024-11-17",
+        "ngay_doi_chieu_nguon": "2026-10-17"
+      },
+      "scope": {
+        "gioi_han": [
+          "Mixed ages retained; do not apply adult-only findings to children.",
+          "Auditory hypersensitivity, hyperacusis, misophonia and hearing loss are distinct; mechanistic accounts are hypotheses, not diagnostic biomarkers or proven treatments.",
+          "Source/provenance review only; no independent clinical appraisal.",
+          "Retain actual ages, geography and study limitations; no individualized diagnosis, treatment or dosing inference."
+        ],
+        "ngon_ngu": "en",
+        "phien_ban": "PMC distributed version 1",
+        "ho_so_day_du": "knowledge/rag/source_library/catalog.jsonl#ASD-OA-PMC11638897",
+        "tep_markdown": "knowledge/rag/source_library/documents/ASD-OA-PMC11638897.md",
+        "quyen_su_dung": {
+          "status": "verified_noncommercial_research",
+          "license": "https://creativecommons.org/licenses/by-nc/4.0/",
+          "evidence_url": "https://pmc.ncbi.nlm.nih.gov/api/oai/v1/mh/?verb=GetRecord&metadataPrefix=pmc&identifier=oai:pubmedcentral.nih.gov:11638897",
+          "license_text": "© 2024 The Author(s). Autism Research published by International Society for Autism Research and Wiley Periodicals LLC.https://creativecommons.org/licenses/by-nc/4.0/This is an open access article under the terms of the http://creativecommons.org/licenses/by-nc/4.0/ License, which permits use, distribution and reproduction in any medium, provided the original work is properly cited and is not used for commercial purposes.",
+          "third_party_exceptions": "Retain per-figure credit lines; not adjudicated independently"
+        },
+        "tai_san_nguon": [],
+        "tep_nguon_goc": "knowledge/rag/source_library/originals/ASD-OA-PMC11638897/snapshot-20261017-4d8f7fd2ca4e.xml",
+        "sha256_markdown": "0724c39af967c47a17f4b799e38bbbdbdcd01f72934794851b8efa3464b87ad5",
+        "sha256_noi_dung": "1abc68f21365b20fa0d414424fc7402aded85753172ec4a7ce14453753e4cb6f",
+        "pham_vi_tuoi_goc": "Lifespan narrative review with explicit child and adolescent evidence, including 2–5-year-olds",
+        "sha256_nguon_goc": "4d8f7fd2ca4ee32db064e3a65a363ae2941ce8287d677c43c95db44b29443b9e",
+        "phien_ban_chuyen_doi": "jats-readable-front-v3-20261020",
+        "da_tham_dinh_lam_sang_doc_lap": false
+      },
+      "content_sha256": "1abc68f21365b20fa0d414424fc7402aded85753172ec4a7ce14453753e4cb6f",
+      "clinical_reviewed": false,
+      "whole_document": true,
+      "rank": 5,
+      "cosine_distance": 0.6746501386659207
+    }
+  ],
+  "answer_generation_performed": false
+}

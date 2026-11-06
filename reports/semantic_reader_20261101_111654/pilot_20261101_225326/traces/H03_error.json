@@ -1,0 +1,320 @@
+{
+  "question": "Khi thấy triệu chứng đã đỡ, gia đình có nên tự dừng thuốc đang được bác sĩ kê cho trẻ không?",
+  "error_code": "nim_network",
+  "message": "NVIDIA request failed/timed out; no automatic retry.",
+  "reader_provider": {},
+  "retrieved_sources": [
+    {
+      "source_id": "ASD-OA-PMC7407189",
+      "title": "Sleeping without Prescription: Management of Sleep Disorders in Children with Autism with Non-Pharmacological Interventions and Over-the-Counter Treatments",
+      "source": {
+        "tac_gia": [
+          "Dario Esposito",
+          "Arianna Belli",
+          "Raffaele Ferri",
+          "Oliviero Bruni"
+        ],
+        "to_chuc": null,
+        "ten_nguon": "Brain Sciences",
+        "link_nguon": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7407189/",
+        "loai_nguon": "research",
+        "link_toan_van": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7407189/"
+      },
+      "dates": {
+        "ngay_cap_nhat": null,
+        "ngay_xuat_ban": "2020-7-11",
+        "ngay_doi_chieu_nguon": "2026-10-17"
+      },
+      "scope": {
+        "gioi_han": [
+          "2020 narrative review, not a current prescribing guideline.",
+          "Non-prescription status does not establish safety or efficacy; herbal, vitamin and supplement claims retain the authors' evidence limits.",
+          "No dosing, extinction procedure or supplement should be presented as an individualized recommendation from this corpus.",
+          "Source/provenance review only; no independent clinical appraisal.",
+          "Retain actual ages, geography and study limitations; no individualized diagnosis, treatment or dosing inference."
+        ],
+        "ngon_ngu": "en",
+        "phien_ban": "PMC distributed version 1",
+        "ho_so_day_du": "knowledge/rag/source_library/catalog.jsonl#ASD-OA-PMC7407189",
+        "tep_markdown": "knowledge/rag/source_library/documents/ASD-OA-PMC7407189.md",
+        "quyen_su_dung": {
+          "status": "verified_noncommercial_research",
+          "license": "https://creativecommons.org/licenses/by/4.0/",
+          "evidence_url": "https://pmc.ncbi.nlm.nih.gov/api/oai/v1/mh/?verb=GetRecord&metadataPrefix=pmc&identifier=oai:pubmedcentral.nih.gov:7407189",
+          "license_text": "© 2020 by the authors.2020https://creativecommons.org/licenses/by/4.0/Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license (http://creativecommons.org/licenses/by/4.0/).",
+          "third_party_exceptions": "Retain per-figure credit lines; not adjudicated independently"
+        },
+        "tai_san_nguon": [],
+        "tep_nguon_goc": "knowledge/rag/source_library/originals/ASD-OA-PMC7407189/snapshot-20261017-010440fc59d9.xml",
+        "sha256_markdown": "84dc8961a64708c5203e77fdb675daca469f4bed00380c6ca287a5900165bc45",
+        "sha256_noi_dung": "655e7fc0eb39221c6082f1702ac1f4702938fdb2b7e8058491b994d5edece27e",
+        "pham_vi_tuoi_goc": "Children and adolescents with ASD; narrative review of sleep approaches",
+        "sha256_nguon_goc": "010440fc59d9ba7482bca6f6de2717811b0f49a346cbeb820339a709a4110edf",
+        "phien_ban_chuyen_doi": "jats-readable-front-v3-20261020",
+        "da_tham_dinh_lam_sang_doc_lap": false
+      },
+      "content_sha256": "655e7fc0eb39221c6082f1702ac1f4702938fdb2b7e8058491b994d5edece27e",
+      "clinical_reviewed": false,
+      "whole_document": true,
+      "rank": 1,
+      "cosine_distance": 0.7293983560088587
+    },
+    {
+      "source_id": "NIH-NIMH-MEDICATIONS",
+      "title": "Mental Health Medications",
+      "source": {
+        "tac_gia": [],
+        "to_chuc": "National Institute of Mental Health (NIMH), NIH",
+        "ten_nguon": "National Institute of Mental Health (NIMH), NIH",
+        "link_nguon": "https://www.nimh.nih.gov/health/topics/mental-health-medications",
+        "loai_nguon": "official_patient_information",
+        "link_toan_van": null
+      },
+      "dates": {
+        "ngay_cap_nhat": null,
+        "ngay_xuat_ban": null,
+        "ngay_doi_chieu_nguon": "2026-10-17"
+      },
+      "scope": {
+        "gioi_han": [
+          "General mental-health/development education; do not infer ASD-specific efficacy.",
+          "US laws, emergency contacts and prescribing context do not establish Vietnamese services or prescribing rules.",
+          "Medicine education is not an individualized recommendation or dosing instruction."
+        ],
+        "ngon_ngu": "en",
+        "phien_ban": "snapshot-20261017-265ac64c9bc6",
+        "ho_so_day_du": "knowledge/rag/source_library/catalog.jsonl#NIH-NIMH-MEDICATIONS",
+        "tep_markdown": "knowledge/rag/source_library/documents/NIH-NIMH-MEDICATIONS.md",
+        "quyen_su_dung": {
+          "status": "verified",
+          "license": "NIMH public-domain text; all images excluded",
+          "conditions": "Attribution, no endorsement or misleading edits; no copied images.",
+          "evidence_url": "https://www.nimh.nih.gov/site-info/policies",
+          "evidence_path": "reports/source_library_20261017/cache/rights_nimh.html"
+        },
+        "tai_san_nguon": [],
+        "tep_nguon_goc": "knowledge/rag/source_library/originals/NIH-NIMH-MEDICATIONS/snapshot-20261017-265ac64c9bc6.html",
+        "sha256_markdown": "8e8069da2337297765ee609694ab61a340ce8b1c632f6392206f3548548d3f3e",
+        "sha256_noi_dung": "9898db3db043c6618127b0fa3faaf61045d1c87c24d35283c6b24738af506bf2",
+        "pham_vi_tuoi_goc": "All ages; child/adolescent considerations retained",
+        "sha256_nguon_goc": "265ac64c9bc62a8523d69c374d092018d5402ec6b912ad1a0cac1016101603f1",
+        "phien_ban_chuyen_doi": null,
+        "da_tham_dinh_lam_sang_doc_lap": false
+      },
+      "content_sha256": "9898db3db043c6618127b0fa3faaf61045d1c87c24d35283c6b24738af506bf2",
+      "clinical_reviewed": false,
+      "whole_document": true,
+      "rank": 2,
+      "cosine_distance": 0.7328485528050108
+    },
+    {
+      "source_id": "ASD-SUP-PMC11754701",
+      "title": "Autism Spectrum Social Stories in Schools Trial 2 (ASSSIST‐2): a pragmatic randomised controlled trial of the Social Stories™ intervention to address the social and emotional health of autistic children in UK primary schools",
+      "source": {
+        "tac_gia": [
+          "Barry Wright",
+          "Jane E. Blackwell",
+          "Kerry J. Bell",
+          "Catarina Teige",
+          "Laura Mandefield",
+          "Han‐I Wang",
+          "Charlie Welch",
+          "Arabella Scantlebury",
+          "Judith Watson",
+          "Dean McMillan",
+          "Emma Standley",
+          "Leah Attwell",
+          "Hayley Carrick",
+          "Amelia Taylor",
+          "Olivia Taylor",
+          "Rachel Hodkinson",
+          "Hannah Edwards",
+          "Hannah Pearson",
+          "Steve Parrott",
+          "David Marshall",
+          "Danielle Varley",
+          "Rebecca Hargate",
+          "Anne Mclaren",
+          "Catherine Hewitt"
+        ],
+        "to_chuc": null,
+        "ten_nguon": "Child and Adolescent Mental Health",
+        "link_nguon": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11754701/",
+        "loai_nguon": "research",
+        "link_toan_van": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11754701/"
+      },
+      "dates": {
+        "ngay_cap_nhat": null,
+        "ngay_xuat_ban": "2024-12-17",
+        "ngay_doi_chieu_nguon": "2026-10-30"
+      },
+      "scope": {
+        "gioi_han": [
+          "Primary intention-to-treat social responsiveness outcome was not statistically significant; individual socio-emotional goals improved.",
+          "Do not claim global social-skill, anxiety, depression or caregiver-stress improvement from individual-goal findings.",
+          "Social Stories are not PEERS and this trial does not reproduce a licensed PEERS treatment manual.",
+          "No independent clinical review; research/internal noncommercial use, no individual diagnosis or prescription."
+        ],
+        "ngon_ngu": "en",
+        "phien_ban": "PMC11754701.1; acquired 2026-10-30",
+        "ho_so_day_du": "knowledge/rag/source_library/catalog.jsonl#ASD-SUP-PMC11754701",
+        "tep_markdown": "knowledge/rag/source_library/documents/ASD-SUP-PMC11754701.md",
+        "quyen_su_dung": {
+          "status": "verified_noncommercial_research",
+          "license": "https://creativecommons.org/licenses/by/4.0/",
+          "evidence_url": "https://pmc.ncbi.nlm.nih.gov/api/oai/v1/mh/?verb=GetRecord&metadataPrefix=pmc&identifier=oai:pubmedcentral.nih.gov:11754701",
+          "license_text": "© 2024 The Author(s). Child and Adolescent Mental Health published by John Wiley & Sons Ltd on behalf of Association for Child and Adolescent Mental Health.https://creativecommons.org/licenses/by/4.0/This is an open access article under the terms of the http://creativecommons.org/licenses/by/4.0/ License, which permits use, distribution and reproduction in any medium, provided the original work is properly cited.",
+          "third_party_exceptions": "Retain per-figure credit lines; not adjudicated independently"
+        },
+        "tai_san_nguon": [
+          {
+            "pmc": "PMC11754701",
+            "kind": "image",
+            "reviewer": "AI visual/text transcription check on 2026-10-30; not independent clinical review",
+            "xml_xpath": "/article/body[1]/sec[3]/fig[1]/graphic[1]",
+            "cached_path": "reports/source_supplement_20261030/cache/assets/PMC11754701/CAMH-30-4-g001.jpg",
+            "asset_sha256": "31bae36fcd90c8cfbef5e66e369e212de145870b1b9e45b9b3794fa99d1a444a",
+            "archived_path": "knowledge/rag/source_library/originals/assets/PMC11754701/CAMH-30-4-g001.jpg",
+            "original_href": "CAMH-30-4-g001.jpg",
+            "verbatim_text": "Screened (98 schools, 295 children)\nEligibility unknown (1 child)\nMissing age (n=1)\nIneligible (26 children)\nTook part in ASSSIST feasibility study (n=1)\nDid not attend school in Yorkshire/Humber (n=1)\nSchool used Social Stories during current/preceding term (n=15)\nParent doesn’t feel their child has behavioural problems in school (n=16)\nPre-randomisation withdrawal (11 schools*, 45 children)\nSchool lacking in capacity/unable to facilitate study (n=14)\nSchool or parent no longer wanted to be involved/withdrew consent (n=10)\nChild moved schools before randomisation could be completed (n=9)\nSchool or parent not responding/uncontactable (n=8)\nChild reached 12+ years before randomisation could be completed (n=3)\nBaseline measures not received prior to end of recruitment period (n=1)\nBaseline teacher CRF’s completed (87 schools, 247** children)\nSRS-2 Total Score (87 schools, 246 children)\nGoal based outcome (86 schools, 240 children)\nBaseline parent CRF’s completed (87 schools, 249 children)\nSRS-2 Total Score (87 schools, 249 children)\nPSI Total Stress Score (87 schools, 244 children)\nRCADS Total Score (87 schools, 248 children)\nEQ-5D-Y VAS Score (87 schools, 249 children)\nRandomised (87 schools, 249 children)\nSocial Stories (44 schools, 129 children)\n0 Social Stories sessions delivered (n=1)\n1-5 Social Stories sessions delivered (n=13)\n6+ Social Stories sessions delivered (n=81)\nNumber of sessions missing (n=34)\nUsual care (43 schools, 120 children)\nWithdrawn (1 child)\nParent unhappy with timescale/organisation of research (n=1)\nWeek 6 teacher CRF’s not completed (23 children)\nWeek 6 teacher CRF’s completed (104 children)\nSRS-2 Total score (104 children)\nGoal based outcome (104 children)\nWeek 6 parent CRF’s not completed (31 children)\nWeek 6 parent CRF’s completed (97 children)\nSRS-2 Total score (97 children)\nPSI Total stress score (89 children)\nRCADS Total score (97 children)\nEQ-5D-Y VAS score (97 children)\nWeek 6 teacher CRF’s not completed (10 children)\nWeek 6 teacher CRF’s completed (110 children)\nSRS-2 Total score (110 children)\nGoal based outcome (109 children)\nWeek 6 parent CRF’s not completed (23 children)\nWeek 6 parent CRF’s completed (97 children)\nSRS-2 Total score (97 children)\nPSI Total stress score (95 children)\nRCADS Total score (97 children)\nEQ-5D-Y VAS score (97 children)\nWithdrawn (2 children)\nChild left school/absent for prolonged period (n=1)\nQuestionnaire lost in the post and parent did not want to complete again (n=1)\nWithdrawn (3 children)\nChild left school/absent for prolonged period (n=1)\nParent did not want to complete questionnaire (n=1)\nParent no longer has enough time (n=1)\nMonth 6 teacher CRF’s not completed (23 children)\nMonth 6 teacher CRF’s completed (104 children)\nSRS-2 Total score (104 children)\nGoal based outcome (102 children)\nMonth 6 parent CRF’s not completed (32 children)\nMonth 6 parent CRF’s completed (95 children)\nSRS-2 Total score (95 children)\nPSI Total stress score (90 children)\nRCADS Total score (94 children)\nEQ-5D-Y VAS score (93 children)\nMonth 6 teacher CRF’s not completed (11 children)\nMonth 6 teacher CRF’s completed (108 children)\nSRS-2 Total score (108 children)\nGoal based outcome (105 children)\nMonth 6 parent CRF’s not completed (29 children)\nMonth 6 parent CRF’s completed (89 children)\nSRS-2 Total score (89 children)\nPSI Total stress score (84 children)\nRCADS Total score (88 children)\nEQ-5D-Y VAS score (89 children)\nSocial Stories:\nInc. in primary analysis (41 schools, 117 children)\nExc. from primary analysis (3 schools, 12 children)\nNo Wk6/M6 primary outcome data available (n=9)\nMissing baseline covariate data (n=3)\nUsual care:\nInc. in primary analysis (42 schools, 118 children)\nExc. from primary analysis (1 schools, 2 children)\nNo Wk6/M6 primary outcome data available (n=2)\n*11 schools where all participants withdrew prior to randomisation\n**Two participants with no teacher completed baseline data\n",
+            "source_cloud_url": "s3://pmc-oa-opendata/PMC11754701.1/CAMH-30-4-g001.jpg?md5=aea00e350db7bf340aa1cd7c3063d64f",
+            "source_xml_sha256": "35f351a68beb5fe571797a6b173561b7a6697a868ab4a0c443c03fd637a6102d",
+            "cloud_md5_verified": true,
+            "transcription_scope": "Printed labels and counts, reading order follows flow; branch labels repeated for layout association; blank source fields remain blank. No values inferred.",
+            "transcribed_text_sha256": "32b04702cdb473a2a6782653ef32027527833c303ca789a9ad776aadeb70c294"
+          },
+          {
+            "pmc": "PMC11754701",
+            "kind": "docx",
+            "reviewer": "AI visual/text transcription check on 2026-10-30; not independent clinical review",
+            "xml_xpath": "/article/body[1]/sec[9]/supplementary-material[1]/media[1]",
+            "cached_path": "reports/source_supplement_20261030/cache/assets/PMC11754701/CAMH-30-4-s001.docx",
+            "asset_sha256": "a13e42c80996ecee4d98c16eb5efaf768772fd6b1b6b18126238c9bca1d46ba7",
+            "archived_path": "knowledge/rag/source_library/originals/assets/PMC11754701/CAMH-30-4-s001.docx",
+            "original_href": "CAMH-30-4-s001.docx",
+            "conversion_check": {
+              "gaps": [],
+              "part": "word/document.xml",
+              "charts": [],
+              "format": "docx",
+              "body_sha256": "7c1fd2b83edf5e8f283755443015b75c56067396f29b8e158591f34bc4eb4841",
+              "checked_text_runs": 1883
+            },
+            "source_cloud_url": "s3://pmc-oa-opendata/PMC11754701.1/CAMH-30-4-s001.docx?md5=0a20eeba805a5071ba6bbdd2dcb7a405",
+            "source_xml_sha256": "35f351a68beb5fe571797a6b173561b7a6697a868ab4a0c443c03fd637a6102d",
+            "cloud_md5_verified": true,
+            "transcribed_text_sha256": "7c1fd2b83edf5e8f283755443015b75c56067396f29b8e158591f34bc4eb4841"
+          }
+        ],
+        "tep_nguon_goc": "knowledge/rag/source_library/originals/ASD-SUP-PMC11754701/snapshot-2026-10-30-35f351a68beb.xml",
+        "sha256_markdown": "8ab114959a48a692d2b94a2d0a5de0cdd50b9c6b0ddb498575bc226fb37d8dcc",
+        "sha256_noi_dung": "698fcac9c466769bda1b90ad2951b4477949c4db4de58b477bbf7697368ab7e8",
+        "pham_vi_tuoi_goc": "UK primary-school autistic children aged 4–11; 87 schools, 249 children, cluster randomized trial.",
+        "sha256_nguon_goc": "35f351a68beb5fe571797a6b173561b7a6697a868ab4a0c443c03fd637a6102d",
+        "phien_ban_chuyen_doi": "asd-agent-fulltext-supplement-20261030-v1",
+        "da_tham_dinh_lam_sang_doc_lap": false
+      },
+      "content_sha256": "698fcac9c466769bda1b90ad2951b4477949c4db4de58b477bbf7697368ab7e8",
+      "clinical_reviewed": false,
+      "whole_document": true,
+      "rank": 3,
+      "cosine_distance": 0.7464232983222276
+    },
+    {
+      "source_id": "ASD-OA-PMC12593641",
+      "title": "Transition to adolescence in neurodevelopmental disorders: challenges and clinical perspectives",
+      "source": {
+        "tac_gia": [
+          "Eduardo Jorge Custódio da Silva",
+          "Evelyn Eisenstein"
+        ],
+        "to_chuc": null,
+        "ten_nguon": "Jornal de Pediatria",
+        "link_nguon": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12593641/",
+        "loai_nguon": "research",
+        "link_toan_van": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12593641/"
+      },
+      "dates": {
+        "ngay_cap_nhat": null,
+        "ngay_xuat_ban": "2025-10-24",
+        "ngay_doi_chieu_nguon": "2026-10-17"
+      },
+      "scope": {
+        "gioi_han": [
+          "Narrative clinical perspective across several diagnoses; retain which statements concern ASD, ADHD or intellectual disability.",
+          "Adult service-transition descriptions and medication statements require local clinical context; no Vietnamese entitlement or individual prescribing inference.",
+          "Source/provenance review only; no independent clinical appraisal.",
+          "Retain actual ages, geography and study limitations; no individualized diagnosis, treatment or dosing inference."
+        ],
+        "ngon_ngu": "en",
+        "phien_ban": "PMC distributed version 1",
+        "ho_so_day_du": "knowledge/rag/source_library/catalog.jsonl#ASD-OA-PMC12593641",
+        "tep_markdown": "knowledge/rag/source_library/documents/ASD-OA-PMC12593641.md",
+        "quyen_su_dung": {
+          "status": "verified_noncommercial_research",
+          "license": "https://creativecommons.org/licenses/by/4.0/",
+          "evidence_url": "https://pmc.ncbi.nlm.nih.gov/api/oai/v1/mh/?verb=GetRecord&metadataPrefix=pmc&identifier=oai:pubmedcentral.nih.gov:12593641",
+          "license_text": "© 2025 The Authors2025https://creativecommons.org/licenses/by/4.0/This is an open access article under the CC BY license (http://creativecommons.org/licenses/by/4.0/).",
+          "third_party_exceptions": "Retain per-figure credit lines; not adjudicated independently"
+        },
+        "tai_san_nguon": [],
+        "tep_nguon_goc": "knowledge/rag/source_library/originals/ASD-OA-PMC12593641/snapshot-20261017-163c24185416.xml",
+        "sha256_markdown": "20bea486f2d98ee7774192966482a86e7bf67526d77604d16250c7bfff72b375",
+        "sha256_noi_dung": "f62b1358f1af986758d4ff583f4e861c0743d28f4318b5d1c2d3c6ea3735b2a8",
+        "pham_vi_tuoi_goc": "Transition to adolescence and adulthood in neurodevelopmental disorders, including ASD, ADHD and intellectual disability",
+        "sha256_nguon_goc": "163c24185416d00e6780580293f5edb1fa4740a8602ba8278a6a0d700ef273fc",
+        "phien_ban_chuyen_doi": "jats-readable-front-v3-20261020",
+        "da_tham_dinh_lam_sang_doc_lap": false
+      },
+      "content_sha256": "f62b1358f1af986758d4ff583f4e861c0743d28f4318b5d1c2d3c6ea3735b2a8",
+      "clinical_reviewed": false,
+      "whole_document": true,
+      "rank": 4,
+      "cosine_distance": 0.7584066545013575
+    },
+    {
+      "source_id": "NIH-NIMH-ASD-2025",
+      "title": "Autism Spectrum Disorder",
+      "source": {
+        "tac_gia": [],
+        "to_chuc": "National Institute of Mental Health (NIMH), NIH",
+        "ten_nguon": "National Institute of Mental Health (NIMH), NIH",
+        "link_nguon": "https://www.nimh.nih.gov/health/publications/autism-spectrum-disorder",
+        "loai_nguon": "official_patient_information",
+        "link_toan_van": null
+      },
+      "dates": {
+        "ngay_cap_nhat": null,
+        "ngay_xuat_ban": null,
+        "ngay_doi_chieu_nguon": "2026-10-17"
+      },
+      "scope": {
+        "gioi_han": [],
+        "ngon_ngu": "en",
+        "phien_ban": "NIH Publication No. 25-MH-8084; Revised 2025",
+        "ho_so_day_du": "knowledge/rag/source_library/catalog.jsonl#NIH-NIMH-ASD-2025",
+        "tep_markdown": "knowledge/rag/source_library/documents/NIH-NIMH-ASD-2025.md",
+        "quyen_su_dung": {
+          "status": "verified",
+          "license": "US public domain text; images excluded",
+          "conditions": "Cite NIMH; no endorsement; do not copy images.",
+          "evidence_url": "https://www.nimh.nih.gov/health/publications/autism-spectrum-disorder#part_11021"
+        },
+        "tai_san_nguon": [],
+        "tep_nguon_goc": "knowledge/rag/source_library/originals/NIH-NIMH-ASD-2025/snapshot-20261017-79ec4251e9cd.html",
+        "sha256_markdown": "e2e0b2e8bf8816fca59485537a09079dfe54dadba21fdc52f3a6d4da5cf6d4f2",
+        "sha256_noi_dung": "8a387613d1126abbcc28145fd54347db63e67b67783717b86e6f48984f455fa8",
+        "pham_vi_tuoi_goc": "All ages; separate young-child, older-child and adult sections retained",
+        "sha256_nguon_goc": "79ec4251e9cdc3e82ee94b02bff7b0d0bc25fa910edb696f382cecf3bfa43548",
+        "phien_ban_chuyen_doi": null,
+        "da_tham_dinh_lam_sang_doc_lap": false
+      },
+      "content_sha256": "8a387613d1126abbcc28145fd54347db63e67b67783717b86e6f48984f455fa8",
+      "clinical_reviewed": false,
+      "whole_document": true,
+      "rank": 5,
+      "cosine_distance": 0.7684064002400389
+    }
+  ],
+  "answer_generation_performed": false
+}

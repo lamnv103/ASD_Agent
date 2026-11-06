@@ -1,0 +1,26 @@
+{
+  "question": "Các hoạt động kích thích cảm giác có phải đều giống phương pháp tích hợp cảm giác đã được nghiên cứu cho trẻ tự kỷ không?",
+  "error_code": "nim_http",
+  "error_stage": "source_selection",
+  "message": "NVIDIA HTTP 503; response body/credentials omitted. No automatic retry.",
+  "reader_calls": [
+    {
+      "stage": "question_plan",
+      "content_sha256": "65530a7a883ce4b87bba4f7aa33736722779698233af472999d322fc9dff3f66",
+      "request_id": "chatcmpl-806fc3ee-9e75-4e75-ac27-dfb68132f949",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "usage": {
+        "prompt_tokens": 365,
+        "completion_tokens": 452,
+        "total_tokens": 817
+      },
+      "local_prompt_tokens": 365,
+      "provider_prompt_tokens": 365,
+      "prompt_token_delta": 0,
+      "elapsed_seconds": 21.765,
+      "cache_hit": true,
+      "recorded_at": "2026-11-01T16:39:00.380949+00:00"
+    }
+  ],
+  "generation_enabled": false
+}

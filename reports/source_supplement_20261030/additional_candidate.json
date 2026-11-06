@@ -1,0 +1,67 @@
+{
+  "pmc": "PMC4513196",
+  "title": "Naturalistic Developmental Behavioral Interventions: Empirically Validated Treatments for Autism Spectrum Disorder",
+  "bibliography": {
+    "ids": {
+      "pmcid": "PMC4513196",
+      "pmcid-ver": "PMC4513196.1",
+      "pmcaid": "4513196",
+      "pmcaiid": "4513196",
+      "pmid": "25737021",
+      "doi": "10.1007/s10803-015-2407-8",
+      "publisher-id": "2407",
+      "pmc": "PMC4513196"
+    },
+    "authors": [
+      "Laura Schreibman",
+      "Geraldine Dawson",
+      "Aubyn C. Stahmer",
+      "Rebecca Landa",
+      "Sally J. Rogers",
+      "Gail G. McGee",
+      "Connie Kasari",
+      "Brooke Ingersoll",
+      "Ann P. Kaiser",
+      "Yvonne Bruinsma",
+      "Erin McNerney",
+      "Amy Wetherby",
+      "Alycia Halladay"
+    ],
+    "date": "2015-3-4",
+    "date_parts": {
+      "day": "4",
+      "month": "3",
+      "year": "2015"
+    },
+    "publication_types": [],
+    "metadata_provider": "PMC JATS original; not a PubMed linked-notice search"
+  },
+  "cloud": {
+    "pmcid": "PMC4513196",
+    "version": 1,
+    "pmid": 25737021,
+    "doi": "10.1007/s10803-015-2407-8",
+    "mid": null,
+    "title": "Naturalistic Developmental Behavioral Interventions: Empirically Validated Treatments for Autism Spectrum Disorder",
+    "citation": "J Autism Dev Disord. 2015 Mar 4;45(8):2411–28. doi: 10.1007/s10803-015-2407-8",
+    "is_pmc_openaccess": true,
+    "is_manuscript": false,
+    "is_historical_ocr": false,
+    "is_retracted": false,
+    "license_code": "CC BY",
+    "text_url": "s3://pmc-oa-opendata/PMC4513196.1/PMC4513196.1.txt?md5=039fb23f839a97d38e2395750fc4fa74",
+    "pdf_url": "s3://pmc-oa-opendata/PMC4513196.1/PMC4513196.1.pdf?md5=01d84da318879ab34b067836548d69dc",
+    "xml_url": "s3://pmc-oa-opendata/PMC4513196.1/PMC4513196.1.xml?md5=c5aee8f1971dd4bf0e853bc8aca9adbf"
+  },
+  "rights": {
+    "status": "verified_noncommercial_research",
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "evidence_url": "https://pmc.ncbi.nlm.nih.gov/api/oai/v1/mh/?verb=GetRecord&metadataPrefix=pmc&identifier=oai:pubmedcentral.nih.gov:4513196",
+    "license_text": "© The Author(s) 2015https://creativecommons.org/licenses/by/4.0/ Open AccessThis article is distributed under the terms of the Creative Commons Attribution License which permits any use, distribution, and reproduction in any medium, provided the original author(s) and the source are credited.",
+    "third_party_exceptions": "Retain per-figure credit lines; not adjudicated independently"
+  },
+  "characters": 100426,
+  "gaps": [],
+  "tables": 0,
+  "figures": 0
+}

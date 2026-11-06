@@ -1,0 +1,38 @@
+{
+  "ok": true,
+  "checked_at": "2026-10-30T23:44:40+07:00",
+  "model": "nvidia/nemotron-3.5-embed-8b",
+  "real_api_requests": 1,
+  "successful_real_api_requests": 1,
+  "automatic_retries": 0,
+  "dimensions": 4096,
+  "usage": {
+    "prompt_tokens": 23,
+    "total_tokens": 23
+  },
+  "request_elapsed_seconds": 0.966639,
+  "result_file": "reports/embedding_nim_pilot/pilot_embedding.json",
+  "result_sha256": "85dcf3c2f4c8beb4872b0516e4dd903f4fb3429c60ed5cd393853ef13d772e94",
+  "sample_characters": 107,
+  "sample_offsets_and_hashes_valid": true,
+  "all_vector_values_finite": true,
+  "vector_norm": 1.000000931480073,
+  "result_read_back_valid": true,
+  "cached_full_console_replay_exit_code": 0,
+  "cached_full_console_matches_saved_vector": true,
+  "cached_replay_sent_no_api_request": true,
+  "original_library_manifest_files_checked": 132,
+  "source_library_hash_mismatches": [],
+  "offline_regressions": {
+    "passed": 8,
+    "failed": 0,
+    "observed_command": "python -B -m unittest discover -s scripts/embedding -p test_smoke_test_nim.py -v"
+  },
+  "credentials_found_in_generated_artifacts": false,
+  "source_data_changed": false,
+  "database_accessed": false,
+  "whole_documents_embedded": 0,
+  "embedded_excerpts": 1,
+  "scope": "pilot_excerpt_not_complete_document",
+  "clinical_retrieval_quality_evaluated": false
+}

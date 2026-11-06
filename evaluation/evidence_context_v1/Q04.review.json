@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "review_id": "reference-replay-Q04",
+  "question": "M-CHAT-R/F dùng làm gì và dành cho trẻ ở độ tuổi nào?",
+  "question_sha256": "ec51797093179114760bab5e6c0d57a8122d79ca6fc8de5eaaac5f0ef74df5e5",
+  "reviewer": {
+    "kind": "ai_reference_review",
+    "name": "AI source-content review; not an independent clinical expert",
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "origin": "existing_retrieval_v1_label_replay_not_independent_semantic_evaluation",
+    "frozen_input_hashes": {
+      "questions.jsonl": "749f0a48e30de346e0521bae016f81e05e787b885ae132dced1cc03365f252c6",
+      "reference_labels.json": "b3c0f8c7e083c463750c358288b1439d4a2b1ef5533d976a6fae2901523deb99"
+    }
+  },
+  "intent": "general_information",
+  "claims": [
+    {
+      "claim_id": "c1",
+      "text": "M-CHAT-R/F dùng làm gì và dành cho trẻ ở độ tuổi nào?",
+      "required": true
+    }
+  ],
+  "items": [
+    {
+      "item_id": "item-0",
+      "source_id": "ASD-CSV-002",
+      "content_sha256": "b18a9e2383e4f38086cad33f223cf322de234b9c772d08aaffacf8a18aefc07b",
+      "start": 15895,
+      "end": 16919,
+      "quote": "The Modified Checklist for Autism in Toddlers (M-CHAT; Robins et al., 2014) is one of the most widely used <italic>Level 1</italic> autism screening instruments. The revised and updated version, M-CHAT, Revised with Follow-Up (M-CHAT-R/F; Robins et al., 2014) is a two-stage screener designed for toddlers ages 16 to 30 months. First, caregivers complete a series of 20 yes/no questions that assess early social communication skills and other signs of autism. If the total score is ≤2, no follow-up is needed (low risk). A score between 3 and 7 suggests moderate risk and a structured follow-up interview is administered to caregivers to obtain additional information. If the total score of the follow-up is 2 or higher, the child should be referred for diagnostic evaluation and early intervention. A score of 8 or higher indicates high risk, and the follow-up interview can be bypassed in favor of immediate referral for early intervention services and diagnostic evaluation. The M-CHAT-R/F takes about 10 min to complete.",
+      "relation": "direct",
+      "stance": "supports",
+      "claim_ids": [
+        "c1"
+      ],
+      "scope_limits": "Thang sàng lọc, không phải chẩn đoán; phiên bản R/F 16–30 tháng."
+    }
+  ],
+  "conflicts": [],
+  "review_notes": "Thang sàng lọc, không phải chẩn đoán; phiên bản R/F 16–30 tháng."
+}

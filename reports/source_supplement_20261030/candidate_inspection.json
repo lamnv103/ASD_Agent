@@ -1,0 +1,1078 @@
+[
+  {
+    "pmc": "PMC6590432",
+    "title": "A systematic review of ayres sensory integration intervention for children with autism",
+    "bibliography": {
+      "ids": {
+        "pmcid": "PMC6590432",
+        "pmcid-ver": "PMC6590432.1",
+        "pmcaid": "6590432",
+        "pmcaiid": "6590432",
+        "pmid": "30548827",
+        "doi": "10.1002/aur.2046",
+        "publisher-id": "AUR2046",
+        "pmc": "PMC6590432"
+      },
+      "authors": [
+        "Sarah A. Schoen",
+        "Shelly J. Lane",
+        "Zoe Mailloux",
+        "Teresa May‐Benson",
+        "L. Dianne Parham",
+        "Susanne Smith Roley",
+        "Roseann C. Schaaf"
+      ],
+      "date": "2018-12-12",
+      "date_parts": {
+        "day": "12",
+        "month": "12",
+        "year": "2018"
+      },
+      "publication_types": [
+        "Review"
+      ],
+      "metadata_provider": "PMC JATS original; not a PubMed linked-notice search"
+    },
+    "cloud": {
+      "pmcid": "PMC6590432",
+      "version": 1,
+      "pmid": 30548827,
+      "doi": "10.1002/aur.2046",
+      "mid": null,
+      "title": "A systematic review of ayres sensory integration intervention for children with autism",
+      "citation": "Autism Res. 2018 Dec 12;12(1):6–19. doi: 10.1002/aur.2046",
+      "is_pmc_openaccess": true,
+      "is_manuscript": false,
+      "is_historical_ocr": false,
+      "is_retracted": false,
+      "license_code": "CC BY",
+      "pdf_url": "s3://pmc-oa-opendata/PMC6590432.1/PMC6590432.1.pdf?md5=161150b58f81fd02e81a74cb696e5d1a",
+      "xml_url": "s3://pmc-oa-opendata/PMC6590432.1/PMC6590432.1.xml?md5=b0e7eed30f48575ac6ed4dc5d4294e4f",
+      "text_url": "s3://pmc-oa-opendata/PMC6590432.1/PMC6590432.1.txt?md5=abd0f7569909bbb56b19c07b35c6896f",
+      "media_urls": [
+        "s3://pmc-oa-opendata/PMC6590432.1/AUR-12-6-g001.jpg?md5=26be0f7aeb480ee047950e69e0b23865",
+        "s3://pmc-oa-opendata/PMC6590432.1/AUR-12-6-s001.docx?md5=f9e60edec2aa1b3ab76736c8f601aa58"
+      ]
+    },
+    "rights": {
+      "status": "verified_noncommercial_research",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "evidence_url": "https://pmc.ncbi.nlm.nih.gov/api/oai/v1/mh/?verb=GetRecord&metadataPrefix=pmc&identifier=oai:pubmedcentral.nih.gov:6590432",
+      "license_text": "© 2018 The Authors. Autism Research published by International Society for Autism Research and Wiley Periodicals, Inc.https://creativecommons.org/licenses/by/4.0/This is an open access article under the terms of the http://creativecommons.org/licenses/by/4.0/ License, which permits use, distribution and reproduction in any medium, provided the original work is properly cited.",
+      "third_party_exceptions": "Retain per-figure credit lines; not adjudicated independently"
+    },
+    "characters": 81739,
+    "gaps": [
+      {
+        "type": "graphic",
+        "xml_xpath": "/article/body[1]/sec[3]/sec[1]/fig[1]/graphic[1]",
+        "original_href": "AUR-12-6-g001.jpg",
+        "status": "asset_not_transcribed"
+      },
+      {
+        "type": "media",
+        "xml_xpath": "/article/body[1]/sec[10]/supplementary-material[1]/media[1]",
+        "original_href": "AUR-12-6-s001.docx",
+        "status": "asset_not_transcribed"
+      },
+      {
+        "type": "supplementary-material",
+        "xml_xpath": "/article/body[1]/sec[10]/supplementary-material[1]",
+        "status": "external_supplement_not_transcribed"
+      }
+    ],
+    "tables": 4,
+    "figures": 1,
+    "headings": [
+      "Introduction",
+      "Research Question and Design",
+      "Methods",
+      "Results",
+      "Discussion",
+      "Conclusion",
+      "Author contributions",
+      "Conflict of interest",
+      "Compliance with ethical standards",
+      "Supporting information"
+    ],
+    "related_articles": []
+  },
+  {
+    "pmc": "PMC7726187",
+    "title": "Evaluating Sensory Integration/Sensory Processing Treatment: Issues and Analysis",
+    "bibliography": {
+      "ids": {
+        "pmcid": "PMC7726187",
+        "pmcid-ver": "PMC7726187.1",
+        "pmcaid": "7726187",
+        "pmcaiid": "7726187",
+        "pmid": "33324180",
+        "doi": "10.3389/fnint.2020.556660",
+        "pmc": "PMC7726187"
+      },
+      "authors": [
+        "Stephen Camarata",
+        "Lucy Jane Miller",
+        "Mark T. Wallace"
+      ],
+      "date": "2020-11-26",
+      "date_parts": {
+        "day": "26",
+        "month": "11",
+        "year": "2020"
+      },
+      "publication_types": [
+        "Review"
+      ],
+      "metadata_provider": "PMC JATS original; not a PubMed linked-notice search"
+    },
+    "cloud": {
+      "pmcid": "PMC7726187",
+      "version": 1,
+      "pmid": 33324180,
+      "doi": "10.3389/fnint.2020.556660",
+      "mid": null,
+      "title": "Evaluating Sensory Integration/Sensory Processing Treatment: Issues and Analysis",
+      "citation": "Front Integr Neurosci. 2020 Nov 26;14:556660. doi: 10.3389/fnint.2020.556660",
+      "is_pmc_openaccess": true,
+      "is_manuscript": false,
+      "is_historical_ocr": false,
+      "is_retracted": false,
+      "license_code": "CC BY",
+      "pdf_url": "s3://pmc-oa-opendata/PMC7726187.1/PMC7726187.1.pdf?md5=e42d03f3ae63295e6ab1474c06698ead",
+      "text_url": "s3://pmc-oa-opendata/PMC7726187.1/PMC7726187.1.txt?md5=6cde9b3cbd7a60aeac9678ee5dcf4ae9",
+      "xml_url": "s3://pmc-oa-opendata/PMC7726187.1/PMC7726187.1.xml?md5=9ca294fb9e3df654cd96d4b3b9c9a078",
+      "media_urls": [
+        "s3://pmc-oa-opendata/PMC7726187.1/fnint-14-556660-g0001.jpg?md5=1ff7f8a404f3ce25a9e81feffc3fad6a",
+        "s3://pmc-oa-opendata/PMC7726187.1/fnint-14-556660-g0002.jpg?md5=a6e3891b76363216bf233c5c8a9da732",
+        "s3://pmc-oa-opendata/PMC7726187.1/fnint-14-556660-g0003.jpg?md5=49352e736591e56e82c64c09fc07ef4a",
+        "s3://pmc-oa-opendata/PMC7726187.1/fnint-14-556660-g0004.jpg?md5=55ad1286837ab0d35a8097b711e16b21",
+        "s3://pmc-oa-opendata/PMC7726187.1/fnint-14-556660-g0005.jpg?md5=c2d96580c9d05767573cf9c8bb7f62bd",
+        "s3://pmc-oa-opendata/PMC7726187.1/fnint-14-556660-i0001.jpg?md5=64548d3a9b5ad6bfff86b784936699ef"
+      ]
+    },
+    "rights": {
+      "status": "verified_noncommercial_research",
+      "license": "http://creativecommons.org/licenses/by/4.0/",
+      "evidence_url": "https://pmc.ncbi.nlm.nih.gov/api/oai/v1/mh/?verb=GetRecord&metadataPrefix=pmc&identifier=oai:pubmedcentral.nih.gov:7726187",
+      "license_text": "Copyright © 2020 Camarata, Miller and Wallace.2020Camarata, Miller and Wallacehttps://creativecommons.org/licenses/by/4.0/This is an open-access article distributed under the terms of the Creative Commons Attribution License (CC BY). The use, distribution or reproduction in other forums is permitted, provided the original author(s) and the copyright owner(s) are credited and that the original publication in this journal is cited, in accordance with accepted academic practice. No use, distribution or reproduction is permitted which does not comply with these terms.",
+      "third_party_exceptions": "Retain per-figure credit lines; not adjudicated independently"
+    },
+    "characters": 70778,
+    "gaps": [
+      {
+        "type": "graphic",
+        "xml_xpath": "/article/body[1]/sec[4]/table-wrap[1]/table[1]/tbody[1]/tr[1]/td[1]/graphic[1]",
+        "original_href": "fnint-14-556660-i0001.jpg",
+        "status": "asset_not_transcribed"
+      },
+      {
+        "type": "graphic",
+        "xml_xpath": "/article/body[1]/sec[4]/table-wrap[1]/table[1]/tbody[1]/tr[2]/td[1]/graphic[1]",
+        "original_href": "fnint-14-556660-i0001.jpg",
+        "status": "asset_not_transcribed"
+      },
+      {
+        "type": "graphic",
+        "xml_xpath": "/article/body[1]/sec[4]/table-wrap[1]/table[1]/tbody[1]/tr[3]/td[1]/graphic[1]",
+        "original_href": "fnint-14-556660-i0001.jpg",
+        "status": "asset_not_transcribed"
+      },
+      {
+        "type": "graphic",
+        "xml_xpath": "/article/body[1]/sec[4]/fig[1]/graphic[1]",
+        "original_href": "fnint-14-556660-g0001.jpg",
+        "status": "asset_not_transcribed"
+      },
+      {
+        "type": "graphic",
+        "xml_xpath": "/article/body[1]/sec[7]/sec[1]/fig[1]/graphic[1]",
+        "original_href": "fnint-14-556660-g0002.jpg",
+        "status": "asset_not_transcribed"
+      },
+      {
+        "type": "graphic",
+        "xml_xpath": "/article/body[1]/sec[7]/sec[1]/fig[2]/graphic[1]",
+        "original_href": "fnint-14-556660-g0003.jpg",
+        "status": "asset_not_transcribed"
+      },
+      {
+        "type": "graphic",
+        "xml_xpath": "/article/body[1]/sec[7]/sec[2]/fig[1]/graphic[1]",
+        "original_href": "fnint-14-556660-g0004.jpg",
+        "status": "asset_not_transcribed"
+      },
+      {
+        "type": "graphic",
+        "xml_xpath": "/article/body[1]/sec[7]/sec[2]/fig[2]/graphic[1]",
+        "original_href": "fnint-14-556660-g0005.jpg",
+        "status": "asset_not_transcribed"
+      }
+    ],
+    "tables": 2,
+    "figures": 5,
+    "headings": [
+      "Overview: Sensory Integration/Sensory Processing Treatment (SI/SP-T) for ASD Is A Widely-Implemented Intervention Approach but with An Emerging but Limited Evidence Base",
+      "Evidence-Based Practice: Levels of Evidence",
+      "Origins of SI/SP-T: A Brief Overview of Sensory Integration/Sensory Processing Treatment Approaches",
+      "Theory of Change for Sensory Integration/Sensory Processing Treatment",
+      "Testing Behavioral Treatments",
+      "Current Evidence Base for SI/SP Treatment",
+      "(Multi)Sensory Perception as A Window into SI/Sp-T: Multisensory Integration as A Distal Measure of The Impact of Sensory-Based Treatment",
+      "Author Contributions",
+      "Conflict of Interest"
+    ],
+    "related_articles": []
+  },
+  {
+    "pmc": "PMC12658592",
+    "title": "Systematic review of sensory-based interventions for children and youth (2015–2024)",
+    "bibliography": {
+      "ids": {
+        "pmcid": "PMC12658592",
+        "pmcid-ver": "PMC12658592.1",
+        "pmcaid": "12658592",
+        "pmcaiid": "12658592",
+        "pmid": "41321460",
+        "doi": "10.3389/fped.2025.1720179",
+        "pmc": "PMC12658592"
+      },
+      "authors": [
+        "Aimee Piller",
+        "Jessica McHugh Conlin",
+        "Tara J. Glennon",
+        "Lauren Andelin",
+        "Kelly Auld-Wright",
+        "Krysti Teng",
+        "Talicia Tarver"
+      ],
+      "date": "2025-11-13",
+      "date_parts": {
+        "day": "13",
+        "month": "11",
+        "year": "2025"
+      },
+      "publication_types": [],
+      "metadata_provider": "PMC JATS original; not a PubMed linked-notice search"
+    },
+    "cloud": {
+      "pmcid": "PMC12658592",
+      "version": 1,
+      "pmid": 41321460,
+      "doi": "10.3389/fped.2025.1720179",
+      "mid": null,
+      "title": "Systematic review of sensory-based interventions for children and youth (2015–2024)",
+      "citation": "Front Pediatr. 2025 Nov 13;13:1720179. doi: 10.3389/fped.2025.1720179",
+      "is_pmc_openaccess": true,
+      "is_manuscript": false,
+      "is_historical_ocr": false,
+      "is_retracted": false,
+      "license_code": "CC BY",
+      "pdf_url": "s3://pmc-oa-opendata/PMC12658592.1/PMC12658592.1.pdf?md5=a78422ca505188a1f4c3ec81a0c8ff54",
+      "xml_url": "s3://pmc-oa-opendata/PMC12658592.1/PMC12658592.1.xml?md5=d20bd4897c96052240299f215e240b64",
+      "text_url": "s3://pmc-oa-opendata/PMC12658592.1/PMC12658592.1.txt?md5=3d85f740fb68f1aac096fc35405518f8",
+      "media_urls": [
+        "s3://pmc-oa-opendata/PMC12658592.1/Datasheet1.docx?md5=01a3edfed10afa64755d36d43fd87f1e",
+        "s3://pmc-oa-opendata/PMC12658592.1/fped-13-1720179-g001.jpg?md5=78eac92c6487a29f119e65f7f3a28635"
+      ]
+    },
+    "rights": {
+      "status": "verified_noncommercial_research",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "evidence_url": "https://pmc.ncbi.nlm.nih.gov/api/oai/v1/mh/?verb=GetRecord&metadataPrefix=pmc&identifier=oai:pubmedcentral.nih.gov:12658592",
+      "license_text": "© 2025 Piller, McHugh Conlin, Glennon, Andelin, Auld-Wright, Teng and Tarver.2025Piller, McHugh Conlin, Glennon, Andelin, Auld-Wright, Teng and Tarverhttps://creativecommons.org/licenses/by/4.0/This is an open-access article distributed under the terms of the Creative Commons Attribution License (CC BY). The use, distribution or reproduction in other forums is permitted, provided the original author(s) and the copyright owner(s) are credited and that the original publication in this journal is cited, in accordance with accepted academic practice. No use, distribution or reproduction is permitted which does not comply with these terms.",
+      "third_party_exceptions": "Retain per-figure credit lines; not adjudicated independently"
+    },
+    "characters": 68811,
+    "gaps": [
+      {
+        "type": "graphic",
+        "xml_xpath": "/article/body[1]/sec[3]/fig[1]/graphic[1]",
+        "original_href": "fped-13-1720179-g001.jpg",
+        "status": "asset_not_transcribed"
+      },
+      {
+        "type": "media",
+        "xml_xpath": "/article/back[1]/sec[6]/supplementary-material[1]/media[1]",
+        "original_href": "Datasheet1.docx",
+        "status": "asset_not_transcribed"
+      },
+      {
+        "type": "supplementary-material",
+        "xml_xpath": "/article/back[1]/sec[6]/supplementary-material[1]",
+        "status": "external_supplement_not_transcribed"
+      }
+    ],
+    "tables": 2,
+    "figures": 1,
+    "headings": [
+      "Introduction",
+      "Methods",
+      "Results",
+      "Discussion",
+      "Limitations and future research",
+      "Conclusion"
+    ],
+    "related_articles": []
+  },
+  {
+    "pmc": "PMC9399988",
+    "title": "Effects of Social Skills Training for Adolescents on the Autism Spectrum: a Randomized Controlled Trial of the Polish Adaptation of the PEERS® Intervention via Hybrid and In-Person Delivery",
+    "bibliography": {
+      "ids": {
+        "pmcid": "PMC9399988",
+        "pmcid-ver": "PMC9399988.2",
+        "pmcaid": "9399988",
+        "pmcaiid": "10539433",
+        "pmid": "36001196",
+        "doi": "10.1007/s10803-022-05714-9",
+        "publisher-id": "5714",
+        "pmc": "PMC9399988"
+      },
+      "authors": [
+        "Mateusz Płatos",
+        "Kinga Wojaczek",
+        "Elizabeth A. Laugeson"
+      ],
+      "date": "2022-8-24",
+      "date_parts": {
+        "day": "24",
+        "month": "8",
+        "year": "2022"
+      },
+      "publication_types": [],
+      "metadata_provider": "PMC JATS original; not a PubMed linked-notice search"
+    },
+    "cloud": {
+      "pmcid": "PMC9399988",
+      "version": 1,
+      "pmid": 36001196,
+      "doi": "10.1007/s10803-022-05714-9",
+      "mid": null,
+      "title": "Effects of Social Skills Training for Adolescents on the Autism Spectrum: a Randomized Controlled Trial of the Polish Adaptation of the PEERS® Intervention via Hybrid and In-Person Delivery",
+      "citation": "J Autism Dev Disord. 2022 Aug 24:1–15. Online ahead of print. doi: 10.1007/s10803-022-05714-9",
+      "is_pmc_openaccess": true,
+      "is_manuscript": false,
+      "is_historical_ocr": false,
+      "is_retracted": false,
+      "license_code": "CC BY",
+      "text_url": "s3://pmc-oa-opendata/PMC9399988.1/PMC9399988.1.txt?md5=d08a1e977209dbeabf348f71558ebb45",
+      "xml_url": "s3://pmc-oa-opendata/PMC9399988.1/PMC9399988.1.xml?md5=1b7d10543c546854d9ead1476a8778cb",
+      "pdf_url": "s3://pmc-oa-opendata/PMC9399988.1/PMC9399988.1.pdf?md5=3df98132d0d64f0544bedb14360bdf2a",
+      "media_urls": [
+        "s3://pmc-oa-opendata/PMC9399988.1/10803_2022_5714_Fig1_HTML.jpg?md5=f97ba1ca9c648c6cad507c409c77e27f",
+        "s3://pmc-oa-opendata/PMC9399988.1/10803_2022_5714_Fig2_HTML.jpg?md5=fbbe14fe66dab812a35465c1ff40d512",
+        "s3://pmc-oa-opendata/PMC9399988.1/10803_2022_5714_Fig3_HTML.jpg?md5=fc13e951b905fe6b30de3ed495e46406",
+        "s3://pmc-oa-opendata/PMC9399988.1/10803_2022_5714_MOESM1_ESM.docx?md5=58ca54258eecd14dda06323192c1c315"
+      ]
+    },
+    "rights": {
+      "status": "verified_noncommercial_research",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "evidence_url": "https://pmc.ncbi.nlm.nih.gov/api/oai/v1/mh/?verb=GetRecord&metadataPrefix=pmc&identifier=oai:pubmedcentral.nih.gov:9399988",
+      "license_text": "© The Author(s) 2022https://creativecommons.org/licenses/by/4.0/Open AccessThis article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit http://creativecommons.org/licenses/by/4.0/.",
+      "third_party_exceptions": "Retain per-figure credit lines; not adjudicated independently"
+    },
+    "characters": 86917,
+    "gaps": [
+      {
+        "type": "graphic",
+        "xml_xpath": "/article/body[1]/sec[1]/sec[1]/p[4]/fig[1]/graphic[1]",
+        "original_href": "10803_2022_5714_Fig1_HTML.jpg",
+        "status": "asset_not_transcribed"
+      },
+      {
+        "type": "graphic",
+        "xml_xpath": "/article/body[1]/sec[2]/sec[2]/p[3]/fig[1]/graphic[1]",
+        "original_href": "10803_2022_5714_Fig2_HTML.jpg",
+        "status": "asset_not_transcribed"
+      },
+      {
+        "type": "graphic",
+        "xml_xpath": "/article/body[1]/sec[2]/sec[4]/p[3]/fig[1]/graphic[1]",
+        "original_href": "10803_2022_5714_Fig3_HTML.jpg",
+        "status": "asset_not_transcribed"
+      },
+      {
+        "type": "media",
+        "xml_xpath": "/article/body[1]/sec[5]/sec[1]/p[2]/supplementary-material[1]/media[1]",
+        "original_href": "10803_2022_5714_MOESM1_ESM.docx",
+        "status": "asset_not_transcribed"
+      },
+      {
+        "type": "supplementary-material",
+        "xml_xpath": "/article/body[1]/sec[5]/sec[1]/p[2]/supplementary-material[1]",
+        "status": "external_supplement_not_transcribed"
+      }
+    ],
+    "tables": 3,
+    "figures": 3,
+    "headings": [
+      "Methods",
+      "Results",
+      "Discussion",
+      "Conclusion"
+    ],
+    "related_articles": []
+  },
+  {
+    "pmc": "PMC11754701",
+    "title": "Autism Spectrum Social Stories in Schools Trial 2 (ASSSIST‐2): a pragmatic randomised controlled trial of the Social Stories™ intervention to address the social and emotional health of autistic children in UK primary schools",
+    "bibliography": {
+      "ids": {
+        "pmcid": "PMC11754701",
+        "pmcid-ver": "PMC11754701.1",
+        "pmcaid": "11754701",
+        "pmcaiid": "11754701",
+        "pmid": "39688069",
+        "doi": "10.1111/camh.12740",
+        "publisher-id": "CAMH12740",
+        "other": "CAMH-OA-2023-0380.R2",
+        "pmc": "PMC11754701"
+      },
+      "authors": [
+        "Barry Wright",
+        "Jane E. Blackwell",
+        "Kerry J. Bell",
+        "Catarina Teige",
+        "Laura Mandefield",
+        "Han‐I Wang",
+        "Charlie Welch",
+        "Arabella Scantlebury",
+        "Judith Watson",
+        "Dean McMillan",
+        "Emma Standley",
+        "Leah Attwell",
+        "Hayley Carrick",
+        "Amelia Taylor",
+        "Olivia Taylor",
+        "Rachel Hodkinson",
+        "Hannah Edwards",
+        "Hannah Pearson",
+        "Steve Parrott",
+        "David Marshall",
+        "Danielle Varley",
+        "Rebecca Hargate",
+        "Anne Mclaren",
+        "Catherine Hewitt"
+      ],
+      "date": "2024-12-17",
+      "date_parts": {
+        "day": "17",
+        "month": "12",
+        "year": "2024"
+      },
+      "publication_types": [],
+      "metadata_provider": "PMC JATS original; not a PubMed linked-notice search"
+    },
+    "cloud": {
+      "pmcid": "PMC11754701",
+      "version": 1,
+      "pmid": 39688069,
+      "doi": "10.1111/camh.12740",
+      "mid": null,
+      "title": "Autism Spectrum Social Stories in Schools Trial 2 (ASSSIST‐2): a pragmatic randomised controlled trial of the Social Stories™ intervention to address the social and emotional health of autistic children in UK primary schools",
+      "citation": "Child Adolesc Ment Health. 2024 Dec 17;30(1):4–12. doi: 10.1111/camh.12740",
+      "is_pmc_openaccess": true,
+      "is_manuscript": false,
+      "is_historical_ocr": false,
+      "is_retracted": false,
+      "license_code": "CC BY",
+      "text_url": "s3://pmc-oa-opendata/PMC11754701.1/PMC11754701.1.txt?md5=f59cf012537515f9b96ac1fc8e951cfd",
+      "xml_url": "s3://pmc-oa-opendata/PMC11754701.1/PMC11754701.1.xml?md5=d524f9e91e72e2c4703d3139cd90dbdd",
+      "pdf_url": "s3://pmc-oa-opendata/PMC11754701.1/PMC11754701.1.pdf?md5=6972bb456254c747bdd8392c9441f94d",
+      "media_urls": [
+        "s3://pmc-oa-opendata/PMC11754701.1/CAMH-30-4-g001.jpg?md5=aea00e350db7bf340aa1cd7c3063d64f",
+        "s3://pmc-oa-opendata/PMC11754701.1/CAMH-30-4-s001.docx?md5=0a20eeba805a5071ba6bbdd2dcb7a405"
+      ]
+    },
+    "rights": {
+      "status": "verified_noncommercial_research",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "evidence_url": "https://pmc.ncbi.nlm.nih.gov/api/oai/v1/mh/?verb=GetRecord&metadataPrefix=pmc&identifier=oai:pubmedcentral.nih.gov:11754701",
+      "license_text": "© 2024 The Author(s). Child and Adolescent Mental Health published by John Wiley & Sons Ltd on behalf of Association for Child and Adolescent Mental Health.https://creativecommons.org/licenses/by/4.0/This is an open access article under the terms of the http://creativecommons.org/licenses/by/4.0/ License, which permits use, distribution and reproduction in any medium, provided the original work is properly cited.",
+      "third_party_exceptions": "Retain per-figure credit lines; not adjudicated independently"
+    },
+    "characters": 53009,
+    "gaps": [
+      {
+        "type": "graphic",
+        "xml_xpath": "/article/body[1]/sec[3]/fig[1]/graphic[1]",
+        "original_href": "CAMH-30-4-g001.jpg",
+        "status": "asset_not_transcribed"
+      },
+      {
+        "type": "media",
+        "xml_xpath": "/article/body[1]/sec[9]/supplementary-material[1]/media[1]",
+        "original_href": "CAMH-30-4-s001.docx",
+        "status": "asset_not_transcribed"
+      },
+      {
+        "type": "supplementary-material",
+        "xml_xpath": "/article/body[1]/sec[9]/supplementary-material[1]",
+        "status": "external_supplement_not_transcribed"
+      }
+    ],
+    "tables": 2,
+    "figures": 1,
+    "headings": [
+      "Introduction",
+      "Methods",
+      "Results",
+      "Discussion",
+      "Funding",
+      "Conflict of interest",
+      "Author contributions",
+      "Ethical information",
+      "Supporting information"
+    ],
+    "related_articles": []
+  },
+  {
+    "pmc": "PMC10981608",
+    "title": "The Methodological Quality and Intervention Fidelity of Randomised Controlled Trials Evaluating Social Skills Group Programs in Autistic Adolescents: A Systematic Review and Meta-analysis",
+    "bibliography": {
+      "ids": {
+        "pmcid": "PMC10981608",
+        "pmcid-ver": "PMC10981608.1",
+        "pmcaid": "10981608",
+        "pmcaiid": "10981608",
+        "pmid": "36681732",
+        "doi": "10.1007/s10803-023-05893-z",
+        "publisher-id": "5893",
+        "pmc": "PMC10981608"
+      },
+      "authors": [
+        "Bahareh Afsharnejad",
+        "Melissa H. Black",
+        "Marita Falkmer",
+        "Sven Bölte",
+        "Sonya Girdler"
+      ],
+      "date": "2023-1-21",
+      "date_parts": {
+        "day": "21",
+        "month": "1",
+        "year": "2023"
+      },
+      "publication_types": [],
+      "metadata_provider": "PMC JATS original; not a PubMed linked-notice search"
+    },
+    "cloud": {
+      "pmcid": "PMC10981608",
+      "version": 1,
+      "pmid": 36681732,
+      "doi": "10.1007/s10803-023-05893-z",
+      "mid": null,
+      "title": "The Methodological Quality and Intervention Fidelity of Randomised Controlled Trials Evaluating Social Skills Group Programs in Autistic Adolescents: A Systematic Review and Meta-analysis",
+      "citation": "J Autism Dev Disord. 2023 Jan 21;54(4):1281–316. doi: 10.1007/s10803-023-05893-z",
+      "is_pmc_openaccess": true,
+      "is_manuscript": false,
+      "is_historical_ocr": false,
+      "is_retracted": false,
+      "license_code": "CC BY",
+      "text_url": "s3://pmc-oa-opendata/PMC10981608.1/PMC10981608.1.txt?md5=91c0773b7dd67c88901c453ad0fa6f45",
+      "xml_url": "s3://pmc-oa-opendata/PMC10981608.1/PMC10981608.1.xml?md5=e663c6b57b377f14ebeb87dced0afc41",
+      "pdf_url": "s3://pmc-oa-opendata/PMC10981608.1/PMC10981608.1.pdf?md5=1d10bb35cef9abba74495bc84f4fb431",
+      "media_urls": [
+        "s3://pmc-oa-opendata/PMC10981608.1/10803_2023_5893_Fig1_HTML.jpg?md5=cade51a0f494fddaae017a54259bfb30",
+        "s3://pmc-oa-opendata/PMC10981608.1/10803_2023_5893_Fig2_HTML.jpg?md5=fa5e8ca40d87565dcfdab54e396dc1cf",
+        "s3://pmc-oa-opendata/PMC10981608.1/10803_2023_5893_Fig3_HTML.jpg?md5=af035fee1c4884d1abc7f1d366d3f07d",
+        "s3://pmc-oa-opendata/PMC10981608.1/10803_2023_5893_Fig4_HTML.jpg?md5=7ea03cde94eb470d8d46d9f5238998bf",
+        "s3://pmc-oa-opendata/PMC10981608.1/10803_2023_5893_Fig5_HTML.jpg?md5=bb559461347af92b8ae95dc5b97ec041",
+        "s3://pmc-oa-opendata/PMC10981608.1/10803_2023_5893_Fig6_HTML.jpg?md5=8e2a365d7b0b3a5027acc25bab609f24",
+        "s3://pmc-oa-opendata/PMC10981608.1/10803_2023_5893_Fig7_HTML.jpg?md5=d4d78aec328ed28ae00dfa80cbd85270"
+      ]
+    },
+    "rights": {
+      "status": "verified_noncommercial_research",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "evidence_url": "https://pmc.ncbi.nlm.nih.gov/api/oai/v1/mh/?verb=GetRecord&metadataPrefix=pmc&identifier=oai:pubmedcentral.nih.gov:10981608",
+      "license_text": "© The Author(s) 2023https://creativecommons.org/licenses/by/4.0/Open AccessThis article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article's Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article's Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit http://creativecommons.org/licenses/by/4.0/.",
+      "third_party_exceptions": "Retain per-figure credit lines; not adjudicated independently"
+    },
+    "characters": 152401,
+    "gaps": [
+      {
+        "type": "graphic",
+        "xml_xpath": "/article/body[1]/sec[3]/sec[1]/p[2]/fig[1]/graphic[1]",
+        "original_href": "10803_2023_5893_Fig1_HTML.jpg",
+        "status": "asset_not_transcribed"
+      },
+      {
+        "type": "graphic",
+        "xml_xpath": "/article/body[1]/sec[3]/sec[5]/sec[1]/p[1]/fig[1]/graphic[1]",
+        "original_href": "10803_2023_5893_Fig2_HTML.jpg",
+        "status": "asset_not_transcribed"
+      },
+      {
+        "type": "graphic",
+        "xml_xpath": "/article/body[1]/sec[3]/sec[5]/sec[1]/p[3]/fig[1]/graphic[1]",
+        "original_href": "10803_2023_5893_Fig3_HTML.jpg",
+        "status": "asset_not_transcribed"
+      },
+      {
+        "type": "graphic",
+        "xml_xpath": "/article/body[1]/sec[3]/sec[5]/sec[2]/p[1]/fig[1]/graphic[1]",
+        "original_href": "10803_2023_5893_Fig4_HTML.jpg",
+        "status": "asset_not_transcribed"
+      },
+      {
+        "type": "graphic",
+        "xml_xpath": "/article/body[1]/sec[3]/sec[5]/sec[3]/sec[1]/p[4]/fig[1]/graphic[1]",
+        "original_href": "10803_2023_5893_Fig5_HTML.jpg",
+        "status": "asset_not_transcribed"
+      },
+      {
+        "type": "graphic",
+        "xml_xpath": "/article/body[1]/sec[3]/sec[5]/sec[3]/sec[2]/p[2]/fig[1]/graphic[1]",
+        "original_href": "10803_2023_5893_Fig6_HTML.jpg",
+        "status": "asset_not_transcribed"
+      },
+      {
+        "type": "graphic",
+        "xml_xpath": "/article/body[1]/sec[3]/sec[5]/sec[3]/sec[3]/p[2]/fig[1]/graphic[1]",
+        "original_href": "10803_2023_5893_Fig7_HTML.jpg",
+        "status": "asset_not_transcribed"
+      }
+    ],
+    "tables": 6,
+    "figures": 7,
+    "headings": [
+      "Introduction",
+      "Method",
+      "Results",
+      "Discussion",
+      "Conclusions"
+    ],
+    "related_articles": []
+  },
+  {
+    "pmc": "PMC12208088",
+    "title": "The Effect of Naturalistic Developmental Behavioral Interventions and Aided AAC on the Language Development of Children on the Autism Spectrum with Minimal Speech: A Systematic Review and Meta-analysis",
+    "bibliography": {
+      "ids": {
+        "pmcid": "PMC12208088",
+        "pmcid-ver": "PMC12208088.2",
+        "pmcaid": "12208088",
+        "pmcaiid": "12367854",
+        "pmid": "38848009",
+        "doi": "10.1007/s10803-024-06382-7",
+        "publisher-id": "6382",
+        "pmc": "PMC12208088"
+      },
+      "authors": [
+        "Lauramarie Pope",
+        "Janice Light",
+        "Emily Laubscher"
+      ],
+      "date": "2024-6-7",
+      "date_parts": {
+        "day": "7",
+        "month": "6",
+        "year": "2024"
+      },
+      "publication_types": [],
+      "metadata_provider": "PMC JATS original; not a PubMed linked-notice search"
+    },
+    "cloud": null,
+    "rights": {
+      "status": "verified_noncommercial_research",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "evidence_url": "https://pmc.ncbi.nlm.nih.gov/api/oai/v1/mh/?verb=GetRecord&metadataPrefix=pmc&identifier=oai:pubmedcentral.nih.gov:12208088",
+      "license_text": "© The Author(s) 20242024https://creativecommons.org/licenses/by/4.0/Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article's Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article's Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit http://creativecommons.org/licenses/by/4.0/.",
+      "third_party_exceptions": "Retain per-figure credit lines; not adjudicated independently"
+    },
+    "characters": 134674,
+    "gaps": [
+      {
+        "type": "graphic",
+        "xml_xpath": "/article/body[1]/sec[1]/sec[2]/p[1]/fig[1]/graphic[1]",
+        "original_href": "10803_2024_6382_Fig1_HTML.jpg",
+        "status": "asset_not_transcribed"
+      },
+      {
+        "type": "graphic",
+        "xml_xpath": "/article/body[1]/sec[2]/sec[7]/p[1]/fig[1]/graphic[1]",
+        "original_href": "10803_2024_6382_Fig2_HTML.jpg",
+        "status": "asset_not_transcribed"
+      }
+    ],
+    "tables": 4,
+    "figures": 2,
+    "headings": [
+      "Methods",
+      "Results",
+      "Discussion",
+      "Conclusion"
+    ],
+    "related_articles": []
+  },
+  {
+    "pmc": "PMC13414371",
+    "title": "Interventions to Promote Communication in Minimally Verbal Autistic Children: A Systematic Review",
+    "bibliography": {
+      "ids": {
+        "pmcid": "PMC13414371",
+        "pmcid-ver": "PMC13414371.1",
+        "pmcaid": "13414371",
+        "pmcaiid": "13414371",
+        "pmid": "42506357",
+        "doi": "10.3390/medsci14030388",
+        "publisher-id": "medsci-14-00388",
+        "pmc": "PMC13414371"
+      },
+      "authors": [
+        "Roberta Privitera",
+        "Adriana Piccolo",
+        "Carmela De Domenico",
+        "Giulia Leonardi",
+        "Angelo Alito",
+        "Angelo Quartarone",
+        "Francesca Cucinotta",
+        "Marcella Di Cara"
+      ],
+      "date": "2026-7-13",
+      "date_parts": {
+        "day": "13",
+        "month": "7",
+        "year": "2026"
+      },
+      "publication_types": [
+        "Review"
+      ],
+      "metadata_provider": "PMC JATS original; not a PubMed linked-notice search"
+    },
+    "cloud": {
+      "pmcid": "PMC13414371",
+      "version": 1,
+      "pmid": 42506357,
+      "doi": "10.3390/medsci14030388",
+      "mid": null,
+      "title": "Interventions to Promote Communication in Minimally Verbal Autistic Children: A Systematic Review",
+      "citation": "Med Sci (Basel). 2026 Jul 13;14(3):388. doi: 10.3390/medsci14030388",
+      "is_pmc_openaccess": true,
+      "is_manuscript": false,
+      "is_historical_ocr": false,
+      "is_retracted": false,
+      "license_code": "CC BY",
+      "xml_url": "s3://pmc-oa-opendata/PMC13414371.1/PMC13414371.1.xml?md5=d402f3333dc092857133dfde91be381a",
+      "pdf_url": "s3://pmc-oa-opendata/PMC13414371.1/PMC13414371.1.pdf?md5=67bacfc9cce7a76280b5ce35e445b585",
+      "text_url": "s3://pmc-oa-opendata/PMC13414371.1/PMC13414371.1.txt?md5=d018c658181401f7996ec400c01f74e2",
+      "media_urls": [
+        "s3://pmc-oa-opendata/PMC13414371.1/medsci-14-00388-g001.jpg?md5=7ae27b4dd1868253f9d6cc14ff27709d",
+        "s3://pmc-oa-opendata/PMC13414371.1/medsci-14-00388-g002.jpg?md5=70a25e85b7d82b7f7a7587996f94dcb0",
+        "s3://pmc-oa-opendata/PMC13414371.1/medsci-14-00388-g003.jpg?md5=8a6164dba297391825c3c8f349b0a8b7",
+        "s3://pmc-oa-opendata/PMC13414371.1/medsci-14-00388-s001.zip?md5=37fe2ed6e9e3c2bc9a14a3d510104349"
+      ]
+    },
+    "rights": {
+      "status": "verified_noncommercial_research",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "evidence_url": "https://pmc.ncbi.nlm.nih.gov/api/oai/v1/mh/?verb=GetRecord&metadataPrefix=pmc&identifier=oai:pubmedcentral.nih.gov:13414371",
+      "license_text": "© 2026 by the authors.2026https://creativecommons.org/licenses/by/4.0/Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license.",
+      "third_party_exceptions": "Retain per-figure credit lines; not adjudicated independently"
+    },
+    "characters": 97941,
+    "gaps": [
+      {
+        "type": "media",
+        "xml_xpath": "/article/back[1]/app-group[1]/app[1]/supplementary-material[1]/media[1]",
+        "original_href": "medsci-14-00388-s001.zip",
+        "status": "asset_not_transcribed"
+      },
+      {
+        "type": "supplementary-material",
+        "xml_xpath": "/article/back[1]/app-group[1]/app[1]/supplementary-material[1]",
+        "status": "external_supplement_not_transcribed"
+      },
+      {
+        "type": "graphic",
+        "xml_xpath": "/article/floats-group[1]/fig[1]/graphic[1]",
+        "original_href": "medsci-14-00388-g001.jpg",
+        "status": "asset_not_transcribed"
+      },
+      {
+        "type": "graphic",
+        "xml_xpath": "/article/floats-group[1]/fig[2]/graphic[1]",
+        "original_href": "medsci-14-00388-g002.jpg",
+        "status": "asset_not_transcribed"
+      },
+      {
+        "type": "graphic",
+        "xml_xpath": "/article/floats-group[1]/fig[3]/graphic[1]",
+        "original_href": "medsci-14-00388-g003.jpg",
+        "status": "asset_not_transcribed"
+      }
+    ],
+    "tables": 1,
+    "figures": 3,
+    "headings": [
+      "1. Introduction",
+      "2. Methods",
+      "3. Results",
+      "4. Discussion",
+      "5. Limitations",
+      "6. Practical and Future Implications"
+    ],
+    "related_articles": []
+  },
+  {
+    "pmc": "PMC8862714",
+    "title": "Understanding the Effects of Naturalistic Developmental Behavioral Interventions: A Project AIM Meta-analysis",
+    "bibliography": {
+      "ids": {
+        "pmcid": "PMC8862714",
+        "pmcid-ver": "PMC8862714.1",
+        "pmcaid": "8862714",
+        "pmcaiid": "8862714",
+        "manuscript-id": "NIHMS1774926",
+        "pmid": "33480474",
+        "doi": "10.1002/aur.2471",
+        "manuscript-id-alternative": "NIHPA1774926",
+        "pmc": "PMC8862714"
+      },
+      "authors": [
+        "Jenna Crank",
+        "Micheal Sandbank",
+        "Kacie Dunham",
+        "Shannon Crowley",
+        "Kristen Bottema-Beutel",
+        "Jacob I. Feldman",
+        "Tiffany G. Woynaroski"
+      ],
+      "date": "2021-1-22",
+      "date_parts": {
+        "day": "22",
+        "month": "1",
+        "year": "2021"
+      },
+      "publication_types": [],
+      "metadata_provider": "PMC JATS original; not a PubMed linked-notice search"
+    },
+    "cloud": {
+      "pmcid": "PMC8862714",
+      "version": 1,
+      "pmid": 33480474,
+      "doi": "10.1002/aur.2471",
+      "mid": "NIHMS1774926",
+      "title": "Understanding the Effects of Naturalistic Developmental Behavioral Interventions: A Project AIM Meta-analysis",
+      "citation": "Autism Res. Author manuscript; Available in PMC 2022 Apr 1.",
+      "is_pmc_openaccess": false,
+      "is_manuscript": true,
+      "is_historical_ocr": false,
+      "is_retracted": false,
+      "license_code": "TDM",
+      "text_url": "s3://pmc-oa-opendata/PMC8862714.1/PMC8862714.1.txt?md5=baf180ca9b8e975a18f1f88ddd9f4608",
+      "xml_url": "s3://pmc-oa-opendata/PMC8862714.1/PMC8862714.1.xml?md5=f80903f7494cf870f54848b0b9cb5ede"
+    },
+    "rights": null,
+    "characters": 108077,
+    "gaps": [
+      {
+        "type": "media",
+        "xml_xpath": "/article/body[1]/sec[8]/supplementary-material[1]/media[1]",
+        "original_href": "NIHMS1774926-supplement-AppendixS2.docx",
+        "status": "asset_not_transcribed"
+      },
+      {
+        "type": "supplementary-material",
+        "xml_xpath": "/article/body[1]/sec[8]/supplementary-material[1]",
+        "status": "external_supplement_not_transcribed"
+      },
+      {
+        "type": "media",
+        "xml_xpath": "/article/body[1]/sec[8]/supplementary-material[2]/media[1]",
+        "original_href": "NIHMS1774926-supplement-AppendixS3.pdf",
+        "status": "asset_not_transcribed"
+      },
+      {
+        "type": "supplementary-material",
+        "xml_xpath": "/article/body[1]/sec[8]/supplementary-material[2]",
+        "status": "external_supplement_not_transcribed"
+      },
+      {
+        "type": "media",
+        "xml_xpath": "/article/body[1]/sec[8]/supplementary-material[3]/media[1]",
+        "original_href": "NIHMS1774926-supplement-AppendixS1.pdf",
+        "status": "asset_not_transcribed"
+      },
+      {
+        "type": "supplementary-material",
+        "xml_xpath": "/article/body[1]/sec[8]/supplementary-material[3]",
+        "status": "external_supplement_not_transcribed"
+      },
+      {
+        "type": "graphic",
+        "xml_xpath": "/article/floats-group[1]/fig[1]/graphic[1]",
+        "original_href": "nihms-1774926-f0001.jpg",
+        "status": "asset_not_transcribed"
+      },
+      {
+        "type": "inline-graphic",
+        "xml_xpath": "/article/floats-group[1]/fig[2]/caption[1]/p[2]/inline-graphic[1]",
+        "original_href": "nihms-1774926-ig0004.jpg",
+        "status": "asset_not_transcribed"
+      },
+      {
+        "type": "inline-graphic",
+        "xml_xpath": "/article/floats-group[1]/fig[2]/caption[1]/p[2]/inline-graphic[2]",
+        "original_href": "nihms-1774926-ig0005.jpg",
+        "status": "asset_not_transcribed"
+      },
+      {
+        "type": "inline-graphic",
+        "xml_xpath": "/article/floats-group[1]/fig[2]/caption[1]/p[2]/inline-graphic[3]",
+        "original_href": "nihms-1774926-ig0006.jpg",
+        "status": "asset_not_transcribed"
+      },
+      {
+        "type": "graphic",
+        "xml_xpath": "/article/floats-group[1]/fig[2]/graphic[1]",
+        "original_href": "nihms-1774926-f0002.jpg",
+        "status": "asset_not_transcribed"
+      },
+      {
+        "type": "graphic",
+        "xml_xpath": "/article/floats-group[1]/fig[3]/graphic[1]",
+        "original_href": "nihms-1774926-f0003.jpg",
+        "status": "asset_not_transcribed"
+      }
+    ],
+    "tables": 2,
+    "figures": 3,
+    "headings": [
+      "Empirical Support for NDBIs",
+      "Factors That May Influence Intervention Effects",
+      "Current Investigation",
+      "Method",
+      "Results",
+      "Discussion",
+      "Conclusions",
+      "Supplementary Material"
+    ],
+    "related_articles": []
+  },
+  {
+    "pmc": "PMC10783429",
+    "title": "Autism intervention meta-analysis of early childhood studies (Project AIM): updated systematic review and secondary analysis",
+    "bibliography": {
+      "ids": {
+        "pmcid": "PMC10783429",
+        "pmcid-ver": "PMC10783429.1",
+        "pmcaid": "10783429",
+        "pmcaiid": "10783429",
+        "doi": "10.1136/bmj-2023-076773",
+        "publisher-id": "sanm076733",
+        "pmc": "PMC10783429"
+      },
+      "authors": [
+        "Micheal Sandbank",
+        "Kristen Bottema-Beutel",
+        "Shannon Crowley LaPoint",
+        "Jacob I Feldman",
+        "D Jonah Barrett",
+        "Nicolette Caldwell",
+        "Kacie Dunham",
+        "Jenna Crank",
+        "Suzanne Albarran",
+        "Tiffany Woynaroski"
+      ],
+      "date": "2024-1-11",
+      "date_parts": {
+        "day": "11",
+        "month": "1",
+        "year": "2024"
+      },
+      "publication_types": [],
+      "metadata_provider": "PMC JATS original; not a PubMed linked-notice search"
+    },
+    "cloud": {
+      "pmcid": "PMC10783429",
+      "version": 1,
+      "pmid": null,
+      "doi": "10.1136/bmj-2023-076773",
+      "mid": null,
+      "title": "Autism intervention meta-analysis of early childhood studies (Project AIM): updated systematic review and secondary analysis",
+      "citation": "BMJ. 2024 Jan 11;384:e076733. doi: 10.1136/bmj-2023-076773",
+      "is_pmc_openaccess": true,
+      "is_manuscript": false,
+      "is_historical_ocr": false,
+      "is_retracted": false,
+      "license_code": "CC BY-NC",
+      "xml_url": "s3://pmc-oa-opendata/PMC10783429.1/PMC10783429.1.xml?md5=463aba8d401d0376517b0b12ea0f519b",
+      "text_url": "s3://pmc-oa-opendata/PMC10783429.1/PMC10783429.1.txt?md5=b8021fbad5c37921832f1065bad61d04",
+      "media_urls": [
+        "s3://pmc-oa-opendata/PMC10783429.1/sanm076733.f1.jpg?md5=5bdb21ed8e57526b03479318e93a3efc",
+        "s3://pmc-oa-opendata/PMC10783429.1/sanm076733.f2.jpg?md5=463c5aa2b6f86d2305900cdc685fc05b",
+        "s3://pmc-oa-opendata/PMC10783429.1/sanm076733.f3.jpg?md5=d9600c87fa58493a4b98bc8f3fe45bc7",
+        "s3://pmc-oa-opendata/PMC10783429.1/sanm076733.f4.jpg?md5=0f7964a53987cc942f6b95db46033390",
+        "s3://pmc-oa-opendata/PMC10783429.1/sanm076733.f5.jpg?md5=d8b705f329d15144aa94894459b6d8b0",
+        "s3://pmc-oa-opendata/PMC10783429.1/sanm076733.ww.pdf?md5=a5617539c6b8a566cd5b65a734cd6e16"
+      ]
+    },
+    "rights": {
+      "status": "verified_noncommercial_research",
+      "license": "https://creativecommons.org/licenses/by-nc/4.0/",
+      "evidence_url": "https://pmc.ncbi.nlm.nih.gov/api/oai/v1/mh/?verb=GetRecord&metadataPrefix=pmc&identifier=oai:pubmedcentral.nih.gov:10783429",
+      "license_text": "© Author(s) (or their employer(s)) 2019. Re-use permitted under CC BY-NC. No commercial re-use. See rights and permissions. Published by BMJ.2023BMJhttps://creativecommons.org/licenses/by-nc/4.0/This is an Open Access article distributed in accordance with the Creative Commons Attribution Non Commercial (CC BY-NC 4.0) license, which permits others to distribute, remix, adapt, build upon this work non-commercially, and license their derivative works on different terms, provided the original work is properly cited and the use is non-commercial. See: http://creativecommons.org/licenses/by-nc/4.0/.",
+      "third_party_exceptions": "Retain per-figure credit lines; not adjudicated independently"
+    },
+    "characters": 98177,
+    "gaps": [
+      {
+        "type": "graphic",
+        "xml_xpath": "/article/body[1]/sec[6]/sec[1]/fig[1]/graphic[1]",
+        "original_href": "sanm076733.f1.jpg",
+        "status": "asset_not_transcribed"
+      },
+      {
+        "type": "graphic",
+        "xml_xpath": "/article/body[1]/sec[6]/sec[2]/fig[1]/graphic[1]",
+        "original_href": "sanm076733.f2.jpg",
+        "status": "asset_not_transcribed"
+      },
+      {
+        "type": "graphic",
+        "xml_xpath": "/article/body[1]/sec[6]/sec[3]/fig[1]/graphic[1]",
+        "original_href": "sanm076733.f3.jpg",
+        "status": "asset_not_transcribed"
+      },
+      {
+        "type": "graphic",
+        "xml_xpath": "/article/body[1]/sec[6]/sec[3]/fig[2]/graphic[1]",
+        "original_href": "sanm076733.f4.jpg",
+        "status": "asset_not_transcribed"
+      },
+      {
+        "type": "graphic",
+        "xml_xpath": "/article/body[1]/sec[6]/sec[3]/fig[3]/graphic[1]",
+        "original_href": "sanm076733.f5.jpg",
+        "status": "asset_not_transcribed"
+      },
+      {
+        "type": "media",
+        "xml_xpath": "/article/back[1]/notes[1]/supplementary-material[1]/media[1]",
+        "original_href": "sanm076733.ww.pdf",
+        "status": "asset_not_transcribed"
+      },
+      {
+        "type": "supplementary-material",
+        "xml_xpath": "/article/back[1]/notes[1]/supplementary-material[1]",
+        "status": "external_supplement_not_transcribed"
+      }
+    ],
+    "tables": 1,
+    "figures": 5,
+    "headings": [
+      "Introduction",
+      "Project AIM: initial scope and findings",
+      "Need for an updated meta-analysis",
+      "Research questions",
+      "Method",
+      "Results",
+      "Discussion"
+    ],
+    "related_articles": []
+  }
+]

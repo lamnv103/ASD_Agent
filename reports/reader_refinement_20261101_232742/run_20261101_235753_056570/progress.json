@@ -1,0 +1,112 @@
+[
+  {
+    "question_id": "N04",
+    "question": "Nghiên cứu về đi lang thang ở trẻ có khó khăn phát triển dựa trên báo cáo của phụ huynh như thế nào, và kiểu dữ liệu đó có những giới hạn gì?",
+    "status": "error",
+    "error_code": "nim_network",
+    "error_stage": "source_verification",
+    "assessment": "",
+    "policy": "",
+    "top5_sources": [
+      "ASD-OA-PMC4742252",
+      "ASD-OA-PMC13005892",
+      "ASD-CSV-081",
+      "ASD-OA-PMC6487529",
+      "ASD-CSV-091"
+    ],
+    "expected_source_in_top5": true,
+    "expected_source_used": null,
+    "reference_span_sent_to_reader": null,
+    "reference_span_used": null,
+    "reference_status_agreement": null,
+    "need_count": 0,
+    "missing_required_needs": [],
+    "selected_evidence_count": 0,
+    "query_cache_hit": true,
+    "model_calls": [
+      {
+        "stage": "question_plan",
+        "content_sha256": "ba35de7c2a7d3e14f2a34720ed6b1d018c592f241b61daff9d64242113f59f88",
+        "request_id": "chatcmpl-d4890093-c494-45e8-a065-6eb55d633836",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "usage": {
+          "prompt_tokens": 377,
+          "completion_tokens": 297,
+          "total_tokens": 674
+        },
+        "local_prompt_tokens": 377,
+        "provider_prompt_tokens": 377,
+        "prompt_token_delta": 0,
+        "elapsed_seconds": 51.378,
+        "cache_hit": true,
+        "recorded_at": "2026-11-01T16:51:18.170739+00:00"
+      },
+      {
+        "stage": "source_selection",
+        "content_sha256": "2911834b83d41eea4b3bc3cc07773992197f762d7376e904bb80eff01dd83fb1",
+        "request_id": "chatcmpl-8f927105-7dc9-4982-bc1c-3ba92f6ddcd7",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "usage": {
+          "prompt_tokens": 23567,
+          "completion_tokens": 557,
+          "total_tokens": 24124
+        },
+        "local_prompt_tokens": 23567,
+        "provider_prompt_tokens": 23567,
+        "prompt_token_delta": 0,
+        "elapsed_seconds": 13.972,
+        "cache_hit": false,
+        "recorded_at": "2026-11-01T16:58:08.792924+00:00"
+      }
+    ],
+    "elapsed_seconds": 71.082
+  },
+  {
+    "question_id": "N10",
+    "question": "Ngày mai trung tâm can thiệp nào ở quận Thanh Xuân còn chỗ và mức phí chính xác hiện nay là bao nhiêu?",
+    "status": "ok",
+    "error_code": "",
+    "error_stage": "",
+    "assessment": "insufficient",
+    "policy": "explain_insufficient_evidence",
+    "top5_sources": [
+      "ASD-OA-PMC13005892",
+      "ASD-OA-PMC6487529",
+      "ASD-SUP-PMC11754701",
+      "ASD-CSV-002",
+      "NIH-NIMH-TEEN-BRAIN"
+    ],
+    "expected_source_in_top5": null,
+    "expected_source_used": null,
+    "reference_span_sent_to_reader": null,
+    "reference_span_used": null,
+    "reference_status_agreement": true,
+    "need_count": 2,
+    "missing_required_needs": [
+      "n1",
+      "n2"
+    ],
+    "selected_evidence_count": 0,
+    "query_cache_hit": true,
+    "model_calls": [
+      {
+        "stage": "question_plan",
+        "content_sha256": "f8d6c723451cbd98bd61bc4636d6b53a7b87331dacd1ae8a8a28e37a4c279ff6",
+        "request_id": "chatcmpl-75489d29-a0e4-4843-ac86-b446a6633a14",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "usage": {
+          "prompt_tokens": 364,
+          "completion_tokens": 301,
+          "total_tokens": 665
+        },
+        "local_prompt_tokens": 364,
+        "provider_prompt_tokens": 364,
+        "prompt_token_delta": 0,
+        "elapsed_seconds": 5.896,
+        "cache_hit": false,
+        "recorded_at": "2026-11-01T16:59:10.315930+00:00"
+      }
+    ],
+    "elapsed_seconds": 6.229
+  }
+]

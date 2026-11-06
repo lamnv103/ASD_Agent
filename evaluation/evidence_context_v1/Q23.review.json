@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "review_id": "reference-replay-Q23",
+  "question": "Vì sao thanh thiếu niên hay ngủ muộn và khó thức dậy sớm?",
+  "question_sha256": "a470c2a6644d90ccad8f09efb8c06cfed5036e7e701cda2e7c97540cf3e74308",
+  "reviewer": {
+    "kind": "ai_reference_review",
+    "name": "AI source-content review; not an independent clinical expert",
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "origin": "existing_retrieval_v1_label_replay_not_independent_semantic_evaluation",
+    "frozen_input_hashes": {
+      "questions.jsonl": "749f0a48e30de346e0521bae016f81e05e787b885ae132dced1cc03365f252c6",
+      "reference_labels.json": "b3c0f8c7e083c463750c358288b1439d4a2b1ef5533d976a6fae2901523deb99"
+    }
+  },
+  "intent": "general_information",
+  "claims": [
+    {
+      "claim_id": "c1",
+      "text": "Vì sao thanh thiếu niên hay ngủ muộn và khó thức dậy sớm?",
+      "required": true
+    }
+  ],
+  "items": [
+    {
+      "item_id": "item-0",
+      "source_id": "NIH-NIMH-TEEN-BRAIN",
+      "content_sha256": "1ad37695e06dcecd937537f3f0047cd639972dd0b636608c02b97d5e70060729",
+      "start": 2452,
+      "end": 2896,
+      "quote": "Research shows that the sleep hormone melatonin works differently in teens than in children and adults. In adolescence, melatonin levels stay high later at night and drop later in the morning, which may explain why teens may stay up late and struggle with waking up early. Many teens do not get enough sleep, making it harder to pay attention, control impulses, and do well at school. Getting good sleep at night can help support mental health.",
+      "relation": "direct",
+      "stance": "supports",
+      "claim_ids": [
+        "c1"
+      ],
+      "scope_limits": "Thông tin thanh thiếu niên nói chung, không riêng ASD và không phải chỉ định melatonin."
+    }
+  ],
+  "conflicts": [],
+  "review_notes": "Thông tin thanh thiếu niên nói chung, không riêng ASD và không phải chỉ định melatonin."
+}

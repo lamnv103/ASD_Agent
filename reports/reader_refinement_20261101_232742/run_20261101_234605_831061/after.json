@@ -1,0 +1,26 @@
+{
+  "collections": {
+    "rows": 3,
+    "sha256": "f633ccfd12a7f18d69d2a10b4ef31a9bbedf969786e71d4de06434e4dfb27ddf"
+  },
+  "documents": {
+    "rows": 150,
+    "sha256": "b2d3de727345c1b512f900f4afdd84e9dd74fb5c64f503c2061801c8250c87cc"
+  },
+  "embedding_spaces": {
+    "rows": 2,
+    "sha256": "72e35ffb33bb40976f3ad0e382b21775adcc789167c10dd7c9dd143b648ed31b"
+  },
+  "embeddings": {
+    "rows": 40,
+    "sha256": "4670eb972877a15f69e5d925fcb3e51d892207e9e2000d45b0f5c8ac6f567764"
+  },
+  "legacy_curated_chunks": {
+    "rows": 113,
+    "sha256": "3c7483b405077bea707369f89ca8f5038c823a52c66cb97aaa1b5f7b033a6542"
+  },
+  "protected_files": {
+    "count": 132,
+    "manifest_sha256": "10d498bc849cde491dfa56471f75d7d91b6a666547666a6ffbd6620c15931a0f"
+  }
+}

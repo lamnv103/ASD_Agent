@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "review_id": "reference-replay-Q13",
+  "question": "Tổng quan can thiệp dựa trên cảm giác 2015–2024 có chỉ nghiên cứu riêng trẻ tự kỷ không?",
+  "question_sha256": "976c11721b8511e92f8991856fa9c5f92bd5bf9ac860f4b9d8fb8b3c7af4b30b",
+  "reviewer": {
+    "kind": "ai_reference_review",
+    "name": "AI source-content review; not an independent clinical expert",
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "origin": "existing_retrieval_v1_label_replay_not_independent_semantic_evaluation",
+    "frozen_input_hashes": {
+      "questions.jsonl": "749f0a48e30de346e0521bae016f81e05e787b885ae132dced1cc03365f252c6",
+      "reference_labels.json": "b3c0f8c7e083c463750c358288b1439d4a2b1ef5533d976a6fae2901523deb99"
+    }
+  },
+  "intent": "general_information",
+  "claims": [
+    {
+      "claim_id": "c1",
+      "text": "Tổng quan can thiệp dựa trên cảm giác 2015–2024 có chỉ nghiên cứu riêng trẻ tự kỷ không?",
+      "required": true
+    }
+  ],
+  "items": [
+    {
+      "item_id": "item-0",
+      "source_id": "ASD-SUP-PMC12658592",
+      "content_sha256": "83db662a4f98c9e1010806a7560a971dc62ac309ab4702f52a518284649df50c",
+      "start": 25965,
+      "end": 27439,
+      "quote": "Studies were initially organized by setting and population. Settings included school (<italic>n</italic> = 7), therapy clinics (<italic>n</italic> = 5), participant's home (<italic>n</italic> = 3), clinic and home (<italic>n</italic> = 4), home and school (<italic>n</italic> = 1), and dental clinic (<italic>n</italic> = 1). Six hundred seventy-five participants were represented in the studies. The populations represented in the studies included children with various diagnoses, including ASD (<italic>n</italic> = 7 studies), ADHD (<italic>n</italic> = 7 studies), developmental delay (<italic>n</italic> = 2 studies), and sensory processing disorder (SPD) or sensory processing concerns (<italic>n</italic> = 8 studies). Participant ages ranged from one year to 21 years of age. Of the 21 studies, eight took place in the United States, three in Canada, three in India, and one study took place in each of the following countries: Iran, Turkey, Sweden, Taiwan, Finland, Israel, and Japan. Various outcome measures were utilized in the studies and included outcomes related to attention, task completion/productivity, quality of life, motor skills, occupational performance, sleep, Frankl scale, knowledge of sensorimotor strategies, behavior and emotional functioning, and goal attainment. Of the 21 studies, five were Hopkins Level I studies and 16 were Hopkins Level II studies. Of the 16 Level II studies, six were single-subject designs of Logan Level IV or higher.",
+      "relation": "direct",
+      "stance": "supports",
+      "claim_ids": [
+        "c1"
+      ],
+      "scope_limits": "Có quần thể hỗn hợp, không gán toàn bộ bằng chứng cho ASD; tuổi nghiên cứu rộng hơn 0–18."
+    }
+  ],
+  "conflicts": [],
+  "review_notes": "Có quần thể hỗn hợp, không gán toàn bộ bằng chứng cho ASD; tuổi nghiên cứu rộng hơn 0–18."
+}

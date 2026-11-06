@@ -1,0 +1,38 @@
+{
+  "status": "complete",
+  "started_at": "2026-10-31T05:45:26.809057+00:00",
+  "finished_at": "2026-10-31T05:45:47.343635+00:00",
+  "planned_questions": 30,
+  "processed_questions": 30,
+  "successful_queries": 30,
+  "direct": {
+    "eligible_questions": 26,
+    "successful_queries": 26,
+    "execution_errors": 0,
+    "hit_at_5": 1.0,
+    "mrr_at_5": 0.8185897435897437,
+    "labeled_source_recall_at_5": 1.0,
+    "metric_denominator": "successful queries with independently source-read candidate labels; reference sets are not exhaustive"
+  },
+  "scope_limit": {
+    "eligible_questions": 1,
+    "successful_queries": 1,
+    "execution_errors": 0,
+    "hit_at_5": 1.0,
+    "mrr_at_5": 0.3333333333333333,
+    "labeled_source_recall_at_5": 1.0,
+    "metric_denominator": "successful queries with independently source-read candidate labels; reference sets are not exhaustive"
+  },
+  "insufficient_questions": 3,
+  "insufficient_excluded_from_recall": true,
+  "query_api_calls": 30,
+  "query_cache_hits": 0,
+  "database_and_protected_sources_unchanged": true,
+  "terminal_error": null,
+  "answer_generation_performed": false,
+  "independent_clinical_review": false,
+  "references_exhaustive": false,
+  "unknown_returned_sources_automatically_irrelevant": false,
+  "unmatched_labeled_questions": [],
+  "review_required": "Inspect returned bodies and candidate labels; clinical sufficiency and abstention are not established by source hit metrics."
+}

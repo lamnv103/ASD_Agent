@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "review_id": "reference-replay-Q06",
+  "question": "Một đánh giá tự kỷ toàn diện cần xem những thông tin nào ngoài biểu hiện tự kỷ?",
+  "question_sha256": "596912d26d47f40efc6e3c7cf01e78e0592ee6bc1aa5a1ee85c08f7b7efd1d45",
+  "reviewer": {
+    "kind": "ai_reference_review",
+    "name": "AI source-content review; not an independent clinical expert",
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "origin": "existing_retrieval_v1_label_replay_not_independent_semantic_evaluation",
+    "frozen_input_hashes": {
+      "questions.jsonl": "749f0a48e30de346e0521bae016f81e05e787b885ae132dced1cc03365f252c6",
+      "reference_labels.json": "b3c0f8c7e083c463750c358288b1439d4a2b1ef5533d976a6fae2901523deb99"
+    }
+  },
+  "intent": "general_information",
+  "claims": [
+    {
+      "claim_id": "c1",
+      "text": "Một đánh giá tự kỷ toàn diện cần xem những thông tin nào ngoài biểu hiện tự kỷ?",
+      "required": true
+    }
+  ],
+  "items": [
+    {
+      "item_id": "item-0",
+      "source_id": "ASD-CSV-002",
+      "content_sha256": "b18a9e2383e4f38086cad33f223cf322de234b9c772d08aaffacf8a18aefc07b",
+      "start": 25328,
+      "end": 26736,
+      "quote": "A comprehensive evaluation should include informant report from various sources (e.g., caregiver, teacher, self-report) and direct observation by a trained provider. It often begins with a structured or semi-structured caregiver interview, through which providers gather general and autism-specific information, including developmental milestones, medical and behavioral history, caregiver current concerns, social communication challenges, restricted and repetitive behaviors and interests, and mental health and behavioral concerns. In addition to the evaluations and observations that target autism-related symptoms, other broad developmental areas (e.g., cognitive and adaptive abilities) need to be examined as well to make differential diagnoses or assess for potential co-occurring conditions. Primary goals of a comprehensive autism evaluation typically involve making an accurate diagnosis (Risi et al., 2006), identifying co-occurring conditions, profiling individual strengths and challenges, clarifying personal or family interests and goals, making service and treatment recommendations, and identifying areas that need further evaluation (e.g., vision, hearing, genetic testing; Powell et al., 2018). In the following section, we review commonly used, empirically supported caregiver interviews, direct observational instruments, cognitive/developmental assessment tools, and adaptive measures.",
+      "relation": "direct",
+      "stance": "supports",
+      "claim_ids": [
+        "c1"
+      ],
+      "scope_limits": "Lịch sử phát triển, quan sát, khả năng nhận thức/thích nghi và tình trạng đồng diễn."
+    }
+  ],
+  "conflicts": [],
+  "review_notes": "Lịch sử phát triển, quan sát, khả năng nhận thức/thích nghi và tình trạng đồng diễn."
+}

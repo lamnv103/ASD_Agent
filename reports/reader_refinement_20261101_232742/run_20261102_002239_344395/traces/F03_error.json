@@ -1,0 +1,26 @@
+{
+  "question": "Trong bối cảnh Hoa Kỳ mà CDC mô tả, gia đình có cần giấy giới thiệu bác sĩ mới liên hệ can thiệp sớm không? Trẻ dưới 3 tuổi và từ 3 tuổi trở lên được hướng đến đâu?",
+  "error_code": "v3_plan_schema",
+  "error_stage": "question_plan",
+  "message": "Unknown/duplicate need or fabricated question anchor.",
+  "reader_calls": [
+    {
+      "stage": "question_plan",
+      "content_sha256": "333d23973ba639c8a40ef03c3a575a34f26bde2ebc3ea70dc2897cd75646e033",
+      "request_id": "chatcmpl-cff79267-76af-4ae0-9c3b-54098b4653dc",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "usage": {
+        "prompt_tokens": 449,
+        "completion_tokens": 419,
+        "total_tokens": 868
+      },
+      "local_prompt_tokens": 449,
+      "provider_prompt_tokens": 449,
+      "prompt_token_delta": 0,
+      "elapsed_seconds": 17.852,
+      "cache_hit": false,
+      "recorded_at": "2026-11-01T17:23:57.740437+00:00"
+    }
+  ],
+  "generation_enabled": false
+}

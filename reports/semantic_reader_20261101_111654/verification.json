@@ -1,0 +1,163 @@
+{
+  "status": "technical_verification_passed_semantic_review_pending",
+  "recorded_at": "2026-11-06T20:48:17.897569+07:00",
+  "current_collection": "asd_fulltext_33_20261030_26eb017efca5",
+  "current_space": "cohere4_whole_1536_e83c596b9070",
+  "documents": 33,
+  "vectors": 33,
+  "accepted_pilot_questions": 20,
+  "cache_only_replays": 20,
+  "api_calls_during_audit": 0,
+  "original_passages_checked": 977,
+  "reviewed_item_spans_checked": 42,
+  "context_and_policy_replays_identical": true,
+  "database_snapshot_unchanged": true,
+  "source_library_files_unchanged": 132,
+  "protected_configuration_and_retriever_files_unchanged": 7,
+  "old_retrieval_queries_unchanged": 30,
+  "observed_prompt_token_deltas": [
+    0
+  ],
+  "usage_counts_match_on_observed_requests": true,
+  "tests_run": 115,
+  "tests_failed": 0,
+  "tests_errors": 0,
+  "tests_skipped": 0,
+  "provisional_label_agreement_count": 16,
+  "provisional_disagreements": [
+    "S05",
+    "S07",
+    "S08",
+    "H03"
+  ],
+  "reference_labels_are_ai_reviewed_not_clinically_adjudicated": true,
+  "semantic_accuracy_established": false,
+  "independent_clinical_validation": false,
+  "patient_answer_generation_enabled": false,
+  "runs": [
+    "reports/semantic_reader_20261101_111654/pilot_20261101_230702",
+    "reports/semantic_reader_20261101_111654/pilot_20261101_230813"
+  ],
+  "results": [
+    {
+      "question_id": "S01",
+      "assessment": "sufficient",
+      "provisional_label_agreement": true,
+      "trace_sha256": "38bc770759f1e4ca29c421170e1db9aceba11318987183c0c1228e81f88deee5"
+    },
+    {
+      "question_id": "S02",
+      "assessment": "sufficient",
+      "provisional_label_agreement": true,
+      "trace_sha256": "ff1fe27d928ce2b50a9851c55e92b05050b5c81a62606042c91761c483ad1fdb"
+    },
+    {
+      "question_id": "S03",
+      "assessment": "sufficient",
+      "provisional_label_agreement": true,
+      "trace_sha256": "6e3baed2d390489706d0ffc9a5f027c088d71422db92d7c1bfcb4c901c6483de"
+    },
+    {
+      "question_id": "S04",
+      "assessment": "sufficient",
+      "provisional_label_agreement": true,
+      "trace_sha256": "de739cb80cefee9eefcab0f94604e434a6c3b4b66885ec9b6b9c9df4cddc1e4f"
+    },
+    {
+      "question_id": "S05",
+      "assessment": "insufficient",
+      "provisional_label_agreement": false,
+      "trace_sha256": "21271ef655a8fead898f9e5228a8b826660d80652741977dc26ef347e5131b05"
+    },
+    {
+      "question_id": "S06",
+      "assessment": "sufficient",
+      "provisional_label_agreement": true,
+      "trace_sha256": "593b0807887af4a1e7dadc3b4cfc2f4899e594f5bfde9615845a063591fa92d2"
+    },
+    {
+      "question_id": "S07",
+      "assessment": "insufficient",
+      "provisional_label_agreement": false,
+      "trace_sha256": "477e57dce509c12554025bf03ca87c311811a192aa15962993d928e94da299ab"
+    },
+    {
+      "question_id": "S08",
+      "assessment": "insufficient",
+      "provisional_label_agreement": false,
+      "trace_sha256": "f3c2f8992a2949b3cd8263de1003d9e176e3f5ca9d240713592631c931280809"
+    },
+    {
+      "question_id": "S09",
+      "assessment": "sufficient",
+      "provisional_label_agreement": true,
+      "trace_sha256": "644ad4775af9a174b5ee04da0c9f44ed059c797c0b79d173f66bd9606e4f3d09"
+    },
+    {
+      "question_id": "S10",
+      "assessment": "sufficient",
+      "provisional_label_agreement": true,
+      "trace_sha256": "32f65dcd70806e15df089d7abd94a80bd3486dd6908889db8e623aeaf0917538"
+    },
+    {
+      "question_id": "S11",
+      "assessment": "sufficient",
+      "provisional_label_agreement": true,
+      "trace_sha256": "7e295002dbf11de40b715d7275486bbe2f974b5c9154bc01ad2a63bcc6457ab6"
+    },
+    {
+      "question_id": "S12",
+      "assessment": "insufficient",
+      "provisional_label_agreement": true,
+      "trace_sha256": "48a63d4ecdd905e42ead4818c578c42b44fc17fb52d8fdef4286c628bd301c48"
+    },
+    {
+      "question_id": "S13",
+      "assessment": "insufficient",
+      "provisional_label_agreement": true,
+      "trace_sha256": "681dc3e48aa0d3291a51f2575c003f8ee554992d999ccc39847bd68074e042ef"
+    },
+    {
+      "question_id": "S14",
+      "assessment": "insufficient",
+      "provisional_label_agreement": true,
+      "trace_sha256": "d28208966f41ba91daf60d5306f5d2b1502fa07bfc3bf38303bafd871e903b03"
+    },
+    {
+      "question_id": "S15",
+      "assessment": "insufficient",
+      "provisional_label_agreement": true,
+      "trace_sha256": "dc10bc8b27ecd9c4005a1f7bace22907db788f7f510aab5bda8552d8155df5a3"
+    },
+    {
+      "question_id": "H01",
+      "assessment": "sufficient",
+      "provisional_label_agreement": true,
+      "trace_sha256": "9076c9c8cacca1cdb060520f8fef7b64d72d548fab9fbf90e6f99e8ca8f62dca"
+    },
+    {
+      "question_id": "H02",
+      "assessment": "sufficient",
+      "provisional_label_agreement": true,
+      "trace_sha256": "e165cc8be82d8940a83e7879f4077b0ee9ec062dc76ba0002c38a8bff8827e90"
+    },
+    {
+      "question_id": "H03",
+      "assessment": "insufficient",
+      "provisional_label_agreement": false,
+      "trace_sha256": "338b1d1744c91f973160505918ac7e2e38315f4f638d37dab3650224d147b191"
+    },
+    {
+      "question_id": "H04",
+      "assessment": "sufficient",
+      "provisional_label_agreement": true,
+      "trace_sha256": "683aa3363166cc463732e99da83e9388b648b40f1af32891edaec718fd035413"
+    },
+    {
+      "question_id": "H05",
+      "assessment": "sufficient",
+      "provisional_label_agreement": true,
+      "trace_sha256": "6fe1b25970e87ff12a8c40fa197d085180341ee243b1abbff8e6ffa24f202474"
+    }
+  ]
+}

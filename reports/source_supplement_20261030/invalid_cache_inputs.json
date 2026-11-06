@@ -1,0 +1,24 @@
+{
+  "status": "NOT_SOURCE_CONTENT",
+  "not_admitted": true,
+  "items": [
+    {
+      "name": "NIH-NICHD-EARLY.html",
+      "bytes": 269,
+      "status": "invalid",
+      "reason": "Access-denied page is not source content"
+    },
+    {
+      "name": "NIH-NICHD-OT.html",
+      "bytes": 269,
+      "status": "invalid",
+      "reason": "Access-denied page is not source content"
+    },
+    {
+      "name": "NIH-NICHD-SPEECH.html",
+      "bytes": 269,
+      "status": "invalid",
+      "reason": "Access-denied page is not source content"
+    }
+  ]
+}

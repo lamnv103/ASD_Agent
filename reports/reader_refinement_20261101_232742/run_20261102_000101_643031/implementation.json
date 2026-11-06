@@ -1,0 +1,30 @@
+{
+  "files": {
+    "rag/semantic_reader_v3.py": "e8110daf3a29eab4121b7430954d3d31480007e5d20c92154c4cffd466f7d588",
+    "rag/semantic_reader.py": "acda5489d552560acf5b57d5e9228d49cf5e71deb0fb22bdf8c82ceaabc25518",
+    "rag/evidence.py": "93ef1de8014cd9c0ad91e1e5a0dfc9e1ae708e79d0806dae21d5a58387b9c8db",
+    "rag/context.py": "e3ffe9a0e54cd056e40f1d23864941d671b3723951fe4ef4f2e7dbebe32ad44a",
+    "rag/read_evidence.py": "39df389b35746aa9689f08d2bd6a077e44d84d5a4e9f9c996d7741dd586225da",
+    "deployments/semantic_reader_v3.json": "1afea5a5d62b8ea990e7fb257714d85424ef8f4a496f7fe3bed90e6ff93ab93d",
+    "scripts/evaluation/evaluate_reader_v3.py": "eadff8c6cc42907ecdfee538ce8f16f7ed8bb605ba37232caac1e07f76793c14"
+  },
+  "config": {
+    "schema_version": 1,
+    "enabled_for_research_only": true,
+    "answer_generation_enabled": false,
+    "model": "nvidia/nemotron-3-ultra-550b-a55b",
+    "endpoint": "https://integrate.api.nvidia.com/v1/chat/completions",
+    "context_window_tokens": 32768,
+    "max_output_tokens": 3072,
+    "safety_margin_tokens": 512,
+    "per_source_input_tokens": 4800,
+    "timeout_seconds": 55,
+    "temperature": 0,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "max_evidence_items": 10,
+    "output_protocol": "atomic_needs_v3",
+    "max_needs": 8
+  }
+}

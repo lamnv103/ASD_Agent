@@ -1,0 +1,94 @@
+{
+  "status": "ok",
+  "trace": "E:\\AI4LIFE\\ASD_AGENT\\reports\\semantic_reader_20261101_111654\\cli_S13.json",
+  "assessment": {
+    "status": "insufficient",
+    "assessment_state": "model_semantic_review_not_independent_clinical_validation",
+    "reason": "Computed from review assertions and source spans actually available; model assertions remain provisional.",
+    "claims": [
+      {
+        "claim_id": "c1",
+        "text": "specific sedative dose for a 2-year-old child weighing 12 kg to sleep tonight",
+        "required": true,
+        "direct": [],
+        "indirect": [],
+        "direct_refutation": [],
+        "indirect_refutation": [],
+        "opposing": []
+      },
+      {
+        "claim_id": "server_required_individual_or_local_decision",
+        "text": "Individual/current/local decisions are not established by general literature.",
+        "required": true,
+        "direct": [],
+        "indirect": [],
+        "direct_refutation": [],
+        "indirect_refutation": [],
+        "opposing": []
+      }
+    ],
+    "reviewer": {
+      "kind": "model_semantic_review",
+      "name": "nvidia/nemotron-3-ultra-550b-a55b",
+      "date": "2026-11-01"
+    },
+    "review_id": "nim-passages-a39fe7c6cf6bec4c6b43e394",
+    "conflicts": [],
+    "unresolved_conflict_comparisons": false,
+    "missing_claims": [
+      "c1",
+      "server_required_individual_or_local_decision"
+    ],
+    "missing_review_sources": [],
+    "used_evidence_ids": [],
+    "independent_clinical_reviewed": false
+  },
+  "policy": {
+    "intent": "personalized_medication",
+    "action": "do_not_prescribe_or_calculate_personal_dose",
+    "clarification_fields": [
+      "child's medical history",
+      "current medications",
+      "allergies",
+      "clinician assessment"
+    ],
+    "individual_diagnosis_allowed": false,
+    "individual_prescribing_allowed": false,
+    "retrieved_content_is_untrusted_data": true,
+    "instruction_detection_complete": false,
+    "clinical_reviewed": false
+  },
+  "context_status": "empty_reviewed_context",
+  "context_token_budget": {
+    "model_id": "nvidia/nemotron-3-ultra-550b-a55b",
+    "context_window_tokens": 32768,
+    "input_tokens": 310,
+    "system_chat_tokens": 159,
+    "base_input_tokens": 310,
+    "question_and_envelope_increment_tokens": 151,
+    "evidence_increment_tokens": 0,
+    "reserved_output_tokens": 4096,
+    "safety_margin_tokens": 512,
+    "max_evidence_tokens": 24576,
+    "remaining_tokens": 27850,
+    "within_budget": true,
+    "components_note": "Marginal deltas from whole rendered chat; not independent text-token sums."
+  },
+  "reader_provider": {
+    "content_sha256": "a39fe7c6cf6bec4c6b43e394a6abddd0c9b3b98d454484b9575c0f9dee3414a4",
+    "request_id": "chatcmpl-49a6c9a5-42d0-4358-b322-0bc797a5e116",
+    "model": "nvidia/nemotron-3-ultra-550b-a55b",
+    "usage": {
+      "prompt_tokens": 12774,
+      "completion_tokens": 222,
+      "total_tokens": 12996
+    },
+    "local_prompt_tokens": 12774,
+    "provider_prompt_tokens": 12774,
+    "prompt_token_delta": 0,
+    "elapsed_seconds": 7.195,
+    "cache_hit": true,
+    "recorded_at": "2026-11-01T15:53:12.012727+00:00"
+  },
+  "generation_enabled": false
+}

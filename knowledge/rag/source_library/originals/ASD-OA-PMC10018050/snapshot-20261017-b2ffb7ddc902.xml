@@ -1,0 +1,611 @@
+
+
+
+<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+    <responseDate>2026-10-17T13:35:51Z</responseDate>
+    <request verb="GetRecord" identifier="oai:pubmedcentral.nih.gov:10018050" metadataPrefix="pmc">https://pmc.ncbi.nlm.nih.gov/api/oai/v1/mh/</request>
+    
+    <GetRecord>
+        <record>
+    <header>
+    <identifier>oai:pubmedcentral.nih.gov:10018050</identifier>
+    <datestamp>2023-03-17</datestamp>
+    
+        
+        <setSpec>pmc-open</setSpec>
+        
+    
+</header>
+    <metadata>
+        
+        <article xmlns="https://jats.nlm.nih.gov/ns/archiving/1.4/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ali="http://www.niso.org/schemas/ali/1.0/" xsi:schemaLocation="https://jats.nlm.nih.gov/ns/archiving/1.4/ https://jats.nlm.nih.gov/archiving/1.4/xsd/JATS-archivearticle1-4.xsd" xml:lang="en" article-type="research-article" dtd-version="1.4"><processing-meta base-tagset="archiving" mathml-version="3.0" table-model="xhtml" tagset-family="jats"><restricted-by>pmc</restricted-by></processing-meta><front><journal-meta><journal-id journal-id-type="nlm-ta">OTJR (Thorofare N J)</journal-id><journal-id journal-id-type="iso-abbrev">OTJR (Thorofare N J)</journal-id><journal-id journal-id-type="pmc-domain-id">464</journal-id><journal-id journal-id-type="pmc-domain">sageopen</journal-id><journal-id journal-id-type="nlm-id">101144015</journal-id><journal-id journal-id-type="publisher-id">OTJ</journal-id><journal-title-group><journal-title>Otjr</journal-title></journal-title-group><issn pub-type="ppub">1539-4492</issn><issn pub-type="epub">1938-2383</issn><custom-meta-group><custom-meta><meta-name>pmc-is-collection-domain</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-collection-title</meta-name><meta-value>Sage Choice</meta-value></custom-meta></custom-meta-group></journal-meta><article-meta><article-id pub-id-type="pmcid">PMC10018050</article-id><article-id pub-id-type="pmcid-ver">PMC10018050.1</article-id><article-id pub-id-type="pmcaid">10018050</article-id><article-id pub-id-type="pmcaiid">10018050</article-id><article-id pub-id-type="pmid">36541600</article-id><article-id pub-id-type="doi">10.1177/15394492221143048</article-id><article-id pub-id-type="publisher-id">10.1177_15394492221143048</article-id><article-version article-version-type="pmc-version">1</article-version><article-categories><subj-group subj-group-type="heading"><subject>Articles</subject></subj-group></article-categories><title-group><article-title>Swimming Lessons for Children With Autism: Parent and Teacher
+Experiences</article-title></title-group><contrib-group><contrib contrib-type="author"><contrib-id contrib-id-type="orcid" authenticated="false">https://orcid.org/0000-0003-1623-4779</contrib-id><name name-style="western"><surname>Carter</surname><given-names initials="BC">Bronwyn Claire</given-names></name><xref rid="aff1-15394492221143048" ref-type="aff">1</xref><xref rid="corresp1-15394492221143048" ref-type="corresp"/></contrib><contrib contrib-type="author"><name name-style="western"><surname>Koch</surname><given-names initials="L">Lyndsay</given-names></name><xref rid="aff1-15394492221143048" ref-type="aff">1</xref></contrib></contrib-group><aff id="aff1-15394492221143048"><label>1</label>University of the Witwatersrand,
+Johannesburg, Gauteng, South Africa</aff><author-notes><corresp id="corresp1-15394492221143048">Bronwyn Claire Carter, Department of
+Occupational Therapy, Faculty of Health Sciences, University of the
+Witwatersrand, Johannesburg, 7 York Road, Parktown, Braamfontein, Johannesburg,
+Gauteng 2050, South Africa. Email:
+<email>brondudley11@gmail.com</email></corresp></author-notes><pub-date pub-type="epub"><day>21</day><month>12</month><year>2022</year></pub-date><pub-date pub-type="ppub"><month>4</month><year>2023</year></pub-date><volume>43</volume><issue>2</issue><issue-id pub-id-type="pmc-issue-id">431409</issue-id><fpage>245</fpage><lpage>254</lpage><pub-history><event event-type="pmc-release"><date><day>16</day><month>03</month><year>2023</year></date></event><event event-type="pmc-live"><date><day>17</day><month>03</month><year>2023</year></date></event><event event-type="pmc-last-change"><date iso-8601-date="2026-04-06 01:25:14.127"><day>06</day><month>04</month><year>2026</year></date></event></pub-history><permissions><copyright-statement>&#169; The Author(s) 2022</copyright-statement><copyright-year>2022</copyright-year><copyright-holder content-type="sage">American Occupational Therapy
+Foundation</copyright-holder><license><ali:license_ref specific-use="textmining" content-type="ccbynclicense">https://creativecommons.org/licenses/by-nc/4.0/</ali:license_ref><license-p>This article is distributed under the terms of the Creative Commons
+Attribution-NonCommercial 4.0 License (<ext-link ext-link-type="uri" xlink:href="https://creativecommons.org/licenses/by-nc/4.0/">https://creativecommons.org/licenses/by-nc/4.0/</ext-link>) which
+permits non-commercial use, reproduction and distribution of the work
+without further permission provided the original work is attributed as
+specified on the SAGE and Open Access page (<ext-link ext-link-type="uri" xlink:href="https://us.sagepub.com/en-us/nam/open-access-at-sage">https://us.sagepub.com/en-us/nam/open-access-at-sage</ext-link>).</license-p></license></permissions><self-uri content-type="pmc-pdf" xlink:href="10.1177_15394492221143048.pdf"/><abstract><p>The occupation of swimming for children with autism is an unexplored field of
+research in the South African context. This study explores the experiences of
+swimming teachers and parents of children with autism in the context of swimming
+lessons. Semi-structured in-depth interviews were utilized with a qualitative,
+descriptive-phenomenological design. Data analysis utilized Colaizzis&#8217;s
+seven-step method. Parents first sought swimming lessons for their children as a
+survival skill. Although facing barriers to accessing this service, parents
+experienced swimming as a meaningful occupation with unexpected benefits.
+Swimming teachers also derived meaning from providing lessons, despite a lack of
+knowledge. They expressed a need for greater support and training. Swimming is a
+meaningful occupation for children with autism and their families, but swimming
+teachers in South Africa are not always equipped to provide this service.
+Occupational therapists could play a variety of roles in supporting
+participation for all stakeholders.</p></abstract><kwd-group><kwd>autism</kwd><kwd>occupational justice</kwd><kwd>participation</kwd><kwd>occupational science</kwd></kwd-group><custom-meta-group><custom-meta><meta-name>pmc-status-qastatus</meta-name><meta-value>0</meta-value></custom-meta><custom-meta><meta-name>pmc-status-live</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-status-embargo</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-status-released</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-open-access</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-olf</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-manuscript</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-legally-suppressed</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-pdf</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-supplement</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-pdf-only</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-suppress-copyright</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-real-version</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-scanned-article</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-preprint</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-in-epmc</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-license-ref</meta-name><meta-value>CC BY-NC</meta-value></custom-meta><custom-meta><meta-name>typesetter</meta-name><meta-value>ts1</meta-value></custom-meta></custom-meta-group></article-meta></front><body><sec sec-type="intro" id="section1-15394492221143048"><title>Introduction</title><p>Occupational scientists, and occupational therapists, have long held the belief that
+occupation is central to human existence (<xref rid="bibr3-15394492221143048" ref-type="bibr">American Occupational Therapy Association,
+2020</xref>), the vehicle through which we are able to not only survive, but
+also thrive. Engagement in occupation is a human need&#8212;a need all people (regardless
+of race, sociocultural, or disability status) should have the right to fulfill in a
+meaningful and purposeful way (<xref rid="bibr14-15394492221143048" ref-type="bibr">Hocking et al., 2019</xref>). However, occupational deprivation and exclusion,
+as opposed to inclusion, are often the experiences of people with disabilities
+(<xref rid="bibr5-15394492221143048" ref-type="bibr">Bailliard et al.,
+2020</xref>), including children with autism and their families in South Africa
+(<xref rid="bibr27-15394492221143048" ref-type="bibr">Schlebusch et al.,
+2017</xref>). Due to difficulties with social communication and the
+restricted/repetitive patterns of behavior/interests characteristic of autism,
+children and their families may find participating in the same, meaningful,
+activities as typically developing children difficult&#8212;or may be excluded altogether
+(<xref rid="bibr26-15394492221143048" ref-type="bibr">Reddy et al., 2019</xref>;
+<xref rid="bibr27-15394492221143048" ref-type="bibr">Schlebusch et al.,
+2017</xref>), leading to disruption of previously valued family occupations and
+routines, and increased parental and family stress (<xref rid="bibr6-15394492221143048" ref-type="bibr">Bravo-Ben&#237;tez et al., 2019</xref>; <xref rid="bibr15-15394492221143048" ref-type="bibr">Iadarola et al., 2019</xref>).
+Swimming, and indeed swimming lessons that provide vital prerequisite skills which
+enable safe participation, has proven a meaningful occupation for children with
+autism and their families in America (<xref rid="bibr10-15394492221143048" ref-type="bibr">Eversole et al., 2016</xref>; <xref rid="bibr18-15394492221143048" ref-type="bibr">Lawson et al., 2019</xref>),
+Canada (<xref rid="bibr20-15394492221143048" ref-type="bibr">Lobo, 2020</xref>), and
+the United Kingdom (<xref rid="bibr22-15394492221143048" ref-type="bibr">Martin
+&amp; Dillenburger, 2019</xref>). However, at present there is no formally
+recognized training equipping swimming teachers to provide swimming lessons for
+children with autism in South Africa and there is no research within this area.</p></sec><sec id="section2-15394492221143048"><title>Literature Review</title><p>Children with autism are reported to participate in fewer leisure activities than
+typically developing children (<xref rid="bibr4-15394492221143048" ref-type="bibr">Askari et al., 2015</xref>), leading them to be at a higher risk of
+occupational imbalance, deprivation, and alienation (<xref rid="bibr13-15394492221143048" ref-type="bibr">Hocking, 2017</xref>). A core component in the
+definition of both leisure and occupational justice is that activity choices should
+be meaningful, intrinsically motivated, and self-determined (<xref rid="bibr3-15394492221143048" ref-type="bibr">American Occupational Therapy Association,
+2020</xref>; <xref rid="bibr13-15394492221143048" ref-type="bibr">Hocking,
+2017</xref>). It is therefore important to understand not only the benefits of
+participation, but also which activities are most motivating. In a study conducted
+in the United States by <xref rid="bibr10-15394492221143048" ref-type="bibr">Eversole et al. (2016)</xref>, the activity enjoyment of children with autism
+was compared with that of typically developing children. The research demonstrated
+that children with autism enjoyed swimming significantly more than typically
+developing children, with swimming being rated as the fifth most enjoyed leisure
+activity for children with autism (<xref rid="bibr10-15394492221143048" ref-type="bibr">Eversole et al., 2016</xref>). In multiple
+qualitative studies examining parents&#8217; experiences of swimming for children with
+autism, swimming was found to be a meaningful occupation that provided families with
+an opportunity to engage in a &#8220;typical&#8221; leisure activity (<xref rid="bibr18-15394492221143048" ref-type="bibr">Lawson et al., 2019</xref>; <xref rid="bibr20-15394492221143048" ref-type="bibr">Lobo, 2020</xref>; <xref rid="bibr32-15394492221143048" ref-type="bibr">Woodson &amp; Kemp, 2021</xref>).</p><p>Studies on aquatic-based therapy or specialized swimming lessons for children with
+autism have shown benefits for motor skill development, muscle strength and
+endurance, self-esteem, self-regulation, and repetitive behaviors (<xref rid="bibr1-15394492221143048" ref-type="bibr">Alaniz et al., 2017</xref>; <xref rid="bibr24-15394492221143048" ref-type="bibr">Murphy &amp; Hennebach,
+2020</xref>; <xref rid="bibr29-15394492221143048" ref-type="bibr">Walsh et al.,
+2021</xref>). Given the benefits of swimming for children with autism, it could
+prove to be a valuable nonspecialist mediated intervention (<xref rid="bibr25-15394492221143048" ref-type="bibr">Naveed et al., 2019</xref>) in cases where
+specialist treatment is neither an accessible nor affordable option. Participation
+in this type of &#8220;naturally occurring activity&#8221; supports the occupational rights of
+families of children with autism and can serve as a protective factor to mediate
+parental stress and increase family quality of life (<xref rid="bibr15-15394492221143048" ref-type="bibr">Iadarola et al., 2019</xref>; <xref rid="bibr25-15394492221143048" ref-type="bibr">Naveed et al., 2019</xref>).
+However, the meaning, treatment benefit, and enjoyment derived from swimming is
+somewhat of a &#8220;happy accident&#8221; and not the primary reason that motivates parents to
+take their child for swimming lessons&#8212;water safety is (<xref rid="bibr7-15394492221143048" ref-type="bibr">Casey et al., 2020</xref>; <xref rid="bibr18-15394492221143048" ref-type="bibr">Lawson et al., 2019</xref>; <xref rid="bibr20-15394492221143048" ref-type="bibr">Lobo, 2020</xref>).</p><p>Autistic children are thought to be at a higher risk of drowning than typically
+developing children due to wandering behavior, decreased risk awareness, and
+attraction to water (<xref rid="bibr7-15394492221143048" ref-type="bibr">Casey et
+al., 2020</xref>; <xref rid="bibr18-15394492221143048" ref-type="bibr">Lawson et
+al., 2019</xref>; <xref rid="bibr22-15394492221143048" ref-type="bibr">Martin
+&amp; Dillenburger, 2019</xref>; <xref rid="bibr24-15394492221143048" ref-type="bibr">Murphy &amp; Hennebach, 2020</xref>). Among the
+World Health Organization (WHO) recommendations (<xref rid="bibr33-15394492221143048" ref-type="bibr">WHO, 2014</xref>) to prevent accidental drowning,
+is teaching school-age children, including those with disabilities, basic swimming
+and water safety skills through evidence-based intervention programs implemented by
+trained teachers.</p><p>Developing research in this field has shown that children with autism are capable of
+learning basic swim skills that can enable their participation in swimming, provided
+the teacher is skilled and utilizes appropriate techniques (<xref rid="bibr1-15394492221143048" ref-type="bibr">Alaniz et al., 2017</xref>). While useful
+techniques have been documented in a number of studies (<xref rid="bibr17-15394492221143048" ref-type="bibr">Kraft et al., 2019</xref>; <xref rid="bibr24-15394492221143048" ref-type="bibr">Murphy &amp; Hennebach, 2020</xref>), swimming
+teachers&#8217; experiences (such as what motivates them to provide lessons or how they
+<italic toggle="yes">feel</italic> about lessons) are mostly absent within the literature.
+Exploring a &#8220;lived experience&#8221; provides an opportunity to empower unheard voices,
+test the relevance and quality of existing knowledge, and guide future research
+(<xref rid="bibr9-15394492221143048" ref-type="bibr">Creswell, 2014</xref>). As
+this is an unexplored area of study within the South African context, the voices of
+those already involved first need to be heard and acknowledged to guide the need for
+and direction of future research.</p></sec><sec id="section3-15394492221143048"><title>Aim and Objectives</title><p>The aim of the study was to explore the lived experience of parents and swimming
+teachers of children with autism, engaging in swimming lessons, in a South African
+context. The objectives of this study were to (a) understand the lived experience of
+swimming teachers in teaching one/multiple children with autism, and (b) to
+understand the lived experience of parents taking their child with autism for
+swimming lessons.</p></sec><sec sec-type="methods" id="section4-15394492221143048"><title>Method</title><sec id="section5-15394492221143048"><title>Study Design</title><p>As swimming lessons for children with autism are an unexplored topic within the
+African and South African context, a qualitative research approach was selected
+with a descriptive phenomenological design. The research was further framed
+through a lens of occupational justice (<xref rid="bibr30-15394492221143048" ref-type="bibr">Wilcock &amp; Townsend, 2018</xref>) within
+the discussion.</p></sec><sec id="section6-15394492221143048"><title>Research Context</title><p>All the research participants reside/work in the Johannesburg and Ekurhuleni
+Metropolitan Municipalities in Gauteng Province, South Africa. Parents and
+swimming teachers were from similar socioeconomic backgrounds within
+middle/upper class suburbs in these areas.</p></sec><sec id="section7-15394492221143048"><title>Sampling and Participants</title><p>Participants included in the study were (a) parents of children (below the age of
+18 years) who are formally diagnosed with autism and participating/have
+participated in swimming within Gauteng for at least 6 months, and (b) swimming
+teachers who are qualified learn-to-swim (LTS) instructors with Swimming South
+Africa (SSA) and are teaching/have taught children with a formal diagnosis of
+autism within Gauteng for at least 6 months.</p><p>Purposeful sampling and snowballing were used. Requests for participation,
+including background of the study and consent forms, were initially sent out in
+an email through SSA to registered LTS instructors. Once teacher interviews were
+conducted, the researcher obtained permission from the teachers to approach some
+of the parents of the children they were teaching, with the parents&#8217; permission
+given to the teacher first.</p><p>Based on <xref rid="bibr21-15394492221143048" ref-type="bibr">Malterud et al.
+(2016)</xref> recommendations, a sample size of 12 participants to ensure
+sufficient &#8220;information power&#8221; was used. In total, 11 participants were
+obtained, with six teacher and five parent interviews being conducted. A 12th
+participant could not be recruited due to timing of the first COVID-19 lockdown
+restrictions in South Africa.</p></sec><sec id="section8-15394492221143048"><title>Research Instrumentation</title><p>The research utilized semi-structured, in-depth interviews. An interview schedule
+was developed, trialed, and refined before being used as a suggestive, not
+prescriptive tool (<ext-link xlink:href="https://journals.sagepub.com/doi/suppl/10.1177/15394492221143048" ext-link-type="uri">Supplemental Appendix 1</ext-link>). Demographic data were collected
+through the interview process. Voice recordings were taken during all the
+interviews. In addition, parents and teachers self-initiated the sharing of
+videos and photos of their lessons. Eight interviews (five teachers and three
+parents) were completed face-to-face, in person, while three were conducted
+through video call. For the three online interviews, good internet connections
+with clear video were established. Online interviews provided equal length,
+depth, and quality to those that were conducted face-to-face, with consistent
+themes emerging. All interviews were between 60 and 90 min in length. To ensure
+consistency, only audio recordings were taken.</p></sec><sec id="section9-15394492221143048"><title>Data Analysis</title><p><xref rid="bibr8-15394492221143048" ref-type="bibr">Colaizzi&#8217;s (1978)</xref>
+seven-step method for data analysis was utilized as it provides explicit,
+sequential steps that increase the reliability and dependability of the results
+(<xref rid="bibr31-15394492221143048" ref-type="bibr">Wirihana et al.,
+2018</xref>). The researcher (1) read and reread the interview transcripts,
+and then (2) extracted significant statements, (3) grouping them to formulate
+meanings. These meanings were (4) then further arranged into themes, (5) later
+being combined to create a rich and exhaustive description of the phenomenon.
+The steps were followed exactly as prescribed and ran concurrent to data
+collection, Steps 6 and 7 are described under trustworthiness.</p></sec><sec id="section10-15394492221143048"><title>Trustworthiness</title><p>Epistemologically, the researcher is an occupational therapist working from an
+occupational science frame of reference and a trained LTS instructor. There was
+no connection between the researcher and participants prior to the study. The
+researcher is from the same broader cultural background as the participants. The
+background knowledge available to the researcher enabled the researcher&#8217;s
+engagement in the research process. Strategies including bracketing, member
+checking, and peer review were utilized to ensure the trustworthiness of the
+research (<xref rid="bibr9-15394492221143048" ref-type="bibr">Creswell,
+2014</xref>; <xref rid="bibr31-15394492221143048" ref-type="bibr">Wirihana
+et al., 2018</xref>). Bracketing took place during protocol development,
+data collection, and analysis. The sixth and seventh step of Colaizzi&#8217;s method
+requires participants to validate the findings (<xref rid="bibr31-15394492221143048" ref-type="bibr">Wirihana et al., 2018</xref>). A summary was
+sent through email to all participants to provide feedback. In the 2 weeks
+allowed to provide feedback, six of the 11 participants (four parents and two
+teachers) responded. All six stated that they felt the results were a true
+reflection of their perceptions and experiences. An occupational therapist and
+master&#8217;s student read and co-coded a parent and teacher interview at the
+beginning of the data analysis process, from which no new codes emerged.</p></sec><sec id="section11-15394492221143048"><title>Ethics</title><p>Ethical clearance for the research study was given by the University of the
+Witwatersrand Human Researcher Ethics Committee (Clearance number: M190910).
+Informed consent was obtained from all participants prior to their agreeing to
+participate in this study.</p></sec><sec id="section12-15394492221143048"><title>Results</title><p>Three themes emerged in answer to the research aims, exploring both swimming
+teachers and parents&#8217; experiences. Demographic data regarding participants are
+set out in <xref rid="table1-15394492221143048" ref-type="table">Tables 1</xref>
+and <xref rid="table2-15394492221143048" ref-type="table">2</xref>. Themes,
+categories, and subcategories are laid out in <xref rid="table3-15394492221143048" ref-type="table">Table 3</xref>.</p><table-wrap position="float" id="table1-15394492221143048" orientation="portrait"><label>Table 1.</label><caption><p>Parent and Child Participant Demographics.</p></caption><alternatives><graphic position="float" orientation="portrait" xlink:href="10.1177_15394492221143048-table1.jpg"/><table frame="hsides" rules="groups"><colgroup span="1"><col align="left" span="1"/><col align="char" char="." span="1"/><col align="char" char="." span="1"/><col align="char" char="." span="1"/><col align="char" char="." span="1"/><col align="char" char="." span="1"/><col align="char" char="." span="1"/></colgroup><thead><tr><th align="center" rowspan="1" colspan="1">Participant</th><th align="center" rowspan="1" colspan="1">Child&#8217;s age at time of interview</th><th align="center" rowspan="1" colspan="1">Age when starting swimming lessons</th><th align="center" rowspan="1" colspan="1">Number of years in swimming lessons</th><th align="center" rowspan="1" colspan="1">Gender (child)</th><th align="center" rowspan="1" colspan="1">Socioeconomic status/community setting</th><th align="center" rowspan="1" colspan="1">Class size, frequency, and funding</th></tr></thead><tbody><tr><td rowspan="1" colspan="1">P104</td><td rowspan="1" colspan="1">8 years</td><td rowspan="1" colspan="1">3 years</td><td rowspan="1" colspan="1">4&#8211;5 years</td><td rowspan="1" colspan="1">Male</td><td rowspan="1" colspan="1">Johannesburg East, middle class</td><td rowspan="1" colspan="1">1:1, weekly, privately funded</td></tr><tr><td rowspan="1" colspan="1">P106</td><td rowspan="1" colspan="1">5 years</td><td rowspan="1" colspan="1">4 years</td><td rowspan="1" colspan="1">1 year</td><td rowspan="1" colspan="1">Male</td><td rowspan="1" colspan="1">Johannesburg East, middle class</td><td rowspan="1" colspan="1">1:1, weekly, privately funded</td></tr><tr><td rowspan="1" colspan="1">P107-1<break/>P107-2</td><td rowspan="1" colspan="1">5 years</td><td rowspan="1" colspan="1">4 years</td><td rowspan="1" colspan="1">1 year</td><td rowspan="1" colspan="1">Male</td><td rowspan="1" colspan="1">Johannesburg North, middle class</td><td rowspan="1" colspan="1">1:1, weekly, privately funded</td></tr><tr><td rowspan="1" colspan="1">P108</td><td rowspan="1" colspan="1">16 years</td><td rowspan="1" colspan="1">6 months</td><td rowspan="1" colspan="1">15 years</td><td rowspan="1" colspan="1">Female</td><td rowspan="1" colspan="1">Johannesburg North, upper class</td><td rowspan="1" colspan="1">1:1, weekly, privately funded</td></tr><tr><td rowspan="1" colspan="1">P110</td><td rowspan="1" colspan="1">5 years</td><td rowspan="1" colspan="1">4 years</td><td rowspan="1" colspan="1">1 year</td><td rowspan="1" colspan="1">Male</td><td rowspan="1" colspan="1">Johannesburg North, upper class</td><td rowspan="1" colspan="1">1:1, weekly, privately funded</td></tr></tbody></table></alternatives></table-wrap><table-wrap position="float" id="table2-15394492221143048" orientation="portrait"><label>Table 2.</label><caption><p>Teacher Participant Demographics.</p></caption><alternatives><graphic position="float" orientation="portrait" xlink:href="10.1177_15394492221143048-table2.jpg"/><table frame="hsides" rules="groups"><colgroup span="1"><col align="left" span="1"/><col align="char" char="." span="1"/><col align="char" char="." span="1"/><col align="char" char="." span="1"/><col align="char" char="." span="1"/><col align="char" char="." span="1"/></colgroup><thead><tr><th align="center" rowspan="1" colspan="1">Participant</th><th align="center" rowspan="1" colspan="1">Age in years</th><th align="center" rowspan="1" colspan="1">Years of swimming experience</th><th align="center" rowspan="1" colspan="1">Training/qualifications</th><th align="center" rowspan="1" colspan="1">Number of children with ASD taught</th><th align="center" rowspan="1" colspan="1">Place of work</th></tr></thead><tbody><tr><td rowspan="1" colspan="1">T100</td><td rowspan="1" colspan="1">34</td><td rowspan="1" colspan="1">13 years</td><td rowspan="1" colspan="1">Learn to swim (SSA)<break/>Swim Australia<break/>Swim
+America<break/>Swim England<break/>Rescue Diver</td><td rowspan="1" colspan="1">3</td><td rowspan="1" colspan="1">Private swim school</td></tr><tr><td rowspan="1" colspan="1">T101</td><td rowspan="1" colspan="1">35</td><td rowspan="1" colspan="1">13 years</td><td rowspan="1" colspan="1">Learn to Swim (SSA)</td><td rowspan="1" colspan="1">2</td><td rowspan="1" colspan="1">Private swim school</td></tr><tr><td rowspan="1" colspan="1">T102</td><td rowspan="1" colspan="1">28</td><td rowspan="1" colspan="1">6 years</td><td rowspan="1" colspan="1">Learn to Swim (SSA)<break/>Diploma in fitness and sports
+conditioning</td><td rowspan="1" colspan="1">3</td><td rowspan="1" colspan="1">Private swim school</td></tr><tr><td rowspan="1" colspan="1">T103</td><td rowspan="1" colspan="1">33</td><td rowspan="1" colspan="1">13 Years</td><td rowspan="1" colspan="1">Aquatots<break/>Learn to Swim (SSA)</td><td rowspan="1" colspan="1">20</td><td rowspan="1" colspan="1">Private swim school and special needs school</td></tr><tr><td rowspan="1" colspan="1">T105</td><td rowspan="1" colspan="1">25</td><td rowspan="1" colspan="1">1 year</td><td rowspan="1" colspan="1">BSc sports science<break/>BSc (Hons)
+Kinderkinetics<break/>Learn to Swim (SSA)<break/>ASCA Level
+2</td><td rowspan="1" colspan="1">2</td><td rowspan="1" colspan="1">Private swim school</td></tr><tr><td rowspan="1" colspan="1">T109</td><td rowspan="1" colspan="1">36</td><td rowspan="1" colspan="1">15 years</td><td rowspan="1" colspan="1">Swim Australia (Institute of Sports)<break/>Learn to Swim
+(SSA)<break/>Infant Aquatics Course (IAA&#8212;America)</td><td rowspan="1" colspan="1">15</td><td rowspan="1" colspan="1">Private swim school and special needs school</td></tr></tbody></table></alternatives><table-wrap-foot><fn id="table-fn1-15394492221143048"><p><italic toggle="yes">Note</italic>. ASD = autism spectrum disorder; SSA = Swimming
+South Africa; ASCA = Australian Strength and Conditioning
+Association.</p></fn></table-wrap-foot></table-wrap><table-wrap position="float" id="table3-15394492221143048" orientation="portrait"><label>Table 3.</label><caption><p>Results of Thematic Analysis.</p></caption><alternatives><graphic position="float" orientation="portrait" xlink:href="10.1177_15394492221143048-table3.jpg"/><table frame="hsides" rules="groups"><colgroup span="1"><col align="left" span="1"/><col align="char" char="." span="1"/><col align="char" char="." span="1"/></colgroup><thead><tr><th align="center" rowspan="1" colspan="1">Theme</th><th align="center" rowspan="1" colspan="1">Category</th><th align="center" rowspan="1" colspan="1">Subcategory</th></tr></thead><tbody><tr><td rowspan="28" colspan="1">From being thrown in the deep end to stepping
+up to the starting blocks</td><td rowspan="7" colspan="1">Teachers&#8217; dynamic experiences</td><td rowspan="1" colspan="1">&#8220;your knees are knocking&#8221;&#8212;nervous initially</td></tr><tr><td rowspan="1" colspan="1">Disappointment at lack of information/support available</td></tr><tr><td rowspan="1" colspan="1">Experience grows confidence</td></tr><tr><td rowspan="1" colspan="1">Challenge accepted&#8212;excited to learn and grow</td></tr><tr><td rowspan="1" colspan="1">Rewarding to build relationships and see progress</td></tr><tr><td rowspan="1" colspan="1">Challenging to deal with slow progress and find a balance in
+handling</td></tr><tr><td rowspan="1" colspan="1">Need and desire for more specialized training&#8212;want to
+provide a quality service and have certainty in skills</td></tr><tr><td rowspan="5" colspan="1">Personal presentation and traits</td><td rowspan="1" colspan="1">It takes someone special</td></tr><tr><td rowspan="1" colspan="1">Patience</td></tr><tr><td rowspan="1" colspan="1">Perseverance</td></tr><tr><td rowspan="1" colspan="1">Observant and flexible/adaptable</td></tr><tr><td rowspan="1" colspan="1">Intuition/instinct</td></tr><tr><td rowspan="6" colspan="1">Different strokes for different folks</td><td rowspan="1" colspan="1">Understanding how the child perceives the world</td></tr><tr><td rowspan="1" colspan="1">Respect for individuality</td></tr><tr><td rowspan="1" colspan="1">Meeting the child where they are</td></tr><tr><td rowspan="1" colspan="1">Observe and react</td></tr><tr><td rowspan="1" colspan="1">Be aware of your expectations</td></tr><tr><td rowspan="1" colspan="1">Trial and error&#8212;learning as you go</td></tr><tr><td rowspan="10" colspan="1">Teaching techniques (every child is different,
+but some techniques are helpful for all of them)</td><td rowspan="1" colspan="1">Groups versus one-on-one</td></tr><tr><td rowspan="1" colspan="1">Physical guidance, demonstrations, and verbal
+instructions</td></tr><tr><td rowspan="1" colspan="1">Duration of lessons</td></tr><tr><td rowspan="1" colspan="1">Use of equipment and toys</td></tr><tr><td rowspan="1" colspan="1">Boundaries</td></tr><tr><td rowspan="1" colspan="1">Repetition and routines</td></tr><tr><td rowspan="1" colspan="1">Goal setting and safety</td></tr><tr><td rowspan="1" colspan="1">Role of the environment in attention</td></tr><tr><td rowspan="1" colspan="1">Other tricks</td></tr><tr><td rowspan="1" colspan="1">Other teachers and professional support</td></tr><tr><td rowspan="14" colspan="1">From just keeping your head above water to
+making a splash and going for gold&#8212;parents and children&#8217;s
+changing experiences</td><td rowspan="3" colspan="1">Swimming for survival&#8212;the initial reason why
+parents started swimming lessons</td><td rowspan="1" colspan="1">Parent&#8217;s experiences of child with water&#8212;Fear of
+drowning</td></tr><tr><td rowspan="1" colspan="1">Children with ASD: Drawn to water</td></tr><tr><td rowspan="1" colspan="1">Drawn to water and risk-taking behavior&#8212;safety as a primary
+goal for parents</td></tr><tr><td rowspan="7" colspan="1">The changing meaning of swimming lessons for
+parents and children</td><td rowspan="1" colspan="1">Love for water and swimming&#8212;swimming as a meaningful
+occupation</td></tr><tr><td rowspan="1" colspan="1">Sense of achievement, having something to aim at, &#8220;I am
+capable&#8221;</td></tr><tr><td rowspan="1" colspan="1">Proud to see progress</td></tr><tr><td rowspan="1" colspan="1">As a parent&#8212;your child&#8217;s happiness is your main
+priority</td></tr><tr><td rowspan="1" colspan="1">Challenging days and difficult emotions&#8212;seeing your child
+upset and feeling judged by others</td></tr><tr><td rowspan="1" colspan="1">Swimming, family time, and holidays</td></tr><tr><td rowspan="1" colspan="1">Opportunities for sibling interaction in aquatic
+environment<break/>Can be difficult to balance their
+needs</td></tr><tr><td rowspan="4" colspan="1">The multifaceted nature of swimming&#8212;means and an
+end</td><td rowspan="1" colspan="1">Swimming as a leisure activity/for exercise</td></tr><tr><td rowspan="1" colspan="1">Swimming as a career/productive occupation</td></tr><tr><td rowspan="1" colspan="1">Swimming for sensory regulation&#8212;inherently therapeutic</td></tr><tr><td rowspan="1" colspan="1">Participation in swimming led to improvements in other
+occupations<break/>(dressing, washing hair, social
+participation, and school)</td></tr><tr><td rowspan="5" colspan="1">Teamwork makes the dream work</td><td rowspan="5" colspan="1">Parent and swimming teacher relationships</td><td rowspan="1" colspan="1">Knowing the diagnosis allows for preparation and improved
+lesson quality</td></tr><tr><td rowspan="1" colspan="1">Parents do not always know the diagnosis</td></tr><tr><td rowspan="1" colspan="1">Disclosure builds relationships between parents and
+teachers<break/>Working at a school for special needs was
+different from privately</td></tr><tr><td rowspan="1" colspan="1">Not knowing can cause conflict, frustration, and poor
+service delivery</td></tr><tr><td rowspan="1" colspan="1">Parents&#8217; perspective&#8212;desire for inclusion and awareness&#8212;not
+always the experience</td></tr></tbody></table></alternatives><table-wrap-foot><fn id="table-fn2-15394492221143048"><p><italic toggle="yes">Note</italic>. ASD = autism spectrum disorder.</p></fn></table-wrap-foot></table-wrap></sec></sec><sec id="section13-15394492221143048"><title>Theme 1: Teachers&#8217; Experiences&#8212;From Being Thrown in the Deep End to Stepping Up
+to the Starting Blocks</title><p>Teachers experienced providing swimming lessons for children with autism in a dynamic
+way, going from being &#8220;thrown in the deep end&#8221;&#8212;that is, feeling ill-equipped with
+the knowledge/training necessary to provide this service with confidence&#8212;to
+&#8220;stepping up to the starting blocks&#8221;&#8212;with nervousness gradually shifting toward a
+feeling of confidence and accomplishment. Teachers experienced lessons as rewarding
+when they gradually saw progress and as they built a relationship with the child and
+their family:<disp-quote><p>T101: The first lesson I was extremely nervous. How should I be talking to
+these kids? What ways do they learn better so that I can like implement
+those into my classes?</p><p>T103: And then from there it becomes rewarding to see them grow and to see
+how they actually can learn different skills. They carry on because they
+want to better their swimming. It becomes something that they actually
+enjoy. It is like a hobby. It is not just for safety anymore. It is now
+become part of their lives.</p></disp-quote></p><p>Despite the rewards of experiential learning, there was still disappointment at the
+lack of information and support available, and thus an expressed desire for more
+specialized training:<disp-quote><p>T105: . . . I was disappointed that it&#8217;s not [a career], and that&#8217;s exactly
+why I&#8217;m here, to help make this happen . . .</p></disp-quote></p><p>Despite the lack of available training and resources, teachers gained confidence and
+learned what worked. In general, teachers&#8217; insight into autism developed partly
+through informal, online research, but mostly through interaction in context and
+employing a trial-and-error approach to lessons. They realized that they needed to
+adapt and individualize their teaching methods to meet each child&#8217;s specific needs,
+noting that every child with autism is different:<disp-quote><p>T102: . . .every day is a new day; you just never know what you getting with
+a special needs child, or a superhero kid. You just have to adapt who you
+are all the time.</p></disp-quote></p><p>Participants noted that it takes a special teacher to work with a special child:
+Personality and presentation were important factors affecting the success of
+lessons. Patience emerged as the single most important trait, combined with
+perseverance, intuition, and flexibility. Overall, teachers recommended a &#8220;just wing
+it&#8221; approach, stating that preparing for a first lesson with a child with autism was
+difficult (and sometimes pointless) as they are each so different:<disp-quote><p>T101: I would say winging it, because you don&#8217;t know until you have the kid
+in front of you. They are all completely different people. I guess I would
+just wing it.</p></disp-quote></p><p>Although each child with autism is different, certain techniques proved useful for
+most of the children. These techniques included a preference toward one-on-one
+lessons, increased use of physical guidance, repetition and routine, the use of
+simpler language and demonstrations, and selective use of toys/equipment dependent
+on sensory needs. There was a mixed opinion about the duration of classes. Shorter
+classes compensated for poor attention, whereas longer classes allowed repetition
+and a slower pace. Teachers all expressed the importance of having a support
+structure to help troubleshoot problems and come up with new techniques.</p></sec><sec id="section14-15394492221143048"><title>Theme 2: Parent Experiences&#8212;From Keeping Your Head Above Water to Going for
+Gold</title><p>The second aim of this research was to understand the experience of parents of
+children with autism in the context of swimming lessons in South Africa. Four out of
+five of the parents described an experience with their child and a body of water,
+which led them to become fearful of their child drowning and, as such, swimming
+lessons were sought as a survival skill. All parents described their children as
+being especially drawn to water. This affinity for water, combined with risk-taking
+behavior, impulsivity, and tendency to elope made them especially fearful of their
+child drowning:<disp-quote><p>P104: He is fearless. It is also one of the motivating factors to get him to
+swim, because he didn&#8217;t understand the dangers of water.</p></disp-quote></p><p>However, as children engaged in lessons the meaning derived therefrom shifted. What
+started out as a survival skill soon became a meaningful family occupation due to
+their children&#8217;s love for water and a number of other hidden benefits. Parents
+expressed a sense of pride and achievement at seeing their children&#8217;s skills develop
+and in seeing them participate. They also described their children&#8217;s sense of
+achievement&#8212;with many sharing memorable moments of their child bringing a medal home
+with pride or participating in a gala:<disp-quote><p>P108: At the end of every season [Teacher&#8217;s name] gives them a medal, you
+know? So now, our other daughter is a rower and if she got a medal she&#8217;d
+come and show. So [child&#8217;s name] obviously saw that and learnt it or
+visualised it. So when she came home [from swimming] one day she took the
+medal out of her bag and she put it on. She said, &#8220;look!&#8221; She had her
+swimming medal on. That was a very good memory. . .</p><p>P107-2: After Thursday when he had a swim session with [teacher&#8217;s name], he
+is really mellowed down. So Thursdays are like the best day of the week in
+the evenings when we see him again</p></disp-quote></p><p>Swimming was described as a meaningful activity that siblings could participate in
+together&#8212;both at home and on family holidays. Although the aquatic environment
+provided opportunities for siblings to interact, balancing their needs with lessons
+became difficult for some parents. Siblings&#8217; skills often improved much faster,
+requiring them to attend a different lesson. As such, cost and time constraints
+proved to be limiting factors to participation:<disp-quote><p>P106: [child&#8217;s name] and [sibling&#8217;s name], they can stay in the pool the
+entire day. They love it.</p></disp-quote></p><p>Most parents also noted that swimming has provided their children with exercise that,
+in some cases, has improved their posture and participation at school. Many parents
+(and some teachers) noted that the aquatic environment is inherently therapeutic. It
+was noted that the sensory qualities of the water helped to regulate their level of
+arousal, sometimes resulting in reports of better attention in the classroom or
+better regulation at home after lessons:<disp-quote><p>P108: So with swimming, it&#8217;s almost like the weightlessness and the lightness
+of the water. . . she senses that. It&#8217;s almost like. . . it doesn&#8217;t
+interfere with her sensory system integration. . . it has this calming
+effect. . . [child&#8217;s name] is very anxious when she doesn&#8217;t perform. But
+when she&#8217;s in water, it doesn&#8217;t matter if she can&#8217;t perform because she&#8217;s
+free. . . And happy, you know?</p></disp-quote></p><p>Parents also noted that their child&#8217;s participation in bath time, specifically being
+comfortable to put their head back and wash their hair, improved once they became
+comfortable going on their back during swimming lessons. Some parents also spoke
+about how their children were more likely to engage socially with others in an
+aquatic environment.</p></sec><sec id="section15-15394492221143048"><title>Theme 3: Teamwork Makes the Dream Work</title><p>Overall, the relationship between teachers and parents affected experiences and
+engagement within this context for all role players. Positive relationships involved
+open communication and offered acceptance and support to parents. Teachers stated
+that parents&#8217; disclosure of the child&#8217;s diagnosis greatly aided preparation for
+lessons allowing for a better quality service. Lessons became more rewarding once
+mutual trust was established:<disp-quote><p>T101: . . . so the more I understand about whatever condition you have, the
+better I can do my job. I feel like there&#8217;s a lot of like pressure to treat
+your kid the exact same way I treat every other kid, which is not fair on
+your kid</p></disp-quote></p><p>Although open communication was important to teachers, they did not always know how
+to facilitate this process and expressed frustration when parents did not disclose
+this information. Swimming teachers working at a school for children with special
+needs found the experience of lessons to be overall more positive as they had good
+insight into the children&#8217;s diagnosis and support from teaching staff.</p><p>Most parents expressed a degree of frustration when trying to find a swimming
+teacher/swimming school that really understood and matched their child&#8217;s needs:<disp-quote><p>P104: So, it&#8217;s the ignorance that needs to change and the fact that they
+don&#8217;t understand awareness. . . . and I think if a school actually comes out
+like that, it would be so great because there is a lot of special needs kids
+that don&#8217;t know how to swim. Because they&#8217;re scared. You make an environment
+conducive to their needs, it will be awesome.</p></disp-quote></p><p>Some parents experienced barriers to participation when disclosing their child&#8217;s
+diagnosis. Similar to teachers, parents of the children at the special needs schools
+also had a more positive experience as teachers were more aware and accepting of the
+diagnosis. Insight and support broke down barriers to participation.</p></sec><sec sec-type="discussion" id="section16-15394492221143048"><title>Discussion</title><p>The aim of the study was to explore the lived experience of parents and swimming
+teachers of children with autism, engaging in swimming lessons, in a South African
+context.</p><sec id="section17-15394492221143048"><title>Teacher&#8217;s Experiences</title><p>Swimming teachers&#8217; experiences in teaching children with autism have not been
+well explored in existing research (<xref rid="bibr24-15394492221143048" ref-type="bibr">Murphy &amp; Hennebach, 2020</xref>). Due to
+the lack of available support/training in this field in South Africa,
+accessibility at present appears to rely largely on the swimming teacher&#8217;s
+personality and past experience. The findings of a reliance on personality and
+experiential learning paralleled those of studies based in the inclusive
+classroom setting (<xref rid="bibr2-15394492221143048" ref-type="bibr">Anglim et
+al., 2018</xref>; <xref rid="bibr28-15394492221143048" ref-type="bibr">Stites et al., 2020</xref>). Teachers in both environments (aquatic and
+classroom) demonstrated a high self-efficacy, which enabled them to overcome
+nervousness, due to lack of knowledge/support/experience, and apply their skills
+in a new way (<xref rid="bibr2-15394492221143048" ref-type="bibr">Anglim et al.,
+2018</xref>). It is clear, however, from the perspective of occupational
+justice, that access to an activity fulfilling a number of different meanings
+for children with autism and their families should not rely so heavily on a
+teacher&#8217;s personality and self-efficacy.</p><p>Teacher participants&#8217; expressed desire for more support and training also
+paralleled findings from studies in the inclusive classroom setting (<xref rid="bibr28-15394492221143048" ref-type="bibr">Stites et al., 2020</xref>).
+It is interesting to contrast this with the available literature in the context
+of aquatic-based therapy, where lessons were provided by health care
+professionals (HCPs) or teachers with specialist training/knowledge (<xref rid="bibr19-15394492221143048" ref-type="bibr">Lawson &amp; Carlson,
+2021</xref>; <xref rid="bibr23-15394492221143048" ref-type="bibr">Mortimer
+et al., 2014</xref>; <xref rid="bibr29-15394492221143048" ref-type="bibr">Walsh et al., 2021</xref>; <xref rid="bibr32-15394492221143048" ref-type="bibr">Woodson &amp; Kemp, 2021</xref>). In these
+studies, the need for more support was neither identified nor explored, raising
+an interesting question: Should swimming lessons for individuals with autism be
+a service delivered by HCPs or should HCPs be providing support/training to
+teachers, enabling children with autism to access mainstream/existing
+services?</p><p>Recent articles in this field tend to advocate for swimming/aquatic therapy to
+form part of the OT scope (<xref rid="bibr1-15394492221143048" ref-type="bibr">Alaniz et al., 2017</xref>; <xref rid="bibr32-15394492221143048" ref-type="bibr">Woodson &amp; Kemp, 2021</xref>). While
+occupational therapists may be well positioned and capable of providing this
+service, research would also support the importance of task sharing and
+integration of children and their families into already existing services (<xref rid="bibr20-15394492221143048" ref-type="bibr">Lobo, 2020</xref>; <xref rid="bibr23-15394492221143048" ref-type="bibr">Mortimer et al., 2014</xref>;
+<xref rid="bibr25-15394492221143048" ref-type="bibr">Naveed et al.,
+2019</xref>). This both makes services more affordable and provides families
+with an opportunity to experience inclusion in their communities. Calls for
+affordability and integration were echoed by parents and teachers in this study
+and may be an important consideration in terms of occupational justice and
+accessibility moving forward (<xref rid="bibr20-15394492221143048" ref-type="bibr">Lobo, 2020</xref>). That is, swimming lessons
+(as opposed to aquatic therapy/hydrotherapy) are not necessarily a service that
+occupational therapists (or any other HCPs) need to take over/offer directly.
+Rather, HCPs could play a consultant/advocate role, offering support to swimming
+teachers to enable them to provide a more accessible service.</p><p>When providing support, therapists should keep in mind that teachers&#8217; shared
+experiences of teaching a child with autism across contexts/subject matter could
+be used to provide support through universality. Although the skill that
+teachers are trying to impart and the environment in which they are doing so may
+vary, the core experience of teaching a child with autism appears to be similar.
+Techniques found useful in previous literature in both settings, such as the use
+of routine and repetition, physical guidance with fewer verbal cues, slower
+pacing, and one-on-one instruction (<xref rid="bibr1-15394492221143048" ref-type="bibr">Alaniz et al., 2017</xref>; <xref rid="bibr17-15394492221143048" ref-type="bibr">Kraft et al., 2019</xref>;
+<xref rid="bibr18-15394492221143048" ref-type="bibr">Lawson et al.,
+2019</xref>; <xref rid="bibr24-15394492221143048" ref-type="bibr">Murphy
+&amp; Hennebach, 2020</xref>) were noted to be useful by teacher
+participants and could be utilized in further research and training. Using
+evidence-based approaches to working with children with autism negates the need
+to rely solely on intuition and provides teachers with confidence and
+consistency in the service they are providing (<xref rid="bibr16-15394492221143048" ref-type="bibr">Kraft, 2019</xref>), thereby increasing the
+likelihood of accessibility, inclusion, and skill acquisition in a just and
+equitable way.</p><p>Overall, teachers&#8217; shared experiences indicate that support from occupational
+therapists may be valuable in mitigating the risk of occupational injustice in
+this setting. Occupational therapists, in an advocacy and consultative role, can
+provide support and education that not only provides teachers with a greater
+sense of confidence in their skills, but also enables children with autism and
+their families to access existing services in an inclusive way. Parents&#8217;
+perspectives served to further support these assertions.</p></sec><sec id="section18-15394492221143048"><title>Parents&#8217; Experiences</title><p>Swimming proved a meaningful occupation for children with autism and their
+families. Parent&#8217;s experiences, similar to teachers, were dynamic, especially
+with regard to the meaning derived from engaging in swimming lessons. Overall,
+parent participants&#8217; experiences and motivations were similar to the results of
+many other previous studies, including <xref rid="bibr7-15394492221143048" ref-type="bibr">Casey et al. (2020)</xref>, <xref rid="bibr10-15394492221143048" ref-type="bibr">Eversole et al.
+(2016)</xref>, <xref rid="bibr18-15394492221143048" ref-type="bibr">Lawson et
+al. (2019)</xref>, <xref rid="bibr20-15394492221143048" ref-type="bibr">Lobo
+(2020)</xref>, <xref rid="bibr24-15394492221143048" ref-type="bibr">Murphy
+and Hennebach (2020)</xref>, and <xref rid="bibr32-15394492221143048" ref-type="bibr">Woodson and Kemp (2021)</xref>. Parent
+participants&#8217; initial concern regarding their children being at a higher risk of
+drowning than typically developing children is well supported by literature
+(<xref rid="bibr7-15394492221143048" ref-type="bibr">Casey et al.,
+2020</xref>; <xref rid="bibr11-15394492221143048" ref-type="bibr">Guan &amp;
+Li, 2017</xref>; <xref rid="bibr24-15394492221143048" ref-type="bibr">Murphy
+&amp; Hennebach, 2020</xref>). In its classification as a &#8220;survival skill&#8221;
+alone, one can see the importance of equitable access to this service. However,
+the hidden meaning derived from the &#8220;normal&#8221; experience of taking their child
+for swimming lessons serves to further demonstrate the transformative power of
+occupational engagement (<xref rid="bibr3-15394492221143048" ref-type="bibr">AOTA, 2020</xref>).</p><p>Parents of children with disabilities can sometimes experience a degree of &#8220;loss&#8221;
+as they adjust their expectations and hopes relative to their child&#8217;s unique
+needs and can find it difficult to know what to expect/hope for in their child&#8217;s
+future (<xref rid="bibr6-15394492221143048" ref-type="bibr">Bravo-Ben&#237;tez et
+al., 2019</xref>). Finding occupations through which they can derive a sense
+of belonging and connectedness to their community can be particularly difficult
+for parents of children with autism, especially in South Africa, due to a lack
+of community insight and service accessibility (<xref rid="bibr26-15394492221143048" ref-type="bibr">Reddy et al., 2019</xref>; <xref rid="bibr27-15394492221143048" ref-type="bibr">Schlebusch et al.,
+2017</xref>). It can also be difficult for parents and siblings to
+experience connectedness to the child with autism due to the nature of the
+diagnosis and its impact on social skills and communication (<xref rid="bibr15-15394492221143048" ref-type="bibr">Iadarola et al., 2019</xref>;
+<xref rid="bibr26-15394492221143048" ref-type="bibr">Reddy et al.,
+2019</xref>). Swimming lessons, when accessible and provided with
+appropriate support, appear to enable parents to experience a sense of
+connectedness, belonging, and well-being, and offer an opportunity to experience
+hope, pride, and &#8220;dreaming&#8221; as children attain this lifelong skill (<xref rid="bibr20-15394492221143048" ref-type="bibr">Lobo, 2020</xref>).</p><p>While swimming lessons fulfilled parents&#8217; occupational right to experience social
+inclusion and meaning through engagement, children&#8217;s right to experience meaning
+and develop health were also realized from parents&#8217; perspectives. Engagement in
+exercise reportedly resulted in improved posture and participation at school for
+some, and improved quality of life and self-esteem with decreased symptom
+severity, similar to the finding of <xref rid="bibr12-15394492221143048" ref-type="bibr">G&#252;eita-Rodr&#237;guez et al. (2021)</xref>, <xref rid="bibr18-15394492221143048" ref-type="bibr">Lawson et al. (2019)</xref>,
+<xref rid="bibr20-15394492221143048" ref-type="bibr">Lobo (2020)</xref>, and
+<xref rid="bibr4-15394492221143048" ref-type="bibr">Askari et al.
+(2015)</xref>. The correlation between improved regulation (likely due to
+the &#8220;inherently therapeutic&#8221; nature of water) and improved participation in
+multiple activities, spanning multiple environments, was again similar to
+findings of <xref rid="bibr18-15394492221143048" ref-type="bibr">Lawson et al.
+(2019)</xref> and <xref rid="bibr20-15394492221143048" ref-type="bibr">Lobo
+(2020)</xref>.</p><p>Swimming appears to have the potential to fulfill a number of occupational rights
+for parents and children with autism, but equitable access to this occupation
+continues to prove limited due to teachers&#8217; lack of awareness and training with
+regard to autism (<xref rid="bibr4-15394492221143048" ref-type="bibr">Askari et
+al., 2015</xref>; <xref rid="bibr18-15394492221143048" ref-type="bibr">Lawson et al., 2019</xref>), representing occupational injustice.</p></sec><sec id="section19-15394492221143048"><title>Study Limitations and Considerations for Future Research</title><p>One limitation of the study is that the direct experiences of children with
+autism themselves was not explored. The research also does not include the
+potential experience of children with autism and their families who had not
+gained access to or stopped lessons; hence, this aspect remains unexplored.
+Similarly, teachers who had refused or stopped teaching children with autism
+were neither encountered nor interviewed. Furthermore, the relatively small
+population size of the study makes generalization difficult in a demographically
+and geographically diverse context. As such, further studies in different
+populations groups and locations would enhance the reliability of the
+findings.</p></sec></sec><sec sec-type="conclusions" id="section20-15394492221143048"><title>Conclusion</title><p>The aim of this study was to explore swimming as an occupation for children with
+autism in South Africa, by first gaining insight into the experiences of parents and
+swimming teachers. Swimming proved to be a meaningful occupation for children with
+autism and their families&#8212;one with a diverse range of positive outcomes. It provided
+not only a survival skill for children (and peace of mind for their parents), but
+also an opportunity for family engagement, to feel a sense of belonging and
+achievement, opportunities for sensory regulation, and even perceived improvements
+in objective performance of other occupations. However, there proved to be barriers
+to accessing this valued occupation. Due to a lack of training, support, and
+resources available to them, teachers mostly needed to rely on their intuition and
+employ a trial and error approach to lessons. This meant that accessibility tended
+to rely on the teacher&#8217;s personality and personal preferences. Although teachers
+mostly gained knowledge and confidence through their experiences, intuitively using
+techniques recommended in the available literature, they still expressed a desire
+for more specialized training. Training would better equip them to provide this
+service and would allow them to advertise and reach more families of children with
+autism. The lack of formal support and training for swimming teachers appears to be
+a significant barrier limiting participation in this valued occupation for children
+with autism and their families in South Africa.</p><p>Ultimately, it is through teamwork and communication that we can overcome
+occupational injustice and create the opportunity for children with autism to
+participate in everyday activities. It falls well within the scope of occupational
+therapy to support their occupational rights and facilitate engagement in meaningful
+and health-promoting occupations. Occupational therapists are well positioned, in a
+consultancy, advocacy, and educator role, to support the swimming teachers&#8217;
+understanding of autism and assist them in adapting their lessons to promote and
+facilitate access and acceptance for children with autism and their families.</p></sec><sec sec-type="supplementary-material" id="section21-15394492221143048" specific-use="figshare"><title>Supplemental Material</title><supplementary-material id="suppl1-15394492221143048" position="float" content-type="local-data" orientation="portrait"><caption><title>sj-docx-1-otj-10.1177_15394492221143048 &#8211; Supplemental material for
+Swimming Lessons for Children With Autism: Parent and Teacher
+Experiences</title></caption><media xlink:href="sj-docx-1-otj-10.1177_15394492221143048.docx" position="float" orientation="portrait"><caption><p>Click here for additional data file.</p></caption></media><p>Supplemental material, sj-docx-1-otj-10.1177_15394492221143048 for Swimming
+Lessons for Children With Autism: Parent and Teacher Experiences by Bronwyn
+Claire Carter and Lyndsay Koch in OTJR: Occupation, Participation and Health</p></supplementary-material></sec></body><back><fn-group><fn fn-type="other"><p><bold>Authors&#8217; Note:</bold> This article was originally submitted and accepted in partial fulfillment of the
+MSc OT degree at the University of the Witwatersrand.</p></fn><fn fn-type="COI-statement"><p>The author(s) declared no potential conflicts of interest with respect to the
+research, authorship, and/or publication of this article.</p></fn><fn fn-type="financial-disclosure"><p><bold>Funding:</bold> The author(s) received no financial support for the research, authorship, and/or
+publication of this article.</p></fn><fn fn-type="other"><p><bold>Ethical approval:</bold> Ethics clearance number: M190910 obtained from the University of the
+Witwatersrand Human Research Ethics Committee (HREC).</p></fn><fn fn-type="other"><p><bold>ORCID iD:</bold> Bronwyn Claire Carter <inline-graphic xlink:href="10.1177_15394492221143048-img1.jpg"/>
+<ext-link xlink:href="https://orcid.org/0000-0003-1623-4779" ext-link-type="uri">https://orcid.org/0000-0003-1623-4779</ext-link></p></fn><fn fn-type="supplementary-material"><p><bold>Supplemental Material:</bold> Supplemental material for this article is available online.</p></fn></fn-group><ref-list><title>References</title><ref id="bibr1-15394492221143048"><mixed-citation publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Alaniz</surname><given-names>M.</given-names></name><name name-style="western"><surname>Rosenberg</surname><given-names>S. S.</given-names></name><name name-style="western"><surname>Beard</surname><given-names>N. R.</given-names></name><name name-style="western"><surname>Rosario</surname><given-names>E. R.</given-names></name></person-group> (<year>2017</year>). <article-title>The effectiveness of aquatic
+group therapy for improving water safety and social interactions in children
+with autism spectrum disorder: A pilot program</article-title>.
+<source>Journal of Autism and Developmental Disorders</source>,
+<volume>47</volume>(<issue>12</issue>),
+<fpage>4006</fpage>&#8211;<lpage>4017</lpage>. <pub-id pub-id-type="doi">10.1007/s10803-017-3264-4</pub-id><pub-id pub-id-type="pmid">28864911</pub-id></mixed-citation></ref><ref id="bibr2-15394492221143048"><mixed-citation publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Anglim</surname><given-names>J.</given-names></name><name name-style="western"><surname>Prendeville</surname><given-names>P.</given-names></name><name name-style="western"><surname>Kinsella</surname><given-names>W.</given-names></name></person-group> (<year>2018</year>). <article-title>The self-efficacy of primary
+teachers in supporting the inclusion of children with autism spectrum
+disorder</article-title>. <source>Educational Psychology in
+Practice</source>, <volume>34</volume>(<issue>1</issue>),
+<fpage>73</fpage>&#8211;<lpage>88</lpage>. <pub-id pub-id-type="doi">10.1080/02667363.2017.1391750</pub-id></mixed-citation></ref><ref id="bibr3-15394492221143048"><mixed-citation publication-type="journal"><collab>American Occupational Therapy Association</collab>. (<year>2020</year>).
+<article-title>Occupational therapy practice framework: Domain and
+process</article-title>. <source>American Journal of Occupational
+Therapy</source>, <volume>56</volume>(<issue>6</issue>),
+<fpage>609</fpage>&#8211;<lpage>639</lpage>. <pub-id pub-id-type="doi">10.5014/ajot.56.6.609</pub-id><pub-id pub-id-type="pmid">12458855</pub-id></mixed-citation></ref><ref id="bibr4-15394492221143048"><mixed-citation publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Askari</surname><given-names>S.</given-names></name><name name-style="western"><surname>Anaby</surname><given-names>D.</given-names></name><name name-style="western"><surname>Bergthorson</surname><given-names>M.</given-names></name><name name-style="western"><surname>Majnemer</surname><given-names>A.</given-names></name><name name-style="western"><surname>Elsabbagh</surname><given-names>M.</given-names></name><name name-style="western"><surname>Zwaigenbaum</surname><given-names>L.</given-names></name></person-group> (<year>2015</year>). <article-title>Participation of children
+and youth with autism spectrum disorder: A scoping review</article-title>.
+<source>Review Journal of Autism and Developmental Disorders</source>,
+<volume>2</volume>(<issue>1</issue>), <fpage>103</fpage>&#8211;<lpage>114</lpage>.
+<pub-id pub-id-type="doi">10.1007/s40489-014-0040-7</pub-id></mixed-citation></ref><ref id="bibr5-15394492221143048"><mixed-citation publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Bailliard</surname><given-names>A. L.</given-names></name><name name-style="western"><surname>Dallman</surname><given-names>A. R.</given-names></name><name name-style="western"><surname>Carroll</surname><given-names>A.</given-names></name><name name-style="western"><surname>Lee</surname><given-names>B. D.</given-names></name><name name-style="western"><surname>Szendrey</surname><given-names>S.</given-names></name></person-group> (<year>2020</year>). <article-title>Doing occupational justice:
+A central dimension of everyday occupational therapy
+practice</article-title>. <source>Canadian Journal of Occupational
+Therapy</source>, <volume>87</volume>(<issue>2</issue>),
+<fpage>144</fpage>&#8211;<lpage>152</lpage>. <pub-id pub-id-type="doi">10.1177/0008417419898930</pub-id><pub-id pub-id-type="pmid">31964168</pub-id></mixed-citation></ref><ref id="bibr6-15394492221143048"><mixed-citation publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Bravo-Ben&#237;tez</surname><given-names>J.</given-names></name><name name-style="western"><surname>P&#233;rez-Marfil</surname><given-names>M. N.</given-names></name><name name-style="western"><surname>Rom&#225;n-Alegre</surname><given-names>B.</given-names></name><name name-style="western"><surname>Cruz-Quintana</surname><given-names>F.</given-names></name></person-group> (<year>2019</year>). <article-title>Grief experiences in family
+caregivers of children with autism spectrum disorder (ASD)</article-title>.
+<source>International Journal of Environmental Research and Public
+Health</source>, <volume>16</volume>(<issue>23</issue>), Article 4821.
+<pub-id pub-id-type="doi">10.3390/ijerph16234821</pub-id><pub-id pub-id-type="pmcid">PMC6926999</pub-id><pub-id pub-id-type="pmid">31801231</pub-id></mixed-citation></ref><ref id="bibr7-15394492221143048"><mixed-citation publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Casey</surname><given-names>A.</given-names></name><name name-style="western"><surname>Blok</surname><given-names>J.</given-names></name><name name-style="western"><surname>Vaughan</surname><given-names>K.</given-names></name><name name-style="western"><surname>O&#8217;Dwyer</surname><given-names>W.</given-names></name></person-group> (<year>2020</year>). <article-title>Parental perceptions of
+water safety among children with autism spectrum disorders</article-title>.
+<source>International Journal of Aquatic Research and Education</source>,
+<volume>12</volume>(<issue>4</issue>), Article 5. <pub-id pub-id-type="doi">10.25035/IJARE.12.04.05</pub-id></mixed-citation></ref><ref id="bibr8-15394492221143048"><mixed-citation publication-type="book"><person-group person-group-type="author"><name name-style="western"><surname>Colaizzi</surname><given-names>P. F</given-names></name></person-group>. (<year>1978</year>). <part-title>Psychological research as
+the phenomenologist views it</part-title>. In <person-group person-group-type="editor"><name name-style="western"><surname>Valle</surname><given-names>R. S.</given-names></name><name name-style="western"><surname>King</surname><given-names>M.</given-names></name></person-group> (Eds.), <source>Existential-phenomenological alternatives for
+psychology</source> (pp. <fpage>48</fpage>&#8211;<lpage>71</lpage>).
+<publisher-name>Oxford University Press</publisher-name>.</mixed-citation></ref><ref id="bibr9-15394492221143048"><mixed-citation publication-type="book"><person-group person-group-type="author"><name name-style="western"><surname>Creswell</surname><given-names>J. W.</given-names></name></person-group> (<year>2014</year>). <source>Educational research: Planning,
+conducting, and evaluating quantitative and qualitative research</source>
+(<edition>4th ed.</edition>, <volume>Vol. 4</volume>).
+<publisher-name>Pearson</publisher-name>.</mixed-citation></ref><ref id="bibr10-15394492221143048"><mixed-citation publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Eversole</surname><given-names>M.</given-names></name><name name-style="western"><surname>Collins</surname><given-names>D. M.</given-names></name><name name-style="western"><surname>Karmarkar</surname><given-names>A.</given-names></name><name name-style="western"><surname>Colton</surname><given-names>L.</given-names></name><name name-style="western"><surname>Quinn</surname><given-names>J. P.</given-names></name><name name-style="western"><surname>Karsbaek</surname><given-names>R.</given-names></name><name name-style="western"><surname>Johnson</surname><given-names>J. R.</given-names></name><name name-style="western"><surname>Callier</surname><given-names>N. P.</given-names></name><name name-style="western"><surname>Hilton</surname><given-names>C. L.</given-names></name></person-group> (<year>2016</year>). <article-title>Leisure activity enjoyment
+of children with autism spectrum disorders</article-title>. <source>Journal
+of Autism and Developmental Disorders</source>,
+<volume>46</volume>(<issue>1</issue>), <fpage>10</fpage>&#8211;<lpage>20</lpage>.
+<pub-id pub-id-type="doi">10.1007/s10803-015-2529-z</pub-id><pub-id pub-id-type="pmid">26210514</pub-id></mixed-citation></ref><ref id="bibr11-15394492221143048"><mixed-citation publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Guan</surname><given-names>J.</given-names></name><name name-style="western"><surname>Li</surname><given-names>G</given-names></name></person-group>. (<year>2017</year>). <article-title>Injury mortality in
+individuals with autism</article-title>. <source>American Journal of Public
+Health</source>, <volume>107</volume>(<issue>5</issue>),
+<fpage>791</fpage>&#8211;<lpage>793</lpage>. <pub-id pub-id-type="doi">10.2105/AJPH.2017.303696</pub-id><pub-id pub-id-type="pmid">28323463</pub-id><pub-id pub-id-type="pmcid">PMC5388960</pub-id></mixed-citation></ref><ref id="bibr12-15394492221143048"><mixed-citation publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>G&#252;eita-Rodr&#237;guez</surname><given-names>J.</given-names></name><name name-style="western"><surname>Ogonowska-Slodownik</surname><given-names>A.</given-names></name><name name-style="western"><surname>Morgulec-Adamowicz</surname><given-names>N.</given-names></name><name name-style="western"><surname>Mart&#237;n-Prades</surname><given-names>M.
+L.</given-names></name><name name-style="western"><surname>Cuenca-Zald&#237;var</surname><given-names>J.
+N.</given-names></name><name name-style="western"><surname>Palacios-Ce&#241;a</surname><given-names>D.</given-names></name></person-group> (<year>2021</year>). <article-title>Effects of aquatic therapy
+for children with autism spectrum disorder on social competence and quality
+of life: A mixed methods study</article-title>. <source>International
+Journal of Environmental Research and Public Health</source>,
+<volume>18</volume>(<issue>6</issue>), <fpage>1</fpage>&#8211;<lpage>19</lpage>.
+<pub-id pub-id-type="doi">10.3390/ijerph18063126</pub-id><pub-id pub-id-type="pmcid">PMC8002945</pub-id><pub-id pub-id-type="pmid">33803581</pub-id></mixed-citation></ref><ref id="bibr13-15394492221143048"><mixed-citation publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Hocking</surname><given-names>C.</given-names></name></person-group> (<year>2017</year>). <article-title>Occupational justice as
+social justice: The moral claim for inclusion</article-title>.
+<source>Journal of Occupational Science</source>,
+<volume>24</volume>(<issue>1</issue>), <fpage>29</fpage>&#8211;<lpage>42</lpage>.
+<pub-id pub-id-type="doi">10.1080/14427591.2017.1294016</pub-id></mixed-citation></ref><ref id="bibr14-15394492221143048"><mixed-citation publication-type="book"><person-group person-group-type="author"><name name-style="western"><surname>Hocking</surname><given-names>C.</given-names></name><name name-style="western"><surname>Townsend</surname><given-names>E.</given-names></name><name name-style="western"><surname>Mace</surname><given-names>J.</given-names></name></person-group> (<year>2019</year>). <source>Occupational therapy and human
+rights (revised) [Position statement]</source> (pp.
+<fpage>1</fpage>&#8211;<lpage>2</lpage>). <publisher-name>World Federation of
+Occupational Therapy</publisher-name>. <ext-link xlink:href="https://wfot.org/resources/occupational-therapy-and-human-rights" ext-link-type="uri">https://wfot.org/resources/occupational-therapy-and-human-rights</ext-link></mixed-citation></ref><ref id="bibr15-15394492221143048"><mixed-citation publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Iadarola</surname><given-names>S.</given-names></name><name name-style="western"><surname>P&#233;rez-Ramos</surname><given-names>J.</given-names></name><name name-style="western"><surname>Smith</surname><given-names>T.</given-names></name><name name-style="western"><surname>Dozier</surname><given-names>A.</given-names></name></person-group> (<year>2019</year>). <article-title>Understanding stress in
+parents of children with autism spectrum disorder: A focus on
+under-represented families</article-title>. <source>International Journal of
+Developmental Disabilities</source>, <volume>65</volume>(<issue>1</issue>),
+<fpage>20</fpage>&#8211;<lpage>30</lpage>. <pub-id pub-id-type="doi">10.1080/20473869.2017.1347228</pub-id><pub-id pub-id-type="pmid">30873280</pub-id><pub-id pub-id-type="pmcid">PMC6411305</pub-id></mixed-citation></ref><ref id="bibr16-15394492221143048"><mixed-citation publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Kraft</surname><given-names>E.</given-names></name></person-group> (<year>2019</year>). <article-title>Examining the perceived
+impacts of recreational swimming lessons for children with autism spectrum
+disorder</article-title>. <source>International Journal of Aquatic Research
+and Education</source>, <volume>10</volume>(<issue>4</issue>). <pub-id pub-id-type="doi">10.25035/ijare.10.04.06</pub-id></mixed-citation></ref><ref id="bibr17-15394492221143048"><mixed-citation publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Kraft</surname><given-names>E.</given-names></name><name name-style="western"><surname>Leblanc</surname><given-names>R.</given-names></name><name name-style="western"><surname>Culver</surname><given-names>D. M.</given-names></name></person-group> (<year>2019</year>). <article-title>Strategies for teaching
+children with autism spectrum disorder in recreational aquatics
+programs</article-title>. <source>Journal of Physical Education, Recreation
+and Dance</source>, <volume>90</volume>(<issue>1</issue>),
+<fpage>24</fpage>&#8211;<lpage>29</lpage>. <pub-id pub-id-type="doi">10.1080/07303084.2018.1535338</pub-id></mixed-citation></ref><ref id="bibr18-15394492221143048"><mixed-citation publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Lawson</surname><given-names>L. M.</given-names></name><name name-style="western"><surname>Adamo</surname><given-names>J. D.</given-names></name><name name-style="western"><surname>Campbell</surname><given-names>K.</given-names></name><name name-style="western"><surname>Hermreck</surname><given-names>B.</given-names></name><name name-style="western"><surname>Holz</surname><given-names>S.</given-names></name><name name-style="western"><surname>Moxley</surname><given-names>J.</given-names></name><name name-style="western"><surname>Nance</surname><given-names>K.</given-names></name><name name-style="western"><surname>Nolla</surname><given-names>M.</given-names></name><name name-style="western"><surname>Travis</surname><given-names>A.</given-names></name></person-group> (<year>2019</year>). <article-title>A qualitative investigation
+of swimming experiences of children with autism spectrum disorders and their
+families</article-title>. <source>Clinical Medicine Insights:
+Pediatrics</source>, <volume>13</volume>, <fpage>1</fpage>&#8211;<lpage>9</lpage>.
+<pub-id pub-id-type="doi">10.1177/1179556519872214</pub-id><pub-id pub-id-type="pmcid">PMC8826265</pub-id><pub-id pub-id-type="pmid">35153525</pub-id></mixed-citation></ref><ref id="bibr19-15394492221143048"><mixed-citation publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Lawson</surname><given-names>L. M.</given-names></name><name name-style="western"><surname>Carlson</surname><given-names>J.</given-names></name></person-group> (<year>2021</year>). <article-title>Effects of sensory-enhanced
+aquatics on body measures and function of children with autism spectrum
+disorder</article-title>. <source>The American Journal of Occupational
+Therapy</source>,
+<volume>75</volume>(<issue>Supplement_2</issue>), 7512515363p1.
+<pub-id pub-id-type="doi">10.5014/ajot.2021.75S2-RP363</pub-id></mixed-citation></ref><ref id="bibr20-15394492221143048"><mixed-citation publication-type="webpage"><person-group person-group-type="author"><name name-style="western"><surname>Lobo</surname><given-names>L.</given-names></name></person-group> (<year>2020</year>). <source>Examining the experiences of
+parents and caregivers of children with autism spectrum disorder around
+aquatic environments</source> [Thesis, University of Ontario]. <ext-link xlink:href="https://ir.library.dc-uoit.ca/bitstream/10155/1258/1/Lobo_Larissa_T.pdf" ext-link-type="uri">https://ir.library.dc-uoit.ca/bitstream/10155/1258/1/Lobo_Larissa_T.pdf</ext-link></mixed-citation></ref><ref id="bibr21-15394492221143048"><mixed-citation publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Malterud</surname><given-names>K.</given-names></name><name name-style="western"><surname>Siersma</surname><given-names>V. D.</given-names></name><name name-style="western"><surname>Guassora</surname><given-names>A. D.</given-names></name></person-group> (<year>2016</year>). <article-title>Sample size in qualitative
+interview studies: Guided by information power</article-title>.
+<source>Qualitative Health Research</source>,
+<volume>26</volume>(<issue>13</issue>),
+<fpage>1753</fpage>&#8211;<lpage>1760</lpage>. <pub-id pub-id-type="doi">10.1177/1049732315617444</pub-id><pub-id pub-id-type="pmid">26613970</pub-id></mixed-citation></ref><ref id="bibr22-15394492221143048"><mixed-citation publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Martin</surname><given-names>C.</given-names></name><name name-style="western"><surname>Dillenburger</surname><given-names>K.</given-names></name></person-group> (<year>2019</year>). <article-title>Behavioural water safety and
+autism: A systematic review of interventions</article-title>. <source>Review
+Journal of Autism and Developmental Disorders</source>,
+<volume>6</volume>(<issue>4</issue>), <fpage>356</fpage>&#8211;<lpage>366</lpage>.
+<pub-id pub-id-type="doi">10.1007/s40489-019-00166-x</pub-id></mixed-citation></ref><ref id="bibr23-15394492221143048"><mixed-citation publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Mortimer</surname><given-names>R.</given-names></name><name name-style="western"><surname>Privopoulos</surname><given-names>M.</given-names></name><name name-style="western"><surname>Kumar</surname><given-names>S.</given-names></name></person-group> (<year>2014</year>). <article-title>The effectiveness of
+hydrotherapy in the treatment of social and behavioral aspects of children
+with autism spectrum disorders: A systematic review</article-title>.
+<source>Journal of Multidisciplinary Healthcare</source>,
+<volume>7</volume>, <fpage>93</fpage>&#8211;<lpage>103</lpage>. <pub-id pub-id-type="doi">10.2147/JMDH.S55345</pub-id><pub-id pub-id-type="pmid">24520196</pub-id><pub-id pub-id-type="pmcid">PMC3917923</pub-id></mixed-citation></ref><ref id="bibr24-15394492221143048"><mixed-citation publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Murphy</surname><given-names>K. L.</given-names></name><name name-style="western"><surname>Hennebach</surname><given-names>R.</given-names></name></person-group> (<year>2020</year>). <article-title>A systematic review of
+swimming programs for individuals with autism spectrum
+disorders</article-title>. <source>Journal of Disability Studies</source>,
+<volume>6</volume>(<issue>1</issue>), <fpage>26</fpage>&#8211;<lpage>32</lpage>.
+<ext-link xlink:href="http://pubs.iscience.in/journal/index.php/jds/article/view/991/671" ext-link-type="uri">http://pubs.iscience.in/journal/index.php/jds/article/view/991/671</ext-link></mixed-citation></ref><ref id="bibr25-15394492221143048"><mixed-citation publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Naveed</surname><given-names>S.</given-names></name><name name-style="western"><surname>Waqas</surname><given-names>A.</given-names></name><name name-style="western"><surname>Amray</surname><given-names>A. N.</given-names></name><name name-style="western"><surname>Memon</surname><given-names>R. I.</given-names></name><name name-style="western"><surname>Javed</surname><given-names>N.</given-names></name><name name-style="western"><surname>Tahir</surname><given-names>M. A.</given-names></name><name name-style="western"><surname>Ghozy</surname><given-names>S.</given-names></name><name name-style="western"><surname>Jahan</surname><given-names>N.</given-names></name><name name-style="western"><surname>Khan</surname><given-names>A. S.</given-names></name><name name-style="western"><surname>Rahman</surname><given-names>A.</given-names></name></person-group> (<year>2019</year>). <article-title>Implementation and
+effectiveness of non-specialist mediated interventions for children with
+autism spectrum disorder: A systematic review and
+meta-analysis</article-title>. <source>PLOS ONE</source>,
+<volume>14</volume>, Article e0224362. <pub-id pub-id-type="doi">10.1371/journal.pone.0224362</pub-id><pub-id pub-id-type="pmcid">PMC6839885</pub-id><pub-id pub-id-type="pmid">31703073</pub-id></mixed-citation></ref><ref id="bibr26-15394492221143048"><mixed-citation publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Reddy</surname><given-names>G.</given-names></name><name name-style="western"><surname>Fewster</surname><given-names>D.</given-names></name><name name-style="western"><surname>Gurayah</surname><given-names>T.</given-names></name></person-group> (<year>2019</year>). <article-title>Parent&#8217;s voices: Experiences
+and coping as a parent of a child with autism spectrum
+disorder</article-title>. <source>South African Journal of Occupational
+Therapy</source>, <volume>49</volume>(<issue>1</issue>),
+<fpage>43</fpage>&#8211;<lpage>50</lpage>.</mixed-citation></ref><ref id="bibr27-15394492221143048"><mixed-citation publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Schlebusch</surname><given-names>L.</given-names></name><name name-style="western"><surname>Dada</surname><given-names>S.</given-names></name><name name-style="western"><surname>Samuels</surname><given-names>A. E.</given-names></name></person-group> (<year>2017</year>). <article-title>Family quality of life of
+South African families raising children with autism spectrum
+disorder</article-title>. <source>Journal of Autism and Developmental
+Disorders</source>, <volume>47</volume>(<issue>7</issue>),
+<fpage>1966</fpage>&#8211;<lpage>1977</lpage>. <pub-id pub-id-type="doi">10.1007/s10803-017-3102-8</pub-id><pub-id pub-id-type="pmid">28374210</pub-id></mixed-citation></ref><ref id="bibr28-15394492221143048"><mixed-citation publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Stites</surname><given-names>M. L.</given-names></name><name name-style="western"><surname>Walter</surname><given-names>H. L.</given-names></name><name name-style="western"><surname>Krikorian</surname><given-names>J. G.</given-names></name></person-group> (<year>2020</year>). <article-title>These aren&#8217;t the kids I
+signed up for: the lived experience of general education, early childhood
+preservice teachers in classrooms for children with special
+needs</article-title>. <source>Journal of Early Childhood Teacher
+Education</source>, <volume>42</volume>(<issue>1</issue>),
+<fpage>1</fpage>&#8211;<lpage>19</lpage>. <pub-id pub-id-type="doi">10.1080/10901027.2020.1718806</pub-id></mixed-citation></ref><ref id="bibr29-15394492221143048"><mixed-citation publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Walsh</surname><given-names>K.</given-names></name><name name-style="western"><surname>Kemp</surname><given-names>E.</given-names></name><name name-style="western"><surname>Woodson</surname><given-names>R.</given-names></name></person-group> (<year>2021</year>). <article-title>Effectiveness of aquatic OT
+for children with autism spectrum disorder</article-title>. <source>The
+American Journal of Occupational Therapy</source>,
+<volume>75</volume>(<issue>Supplement_2</issue>), 7512515318p1.
+<pub-id pub-id-type="doi">10.5014/ajot.2021.75S2-PO318</pub-id></mixed-citation></ref><ref id="bibr30-15394492221143048"><mixed-citation publication-type="book"><person-group person-group-type="author"><name name-style="western"><surname>Wilcock</surname><given-names>A.</given-names></name><name name-style="western"><surname>Townsend</surname><given-names>E.</given-names></name></person-group> (<year>2018</year>). <part-title>Occupational
+justice</part-title>. In <person-group person-group-type="author"><name name-style="western"><surname>Boyt Schell</surname><given-names>B. A.</given-names></name><name name-style="western"><surname>Gillen</surname><given-names>G.</given-names></name></person-group> (Eds.), <source>Willard and Spackmans occupational
+therapy</source> (<edition>13th ed.</edition>, pp.
+<fpage>643</fpage>&#8211;<lpage>660</lpage>). <publisher-name>Wolters Kluwer
+Health</publisher-name>.</mixed-citation></ref><ref id="bibr31-15394492221143048"><mixed-citation publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Wirihana</surname><given-names>L.</given-names></name><name name-style="western"><surname>Welch</surname><given-names>A.</given-names></name><name name-style="western"><surname>Williamson</surname><given-names>M.</given-names></name><name name-style="western"><surname>Christensen</surname><given-names>M.</given-names></name><name name-style="western"><surname>Bakon</surname><given-names>S.</given-names></name><name name-style="western"><surname>Craft</surname><given-names>J.</given-names></name></person-group> (<year>2018</year>). <article-title>Using Colaizzi&#8217;s method of
+data analysis to explore the experiences of nurse academics teaching on
+satellite campuses</article-title>. <source>Nurse Researcher</source>,
+<volume>25</volume>(<issue>4</issue>), <fpage>30</fpage>&#8211;<lpage>34</lpage>.
+<pub-id pub-id-type="doi">10.7748/nr.2018.e1516</pub-id><pub-id pub-id-type="pmid">29546965</pub-id></mixed-citation></ref><ref id="bibr32-15394492221143048"><mixed-citation publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Woodson</surname><given-names>R.</given-names></name><name name-style="western"><surname>Kemp</surname><given-names>E.</given-names></name></person-group> (<year>2021</year>). <article-title>Parent perspective of
+OT-focused aquatic intervention for children with autism spectrum
+disorder</article-title>. <source>The American Journal of Occupational
+Therapy</source>,
+<volume>75</volume>(<issue>Supplement_2</issue>), 7512515365p1.
+<pub-id pub-id-type="doi">10.5014/ajot.2021.75S2-RP365</pub-id></mixed-citation></ref><ref id="bibr33-15394492221143048"><mixed-citation publication-type="webpage"><collab>World Health Organization</collab>. (<year>2014</year>). <source>Global
+report on drowning: Preventing a leading killer</source> (p.
+<fpage>58</fpage>). <ext-link xlink:href="http://apps.who.int/iris/bitstream/10665/143893/1/9789241564786_eng.pdf?ua=1&amp;ua=1%0Ahttp://www.who.int/violence_injury_prevention/global_report_drowning/en/" ext-link-type="uri">http://apps.who.int/iris/bitstream/10665/143893/1/9789241564786_eng.pdf?ua=1&amp;ua=1%0Ahttp://www.who.int/violence_injury_prevention/global_report_drowning/en/</ext-link></mixed-citation></ref></ref-list></back></article>
+        
+    </metadata>
+</record>
+    </GetRecord>
+
+</OAI-PMH>

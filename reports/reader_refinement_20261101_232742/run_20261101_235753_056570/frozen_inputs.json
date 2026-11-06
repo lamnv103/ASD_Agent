@@ -1,0 +1,8 @@
+{
+  "created_at": "2026-11-01T23:39:00.444520+07:00",
+  "purpose": "Twelve new questions frozen before first NIM run; eight content cases and four abstention cases; references not exhaustive or independently clinically reviewed",
+  "files": {
+    "questions.jsonl": "53fdb73932ce911150adeb919f68f23cf70d2ce786862c7157c3fdf79a00b4f4",
+    "reference_labels.jsonl": "a5024740e5731d38ed20aa1408bf5fbb6ac4d445346751a52a46af21115320f2"
+  }
+}

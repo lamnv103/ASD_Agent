@@ -1,0 +1,8 @@
+{
+  "created_at": "2026-11-02T00:09:22.056782+07:00",
+  "purpose": "Five final new questions after source-only hardening, prior to model calls. Earlier N01-N12 are now regression cases after protocol debugging, not untouched holdout.",
+  "files": {
+    "questions.jsonl": "d8749a0ea01fa018b8697cd5e9e4683492da601e1916efc7dc9f60e0504e1c26",
+    "reference_labels.jsonl": "7ee79d12338a85001b1a7dc7b1fbd2e0b23587b709cc5833c222d937d4899973"
+  }
+}

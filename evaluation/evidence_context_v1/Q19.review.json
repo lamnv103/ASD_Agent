@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "review_id": "reference-replay-Q19",
+  "question": "Quan sát tương tác xã hội của trẻ tự kỷ trong lớp mầm non hòa nhập còn hạn chế gì?",
+  "question_sha256": "d63971a74e68c8e10a5ec72720c3dcc8fd23a11ca96770427c5c2fba5a87ba55",
+  "reviewer": {
+    "kind": "ai_reference_review",
+    "name": "AI source-content review; not an independent clinical expert",
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "origin": "existing_retrieval_v1_label_replay_not_independent_semantic_evaluation",
+    "frozen_input_hashes": {
+      "questions.jsonl": "749f0a48e30de346e0521bae016f81e05e787b885ae132dced1cc03365f252c6",
+      "reference_labels.json": "b3c0f8c7e083c463750c358288b1439d4a2b1ef5533d976a6fae2901523deb99"
+    }
+  },
+  "intent": "general_information",
+  "claims": [
+    {
+      "claim_id": "c1",
+      "text": "Quan sát tương tác xã hội của trẻ tự kỷ trong lớp mầm non hòa nhập còn hạn chế gì?",
+      "required": true
+    }
+  ],
+  "items": [
+    {
+      "item_id": "item-0",
+      "source_id": "ASD-OA-PMC10900867",
+      "content_sha256": "f09b35bc1d8f3a71916b0545f4601deefd9a8ada9a3515707ac73cb39179d16b",
+      "start": 1285,
+      "end": 3748,
+      "quote": "A growing number of autistic children have access to inclusive education programs as early as kindergarten. However, little is known about how they actually participate in social interactions and develop their communicative skills according to the parameters of this environment. The aim of this article is to review observational studies on this topic and critically analyze their methodological choices by arguing on the aspects of communication skills noted in the observation grids. Disparities in the information collected depending on the method used have implications for understanding and supporting autistic children in an inclusive school environment.\n\n### Methods\n\nObservational studies on social interactions of autistic preschoolers within inclusive preschool settings were scoped. The studies were analyzed according to the following parameters: aims of observation, method used for coding, communication partners considered (adults and peers), type of children's social engagement (initiatives and responses), diversity of communicative forms and communication functions, distinction and comparison of interactional contexts related to the activities, and whether changes linked to developmental variables are studied on an interindividual or longitudinal basis.\n\n### Results\n\nSeventeen studies using the observation method in inclusive preschool settings were identified. Recordingmethods are mostly based on video recording. The coding grids mainly focus on autistic children while partners’ behaviors (adults, peers) are often coded in less detail, thus providing littleinformation on their dynamic role in the interactions. Overall, autistic children were found to initiate interactions much less often than they respond to it. The data generally distinguish thecommunicative forms used by children and indicate a predominance of nonverbal means at preschool level. However, a few studies coded communicative functions, whether they areaddressed to children or produced by them. In addition, very few studies compare interactions across activity contexts. In addition, very few studies compare interactions across activity contexts.Results of some studies showed that children initiated interaction more frequently during free play than during work activity, but results are heterogeneous. Developmental trajectories in socialskills seem to be associated with the severity of autism and language skills, but longitudinal designs are still rare.",
+      "relation": "direct",
+      "stance": "supports",
+      "claim_ids": [
+        "c1"
+      ],
+      "scope_limits": "Nghiên cứu quan sát mầm non; không phải thử nghiệm hiệu quả một chương trình."
+    }
+  ],
+  "conflicts": [],
+  "review_notes": "Nghiên cứu quan sát mầm non; không phải thử nghiệm hiệu quả một chương trình."
+}

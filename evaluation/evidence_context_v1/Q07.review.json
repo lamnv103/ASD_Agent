@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "review_id": "reference-replay-Q07",
+  "question": "Trẻ tự kỷ gặp khó khăn giao tiếp nên được chuyên viên ngôn ngữ đánh giá gì, có cần kiểm tra thính lực không?",
+  "question_sha256": "7969ed5455a22f364b0cd57a682f668bd054e2c1e9ce2baca84112b68746a03c",
+  "reviewer": {
+    "kind": "ai_reference_review",
+    "name": "AI source-content review; not an independent clinical expert",
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "origin": "existing_retrieval_v1_label_replay_not_independent_semantic_evaluation",
+    "frozen_input_hashes": {
+      "questions.jsonl": "749f0a48e30de346e0521bae016f81e05e787b885ae132dced1cc03365f252c6",
+      "reference_labels.json": "b3c0f8c7e083c463750c358288b1439d4a2b1ef5533d976a6fae2901523deb99"
+    }
+  },
+  "intent": "general_information",
+  "claims": [
+    {
+      "claim_id": "c1",
+      "text": "Trẻ tự kỷ gặp khó khăn giao tiếp nên được chuyên viên ngôn ngữ đánh giá gì, có cần kiểm tra thính lực không?",
+      "required": true
+    }
+  ],
+  "items": [
+    {
+      "item_id": "item-0",
+      "source_id": "NIH-NIDCD-ASD-COMMUNICATION-2020",
+      "content_sha256": "167221060bae5a46446346dae3f89336f1dc008495f27dca3051277d6a17febc",
+      "start": 5989,
+      "end": 6565,
+      "quote": "If a doctor suspects a child has ASD or another developmental disability, he or she usually will refer the child to a variety of specialists, including a speech-language pathologist. This is a health professional trained to treat individuals with voice, speech, and language disorders. The speech-language pathologist will perform a comprehensive evaluation of the child’s ability to communicate, and will design an appropriate treatment program. In addition, the speech-language pathologist might make a referral for a hearing test to make sure the child’s hearing is normal.",
+      "relation": "direct",
+      "stance": "supports",
+      "claim_ids": [
+        "c1"
+      ],
+      "scope_limits": "Kiểm tra nghe là khả năng được giới thiệu, không mặc định mọi trẻ đều khiếm thính."
+    }
+  ],
+  "conflicts": [],
+  "review_notes": "Kiểm tra nghe là khả năng được giới thiệu, không mặc định mọi trẻ đều khiếm thính."
+}

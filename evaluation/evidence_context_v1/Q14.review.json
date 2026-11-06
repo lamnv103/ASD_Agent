@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "review_id": "reference-replay-Q14",
+  "question": "Thử nghiệm ASSSIST-2 có chứng minh Social Stories cải thiện rõ mọi kỹ năng xã hội không?",
+  "question_sha256": "d01c68db8a2502d500b9deed506df86b5ec7bb85f8ebaa7215c096b8e00e44cf",
+  "reviewer": {
+    "kind": "ai_reference_review",
+    "name": "AI source-content review; not an independent clinical expert",
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "origin": "existing_retrieval_v1_label_replay_not_independent_semantic_evaluation",
+    "frozen_input_hashes": {
+      "questions.jsonl": "749f0a48e30de346e0521bae016f81e05e787b885ae132dced1cc03365f252c6",
+      "reference_labels.json": "b3c0f8c7e083c463750c358288b1439d4a2b1ef5533d976a6fae2901523deb99"
+    }
+  },
+  "intent": "general_information",
+  "claims": [
+    {
+      "claim_id": "c1",
+      "text": "Thử nghiệm ASSSIST-2 có chứng minh Social Stories cải thiện rõ mọi kỹ năng xã hội không?",
+      "required": true
+    }
+  ],
+  "items": [
+    {
+      "item_id": "item-0",
+      "source_id": "ASD-SUP-PMC11754701",
+      "content_sha256": "698fcac9c466769bda1b90ad2951b4477949c4db4de58b477bbf7697368ab7e8",
+      "start": 35072,
+      "end": 36958,
+      "quote": "This was the largest trial to date which aimed to evaluate whether Social Stories™ is a clinically effective method of improving social responsiveness in autistic children. A total of 87 schools were randomised including 249 autistic children. At baseline, children scored 72 points on average on the Social Responsiveness Scale‐2 (SRS‐2) indicating a moderate level of difficulty. The average SRS‐2 scores decreased (higher social responsiveness) in both groups at 6 weeks and 6 months, with greater reductions observed in the group allocated to Social Stories™. However, at both time points, the estimated difference (in favour of Social Stories™) was small and unlikely to be clinically important. Given SRS‐2 attempts to measure autistic symptoms it was perhaps not surprising that there was limited change. By contrast, there are statistically significant differences in the goal‐based outcome measure. Children who were allocated to Social Stories™ typically met their socio‐emotional goal with a clear measurable outcome more frequently after 6 months than children who received care as usual. However, the observed differences are smaller than the differences observed in the feasibility trial (Wright et al., 2016) and a recently published trial of humanistic counselling for adolescents with symptoms of psychological distress (Cooper et al., 2021), although goal attainment was self‐reported in the latter study in contrast to the teacher‐reported assessment used in the present study. The CACE analysis also found a clinically and statistically significant difference in favour of the intervention group at 6 months, although this estimate of the CACE may be subject to non‐negligible selection bias due to missing treatment delivery data. There were no important differences in any of the other measures assessing children's mental health and well‐being or parental stress.",
+      "relation": "direct",
+      "stance": "supports",
+      "claim_ids": [
+        "c1"
+      ],
+      "scope_limits": "Phân biệt kết quả chính ITT không có ý nghĩa thống kê với mục tiêu cá nhân và CACE."
+    },
+    {
+      "item_id": "item-1",
+      "source_id": "ASD-SUP-PMC11754701",
+      "content_sha256": "698fcac9c466769bda1b90ad2951b4477949c4db4de58b477bbf7697368ab7e8",
+      "start": 2940,
+      "end": 3965,
+      "quote": "Eighty‐seven schools, including 249 children, were randomised (intervention 44 schools with 129 children, and usual care 43 schools with 120 children). After 6 months, a reduction of 1.61 points was found on the Social Responsiveness Scale‐2 in the intervention group (95% CI −4.18 to 0.96, <italic>p</italic> = .220) and for those who attended at least six sessions a reduction of 3.37 points (CACE 95% CI −6.65 to −0.10, <italic>p</italic> = .043). Children in the intervention group met their individual socio‐emotional goal more frequently than children receiving usual care alone and this was statistically significant. No statistically significant differences were found in other secondary outcomes including anxiety, depression, general health or parental stress.\n\n### Conclusions\n\nSocial Stories™ represent a low‐cost, low‐burden intervention. Benefits are seen in individual socio‐emotional goals but without clinically evident impact on social responsiveness, anxiety, depression, parental stress or general health.",
+      "relation": "direct",
+      "stance": "supports",
+      "claim_ids": [
+        "c1"
+      ],
+      "scope_limits": "Phân biệt kết quả chính ITT không có ý nghĩa thống kê với mục tiêu cá nhân và CACE."
+    }
+  ],
+  "conflicts": [],
+  "review_notes": "Phân biệt kết quả chính ITT không có ý nghĩa thống kê với mục tiêu cá nhân và CACE."
+}

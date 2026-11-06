@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "review_id": "reference-replay-Q18",
+  "question": "Vì sao hành vi đi lang thang hoặc bỏ chạy khỏi người chăm sóc cần được xem là vấn đề an toàn ở trẻ tự kỷ?",
+  "question_sha256": "9ac806ae0c17dfc6aeed68a2a0ba1df47194bf082053a4e08233ea3b4c8fb8e3",
+  "reviewer": {
+    "kind": "ai_reference_review",
+    "name": "AI source-content review; not an independent clinical expert",
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "origin": "existing_retrieval_v1_label_replay_not_independent_semantic_evaluation",
+    "frozen_input_hashes": {
+      "questions.jsonl": "749f0a48e30de346e0521bae016f81e05e787b885ae132dced1cc03365f252c6",
+      "reference_labels.json": "b3c0f8c7e083c463750c358288b1439d4a2b1ef5533d976a6fae2901523deb99"
+    }
+  },
+  "intent": "general_information",
+  "claims": [
+    {
+      "claim_id": "c1",
+      "text": "Vì sao hành vi đi lang thang hoặc bỏ chạy khỏi người chăm sóc cần được xem là vấn đề an toàn ở trẻ tự kỷ?",
+      "required": true
+    }
+  ],
+  "items": [
+    {
+      "item_id": "item-0",
+      "source_id": "ASD-OA-PMC4742252",
+      "content_sha256": "4a2f9b1ac53b772aa8d9dda13bcea338d8adbd872f228a5f256776cb1fcaf7fb",
+      "start": 3565,
+      "end": 4828,
+      "quote": "As the prevalence of developmental disabilities in the United States continues to rise, there is a need to better understand the behaviors that may compromise the safety and well-being of this population [1]. In recent years, several high-profile incidents have drawn attention to wandering, or elopement, as a potential cause of injury in children with developmental disabilities. Numerous children with autism spectrum disorders (ASDs) have reportedly died or sustained serious injuries due to vehicular collisions, drowning, and other accidents that occurred after they wandered away from their caregivers [2]. Elopement may place a significant burden on affected families by causing anxiety and increasing the need for monitoring and supervision. In recognition of the seriousness of this problem, a number of advocacy organizations, including Autism Speaks and the National Autism Association, have created resources designed to educate caregivers, first responders, and others about how to prevent and respond to incidents of elopement [3, 4]. Nonetheless, there is a dearth of published research on elopement in children with developmental disabilities, and little is known about the prevalence and correlates of wandering behaviors in this population [2].",
+      "relation": "direct",
+      "stance": "supports",
+      "claim_ids": [
+        "c1"
+      ],
+      "scope_limits": "Dữ liệu và bối cảnh Hoa Kỳ; không dùng tỷ lệ khảo sát như xác suất của mọi trẻ Việt Nam."
+    }
+  ],
+  "conflicts": [],
+  "review_notes": "Dữ liệu và bối cảnh Hoa Kỳ; không dùng tỷ lệ khảo sát như xác suất của mọi trẻ Việt Nam."
+}

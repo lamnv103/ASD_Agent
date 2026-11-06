@@ -1,0 +1,8 @@
+{
+  "question": "Ngày mai trung tâm can thiệp nào ở quận Thanh Xuân còn chỗ và mức phí chính xác hiện nay là bao nhiêu?",
+  "error_code": "nim_network",
+  "error_stage": "question_plan",
+  "message": "NVIDIA request failed/timed out; no automatic retry.",
+  "reader_calls": [],
+  "generation_enabled": false
+}

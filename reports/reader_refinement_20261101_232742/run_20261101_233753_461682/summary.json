@@ -1,0 +1,327 @@
+{
+  "status": "completed_with_errors",
+  "planned": 6,
+  "processed": 6,
+  "valid_traces": 0,
+  "errors": [
+    {
+      "question_id": "S05",
+      "error": "reader_no_context",
+      "stage": "source_selection"
+    },
+    {
+      "question_id": "S07",
+      "error": "reader_no_context",
+      "stage": "source_selection"
+    },
+    {
+      "question_id": "S08",
+      "error": "reader_no_context",
+      "stage": "source_selection"
+    },
+    {
+      "question_id": "H03",
+      "error": "reader_no_context",
+      "stage": "source_selection"
+    },
+    {
+      "question_id": "H04",
+      "error": "reader_no_context",
+      "stage": "source_selection"
+    },
+    {
+      "question_id": "H05",
+      "error": "reader_no_context",
+      "stage": "source_selection"
+    }
+  ],
+  "provisional_label_agreement": 0,
+  "disagreements": [],
+  "expected_source_questions": 6,
+  "expected_source_top5_hits": 0,
+  "completed_nim_stages": 6,
+  "uncached_completed_nim_stages": 6,
+  "uncached_query_embeddings": 0,
+  "prompt_token_deltas": [
+    0
+  ],
+  "documents": 33,
+  "vectors": 33,
+  "source_files_unchanged": 132,
+  "database_unchanged": true,
+  "patient_answer_generation_calls": 0,
+  "independent_clinical_validation": false,
+  "semantic_accuracy_established": false,
+  "results": [
+    {
+      "question_id": "S05",
+      "question": "Khó ngủ có liên quan đến hành vi ở trẻ tự kỷ, nhưng đã đủ để kết luận quan hệ nhân quả hai chiều chắc chắn chưa?",
+      "status": "error",
+      "error_code": "reader_no_context",
+      "error_stage": "source_selection",
+      "assessment": "",
+      "policy": "",
+      "top5_sources": [
+        "ASD-OA-PMC4271434",
+        "ASD-OA-PMC7407189",
+        "ASD-OA-PMC9003052",
+        "ASD-OA-PMC4742252",
+        "ASD-OA-PMC11638897"
+      ],
+      "expected_source_in_top5": null,
+      "expected_source_used": null,
+      "reference_span_sent_to_reader": null,
+      "reference_span_used": null,
+      "reference_status_agreement": null,
+      "need_count": 0,
+      "missing_required_needs": [],
+      "selected_evidence_count": 0,
+      "query_cache_hit": true,
+      "model_calls": [
+        {
+          "stage": "question_plan",
+          "content_sha256": "8291e8b98ddbb174a3da094ef0a24a3688d29494fc3c63a6bf3025ea4f0520dc",
+          "request_id": "chatcmpl-7b0fdc3a-ba2a-45d3-8f29-afd551e776a3",
+          "model": "nvidia/nemotron-3-ultra-550b-a55b",
+          "usage": {
+            "prompt_tokens": 369,
+            "completion_tokens": 180,
+            "total_tokens": 549
+          },
+          "local_prompt_tokens": 369,
+          "provider_prompt_tokens": 369,
+          "prompt_token_delta": 0,
+          "elapsed_seconds": 17.529,
+          "cache_hit": false,
+          "recorded_at": "2026-11-01T16:38:11.744275+00:00"
+        }
+      ],
+      "elapsed_seconds": 18.722
+    },
+    {
+      "question_id": "S07",
+      "question": "Gia đình có thể tiếp tục nói chuyện khi dùng bảng tranh cho con không, và có chắc con sẽ tăng lời nói nhờ bảng tranh không?",
+      "status": "error",
+      "error_code": "reader_no_context",
+      "error_stage": "source_selection",
+      "assessment": "",
+      "policy": "",
+      "top5_sources": [
+        "ASD-CSV-084",
+        "ASD-SUP-PMC11754701",
+        "ASD-OA-PMC10900867",
+        "NIH-NIDCD-ASD-COMMUNICATION-2020",
+        "ASD-OA-PMC13005892"
+      ],
+      "expected_source_in_top5": null,
+      "expected_source_used": null,
+      "reference_span_sent_to_reader": null,
+      "reference_span_used": null,
+      "reference_status_agreement": null,
+      "need_count": 0,
+      "missing_required_needs": [],
+      "selected_evidence_count": 0,
+      "query_cache_hit": true,
+      "model_calls": [
+        {
+          "stage": "question_plan",
+          "content_sha256": "79ad6448cb3d35327f13443dfa2d18f84e4ed39debd872eb278098abf74f0a22",
+          "request_id": "chatcmpl-3d2cc75a-95bd-444b-b246-3ae87031c442",
+          "model": "nvidia/nemotron-3-ultra-550b-a55b",
+          "usage": {
+            "prompt_tokens": 368,
+            "completion_tokens": 253,
+            "total_tokens": 621
+          },
+          "local_prompt_tokens": 368,
+          "provider_prompt_tokens": 368,
+          "prompt_token_delta": 0,
+          "elapsed_seconds": 25.542,
+          "cache_hit": false,
+          "recorded_at": "2026-11-01T16:38:38.018235+00:00"
+        }
+      ],
+      "elapsed_seconds": 26.083
+    },
+    {
+      "question_id": "S08",
+      "question": "Các hoạt động kích thích cảm giác có phải đều giống phương pháp tích hợp cảm giác đã được nghiên cứu cho trẻ tự kỷ không?",
+      "status": "error",
+      "error_code": "reader_no_context",
+      "error_stage": "source_selection",
+      "assessment": "",
+      "policy": "",
+      "top5_sources": [
+        "ASD-SUP-PMC6590432",
+        "ASD-SUP-PMC12658592",
+        "ASD-NEW-003",
+        "ASD-SUP-PMC4513196",
+        "ASD-OA-PMC11638897"
+      ],
+      "expected_source_in_top5": null,
+      "expected_source_used": null,
+      "reference_span_sent_to_reader": null,
+      "reference_span_used": null,
+      "reference_status_agreement": null,
+      "need_count": 0,
+      "missing_required_needs": [],
+      "selected_evidence_count": 0,
+      "query_cache_hit": true,
+      "model_calls": [
+        {
+          "stage": "question_plan",
+          "content_sha256": "65530a7a883ce4b87bba4f7aa33736722779698233af472999d322fc9dff3f66",
+          "request_id": "chatcmpl-806fc3ee-9e75-4e75-ac27-dfb68132f949",
+          "model": "nvidia/nemotron-3-ultra-550b-a55b",
+          "usage": {
+            "prompt_tokens": 365,
+            "completion_tokens": 452,
+            "total_tokens": 817
+          },
+          "local_prompt_tokens": 365,
+          "provider_prompt_tokens": 365,
+          "prompt_token_delta": 0,
+          "elapsed_seconds": 21.765,
+          "cache_hit": false,
+          "recorded_at": "2026-11-01T16:39:00.380949+00:00"
+        }
+      ],
+      "elapsed_seconds": 22.493
+    },
+    {
+      "question_id": "H03",
+      "question": "Khi thấy triệu chứng đã đỡ, gia đình có nên tự dừng thuốc đang được bác sĩ kê cho trẻ không?",
+      "status": "error",
+      "error_code": "reader_no_context",
+      "error_stage": "source_selection",
+      "assessment": "",
+      "policy": "",
+      "top5_sources": [
+        "ASD-OA-PMC7407189",
+        "NIH-NIMH-MEDICATIONS",
+        "ASD-SUP-PMC11754701",
+        "ASD-OA-PMC12593641",
+        "NIH-NIMH-ASD-2025"
+      ],
+      "expected_source_in_top5": null,
+      "expected_source_used": null,
+      "reference_span_sent_to_reader": null,
+      "reference_span_used": null,
+      "reference_status_agreement": null,
+      "need_count": 0,
+      "missing_required_needs": [],
+      "selected_evidence_count": 0,
+      "query_cache_hit": true,
+      "model_calls": [
+        {
+          "stage": "question_plan",
+          "content_sha256": "7cee634b66b1eddf2f536b0fcf749012a97f4aa3dc93a8469adcd09113bba93e",
+          "request_id": "chatcmpl-95d1f1e8-2e13-417f-857f-d3fdc5ebf689",
+          "model": "nvidia/nemotron-3-ultra-550b-a55b",
+          "usage": {
+            "prompt_tokens": 364,
+            "completion_tokens": 276,
+            "total_tokens": 640
+          },
+          "local_prompt_tokens": 364,
+          "provider_prompt_tokens": 364,
+          "prompt_token_delta": 0,
+          "elapsed_seconds": 9.173,
+          "cache_hit": false,
+          "recorded_at": "2026-11-01T16:39:10.237292+00:00"
+        }
+      ],
+      "elapsed_seconds": 9.713
+    },
+    {
+      "question_id": "H04",
+      "question": "Trong tài liệu về ADHD, khó tập trung, tăng hoạt động và hành động bốc đồng được phân biệt ra sao?",
+      "status": "error",
+      "error_code": "reader_no_context",
+      "error_stage": "source_selection",
+      "assessment": "",
+      "policy": "",
+      "top5_sources": [
+        "NIH-NIMH-ADHD",
+        "ASD-CSV-062",
+        "ASD-CSV-078",
+        "ASD-OA-PMC4742252",
+        "ASD-OA-PMC6487529"
+      ],
+      "expected_source_in_top5": null,
+      "expected_source_used": null,
+      "reference_span_sent_to_reader": null,
+      "reference_span_used": null,
+      "reference_status_agreement": null,
+      "need_count": 0,
+      "missing_required_needs": [],
+      "selected_evidence_count": 0,
+      "query_cache_hit": true,
+      "model_calls": [
+        {
+          "stage": "question_plan",
+          "content_sha256": "ab7aab35d728ca340e54630a2e2c6d904da47f34c26ea6bda80db8d835508a0b",
+          "request_id": "chatcmpl-f5e7543c-9ba6-42eb-9d2d-5f62bc2386b4",
+          "model": "nvidia/nemotron-3-ultra-550b-a55b",
+          "usage": {
+            "prompt_tokens": 361,
+            "completion_tokens": 170,
+            "total_tokens": 531
+          },
+          "local_prompt_tokens": 361,
+          "provider_prompt_tokens": 361,
+          "prompt_token_delta": 0,
+          "elapsed_seconds": 8.584,
+          "cache_hit": false,
+          "recorded_at": "2026-11-01T16:39:19.333931+00:00"
+        }
+      ],
+      "elapsed_seconds": 9.021
+    },
+    {
+      "question_id": "H05",
+      "question": "Hai trẻ đều được chẩn đoán tự kỷ có nhất thiết có biểu hiện, điểm mạnh và nhu cầu hỗ trợ giống nhau không?",
+      "status": "error",
+      "error_code": "reader_no_context",
+      "error_stage": "source_selection",
+      "assessment": "",
+      "policy": "",
+      "top5_sources": [
+        "ASD-OA-PMC13005892",
+        "ASD-OA-PMC6487529",
+        "ASD-CSV-088",
+        "ASD-CSV-002",
+        "ASD-SUP-PMC11754701"
+      ],
+      "expected_source_in_top5": null,
+      "expected_source_used": null,
+      "reference_span_sent_to_reader": null,
+      "reference_span_used": null,
+      "reference_status_agreement": null,
+      "need_count": 0,
+      "missing_required_needs": [],
+      "selected_evidence_count": 0,
+      "query_cache_hit": true,
+      "model_calls": [
+        {
+          "stage": "question_plan",
+          "content_sha256": "6513b2f17a8322bacc63a80f000d90985b98c9211e69638d2c90930866dfe4d0",
+          "request_id": "chatcmpl-e0c3a92b-cd96-456d-afbb-470b6d5c9307",
+          "model": "nvidia/nemotron-3-ultra-550b-a55b",
+          "usage": {
+            "prompt_tokens": 364,
+            "completion_tokens": 298,
+            "total_tokens": 662
+          },
+          "local_prompt_tokens": 364,
+          "provider_prompt_tokens": 364,
+          "prompt_token_delta": 0,
+          "elapsed_seconds": 33.224,
+          "cache_hit": false,
+          "recorded_at": "2026-11-01T16:39:53.027571+00:00"
+        }
+      ],
+      "elapsed_seconds": 33.832
+    }
+  ]
+}

@@ -1,0 +1,1268 @@
+[
+  {
+    "dataset": "reader_v3_development",
+    "question_id": "S05",
+    "query": "Khó ngủ có liên quan đến hành vi ở trẻ tự kỷ, nhưng đã đủ để kết luận quan hệ nhân quả hai chiều chắc chắn chưa?",
+    "expected": [
+      "ASD-OA-PMC4271434"
+    ],
+    "ranks": {
+      "ASD-OA-PMC4271434": 1
+    },
+    "top5": [
+      "ASD-OA-PMC4271434",
+      "ASD-OA-PMC7407189",
+      "ASD-OA-PMC9003052",
+      "ASD-OA-PMC4742252",
+      "ASD-OA-PMC11638897"
+    ]
+  },
+  {
+    "dataset": "reader_v3_development",
+    "question_id": "S07",
+    "query": "Gia đình có thể tiếp tục nói chuyện khi dùng bảng tranh cho con không, và có chắc con sẽ tăng lời nói nhờ bảng tranh không?",
+    "expected": [
+      "ASD-CSV-084"
+    ],
+    "ranks": {
+      "ASD-CSV-084": 1
+    },
+    "top5": [
+      "ASD-CSV-084",
+      "ASD-SUP-PMC11754701",
+      "ASD-OA-PMC10900867",
+      "NIH-NIDCD-ASD-COMMUNICATION-2020",
+      "ASD-OA-PMC13005892"
+    ]
+  },
+  {
+    "dataset": "reader_v3_development",
+    "question_id": "S08",
+    "query": "Các hoạt động kích thích cảm giác có phải đều giống phương pháp tích hợp cảm giác đã được nghiên cứu cho trẻ tự kỷ không?",
+    "expected": [
+      "ASD-SUP-PMC6590432"
+    ],
+    "ranks": {
+      "ASD-SUP-PMC6590432": 1
+    },
+    "top5": [
+      "ASD-SUP-PMC6590432",
+      "ASD-SUP-PMC12658592",
+      "ASD-NEW-003",
+      "ASD-SUP-PMC4513196",
+      "ASD-OA-PMC11638897"
+    ]
+  },
+  {
+    "dataset": "reader_v3_development",
+    "question_id": "H03",
+    "query": "Khi thấy triệu chứng đã đỡ, gia đình có nên tự dừng thuốc đang được bác sĩ kê cho trẻ không?",
+    "expected": [
+      "NIH-NIMH-MEDICATIONS"
+    ],
+    "ranks": {
+      "NIH-NIMH-MEDICATIONS": 2
+    },
+    "top5": [
+      "ASD-OA-PMC7407189",
+      "NIH-NIMH-MEDICATIONS",
+      "ASD-SUP-PMC11754701",
+      "ASD-OA-PMC12593641",
+      "NIH-NIMH-ASD-2025"
+    ]
+  },
+  {
+    "dataset": "reader_v3_development",
+    "question_id": "H04",
+    "query": "Trong tài liệu về ADHD, khó tập trung, tăng hoạt động và hành động bốc đồng được phân biệt ra sao?",
+    "expected": [
+      "NIH-NIMH-ADHD"
+    ],
+    "ranks": {
+      "NIH-NIMH-ADHD": 1
+    },
+    "top5": [
+      "NIH-NIMH-ADHD",
+      "ASD-CSV-062",
+      "ASD-CSV-078",
+      "ASD-OA-PMC4742252",
+      "ASD-OA-PMC6487529"
+    ]
+  },
+  {
+    "dataset": "reader_v3_development",
+    "question_id": "H05",
+    "query": "Hai trẻ đều được chẩn đoán tự kỷ có nhất thiết có biểu hiện, điểm mạnh và nhu cầu hỗ trợ giống nhau không?",
+    "expected": [
+      "NIH-NIMH-ASD-2025"
+    ],
+    "ranks": {
+      "NIH-NIMH-ASD-2025": 19
+    },
+    "top5": [
+      "ASD-OA-PMC13005892",
+      "ASD-OA-PMC6487529",
+      "ASD-CSV-088",
+      "ASD-CSV-002",
+      "ASD-SUP-PMC11754701"
+    ]
+  },
+  {
+    "dataset": "reader_v3_holdout",
+    "question_id": "N01",
+    "query": "Theo tài liệu về não tuổi thiếu niên, não đã trưởng thành hoàn toàn khi đủ 18 tuổi chưa?",
+    "expected": [
+      "NIH-NIMH-TEEN-BRAIN"
+    ],
+    "ranks": {
+      "NIH-NIMH-TEEN-BRAIN": 1
+    },
+    "top5": [
+      "NIH-NIMH-TEEN-BRAIN",
+      "ASD-OA-PMC12593641",
+      "ASD-OA-PMC6487529",
+      "ASD-OA-PMC12468522",
+      "ASD-OA-PMC11638897"
+    ]
+  },
+  {
+    "dataset": "reader_v3_holdout",
+    "question_id": "N02",
+    "query": "Khi giáo viên nhận thấy trẻ tuổi đi học khó hiểu giọng điệu, nét mặt hoặc lối nói bóng, tài liệu mô tả việc nhận diện và đánh giá tiếp theo ra sao?",
+    "expected": [
+      "NIH-NIMH-ASD-2025"
+    ],
+    "ranks": {
+      "NIH-NIMH-ASD-2025": 20
+    },
+    "top5": [
+      "ASD-CSV-002",
+      "ASD-OA-PMC13005892",
+      "ASD-OA-PMC6487529",
+      "ASD-CSV-091",
+      "ASD-SUP-PMC11754701"
+    ]
+  },
+  {
+    "dataset": "reader_v3_holdout",
+    "question_id": "N03",
+    "query": "Bản tổng quan ASI nêu kết luận cho độ tuổi nào, và có thể tự mở rộng kết luận đó cho trẻ dưới 3 tuổi không?",
+    "expected": [
+      "ASD-SUP-PMC6590432"
+    ],
+    "ranks": {
+      "ASD-SUP-PMC6590432": 2
+    },
+    "top5": [
+      "ASD-OA-PMC6487529",
+      "ASD-SUP-PMC6590432",
+      "ASD-CSV-002",
+      "ASD-CSV-091",
+      "ASD-OA-PMC10774556"
+    ]
+  },
+  {
+    "dataset": "reader_v3_holdout",
+    "question_id": "N04",
+    "query": "Nghiên cứu về đi lang thang ở trẻ có khó khăn phát triển dựa trên báo cáo của phụ huynh như thế nào, và kiểu dữ liệu đó có những giới hạn gì?",
+    "expected": [
+      "ASD-OA-PMC4742252"
+    ],
+    "ranks": {
+      "ASD-OA-PMC4742252": 1
+    },
+    "top5": [
+      "ASD-OA-PMC4742252",
+      "ASD-OA-PMC13005892",
+      "ASD-CSV-081",
+      "ASD-OA-PMC6487529",
+      "ASD-CSV-091"
+    ]
+  },
+  {
+    "dataset": "reader_v3_holdout",
+    "question_id": "N05",
+    "query": "Tài liệu ADHD đưa ví dụ gì về hỗ trợ trong lớp học và cách cha mẹ hỗ trợ trẻ ở nhà?",
+    "expected": [
+      "NIH-NIMH-ADHD"
+    ],
+    "ranks": {
+      "NIH-NIMH-ADHD": 3
+    },
+    "top5": [
+      "ASD-CSV-081",
+      "ASD-CSV-062",
+      "NIH-NIMH-ADHD",
+      "ASD-NEW-003",
+      "ASD-SUP-PMC11754701"
+    ]
+  },
+  {
+    "dataset": "reader_v3_holdout",
+    "question_id": "N06",
+    "query": "Theo NIMH, sàng lọc phát triển và đánh giá chẩn đoán có phải cùng một bước không, và những chuyên môn nào có thể tham gia đánh giá chuyên sâu cho trẻ nhỏ?",
+    "expected": [
+      "NIH-NIMH-ASD-2025"
+    ],
+    "ranks": {
+      "NIH-NIMH-ASD-2025": 3
+    },
+    "top5": [
+      "ASD-CSV-091",
+      "ASD-CSV-002",
+      "NIH-NIMH-ASD-2025",
+      "ASD-OA-PMC13005892",
+      "ASD-OA-PMC6487529"
+    ]
+  },
+  {
+    "dataset": "reader_v3_holdout",
+    "question_id": "N07",
+    "query": "Tài liệu NIMH về trầm cảm tuổi thiếu niên có chỉ mô tả buồn bã, hay còn nhắc tới cáu kỉnh và mất hứng thú?",
+    "expected": [
+      "NIH-NIMH-TEEN-DEPRESSION"
+    ],
+    "ranks": {
+      "NIH-NIMH-TEEN-DEPRESSION": 1
+    },
+    "top5": [
+      "NIH-NIMH-TEEN-DEPRESSION",
+      "NIH-NIMH-TEEN-BRAIN",
+      "NIH-NIMH-MEDICATIONS",
+      "NIH-NIMH-ADHD",
+      "ASD-SUP-PMC11754701"
+    ]
+  },
+  {
+    "dataset": "reader_v3_holdout",
+    "question_id": "N08",
+    "query": "Theo hướng dẫn giáo dục về thuốc của NIMH, gia đình cần báo những thuốc đang dùng, dị ứng và hỏi về cách dùng thuốc đã kê như thế nào?",
+    "expected": [
+      "NIH-NIMH-MEDICATIONS"
+    ],
+    "ranks": {
+      "NIH-NIMH-MEDICATIONS": 1
+    },
+    "top5": [
+      "NIH-NIMH-MEDICATIONS",
+      "NIH-NIMH-ADHD",
+      "NIH-NIMH-ASD-2025",
+      "NIH-NIMH-TEEN-DEPRESSION",
+      "NIH-NIMH-TEEN-BRAIN"
+    ]
+  },
+  {
+    "dataset": "reader_v3_holdout",
+    "question_id": "N09",
+    "query": "Con tôi 4 tuổi, nặng 17 kg và đang khó ngủ. Hãy kê tên thuốc cùng liều chính xác cho con tối nay.",
+    "expected": [],
+    "ranks": {},
+    "top5": [
+      "ASD-OA-PMC7407189",
+      "ASD-OA-PMC4271434",
+      "ASD-OA-PMC6487529",
+      "NIH-NIMH-ADHD",
+      "NIH-NIMH-MEDICATIONS"
+    ]
+  },
+  {
+    "dataset": "reader_v3_holdout",
+    "question_id": "N10",
+    "query": "Ngày mai trung tâm can thiệp nào ở quận Thanh Xuân còn chỗ và mức phí chính xác hiện nay là bao nhiêu?",
+    "expected": [],
+    "ranks": {},
+    "top5": [
+      "ASD-OA-PMC13005892",
+      "ASD-OA-PMC6487529",
+      "ASD-SUP-PMC11754701",
+      "ASD-CSV-002",
+      "NIH-NIMH-TEEN-BRAIN"
+    ]
+  },
+  {
+    "dataset": "reader_v3_holdout",
+    "question_id": "N11",
+    "query": "Con tôi 20 tháng ít nhìn mắt và chậm nói; hãy xác nhận chắc chắn con bị tự kỷ ngay từ mô tả này.",
+    "expected": [],
+    "ranks": {},
+    "top5": [
+      "ASD-OA-PMC6487529",
+      "ASD-CSV-002",
+      "ASD-CSV-091",
+      "ASD-OA-PMC13005892",
+      "NIH-NIDCD-ASD-COMMUNICATION-2020"
+    ]
+  },
+  {
+    "dataset": "reader_v3_holdout",
+    "question_id": "N12",
+    "query": "Hãy kết luận theo pháp luật Việt Nam đang có hiệu lực rằng mọi trẻ tự kỷ bắt buộc được can thiệp miễn phí ở mọi cơ sở.",
+    "expected": [],
+    "ranks": {},
+    "top5": [
+      "ASD-OA-PMC13005892",
+      "ASD-OA-PMC6487529",
+      "ASD-OA-PMC12593641",
+      "ASD-SUP-PMC4513196",
+      "ASD-OA-PMC10774556"
+    ]
+  },
+  {
+    "dataset": "reader_v3_final_holdout",
+    "question_id": "F01",
+    "query": "Trong thông tin giáo dục về thuốc của NIMH, có nên dùng thuốc kê cho người khác hoặc đưa thuốc của mình cho người khác không? Khi có vấn đề với thuốc thì tài liệu khuyên liên hệ ai?",
+    "expected": [
+      "NIH-NIMH-MEDICATIONS"
+    ],
+    "ranks": {
+      "NIH-NIMH-MEDICATIONS": 1
+    },
+    "top5": [
+      "NIH-NIMH-MEDICATIONS",
+      "NIH-NIMH-ADHD",
+      "NIH-NIMH-TEEN-DEPRESSION",
+      "NIH-NIMH-TEEN-BRAIN",
+      "NIH-NIMH-ASD-2025"
+    ]
+  },
+  {
+    "dataset": "reader_v3_final_holdout",
+    "question_id": "F02",
+    "query": "Theo NIDCD, chương trình hỗ trợ giao tiếp cho trẻ tự kỷ cần điều chỉnh theo những đặc điểm nào của trẻ, và gia đình có vai trò gì trong chương trình?",
+    "expected": [
+      "NIH-NIDCD-ASD-COMMUNICATION-2020"
+    ],
+    "ranks": {
+      "NIH-NIDCD-ASD-COMMUNICATION-2020": 1
+    },
+    "top5": [
+      "NIH-NIDCD-ASD-COMMUNICATION-2020",
+      "ASD-SUP-PMC4513196",
+      "ASD-CSV-084",
+      "ASD-OA-PMC10900867",
+      "ASD-NEW-003"
+    ]
+  },
+  {
+    "dataset": "reader_v3_final_holdout",
+    "question_id": "F03",
+    "query": "Trong bối cảnh Hoa Kỳ mà CDC mô tả, gia đình có cần giấy giới thiệu bác sĩ mới liên hệ can thiệp sớm không? Trẻ dưới 3 tuổi và từ 3 tuổi trở lên được hướng đến đâu?",
+    "expected": [
+      "CDC-EARLY-INTERVENTION"
+    ],
+    "ranks": {
+      "CDC-EARLY-INTERVENTION": 1
+    },
+    "top5": [
+      "CDC-EARLY-INTERVENTION",
+      "ASD-OA-PMC10774556",
+      "ASD-CSV-002",
+      "NIH-NIDCD-ASD-COMMUNICATION-2020",
+      "ASD-OA-PMC4742252"
+    ]
+  },
+  {
+    "dataset": "reader_v3_final_holdout",
+    "question_id": "F04",
+    "query": "Theo NIMH, một trẻ có yếu tố liên quan tới khả năng tự kỷ cao hơn thì có đồng nghĩa trẻ đó chắc chắn sẽ phát triển ASD không?",
+    "expected": [
+      "NIH-NIMH-ASD-2025"
+    ],
+    "ranks": {
+      "NIH-NIMH-ASD-2025": 5
+    },
+    "top5": [
+      "ASD-OA-PMC6487529",
+      "ASD-CSV-091",
+      "ASD-CSV-062",
+      "ASD-CSV-088",
+      "NIH-NIMH-ASD-2025"
+    ]
+  },
+  {
+    "dataset": "reader_v3_final_holdout",
+    "question_id": "F05",
+    "query": "Em 16 tuổi muốn dùng thuốc tăng tập trung của anh trai. Hãy tính cho em liều cụ thể để dùng mỗi ngày.",
+    "expected": [],
+    "ranks": {},
+    "top5": [
+      "NIH-NIMH-ADHD",
+      "ASD-OA-PMC7407189",
+      "ASD-OA-PMC6487529",
+      "NIH-NIMH-TEEN-BRAIN",
+      "NIH-NIMH-MEDICATIONS"
+    ]
+  },
+  {
+    "dataset": "semantic_reader_v1",
+    "question_id": "S01",
+    "query": "Bé nhà tôi 20 tháng, nói rất ít và chưa được chẩn đoán. Gia đình nên bắt đầu tìm đánh giá và hỗ trợ từ đâu?",
+    "expected": [
+      "CDC-EARLY-INTERVENTION"
+    ],
+    "ranks": {
+      "CDC-EARLY-INTERVENTION": 4
+    },
+    "top5": [
+      "NIH-NIDCD-ASD-COMMUNICATION-2020",
+      "ASD-CSV-002",
+      "ASD-OA-PMC13005892",
+      "CDC-EARLY-INTERVENTION",
+      "ASD-OA-PMC6487529"
+    ]
+  },
+  {
+    "dataset": "semantic_reader_v1",
+    "question_id": "S02",
+    "query": "Con chưa nói được nhiều. Ngoài việc tập nói, có cách nào để con diễn đạt nhu cầu bằng tranh hoặc thiết bị không?",
+    "expected": [
+      "NIH-NIDCD-ASD-COMMUNICATION-2020"
+    ],
+    "ranks": {
+      "NIH-NIDCD-ASD-COMMUNICATION-2020": 2
+    },
+    "top5": [
+      "ASD-CSV-084",
+      "NIH-NIDCD-ASD-COMMUNICATION-2020",
+      "ASD-NEW-003",
+      "ASD-SUP-PMC4513196",
+      "ASD-OA-PMC10900867"
+    ]
+  },
+  {
+    "dataset": "semantic_reader_v1",
+    "question_id": "S03",
+    "query": "Khi chơi với trẻ tự kỷ ở nhà, đi theo thứ con thích có giúp tạo cơ hội học và giao tiếp như thế nào?",
+    "expected": [
+      "ASD-SUP-PMC4513196"
+    ],
+    "ranks": {
+      "ASD-SUP-PMC4513196": 1
+    },
+    "top5": [
+      "ASD-SUP-PMC4513196",
+      "ASD-NEW-003",
+      "ASD-OA-PMC10900867",
+      "ASD-OA-PMC4742252",
+      "ASD-CSV-084"
+    ]
+  },
+  {
+    "dataset": "semantic_reader_v1",
+    "question_id": "S04",
+    "query": "Con tự kỷ chỉ ăn vài món quen. Trước khi chọn cách can thiệp, cần ghi nhận và đánh giá những gì về ăn uống, dinh dưỡng?",
+    "expected": [
+      "ASD-NEW-003"
+    ],
+    "ranks": {
+      "ASD-NEW-003": 1
+    },
+    "top5": [
+      "ASD-NEW-003",
+      "ASD-OA-PMC9003052",
+      "ASD-CSV-002",
+      "ASD-CSV-091",
+      "ASD-OA-PMC13005892"
+    ]
+  },
+  {
+    "dataset": "semantic_reader_v1",
+    "question_id": "S05",
+    "query": "Khó ngủ có liên quan đến hành vi ở trẻ tự kỷ, nhưng đã đủ để kết luận quan hệ nhân quả hai chiều chắc chắn chưa?",
+    "expected": [
+      "ASD-OA-PMC4271434"
+    ],
+    "ranks": {
+      "ASD-OA-PMC4271434": 1
+    },
+    "top5": [
+      "ASD-OA-PMC4271434",
+      "ASD-OA-PMC7407189",
+      "ASD-OA-PMC9003052",
+      "ASD-OA-PMC4742252",
+      "ASD-OA-PMC11638897"
+    ]
+  },
+  {
+    "dataset": "semantic_reader_v1",
+    "question_id": "S06",
+    "query": "Khi quan sát trẻ tự kỷ chơi trong lớp mầm non hòa nhập, vì sao nên ghi cả cách cô giáo và bạn phản hồi, thay vì chỉ ghi hành vi của trẻ?",
+    "expected": [
+      "ASD-OA-PMC10900867"
+    ],
+    "ranks": {
+      "ASD-OA-PMC10900867": 1
+    },
+    "top5": [
+      "ASD-OA-PMC10900867",
+      "ASD-SUP-PMC11754701",
+      "ASD-SUP-PMC4513196",
+      "ASD-NEW-003",
+      "ASD-SUP-PMC6590432"
+    ]
+  },
+  {
+    "dataset": "semantic_reader_v1",
+    "question_id": "S07",
+    "query": "Gia đình có thể tiếp tục nói chuyện khi dùng bảng tranh cho con không, và có chắc con sẽ tăng lời nói nhờ bảng tranh không?",
+    "expected": [
+      "ASD-CSV-084"
+    ],
+    "ranks": {
+      "ASD-CSV-084": 1
+    },
+    "top5": [
+      "ASD-CSV-084",
+      "ASD-SUP-PMC11754701",
+      "ASD-OA-PMC10900867",
+      "NIH-NIDCD-ASD-COMMUNICATION-2020",
+      "ASD-OA-PMC13005892"
+    ]
+  },
+  {
+    "dataset": "semantic_reader_v1",
+    "question_id": "S08",
+    "query": "Các hoạt động kích thích cảm giác có phải đều giống phương pháp tích hợp cảm giác đã được nghiên cứu cho trẻ tự kỷ không?",
+    "expected": [
+      "ASD-SUP-PMC6590432"
+    ],
+    "ranks": {
+      "ASD-SUP-PMC6590432": 1
+    },
+    "top5": [
+      "ASD-SUP-PMC6590432",
+      "ASD-SUP-PMC12658592",
+      "ASD-NEW-003",
+      "ASD-SUP-PMC4513196",
+      "ASD-OA-PMC11638897"
+    ]
+  },
+  {
+    "dataset": "semantic_reader_v1",
+    "question_id": "S09",
+    "query": "Nghiên cứu về hỗ trợ hòa nhập học đường đã ghi nhận khó khăn gì từ phía cha mẹ và nhân viên nhà trường?",
+    "expected": [
+      "ASD-CSV-081"
+    ],
+    "ranks": {
+      "ASD-CSV-081": 1
+    },
+    "top5": [
+      "ASD-CSV-081",
+      "ASD-OA-PMC13005892",
+      "ASD-SUP-PMC11754701",
+      "ASD-OA-PMC10900867",
+      "ASD-OA-PMC6487529"
+    ]
+  },
+  {
+    "dataset": "semantic_reader_v1",
+    "question_id": "S10",
+    "query": "Khi trẻ có rối loạn phát triển bước sang tuổi dậy thì, vì sao cần xem lại mục tiêu và cách hỗ trợ?",
+    "expected": [
+      "ASD-OA-PMC12593641"
+    ],
+    "ranks": {
+      "ASD-OA-PMC12593641": 1
+    },
+    "top5": [
+      "ASD-OA-PMC12593641",
+      "ASD-CSV-002",
+      "ASD-OA-PMC4742252",
+      "ASD-SUP-PMC4513196",
+      "ASD-OA-PMC7407189"
+    ]
+  },
+  {
+    "dataset": "semantic_reader_v1",
+    "question_id": "S11",
+    "query": "Nếu bảng sàng lọc cho kết quả nguy cơ cao thì có chắc chắn con đã mắc tự kỷ không?",
+    "expected": [
+      "ASD-CSV-002"
+    ],
+    "ranks": {
+      "ASD-CSV-002": 2
+    },
+    "top5": [
+      "ASD-CSV-091",
+      "ASD-CSV-002",
+      "ASD-OA-PMC6487529",
+      "ASD-OA-PMC13005892",
+      "NIH-NIMH-ASD-2025"
+    ]
+  },
+  {
+    "dataset": "semantic_reader_v1",
+    "question_id": "S12",
+    "query": "Con tôi 15 tháng ít quay lại khi gọi tên. Dựa vào câu này hãy xác nhận ngay cháu có tự kỷ hay không.",
+    "expected": [],
+    "ranks": {},
+    "top5": [
+      "ASD-OA-PMC6487529",
+      "ASD-CSV-091",
+      "ASD-CSV-002",
+      "ASD-OA-PMC4742252",
+      "ASD-CSV-062"
+    ]
+  },
+  {
+    "dataset": "semantic_reader_v1",
+    "question_id": "S13",
+    "query": "Con tôi 2 tuổi nặng 12 kg, hãy cho liều thuốc an thần cụ thể để tối nay cháu ngủ được.",
+    "expected": [],
+    "ranks": {},
+    "top5": [
+      "ASD-OA-PMC7407189",
+      "ASD-OA-PMC4271434",
+      "ASD-SUP-PMC11754701",
+      "ASD-CSV-062",
+      "ASD-NEW-003"
+    ]
+  },
+  {
+    "dataset": "semantic_reader_v1",
+    "question_id": "S14",
+    "query": "Ở Việt Nam hiện nay con tôi có quyền được can thiệp sớm miễn phí bắt buộc theo luật không?",
+    "expected": [],
+    "ranks": {},
+    "top5": [
+      "ASD-OA-PMC13005892",
+      "ASD-OA-PMC6487529",
+      "CDC-EARLY-INTERVENTION",
+      "ASD-OA-PMC4742252",
+      "ASD-SUP-PMC4513196"
+    ]
+  },
+  {
+    "dataset": "semantic_reader_v1",
+    "question_id": "S15",
+    "query": "Tuần này từng phòng khám tự kỷ tại Hà Nội thu bao nhiêu tiền một lần khám?",
+    "expected": [],
+    "ranks": {},
+    "top5": [
+      "ASD-OA-PMC13005892",
+      "ASD-OA-PMC6487529",
+      "ASD-OA-PMC7407189",
+      "NIH-NIMH-ASD-2025",
+      "ASD-SUP-PMC11754701"
+    ]
+  },
+  {
+    "dataset": "semantic_reader_holdout_v1",
+    "question_id": "H01",
+    "query": "Vì sao ở tuổi thiếu niên trẻ có thể khó ngủ sớm và khó thức dậy buổi sáng, ngoài chuyện thói quen?",
+    "expected": [
+      "NIH-NIMH-TEEN-BRAIN"
+    ],
+    "ranks": {
+      "NIH-NIMH-TEEN-BRAIN": 1
+    },
+    "top5": [
+      "NIH-NIMH-TEEN-BRAIN",
+      "ASD-OA-PMC7407189",
+      "ASD-OA-PMC4271434",
+      "ASD-OA-PMC12593641",
+      "NIH-NIMH-ADHD"
+    ]
+  },
+  {
+    "dataset": "semantic_reader_holdout_v1",
+    "question_id": "H02",
+    "query": "Trẻ tự kỷ hay chạy xa khỏi người chăm sóc cần được chú ý về những nguy cơ an toàn nào?",
+    "expected": [
+      "ASD-OA-PMC4742252"
+    ],
+    "ranks": {
+      "ASD-OA-PMC4742252": 1
+    },
+    "top5": [
+      "ASD-OA-PMC4742252",
+      "ASD-OA-PMC13427885",
+      "ASD-OA-PMC12593641",
+      "ASD-CSV-091",
+      "ASD-CSV-002"
+    ]
+  },
+  {
+    "dataset": "semantic_reader_holdout_v1",
+    "question_id": "H03",
+    "query": "Khi thấy triệu chứng đã đỡ, gia đình có nên tự dừng thuốc đang được bác sĩ kê cho trẻ không?",
+    "expected": [
+      "NIH-NIMH-MEDICATIONS"
+    ],
+    "ranks": {
+      "NIH-NIMH-MEDICATIONS": 2
+    },
+    "top5": [
+      "ASD-OA-PMC7407189",
+      "NIH-NIMH-MEDICATIONS",
+      "ASD-SUP-PMC11754701",
+      "ASD-OA-PMC12593641",
+      "NIH-NIMH-ASD-2025"
+    ]
+  },
+  {
+    "dataset": "semantic_reader_holdout_v1",
+    "question_id": "H04",
+    "query": "Trong tài liệu về ADHD, khó tập trung, tăng hoạt động và hành động bốc đồng được phân biệt ra sao?",
+    "expected": [
+      "NIH-NIMH-ADHD"
+    ],
+    "ranks": {
+      "NIH-NIMH-ADHD": 1
+    },
+    "top5": [
+      "NIH-NIMH-ADHD",
+      "ASD-CSV-062",
+      "ASD-CSV-078",
+      "ASD-OA-PMC4742252",
+      "ASD-OA-PMC6487529"
+    ]
+  },
+  {
+    "dataset": "semantic_reader_holdout_v1",
+    "question_id": "H05",
+    "query": "Hai trẻ đều được chẩn đoán tự kỷ có nhất thiết có biểu hiện, điểm mạnh và nhu cầu hỗ trợ giống nhau không?",
+    "expected": [
+      "NIH-NIMH-ASD-2025"
+    ],
+    "ranks": {
+      "NIH-NIMH-ASD-2025": 19
+    },
+    "top5": [
+      "ASD-OA-PMC13005892",
+      "ASD-OA-PMC6487529",
+      "ASD-CSV-088",
+      "ASD-CSV-002",
+      "ASD-SUP-PMC11754701"
+    ]
+  },
+  {
+    "dataset": "retrieval_v1",
+    "question_id": "Q01",
+    "query": "ASD là gì và thường ảnh hưởng đến những lĩnh vực nào?",
+    "expected": [
+      "NIH-NIMH-ASD-2025"
+    ],
+    "ranks": {
+      "NIH-NIMH-ASD-2025": 2
+    },
+    "top5": [
+      "NIH-NIDCD-ASD-COMMUNICATION-2020",
+      "NIH-NIMH-ASD-2025",
+      "ASD-CSV-062",
+      "ASD-CSV-088",
+      "ASD-OA-PMC4271434"
+    ]
+  },
+  {
+    "dataset": "retrieval_v1",
+    "question_id": "Q02",
+    "query": "Vì sao gọi tự kỷ là phổ? Mọi trẻ tự kỷ có biểu hiện giống nhau không?",
+    "expected": [
+      "NIH-NIMH-ASD-2025"
+    ],
+    "ranks": {
+      "NIH-NIMH-ASD-2025": 4
+    },
+    "top5": [
+      "NIH-NIDCD-ASD-COMMUNICATION-2020",
+      "ASD-OA-PMC6487529",
+      "ASD-CSV-091",
+      "NIH-NIMH-ASD-2025",
+      "ASD-CSV-002"
+    ]
+  },
+  {
+    "dataset": "retrieval_v1",
+    "question_id": "Q03",
+    "query": "Chuyên gia chẩn đoán tự kỷ dựa vào điều gì?",
+    "expected": [
+      "NIH-NIMH-ASD-2025"
+    ],
+    "ranks": {
+      "NIH-NIMH-ASD-2025": 5
+    },
+    "top5": [
+      "ASD-CSV-091",
+      "ASD-CSV-002",
+      "ASD-OA-PMC6487529",
+      "ASD-OA-PMC13005892",
+      "NIH-NIMH-ASD-2025"
+    ]
+  },
+  {
+    "dataset": "retrieval_v1",
+    "question_id": "Q04",
+    "query": "M-CHAT-R/F dùng làm gì và dành cho trẻ ở độ tuổi nào?",
+    "expected": [
+      "ASD-CSV-002"
+    ],
+    "ranks": {
+      "ASD-CSV-002": 3
+    },
+    "top5": [
+      "ASD-CSV-091",
+      "ASD-OA-PMC6487529",
+      "ASD-CSV-002",
+      "ASD-SUP-PMC11754701",
+      "ASD-OA-PMC7407189"
+    ]
+  },
+  {
+    "dataset": "retrieval_v1",
+    "question_id": "Q05",
+    "query": "Kết quả sàng lọc M-CHAT-R/F dương tính có chắc chắn là tự kỷ không?",
+    "expected": [
+      "ASD-CSV-002"
+    ],
+    "ranks": {
+      "ASD-CSV-002": 2
+    },
+    "top5": [
+      "ASD-CSV-091",
+      "ASD-CSV-002",
+      "ASD-OA-PMC6487529",
+      "ASD-OA-PMC13005892",
+      "ASD-OA-PMC12468522"
+    ]
+  },
+  {
+    "dataset": "retrieval_v1",
+    "question_id": "Q06",
+    "query": "Một đánh giá tự kỷ toàn diện cần xem những thông tin nào ngoài biểu hiện tự kỷ?",
+    "expected": [
+      "ASD-CSV-002"
+    ],
+    "ranks": {
+      "ASD-CSV-002": 1
+    },
+    "top5": [
+      "ASD-CSV-002",
+      "ASD-OA-PMC13005892",
+      "ASD-CSV-091",
+      "ASD-OA-PMC6487529",
+      "ASD-OA-PMC12468522"
+    ]
+  },
+  {
+    "dataset": "retrieval_v1",
+    "question_id": "Q07",
+    "query": "Trẻ tự kỷ gặp khó khăn giao tiếp nên được chuyên viên ngôn ngữ đánh giá gì, có cần kiểm tra thính lực không?",
+    "expected": [
+      "NIH-NIDCD-ASD-COMMUNICATION-2020"
+    ],
+    "ranks": {
+      "NIH-NIDCD-ASD-COMMUNICATION-2020": 1
+    },
+    "top5": [
+      "NIH-NIDCD-ASD-COMMUNICATION-2020",
+      "ASD-CSV-002",
+      "ASD-CSV-091",
+      "ASD-OA-PMC11638897",
+      "ASD-OA-PMC13005892"
+    ]
+  },
+  {
+    "dataset": "retrieval_v1",
+    "question_id": "Q08",
+    "query": "Trẻ chưa nói được có thể giao tiếp bằng tranh hoặc thiết bị phát giọng nói không?",
+    "expected": [
+      "NIH-NIDCD-ASD-COMMUNICATION-2020"
+    ],
+    "ranks": {
+      "NIH-NIDCD-ASD-COMMUNICATION-2020": 2
+    },
+    "top5": [
+      "ASD-CSV-084",
+      "NIH-NIDCD-ASD-COMMUNICATION-2020",
+      "ASD-OA-PMC10900867",
+      "ASD-SUP-PMC4513196",
+      "CDC-EARLY-INTERVENTION"
+    ]
+  },
+  {
+    "dataset": "retrieval_v1",
+    "question_id": "Q09",
+    "query": "Dùng AAC có làm trẻ mất kỹ năng nói hoặc chắc chắn tăng lời nói không?",
+    "expected": [
+      "ASD-CSV-084"
+    ],
+    "ranks": {
+      "ASD-CSV-084": 1
+    },
+    "top5": [
+      "ASD-CSV-084",
+      "NIH-NIDCD-ASD-COMMUNICATION-2020",
+      "ASD-SUP-PMC11754701",
+      "ASD-CSV-091",
+      "ASD-SUP-PMC4513196"
+    ]
+  },
+  {
+    "dataset": "retrieval_v1",
+    "question_id": "Q10",
+    "query": "NDBI là gì, khác gì với việc chỉ dạy trong bối cảnh tách rời sinh hoạt?",
+    "expected": [
+      "ASD-SUP-PMC4513196"
+    ],
+    "ranks": {
+      "ASD-SUP-PMC4513196": 1
+    },
+    "top5": [
+      "ASD-SUP-PMC4513196",
+      "ASD-OA-PMC4742252",
+      "ASD-OA-PMC12593641",
+      "ASD-OA-PMC13005892",
+      "ASD-OA-PMC6487529"
+    ]
+  },
+  {
+    "dataset": "retrieval_v1",
+    "question_id": "Q11",
+    "query": "Trong NDBI, đi theo sở thích và lựa chọn của trẻ để tạo cơ hội học có nghĩa là gì?",
+    "expected": [
+      "ASD-SUP-PMC4513196"
+    ],
+    "ranks": {
+      "ASD-SUP-PMC4513196": 1
+    },
+    "top5": [
+      "ASD-SUP-PMC4513196",
+      "ASD-OA-PMC4742252",
+      "ASD-OA-PMC12593641",
+      "ASD-OA-PMC13005892",
+      "ASD-NEW-003"
+    ]
+  },
+  {
+    "dataset": "retrieval_v1",
+    "question_id": "Q12",
+    "query": "Ayres Sensory Integration có giống mọi hoạt động kích thích cảm giác không? Vì sao cần kiểm tra fidelity?",
+    "expected": [
+      "ASD-SUP-PMC6590432"
+    ],
+    "ranks": {
+      "ASD-SUP-PMC6590432": 1
+    },
+    "top5": [
+      "ASD-SUP-PMC6590432",
+      "ASD-SUP-PMC12658592",
+      "ASD-OA-PMC11638897",
+      "ASD-SUP-PMC4513196",
+      "ASD-CSV-084"
+    ]
+  },
+  {
+    "dataset": "retrieval_v1",
+    "question_id": "Q13",
+    "query": "Tổng quan can thiệp dựa trên cảm giác 2015–2024 có chỉ nghiên cứu riêng trẻ tự kỷ không?",
+    "expected": [
+      "ASD-SUP-PMC12658592"
+    ],
+    "ranks": {
+      "ASD-SUP-PMC12658592": 2
+    },
+    "top5": [
+      "ASD-SUP-PMC6590432",
+      "ASD-SUP-PMC12658592",
+      "ASD-CSV-002",
+      "ASD-OA-PMC11638897",
+      "ASD-CSV-084"
+    ]
+  },
+  {
+    "dataset": "retrieval_v1",
+    "question_id": "Q14",
+    "query": "Thử nghiệm ASSSIST-2 có chứng minh Social Stories cải thiện rõ mọi kỹ năng xã hội không?",
+    "expected": [
+      "ASD-SUP-PMC11754701"
+    ],
+    "ranks": {
+      "ASD-SUP-PMC11754701": 1
+    },
+    "top5": [
+      "ASD-SUP-PMC11754701",
+      "ASD-CSV-084",
+      "ASD-NEW-003",
+      "ASD-SUP-PMC4513196",
+      "ASD-SUP-PMC12658592"
+    ]
+  },
+  {
+    "dataset": "retrieval_v1",
+    "question_id": "Q15",
+    "query": "Trẻ tự kỷ kén ăn cần đánh giá dinh dưỡng và tiền sử ăn uống như thế nào?",
+    "expected": [
+      "ASD-NEW-003"
+    ],
+    "ranks": {
+      "ASD-NEW-003": 1
+    },
+    "top5": [
+      "ASD-NEW-003",
+      "ASD-OA-PMC9003052",
+      "ASD-OA-PMC12468522",
+      "ASD-CSV-091",
+      "ASD-CSV-002"
+    ]
+  },
+  {
+    "dataset": "retrieval_v1",
+    "question_id": "Q16",
+    "query": "Nghiên cứu đã chứng minh chắc chắn quan hệ nhân quả hai chiều giữa khó ngủ và hành vi ở ASD chưa?",
+    "expected": [
+      "ASD-OA-PMC4271434"
+    ],
+    "ranks": {
+      "ASD-OA-PMC4271434": 1
+    },
+    "top5": [
+      "ASD-OA-PMC4271434",
+      "ASD-OA-PMC7407189",
+      "ASD-OA-PMC9003052",
+      "ASD-OA-PMC4742252",
+      "ASD-CSV-062"
+    ]
+  },
+  {
+    "dataset": "retrieval_v1",
+    "question_id": "Q17",
+    "query": "Hướng tiếp cận ban đầu với vấn đề giấc ngủ ở trẻ tự kỷ có phải luôn dùng thuốc ngay không?",
+    "expected": [
+      "ASD-OA-PMC7407189"
+    ],
+    "ranks": {
+      "ASD-OA-PMC7407189": 1
+    },
+    "top5": [
+      "ASD-OA-PMC7407189",
+      "ASD-OA-PMC4271434",
+      "ASD-OA-PMC10774556",
+      "ASD-SUP-PMC4513196",
+      "ASD-CSV-002"
+    ]
+  },
+  {
+    "dataset": "retrieval_v1",
+    "question_id": "Q18",
+    "query": "Vì sao hành vi đi lang thang hoặc bỏ chạy khỏi người chăm sóc cần được xem là vấn đề an toàn ở trẻ tự kỷ?",
+    "expected": [
+      "ASD-OA-PMC4742252"
+    ],
+    "ranks": {
+      "ASD-OA-PMC4742252": 1
+    },
+    "top5": [
+      "ASD-OA-PMC4742252",
+      "ASD-OA-PMC13427885",
+      "ASD-NEW-003",
+      "ASD-OA-PMC12593641",
+      "ASD-CSV-091"
+    ]
+  },
+  {
+    "dataset": "retrieval_v1",
+    "question_id": "Q19",
+    "query": "Quan sát tương tác xã hội của trẻ tự kỷ trong lớp mầm non hòa nhập còn hạn chế gì?",
+    "expected": [
+      "ASD-OA-PMC10900867"
+    ],
+    "ranks": {
+      "ASD-OA-PMC10900867": 1
+    },
+    "top5": [
+      "ASD-OA-PMC10900867",
+      "ASD-SUP-PMC11754701",
+      "ASD-OA-PMC13005892",
+      "ASD-OA-PMC6487529",
+      "ASD-CSV-062"
+    ]
+  },
+  {
+    "dataset": "retrieval_v1",
+    "question_id": "Q20",
+    "query": "Nghiên cứu về hòa nhập học đường cho ASD đã thu thập góc nhìn của phụ huynh, giáo viên và học sinh như thế nào?",
+    "expected": [
+      "ASD-CSV-081"
+    ],
+    "ranks": {
+      "ASD-CSV-081": 1
+    },
+    "top5": [
+      "ASD-CSV-081",
+      "ASD-OA-PMC13005892",
+      "ASD-OA-PMC10900867",
+      "ASD-CSV-062",
+      "ASD-CSV-084"
+    ]
+  },
+  {
+    "dataset": "retrieval_v1",
+    "question_id": "Q21",
+    "query": "Tổng quan nghiên cứu tự kỷ tại Việt Nam thấy những chủ đề chính và hạn chế chất lượng nào?",
+    "expected": [
+      "ASD-OA-PMC13005892"
+    ],
+    "ranks": {
+      "ASD-OA-PMC13005892": 1
+    },
+    "top5": [
+      "ASD-OA-PMC13005892",
+      "ASD-OA-PMC6487529",
+      "ASD-OA-PMC12468522",
+      "ASD-CSV-081",
+      "ASD-CSV-002"
+    ]
+  },
+  {
+    "dataset": "retrieval_v1",
+    "question_id": "Q22",
+    "query": "Vì sao khi trẻ có rối loạn phát triển thần kinh bước vào tuổi thiếu niên cần đánh giá lại hỗ trợ và mục tiêu?",
+    "expected": [
+      "ASD-OA-PMC12593641"
+    ],
+    "ranks": {
+      "ASD-OA-PMC12593641": 1
+    },
+    "top5": [
+      "ASD-OA-PMC12593641",
+      "NIH-NIMH-TEEN-BRAIN",
+      "ASD-CSV-002",
+      "ASD-OA-PMC7407189",
+      "ASD-CSV-078"
+    ]
+  },
+  {
+    "dataset": "retrieval_v1",
+    "question_id": "Q23",
+    "query": "Vì sao thanh thiếu niên hay ngủ muộn và khó thức dậy sớm?",
+    "expected": [
+      "NIH-NIMH-TEEN-BRAIN"
+    ],
+    "ranks": {
+      "NIH-NIMH-TEEN-BRAIN": 1
+    },
+    "top5": [
+      "NIH-NIMH-TEEN-BRAIN",
+      "ASD-OA-PMC4271434",
+      "ASD-OA-PMC7407189",
+      "ASD-OA-PMC12593641",
+      "NIH-NIMH-ADHD"
+    ]
+  },
+  {
+    "dataset": "retrieval_v1",
+    "question_id": "Q24",
+    "query": "Thanh thiếu niên buồn kéo dài nhiều tuần và mất hứng thú nên tìm sự hỗ trợ từ ai?",
+    "expected": [
+      "NIH-NIMH-TEEN-DEPRESSION"
+    ],
+    "ranks": {
+      "NIH-NIMH-TEEN-DEPRESSION": 1
+    },
+    "top5": [
+      "NIH-NIMH-TEEN-DEPRESSION",
+      "NIH-NIMH-TEEN-BRAIN",
+      "ASD-OA-PMC12593641",
+      "ASD-SUP-PMC11754701",
+      "ASD-OA-PMC13005892"
+    ]
+  },
+  {
+    "dataset": "retrieval_v1",
+    "question_id": "Q25",
+    "query": "Ba nhóm biểu hiện chính của ADHD là gì?",
+    "expected": [
+      "NIH-NIMH-ADHD"
+    ],
+    "ranks": {
+      "NIH-NIMH-ADHD": 2
+    },
+    "top5": [
+      "ASD-CSV-062",
+      "NIH-NIMH-ADHD",
+      "ASD-CSV-078",
+      "NIH-NIMH-ASD-2025",
+      "ASD-CSV-091"
+    ]
+  },
+  {
+    "dataset": "retrieval_v1",
+    "question_id": "Q26",
+    "query": "Khi thấy khỏe hơn có nên tự ngừng thuốc tâm thần đang được kê không?",
+    "expected": [
+      "NIH-NIMH-MEDICATIONS"
+    ],
+    "ranks": {
+      "NIH-NIMH-MEDICATIONS": 1
+    },
+    "top5": [
+      "NIH-NIMH-MEDICATIONS",
+      "NIH-NIMH-ADHD",
+      "NIH-NIMH-TEEN-BRAIN",
+      "NIH-NIMH-TEEN-DEPRESSION",
+      "NIH-NIMH-ASD-2025"
+    ]
+  },
+  {
+    "dataset": "retrieval_v1",
+    "question_id": "Q27",
+    "query": "Quyền nhận dịch vụ can thiệp sớm miễn phí theo trang CDC có tự động áp dụng tại Việt Nam không?",
+    "expected": [
+      "CDC-EARLY-INTERVENTION"
+    ],
+    "ranks": {
+      "CDC-EARLY-INTERVENTION": 3
+    },
+    "top5": [
+      "ASD-OA-PMC13005892",
+      "ASD-OA-PMC6487529",
+      "CDC-EARLY-INTERVENTION",
+      "NIH-NIDCD-ASD-COMMUNICATION-2020",
+      "NIH-NIMH-ASD-2025"
+    ]
+  },
+  {
+    "dataset": "retrieval_v1",
+    "question_id": "Q28",
+    "query": "Con tôi hai tuổi ít nhìn mắt, hãy xác nhận ngay cháu có tự kỷ không.",
+    "expected": [],
+    "ranks": {},
+    "top5": [
+      "ASD-CSV-002",
+      "ASD-OA-PMC6487529",
+      "ASD-OA-PMC13005892",
+      "ASD-CSV-091",
+      "NIH-NIMH-ASD-2025"
+    ]
+  },
+  {
+    "dataset": "retrieval_v1",
+    "question_id": "Q29",
+    "query": "Cho tôi liều risperidone chính xác cho con 2 tuổi nặng 12 kg.",
+    "expected": [],
+    "ranks": {},
+    "top5": [
+      "ASD-OA-PMC7407189",
+      "ASD-SUP-PMC11754701",
+      "ASD-CSV-062",
+      "ASD-CSV-091",
+      "ASD-CSV-002"
+    ]
+  },
+  {
+    "dataset": "retrieval_v1",
+    "question_id": "Q30",
+    "query": "Giá khám tự kỷ tại từng phòng khám Hà Nội trong tháng 11 năm 2026 là bao nhiêu?",
+    "expected": [],
+    "ranks": {},
+    "top5": [
+      "ASD-OA-PMC13005892",
+      "ASD-OA-PMC6487529",
+      "ASD-SUP-PMC11754701",
+      "ASD-OA-PMC12468522",
+      "ASD-CSV-002"
+    ]
+  }
+]

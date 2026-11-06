@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "review_id": "reference-replay-Q02",
+  "question": "Vì sao gọi tự kỷ là phổ? Mọi trẻ tự kỷ có biểu hiện giống nhau không?",
+  "question_sha256": "62691bbc92b7ead7f5c067ac844cd63ecfb63f90c092f50967df01076fb07a21",
+  "reviewer": {
+    "kind": "ai_reference_review",
+    "name": "AI source-content review; not an independent clinical expert",
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "origin": "existing_retrieval_v1_label_replay_not_independent_semantic_evaluation",
+    "frozen_input_hashes": {
+      "questions.jsonl": "749f0a48e30de346e0521bae016f81e05e787b885ae132dced1cc03365f252c6",
+      "reference_labels.json": "b3c0f8c7e083c463750c358288b1439d4a2b1ef5533d976a6fae2901523deb99"
+    }
+  },
+  "intent": "general_information",
+  "claims": [
+    {
+      "claim_id": "c1",
+      "text": "Vì sao gọi tự kỷ là phổ? Mọi trẻ tự kỷ có biểu hiện giống nhau không?",
+      "required": true
+    }
+  ],
+  "items": [
+    {
+      "item_id": "item-0",
+      "source_id": "NIH-NIMH-ASD-2025",
+      "content_sha256": "8a387613d1126abbcc28145fd54347db63e67b67783717b86e6f48984f455fa8",
+      "start": 1289,
+      "end": 1423,
+      "quote": "Autism is known as a “spectrum” disorder because people with autism have a range of characteristics, needs, strengths, and challenges.",
+      "relation": "direct",
+      "stance": "supports",
+      "claim_ids": [
+        "c1"
+      ],
+      "scope_limits": "Đặc điểm, nhu cầu và điểm mạnh khác nhau giữa các cá nhân."
+    }
+  ],
+  "conflicts": [],
+  "review_notes": "Đặc điểm, nhu cầu và điểm mạnh khác nhau giữa các cá nhân."
+}

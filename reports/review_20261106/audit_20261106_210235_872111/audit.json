@@ -1,0 +1,488 @@
+{
+  "recorded_at": "2026-11-06T21:02:35.872383+07:00",
+  "provider_calls": 0,
+  "limitations": [
+    "Cached replay is not a new model evaluation or a production benchmark."
+  ],
+  "health": {
+    "status": "ok",
+    "collection_id": "asd_fulltext_33_20261030_26eb017efca5",
+    "space_id": "cohere4_whole_1536_e83c596b9070",
+    "documents": 33,
+    "vectors": 33,
+    "dimensions": 1536,
+    "read_only": true,
+    "whole_document": true,
+    "clinical_reviewed": false,
+    "production_ingest": false
+  },
+  "retrieval": {
+    "dataset_rows": 73,
+    "unique_queries": 67,
+    "reader_rows": {
+      "n": 34,
+      "hit@1": 0.6470588235294118,
+      "hit@3": 0.8529411764705882,
+      "hit@5": 0.9117647058823529,
+      "hit@10": 0.9117647058823529,
+      "mrr": 0.7579979360165119
+    },
+    "all_rows": {
+      "n": 61,
+      "hit@1": 0.6557377049180327,
+      "hit@3": 0.8852459016393442,
+      "hit@5": 0.9508196721311475,
+      "hit@10": 0.9508196721311475,
+      "mrr": 0.7768622375611159
+    },
+    "unique_queries_union_references": {
+      "n": 55,
+      "hit@1": 0.6545454545454545,
+      "hit@3": 0.8909090909090909,
+      "hit@5": 0.9636363636363636,
+      "hit@10": 0.9636363636363636,
+      "mrr": 0.7788357256778309
+    },
+    "by_dataset": {
+      "reader_v3_development": {
+        "n": 6,
+        "hit@1": 0.6666666666666666,
+        "hit@3": 0.8333333333333334,
+        "hit@5": 0.8333333333333334,
+        "hit@10": 0.8333333333333334,
+        "mrr": 0.7587719298245613
+      },
+      "reader_v3_final_holdout": {
+        "n": 4,
+        "hit@1": 0.75,
+        "hit@3": 0.75,
+        "hit@5": 1.0,
+        "hit@10": 1.0,
+        "mrr": 0.8
+      },
+      "reader_v3_holdout": {
+        "n": 8,
+        "hit@1": 0.5,
+        "hit@3": 0.875,
+        "hit@5": 0.875,
+        "hit@10": 0.875,
+        "mrr": 0.6520833333333333
+      },
+      "retrieval_v1": {
+        "n": 27,
+        "hit@1": 0.6666666666666666,
+        "hit@3": 0.9259259259259259,
+        "hit@5": 1.0,
+        "hit@10": 1.0,
+        "mrr": 0.8006172839506173
+      },
+      "semantic_reader_holdout_v1": {
+        "n": 5,
+        "hit@1": 0.6,
+        "hit@3": 0.8,
+        "hit@5": 0.8,
+        "hit@10": 0.8,
+        "mrr": 0.7105263157894737
+      },
+      "semantic_reader_v1": {
+        "n": 11,
+        "hit@1": 0.7272727272727273,
+        "hit@3": 0.9090909090909091,
+        "hit@5": 1.0,
+        "hit@10": 1.0,
+        "mrr": 0.8409090909090909
+      }
+    },
+    "misses": [
+      {
+        "dataset": "reader_v3_development",
+        "question_id": "H05",
+        "query": "Hai trẻ đều được chẩn đoán tự kỷ có nhất thiết có biểu hiện, điểm mạnh và nhu cầu hỗ trợ giống nhau không?",
+        "expected": [
+          "NIH-NIMH-ASD-2025"
+        ],
+        "ranks": {
+          "NIH-NIMH-ASD-2025": 19
+        },
+        "top5": [
+          "ASD-OA-PMC13005892",
+          "ASD-OA-PMC6487529",
+          "ASD-CSV-088",
+          "ASD-CSV-002",
+          "ASD-SUP-PMC11754701"
+        ]
+      },
+      {
+        "dataset": "reader_v3_holdout",
+        "question_id": "N02",
+        "query": "Khi giáo viên nhận thấy trẻ tuổi đi học khó hiểu giọng điệu, nét mặt hoặc lối nói bóng, tài liệu mô tả việc nhận diện và đánh giá tiếp theo ra sao?",
+        "expected": [
+          "NIH-NIMH-ASD-2025"
+        ],
+        "ranks": {
+          "NIH-NIMH-ASD-2025": 20
+        },
+        "top5": [
+          "ASD-CSV-002",
+          "ASD-OA-PMC13005892",
+          "ASD-OA-PMC6487529",
+          "ASD-CSV-091",
+          "ASD-SUP-PMC11754701"
+        ]
+      },
+      {
+        "dataset": "semantic_reader_holdout_v1",
+        "question_id": "H05",
+        "query": "Hai trẻ đều được chẩn đoán tự kỷ có nhất thiết có biểu hiện, điểm mạnh và nhu cầu hỗ trợ giống nhau không?",
+        "expected": [
+          "NIH-NIMH-ASD-2025"
+        ],
+        "ranks": {
+          "NIH-NIMH-ASD-2025": 19
+        },
+        "top5": [
+          "ASD-OA-PMC13005892",
+          "ASD-OA-PMC6487529",
+          "ASD-CSV-088",
+          "ASD-CSV-002",
+          "ASD-SUP-PMC11754701"
+        ]
+      }
+    ],
+    "note": "Hit means at least one reference source; reference lists are non-exhaustive. Union labels only for descriptive deduplication."
+  },
+  "v3_replay": {
+    "n": 23,
+    "provisional_agreement": 20,
+    "results": [
+      {
+        "question_id": "S05",
+        "assessment": "sufficient",
+        "reference_status_agreement": true,
+        "reference_span_overlap_used": false,
+        "expected_source_in_top5": true
+      },
+      {
+        "question_id": "S07",
+        "assessment": "partially_sufficient",
+        "reference_status_agreement": true,
+        "reference_span_overlap_used": true,
+        "expected_source_in_top5": true
+      },
+      {
+        "question_id": "S08",
+        "assessment": "sufficient",
+        "reference_status_agreement": true,
+        "reference_span_overlap_used": false,
+        "expected_source_in_top5": true
+      },
+      {
+        "question_id": "H03",
+        "assessment": "sufficient",
+        "reference_status_agreement": true,
+        "reference_span_overlap_used": true,
+        "expected_source_in_top5": true
+      },
+      {
+        "question_id": "H04",
+        "assessment": "sufficient",
+        "reference_status_agreement": true,
+        "reference_span_overlap_used": true,
+        "expected_source_in_top5": true
+      },
+      {
+        "question_id": "H05",
+        "assessment": "insufficient",
+        "reference_status_agreement": false,
+        "reference_span_overlap_used": false,
+        "expected_source_in_top5": false
+      },
+      {
+        "question_id": "N01",
+        "assessment": "sufficient",
+        "reference_status_agreement": true,
+        "reference_span_overlap_used": true,
+        "expected_source_in_top5": true
+      },
+      {
+        "question_id": "N02",
+        "assessment": "insufficient",
+        "reference_status_agreement": false,
+        "reference_span_overlap_used": false,
+        "expected_source_in_top5": false
+      },
+      {
+        "question_id": "N03",
+        "assessment": "sufficient",
+        "reference_status_agreement": true,
+        "reference_span_overlap_used": true,
+        "expected_source_in_top5": true
+      },
+      {
+        "question_id": "N04",
+        "assessment": "partially_sufficient",
+        "reference_status_agreement": true,
+        "reference_span_overlap_used": true,
+        "expected_source_in_top5": true
+      },
+      {
+        "question_id": "N05",
+        "assessment": "sufficient",
+        "reference_status_agreement": true,
+        "reference_span_overlap_used": true,
+        "expected_source_in_top5": true
+      },
+      {
+        "question_id": "N06",
+        "assessment": "sufficient",
+        "reference_status_agreement": true,
+        "reference_span_overlap_used": true,
+        "expected_source_in_top5": true
+      },
+      {
+        "question_id": "N07",
+        "assessment": "sufficient",
+        "reference_status_agreement": true,
+        "reference_span_overlap_used": true,
+        "expected_source_in_top5": true
+      },
+      {
+        "question_id": "N08",
+        "assessment": "sufficient",
+        "reference_status_agreement": true,
+        "reference_span_overlap_used": true,
+        "expected_source_in_top5": true
+      },
+      {
+        "question_id": "N09",
+        "assessment": "insufficient",
+        "reference_status_agreement": true,
+        "reference_span_overlap_used": null,
+        "expected_source_in_top5": null
+      },
+      {
+        "question_id": "N10",
+        "assessment": "insufficient",
+        "reference_status_agreement": true,
+        "reference_span_overlap_used": null,
+        "expected_source_in_top5": null
+      },
+      {
+        "question_id": "N11",
+        "assessment": "insufficient",
+        "reference_status_agreement": true,
+        "reference_span_overlap_used": null,
+        "expected_source_in_top5": null
+      },
+      {
+        "question_id": "N12",
+        "assessment": "insufficient",
+        "reference_status_agreement": true,
+        "reference_span_overlap_used": null,
+        "expected_source_in_top5": null
+      },
+      {
+        "question_id": "F01",
+        "assessment": "sufficient",
+        "reference_status_agreement": true,
+        "reference_span_overlap_used": true,
+        "expected_source_in_top5": true
+      },
+      {
+        "question_id": "F02",
+        "assessment": "partially_sufficient",
+        "reference_status_agreement": false,
+        "reference_span_overlap_used": true,
+        "expected_source_in_top5": true
+      },
+      {
+        "question_id": "F03",
+        "assessment": "sufficient",
+        "reference_status_agreement": true,
+        "reference_span_overlap_used": true,
+        "expected_source_in_top5": true
+      },
+      {
+        "question_id": "F04",
+        "assessment": "sufficient",
+        "reference_status_agreement": true,
+        "reference_span_overlap_used": true,
+        "expected_source_in_top5": true
+      },
+      {
+        "question_id": "F05",
+        "assessment": "insufficient",
+        "reference_status_agreement": true,
+        "reference_span_overlap_used": null,
+        "expected_source_in_top5": null
+      }
+    ],
+    "all_calls_cached": true
+  },
+  "development_history": {
+    "runs": 23,
+    "attempts": 156,
+    "errors": {
+      "reader_no_context": 6,
+      "nim_http": 4,
+      "nim_network": 4,
+      "v3_verifier_schema": 5,
+      "v3_selection_schema": 1,
+      "v3_plan_schema": 2
+    },
+    "note": "Mixed development versions, repeated questions, cached and live calls; not an estimate of serving reliability."
+  },
+  "historical_stage_timings": {
+    "n_unique_requests": 112,
+    "median": 9.8845,
+    "maximum": 55.046,
+    "note": "Original per-request elapsed_seconds retained in cached telemetry; not end-to-end latency."
+  },
+  "selected_historical_request_costs": [
+    {
+      "question_id": "S05",
+      "calls": 3,
+      "sum_original_stage_seconds": 25.073,
+      "input_tokens": 31317
+    },
+    {
+      "question_id": "S07",
+      "calls": 3,
+      "sum_original_stage_seconds": 40.645,
+      "input_tokens": 28930
+    },
+    {
+      "question_id": "S08",
+      "calls": 3,
+      "sum_original_stage_seconds": 26.719,
+      "input_tokens": 38590
+    },
+    {
+      "question_id": "H03",
+      "calls": 3,
+      "sum_original_stage_seconds": 10.367,
+      "input_tokens": 26335
+    },
+    {
+      "question_id": "H04",
+      "calls": 3,
+      "sum_original_stage_seconds": 44.319,
+      "input_tokens": 25132
+    },
+    {
+      "question_id": "H05",
+      "calls": 4,
+      "sum_original_stage_seconds": 26.614,
+      "input_tokens": 49545
+    },
+    {
+      "question_id": "N01",
+      "calls": 3,
+      "sum_original_stage_seconds": 17.377,
+      "input_tokens": 22651
+    },
+    {
+      "question_id": "N02",
+      "calls": 3,
+      "sum_original_stage_seconds": 17.528,
+      "input_tokens": 29702
+    },
+    {
+      "question_id": "N03",
+      "calls": 3,
+      "sum_original_stage_seconds": 36.492,
+      "input_tokens": 28030
+    },
+    {
+      "question_id": "N04",
+      "calls": 3,
+      "sum_original_stage_seconds": 61.275,
+      "input_tokens": 31806
+    },
+    {
+      "question_id": "N05",
+      "calls": 3,
+      "sum_original_stage_seconds": 32.612,
+      "input_tokens": 26777
+    },
+    {
+      "question_id": "N06",
+      "calls": 3,
+      "sum_original_stage_seconds": 40.198,
+      "input_tokens": 28563
+    },
+    {
+      "question_id": "N07",
+      "calls": 4,
+      "sum_original_stage_seconds": 44.133,
+      "input_tokens": 41074
+    },
+    {
+      "question_id": "N08",
+      "calls": 3,
+      "sum_original_stage_seconds": 21.338,
+      "input_tokens": 20938
+    },
+    {
+      "question_id": "N09",
+      "calls": 1,
+      "sum_original_stage_seconds": 27.808,
+      "input_tokens": 429
+    },
+    {
+      "question_id": "N10",
+      "calls": 1,
+      "sum_original_stage_seconds": 20.019,
+      "input_tokens": 424
+    },
+    {
+      "question_id": "N11",
+      "calls": 1,
+      "sum_original_stage_seconds": 10.458,
+      "input_tokens": 428
+    },
+    {
+      "question_id": "N12",
+      "calls": 1,
+      "sum_original_stage_seconds": 9.712,
+      "input_tokens": 428
+    },
+    {
+      "question_id": "F01",
+      "calls": 3,
+      "sum_original_stage_seconds": 26.28,
+      "input_tokens": 20818
+    },
+    {
+      "question_id": "F02",
+      "calls": 3,
+      "sum_original_stage_seconds": 37.308,
+      "input_tokens": 28165
+    },
+    {
+      "question_id": "F03",
+      "calls": 4,
+      "sum_original_stage_seconds": 54.057,
+      "input_tokens": 26542
+    },
+    {
+      "question_id": "F04",
+      "calls": 3,
+      "sum_original_stage_seconds": 24.721,
+      "input_tokens": 23666
+    },
+    {
+      "question_id": "F05",
+      "calls": 1,
+      "sum_original_stage_seconds": 51.64,
+      "input_tokens": 426
+    }
+  ],
+  "clinical_queue": {
+    "n": 33,
+    "named_reviewers": 0,
+    "decisions": 0
+  },
+  "database_snapshot_unchanged": true,
+  "protected_files_unchanged": true
+}

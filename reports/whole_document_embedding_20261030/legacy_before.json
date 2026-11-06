@@ -1,0 +1,22 @@
+{
+  "collections": {
+    "rows": 2,
+    "row_hashes_sha256": "17500efa8bde365620b3122ee793d8a44ae826fa1cb15edb217ace40ac5db42f"
+  },
+  "documents": {
+    "rows": 117,
+    "row_hashes_sha256": "995747e6f0bfc878a0f34dc3ebc1c28a8af0dbb865b0672c305247503c0e90a6"
+  },
+  "embedding_spaces": {
+    "rows": 1,
+    "row_hashes_sha256": "56cf82afb9fb32254d590bedf62477775fec20f58a03615d9e7a9976b91ca465"
+  },
+  "embeddings": {
+    "rows": 7,
+    "row_hashes_sha256": "694418a6a88474275ed367e8cc7687cbaf4f62acb9ef8cbdc6d9fdb009e67e48"
+  },
+  "curated_chunks": {
+    "rows": 113,
+    "row_hashes_sha256": "f6f544f0a7897d393bfb86167d022ffb01748c8036b29f24a8670c8f79cba094"
+  }
+}

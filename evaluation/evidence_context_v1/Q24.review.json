@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "review_id": "reference-replay-Q24",
+  "question": "Thanh thiếu niên buồn kéo dài nhiều tuần và mất hứng thú nên tìm sự hỗ trợ từ ai?",
+  "question_sha256": "ac65972e33277508c534b6a358ede703f627aa82bab375092359d58e46089cd6",
+  "reviewer": {
+    "kind": "ai_reference_review",
+    "name": "AI source-content review; not an independent clinical expert",
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "origin": "existing_retrieval_v1_label_replay_not_independent_semantic_evaluation",
+    "frozen_input_hashes": {
+      "questions.jsonl": "749f0a48e30de346e0521bae016f81e05e787b885ae132dced1cc03365f252c6",
+      "reference_labels.json": "b3c0f8c7e083c463750c358288b1439d4a2b1ef5533d976a6fae2901523deb99"
+    }
+  },
+  "intent": "general_information",
+  "claims": [
+    {
+      "claim_id": "c1",
+      "text": "Thanh thiếu niên buồn kéo dài nhiều tuần và mất hứng thú nên tìm sự hỗ trợ từ ai?",
+      "required": true
+    }
+  ],
+  "items": [
+    {
+      "item_id": "item-0",
+      "source_id": "NIH-NIMH-TEEN-DEPRESSION",
+      "content_sha256": "89e0839e872b2f60c55dbc0848692bc39a9e909ab92dd5c62d3081b1f83be565",
+      "start": 495,
+      "end": 795,
+      "quote": "Being a teenager can be tough, but it shouldn’t feel hopeless. If you have been feeling sad most of the time for a few weeks or longer and you’re not able to concentrate or do the things you used to enjoy, talk to a trusted adult about [depression](https://www.nimh.nih.gov/health/topics/depression).",
+      "relation": "direct",
+      "stance": "supports",
+      "claim_ids": [
+        "c1"
+      ],
+      "scope_limits": "Giáo dục tìm hỗ trợ, không chẩn đoán trầm cảm từ mô tả ngắn."
+    }
+  ],
+  "conflicts": [],
+  "review_notes": "Giáo dục tìm hỗ trợ, không chẩn đoán trầm cảm từ mô tả ngắn."
+}

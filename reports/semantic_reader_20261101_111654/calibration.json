@@ -1,0 +1,17 @@
+{
+  "content": "{\"ok\":true}",
+  "content_sha256": "4062edaf750fb8074e7e83e0c9028c94e32468a8b6f1614774328ef045150f93",
+  "request_id": "chatcmpl-6156b497-ac93-4d87-9cb1-90aece3474d5",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b",
+  "usage": {
+    "prompt_tokens": 29,
+    "completion_tokens": 6,
+    "total_tokens": 35
+  },
+  "local_prompt_tokens": 29,
+  "provider_prompt_tokens": 29,
+  "prompt_token_delta": 0,
+  "elapsed_seconds": 1.138,
+  "cache_hit": false,
+  "recorded_at": "2026-11-01T04:42:40.236552+00:00"
+}

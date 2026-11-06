@@ -1,0 +1,125 @@
+{
+  "recorded_at": "2026-11-01T23:19:27.890228+07:00",
+  "purpose": "Semantic evidence reader research implementation and final handoff; not a corpus release",
+  "documents_embedded_again": 0,
+  "database_mutations": 0,
+  "patient_answer_generator_enabled": false,
+  "files": {
+    "README.md": {
+      "sha256": "aa225b23156ce9f171762449cead41ca494e67ad090d340e0c14797a037dbf95",
+      "bytes": 8678
+    },
+    "rag/semantic_reader.py": {
+      "sha256": "acda5489d552560acf5b57d5e9228d49cf5e71deb0fb22bdf8c82ceaabc25518",
+      "bytes": 31732
+    },
+    "rag/read_evidence.py": {
+      "sha256": "184c3156f196b4cb96d167fb63418b3fc19bd6009210939403a768f50d4d0973",
+      "bytes": 2629
+    },
+    "rag/evidence.py": {
+      "sha256": "4b234b085a252e66184e6e9b102433896c9dae997d08d7b6913b37a1914bb80a",
+      "bytes": 17263
+    },
+    "rag/evidence_pipeline.py": {
+      "sha256": "cb4bff604b4a6922542508de5798f9071eebcdb6d3a7cbc3acc0efc5467541cb",
+      "bytes": 5530
+    },
+    "rag/README_SEMANTIC_READER.md": {
+      "sha256": "64b25ca3845c9aa95ccd12954aca1b1dad0452b663fca6551a420163e8ec99ee",
+      "bytes": 9499
+    },
+    "deployments/semantic_reader.json": {
+      "sha256": "7c069f030687d5e2129523fdaee8f237ba815c215ff786b06fd2a6b8d44b4750",
+      "bytes": 551
+    },
+    "scripts/evaluation/evaluate_semantic_reader.py": {
+      "sha256": "8f7d04e5ddd4ff5d8b0c013351ff1d9c537105b6ae9c439cdf775959d65cecbd",
+      "bytes": 9866
+    },
+    "scripts/evaluation/verify_semantic_reader.py": {
+      "sha256": "edfd4f251691528c87b7a546341acf26209cca817e1110e1a0780706f599dfe0",
+      "bytes": 7495
+    },
+    "tests/test_semantic_reader.py": {
+      "sha256": "a06e7a598822923a3d34e799d185168b90bf0b3719d49ae2e9b61d01e85a7fd9",
+      "bytes": 17337
+    },
+    "evaluation/semantic_reader_v1/frozen_inputs.json": {
+      "sha256": "9a5b359b5391e8766d1321ba6eca25d7a88d8446748d581c1f0eba4cb46ecf56",
+      "bytes": 323
+    },
+    "evaluation/semantic_reader_v1/questions.jsonl": {
+      "sha256": "8f0f5fa03f2800c3162b01873ea0090ea128f2d2e6eaad92954e9f6911a8cc3e",
+      "bytes": 2660
+    },
+    "evaluation/semantic_reader_v1/README.md": {
+      "sha256": "10e39128feff74ee89afa4a397178840c5cd51fabf370042860c0b1e5a1bff8d",
+      "bytes": 360
+    },
+    "evaluation/semantic_reader_v1/reference_labels.jsonl": {
+      "sha256": "0b17cfe90141fc73c63e46032ce0748ae460f3c8efb04ac5d1b5b00e0c794ac3",
+      "bytes": 20063
+    },
+    "evaluation/semantic_reader_holdout_v1/frozen_inputs.json": {
+      "sha256": "888dbd8dbc28d0fbb0716ad67a8fd937095c8217725c7d9d95419eb1eb53188b",
+      "bytes": 358
+    },
+    "evaluation/semantic_reader_holdout_v1/questions.jsonl": {
+      "sha256": "34be0c7e27e720a234fe0f2e9d8ed8c1aeaa7ab873a4486233b661a03e4f47d3",
+      "bytes": 846
+    },
+    "evaluation/semantic_reader_holdout_v1/README.md": {
+      "sha256": "ab5d505a697a24ddb1e393f74b84bb6798e0888d9e2de52e6147150f5bac440c",
+      "bytes": 374
+    },
+    "evaluation/semantic_reader_holdout_v1/reference_labels.jsonl": {
+      "sha256": "bd49d2006f09dc4c0e9f7707fd7b9e4d91c7e0ff39bb69d031827c64eb176e36",
+      "bytes": 5014
+    },
+    "reports/semantic_reader_20261101_111654/BAN_GIAO_READER_NGU_NGHIA.md": {
+      "sha256": "3ddacbd9eeb8bcf237fba44b42fd8519855ab70f770869bef08a023aed2a24a1",
+      "bytes": 12173
+    },
+    "reports/semantic_reader_20261101_111654/verification.json": {
+      "sha256": "0bc6b23a3fc7e203ec9979dcfdda6921a2df1fa9912e97017fdf2d27889a0e2d",
+      "bytes": 5518
+    },
+    "reports/semantic_reader_20261101_111654/final_tests.txt": {
+      "sha256": "ff742f9463bfdfd40ee8d18e580c632e7331e4ee547bee9a8267de6147497c8c",
+      "bytes": 11688
+    },
+    "reports/semantic_reader_20261101_111654/semantic_review_queue.jsonl": {
+      "sha256": "e5557bdfcfe3456279335516dca60bfc945c89cd27baff98625bbf94e1e45163",
+      "bytes": 6418
+    },
+    "reports/semantic_reader_20261101_111654/results_latest_20.csv": {
+      "sha256": "b3c1206b8b638f94b59311e22df4aeebf5a5acbb6d799fd884c78dac4dd025cf",
+      "bytes": 8372
+    },
+    "reports/semantic_reader_20261101_111654/latest_evaluation_runs.json": {
+      "sha256": "7810b03c139b3276cdd9712d697908b3da403b32e327e1cccf28bbe846e355cf",
+      "bytes": 161
+    },
+    "reports/semantic_reader_20261101_111654/cli_smoke.json": {
+      "sha256": "1a86d2a9122d2c05a2a489e86456108d92f9966ab46af52f50a0d04aca65dcab",
+      "bytes": 307
+    },
+    "reports/semantic_reader_20261101_111654/cli_S02.json": {
+      "sha256": "84bd4381772c9836a14c39d29c5fe19df608f35c6a0c64750eabe1cff1956412",
+      "bytes": 205447
+    },
+    "reports/semantic_reader_20261101_111654/cli_S13.json": {
+      "sha256": "d0630dd91e69e277a96885c6f53f24a24c5980d45958a281135b0bef04bc5cf4",
+      "bytes": 155763
+    },
+    "reports/semantic_reader_20261101_111654/cli_S02_console.json": {
+      "sha256": "d5e6f0e37d0024f648f7211d4ad384da1ccd504ed5d83f4c58dd7b832544706b",
+      "bytes": 2916
+    },
+    "reports/semantic_reader_20261101_111654/cli_S13_console.json": {
+      "sha256": "5dd230b8a6d410417489a04567ec9174c8e1d016980a39385f7501fa0e580688",
+      "bytes": 3182
+    }
+  }
+}

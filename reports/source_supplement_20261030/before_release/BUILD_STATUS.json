@@ -1,0 +1,13 @@
+{
+  "status": "verified",
+  "usable": true,
+  "catalog_sha256": "c15d58e4a5c7c79d40617a5fb080e44d3bb08e2b94f7f06e8e3eefc7e4340913",
+  "documents_json_sha256": "840ce10a6b688e4de4ab90d9c03f9fb2bb3e2354d1d5114c0ccc298912e5e0a9",
+  "conversion_revision": "jats-readable-front-v3-20261020",
+  "built_at": "2026-10-20T23:45:04.295656+07:00",
+  "checked_at": "2026-10-17",
+  "clinical_reviewed": false,
+  "usable_for": "source_review_only",
+  "production_ingest": false,
+  "embedding_ready": false
+}

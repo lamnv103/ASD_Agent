@@ -1,0 +1,497 @@
+[
+  {
+    "question_id": "S05",
+    "question": "Khó ngủ có liên quan đến hành vi ở trẻ tự kỷ, nhưng đã đủ để kết luận quan hệ nhân quả hai chiều chắc chắn chưa?",
+    "status": "ok",
+    "error_code": "",
+    "error_stage": "",
+    "assessment": "sufficient",
+    "policy": "general_education_with_source_limits",
+    "top5_sources": [
+      "ASD-OA-PMC4271434",
+      "ASD-OA-PMC7407189",
+      "ASD-OA-PMC9003052",
+      "ASD-OA-PMC4742252",
+      "ASD-OA-PMC11638897"
+    ],
+    "expected_source_in_top5": true,
+    "expected_source_used": true,
+    "reference_span_overlap_sent": false,
+    "reference_span_overlap_used": false,
+    "reference_units_total": 1,
+    "reference_units_fully_sent": 0,
+    "reference_status_agreement": true,
+    "need_count": 1,
+    "missing_required_needs": [],
+    "selected_evidence_count": 5,
+    "query_cache_hit": true,
+    "model_calls": [
+      {
+        "stage": "question_plan",
+        "content_sha256": "8291e8b98ddbb174a3da094ef0a24a3688d29494fc3c63a6bf3025ea4f0520dc",
+        "request_id": "chatcmpl-7b0fdc3a-ba2a-45d3-8f29-afd551e776a3",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "usage": {
+          "prompt_tokens": 369,
+          "completion_tokens": 180,
+          "total_tokens": 549
+        },
+        "local_prompt_tokens": 369,
+        "provider_prompt_tokens": 369,
+        "prompt_token_delta": 0,
+        "elapsed_seconds": 17.529,
+        "cache_hit": true,
+        "recorded_at": "2026-11-01T16:38:11.744275+00:00"
+      },
+      {
+        "stage": "source_selection",
+        "content_sha256": "b198c9c932d6d9b6c66ad68d3b33a906df98e9ee8ec2959dafecc215db3305b1",
+        "request_id": "chatcmpl-e85c32ac-3f73-40e6-a398-07796cc99693",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "usage": {
+          "prompt_tokens": 23043,
+          "completion_tokens": 262,
+          "total_tokens": 23305
+        },
+        "local_prompt_tokens": 23043,
+        "provider_prompt_tokens": 23043,
+        "prompt_token_delta": 0,
+        "elapsed_seconds": 12.004,
+        "cache_hit": true,
+        "recorded_at": "2026-11-01T16:41:36.579337+00:00"
+      },
+      {
+        "stage": "source_verification",
+        "content_sha256": "bb11ef9e3453b45080b7ebb3a9b07b156cb5f0686c77f99b8cf0e1dda1af7814",
+        "request_id": "chatcmpl-75b342ad-d448-40d0-8bbd-e4b1bcfb6f8e",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "usage": {
+          "prompt_tokens": 23618,
+          "completion_tokens": 394,
+          "total_tokens": 24012
+        },
+        "local_prompt_tokens": 23618,
+        "provider_prompt_tokens": 23618,
+        "prompt_token_delta": 0,
+        "elapsed_seconds": 9.811,
+        "cache_hit": true,
+        "recorded_at": "2026-11-01T16:41:46.436604+00:00"
+      }
+    ],
+    "elapsed_seconds": 2.428
+  },
+  {
+    "question_id": "S07",
+    "question": "Gia đình có thể tiếp tục nói chuyện khi dùng bảng tranh cho con không, và có chắc con sẽ tăng lời nói nhờ bảng tranh không?",
+    "status": "ok",
+    "error_code": "",
+    "error_stage": "",
+    "assessment": "partially_sufficient",
+    "policy": "general_education_with_source_limits",
+    "top5_sources": [
+      "ASD-CSV-084",
+      "ASD-SUP-PMC11754701",
+      "ASD-OA-PMC10900867",
+      "NIH-NIDCD-ASD-COMMUNICATION-2020",
+      "ASD-OA-PMC13005892"
+    ],
+    "expected_source_in_top5": true,
+    "expected_source_used": true,
+    "reference_span_overlap_sent": true,
+    "reference_span_overlap_used": true,
+    "reference_units_total": 1,
+    "reference_units_fully_sent": 1,
+    "reference_status_agreement": true,
+    "need_count": 2,
+    "missing_required_needs": [
+      "n1"
+    ],
+    "selected_evidence_count": 2,
+    "query_cache_hit": true,
+    "model_calls": [
+      {
+        "stage": "question_plan",
+        "content_sha256": "79ad6448cb3d35327f13443dfa2d18f84e4ed39debd872eb278098abf74f0a22",
+        "request_id": "chatcmpl-3d2cc75a-95bd-444b-b246-3ae87031c442",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "usage": {
+          "prompt_tokens": 368,
+          "completion_tokens": 253,
+          "total_tokens": 621
+        },
+        "local_prompt_tokens": 368,
+        "provider_prompt_tokens": 368,
+        "prompt_token_delta": 0,
+        "elapsed_seconds": 25.542,
+        "cache_hit": true,
+        "recorded_at": "2026-11-01T16:38:38.018235+00:00"
+      },
+      {
+        "stage": "source_selection",
+        "content_sha256": "a1c289eba2f87ece974a5ce02eda579b88df65ab2aa3bd0b70a8b94b97bd7203",
+        "request_id": "chatcmpl-cc44b7cf-109f-4cf6-a02b-def670dcf3a8",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "usage": {
+          "prompt_tokens": 23115,
+          "completion_tokens": 178,
+          "total_tokens": 23293
+        },
+        "local_prompt_tokens": 23115,
+        "provider_prompt_tokens": 23115,
+        "prompt_token_delta": 0,
+        "elapsed_seconds": 6.752,
+        "cache_hit": true,
+        "recorded_at": "2026-11-01T16:46:15.508363+00:00"
+      },
+      {
+        "stage": "source_verification",
+        "content_sha256": "0d62a803d4dfbc24d427b71cfb3a4a88a16039929d45fe906111fdd668f7b022",
+        "request_id": "chatcmpl-859ce7fb-324a-4231-9678-831effc83654",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "usage": {
+          "prompt_tokens": 23605,
+          "completion_tokens": 298,
+          "total_tokens": 23903
+        },
+        "local_prompt_tokens": 23605,
+        "provider_prompt_tokens": 23605,
+        "prompt_token_delta": 0,
+        "elapsed_seconds": 9.976,
+        "cache_hit": true,
+        "recorded_at": "2026-11-01T16:46:25.533894+00:00"
+      }
+    ],
+    "elapsed_seconds": 1.69
+  },
+  {
+    "question_id": "S08",
+    "question": "Các hoạt động kích thích cảm giác có phải đều giống phương pháp tích hợp cảm giác đã được nghiên cứu cho trẻ tự kỷ không?",
+    "status": "ok",
+    "error_code": "",
+    "error_stage": "",
+    "assessment": "partially_sufficient",
+    "policy": "general_education_with_source_limits",
+    "top5_sources": [
+      "ASD-SUP-PMC6590432",
+      "ASD-SUP-PMC12658592",
+      "ASD-NEW-003",
+      "ASD-SUP-PMC4513196",
+      "ASD-OA-PMC11638897"
+    ],
+    "expected_source_in_top5": true,
+    "expected_source_used": true,
+    "reference_span_overlap_sent": false,
+    "reference_span_overlap_used": false,
+    "reference_units_total": 1,
+    "reference_units_fully_sent": 0,
+    "reference_status_agreement": false,
+    "need_count": 4,
+    "missing_required_needs": [
+      "n1",
+      "n4"
+    ],
+    "selected_evidence_count": 13,
+    "query_cache_hit": true,
+    "model_calls": [
+      {
+        "stage": "question_plan",
+        "content_sha256": "65530a7a883ce4b87bba4f7aa33736722779698233af472999d322fc9dff3f66",
+        "request_id": "chatcmpl-806fc3ee-9e75-4e75-ac27-dfb68132f949",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "usage": {
+          "prompt_tokens": 365,
+          "completion_tokens": 452,
+          "total_tokens": 817
+        },
+        "local_prompt_tokens": 365,
+        "provider_prompt_tokens": 365,
+        "prompt_token_delta": 0,
+        "elapsed_seconds": 21.765,
+        "cache_hit": true,
+        "recorded_at": "2026-11-01T16:39:00.380949+00:00"
+      },
+      {
+        "stage": "source_selection",
+        "content_sha256": "70b6ec0cbb11ad5c23e0874399ce0e20e0de06c83f7dad52846e76cda0eff4fb",
+        "request_id": "chatcmpl-4975b091-d108-457f-a411-258a92e6471a",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "usage": {
+          "prompt_tokens": 23146,
+          "completion_tokens": 666,
+          "total_tokens": 23812
+        },
+        "local_prompt_tokens": 23146,
+        "provider_prompt_tokens": 23146,
+        "prompt_token_delta": 0,
+        "elapsed_seconds": 16.064,
+        "cache_hit": true,
+        "recorded_at": "2026-11-01T16:48:14.818795+00:00"
+      },
+      {
+        "stage": "source_verification",
+        "content_sha256": "3956566c08abc87415da245f66298e6559ad7ab0cf5bbdd7607f2aeec68307b3",
+        "request_id": "chatcmpl-b94a167a-f19c-47c4-985f-f4028e48d6e3",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "usage": {
+          "prompt_tokens": 24124,
+          "completion_tokens": 1484,
+          "total_tokens": 25608
+        },
+        "local_prompt_tokens": 24124,
+        "provider_prompt_tokens": 24124,
+        "prompt_token_delta": 0,
+        "elapsed_seconds": 55.046,
+        "cache_hit": true,
+        "recorded_at": "2026-11-01T16:49:09.910892+00:00"
+      }
+    ],
+    "elapsed_seconds": 2.409
+  },
+  {
+    "question_id": "H03",
+    "question": "Khi thấy triệu chứng đã đỡ, gia đình có nên tự dừng thuốc đang được bác sĩ kê cho trẻ không?",
+    "status": "ok",
+    "error_code": "",
+    "error_stage": "",
+    "assessment": "sufficient",
+    "policy": "general_education_with_source_limits",
+    "top5_sources": [
+      "ASD-OA-PMC7407189",
+      "NIH-NIMH-MEDICATIONS",
+      "ASD-SUP-PMC11754701",
+      "ASD-OA-PMC12593641",
+      "NIH-NIMH-ASD-2025"
+    ],
+    "expected_source_in_top5": true,
+    "expected_source_used": true,
+    "reference_span_overlap_sent": true,
+    "reference_span_overlap_used": true,
+    "reference_units_total": 1,
+    "reference_units_fully_sent": 1,
+    "reference_status_agreement": true,
+    "need_count": 2,
+    "missing_required_needs": [],
+    "selected_evidence_count": 6,
+    "query_cache_hit": true,
+    "model_calls": [
+      {
+        "stage": "question_plan",
+        "content_sha256": "7cee634b66b1eddf2f536b0fcf749012a97f4aa3dc93a8469adcd09113bba93e",
+        "request_id": "chatcmpl-95d1f1e8-2e13-417f-857f-d3fdc5ebf689",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "usage": {
+          "prompt_tokens": 364,
+          "completion_tokens": 276,
+          "total_tokens": 640
+        },
+        "local_prompt_tokens": 364,
+        "provider_prompt_tokens": 364,
+        "prompt_token_delta": 0,
+        "elapsed_seconds": 9.173,
+        "cache_hit": true,
+        "recorded_at": "2026-11-01T16:39:10.237292+00:00"
+      },
+      {
+        "stage": "source_selection",
+        "content_sha256": "a73d7c478440162298b6e8906a4f4c4cecdc3b838514367ea6538a535c7c45c1",
+        "request_id": "chatcmpl-425f9353-a0d9-4728-bcf0-c29e0aa2f1f6",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "usage": {
+          "prompt_tokens": 23292,
+          "completion_tokens": 277,
+          "total_tokens": 23569
+        },
+        "local_prompt_tokens": 23292,
+        "provider_prompt_tokens": 23292,
+        "prompt_token_delta": 0,
+        "elapsed_seconds": 23.236,
+        "cache_hit": true,
+        "recorded_at": "2026-11-01T16:43:10.617942+00:00"
+      },
+      {
+        "stage": "source_verification",
+        "content_sha256": "f6ca3bafa1e061b14cdc362aa04412c86ea97db1dfd0f69f1395e6ed64ba7d0c",
+        "request_id": "chatcmpl-c35a2ff0-6faf-45db-a748-0d2fbcc65ac5",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "usage": {
+          "prompt_tokens": 23881,
+          "completion_tokens": 545,
+          "total_tokens": 24426
+        },
+        "local_prompt_tokens": 23881,
+        "provider_prompt_tokens": 23881,
+        "prompt_token_delta": 0,
+        "elapsed_seconds": 25.724,
+        "cache_hit": true,
+        "recorded_at": "2026-11-01T16:43:36.389449+00:00"
+      }
+    ],
+    "elapsed_seconds": 1.713
+  },
+  {
+    "question_id": "H04",
+    "question": "Trong tài liệu về ADHD, khó tập trung, tăng hoạt động và hành động bốc đồng được phân biệt ra sao?",
+    "status": "ok",
+    "error_code": "",
+    "error_stage": "",
+    "assessment": "sufficient",
+    "policy": "general_education_with_source_limits",
+    "top5_sources": [
+      "NIH-NIMH-ADHD",
+      "ASD-CSV-062",
+      "ASD-CSV-078",
+      "ASD-OA-PMC4742252",
+      "ASD-OA-PMC6487529"
+    ],
+    "expected_source_in_top5": true,
+    "expected_source_used": true,
+    "reference_span_overlap_sent": true,
+    "reference_span_overlap_used": true,
+    "reference_units_total": 1,
+    "reference_units_fully_sent": 1,
+    "reference_status_agreement": true,
+    "need_count": 1,
+    "missing_required_needs": [],
+    "selected_evidence_count": 2,
+    "query_cache_hit": true,
+    "model_calls": [
+      {
+        "stage": "question_plan",
+        "content_sha256": "ab7aab35d728ca340e54630a2e2c6d904da47f34c26ea6bda80db8d835508a0b",
+        "request_id": "chatcmpl-f5e7543c-9ba6-42eb-9d2d-5f62bc2386b4",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "usage": {
+          "prompt_tokens": 361,
+          "completion_tokens": 170,
+          "total_tokens": 531
+        },
+        "local_prompt_tokens": 361,
+        "provider_prompt_tokens": 361,
+        "prompt_token_delta": 0,
+        "elapsed_seconds": 8.584,
+        "cache_hit": true,
+        "recorded_at": "2026-11-01T16:39:19.333931+00:00"
+      },
+      {
+        "stage": "source_selection",
+        "content_sha256": "b9ea59cdc65ab0a2d7855532b183b58a8c248716f20aa2ed427dc448ac11ea3c",
+        "request_id": "chatcmpl-6fd9cb9f-8420-4eac-89a9-7dc0a8e69941",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "usage": {
+          "prompt_tokens": 22617,
+          "completion_tokens": 189,
+          "total_tokens": 22806
+        },
+        "local_prompt_tokens": 22617,
+        "provider_prompt_tokens": 22617,
+        "prompt_token_delta": 0,
+        "elapsed_seconds": 6.877,
+        "cache_hit": true,
+        "recorded_at": "2026-11-01T16:43:44.793345+00:00"
+      },
+      {
+        "stage": "source_verification",
+        "content_sha256": "e4a527211743022d666e2ea470e60b5dbfed628ce90944e88bbb4de9f2c3e891",
+        "request_id": "chatcmpl-02fce98c-1261-416e-8131-8a17d252b246",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "usage": {
+          "prompt_tokens": 23118,
+          "completion_tokens": 223,
+          "total_tokens": 23341
+        },
+        "local_prompt_tokens": 23118,
+        "provider_prompt_tokens": 23118,
+        "prompt_token_delta": 0,
+        "elapsed_seconds": 9.296,
+        "cache_hit": true,
+        "recorded_at": "2026-11-01T16:43:54.140488+00:00"
+      }
+    ],
+    "elapsed_seconds": 1.719
+  },
+  {
+    "question_id": "H05",
+    "question": "Hai trẻ đều được chẩn đoán tự kỷ có nhất thiết có biểu hiện, điểm mạnh và nhu cầu hỗ trợ giống nhau không?",
+    "status": "ok",
+    "error_code": "",
+    "error_stage": "",
+    "assessment": "partially_sufficient",
+    "policy": "general_education_with_source_limits",
+    "top5_sources": [
+      "ASD-OA-PMC13005892",
+      "ASD-OA-PMC6487529",
+      "ASD-CSV-088",
+      "ASD-CSV-002",
+      "ASD-SUP-PMC11754701"
+    ],
+    "expected_source_in_top5": false,
+    "expected_source_used": false,
+    "reference_span_overlap_sent": false,
+    "reference_span_overlap_used": false,
+    "reference_units_total": 1,
+    "reference_units_fully_sent": 0,
+    "reference_status_agreement": true,
+    "need_count": 3,
+    "missing_required_needs": [
+      "n1",
+      "n2",
+      "n3"
+    ],
+    "selected_evidence_count": 5,
+    "query_cache_hit": true,
+    "model_calls": [
+      {
+        "stage": "question_plan",
+        "content_sha256": "6513b2f17a8322bacc63a80f000d90985b98c9211e69638d2c90930866dfe4d0",
+        "request_id": "chatcmpl-e0c3a92b-cd96-456d-afbb-470b6d5c9307",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "usage": {
+          "prompt_tokens": 364,
+          "completion_tokens": 298,
+          "total_tokens": 662
+        },
+        "local_prompt_tokens": 364,
+        "provider_prompt_tokens": 364,
+        "prompt_token_delta": 0,
+        "elapsed_seconds": 33.224,
+        "cache_hit": true,
+        "recorded_at": "2026-11-01T16:39:53.027571+00:00"
+      },
+      {
+        "stage": "source_selection",
+        "content_sha256": "2a0bcb22b13a3c21456947164b2850bba59275ff4bfcd8c8c964ab7ee7254c81",
+        "request_id": "chatcmpl-e099825d-b12a-44e3-b6f4-73c0fa023742",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "usage": {
+          "prompt_tokens": 23149,
+          "completion_tokens": 301,
+          "total_tokens": 23450
+        },
+        "local_prompt_tokens": 23149,
+        "provider_prompt_tokens": 23149,
+        "prompt_token_delta": 0,
+        "elapsed_seconds": 7.571,
+        "cache_hit": true,
+        "recorded_at": "2026-11-01T16:44:03.350425+00:00"
+      },
+      {
+        "stage": "source_verification",
+        "content_sha256": "4ab553ddfe174c9e4a027c1fc8c140c0e196d867458cddf095cabad17aabbe69",
+        "request_id": "chatcmpl-d448a814-8261-441a-95b5-0dba6bcf1d9c",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "usage": {
+          "prompt_tokens": 23763,
+          "completion_tokens": 677,
+          "total_tokens": 24440
+        },
+        "local_prompt_tokens": 23763,
+        "provider_prompt_tokens": 23763,
+        "prompt_token_delta": 0,
+        "elapsed_seconds": 19.481,
+        "cache_hit": true,
+        "recorded_at": "2026-11-01T16:44:22.876894+00:00"
+      }
+    ],
+    "elapsed_seconds": 1.996
+  }
+]

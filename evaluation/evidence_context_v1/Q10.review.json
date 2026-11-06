@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "review_id": "reference-replay-Q10",
+  "question": "NDBI là gì, khác gì với việc chỉ dạy trong bối cảnh tách rời sinh hoạt?",
+  "question_sha256": "74fcd09f7c16a59f739536bac7edb4d2161e577e21aabe2dae28508701fe19e3",
+  "reviewer": {
+    "kind": "ai_reference_review",
+    "name": "AI source-content review; not an independent clinical expert",
+    "date": "2026-10-31"
+  },
+  "provenance": {
+    "origin": "existing_retrieval_v1_label_replay_not_independent_semantic_evaluation",
+    "frozen_input_hashes": {
+      "questions.jsonl": "749f0a48e30de346e0521bae016f81e05e787b885ae132dced1cc03365f252c6",
+      "reference_labels.json": "b3c0f8c7e083c463750c358288b1439d4a2b1ef5533d976a6fae2901523deb99"
+    }
+  },
+  "intent": "general_information",
+  "claims": [
+    {
+      "claim_id": "c1",
+      "text": "NDBI là gì, khác gì với việc chỉ dạy trong bối cảnh tách rời sinh hoạt?",
+      "required": true
+    }
+  ],
+  "items": [
+    {
+      "item_id": "item-0",
+      "source_id": "ASD-SUP-PMC4513196",
+      "content_sha256": "696678ebc365fd6d6312dcc3fe10e6e0e6b529fcb8af1bafc1008e271043daa9",
+      "start": 1787,
+      "end": 2737,
+      "quote": "Earlier autism diagnosis, the importance of early intervention, and development of specific interventions for young children have contributed to the emergence of similar, empirically supported, autism interventions that represent the merging of applied behavioral and developmental sciences. “Naturalistic Developmental Behavioral Interventions (NDBI)” are implemented in natural settings, involve shared control between child and therapist, utilize natural contingencies, and use a variety of behavioral strategies to teach developmentally appropriate and prerequisite skills. We describe the development of NDBIs, their theoretical bases, empirical support, requisite characteristics, common features, and suggest future research needs. We wish to bring parsimony to a field that includes interventions with different names but common features thus improving understanding and choice-making among families, service providers and referring agencies.",
+      "relation": "direct",
+      "stance": "supports",
+      "claim_ids": [
+        "c1"
+      ],
+      "scope_limits": "Mô tả khái niệm trong tổng quan 2015; không bảo đảm kết quả cá nhân."
+    }
+  ],
+  "conflicts": [],
+  "review_notes": "Mô tả khái niệm trong tổng quan 2015; không bảo đảm kết quả cá nhân."
+}

@@ -1,0 +1,43 @@
+{
+  "question": "Gia đình có thể tiếp tục nói chuyện khi dùng bảng tranh cho con không, và có chắc con sẽ tăng lời nói nhờ bảng tranh không?",
+  "error_code": "nim_network",
+  "error_stage": "source_verification",
+  "message": "NVIDIA request failed/timed out; no automatic retry.",
+  "reader_calls": [
+    {
+      "stage": "question_plan",
+      "content_sha256": "9196fe0976c3a37ab167f195f84e2230a459eae427aaa812a340ad0f4a8426a1",
+      "request_id": "chatcmpl-b0d7e601-2476-4f55-9d08-0e01a53a3be6",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "usage": {
+        "prompt_tokens": 428,
+        "completion_tokens": 264,
+        "total_tokens": 692
+      },
+      "local_prompt_tokens": 428,
+      "provider_prompt_tokens": 428,
+      "prompt_token_delta": 0,
+      "elapsed_seconds": 13.004,
+      "cache_hit": true,
+      "recorded_at": "2026-11-01T17:08:25.760702+00:00"
+    },
+    {
+      "stage": "source_selection",
+      "content_sha256": "2552ab2d1dffd0d8862d0e542e4f3b35ff638b4b342d845751886c589362477f",
+      "request_id": "chatcmpl-6e52770b-8b06-4ff3-bf59-94ece4450882",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "usage": {
+        "prompt_tokens": 22631,
+        "completion_tokens": 163,
+        "total_tokens": 22794
+      },
+      "local_prompt_tokens": 22631,
+      "provider_prompt_tokens": 22631,
+      "prompt_token_delta": 0,
+      "elapsed_seconds": 15.116,
+      "cache_hit": true,
+      "recorded_at": "2026-11-01T17:08:41.829494+00:00"
+    }
+  ],
+  "generation_enabled": false
+}
