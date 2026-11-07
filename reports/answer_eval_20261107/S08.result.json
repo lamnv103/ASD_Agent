@@ -1,0 +1,204 @@
+{
+  "schema": "answer_result_v0.1",
+  "contract_version": "answer_contract_v0.2",
+  "check_version": "answer_check_v0.2",
+  "purpose": "internal_prototype_only",
+  "review_status": "chua_duyet",
+  "review_note": "Templates, country map, thresholds and emergency phrases are engineering drafts; no clinical review. Not a basis for opening a pilot.",
+  "question_sha256": "4ee70a2cb1757ba1a00e01e19bb8e04ee53aefce880e71f94729c47043d69f9c",
+  "trace_question_sha256": "4ee70a2cb1757ba1a00e01e19bb8e04ee53aefce880e71f94729c47043d69f9c",
+  "route": "answer",
+  "status": "khong_du",
+  "reader_status": "sufficient",
+  "proposed_status": "du",
+  "repairs": 1,
+  "claims_final": [],
+  "claims_removed": [
+    {
+      "claim_id": "c4",
+      "text": "Các bài đánh giá hệ thống trước đây thường nhầm lẫn SBIs với ASI, dẫn đến việc đưa ra kết luận sai lệch về hiệu quả của ASI do bao gồm các nghiên cứu không tuân thủ nguyên tắc ASI.",
+      "reasons": [
+        "span_not_in_cited_evidence"
+      ],
+      "round": "generate"
+    },
+    {
+      "claim_id": "c4",
+      "text": "Các bài đánh giá hệ thống trước đây thường nhầm lẫn SBIs với ASI, bao gồm các nghiên cứu không tuân thủ nguyên tắc ASI, làm khó khăn việc rút ra kết luận về hiệu quả của ASI.",
+      "reasons": [
+        "span_not_in_cited_evidence"
+      ],
+      "round": "repair"
+    }
+  ],
+  "needs_addressed": [],
+  "needs_missing": [
+    "n1"
+  ],
+  "uncovered": [],
+  "calls": [
+    {
+      "stage": "generate",
+      "content_sha256": "828206815cb089d44c64af2e966168a156ec0a7f9675b520b32def55b2ebedf6",
+      "request_id": "chatcmpl-e1072e3a-4b30-4a04-b30b-90fc2257d38b",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "usage": {
+        "prompt_tokens": 1920,
+        "completion_tokens": 399,
+        "total_tokens": 2319,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": null
+        }
+      },
+      "local_prompt_tokens": 1920,
+      "provider_prompt_tokens": 1920,
+      "elapsed_seconds": 9.15,
+      "cache_hit": false,
+      "recorded_at": "2026-11-07T12:53:24.801408+00:00"
+    },
+    {
+      "stage": "verify",
+      "content_sha256": "6e325ab709e61343185c7134ba86277f729a2a730e9dfb66374dbd932746ed57",
+      "request_id": "chatcmpl-1f27738d-b22a-449d-8853-a87322fdce46",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "usage": {
+        "prompt_tokens": 2118,
+        "completion_tokens": 549,
+        "total_tokens": 2667,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": null
+        }
+      },
+      "local_prompt_tokens": 2118,
+      "provider_prompt_tokens": 2118,
+      "elapsed_seconds": 5.278,
+      "cache_hit": false,
+      "recorded_at": "2026-11-07T12:53:30.099924+00:00"
+    },
+    {
+      "stage": "repair",
+      "content_sha256": "4268666e14ce5a19be6fe39efe6dc7da5c1a23061199173c98658d2d62d6d577",
+      "request_id": "chatcmpl-5d740eac-3f1e-4db9-82f6-275967b8bc95",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "usage": {
+        "prompt_tokens": 2485,
+        "completion_tokens": 398,
+        "total_tokens": 2883,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": null
+        }
+      },
+      "local_prompt_tokens": 2485,
+      "provider_prompt_tokens": 2485,
+      "elapsed_seconds": 4.116,
+      "cache_hit": false,
+      "recorded_at": "2026-11-07T12:53:34.249677+00:00"
+    },
+    {
+      "stage": "verify_repair",
+      "content_sha256": "7c4a7ff389cbce1267acc674b9b6f41568a553c963a85c427d22c8e46657ca12",
+      "request_id": "chatcmpl-5897043b-513c-4bbd-a929-a07afc1df9f7",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "usage": {
+        "prompt_tokens": 2117,
+        "completion_tokens": 546,
+        "total_tokens": 2663,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": null
+        }
+      },
+      "local_prompt_tokens": 2117,
+      "provider_prompt_tokens": 2117,
+      "elapsed_seconds": 5.249,
+      "cache_hit": false,
+      "recorded_at": "2026-11-07T12:53:39.523287+00:00"
+    }
+  ],
+  "timings": {
+    "generate": 9.22,
+    "verify": 5.301,
+    "repair": 4.145,
+    "verify_repair": 5.277,
+    "total": 23.971
+  },
+  "error": null,
+  "models": {
+    "generator": "nvidia/nemotron-3-ultra-550b-a55b",
+    "verifier": "nvidia/nemotron-3-ultra-550b-a55b"
+  },
+  "limitations": [
+    "The verifier uses the same model as the generator; errors may be correlated."
+  ],
+  "as_of": "2026-11-07",
+  "catalog": [
+    {
+      "id": "E1",
+      "evidence_id": "ev-393921ca621a73ca274f1798",
+      "source_id": "ASD-SUP-PMC6590432",
+      "start": 8225,
+      "end": 9825
+    },
+    {
+      "id": "E2",
+      "evidence_id": "ev-9458f1cbdc623390cc9179f9",
+      "source_id": "ASD-SUP-PMC6590432",
+      "start": 9827,
+      "end": 11275
+    },
+    {
+      "id": "E3",
+      "evidence_id": "ev-3832a4c0b42626352974963a",
+      "source_id": "ASD-SUP-PMC6590432",
+      "start": 11277,
+      "end": 12506
+    },
+    {
+      "id": "E4",
+      "evidence_id": "ev-7961e35edddd76cd4ea7269e",
+      "source_id": "ASD-SUP-PMC12658592",
+      "start": 5670,
+      "end": 6888
+    },
+    {
+      "id": "E5",
+      "evidence_id": "ev-5aeb1c840d3bfe89cf9ad98d",
+      "source_id": "ASD-SUP-PMC12658592",
+      "start": 12053,
+      "end": 12300
+    }
+  ],
+  "render": {
+    "text": "NGUYÊN MẪU NỘI BỘ — nội dung và mẫu câu chưa được thẩm định chuyên môn; không dùng cho người dùng thật.\nTrong các đoạn tài liệu đã truy xuất và kiểm tra ở lượt này, hệ thống chưa có đủ căn cứ để trả lời câu hỏi, nên không đưa ra câu trả lời để tránh suy đoán. Điều này không có nghĩa là toàn bộ kho tài liệu không có thông tin liên quan.\nHệ thống chỉ cung cấp thông tin giáo dục chung, không thay thế việc khám và tư vấn của chuyên gia.\n",
+    "sources": [],
+    "notes": [],
+    "review_status": "chua_duyet"
+  }
+}
