@@ -15,9 +15,9 @@ Phát lại: `python -B scripts/evaluation/verify_answer_layer.py` (chỉ dùng 
 | Cache được ghi, không chứa khóa | ✓ | ✓ | ✓ | ✓ |
 | Phát lại offline trùng từng byte bản hiển thị và các trường so sánh | ✓ | ✓ | ✓ | ✓ |
 | Bước kiểm tra có tác dụng (có kết quả cho từng nhận định, có lý do khi loại) | ✓ | ✓ | ✓ | ✓ |
-| Có ít nhất một nhận định hữu ích qua kiểm tra | ✓ (4) | **✗ (0)** | **✗ (0)** | ✓ (1) |
+| Có ít nhất một nhận định qua kiểm tra và được hiển thị | ✓ (4) | **✗ (0)** | **✗ (0)** | ✓ (1) |
 
-Về kỹ thuật, luồng sinh → kiểm tra → sửa → render → phát lại **chạy đúng với NIM thật**. Về tính hữu ích, **2/4 câu bị từ chối**. Nguyên nhân khác nhau, xem mục 3.
+Về kỹ thuật, luồng sinh → kiểm tra → sửa → render → phát lại **chạy đúng với NIM thật**. **2/4 câu có nội dung hiển thị**; đây **chưa phải** "2/4 câu đạt chất lượng", vì S05 vẫn chứa nhận định có vấn đề (mục 2). 2 câu còn lại bị từ chối với nguyên nhân khác nhau, xem mục 3.
 
 Đã thử ngược verifier: sửa một file cache thì bị bắt (hash và lỗi phát lại); đổi ngày tham chiếu thì bị bắt (`as_of`).
 
@@ -43,7 +43,7 @@ Thời gian trên **chỉ là tầng G**, chạy trên trace có sẵn. Câu h�
 
 **H03 hiển thị:** "Người bệnh không nên tự ngừng thuốc được kê đơn ngay cả khi cảm thấy đỡ, nếu không có sự hỗ trợ của người cung cấp dịch vụ y tế." Khớp nguyên văn NIMH. Ghi chú "bối cảnh Hoa Kỳ" hiển thị đúng.
 
-**Đánh giá sơ bộ của nhóm kỹ thuật** trên 5 nhận định được hiển thị: 3 chấp nhận được; 1 bị đọc sai nhưng được cho qua (S05 c3); 1 mâu thuẫn với đoạn khác trong danh mục (S05 c2). Mẫu nhỏ, chưa phải số liệu chất lượng.
+**Đánh giá sơ bộ của nhóm kỹ thuật** trên 5 nhận định được hiển thị *(sửa sau rà soát)*: 2 chấp nhận được (S05 c1, H03 c1); 1 bị đọc sai nhưng được cho qua (S05 c3); 1 mâu thuẫn với đoạn khác trong danh mục (S05 c2); 1 không tự đứng được (S05 c4). Mẫu nhỏ, chưa phải số liệu chất lượng.
 
 ## 3. Phát hiện
 
@@ -51,16 +51,21 @@ Thời gian trên **chỉ là tầng G**, chạy trên trace có sẵn. Câu h�
 
 - Ở cả hai vòng, verifier chấm **cả 4 nhận định là `supported`**.
 - c4 bị loại vì verifier **ghép hai đoạn không liền nhau từ E2 và E3 bằng dấu "..."**, vi phạm quy tắc "một đoạn liền mạch, nguyên văn". Phép kiểm tra tất định bắt **đúng** vi phạm; đây không phải lỗi chuẩn hóa ký tự.
-- Verifier ghi công c1–c4 cho nhu cầu n1. Theo quy tắc coverage thận trọng của đặc tả (mục 3.3), một nhận định được ghi công bị loại thì n1 bị coi là chưa đáp ứng. Kết quả: `khong_du`, và **3 nhận định đã đạt (c1–c3) bị bỏ**.
+- Verifier ghi công c1–c4 cho nhu cầu n1. Theo quy tắc coverage thận trọng của đặc tả (mục 3.3), một nhận định được ghi công bị loại thì n1 bị coi là chưa đáp ứng. Kết quả: `khong_du`, và **3 nhận định đã vượt kiểm tra tự động (c1–c3) bị bỏ**.
+- *(Bổ sung sau rà soát)* "Vượt kiểm tra tự động" **không có nghĩa là đúng**: c2 dịch "fidelity principles" thành "nguyên tắc trung thực", làm lệch nghĩa thuật ngữ; c3 có lỗi "du lượn" (mục 3.6). Nếu không bị bỏ do trạng thái, hai nhận định này đã được hiển thị kèm lỗi.
 - Đánh đổi "đôi khi hạ trạng thái oan" ghi trong đặc tả đã xảy ra ở mức nặng nhất: từ `du` xuống `khong_du`.
 
 ### 3.2 S07: gộp hai phát hiện khác phạm vi
 
-Nhận định duy nhất gộp "tác động lên lời nói thường nhỏ" (kết luận chung của nhiều tổng quan) với "không có bằng chứng mất kỹ năng nói" (phát hiện riêng cho người tự kỷ của một tổng quan). Verifier gắn `condition_dropped` ở cả hai vòng, và lý do đó hợp lý. Lượt sửa không tách thành hai nhận định. Phần "gia đình có thể tiếp tục nói chuyện" được báo đúng là không có căn cứ.
+Nhận định duy nhất gộp "tác động lên lời nói thường nhỏ" (kết luận chung của nhiều tổng quan) với "không có bằng chứng mất kỹ năng nói" (phát hiện riêng cho người tự kỷ của một tổng quan). Lượt sửa không tách thành hai nhận định. Phần "gia đình có thể tiếp tục nói chuyện" được báo đúng là không có căn cứ.
+
+*(Sửa sau rà soát)* **Chưa đủ căn cứ để quy lỗi chỉ cho bước sinh.** Ở vòng 1, lời giải thích `condition_dropped` hợp lý. Nhưng ở lượt sửa, câu đã có "đối với người tự kỷ", vậy mà verifier vẫn giải thích là câu thiếu đúng điều kiện này. Đồng thời, verifier đánh dấu nhu cầu n2 là `fully_addressed` bằng chính c1, trong khi chấm c1 là `partially_supported`. Ca này cho thấy verifier có thể từ chối sai, hoặc giải thích không nhất quán. Chỉ sửa prompt sinh (D) chưa chắc giải quyết được; cần đo lại cả bước sinh lẫn verifier.
 
 ### 3.3 Verifier cho qua sai (S05 c3)
 
-Bước sinh và bước kiểm tra dùng cùng model. Giới hạn này đã được dự báo và ghi trong mọi kết quả. Đây là ca thật đầu tiên.
+Đây là **lỗi kiểm chứng đã quan sát được**: verifier hiểu sai phạm vi của chữ "preliminary". *(Sửa sau rà soát)* Một ca **chưa chứng minh** nguyên nhân là việc bước sinh và bước kiểm tra dùng cùng model. Việc dùng chung model vẫn là giới hạn đã ghi trong mọi kết quả, nhưng không được dùng làm lời giải thích cho ca này khi chưa có phép đo.
+
+Thêm nữa, S05 c4 ("Chưa có bằng chứng kết luận cho trẻ… mọi lứa tuổi") không nói rõ đó là kết luận về điều gì, nên chưa đạt yêu cầu "nhận định tự đứng được". Hiện không bước kiểm tra nào đo yêu cầu này.
 
 ### 3.4 Lỗ hổng thiết kế: mỗi nhận định chỉ được so với đoạn nó trích (S05 c2)
 
@@ -70,9 +75,11 @@ Bước sinh và bước kiểm tra dùng cùng model. Giới hạn này đã đ
 
 Các nhận định đạt kiểm tra nhưng bị bỏ do trạng thái `khong_du` (S08 c1–c3) không được ghi vào `claims_removed`. Chúng chỉ còn trong cache. Chưa sửa để không làm lệch kết quả chuẩn của lượt này.
 
+*(Sau E)* Phát lại chính cache này bằng mã có E (offline, 14/14 lượt lấy từ cache, bản hiển thị trùng byte), S08 ghi đủ: vòng 1 có c4 `failed_verification` và c1–c3 `replaced_in_repair`; vòng sửa có c4 `failed_verification` và c1–c3 `dropped_by_status`. Phần quan sát verifier có `span_joined_with_ellipsis` (c4) và `need_credited_to_failed_claim` (n1) ở cả hai vòng. S07 vòng sửa có `need_credited_to_failed_claim` (n2), tức điểm không nhất quán đã nêu ở 3.2. Kết quả chuẩn của bundle không đổi; đây chỉ là lần đọc lại.
+
 ### 3.6 Ngôn ngữ
 
-S08 c3 dịch "passive swinging" thành "du lượn thụ động". Đúng phải là "đu đưa thụ động". Verifier không kiểm tra cách dùng từ tiếng Việt, nên lỗi loại này cần người đọc hoặc bảng thuật ngữ.
+S08 c3 dịch "passive swinging" thành "du lượn thụ động"; đúng phải là "đu đưa thụ động". S08 c2 dịch "fidelity principles" thành "nguyên tắc trung thực" (nghĩa đúng: nguyên tắc bảo đảm thực hiện đúng phương pháp). Verifier chấm cả hai là `supported`, tức không bắt được lỗi thuật ngữ làm đổi nghĩa.
 
 ## 4. Đề xuất thay đổi (chờ quyết định; mỗi thay đổi = phiên bản contract mới + lượt chạy mới)
 
@@ -86,7 +93,14 @@ S08 c3 dịch "passive swinging" thành "du lượn thụ động". Đúng phả
 | F | 3.3 | Đo verifier bằng bộ lỗi cài sẵn (đã có trong đặc tả, chưa làm). Thử verifier khác model là **thử nghiệm riêng sau đó** | — |
 | G | 3.6 | Bảng thuật ngữ cho các từ chuyên môn hay gặp (SBI, ASI, AAC, các kỹ thuật cảm giác) | — |
 
-**Hệ quả với bundle này:** verifier phát lại bằng code hiện tại. Khi contract đổi (A–E), bundle 20261107 sẽ không còn tái lập được, và phải được đánh dấu "thay thế bởi" lượt chạy mới, không xóa. Đây là bằng chứng của contract v0.2.
+**Hệ quả với bundle này:** bundle được giữ nguyên và **vẫn phát lại được bằng mã cũ** (mục 6). Nó là bằng chứng của contract v0.2, không bị gán lại thành kết quả của mã mới.
+
+*(Sau rà soát)* Thứ tự đã thống nhất:
+1. E, cùng bộ đo verifier nhỏ (F) lấy chính các lỗi đã quan sát làm ca hồi quy.
+2. B, rồi A. Kiểm tra rằng phần hữu ích được giữ mà không để nhận định lỗi lọt qua.
+3. C, D và sửa các thuật ngữ đã biết, rồi chạy lại một bản cố định trên 4 câu.
+
+A và E đánh giá được bằng cache hiện có; B, C, D đổi prompt hoặc payload nên cần lượt chạy thật. Thử một model khác làm verifier để sau.
 
 ## 5. File
 
@@ -95,3 +109,10 @@ S08 c3 dịch "passive swinging" thành "du lượn thụ động". Đúng phả
 | `S05/S08/S07/H03.result.json` | Kết quả chuẩn: nhận định giữ và loại kèm lý do, kết quả của verifier, lượt gọi, token, thời gian |
 | `cache/` | 14 phản hồi NIM của đúng lượt này (không chứa khóa) |
 | `manifest.json` | Hash của trace, cấu hình, corpus, cache, kết quả; `as_of`; commit code |
+
+## 6. Phát lại bằng mã của lượt chạy
+
+- Tag `answer-g-v0.2-run1` (commit `649e221`) đánh dấu mốc này. Code tầng G lúc chạy là `e0f3cc1`, ghi trong `manifest.json`.
+- `scripts/evaluation/verify_answer_layer.py` (từ commit sau tag) tự so code tầng G và các file ghim hiện tại với commit lúc chạy. Nếu khác, nó trích code và file ghim của commit đó bằng `git archive` vào thư mục tạm, rồi phát lại **bằng chính code đó**, chỉ dùng cache, có chặn mạng. Kết quả in ra có dạng `ANSWER AUDIT S05 (legacy @ e0f3cc1) verified`.
+- Cách làm thủ công tương đương: `git worktree add ..sd_v02 answer-g-v0.2-run1`, rồi trong thư mục đó chạy `python -B scripts/evaluation/verify_answer_layer.py`.
+- Manifest của bundle này **không có** fingerprint mã; verifier lấy fingerprint từ git tại commit lúc chạy. Từ v0.3, manifest ghi thêm `code_fingerprint` (hash các module tầng G) và từ chối tạo manifest nếu code chưa được commit.

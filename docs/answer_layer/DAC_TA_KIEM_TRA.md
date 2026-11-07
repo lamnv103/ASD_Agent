@@ -217,6 +217,22 @@ Báo cáo **riêng** từng dòng, kèm mẫu số. Tách theo nhóm dữ liệu
 
 Chưa cam kết ngưỡng độ trễ. Mọi con số trước đây chỉ là giả thuyết.
 
+### 7.1 Đo verifier bằng bộ lỗi cài sẵn (đã làm từ 07/11/2026)
+
+- Bộ ca: `evaluation/answer_verifier_faults_v1` (README trong thư mục). Gồm 10 ca sạch, 18 ca lỗi (6 quan sát được ở lượt chạy NIM 1, 12 cài sẵn) và 2 ca tranh cãi. Nhãn nháp, `chua_duyet`.
+- Đo bằng `scripts/evaluation/measure_verifier.py`. Script đi đúng đường của pipeline: K1, rồi một lượt verifier với `build_verify_payload`, rồi `parse_verification`. Kết quả và cache nằm trong `reports/verifier_eval_*`. `tasks.ps1 verify` phát lại offline bằng đúng mã đã đo.
+- **Mỗi thay đổi prompt hoặc payload của verifier (B, C, D…) phải được đo lại trên cùng bộ ca và so với lần đo trước, trước khi chạy lại 4 câu.** Nếu số ca lỗi bị bắt giảm, hoặc số ca sạch bị từ chối tăng, thì không nhận thay đổi đó.
+
+Lần đo nền (v0.2, Nemotron, 07/11/2026; `reports/verifier_eval_20261107_v0.2`):
+
+| | Kết quả |
+|---|---|
+| Ca sạch bị từ chối nhầm | 0/10 |
+| Ca lỗi bị bắt | 11/16 (10 đúng lý do) |
+| Ca lỗi bị lọt | F01 (đọc sai phạm vi, tái hiện S05 c3), F04 và F05 (lỗi thuật ngữ), F10 (bỏ điều kiện "chức năng cao"), F11 (melatonin: nguồn có nói nhưng câu hỏi không hỏi) |
+| Chưa đo được ở v0.2 | F02 (mâu thuẫn với đoạn khác, cần C), F03 (không tự đứng được) |
+| Tranh cãi | X01 bị loại, X02 qua (chờ phân xử) |
+
 ## 8. Điều kiện trước lượt gọi API đầu tiên
 
 1. Kiểm thử ở mục 6 đạt (đã đạt 30/30).

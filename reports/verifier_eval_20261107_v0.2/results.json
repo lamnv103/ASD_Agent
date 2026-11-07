@@ -1,0 +1,1148 @@
+{
+  "schema": "verifier_measurement_v1",
+  "contract_version": "answer_contract_v0.2",
+  "check_version": "answer_check_v0.2",
+  "verifier_model": "nvidia/nemotron-3-ultra-550b-a55b",
+  "verify_system_sha256": "fd7c14777fe5ca053b8ffbed6d812d0287bcec51cb187e956395c75c804f1f20",
+  "cases_file": "evaluation/answer_verifier_faults_v1/cases.jsonl",
+  "cases_sha256": "07397efac1087e548891da48393003ac009bdaceef58adc7edebc4fc5e524519",
+  "code_fingerprint": {
+    "rag/answer_layer.py": "cb060b406993624388bf51f03d7916a91be6791f9e2462bd38ed0bca9dd70683",
+    "rag/answer_render.py": "7e0d9d0594e446023a1574b364baccc394704f5098a5f7163295024d542f7f8d",
+    "rag/answer_policy.py": "fc66753f426b3e4f04488cde5a8ffc0f3e781e127dc67a8ed13d43f3df46e49c",
+    "rag/answer_sources.py": "b17db693d4f1e4b8c74af918cf3a25cf80edd74fbe255350c16b896a23f6189b",
+    "rag/answer_client.py": "0d713183a694fa93bce01e6a2c37e2bc4fb462d80b3ddf4b1b1982ddf46475a6",
+    "rag/retriever.py": "887ee3b963f4f0fc93a8b815a753d0a95d593a2eeacde373e66b920b4b9566f8",
+    "rag/tokenization.py": "563498f8256e0f6c529e08b71ec7dfe18e0f8bd5439aaa8c7e2fe84f1fde5acb"
+  },
+  "pinned_files": {
+    "deployments/answer_layer.json": "96b43feca1520ed623aec3006c91dae4be85ff7aa49b47157ce2c04a801123c0",
+    "deployments/retriever.json": "5ccd6ed225f67bf417d287dc8c83667aad80ea1be90b43204840a390891cd599",
+    "knowledge/rag/source_library/documents.json": "26eb017efca593ed18aa4044c9b8185d871bd0f512cda0cb4b9edf82658c5331",
+    "deployments/evidence_context.json": "270f350c74751aade971dc8b204a3a7e677c9dc6b381a704197e8d0a09385b60"
+  },
+  "review_status": "chua_duyet",
+  "note": "Team-draft labels; not clinical adjudication. One claim per verifier call.",
+  "summary": {
+    "clean": 10,
+    "false_reject": [],
+    "faults_scored": 16,
+    "caught": [
+      "F06",
+      "F07",
+      "F08",
+      "F09",
+      "F12",
+      "F13",
+      "F14",
+      "F15",
+      "F16",
+      "F17",
+      "F18"
+    ],
+    "missed": [
+      "F01",
+      "F04",
+      "F05",
+      "F10",
+      "F11"
+    ],
+    "right_reason": [
+      "F06",
+      "F07",
+      "F08",
+      "F09",
+      "F12",
+      "F13",
+      "F14",
+      "F16",
+      "F17",
+      "F18"
+    ],
+    "not_yet_measurable": [
+      {
+        "case_id": "F02",
+        "needs": "C",
+        "outcome": "fail"
+      },
+      {
+        "case_id": "F03",
+        "needs": "v0.3",
+        "outcome": "pass"
+      }
+    ],
+    "contested": [
+      {
+        "case_id": "X01",
+        "outcome": "fail"
+      },
+      {
+        "case_id": "X02",
+        "outcome": "pass"
+      }
+    ]
+  },
+  "records": [
+    {
+      "case_id": "P01",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "support": "supported",
+        "flags": [],
+        "evidence_span": "People should not stop taking a prescribed medication, even if they are feeling better, without the help of a health care provider.",
+        "explanation": "The claim accurately reflects the source quote's guidance against stopping prescribed medication without professional help, even when feeling better."
+      },
+      "reasons": [],
+      "call": {
+        "request_id": "chatcmpl-ca532918-d43e-4648-8589-51648996c262",
+        "cache_hit": true,
+        "elapsed_seconds": 2.839,
+        "usage": {
+          "prompt_tokens": 594,
+          "completion_tokens": 135,
+          "total_tokens": 729,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "pass"
+    },
+    {
+      "case_id": "P02",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "support": "supported",
+        "flags": [],
+        "evidence_span": "SBIs are informed by sensory integration theory, but they have clearly delineated differences from direct, one-on-one occupational therapy intervention using Ayres Sensory Integration® intervention, termed ASI (10, 11).",
+        "explanation": "The quote explicitly states that SBIs have clearly delineated differences from ASI, supporting the claim that they are not identical."
+      },
+      "reasons": [],
+      "call": {
+        "request_id": "chatcmpl-b6351d8b-9874-43da-ba53-dbf8f132c1e1",
+        "cache_hit": true,
+        "elapsed_seconds": 3.439,
+        "usage": {
+          "prompt_tokens": 769,
+          "completion_tokens": 159,
+          "total_tokens": 928,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "pass"
+    },
+    {
+      "case_id": "P03",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "support": "supported",
+        "flags": [],
+        "evidence_span": "Although there is reason to believe that serious sleep problems are common in children with ASD and that poor sleep exacerbates problematic daytime behavior, these conclusions are still premature and require further investigation.",
+        "explanation": "The claim accurately reflects the source text which states that conclusions about the relationship between sleep problems and behavior in ASD are still premature and require further investigation, indicating insufficient evidence for a definitive bidirectional causal relationship."
+      },
+      "reasons": [],
+      "call": {
+        "request_id": "chatcmpl-8a67ce03-6d9c-41f8-9900-0b02e1a15ae4",
+        "cache_hit": true,
+        "elapsed_seconds": 3.042,
+        "usage": {
+          "prompt_tokens": 1246,
+          "completion_tokens": 163,
+          "total_tokens": 1409,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "pass"
+    },
+    {
+      "case_id": "P04",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "support": "supported",
+        "flags": [],
+        "evidence_span": "Key features of ASI include advanced therapist training and mentorship and adherence to fidelity principles, including active engagement of the child, individually tailored activities, and play opportunities presented at the just-right challenge to facilitate adaptive responses (12, 13).",
+        "explanation": "The claim accurately reflects the cited quote's description of ASI's key features: advanced therapist training, adherence to fidelity principles, active child engagement, individually tailored activities, and play at the just-right challenge."
+      },
+      "reasons": [],
+      "call": {
+        "request_id": "chatcmpl-3ca621ea-2d17-4917-a025-8c9f01189bad",
+        "cache_hit": true,
+        "elapsed_seconds": 6.662,
+        "usage": {
+          "prompt_tokens": 783,
+          "completion_tokens": 262,
+          "total_tokens": 1045,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "pass"
+    },
+    {
+      "case_id": "P05",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "support": "supported",
+        "flags": [],
+        "evidence_span": "In contrast, SBIs tend to be practitioner or adult-led interventions, involving passive sensory input applied to the child, and can include sensory techniques, such as massage, wearing earmuffs, passive swinging, caregiver sensory training, and sensory environmental modifications (10, 11).",
+        "explanation": "The claim accurately reflects the cited quote describing SBIs as practitioner/adult-led, involving passive sensory input, and listing massage, earmuffs, and passive swinging as examples."
+      },
+      "reasons": [],
+      "call": {
+        "request_id": "chatcmpl-2fb727ab-a5c8-4448-8971-0bcc2ecc84c7",
+        "cache_hit": true,
+        "elapsed_seconds": 4.138,
+        "usage": {
+          "prompt_tokens": 773,
+          "completion_tokens": 269,
+          "total_tokens": 1042,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "pass"
+    },
+    {
+      "case_id": "P06",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "support": "supported",
+        "flags": [],
+        "evidence_span": "Schlosser and Wendt34 finding that, for individuals with autism, although modest gains in speech could not be attributable directly to AAC intervention, there was no evidence of loss of speech skills.",
+        "explanation": "The claim accurately reflects the cited quote: a review on individuals with autism found no evidence that AAC intervention causes loss of speech skills."
+      },
+      "reasons": [],
+      "call": {
+        "request_id": "chatcmpl-23c98404-9eee-467c-bc1d-5ba8af3d8ed0",
+        "cache_hit": true,
+        "elapsed_seconds": 3.071,
+        "usage": {
+          "prompt_tokens": 683,
+          "completion_tokens": 254,
+          "total_tokens": 937,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "pass"
+    },
+    {
+      "case_id": "P07",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "support": "supported",
+        "flags": [],
+        "evidence_span": "In many reviews, speech as an outcome, but usually not as a primary target of intervention, was examined. Results point mostly to negligible or small effects.",
+        "explanation": "The claim accurately reflects the source quote stating that speech outcomes were examined in many reviews and results point mostly to negligible or small effects."
+      },
+      "reasons": [],
+      "call": {
+        "request_id": "chatcmpl-566c44d4-260a-49ae-9bca-9d03c02988ef",
+        "cache_hit": true,
+        "elapsed_seconds": 8.423,
+        "usage": {
+          "prompt_tokens": 677,
+          "completion_tokens": 205,
+          "total_tokens": 882,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "pass"
+    },
+    {
+      "case_id": "P08",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "support": "supported",
+        "flags": [],
+        "evidence_span": "Although there is reason to believe that serious sleep problems are common in children with ASD and that poor sleep exacerbates problematic daytime behavior, these conclusions are still premature and require further investigation.",
+        "explanation": "The claim accurately reflects the source text stating that conclusions about poor sleep exacerbating problematic daytime behavior are premature and require further investigation."
+      },
+      "reasons": [],
+      "call": {
+        "request_id": "chatcmpl-740612f0-9d04-438a-8bf8-edbf16395e85",
+        "cache_hit": true,
+        "elapsed_seconds": 1.567,
+        "usage": {
+          "prompt_tokens": 760,
+          "completion_tokens": 149,
+          "total_tokens": 909,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "pass"
+    },
+    {
+      "case_id": "P09",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "support": "supported",
+        "flags": [],
+        "evidence_span": "Barton et al. [2015] indicate that only 20 of the 30 studies they included in their review measured sensory processing behaviors",
+        "explanation": "The claim directly matches the cited quote stating Barton et al. (2015) found only 20 of 30 studies measured sensory processing behaviors."
+      },
+      "reasons": [],
+      "call": {
+        "request_id": "chatcmpl-a0818fc3-bf4b-48ed-8bd7-d7188dc948fd",
+        "cache_hit": true,
+        "elapsed_seconds": 3.737,
+        "usage": {
+          "prompt_tokens": 780,
+          "completion_tokens": 211,
+          "total_tokens": 991,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "pass"
+    },
+    {
+      "case_id": "P10",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "support": "supported",
+        "flags": [],
+        "evidence_span": "A provider can adjust the treatment plan to slowly and safely decrease the medication dose.",
+        "explanation": "The claim directly matches the cited quote about a provider adjusting the treatment plan to slowly and safely decrease the medication dose."
+      },
+      "reasons": [],
+      "call": {
+        "request_id": "chatcmpl-32a92158-92ce-4836-8c94-75cdff1b826b",
+        "cache_hit": true,
+        "elapsed_seconds": 3.275,
+        "usage": {
+          "prompt_tokens": 586,
+          "completion_tokens": 183,
+          "total_tokens": 769,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "pass"
+    },
+    {
+      "case_id": "X01",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "support": "partially_supported",
+        "flags": [
+          "condition_dropped"
+        ],
+        "evidence_span": "for individuals with autism, although modest gains in speech could not be attributable directly to AAC intervention, there was no evidence of loss of speech skills.",
+        "explanation": "The claim states 'no evidence of loss of speech skills when using AAC for people with autism' which matches the quote. However, the claim generalizes 'effectiveness of increasing speech is usually small or negligible' while the quote specifies this finding was for autism specifically and that gains could not be directly attributed to AAC intervention. The claim drops the autism-specific condition and the attribution nuance."
+      },
+      "reasons": [
+        "support_partially_supported",
+        "flag_condition_dropped"
+      ],
+      "call": {
+        "request_id": "chatcmpl-10452cf5-4c8c-491c-8323-ec47db67de5d",
+        "cache_hit": true,
+        "elapsed_seconds": 3.826,
+        "usage": {
+          "prompt_tokens": 685,
+          "completion_tokens": 265,
+          "total_tokens": 950,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "fail"
+    },
+    {
+      "case_id": "X02",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "support": "supported",
+        "flags": [],
+        "evidence_span": "past reviews typically included studies in which the “sensory integration” intervention described in the study was not consistent with the principles of ASI and was instead a sensory‐based intervention",
+        "explanation": "The claim accurately reflects the source text: past systematic reviews conflated sensory-based interventions (SBIs) with Ayres Sensory Integration (ASI), including studies that did not adhere to ASI principles, which confounds conclusions about ASI efficacy."
+      },
+      "reasons": [],
+      "call": {
+        "request_id": "chatcmpl-4936937b-b183-486b-b0fd-b379db438ccf",
+        "cache_hit": true,
+        "elapsed_seconds": 2.356,
+        "usage": {
+          "prompt_tokens": 1109,
+          "completion_tokens": 174,
+          "total_tokens": 1283,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "pass"
+    },
+    {
+      "case_id": "F01",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "support": "supported",
+        "flags": [],
+        "evidence_span": "Given the bi-directional relationship between challenging behaviors and sleep disturbance in ASD, preliminary evidence suggests that treating sleep disturbances and challenging behavior in isolation may not lead to successful outcomes [50].",
+        "explanation": "The cited quotes explicitly state that evidence for a bidirectional relationship is 'preliminary' and that conclusions are 'still premature and require further investigation', directly supporting the claim that evidence is preliminary and needs more investigation."
+      },
+      "reasons": [],
+      "call": {
+        "request_id": "chatcmpl-e2087481-88bb-4fc3-b5f5-1e0fd3e024a4",
+        "cache_hit": true,
+        "elapsed_seconds": 2.867,
+        "usage": {
+          "prompt_tokens": 1233,
+          "completion_tokens": 168,
+          "total_tokens": 1401,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "pass"
+    },
+    {
+      "case_id": "F02",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "support": "contradicted",
+        "flags": [
+          "negation_flipped"
+        ],
+        "evidence_span": "The current research highlights clear uni-directional relationships between sleep and behavior in individuals with an ASD.",
+        "explanation": "The claim states a uni-directional relationship (sleep problems worsen ASD symptoms), but the Vietnamese claim says 'mối quan hệ một chiều: rối loạn ngủ làm trầm trọng thêm triệu chứng cốt lõi và hành vi thách thức của tự kỷ' which matches the quote. However, the quote also mentions 'bi-directional relationship between challenging behaviors and sleep disturbance in ASD' later, contradicting the 'uni-directional' assertion in the first sentence. The claim cites only the first part, but the source contains both statements."
+      },
+      "reasons": [
+        "support_contradicted",
+        "flag_negation_flipped"
+      ],
+      "call": {
+        "request_id": "chatcmpl-c6884ebf-924c-4570-9006-7a454301e324",
+        "cache_hit": true,
+        "elapsed_seconds": 12.564,
+        "usage": {
+          "prompt_tokens": 1028,
+          "completion_tokens": 259,
+          "total_tokens": 1287,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "fail"
+    },
+    {
+      "case_id": "F03",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "support": "supported",
+        "flags": [],
+        "evidence_span": "To date, however, studies have failed to provide conclusive evidence about the relationship between sleep and behaviors seen in low-functioning individuals (of all ages) with autism.",
+        "explanation": "The quote explicitly states that studies have failed to provide conclusive evidence about the sleep-behavior relationship in low-functioning individuals with autism of all ages, directly supporting the claim."
+      },
+      "reasons": [],
+      "call": {
+        "request_id": "chatcmpl-166e7bfa-f676-48fe-8dff-db636e560f63",
+        "cache_hit": true,
+        "elapsed_seconds": 1.591,
+        "usage": {
+          "prompt_tokens": 738,
+          "completion_tokens": 157,
+          "total_tokens": 895,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "pass"
+    },
+    {
+      "case_id": "F04",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "support": "supported",
+        "flags": [],
+        "evidence_span": "Key features of ASI include advanced therapist training and mentorship and adherence to fidelity principles, including active engagement of the child, individually tailored activities, and play opportunities presented at the just-right challenge to facilitate adaptive responses (12, 13).",
+        "explanation": "The claim accurately reflects the cited quote's description of ASI's key features: advanced therapist training, fidelity principles, active child engagement, individually tailored activities, and just-right challenge for adaptive responses."
+      },
+      "reasons": [],
+      "call": {
+        "request_id": "chatcmpl-3b590f37-2781-4497-8849-c7745c6e9d7b",
+        "cache_hit": true,
+        "elapsed_seconds": 3.786,
+        "usage": {
+          "prompt_tokens": 778,
+          "completion_tokens": 288,
+          "total_tokens": 1066,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "pass"
+    },
+    {
+      "case_id": "F05",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "support": "supported",
+        "flags": [],
+        "evidence_span": "In contrast, SBIs tend to be practitioner or adult-led interventions, involving passive sensory input applied to the child, and can include sensory techniques, such as massage, wearing earmuffs, passive swinging, caregiver sensory training, and sensory environmental modifications (10, 11). SBIs may be implemented by caregivers and other team members or accessed independently by the child as part of an occupational therapy intervention plan in natural environments such as the home, community, and schools.",
+        "explanation": "The claim accurately reflects the cited quotes: SBIs are adult-led, involve passive sensory input (massage, earmuffs, passive swinging), and can be implemented by caregivers in natural environments."
+      },
+      "reasons": [],
+      "call": {
+        "request_id": "chatcmpl-6f79304a-cf4c-49d6-92a7-b782ecf39eeb",
+        "cache_hit": true,
+        "elapsed_seconds": 8.491,
+        "usage": {
+          "prompt_tokens": 847,
+          "completion_tokens": 309,
+          "total_tokens": 1156,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "pass"
+    },
+    {
+      "case_id": "F06",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "support": "partially_supported",
+        "flags": [
+          "condition_dropped"
+        ],
+        "evidence_span": "for individuals with autism, although modest gains in speech could not be attributable directly to AAC intervention, there was no evidence of loss of speech skills.",
+        "explanation": "The claim states 'no evidence of loss of speech skills when using AAC' generally, but the cited quote specifies this finding was 'for individuals with autism' (condition_dropped). The quote also states effects are 'negligible or small' and 'modest gains... could not be attributable directly to AAC intervention', supporting the second part about small/negligible effects on speech increase."
+      },
+      "reasons": [
+        "support_partially_supported",
+        "flag_condition_dropped"
+      ],
+      "call": {
+        "request_id": "chatcmpl-fb39211e-a7b6-4c84-9a24-c9a64753c6b3",
+        "cache_hit": true,
+        "elapsed_seconds": 2.59,
+        "usage": {
+          "prompt_tokens": 680,
+          "completion_tokens": 268,
+          "total_tokens": 948,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "fail"
+    },
+    {
+      "case_id": "F07",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "support": "contradicted",
+        "flags": [
+          "negation_flipped"
+        ],
+        "evidence_span": "People should not stop taking a prescribed medication, even if they are feeling better, without the help of a health care provider.",
+        "explanation": "The claim states patients CAN stop medication on their own when feeling better, but the source explicitly says people should NOT stop prescribed medication even if feeling better without a healthcare provider's help."
+      },
+      "reasons": [
+        "support_contradicted",
+        "flag_negation_flipped"
+      ],
+      "call": {
+        "request_id": "chatcmpl-5ce80df8-13a5-4ebe-83fc-ac3979210572",
+        "cache_hit": true,
+        "elapsed_seconds": 2.736,
+        "usage": {
+          "prompt_tokens": 589,
+          "completion_tokens": 189,
+          "total_tokens": 778,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "fail"
+    },
+    {
+      "case_id": "F08",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "support": "contradicted",
+        "flags": [
+          "negation_flipped",
+          "certainty_changed"
+        ],
+        "evidence_span": "People should not stop taking a prescribed medication, even if they are feeling better, without the help of a health care provider.",
+        "explanation": "The source explicitly states people should NOT stop medication even when feeling better without a provider's help, while the claim advises families to taper and stop on their own."
+      },
+      "reasons": [
+        "support_contradicted",
+        "flag_negation_flipped",
+        "flag_certainty_changed"
+      ],
+      "call": {
+        "request_id": "chatcmpl-e7a01aba-9688-425a-a712-37ec5158303f",
+        "cache_hit": true,
+        "elapsed_seconds": 2.355,
+        "usage": {
+          "prompt_tokens": 586,
+          "completion_tokens": 178,
+          "total_tokens": 764,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "fail"
+    },
+    {
+      "case_id": "F09",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "support": "partially_supported",
+        "flags": [
+          "certainty_changed"
+        ],
+        "evidence_span": "there was no evidence of loss of speech skills",
+        "explanation": "The source states 'no evidence of loss of speech skills' which is a lack of evidence for harm, not definitive proof of no harm. The claim uses 'chắc chắn không' (certainly not), which overstates the certainty."
+      },
+      "reasons": [
+        "support_partially_supported",
+        "flag_certainty_changed"
+      ],
+      "call": {
+        "request_id": "chatcmpl-c6a39894-9c2b-4043-a321-90b91eaed8a1",
+        "cache_hit": true,
+        "elapsed_seconds": 4.688,
+        "usage": {
+          "prompt_tokens": 675,
+          "completion_tokens": 256,
+          "total_tokens": 931,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "fail"
+    },
+    {
+      "case_id": "F10",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "support": "supported",
+        "flags": [],
+        "evidence_span": "Studies have shown that parent-based education (behavioral therapy) improves sleep-onset delay in children with high-functioning autism [59]",
+        "explanation": "The cited quote explicitly states that parent-based education (behavioral therapy) improves sleep-onset delay in children with high-functioning autism, which directly supports the claim that parental education about behavioral therapy helps autistic children fall asleep faster."
+      },
+      "reasons": [],
+      "call": {
+        "request_id": "chatcmpl-39e105e7-9fdd-455f-a999-0f76fc5df864",
+        "cache_hit": true,
+        "elapsed_seconds": 6.771,
+        "usage": {
+          "prompt_tokens": 1010,
+          "completion_tokens": 219,
+          "total_tokens": 1229,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "pass"
+    },
+    {
+      "case_id": "F11",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "support": "supported",
+        "flags": [],
+        "evidence_span": "pharmacological treatments such as melatonin is an effective sleep treatment for children with autism [77]",
+        "explanation": "The cited quote explicitly states that melatonin is an effective sleep treatment for children with autism."
+      },
+      "reasons": [],
+      "call": {
+        "request_id": "chatcmpl-ea55c054-68b8-4b4e-948f-24e1b1317b75",
+        "cache_hit": true,
+        "elapsed_seconds": 3.05,
+        "usage": {
+          "prompt_tokens": 1008,
+          "completion_tokens": 169,
+          "total_tokens": 1177,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "pass"
+    },
+    {
+      "case_id": "F12",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "support": "partially_supported",
+        "flags": [
+          "added_content"
+        ],
+        "evidence_span": "SBIs are informed by sensory integration theory, but they have clearly delineated differences from direct, one-on-one occupational therapy intervention using Ayres Sensory Integration® intervention, termed ASI (10, 11).",
+        "explanation": "The quote confirms SBIs have clearly delineated differences from ASI, supporting the first part of the claim. However, the quote does not state that SBIs have been proven ineffective for autistic children; this is added content not present in the cited evidence."
+      },
+      "reasons": [
+        "support_partially_supported",
+        "flag_added_content"
+      ],
+      "call": {
+        "request_id": "chatcmpl-c39e4f12-bc50-4cad-bb8e-034072c80fdc",
+        "cache_hit": true,
+        "elapsed_seconds": 3.518,
+        "usage": {
+          "prompt_tokens": 750,
+          "completion_tokens": 247,
+          "total_tokens": 997,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "fail"
+    },
+    {
+      "case_id": "F13",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "support": "contradicted",
+        "flags": [
+          "negation_flipped"
+        ],
+        "evidence_span": "ASI is an individualized intervention designed to address the specific underlying sensory‐motor issues that may be affecting children's performance during daily routines and activities",
+        "explanation": "The source explicitly states ASI is an individualized intervention addressing specific issues identified in assessment, directly contradicting the claim that it applies the same to all children without individual assessment."
+      },
+      "reasons": [
+        "support_contradicted",
+        "flag_negation_flipped"
+      ],
+      "call": {
+        "request_id": "chatcmpl-0a60b3fe-85d5-4913-be62-175a0be49a43",
+        "cache_hit": true,
+        "elapsed_seconds": 4.538,
+        "usage": {
+          "prompt_tokens": 905,
+          "completion_tokens": 242,
+          "total_tokens": 1147,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "fail"
+    },
+    {
+      "case_id": "F14",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "support": "not_supported",
+        "flags": [
+          "added_content"
+        ],
+        "evidence_span": "Barton et al. [2015] indicate that only 20 of the 30 studies they included in their review measured sensory processing behaviors, and Lang et al. [2012] found that only 7 of the 25 papers included in this review had assessed sensory processing",
+        "explanation": "The claim incorrectly attributes Lang et al.'s finding (7 of 25 papers) to Barton et al. (who reported 20 of 30 studies). The cited quote clearly distinguishes between the two research groups' findings."
+      },
+      "reasons": [
+        "support_not_supported",
+        "flag_added_content"
+      ],
+      "call": {
+        "request_id": "chatcmpl-865aa19d-39e6-4740-a8ff-1f338e4a2b1f",
+        "cache_hit": true,
+        "elapsed_seconds": 3.589,
+        "usage": {
+          "prompt_tokens": 779,
+          "completion_tokens": 266,
+          "total_tokens": 1045,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "fail"
+    },
+    {
+      "case_id": "F15",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "support": "partially_supported",
+        "flags": [
+          "condition_dropped"
+        ],
+        "evidence_span": "Schlosser and Wendt34 finding that, for individuals with autism, although modest gains in speech could not be attributable directly to AAC intervention, there was no evidence of loss of speech skills.",
+        "explanation": "The quote supports 'no evidence of loss of speech skills' for individuals with autism, but the claim specifies 'trẻ tự kỷ dưới 3 tuổi' (children with autism under 3 years old), an age restriction not present in the source."
+      },
+      "reasons": [
+        "support_partially_supported",
+        "flag_condition_dropped"
+      ],
+      "call": {
+        "request_id": "chatcmpl-e013938f-9b3a-4afe-8061-a4a836707de3",
+        "cache_hit": true,
+        "elapsed_seconds": 3.098,
+        "usage": {
+          "prompt_tokens": 669,
+          "completion_tokens": 279,
+          "total_tokens": 948,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "fail"
+    },
+    {
+      "case_id": "F16",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "support": "contradicted",
+        "flags": [
+          "negation_flipped",
+          "certainty_changed"
+        ],
+        "evidence_span": "The current research highlights clear uni-directional relationships between sleep and behavior in individuals with an ASD. It is well researched that sleep problems worsen ASD symptomatology across most core domains, as well as exacerbate pre-existing behavioral problems.",
+        "explanation": "The source states the relationship is 'uni-directional' (sleep problems worsen behavior), directly contradicting the claim that daytime behavior is the main cause of sleep problems. The claim also asserts a definitive causal direction not supported by the text."
+      },
+      "reasons": [
+        "support_contradicted",
+        "flag_negation_flipped",
+        "flag_certainty_changed"
+      ],
+      "call": {
+        "request_id": "chatcmpl-13936da5-e8f1-4015-a714-2b40e9ac49ee",
+        "cache_hit": true,
+        "elapsed_seconds": 7.313,
+        "usage": {
+          "prompt_tokens": 1015,
+          "completion_tokens": 234,
+          "total_tokens": 1249,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "fail"
+    },
+    {
+      "case_id": "F17",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "support": "contradicted",
+        "flags": [
+          "certainty_changed",
+          "negation_flipped"
+        ],
+        "evidence_span": "To date, however, studies have failed to provide conclusive evidence about the relationship between sleep and behaviors seen in low-functioning individuals (of all ages) with autism.",
+        "explanation": "The claim asserts that studies have definitively proven poor sleep worsens daytime behavior in autistic children. The cited quote explicitly states studies have failed to provide conclusive evidence about this relationship, directly contradicting the claim and flipping the certainty from 'failed to provide conclusive evidence' to 'proven definitively'."
+      },
+      "reasons": [
+        "support_contradicted",
+        "flag_certainty_changed",
+        "flag_negation_flipped"
+      ],
+      "call": {
+        "request_id": "chatcmpl-116b2d28-da20-4b96-9bf9-b2518b3a9192",
+        "cache_hit": true,
+        "elapsed_seconds": 2.996,
+        "usage": {
+          "prompt_tokens": 751,
+          "completion_tokens": 229,
+          "total_tokens": 980,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "fail"
+    },
+    {
+      "case_id": "F18",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "support": "not_supported",
+        "flags": [
+          "certainty_changed"
+        ],
+        "evidence_span": "Stopping a medication too soon may cause unpleasant or harmful side effects.",
+        "explanation": "The source uses 'may cause' (possibility), but the claim states 'chắc chắn sẽ gây' (certainty/will definitely cause), changing the certainty level."
+      },
+      "reasons": [
+        "support_not_supported",
+        "flag_certainty_changed"
+      ],
+      "call": {
+        "request_id": "chatcmpl-05d7958c-5ac9-481e-a653-adf6581df0dc",
+        "cache_hit": true,
+        "elapsed_seconds": 2.58,
+        "usage": {
+          "prompt_tokens": 578,
+          "completion_tokens": 187,
+          "total_tokens": 765,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "fail"
+    }
+  ]
+}
