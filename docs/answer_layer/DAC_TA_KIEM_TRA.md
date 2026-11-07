@@ -4,6 +4,8 @@
 
 **Trạng thái:** bản nháp để phát triển nguyên mẫu nội bộ, 07/11/2026, đã cài đặt trong `rag/answer_layer.py`. Đi kèm [DAC_TA_DAU_RA.md](DAC_TA_DAU_RA.md).
 
+**Thử nghiệm v0.5 → v0.7 (08/11/2026, đang đo, chưa nhận):** mỗi verdict thêm `checks` gồm đúng hai nhãn, `certainty` (`same`/`weaker`/`stronger`) và `conclusion_topic` (`same`/`narrower`/`changed`), không trích nguyên văn. Chỉ `stronger` và `changed` thêm lý do loại `check:<khía cạnh>:<nhãn>`; mọi kiểm tra v0.5 giữ nguyên, nên bảng không thể làm một nhận định được qua. Thiếu khía cạnh hoặc nhãn lạ là lỗi schema. Giải thích tối đa 20 từ. Ví dụ trong prompt lấy từ các quy tắc đã có trong prompt generator. Tiêu chí đăng ký trước: `evaluation/trials/verifier_v0.7_small/criteria.json`.
+
 **Thay đổi v0.5 → v0.6 (thử nghiệm, không được nhận, đã gỡ):** verifier điền bảng đối chiếu 4 khía cạnh; chương trình kiểm tra nguyên văn từng dòng và loại nhận định có khía cạnh khác `same`. Lý do nội dung và lý do kỹ thuật được báo cáo tách riêng.
 
 **Thay đổi v0.4 → v0.5:** bỏ B (verifier quay về một `evidence_span`, như v0.3); giữ danh sách lỗi thuật ngữ trong K1.
