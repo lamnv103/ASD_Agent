@@ -1,10 +1,11 @@
-"""Cache-only replay of the answer layer (G) for a committed NIM run bundle. No provider, no network.
+"""Cache-only replay of the answer layer (G) for committed NIM run bundles. No provider, no network.
 
     .venv-embedding\\Scripts\\python.exe -B scripts/evaluation/verify_answer_layer.py
-    .venv-embedding\\Scripts\\python.exe -B scripts/evaluation/verify_answer_layer.py --create-manifest reports/answer_eval_20261107  # once
+    .venv-embedding\\Scripts\\python.exe -B scripts/evaluation/verify_answer_layer.py --create-manifest BUNDLE --case QID=TRACE ...
 
 A bundle folder holds: <QID>.result.json (canonical results), cache/ (exactly the NIM responses of
-that run) and manifest.json (hashes of inputs, config, cache and results; pinned as_of; code commit).
+that run) and manifest.json (hashes of inputs, config, cache and results; pinned as_of; code commit;
+code fingerprint of the answer-layer modules for bundles created from v0.3 on).
 
 Replay checks, per case:
   * every hash in the manifest still matches (trace, config, corpus pin, cache files, results);
@@ -12,53 +13,83 @@ Replay checks, per case:
     no-network guard; a missing/tampered cache entry fails the case;
   * the final rendered text is byte-identical; catalog, sources, final and removed claims,
     status, route, needs, as_of and repairs are identical. Timings / cache_hit are not compared.
+
+Which code replays a bundle: the code that produced it. If the answer-layer modules or the pinned
+config/corpus files differ from the bundle's run commit (e.g. the contract moved on), the files of
+that commit are extracted with `git archive` into a temporary folder and the replay runs there
+("legacy" mode). Old bundles therefore stay verifiable after the contract changes; they are never
+re-labelled as results of newer code.
 Output: a new folder under reports/verification_runs/ (never writes into the bundle).
 """
 from __future__ import annotations
 
 import argparse
+import hashlib
+import io
 import json
+import shutil
 import socket
 import subprocess
 import sys
+import tarfile
+import tempfile
 from datetime import date
 from pathlib import Path
 from unittest import mock
 
 ROOT = Path(__file__).resolve().parents[2]
-sys.path.insert(0, str(ROOT))
-sys.path.insert(0, str(ROOT / "scripts/evaluation"))
-from audit_output import new_run_dir  # noqa: E402
-
-from rag.answer_client import AnswerNimClient  # noqa: E402
-from rag.answer_layer import answer_from_trace  # noqa: E402
-from rag.retriever import atomic_json, sha  # noqa: E402
-from rag.tokenization import load_counter  # noqa: E402
 
 DEFAULT_BUNDLES = ["reports/answer_eval_20261107"]
 COMPARED = ("route", "status", "reader_status", "proposed_status", "repairs", "as_of", "catalog", "claims_final",
-            "claims_removed", "needs_addressed", "needs_missing", "uncovered", "error", "contract_version", "check_version")
+            "claims_removed", "verifier_observations", "needs_addressed", "needs_missing", "uncovered", "error",
+            "contract_version", "check_version")
 PINNED_FILES = ("deployments/answer_layer.json", "deployments/retriever.json", "knowledge/rag/source_library/documents.json",
                 "deployments/evidence_context.json")
+CODE_FILES = ("rag/answer_layer.py", "rag/answer_render.py", "rag/answer_policy.py", "rag/answer_sources.py",
+              "rag/answer_client.py", "rag/retriever.py", "rag/tokenization.py")
+ARCHIVE_PATHS = ("rag", "deployments", "knowledge/rag/source_library")
+
+
+def sha_bytes(data: bytes) -> str:
+    return hashlib.sha256(data).hexdigest()
 
 
 def file_sha(path: Path) -> str:
-    return sha(path.read_bytes())
+    return sha_bytes(path.read_bytes())
 
 
 def rel(path: Path) -> str:
     return path.resolve().relative_to(ROOT).as_posix()
 
 
+def git(*args, binary=False):
+    out = subprocess.run(["git", *args], cwd=ROOT, capture_output=True, check=True)
+    return out.stdout if binary else out.stdout.decode("utf-8").strip()
+
+
+def fingerprint(root: Path, files=CODE_FILES) -> dict:
+    return {p: file_sha(root / p) for p in files}
+
+
+def fingerprint_at(commit: str, files=CODE_FILES) -> dict:
+    return {p: sha_bytes(git("show", f"{commit}:{p}", binary=True)) for p in files}
+
+
 def create_manifest(bundle: Path, cases: dict[str, str], as_of: str) -> Path:
+    from rag.retriever import atomic_json
     out = bundle / "manifest.json"
     if out.exists():
         raise SystemExit(f"{rel(out)} already exists; manifests are written once.")
-    commit = subprocess.run(["git", "rev-parse", "HEAD"], cwd=ROOT, capture_output=True, text=True).stdout.strip()
+    commit = git("rev-parse", "HEAD")
+    code = fingerprint(ROOT)
+    if code != fingerprint_at(commit) or fingerprint(ROOT, PINNED_FILES) != fingerprint_at(commit, PINNED_FILES):
+        raise SystemExit("Answer-layer code or pinned config differs from HEAD; commit the code that produced the run first.")
+    cfg = json.loads((ROOT / "deployments/answer_layer.json").read_text(encoding="utf-8"))
     manifest = dict(
-        schema="answer_replay_bundle_v1", as_of=as_of, code_commit_at_run=commit,
+        schema="answer_replay_bundle_v2", as_of=as_of, code_commit_at_run=commit, code_fingerprint=code,
+        contract_version=cfg["contract_version"], check_version=cfg["check_version"],
         note="Internal prototype run (chua_duyet). Results are technical evidence, not clinical validation.",
-        pinned_files={p: file_sha(ROOT / p) for p in PINNED_FILES},
+        pinned_files=fingerprint(ROOT, PINNED_FILES),
         cache={p.name: file_sha(p) for p in sorted((bundle / "cache").glob("*.json"))},
         cases=[])
     for qid, trace in cases.items():
@@ -87,12 +118,29 @@ def no_key():
     raise AssertionError("cache-only replay must not read a key")
 
 
-def verify_bundle(bundle: Path, counter) -> dict:
+def replay_mode(manifest: dict) -> str:
+    """'current' when this checkout holds the run's code and pinned files; otherwise 'legacy'."""
+    commit = manifest["code_commit_at_run"]
+    expected = manifest.get("code_fingerprint") or fingerprint_at(commit)
+    same_code = fingerprint(ROOT) == expected
+    same_pins = fingerprint(ROOT, tuple(manifest["pinned_files"])) == manifest["pinned_files"]
+    return "current" if same_code and same_pins else "legacy"
+
+
+def verify_bundle(bundle: Path, code_root: Path = ROOT) -> dict:
+    """Replay one bundle with the rag package found under code_root (the run's code)."""
+    sys.path.insert(0, str(code_root))
+    from rag.answer_client import AnswerNimClient
+    from rag.answer_layer import answer_from_trace
+    from rag.tokenization import load_counter
+    counter = load_counter(json.loads((code_root / "deployments/evidence_context.json").read_text(encoding="utf-8")))
     manifest = json.loads((bundle / "manifest.json").read_text(encoding="utf-8"))
     problems = []
     for p, h in manifest["pinned_files"].items():
-        if file_sha(ROOT / p) != h:
-            problems.append(f"pinned file changed since the run: {p}")
+        if file_sha(code_root / p) != h:
+            problems.append(f"pinned file differs from the run: {p}")
+    if manifest.get("code_fingerprint") and manifest["code_fingerprint"] != fingerprint(code_root):
+        problems.append("answer-layer code differs from the manifest fingerprint")
     cache_dir = bundle / "cache"
     actual = {p.name: file_sha(p) for p in sorted(cache_dir.glob("*.json"))}
     if actual != manifest["cache"]:
@@ -131,6 +179,44 @@ def verify_bundle(bundle: Path, counter) -> dict:
                 code_commit_at_run=manifest["code_commit_at_run"])
 
 
+def find_commit(code_fp: dict, pins: dict) -> str | None:
+    """Newest commit whose answer-layer code and pinned files match the given hashes (None if never committed)."""
+    for commit in git("rev-list", "HEAD", "--", *CODE_FILES, *pins).split():
+        if fingerprint_at(commit) == code_fp and fingerprint_at(commit, tuple(pins)) == pins:
+            return commit
+    return None
+
+
+def run_child_at(commit: str, script: Path, args: list[str]) -> tuple[dict | None, str]:
+    """Extract the commit's code and pinned files with `git archive` and run `script --child-code-root TMP args`
+    in a child process, so the child imports only that commit's rag package. Returns (last JSON line, stderr)."""
+    tmp = Path(tempfile.mkdtemp(prefix="answer_replay_"))
+    try:
+        tar = git("archive", "--format=tar", commit, *ARCHIVE_PATHS, binary=True)
+        with tarfile.open(fileobj=io.BytesIO(tar)) as tf:
+            tf.extractall(tmp, filter="data")
+        proc = subprocess.run([sys.executable, "-B", str(script), "--child-code-root", str(tmp), *args],
+                              cwd=ROOT, capture_output=True, text=True, encoding="utf-8")
+        lines = [ln for ln in proc.stdout.splitlines() if ln.startswith("{")]
+        return (json.loads(lines[-1]) if lines else None), proc.stderr.strip()[-400:]
+    finally:
+        shutil.rmtree(tmp, ignore_errors=True)
+
+
+def verify_legacy(bundle: Path, commit: str) -> dict:
+    report, err = run_child_at(commit, Path(__file__).resolve(), [str(bundle)])
+    return report or dict(bundle=rel(bundle), verified=False, problems=[f"legacy replay crashed: {err}"],
+                          cases=[], code_commit_at_run=commit)
+
+
+def run_bundle(bundle: Path) -> dict:
+    manifest = json.loads((bundle / "manifest.json").read_text(encoding="utf-8"))
+    mode = replay_mode(manifest)
+    report = verify_bundle(bundle) if mode == "current" else verify_legacy(bundle, manifest["code_commit_at_run"])
+    report["replay_mode"] = mode
+    return report
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -138,14 +224,21 @@ def main() -> int:
     p.add_argument("--create-manifest", metavar="BUNDLE")
     p.add_argument("--as-of", default="2026-11-07")
     p.add_argument("--case", action="append", default=[], metavar="QID=TRACE", help="with --create-manifest")
+    p.add_argument("--child-code-root", help=argparse.SUPPRESS)
     args = p.parse_args()
+    if args.child_code_root:
+        print(json.dumps(verify_bundle(Path(args.bundles[0]).resolve(), Path(args.child_code_root)), ensure_ascii=False))
+        return 0
+    sys.path.insert(0, str(ROOT))
     if args.create_manifest:
         cases = dict(c.split("=", 1) for c in args.case)
         print(rel(create_manifest(ROOT / args.create_manifest, cases, args.as_of)))
         return 0
-    counter = load_counter(json.loads((ROOT / "deployments/evidence_context.json").read_text(encoding="utf-8")))
+    sys.path.insert(0, str(ROOT / "scripts/evaluation"))
+    from audit_output import new_run_dir
+    from rag.retriever import atomic_json
     out = new_run_dir("answer_layer")
-    reports = [verify_bundle(ROOT / b, counter) for b in args.bundles]
+    reports = [run_bundle(ROOT / b) for b in args.bundles]
     summary = dict(status="verified" if all(r["verified"] for r in reports) else "failed",
                    provider_calls=0, network_guard="socket.connect and socket.create_connection blocked",
                    bundles=reports,
@@ -153,10 +246,11 @@ def main() -> int:
                                 "Generator and verifier are the same model; verifier passes are provisional."])
     atomic_json(out / "summary.json", summary)
     for r in reports:
+        mode = r["replay_mode"] + ("" if r["replay_mode"] == "current" else f" @ {r['code_commit_at_run'][:7]}")
         for c in r["cases"]:
-            print(f"ANSWER AUDIT {c['question_id']} {'verified' if not c['problems'] else 'FAILED: ' + '; '.join(c['problems'])}")
+            print(f"ANSWER AUDIT {c['question_id']} ({mode}) {'verified' if not c['problems'] else 'FAILED: ' + '; '.join(c['problems'])}")
         for prob in r["problems"]:
-            print(f"ANSWER AUDIT bundle FAILED: {prob}")
+            print(f"ANSWER AUDIT bundle {r['bundle']} FAILED: {prob}")
     print(f"AUDIT_DIR={out}")
     print(json.dumps(dict(status=summary["status"]), ensure_ascii=False))
     return 0 if summary["status"] == "verified" else 1

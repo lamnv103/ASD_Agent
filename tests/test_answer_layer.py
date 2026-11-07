@@ -12,8 +12,8 @@ from pathlib import Path
 from unittest import mock
 
 from rag.answer_client import AnswerClientError, read_answer_key
-from rag.answer_layer import (GEN_SYSTEM, REPAIR_SYSTEM, VERIFY_SYSTEM, AnswerError, answer_from_trace, build_catalog,
-                              check_claims_k1, compute_status, parse_verification)
+from rag.answer_layer import (GEN_SYSTEM, REMOVED_DISPOSITIONS, REPAIR_SYSTEM, VERIFY_SYSTEM, AnswerError,
+                              answer_from_trace, build_catalog, check_claims_k1, compute_status, parse_verification)
 from rag.answer_policy import detect_emergency, load_config
 from rag.answer_sources import TrustedCorpus, load_trusted_corpus
 from rag.retriever import ROOT, sha
@@ -331,6 +331,49 @@ class FlowTests(unittest.TestCase):
                    ver([verdict("c1", S2)], [need_v("n1", True, ["c1"]), need_v("n2", False, [])],
                        gaps=[dict(need_id="n2", contains_claim=False)]))
         self.assertIn(CFG["gap_sentence_prefix"] + "việc gia đình tiếp tục nói chuyện với trẻ.", r["render"]["text"])
+
+
+class RemovalLogTests(unittest.TestCase):
+    """Change E: every generated claim is accounted for (shown or removed with a disposition)."""
+
+    def cascade(self):
+        bad_v = ver([verdict("c1", S2), verdict("c2", S1, "partially_supported", ["certainty_changed"])],
+                    [need_v("n1", True, ["c1", "c2"])])
+        return run(make_trace(), gen([C_DIRECT, C_BAD]), bad_v, gen([C_DIRECT, C_BAD]), bad_v)
+
+    def test_dispositions_failed_replaced_and_dropped_by_status(self):
+        r, _ = self.cascade()
+        self.assertEqual(r["status"], "khong_du")  # conservative coverage: n1 is credited to the failed c2
+        got = [(x["round"], x["disposition"], x["claim_id"]) for x in r["claims_removed"]]
+        self.assertEqual(got, [("generate", "failed_verification", "c2"), ("generate", "replaced_in_repair", "c1"),
+                               ("repair", "failed_verification", "c2"), ("repair", "dropped_by_status", "c1")])
+        dropped = r["claims_removed"][-1]
+        self.assertEqual((dropped["text"], dropped["reasons"]), (C_DIRECT["text"], ["status_khong_du"]))
+        self.assertNotIn(C_DIRECT["text"], r["render"]["text"])
+        kinds = [(o["round"], o["kind"], o.get("need_id")) for o in r["verifier_observations"]]
+        self.assertEqual(kinds, [("generate", "need_credited_to_failed_claim", "n1"),
+                                 ("repair", "need_credited_to_failed_claim", "n1")])
+
+    def test_every_generated_claim_is_shown_or_removed(self):
+        for r, _ in (self.cascade(),
+                     run(make_trace(), gen([C_DIRECT, C_ASSOC]),
+                         ver([verdict("c1", S2), verdict("c2", S1)], [need_v("n1", True, ["c1", "c2"])]))):
+            final_round = "repair" if r["repairs"] else "generate"
+            accounted = {(final_round, c["claim_id"]) for c in r["claims_final"]}
+            accounted |= {(x["round"], x["claim_id"]) for x in r["claims_removed"]}
+            rounds = ("generate", "repair") if r["repairs"] else ("generate",)
+            self.assertEqual(accounted, {(rd, c) for rd in rounds for c in ("c1", "c2")})
+            for x in r["claims_removed"]:
+                self.assertIn(x["disposition"], REMOVED_DISPOSITIONS)
+
+    def test_observations_for_inconsistent_verdicts_and_joined_spans(self):
+        joined = S1[:40] + " ... " + S2[:40]
+        r, _ = run(make_trace(), gen([C_DIRECT, C_ASSOC]),
+                   ver([verdict("c1", S2, flags=["added_content"]), verdict("c2", joined)], [need_v("n1", False, [])]),
+                   gen([C_DIRECT]), ver([verdict("c1", S2)], [need_v("n1", True, ["c1"])]))
+        kinds = {(o["kind"], o.get("claim_id")) for o in r["verifier_observations"] if o["round"] == "generate"}
+        self.assertEqual(kinds, {("supported_with_flags", "c1"), ("span_joined_with_ellipsis", "c2")})
+        self.assertEqual(r["status"], "du")  # observations never change the result
 
 
 class EmergencyAndMarkingTests(unittest.TestCase):

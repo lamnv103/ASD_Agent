@@ -1,4 +1,4 @@
-"""Answer layer (G) for the internal prototype: answer_contract_v0.1 / answer_check_v0.1.
+"""Answer layer (G) for the internal prototype (contract/check version: see deployments/answer_layer.json).
 
 Spec: docs/answer_layer/DAC_TA_DAU_RA.md and DAC_TA_KIEM_TRA.md. Summary:
   * Input is a prepared evidence trace (GuardedEvidencePipeline.prepare). Only reviewed evidence
@@ -24,7 +24,8 @@ from .answer_render import render_answer, render_fixed
 from .answer_sources import load_trusted_corpus
 from .retriever import canonical, sha
 
-RESULT_SCHEMA = "answer_result_v0.1"
+RESULT_SCHEMA = "answer_result_v0.2"
+REMOVED_DISPOSITIONS = ("failed_verification", "replaced_in_repair", "dropped_by_status")
 READER_CEILING = {"sufficient": "du", "partially_sufficient": "mot_phan", "insufficient": "khong_du"}
 STATUSES = ("du", "mot_phan", "khong_du")
 ROLES = ("tra_loi_truc_tiep", "chi_tiet")
@@ -320,6 +321,27 @@ def parse_verification(content, sent_claims, sent_gaps, needs, catalog, cfg):
                 uncovered=[p.strip() for p in parts if p.strip()][: cfg["limits"]["max_uncovered_parts"]])
 
 
+def verifier_observations(verification, reasons, stage):
+    """Diagnostics about the verifier output itself (no effect on the result). Used to measure the verifier:
+    * supported_with_flags: support == supported while flags are set (inconsistent verdict);
+    * span_joined_with_ellipsis: the span failed the verbatim check and joins pieces with "..." / "…";
+    * need_credited_to_failed_claim: a need marked fully_addressed by a claim that failed its checks."""
+    obs = []
+    for cid, res in sorted(verification["claims"].items()):
+        v = res["verdict"]
+        if v is None:
+            continue
+        if v["support"] == "supported" and v["flags"]:
+            obs.append(dict(round=stage, kind="supported_with_flags", claim_id=cid))
+        if "span_not_in_cited_evidence" in res["reasons"] and ("..." in v["evidence_span"] or "…" in v["evidence_span"]):
+            obs.append(dict(round=stage, kind="span_joined_with_ellipsis", claim_id=cid))
+    for nid, n in sorted(verification["needs"].items()):
+        failed = [c for c in n["by_claims"] if reasons.get(c)]
+        if n["fully_addressed"] and failed:
+            obs.append(dict(round=stage, kind="need_credited_to_failed_claim", need_id=nid, claim_ids=failed))
+    return obs
+
+
 # ---------------------------------------------------------------- K4
 
 def compute_status(*, reader_status, claims, passing, need_verdicts, needs, uncovered):
@@ -370,7 +392,7 @@ def _base(cfg, trace, question):
                 purpose=cfg["purpose"], review_status=cfg["review_status"], review_note=cfg["review_note"],
                 question_sha256=sha(question), trace_question_sha256=(trace or {}).get("question_sha256"),
                 route=None, status=None, reader_status=None, proposed_status=None, repairs=0,
-                claims_final=[], claims_removed=[], needs_addressed=[], needs_missing=[], uncovered=[],
+                claims_final=[], claims_removed=[], verifier_observations=[], needs_addressed=[], needs_missing=[], uncovered=[],
                 calls=[], timings={}, error=None, models=dict(generator=cfg["model"], verifier=cfg["verifier_model"]),
                 limitations=[cfg["verifier_same_model_limitation"]] if cfg["model"] == cfg["verifier_model"] else [])
 
@@ -446,14 +468,17 @@ def _answer(trace, question, client, cfg, out, as_of_year, dev, corpus):
         state = _round(run, "generate", GEN_SYSTEM, gen_payload, question, needs, need_ids, catalog, sources, cfg)
         if state["needs_repair"]:
             out["repairs"] = 1
-            removed_first = state["removed"]
+            # every first-round claim is accounted for: failed ones, and passing ones the complete repair output replaces
+            removed_first = [dict(r, round="generate", disposition="failed_verification") for r in state["removed"]]
+            removed_first += [dict(claim_id=c["claim_id"], text=c["text"], reasons=[], round="generate",
+                                   disposition="replaced_in_repair")
+                              for c in state.get("claims", []) if c["claim_id"] in state.get("passing", ())]
+            out["verifier_observations"] += state.get("observations", [])
             problems = state["problems"]
             repair_payload = dict(gen_payload, previous_output=state["raw"], problems=problems,
                                   unaddressed_needs=state["unaddressed"])
             state = _round(run, "repair", REPAIR_SYSTEM, repair_payload, question, needs, need_ids, catalog, sources, cfg,
                            final=True)
-            for r in removed_first:
-                r["round"] = "generate"
             out["claims_removed"] = removed_first
         out["calls"], out["timings"] = run.calls, dict(run.timings)
     except Exception:
@@ -464,10 +489,16 @@ def _answer(trace, question, client, cfg, out, as_of_year, dev, corpus):
                                                 need_verdicts=verification["needs"], needs=needs,
                                                 uncovered=verification["uncovered"])
     final = [c for c in claims if c["claim_id"] in passing] if status != "khong_du" else []
+    out["verifier_observations"] += state["observations"]
     for c in claims:
         if c["claim_id"] not in passing:
             out["claims_removed"].append(dict(claim_id=c["claim_id"], text=c["text"], reasons=state["reasons"][c["claim_id"]],
-                                              round=state["round"]))
+                                              round=state["round"], disposition="failed_verification"))
+    shown = {c["claim_id"] for c in final}
+    for c in claims:
+        if c["claim_id"] in passing and c["claim_id"] not in shown:
+            out["claims_removed"].append(dict(claim_id=c["claim_id"], text=c["text"], reasons=["status_" + status],
+                                              round=state["round"], disposition="dropped_by_status"))
     gap_topics, generic = [], bool(verification["uncovered"])
     valid_gaps = {g["need_id"]: g for g in state["gaps_ok"] if not verification["gap_contains_claim"].get(g["need_id"], True)}
     for nid in missing:
@@ -480,6 +511,16 @@ def _answer(trace, question, client, cfg, out, as_of_year, dev, corpus):
                claims_final=[dict(c, verdict=verification["claims"][c["claim_id"]]["verdict"]) for c in final],
                render=render_answer(cfg, status=status, claims=final, catalog=catalog, sources=sources,
                                     gap_topics=gap_topics, generic_gap=generic, as_of_year=as_of_year, dev=dev))
+
+
+def build_verify_payload(question, needs, claims, gaps, catalog):
+    """The exact verifier request body used by the pipeline (also used by scripts/evaluation/measure_verifier.py)."""
+    return dict(
+        question=question,
+        needs=[dict(need_id=n["claim_id"], text=n["text"]) for n in needs],
+        claims=[dict(claim_id=c["claim_id"], text=c["text"], need_ids=c["need_ids"],
+                     cited=[dict(id=e, quote=catalog[e]["quote"]) for e in c["evidence_ids"]]) for c in claims],
+        gaps=[dict(need_id=g["need_id"], topic_vi=g["topic_vi"]) for g in gaps])
 
 
 def _round(run, stage, system, payload, question, needs, need_ids, catalog, sources, cfg, *, final=False):
@@ -495,12 +536,7 @@ def _round(run, stage, system, payload, question, needs, need_ids, catalog, sour
     k1 = check_claims_k1(claims, catalog, sources, need_ids, cfg)
     gaps_ok = check_gaps_k1(gen["gaps"], need_ids, cfg)
     sent = [c for c in claims if not k1[c["claim_id"]]]
-    verify_payload = dict(
-        question=question,
-        needs=[dict(need_id=n["claim_id"], text=n["text"]) for n in needs],
-        claims=[dict(claim_id=c["claim_id"], text=c["text"], need_ids=c["need_ids"],
-                     cited=[dict(id=e, quote=catalog[e]["quote"]) for e in c["evidence_ids"]]) for c in sent],
-        gaps=[dict(need_id=g["need_id"], topic_vi=g["topic_vi"]) for g in gaps_ok])
+    verify_payload = build_verify_payload(question, needs, sent, gaps_ok, catalog)
     if sent:
         verification = parse_verification(run.call("verify" if stage == "generate" else "verify_repair", VERIFY_SYSTEM, verify_payload),
                                           sent, gaps_ok, needs, catalog, cfg)
@@ -510,12 +546,14 @@ def _round(run, stage, system, payload, question, needs, need_ids, catalog, sour
     for cid, res in verification["claims"].items():
         reasons[cid] += res["reasons"]
     passing = {cid for cid, r in reasons.items() if not r}
+    observations = verifier_observations(verification, reasons, stage)
     _, addressed, missing = compute_status(reader_status="sufficient", claims=claims, passing=passing,
                                            need_verdicts=verification["needs"], needs=needs, uncovered=[])
     declared_gaps = {g["need_id"] for g in gaps_ok}
     unaddressed = [n for n in missing if n not in declared_gaps]
     failed = [c for c in claims if reasons[c["claim_id"]]]
     return dict(raw=raw, claims=claims, passing=passing, reasons=reasons, verification=verification, gaps_ok=gaps_ok,
+                observations=observations,
                 proposed_status=gen["proposed_status"], round=stage,
                 needs_repair=bool(failed or unaddressed),
                 unaddressed=unaddressed,

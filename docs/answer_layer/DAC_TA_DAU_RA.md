@@ -176,6 +176,11 @@ Nguồn:
 ## 8. Ghi log và cache
 
 - Mỗi lần chạy ghi: phiên bản contract, prompt hash, model, token và thời gian **riêng từng bước** (sinh, kiểm tra, sửa, kiểm tra lại), số lượt sửa, nhận định bị loại kèm lý do, trạng thái trước/sau.
+- *(Kết quả `answer_result_v0.2`, thay đổi E)* **Mọi nhận định được sinh ra đều có mặt trong kết quả**: hoặc trong `claims_final`, hoặc trong `claims_removed` kèm `round` và `disposition`:
+  - `failed_verification`: trượt K1 hoặc K2/K3, có `reasons`;
+  - `replaced_in_repair`: đạt ở vòng 1 nhưng bị thay vì lượt sửa trả về toàn bộ đầu ra mới;
+  - `dropped_by_status`: đạt kiểm tra nhưng không hiển thị vì trạng thái (`reasons: ["status_khong_du"]`).
+- `verifier_observations` ghi các dấu hiệu bất thường của verifier mà không làm đổi kết quả: `supported_with_flags`, `span_joined_with_ellipsis`, `need_credited_to_failed_claim`. Đây là dữ liệu cho phép đo verifier (`evaluation/answer_verifier_faults_v1`).
 - Cache sinh và kiểm tra dùng để phát lại offline như các tầng trước, **chỉ cho câu hỏi tổng hợp không có thông tin cá nhân thật**. Khả năng phát lại không phải lý do lưu dữ liệu người dùng: chế độ phục vụ mặc định không cache, thời hạn lưu theo quyết định 9 của bản nháp MVP.
 - Cache của tầng này nằm ở `reports/answer_cache/` và được git bỏ qua. `--no-cache` tắt hoàn toàn việc đọc/ghi cache.
 - Khóa NVIDIA chỉ lấy từ biến môi trường `NVIDIA_API_KEY` hoặc file `*.env` riêng. File YAML (cấu hình Continue) và file `.env` ở thư mục gốc bị từ chối. Ở chế độ chạy toàn luồng, reader cũng dùng cùng quy tắc này.
