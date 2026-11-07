@@ -5,7 +5,10 @@ Differs from rag.semantic_reader.NimClient (hash-pinned, reader-only) in three w
   * the key comes ONLY from the NVIDIA_API_KEY environment variable or an explicit *.env dotenv file.
     YAML files (e.g. Continue's config.yaml) and the project-root .env are refused;
   * caching can be switched off (use_cache=False). Cache only synthetic questions: the data
-    retention policy (MVP decision 9) is not decided yet.
+    retention policy (MVP decision 9) is not decided yet;
+  * offline=True is cache-only: a missing cache entry stops BEFORE the key is read or any
+    connection is opened. offline + use_cache=False is an invalid configuration.
+TLS: certificate and hostname verification are always on (certifi CA bundle); see tls_context().
 """
 from __future__ import annotations
 
@@ -47,8 +50,20 @@ def read_answer_key(path=None):
     return key
 
 
+def tls_context():
+    """Verified TLS only. Never relax this: fix the CA configuration instead."""
+    ctx = ssl.create_default_context(cafile=certifi.where())
+    if ctx.verify_mode != ssl.CERT_REQUIRED or not ctx.check_hostname:
+        raise AnswerClientError("tls_config", "TLS verification must stay enabled.")
+    return ctx
+
+
 class AnswerNimClient:
-    def __init__(self, counter, *, config=None, key_file=None, key_supplier=None, cache_dir=None, use_cache=True):
+    def __init__(self, counter, *, config=None, key_file=None, key_supplier=None, cache_dir=None, use_cache=True,
+                 offline=False):
+        if offline and not use_cache:
+            raise AnswerClientError("invalid_configuration", "offline mode replays the cache; it cannot be combined with no-cache.")
+        self.offline = offline
         self.config = load_config(config)
         self.counter = counter
         self.key_file = key_file
@@ -75,10 +90,12 @@ class AnswerNimClient:
             record = copy.deepcopy(record)
             record["cache_hit"] = True
             return record
+        if self.offline:
+            raise AnswerClientError("offline_cache_miss", "No cached response for this request; offline mode never reads the key or opens a connection.")
         key = self.key_supplier() if self.key_supplier else read_answer_key(self.key_file)
         req = request.Request(cfg["endpoint"], data=json.dumps(payload, ensure_ascii=False).encode("utf-8"),
                               headers={"Authorization": "Bearer " + key, "Content-Type": "application/json"}, method="POST")
-        opener = request.build_opener(NoRedirect(), request.HTTPSHandler(context=ssl.create_default_context(cafile=certifi.where())))
+        opener = request.build_opener(NoRedirect(), request.HTTPSHandler(context=tls_context()))
         tick = time.monotonic()
         try:
             with opener.open(req, timeout=cfg["timeout_seconds"]) as response:

@@ -8,6 +8,8 @@
 NVIDIA key: environment variable NVIDIA_API_KEY or --nvidia-key-file some.env (YAML and the root .env
 are refused). Output is marked "NGUYÊN MẪU NỘI BỘ" and chua_duyet: not for real users, not a pilot basis.
 Use synthetic questions without real personal data only; --no-cache keeps nothing on disk for this layer.
+--offline replays the answer cache only (no key read, no connection); it cannot be combined with --no-cache.
+--as-of YYYY-MM-DD pins the reference date used by date-dependent source notes (replays must pin it).
 """
 from __future__ import annotations
 
@@ -15,6 +17,7 @@ import argparse
 import getpass
 import json
 import sys
+from datetime import date
 from pathlib import Path
 
 from .answer_client import AnswerNimClient, read_answer_key
@@ -33,10 +36,16 @@ def main() -> int:
     p.add_argument("--nvidia-key-file", help="dotenv *.env file with NVIDIA_API_KEY (default: environment)")
     p.add_argument("--cohere-key-file", help="full flow: dotenv file with COHERE_API_KEY (default: environment)")
     p.add_argument("--prompt-cohere-key", action="store_true", help="full flow: type the Cohere key (hidden)")
-    p.add_argument("--no-cache", action="store_true", help="do not read or write the answer-layer cache")
+    mode = p.add_mutually_exclusive_group()
+    mode.add_argument("--no-cache", action="store_true", help="do not read or write the answer-layer cache")
+    mode.add_argument("--offline", action="store_true", help="answer cache only; never read the key or open a connection")
+    p.add_argument("--cache-dir", help="answer-layer cache folder (default reports/answer_cache)")
+    p.add_argument("--as-of", type=date.fromisoformat, help="reference date YYYY-MM-DD (default: today)")
     args = p.parse_args()
     if bool(args.question) == bool(args.from_trace):
         p.error("give either a question or --from-trace")
+    if args.offline and not args.from_trace:
+        p.error("--offline works with --from-trace only (the full flow needs retrieval and the reader)")
     cfg = load_config()
     secret = None
     try:
@@ -68,8 +77,9 @@ def main() -> int:
                                                          key_supplier=lambda: read_answer_key(args.nvidia_key_file))
                 trace = pipe.prepare(question, trace_path=args.trace_out)
                 counter = pipe.counter
-            client = AnswerNimClient(counter, key_file=args.nvidia_key_file, use_cache=not args.no_cache)
-            result = answer_from_trace(trace, client=client)
+            client = AnswerNimClient(counter, key_file=args.nvidia_key_file, use_cache=not args.no_cache,
+                                     offline=args.offline, cache_dir=args.cache_dir)
+            result = answer_from_trace(trace, client=client, as_of=args.as_of)
             if not args.from_trace:
                 result["reader_calls"] = trace["semantic_reader"].get("calls", [])
                 result["input_guard"] = {k: v for k, v in trace.get("input_guard", {}).items() if k != "limitations"}

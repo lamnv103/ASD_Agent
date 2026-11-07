@@ -387,11 +387,13 @@ def answer_from_trace(trace, *, client=None, config=None, as_of=None, dev=True, 
     those become route='system_error' with no content shown."""
     cfg = load_config(config)
     question = trace["question"]
-    as_of_year = (as_of or date.today()).year
+    as_of = as_of or date.today()
+    as_of_year = as_of.year
     hits = detect_emergency(question, cfg)
     if hits:
         return emergency_result(question, cfg, hits, dev=dev)
     out = _base(cfg, trace, question)
+    out["as_of"] = as_of.isoformat()
     total = time.monotonic()
     try:
         _answer(trace, question, client, cfg, out, as_of_year, dev, corpus)

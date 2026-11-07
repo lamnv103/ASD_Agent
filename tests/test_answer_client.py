@@ -153,5 +153,130 @@ class ClientTests(unittest.TestCase):
         self.assertEqual(ctx.exception.code, "answer_budget")
 
 
+class NoNetwork:
+    """Blocks every socket connection in the process; records attempts."""
+
+    def __init__(self):
+        self.attempts = 0
+
+    def __enter__(self):
+        import socket
+
+        def refuse(*a, **k):
+            self.attempts += 1
+            raise AssertionError("network access attempted")
+        self._patches = [mock.patch.object(socket.socket, "connect", refuse),
+                         mock.patch.object(socket, "create_connection", refuse),
+                         mock.patch("rag.answer_client.request.build_opener", side_effect=refuse)]
+        for p in self._patches:
+            p.start()
+        return self
+
+    def __exit__(self, *a):
+        for p in self._patches:
+            p.stop()
+
+
+def no_key():
+    raise AssertionError("the key must not be read")
+
+
+class OfflineTests(unittest.TestCase):
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.cache = Path(self.tmp.name)
+
+    def tearDown(self):
+        self.tmp.cleanup()
+
+    def offline(self):
+        return AnswerNimClient(FakeCounter(), key_supplier=no_key, cache_dir=self.cache, offline=True)
+
+    def test_offline_cache_miss_stops_before_key_and_network(self):
+        with NoNetwork() as net:
+            with self.assertRaises(AnswerClientError) as ctx:
+                self.offline().complete(msgs())
+        self.assertEqual((ctx.exception.code, net.attempts), ("offline_cache_miss", 0))
+        self.assertEqual(list(self.cache.glob("*.json")), [])
+
+    def test_offline_replays_cache_without_network(self):
+        online = AnswerNimClient(FakeCounter(), key_supplier=lambda: KEY, cache_dir=self.cache)
+        with mock.patch("rag.answer_client.request.build_opener", return_value=FakeOpener(body())):
+            first = online.complete(msgs())
+        with NoNetwork() as net:
+            again = self.offline().complete(msgs())
+        self.assertEqual((again["content"], again["cache_hit"], net.attempts), (first["content"], True, 0))
+
+    def test_offline_tampered_cache_is_rejected(self):
+        online = AnswerNimClient(FakeCounter(), key_supplier=lambda: KEY, cache_dir=self.cache)
+        with mock.patch("rag.answer_client.request.build_opener", return_value=FakeOpener(body())):
+            online.complete(msgs())
+        path = next(self.cache.glob("*.json"))
+        rec = json.loads(path.read_text(encoding="utf-8"))
+        rec["content"] = '{"forged": 1}'
+        path.write_text(json.dumps(rec), encoding="utf-8")
+        with NoNetwork() as net, self.assertRaises(AnswerClientError) as ctx:
+            self.offline().complete(msgs())
+        self.assertEqual((ctx.exception.code, net.attempts), ("answer_cache_invalid", 0))
+
+    def test_offline_with_no_cache_is_invalid(self):
+        with self.assertRaises(AnswerClientError) as ctx:
+            AnswerNimClient(FakeCounter(), key_supplier=no_key, cache_dir=self.cache, offline=True, use_cache=False)
+        self.assertEqual(ctx.exception.code, "invalid_configuration")
+
+    def test_answer_layer_offline_on_real_trace_is_system_error_without_network(self):
+        from datetime import date
+        from rag.answer_layer import answer_from_trace
+        from rag.retriever import ROOT
+        trace = json.loads((ROOT / "reports/reader_refinement_20261101_232742/run_20261102_004612_154953/traces/S05.json")
+                           .read_text(encoding="utf-8"))
+        with NoNetwork() as net:
+            r = answer_from_trace(trace, client=self.offline(), as_of=date(2026, 11, 7))
+        self.assertEqual((r["route"], r["error"], net.attempts, r["as_of"]), ("system_error", "offline_cache_miss", 0, "2026-11-07"))
+        self.assertEqual(r["claims_final"], [])
+
+    def test_cli_rejects_offline_with_no_cache(self):
+        import subprocess
+        import sys
+        from rag.retriever import ROOT
+        p = subprocess.run([sys.executable, "-B", "-m", "rag.answer", "--from-trace", "x.json", "--offline", "--no-cache"],
+                           cwd=ROOT, capture_output=True, text=True, encoding="utf-8", errors="replace")
+        self.assertEqual(p.returncode, 2)
+        self.assertIn("not allowed with argument", p.stderr)
+
+
+class TlsTests(unittest.TestCase):
+    def test_tls_context_verifies_certificate_and_hostname(self):
+        import ssl
+        from rag.answer_client import tls_context
+        ctx = tls_context()
+        self.assertEqual((ctx.verify_mode, ctx.check_hostname), (ssl.CERT_REQUIRED, True))
+
+    def test_client_uses_verified_tls_context(self):
+        import ssl
+        from urllib import request as urlrequest
+        captured = []
+
+        def fake_build_opener(*handlers):
+            captured.extend(handlers)
+            return FakeOpener(body())
+        client = AnswerNimClient(FakeCounter(), key_supplier=lambda: KEY, use_cache=False)
+        with mock.patch("rag.answer_client.request.build_opener", side_effect=fake_build_opener):
+            client.complete(msgs())
+        https = [h for h in captured if isinstance(h, urlrequest.HTTPSHandler)]
+        self.assertEqual(len(https), 1)
+        self.assertEqual((https[0]._context.verify_mode, https[0]._context.check_hostname), (ssl.CERT_REQUIRED, True))
+
+    def test_no_tls_disabling_in_project_code(self):
+        import re
+        from rag.retriever import ROOT
+        pattern = re.compile(r"verify\s*=\s*False|CERT_NONE|_create_unverified_context|check_hostname\s*=\s*False|"
+                             r"InsecureRequestWarning|disable_warnings|(REQUESTS_CA_BUNDLE|SSL_CERT_FILE)\"\]\s*=\s*\"\"")
+        files = [ROOT / "app.py"] + [p for d in ("rag", "scripts") for p in (ROOT / d).rglob("*.py")]
+        hits = [f"{p.relative_to(ROOT)}:{i}" for p in files if p.is_file()
+                for i, line in enumerate(p.read_text(encoding="utf-8", errors="replace").splitlines(), 1) if pattern.search(line)]
+        self.assertEqual(hits, [])
+
+
 if __name__ == "__main__":
     unittest.main()
