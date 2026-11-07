@@ -26,8 +26,10 @@ replayed in a child process. Scores are derived from records and recomputed by -
 from __future__ import annotations
 
 import argparse
+import os
 import json
 import shutil
+from datetime import datetime, timezone
 import sys
 from pathlib import Path
 
@@ -62,10 +64,85 @@ DEFAULT_MEASUREMENTS = ["reports/verifier_eval_20261107_v0.2", "reports/verifier
                         "reports/verifier_trial_20261108_v0.7/groups_v1_rep2",
                         "reports/verifier_trial_20261108_v0.7/groups_addendum_rep1",
                         "reports/verifier_trial_20261108_v0.7/groups_addendum_rep2"]
-CONTENT_PREFIXES = ("support_", "flag_", "check:")  # verifier reasons about the claim's content (vs schema/wording)
+CONTENT_PREFIXES = ("support_", "flag_", "check:", "context_limit:")  # verifier reasons about the claim's content (vs schema/wording)
 FLAG_TO_ASPECT = {"condition_dropped": "population_scope", "certainty_changed": "certainty",
                   "added_content": "conclusion_topic", "unrequested_medical_content": "question_fit"}
 GATE_PREFIX = ("pharm_unrequested:", "known_term_error:")  # deterministic content gates; the verifier is still measured on these
+
+
+class RunAbort(Exception):
+    """A live measurement must stop before (or right after) a provider call."""
+
+
+def validate_out(out: str) -> Path:
+    """--out must be a clean relative path under reports/ (no control characters such as a stray CR, no surrounding
+    whitespace). Checked BEFORE any provider call: a bad path once lost 10 paid responses (cache write failed after
+    the call)."""
+    if not out or out != out.strip() or any(ord(ch) < 32 or ord(ch) == 127 for ch in out):
+        raise RunAbort(f"invalid --out {out!r}: control character or surrounding whitespace")
+    path = (ROOT / out).resolve()
+    if (ROOT / "reports").resolve() not in path.parents:
+        raise RunAbort(f"invalid --out {out!r}: must be a folder under reports/")
+    return path
+
+
+def preflight(out: Path, atomic_json):
+    """Create out/cache and prove the cache and ledger are writable with the SAME writer the client uses."""
+    if (out / "results.partial.json").exists():
+        raise RunAbort(f"{out} holds an interrupted run (results.partial.json); inspect it and use a new --out")
+    (out / "cache").mkdir(parents=True, exist_ok=True)
+    probe = out / "cache" / ".preflight_probe.json"
+    atomic_json(probe, dict(probe=True))
+    if json.loads(probe.read_text(encoding="utf-8")) != dict(probe=True):
+        raise RunAbort("cache probe did not read back")
+    probe.unlink()
+    Ledger(out / "calls.jsonl").append(dict(event="preflight_ok"))
+
+
+class Ledger:
+    """Append-only call log, written BEFORE each provider call (fsync), so every paid call is counted even if the
+    response is lost. A call with "start" but no "done" is a lost or failed call."""
+
+    def __init__(self, path: Path):
+        self.path = path
+
+    def append(self, row):
+        row = dict(row, at=datetime.now(timezone.utc).isoformat())
+        with open(self.path, "a", encoding="utf-8") as f:
+            f.write(json.dumps(row, ensure_ascii=False) + "\n")
+            f.flush()
+            os.fsync(f.fileno())
+
+    def summary(self):
+        rows = [json.loads(x) for x in self.path.read_text(encoding="utf-8").splitlines() if x.strip()] if self.path.exists() else []
+        starts = {r["n"] for r in rows if r["event"] == "start"}
+        done = {r["n"]: r for r in rows if r["event"] == "done"}
+        errors = {r["n"]: r for r in rows if r["event"] == "error"}
+        return dict(attempted=len(starts), completed=len(done), provider_calls=sum(not r.get("cache_hit") for r in done.values()),
+                    errors=sorted({r["code"] for r in errors.values()}), unaccounted=len(starts - set(done) - set(errors)),
+                    completion_tokens=sum(r.get("completion_tokens") or 0 for r in done.values() if not r.get("cache_hit")))
+
+
+class LedgerClient:
+    """Wraps the provider client for live runs: ledger entry first (a ledger failure means no call), then the call."""
+
+    def __init__(self, client, ledger: Ledger):
+        self.client, self.ledger, self.n = client, ledger, 0
+
+    def complete(self, msgs):
+        self.n += 1
+        self.ledger.append(dict(event="start", n=self.n))
+        try:
+            out = self.client.complete(msgs)
+        except Exception as exc:
+            try:  # best effort: the "start" row already counts this call
+                self.ledger.append(dict(event="error", n=self.n, code=getattr(exc, "code", None) or type(exc).__name__))
+            except OSError:
+                pass
+            raise
+        self.ledger.append(dict(event="done", n=self.n, cache_hit=bool(out.get("cache_hit")), request_id=out.get("request_id"),
+                                completion_tokens=(out.get("usage") or {}).get("completion_tokens")))
+        return out
 
 
 def load_jsonl(path: Path):
@@ -95,6 +172,13 @@ class Runtime:
         if "pharm_gate" in self.cfg:  # contract v0.3+
             from rag.answer_pharm import load_pharm_gate
             self.gate = load_pharm_gate(self.cfg["pharm_gate"])
+        # change C (trial): only when the configuration enables it; otherwise the v0.5 prompt/payload/parser, byte for byte
+        self.ctx = None
+        if (self.cfg.get("verifier_context") or {}).get("enabled"):
+            from rag import answer_verify_context
+            self.ctx = answer_verify_context
+        src = self.ctx or self.al
+        self.verify_system, self.verify_payload, self.parse = src.VERIFY_SYSTEM, src.build_verify_payload, src.parse_verification
 
     def _setup(self, trace_path):
         trace = json.loads((ROOT / trace_path).read_text(encoding="utf-8"))
@@ -116,8 +200,8 @@ class Runtime:
     def _verify(self, client, trace, needs, claims, catalog):
         """Invalid verifier output is a RESULT (the pipeline would show a system error), recorded per claim with the
         mechanical reason "verifier_output_invalid:<check>"; provider/cache errors still propagate."""
-        payload = self.al.build_verify_payload(trace["question"], needs, claims, [], catalog)
-        msgs = [dict(role="system", content=self.al.VERIFY_SYSTEM), dict(role="user", content=self.canonical(payload))]
+        payload = self.verify_payload(trace["question"], needs, claims, [], catalog)
+        msgs = [dict(role="system", content=self.verify_system), dict(role="user", content=self.canonical(payload))]
         try:
             out = client.complete(msgs)
         except Exception as exc:  # a truncated completion is a result (pipeline: system_error); other errors propagate
@@ -128,7 +212,7 @@ class Runtime:
         call = dict(request_id=out.get("request_id"), cache_hit=out.get("cache_hit"),
                     elapsed_seconds=out.get("elapsed_seconds"), usage=out.get("usage"))
         try:
-            res = self.al.parse_verification(out["content"], claims, [], needs, catalog, self.cfg)["claims"]
+            res = self.parse(out["content"], claims, [], needs, catalog, self.cfg)["claims"]
         except self.al.AnswerError as exc:
             if exc.code != "verifier_output_invalid":
                 raise
@@ -197,8 +281,9 @@ class Runtime:
         pins = tuple(pinned_keys) if pinned_keys else tuple(p for p in va.PINNED_FILES if (self.code_root / p).exists())
         code = tuple(code_keys) if code_keys else tuple(p for p in va.CODE_FILES if (self.code_root / p).exists())
         out = dict(schema="verifier_measurement_v2", contract_version=cfg["contract_version"], check_version=cfg["check_version"],
-                   verifier_model=cfg["verifier_model"], verify_system_sha256=self.sha(self.al.VERIFY_SYSTEM),
+                   verifier_model=cfg["verifier_model"], verify_system_sha256=self.sha(self.verify_system),
                    pharm_gate_version=self.gate.version if self.gate else None,
+                   verifier_context=self.ctx.VERSION if self.ctx else None,
                    cases_file=cases_file, cases_sha256=self.sha((ROOT / cases_file).read_text(encoding="utf-8")),
                    code_fingerprint=va.fingerprint(self.code_root, code), pinned_files=va.fingerprint(self.code_root, pins),
                    review_status="chua_duyet", cache_seeded_from=seeded_from,
@@ -431,14 +516,23 @@ def main() -> int:
         return 0
     if not args.out:
         p.error("--out, --check or --compare is required")
-    out = ROOT / args.out
+    try:
+        out = validate_out(args.out)
+    except RunAbort as exc:
+        raise SystemExit(f"preflight: {exc}") from None
     if (out / "results.json").exists():
         raise SystemExit(f"{args.out}/results.json exists; measurements are written once (use --check to replay).")
+    if out.exists() and any(p.name != "cache" for p in out.iterdir()):
+        raise SystemExit(f"preflight: {args.out} is not empty; measurements go to a new folder.")
+    rt = Runtime()
+    try:
+        preflight(out, rt.atomic_json)
+    except (RunAbort, OSError) as exc:
+        raise SystemExit(f"preflight: cache or ledger not writable ({exc}); no provider call was made.") from None
     if args.seed_cache:
         (out / "cache").mkdir(parents=True, exist_ok=True)
         for f in (ROOT / args.seed_cache / "cache").glob("*.json"):
             shutil.copy2(f, out / "cache" / f.name)
-    rt = Runtime()
     cases = load_jsonl(ROOT / args.cases)
     only = args.only.split(",") if args.only else None
     if only:
@@ -447,8 +541,23 @@ def main() -> int:
             raise SystemExit(f"unknown case ids: {sorted(unknown)}")
         cases = [c for c in cases if c["case_id"] in only]
     groups_def = [] if args.no_groups else load_jsonl(ROOT / args.groups)
-    client = rt.client_cls(rt.counter, key_file=args.nvidia_key_file, cache_dir=out / "cache")
-    records = []
+    ledger = Ledger(out / "calls.jsonl")
+    client = LedgerClient(rt.client_cls(rt.counter, key_file=args.nvidia_key_file, cache_dir=out / "cache"), ledger)
+    records, groups, pipe = [], [], []
+    try:
+        return _live(args, rt, client, cases, only, groups_def, records, groups, pipe, out, ledger)
+    except BaseException as exc:  # stop at once; keep what was measured; never continue a batch silently
+        partial = dict(schema="verifier_measurement_partial_v1", error=f"{type(exc).__name__}: {exc}", argv=sys.argv[1:],
+                       records=records, groups=groups, pipeline_groups=pipe, ledger=ledger.summary())
+        try:
+            rt.atomic_json(out / "results.partial.json", partial)
+        except OSError:
+            print(json.dumps(partial, ensure_ascii=False), file=sys.stderr)
+        print(f"STOPPED: {partial['error']} | ledger {partial['ledger']}", file=sys.stderr)
+        raise
+
+
+def _live(args, rt, client, cases, only, groups_def, records, groups, pipe, out, ledger):
     for c in ([] if args.groups_only else cases):
         r = rt.check_case(c, client)
         records.append(r)
@@ -456,11 +565,10 @@ def main() -> int:
         print(f"{c['case_id']} expected={c['expected']:<9} outcome={r['outcome']:<4} gate={r.get('gate_reasons', [])} "
               f"{v.get('support', 'k1')} {v.get('flags', r['k1_reasons'])}", flush=True)
     by_id = {c["case_id"]: c for c in cases}
-    groups = []
     for g in groups_def:
         groups.append(rt.check_group(g, by_id, client))
         print(f"{g['group_id']} " + " ".join(f"{r['case_id']}={r['verifier_outcome']}" for r in groups[-1]["records"]), flush=True)
-    pipe = rt.pipeline_groups(groups_def, by_id, client)
+    pipe.extend(rt.pipeline_groups(groups_def, by_id, client))
     for g in pipe:
         print(f"{g['group_id']} (pipeline) " + " ".join(f"{r['case_id']}={r['verifier_outcome']}" for r in g["records"]), flush=True)
     if args.seed_cache:  # keep only the cache entries this measurement used (each is identity-validated on read)
@@ -475,6 +583,7 @@ def main() -> int:
     if args.groups_only:
         result["groups_only"] = True
     rt.atomic_json(out / "results.json", result)
+    print("ledger:", json.dumps(ledger.summary()))
     if not args.groups_only:
         print_summary(args.out, result, cases)
     return 0

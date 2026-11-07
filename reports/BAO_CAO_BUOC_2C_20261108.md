@@ -15,7 +15,7 @@ Chỉ `stronger` và `changed` thêm lý do loại; mọi kiểm tra của v0.5 
 
 Generator, sửa, chốt dược lý, thuật ngữ, A và giới hạn 3.072 token đều không đổi.
 
-**Chạy:** 27 lượt gọi NIM theo kế hoạch đăng ký, mỗi lần lặp có cache riêng và không dùng lại cache. Ngoài ra, lần chạy đầu bị lỗi đường dẫn (ký tự `\r` trong tên thư mục) nên mất 10 lượt gọi: phản hồi không được ghi và không ai xem, sau đó đã chạy lại toàn bộ. Mọi lần đo phát lại được bằng `measure_verifier.py --check`.
+**Chạy:** 27 lượt gọi NIM theo kế hoạch đăng ký, mỗi lần lặp có cache riêng và không dùng lại cache. **Chi phí tính cả lượt mất: 37 lượt gọi NIM** (27 có bằng chứng, 10 mất). Phân tích nội dung chỉ dùng 27 lượt có bằng chứng. Lần chạy đầu bị lỗi đường dẫn (ký tự `\r` trong tên thư mục) nên mất 10 lượt gọi: phản hồi không được ghi và không ai xem, sau đó đã chạy lại toàn bộ. Mọi lần đo phát lại được bằng `measure_verifier.py --check`.
 
 ## 2. Kết quả theo tiêu chí
 
@@ -47,3 +47,4 @@ Ghi chú báo cáo riêng, không thuộc tiêu chí:
 - HEAD được đưa về hành vi v0.5 bằng một commit mới. Lịch sử v0.7 giữ ở tag `answer-g-v0.7-rejected-trial`.
 - Chuyển sang **C**: verifier được xem các đoạn khác trong catalog **chỉ để phát hiện giới hạn hoặc mâu thuẫn**, không bao giờ dùng làm căn cứ cho nhận định không trích. Cần thiết kế và tiêu chí đăng ký trước, rồi trình duyệt trước khi chạy.
 - F01, A01, A07, F10 vẫn là ca theo dõi, lọt ở v0.5.
+- Lỗi làm mất 10 lượt đã được đóng trong công cụ đo trước lượt gọi kế tiếp: kiểm tra trước đường dẫn và khả năng ghi cache, sổ lượt gọi ghi trước mỗi lượt, lưu trạng thái chạy dở, dừng ngay khi lỗi (`docs/answer_layer/THIET_KE_C.md`, mục 4).

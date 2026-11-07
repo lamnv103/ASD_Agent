@@ -1,0 +1,351 @@
+{
+  "trial_id": "verifier_c_small",
+  "status": "draft",
+  "status_note": "DRAFT for review. run_trial.py refuses to run until status is 'registered', set in its own commit before the first provider call and never edited after results.",
+  "review_status": "chua_duyet",
+  "contract_version": "answer_contract_v0.8",
+  "change_under_test": "C (rag/answer_verify_context.py, verifier_context_v0.1): the verifier also sees every catalog passage under context_passages and may report other_passage_issue = null | {id of an UNCITED passage, verbatim span}. A valid report adds the content reason context_limit:<id>; a cited/unknown id or a non-verbatim span adds a mechanical reason (context_id_invalid / context_span_not_verbatim). The v0.5 parser runs unchanged on the cited quotes only, so an uncited passage can never rescue a claim.",
+  "unchanged": [
+    "generator and repair prompts",
+    "repair budget",
+    "verifier model",
+    "pharm gate",
+    "known terms",
+    "change A",
+    "case labels",
+    "max_tokens 3072"
+  ],
+  "trial_config": "deployments/answer_layer.json at registration: contract/check v0.8, \"verifier_context\": {\"enabled\": true, \"version\": \"verifier_context_v0.1\"}",
+  "state_file": "reports/verifier_trial_c_small/trial_state.json",
+  "calls_planned": {
+    "baseline": 20,
+    "trial": 37
+  },
+  "runs": [
+    {
+      "stage": "baseline",
+      "contract": "answer_contract_v0.5",
+      "out": "reports/verifier_trial_c_small/baseline_singles_c_rep1",
+      "cases": "evaluation/answer_verifier_faults_c/cases.jsonl",
+      "only": "CD1,CC1,CC2,CC3,CR1,CR2"
+    },
+    {
+      "stage": "baseline",
+      "contract": "answer_contract_v0.5",
+      "out": "reports/verifier_trial_c_small/baseline_singles_c_rep2",
+      "cases": "evaluation/answer_verifier_faults_c/cases.jsonl",
+      "only": "CD1,CC1,CC2,CC3,CR1,CR2"
+    },
+    {
+      "stage": "baseline",
+      "contract": "answer_contract_v0.5",
+      "out": "reports/verifier_trial_c_small/baseline_singles_c_rep3",
+      "cases": "evaluation/answer_verifier_faults_c/cases.jsonl",
+      "only": "CD1,CC1,CC2,CC3,CR1,CR2"
+    },
+    {
+      "stage": "baseline",
+      "contract": "answer_contract_v0.5",
+      "out": "reports/verifier_trial_c_small/baseline_groups_c_rep1",
+      "cases": "evaluation/answer_verifier_faults_c/cases.jsonl",
+      "groups": "evaluation/answer_verifier_faults_c/groups.jsonl"
+    },
+    {
+      "stage": "baseline",
+      "contract": "answer_contract_v0.5",
+      "out": "reports/verifier_trial_c_small/baseline_groups_c_rep2",
+      "cases": "evaluation/answer_verifier_faults_c/cases.jsonl",
+      "groups": "evaluation/answer_verifier_faults_c/groups.jsonl"
+    },
+    {
+      "stage": "trial",
+      "out": "reports/verifier_trial_c_small/singles_v1_rep1",
+      "cases": "evaluation/answer_verifier_faults_v1/cases.jsonl",
+      "only": "F02,P08"
+    },
+    {
+      "stage": "trial",
+      "out": "reports/verifier_trial_c_small/singles_addendum_rep1",
+      "cases": "evaluation/answer_verifier_faults_v1_addendum/cases.jsonl",
+      "only": "A04"
+    },
+    {
+      "stage": "trial",
+      "out": "reports/verifier_trial_c_small/singles_c_rep1",
+      "cases": "evaluation/answer_verifier_faults_c/cases.jsonl",
+      "only": "CD1,CC1,CC2,CC3,CR1,CR2"
+    },
+    {
+      "stage": "trial",
+      "out": "reports/verifier_trial_c_small/singles_v1_rep2",
+      "cases": "evaluation/answer_verifier_faults_v1/cases.jsonl",
+      "only": "F02,P08"
+    },
+    {
+      "stage": "trial",
+      "out": "reports/verifier_trial_c_small/singles_addendum_rep2",
+      "cases": "evaluation/answer_verifier_faults_v1_addendum/cases.jsonl",
+      "only": "A04"
+    },
+    {
+      "stage": "trial",
+      "out": "reports/verifier_trial_c_small/singles_c_rep2",
+      "cases": "evaluation/answer_verifier_faults_c/cases.jsonl",
+      "only": "CD1,CC1,CC2,CC3,CR1,CR2"
+    },
+    {
+      "stage": "trial",
+      "out": "reports/verifier_trial_c_small/singles_v1_rep3",
+      "cases": "evaluation/answer_verifier_faults_v1/cases.jsonl",
+      "only": "F02,P08"
+    },
+    {
+      "stage": "trial",
+      "out": "reports/verifier_trial_c_small/singles_addendum_rep3",
+      "cases": "evaluation/answer_verifier_faults_v1_addendum/cases.jsonl",
+      "only": "A04"
+    },
+    {
+      "stage": "trial",
+      "out": "reports/verifier_trial_c_small/singles_c_rep3",
+      "cases": "evaluation/answer_verifier_faults_c/cases.jsonl",
+      "only": "CD1,CC1,CC2,CC3,CR1,CR2"
+    },
+    {
+      "stage": "trial",
+      "out": "reports/verifier_trial_c_small/groups_v1_rep1",
+      "cases": "evaluation/answer_verifier_faults_v1/cases.jsonl",
+      "groups": "evaluation/trials/verifier_c_small/groups_v1.jsonl",
+      "pipeline": {
+        "G5": [
+          "P08",
+          "F16",
+          "F17",
+          "F10"
+        ]
+      }
+    },
+    {
+      "stage": "trial",
+      "out": "reports/verifier_trial_c_small/groups_c_rep1",
+      "cases": "evaluation/answer_verifier_faults_c/cases.jsonl",
+      "groups": "evaluation/answer_verifier_faults_c/groups.jsonl"
+    },
+    {
+      "stage": "trial",
+      "out": "reports/verifier_trial_c_small/groups_v1_rep2",
+      "cases": "evaluation/answer_verifier_faults_v1/cases.jsonl",
+      "groups": "evaluation/trials/verifier_c_small/groups_v1.jsonl",
+      "pipeline": {
+        "G5": [
+          "P08",
+          "F16",
+          "F17",
+          "F10"
+        ]
+      }
+    },
+    {
+      "stage": "trial",
+      "out": "reports/verifier_trial_c_small/groups_c_rep2",
+      "cases": "evaluation/answer_verifier_faults_c/cases.jsonl",
+      "groups": "evaluation/answer_verifier_faults_c/groups.jsonl"
+    }
+  ],
+  "rules": [
+    {
+      "id": "R1_detection",
+      "type": "rejected_for",
+      "reasons_any": [
+        "context_limit:E2"
+      ],
+      "reps": {
+        "single": 3,
+        "G1": 2,
+        "G5": 2,
+        "G5/pipeline": 2,
+        "G6": 2,
+        "GC1": 2
+      },
+      "note": "the omitted limitation is found for the RIGHT reason (uncited E2, verbatim); v0.5 support/flag reasons or mechanical reasons do not count",
+      "select": [
+        {
+          "where": "single",
+          "cases": [
+            "F02",
+            "CD1"
+          ]
+        },
+        {
+          "where": "G1",
+          "cases": [
+            "F02"
+          ]
+        },
+        {
+          "where": "GC1",
+          "cases": [
+            "CD1"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "R2_no_false_alarm",
+      "type": "never_rejected",
+      "reps": {
+        "single": 3,
+        "G1": 2,
+        "G5": 2,
+        "G5/pipeline": 2,
+        "G6": 2,
+        "GC1": 2
+      },
+      "note": "kept limitation (CC1), other topic (CC2, CC3), stronger uncited passage next to a correctly limited claim (P08), other population (A04), S08 multi-passage clean claims (G6), real S05 group (G1)",
+      "select": [
+        {
+          "where": "single",
+          "cases": [
+            "CC1",
+            "CC2",
+            "CC3",
+            "P08",
+            "A04"
+          ]
+        },
+        {
+          "where": "G1",
+          "cases": [
+            "P03"
+          ]
+        },
+        {
+          "where": "G5",
+          "cases": [
+            "P08"
+          ]
+        },
+        {
+          "where": "G5/pipeline",
+          "cases": [
+            "P08"
+          ]
+        },
+        {
+          "where": "G6",
+          "cases": [
+            "P04",
+            "P05",
+            "P09"
+          ]
+        },
+        {
+          "where": "GC1",
+          "cases": [
+            "CC2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "R3_no_rescue",
+      "type": "rejected_for",
+      "reasons_any": [
+        "support_not_supported",
+        "support_partially_supported",
+        "support_contradicted"
+      ],
+      "reps": {
+        "single": 3,
+        "G1": 2,
+        "G5": 2,
+        "G5/pipeline": 2,
+        "G6": 2,
+        "GC1": 2
+      },
+      "note": "support only in an uncited passage: still rejected on the cited quotes",
+      "select": [
+        {
+          "where": "single",
+          "cases": [
+            "CR1",
+            "CR2"
+          ]
+        },
+        {
+          "where": "GC1",
+          "cases": [
+            "CR1"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "R4_regression",
+      "type": "rejected_for",
+      "reasons_any": [
+        "support_",
+        "flag_",
+        "context_limit:"
+      ],
+      "reps": {
+        "single": 3,
+        "G1": 2,
+        "G5": 2,
+        "G5/pipeline": 2,
+        "G6": 2,
+        "GC1": 2
+      },
+      "note": "faults v0.5 caught in these groups (reports/verifier_eval_20261107_v0.5) stay caught for a content reason",
+      "select": [
+        {
+          "where": "G5",
+          "cases": [
+            "F16",
+            "F17"
+          ]
+        },
+        {
+          "where": "G5/pipeline",
+          "cases": [
+            "F16",
+            "F17"
+          ]
+        },
+        {
+          "where": "G6",
+          "cases": [
+            "F12",
+            "F13",
+            "F14"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "R5_format",
+      "type": "no_reason",
+      "prefixes": [
+        "verifier_output_"
+      ],
+      "note": "no invalid or truncated verifier output in any trial call"
+    },
+    {
+      "id": "R6_length",
+      "type": "max_tokens",
+      "limit": 2048,
+      "note": "every trial call at most 2/3 of the 3072 limit"
+    }
+  ],
+  "report_only": [
+    "baseline stage (v0.5 on the C cases): label sanity and attribution, never judged",
+    "F01, F03 in G1; F10 in G5 and G5/pipeline (tracked, v0.5 misses; C is not expected to fix F01/A01)",
+    "mechanical reasons (span_not_in_cited_evidence, context_id_invalid, context_span_not_verbatim) listed separately",
+    "which uncited passage each other_passage_issue names, on every case"
+  ],
+  "completeness": "check_trial.py refuses to judge (exit 2) unless every planned case of every run and repetition is present",
+  "decision": {
+    "all_rules_pass": "full measurement on contract v0.8: v1, addendum, citation controls, C set; single + full group + pipeline group; repeated focal combinations; must keep every case v0.5 caught for the right reason",
+    "any_rule_fails": "stop C as designed; report; no prompt rounds on these cases. Next candidate: generation/repair improvements, each its own approved trial"
+  }
+}
