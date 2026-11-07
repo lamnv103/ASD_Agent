@@ -1,0 +1,2 @@
+{"group_id": "G1", "question_id": "S05", "case_ids": ["P03", "F02", "F01", "F03"], "note": "Same as v1 G1: the real S05 repair-round claim set of NIM run 1."}
+{"group_id": "G8", "question_id": "S05", "case_ids": ["P03", "P08", "F01", "F02", "F03", "F10", "F16", "F17"], "note": "Largest group the contract allows (max_claims 8): every v1 S05 case except gate-blocked F11. Format/length test; clean cases must pass."}

@@ -1,0 +1,32 @@
+{
+  "trial_id": "verifier_v0.7_small",
+  "registered": "2026-11-08, committed before the first provider call; not edited after results",
+  "review_status": "chua_duyet",
+  "contract_version": "answer_contract_v0.7",
+  "change_under_test": "v0.5 verifier + two comparison labels per claim (certainty: same|weaker|stronger; conclusion_topic: same|narrower|changed). Only certainty:stronger and conclusion_topic:changed add a rejection; all v0.5 checks unchanged. No question_fit, no population_scope, no quoted wording in the table.",
+  "unchanged": ["generator", "repair prompt and budget", "pharm gate", "known terms", "change A", "case labels", "max_tokens 3072"],
+  "runs": [
+    {"out": "reports/verifier_trial_20261108_v0.7/singles_v1_rep1", "cases": "evaluation/answer_verifier_faults_v1/cases.jsonl", "only": "F01,P03"},
+    {"out": "reports/verifier_trial_20261108_v0.7/singles_v1_rep2", "cases": "evaluation/answer_verifier_faults_v1/cases.jsonl", "only": "F01,P03"},
+    {"out": "reports/verifier_trial_20261108_v0.7/singles_v1_rep3", "cases": "evaluation/answer_verifier_faults_v1/cases.jsonl", "only": "F01,P03"},
+    {"out": "reports/verifier_trial_20261108_v0.7/singles_addendum_rep1", "cases": "evaluation/answer_verifier_faults_v1_addendum/cases.jsonl", "only": "A01,A02,A04,A06,A07"},
+    {"out": "reports/verifier_trial_20261108_v0.7/singles_addendum_rep2", "cases": "evaluation/answer_verifier_faults_v1_addendum/cases.jsonl", "only": "A01,A02,A04,A06,A07"},
+    {"out": "reports/verifier_trial_20261108_v0.7/singles_addendum_rep3", "cases": "evaluation/answer_verifier_faults_v1_addendum/cases.jsonl", "only": "A01,A02,A04,A06,A07"},
+    {"out": "reports/verifier_trial_20261108_v0.7/groups_v1_rep1", "cases": "evaluation/answer_verifier_faults_v1/cases.jsonl", "groups": "evaluation/trials/verifier_v0.7_small/groups_v1.jsonl"},
+    {"out": "reports/verifier_trial_20261108_v0.7/groups_v1_rep2", "cases": "evaluation/answer_verifier_faults_v1/cases.jsonl", "groups": "evaluation/trials/verifier_v0.7_small/groups_v1.jsonl"},
+    {"out": "reports/verifier_trial_20261108_v0.7/groups_addendum_rep1", "cases": "evaluation/answer_verifier_faults_v1_addendum/cases.jsonl", "groups": "evaluation/trials/verifier_v0.7_small/groups_addendum.jsonl"},
+    {"out": "reports/verifier_trial_20261108_v0.7/groups_addendum_rep2", "cases": "evaluation/answer_verifier_faults_v1_addendum/cases.jsonl", "groups": "evaluation/trials/verifier_v0.7_small/groups_addendum.jsonl"}
+  ],
+  "rules": {
+    "R1_focal_single": {"cases": ["F01", "A01"], "require": "every repetition rejected by the verifier with at least one table reason", "table_reasons": ["check:certainty:stronger", "check:conclusion_topic:changed"]},
+    "R2_focal_group": {"members": {"G1": ["F01"], "GA1": ["A01"]}, "require": "every repetition rejected with at least one table reason (F01 inside G8 is report-only)"},
+    "R3_clean": {"single": ["P03", "A02", "A04", "A06"], "group": {"G1": ["P03"], "G8": ["P03", "P08"], "GA1": ["A02"]}, "require": "never rejected, for any reason"},
+    "R4_format": {"require": "no verifier_output_invalid / verifier_output_incomplete in any call (A07 runs included)"},
+    "R5_length": {"max_completion_tokens": 2048, "require": "every call at most 2048 completion tokens (2/3 of the 3072 limit), so long output is not hidden by raising the limit"}
+  },
+  "report_only": ["A07 (separate trial; never used to widen scope)", "F02, F03, F10, F16, F17 inside groups", "F01 inside G8", "v0.5 content reasons next to table reasons"],
+  "decision": {
+    "all_rules_pass": "full measurement on the same contract: v1, addendum, citation controls, single + full group + pipeline group, repeated focal combinations; must keep every case v0.5 caught for the right reason",
+    "any_rule_fails": "stop the comparison-table direction and move to C with the v0.5 verifier; no further prompt rounds or aspects on these cases"
+  }
+}

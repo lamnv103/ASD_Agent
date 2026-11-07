@@ -8,6 +8,7 @@ from rag.retriever import ROOT
 sys.path.insert(0, str(ROOT / "scripts/evaluation"))
 import measure_verifier as mv  # noqa: E402
 import verify_answer_layer as va  # noqa: E402
+import check_trial as ct  # noqa: E402
 from rag.answer_layer import build_catalog, check_claims_k1  # noqa: E402
 from rag.answer_pharm import load_pharm_gate  # noqa: E402
 from rag.answer_policy import load_config  # noqa: E402
@@ -161,6 +162,41 @@ class StabilityTests(unittest.TestCase):
         rows = mv.stability([res([("P01", "pass"), ("F01", "pass")]), res([("P01", "fail"), ("F01", "pass")])])
         self.assertEqual({r["case_id"]: (r["verifier"], r["stable"]) for r in rows},
                          {"P01": (["pass", "fail"], False), "F01": (["pass", "pass"], True)})
+
+
+class TrialCriteriaTests(unittest.TestCase):
+    """check_trial.py judges a pre-registered trial; mechanical rejections never count as catching the fault."""
+
+    def judge(self, single, groups=(), tok=300):
+        crit = json.loads((ROOT / "evaluation/trials/verifier_v0.7_small/criteria.json").read_text(encoding="utf-8"))
+        call = dict(cache_hit=False, usage=dict(completion_tokens=tok))
+        res = dict(contract_version=crit["contract_version"],
+                   records=[dict(case_id=c, outcome="fail" if r else "pass", reasons=r, call=call) for c, r in single],
+                   groups=[dict(group_id=g, call=call, records=[dict(case_id=c, verifier_reasons=r,
+                                verifier_outcome="fail" if r else "pass") for c, r in recs]) for g, recs in groups])
+        crit["runs"] = crit["runs"][:1]
+        orig = ct.load
+        ct.load = lambda run: res
+        try:
+            return ct.judge(crit)[0]
+        finally:
+            ct.load = orig
+
+    def test_rules(self):
+        good = [("F01", ["check:conclusion_topic:changed"]), ("A01", ["support_partially_supported", "check:certainty:stronger"]),
+                ("P03", []), ("A02", []), ("A04", []), ("A06", [])]
+        grp = [("G1", [("P03", []), ("F01", ["check:certainty:stronger"])]), ("GA1", [("A02", []), ("A01", ["check:conclusion_topic:changed"])]),
+               ("G8", [("P03", []), ("P08", []), ("F10", [])])]
+        out = self.judge(good, grp)
+        self.assertTrue(all(r["ok"] for r in out.values()), out)
+        # F01 rejected only by v0.5 support or broken output: not the table reason -> R1 fails (and R4 for the error)
+        out = self.judge([("F01", ["support_partially_supported"]), ("A01", ["verifier_output_invalid:checks"])] + good[2:], grp)
+        self.assertFalse(out["R1_focal_single"]["ok"])
+        self.assertFalse(out["R4_format"]["ok"])
+        # a clean case rejected for any reason, inside a group, fails R3; a long call fails R5
+        out = self.judge(good, grp[:2] + [("G8", [("P03", []), ("P08", ["support_partially_supported"])])], tok=2049)
+        self.assertEqual(out["R3_clean"]["detail"], [("G8", "P08", ["support_partially_supported"])])
+        self.assertFalse(out["R5_length"]["ok"])
 
 
 class ReplayModeTests(unittest.TestCase):
