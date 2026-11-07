@@ -1,4 +1,6 @@
-# Đặc tả đầu ra tầng trả lời: `answer_contract_v0.6`
+# Đặc tả đầu ra tầng trả lời: `answer_contract_v0.5`
+
+**Hiện hành (08/11/2026): hành vi v0.5.** Mã v0.6 đã được gỡ bằng một commit mới; `rag/answer_layer.py` và `deployments/answer_layer.json` giống hệt `b98486f` (baseline lượt chạy `f8bbd35`). Lịch sử v0.6 giữ ở tag `answer-g-v0.6-rejected-table`. v0.5 vẫn có lỗi đã biết (F01, F10, A01, A07 lọt 3/3): đây là baseline nghiên cứu, chưa phải bản đạt chất lượng.
 
 **Trạng thái:** bản nháp để phát triển nguyên mẫu nội bộ, soạn 07/11/2026. **Không phải MVP đã duyệt.** Phạm vi người dùng, nhóm câu hỏi và ngưỡng nghiệm thu vẫn chờ [MVP_SCOPE_DRAFT.md](../MVP_SCOPE_DRAFT.md). Đặc tả kiểm tra: [DAC_TA_KIEM_TRA.md](DAC_TA_KIEM_TRA.md). Rubric chấm: [RUBRIC_CHAM.md](RUBRIC_CHAM.md).
 
