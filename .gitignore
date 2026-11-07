@@ -24,3 +24,7 @@ backups/
 
 # --- Verification outputs (regenerable from tagged code + data) ---
 reports/verification_runs/
+
+# --- Answer-layer prototype (synthetic questions only; retention policy = MVP decision 9, not decided) ---
+reports/answer_cache/
+reports/answer_runs/

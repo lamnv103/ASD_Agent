@@ -6,6 +6,7 @@
 > - Việc vừa làm: [bàn giao nền tảng 07/11](reports/foundation_20261107/BAN_GIAO_NEN_TANG.md). Đánh giá hiện trạng: [kiểm định độc lập 06/11](reports/review_20261106/KIEM_DINH_DOC_LAP_VA_UU_TIEN.md).
 > - Chờ chủ dự án và chuyên gia chốt: [phạm vi MVP (bản nháp)](docs/MVP_SCOPE_DRAFT.md).
 > - Chạy một câu hỏi, có kiểm tra đầu vào trước truy xuất: `python -m rag.prepare_evidence "câu hỏi"`.
+> - Tầng trả lời (nguyên mẫu nội bộ, `chua_duyet`, chưa gọi model thật): `python -m rag.answer --from-trace trace.json` hoặc `python -m rag.answer "câu hỏi tổng hợp"`. [Đặc tả đầu ra](docs/answer_layer/DAC_TA_DAU_RA.md), [đặc tả kiểm tra](docs/answer_layer/DAC_TA_KIEM_TRA.md), [rubric chấm](docs/answer_layer/RUBRIC_CHAM.md). [Điều tra H05/N02/S05/S08](reports/investigation_20261107/DIEU_TRA_4_CA.md).
 >
 > Trước đó: [bàn giao reader v3, 02/11/2026](reports/reader_refinement_20261101_232742/BAN_GIAO_CAI_THIEN_READER_V3.md).
 

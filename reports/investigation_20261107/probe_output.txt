@@ -1,0 +1,98 @@
+Cached queries: 67; top-5 slots: 335; mean slots per document: 10.2
+Top-5 frequency | source | body chars | mentions of Viet Nam
+   30  ASD-OA-PMC6487529                    73020    65
+   27  ASD-CSV-002                          99873     0
+   27  ASD-OA-PMC13005892                  110269   305
+   22  ASD-CSV-091                         129271     0
+   18  ASD-SUP-PMC11754701                 101974     0
+   15  ASD-SUP-PMC4513196                  100426     0
+   14  NIH-NIMH-ASD-2025                    14482     0
+   14  ASD-OA-PMC7407189                   138197     0
+   13  ASD-OA-PMC4742252                    58131     0
+   12  NIH-NIDCD-ASD-COMMUNICATION-2020     13672     0
+   12  ASD-OA-PMC12593641                   30612     0
+   12  ASD-NEW-003                         159095     0
+   11  NIH-NIMH-TEEN-BRAIN                   5052     0
+   11  NIH-NIMH-ADHD                        19639     0
+   11  ASD-CSV-062                         107200     0
+   10  ASD-CSV-084                          64884     0
+    9  ASD-OA-PMC10900867                   81553     0
+    8  ASD-OA-PMC4271434                    65149     0
+    7  NIH-NIMH-MEDICATIONS                 22574     0
+    6  ASD-OA-PMC12468522                  121631     0
+    6  ASD-OA-PMC11638897                  124310     0
+    5  CDC-EARLY-INTERVENTION                3478     0
+    5  NIH-NIMH-TEEN-DEPRESSION              3489     0
+    5  ASD-CSV-081                          76162     0
+    5  ASD-SUP-PMC6590432                   87015     0
+    4  ASD-OA-PMC10774556                   59426     0
+    4  ASD-OA-PMC9003052                    97886     0
+    4  ASD-SUP-PMC12658592                  98175     0
+    3  ASD-CSV-078                          34557     0
+    3  ASD-CSV-088                          66807     0
+    2  ASD-OA-PMC13427885                   74744     0
+    0  CDC-ASD-TREATMENT                     8464     0
+    0  ASD-OA-PMC10018050                   56389     0
+Documents truncated at embedding time: none
+
+[H05] Hai trẻ đều được chẩn đoán tự kỷ có nhất thiết có biểu hiện, điểm mạnh và nhu cầu hỗ trợ giống nhau không?
+  NIMH rank 19; without the two Viet Nam papers: 17
+   1 0.3646 ASD-OA-PMC13005892
+   2 0.3618 ASD-OA-PMC6487529
+   3 0.3465 ASD-CSV-088
+   4 0.3295 ASD-CSV-002
+   5 0.3271 ASD-SUP-PMC11754701
+   6 0.3257 ASD-CSV-091
+  score spread rank1-rank20: 0.0749
+
+[N02] Khi giáo viên nhận thấy trẻ tuổi đi học khó hiểu giọng điệu, nét mặt hoặc lối nói bóng, tài liệu mô tả việc nhận diện và đánh giá tiếp theo ra sao?
+  NIMH rank 20; without the two Viet Nam papers: 18
+   1 0.3354 ASD-CSV-002
+   2 0.3104 ASD-OA-PMC13005892
+   3 0.2955 ASD-OA-PMC6487529
+   4 0.2828 ASD-CSV-091
+   5 0.2800 ASD-SUP-PMC11754701
+   6 0.2780 ASD-OA-PMC10900867
+  score spread rank1-rank20: 0.1157
+
+[paraphrase_H05] Vì sao gọi tự kỷ là phổ? Mọi trẻ tự kỷ có biểu hiện giống nhau không?
+  NIMH rank 4; without the two Viet Nam papers: 3
+   1 0.3832 NIH-NIDCD-ASD-COMMUNICATION-2020
+   2 0.3803 ASD-OA-PMC6487529
+   3 0.3777 ASD-CSV-091
+   4 0.3757 NIH-NIMH-ASD-2025
+   5 0.3729 ASD-CSV-002
+   6 0.3624 ASD-OA-PMC13005892
+  score spread rank1-rank20: 0.0925
+
+Lexical probe (BM25 on reader-plan English search_terms; exploratory)
+  S05  dense=Y bm25doc=Y bm25sec=Y best_sec_rank=1
+  S07  dense=Y bm25doc=Y bm25sec=Y best_sec_rank=2
+  S08  dense=Y bm25doc=Y bm25sec=Y best_sec_rank=1
+  H03  dense=Y bm25doc=Y bm25sec=Y best_sec_rank=1
+  H04  dense=Y bm25doc=Y bm25sec=Y best_sec_rank=1
+  H05  dense=N bm25doc=N bm25sec=Y best_sec_rank=2
+  N01  dense=Y bm25doc=Y bm25sec=Y best_sec_rank=1
+  N02  dense=N bm25doc=N bm25sec=Y best_sec_rank=3
+  N03  dense=Y bm25doc=Y bm25sec=Y best_sec_rank=1
+  N04  dense=Y bm25doc=Y bm25sec=Y best_sec_rank=1
+  N05  dense=Y bm25doc=Y bm25sec=Y best_sec_rank=1
+  N06  dense=Y bm25doc=Y bm25sec=Y best_sec_rank=2  [terms name a source]
+  N07  dense=Y bm25doc=Y bm25sec=Y best_sec_rank=2  [terms name a source]
+  N08  dense=Y bm25doc=Y bm25sec=Y best_sec_rank=1  [terms name a source]
+  F01  dense=Y bm25doc=Y bm25sec=Y best_sec_rank=1  [terms name a source]
+  F02  dense=Y bm25doc=Y bm25sec=Y best_sec_rank=1  [terms name a source]
+  F03  dense=Y bm25doc=Y bm25sec=Y best_sec_rank=1  [terms name a source]
+  F04  dense=Y bm25doc=Y bm25sec=Y best_sec_rank=1  [terms name a source]
+  all: n=18 dense=16 bm25doc=16 bm25sec=18
+  terms without source names: n=11 dense=9 bm25doc=9 bm25sec=11
+  [H05] top sections:
+      25.90 ASD-OA-PMC12468522 :: ### 1. Introduction
+      25.62 NIH-NIMH-ASD-2025 :: ## What is autism spectrum disorder?
+      24.83 ASD-OA-PMC12468522 :: ## References
+      23.49 ASD-OA-PMC12468522 :: ### 14. Conclusions
+  [N02] top sections:
+      36.00 ASD-CSV-002 :: ## Assessment of Autism Spectrum Disorder
+      35.26 ASD-OA-PMC10900867 :: ## References
+      35.12 NIH-NIMH-ASD-2025 :: ### Diagnosis in adults
+      33.95 ASD-CSV-002 :: ### Changes in Diagnostic Criteria Over Time

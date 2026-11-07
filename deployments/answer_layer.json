@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "contract_version": "answer_contract_v0.2",
+  "check_version": "answer_check_v0.2",
+  "purpose": "internal_prototype_only",
+  "review_status": "chua_duyet",
+  "review_note": "Templates, country map, thresholds and emergency phrases are engineering drafts; no clinical review. Not a basis for opening a pilot.",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b",
+  "verifier_model": "nvidia/nemotron-3-ultra-550b-a55b",
+  "verifier_same_model_limitation": "The verifier uses the same model as the generator; errors may be correlated.",
+  "endpoint": "https://integrate.api.nvidia.com/v1/chat/completions",
+  "context_window_tokens": 32768,
+  "max_output_tokens": 3072,
+  "safety_margin_tokens": 512,
+  "timeout_seconds": 90,
+  "temperature": 0,
+  "chat_template_kwargs": {
+    "enable_thinking": false
+  },
+  "limits": {
+    "max_claims": 8,
+    "max_claim_words": 60,
+    "max_gap_words": 20,
+    "max_repairs": 1,
+    "min_evidence_span_chars": 20,
+    "max_uncovered_parts": 5
+  },
+  "dev_banner": "NGUYÊN MẪU NỘI BỘ — nội dung và mẫu câu chưa được thẩm định chuyên môn; không dùng cho người dùng thật.",
+  "disclaimer": {
+    "text": "Đây là thông tin giáo dục chung dựa trên các đoạn tài liệu được trích dẫn, không thay thế việc khám và tư vấn của chuyên gia.",
+    "review_status": "chua_duyet"
+  },
+  "disclaimer_no_content": {
+    "text": "Hệ thống chỉ cung cấp thông tin giáo dục chung, không thay thế việc khám và tư vấn của chuyên gia.",
+    "review_status": "chua_duyet"
+  },
+  "status_openers": {
+    "du": null,
+    "mot_phan": "Các đoạn tài liệu đã truy xuất và kiểm tra ở lượt này chỉ trả lời được một phần câu hỏi.",
+    "khong_du": "Trong các đoạn tài liệu đã truy xuất và kiểm tra ở lượt này, hệ thống chưa có đủ căn cứ để trả lời câu hỏi, nên không đưa ra câu trả lời để tránh suy đoán. Điều này không có nghĩa là toàn bộ kho tài liệu không có thông tin liên quan."
+  },
+  "gap_sentence_prefix": "Trong các đoạn đã truy xuất và kiểm tra ở lượt này, chưa có căn cứ trực tiếp về: ",
+  "gap_sentence_generic": "Một phần câu hỏi chưa có căn cứ trong các đoạn đã truy xuất và kiểm tra ở lượt này.",
+  "policy_templates": {
+    "individual_diagnosis": {
+      "text": "Hệ thống không thể xác định một trẻ cụ thể có tự kỷ hay không. Việc này cần chuyên gia được đào tạo đánh giá trực tiếp. Bạn có thể hỏi về thông tin chung, ví dụ: quy trình đánh giá tự kỷ thường gồm những bước nào.",
+      "review_status": "chua_duyet"
+    },
+    "personalized_medication": {
+      "text": "Hệ thống không đưa ra tên thuốc, liều hay cách dùng cho một người cụ thể. Những câu hỏi này cần bác sĩ hoặc dược sĩ đang theo dõi người đó trả lời.",
+      "review_status": "chua_duyet"
+    },
+    "current_services": {
+      "text": "Hệ thống chỉ dùng tài liệu giáo dục và nghiên cứu đã thu thập, không được thiết kế để cung cấp thông tin hiện hành về cơ sở, lịch, chỗ trống, giá hoặc địa chỉ, nên không trả lời câu hỏi này.",
+      "review_status": "chua_duyet"
+    },
+    "scope_legal": {
+      "text": "Hệ thống không đưa ra kết luận pháp lý và không được thiết kế để tra cứu văn bản pháp luật hiện hành.",
+      "review_status": "chua_duyet"
+    },
+    "unclassified": {
+      "text": "Hệ thống chưa xác định được loại câu hỏi này nên không đưa ra câu trả lời. Bạn có thể diễn đạt lại thành một câu hỏi thông tin chung về tự kỷ.",
+      "review_status": "chua_duyet"
+    }
+  },
+  "emergency": {
+    "placeholder": "[CHƯA CÓ NỘI DUNG KHẨN CẤP — chờ quyết định 8 của bản nháp MVP]",
+    "review_status": "chua_duyet",
+    "note": "Keyword heuristic, high recall by intent. Not a validated crisis detector. No phone numbers are filled in automatically.",
+    "phrases": [
+      "tự tử", "tự sát", "tự vẫn", "muốn chết", "không muốn sống", "chẳng muốn sống", "kết thúc tất cả", "kết thúc cuộc đời",
+      "tự làm hại", "tự hại", "tự làm đau", "rạch tay", "cắt tay", "nhảy lầu", "uống thuốc quá liều", "quá liều",
+      "ngừng thở", "không thở được", "khó thở", "co giật", "bất tỉnh", "ngộ độc", "nuốt phải", "đuối nước", "chết đuối",
+      "đi lạc", "bị lạc", "mất tích", "bạo hành", "xâm hại",
+      "tu sat", "muon chet", "khong muon song", "ket thuc tat ca", "tu lam hai", "qua lieu", "di lac", "mat tich",
+      "suicide", "kill myself", "self-harm", "overdose"
+    ]
+  },
+  "system_error_text": "Hệ thống gặp lỗi kỹ thuật nên chưa tạo được câu trả lời. Đây không phải đánh giá về nội dung tài liệu.",
+  "source_notes": {
+    "review_status": "chua_duyet",
+    "country_by_source_prefix": {
+      "CDC-": "Hoa Kỳ",
+      "NIH-": "Hoa Kỳ"
+    },
+    "old_after_years": 8,
+    "single_source_note": "Câu trả lời dựa trên 1 tài liệu.",
+    "source_type_vi": {
+      "research": "nghiên cứu",
+      "official_patient_information": "thông tin chính thức cho người bệnh",
+      "official_health_education": "tài liệu giáo dục sức khỏe chính thức"
+    }
+  },
+  "organization_aliases": {
+    "NIMH": ["NIH-NIMH-"],
+    "NIDCD": ["NIH-NIDCD-"],
+    "NIH": ["NIH-"],
+    "CDC": ["CDC-"],
+    "AAP": [],
+    "ASHA": [],
+    "AOTA": [],
+    "WHO": []
+  },
+  "banned_leading_connectives": [
+    "điều này", "do đó", "vì vậy", "vì thế", "tuy nhiên", "ngoài ra", "bên cạnh đó", "hơn nữa", "từ đó", "như vậy", "nó ", "chúng "
+  ]
+}
