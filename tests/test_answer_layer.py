@@ -69,9 +69,8 @@ def gen(claims, gaps=(), proposed="du"):
     return json.dumps(dict(proposed_status=proposed, claims=list(claims), gaps=list(gaps)), ensure_ascii=False)
 
 
-def verdict(cid, span, support="supported", flags=(), certainty="same", conclusion_topic="same"):
-    return dict(claim_id=cid, checks=dict(certainty=certainty, conclusion_topic=conclusion_topic), support=support,
-                flags=list(flags), evidence_span=span, explanation="")
+def verdict(cid, span, support="supported", flags=()):
+    return dict(claim_id=cid, support=support, flags=list(flags), evidence_span=span, explanation="")
 
 
 def ver(verdicts, needs, gaps=(), uncovered=()):
@@ -204,20 +203,6 @@ class VerifierOutputTests(unittest.TestCase):
     def test_span_from_uncited_quote_fails(self):
         res = self.parse(ver([verdict("c2", S2)], []), [C_ASSOC])  # S2 is E2, claim cites only E1
         self.assertIn("span_not_in_cited_evidence", res["claims"]["c2"]["reasons"])
-
-    def test_v07_two_aspect_checks_only_add_reasons(self):
-        ok = self.parse(ver([verdict("c2", S1, certainty="weaker", conclusion_topic="narrower")], []), [C_ASSOC])
-        self.assertEqual(ok["claims"]["c2"]["reasons"], [])  # only stronger / changed reject
-        bad = self.parse(ver([verdict("c2", S1, certainty="stronger", conclusion_topic="changed")], []), [C_ASSOC])
-        self.assertEqual(bad["claims"]["c2"]["reasons"], ["check:certainty:stronger", "check:conclusion_topic:changed"])
-        # a "same" table never overrides the v0.5 checks
-        keep = self.parse(ver([verdict("c2", S1, support="partially_supported", flags=["condition_dropped"])], []), [C_ASSOC])
-        self.assertEqual(keep["claims"]["c2"]["reasons"], ["support_partially_supported", "flag_condition_dropped"])
-        for table in (dict(certainty="same"), dict(certainty="same", conclusion_topic="same", question_fit="same"),
-                      dict(certainty="similar", conclusion_topic="same")):
-            v = dict(verdict("c2", S1), checks=table)
-            with self.assertRaises(AnswerError):  # missing / extra aspect or unknown value is a schema error
-                self.parse(ver([v], []), [C_ASSOC])
 
     def test_missing_verdict_fails_claim_unknown_id_is_error(self):
         res = self.parse(ver([], []), [C_ASSOC])

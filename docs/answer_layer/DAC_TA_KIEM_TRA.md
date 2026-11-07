@@ -1,10 +1,10 @@
 # Đặc tả kiểm tra tầng trả lời: `answer_check_v0.5`
 
-**Hiện hành (08/11/2026): hành vi v0.5.** Mã v0.6 đã được gỡ bằng một commit mới; `rag/answer_layer.py` và `deployments/answer_layer.json` giống hệt `b98486f` (baseline lượt chạy `f8bbd35`). Lịch sử v0.6 giữ ở tag `answer-g-v0.6-rejected-table`. v0.5 vẫn có lỗi đã biết (F01, F10, A01, A07 lọt 3/3): đây là baseline nghiên cứu, chưa phải bản đạt chất lượng.
+**Hiện hành (08/11/2026): hành vi v0.5.** Mã v0.6 đã được gỡ bằng một commit mới; `rag/answer_layer.py` và `deployments/answer_layer.json` giống hệt `b98486f` (baseline lượt chạy `f8bbd35`). Lịch sử v0.6 giữ ở tag `answer-g-v0.6-rejected-table`; v0.7 (hai nhãn) cũng không đạt, giữ ở tag `answer-g-v0.7-rejected-trial`. v0.5 vẫn có lỗi đã biết (F01, F10, A01, A07 lọt 3/3): đây là baseline nghiên cứu, chưa phải bản đạt chất lượng.
 
 **Trạng thái:** bản nháp để phát triển nguyên mẫu nội bộ, 07/11/2026, đã cài đặt trong `rag/answer_layer.py`. Đi kèm [DAC_TA_DAU_RA.md](DAC_TA_DAU_RA.md).
 
-**Thử nghiệm v0.5 → v0.7 (08/11/2026, đang đo, chưa nhận):** mỗi verdict thêm `checks` gồm đúng hai nhãn, `certainty` (`same`/`weaker`/`stronger`) và `conclusion_topic` (`same`/`narrower`/`changed`), không trích nguyên văn. Chỉ `stronger` và `changed` thêm lý do loại `check:<khía cạnh>:<nhãn>`; mọi kiểm tra v0.5 giữ nguyên, nên bảng không thể làm một nhận định được qua. Thiếu khía cạnh hoặc nhãn lạ là lỗi schema. Giải thích tối đa 20 từ. Ví dụ trong prompt lấy từ các quy tắc đã có trong prompt generator. Tiêu chí đăng ký trước: `evaluation/trials/verifier_v0.7_small/criteria.json`.
+**Thử nghiệm v0.5 → v0.7 (08/11/2026, không đạt tiêu chí đăng ký trước, đã gỡ; xem `reports/BAO_CAO_BUOC_2C_20261108.md`, tag `answer-g-v0.7-rejected-trial`):** mỗi verdict thêm `checks` gồm đúng hai nhãn, `certainty` (`same`/`weaker`/`stronger`) và `conclusion_topic` (`same`/`narrower`/`changed`), không trích nguyên văn. Chỉ `stronger` và `changed` thêm lý do loại `check:<khía cạnh>:<nhãn>`; mọi kiểm tra v0.5 giữ nguyên, nên bảng không thể làm một nhận định được qua. Thiếu khía cạnh hoặc nhãn lạ là lỗi schema. Giải thích tối đa 20 từ. Ví dụ trong prompt lấy từ các quy tắc đã có trong prompt generator. Tiêu chí đăng ký trước: `evaluation/trials/verifier_v0.7_small/criteria.json`.
 
 **Thay đổi v0.5 → v0.6 (thử nghiệm, không được nhận, đã gỡ):** verifier điền bảng đối chiếu 4 khía cạnh; chương trình kiểm tra nguyên văn từng dòng và loại nhận định có khía cạnh khác `same`. Lý do nội dung và lý do kỹ thuật được báo cáo tách riêng.
 
