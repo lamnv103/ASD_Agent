@@ -16,7 +16,8 @@ Layers are reported separately (an improvement of the combined system is not an 
   * verifier: the model verdict. The verifier is called even when ONLY the gate blocked a claim, so the
     model's own blind spots stay visible (the pipeline itself never sends gate-blocked claims);
   * system: blocked by either layer.
-Denominators are fixed: "core16" = faults measurable with v0.2 (measurable_from == "v0.2"), "all18" = every
+Denominators are fixed per case file: "core" = faults measurable with v0.2 (measurable_from == "v0.2"; 16 in v1),
+"all" = every fault case (18 in v1). Each case file is reported on its own; files are never pooled into one rate. "all" = every
 fault case. Contested cases are listed, never scored. Labels are team drafts (chua_duyet).
 Replay (--check) compares the recorded per-case records with the code that produced them: if the
 answer-layer modules or pinned files differ now, the newest commit with that fingerprint is extracted and
@@ -37,7 +38,9 @@ import verify_answer_layer as va  # noqa: E402  (imports no rag module at load t
 DEFAULT_CASES = "evaluation/answer_verifier_faults_v1/cases.jsonl"
 DEFAULT_GROUPS = "evaluation/answer_verifier_faults_v1/groups.jsonl"
 DEFAULT_MEASUREMENTS = ["reports/verifier_eval_20261107_v0.2", "reports/verifier_eval_20261107_v0.3", "reports/verifier_eval_20261107_v0.4",
-                        "reports/verifier_eval_20261107_v0.5"]
+                        "reports/verifier_eval_20261107_v0.5", "reports/verifier_eval_20261107_v0.5_addendum",
+                        "reports/verifier_stability_20261107_v0.5/v1_rep1", "reports/verifier_stability_20261107_v0.5/v1_rep2",
+                        "reports/verifier_stability_20261107_v0.5/addendum_rep1", "reports/verifier_stability_20261107_v0.5/addendum_rep2"]
 GATE_PREFIX = ("pharm_unrequested:", "known_term_error:")  # deterministic content gates; the verifier is still measured on these
 
 
@@ -178,7 +181,7 @@ def layers(rec):
 def score(cases, records, groups=None, pipeline_groups=None):
     by_id = {r["case_id"]: r for r in records}
     faults = [c for c in cases if c["expected"] == "fail"]
-    sets = {"core16": [c for c in faults if c["measurable_from"] == "v0.2"], "all18": faults}
+    sets = {"core": [c for c in faults if c["measurable_from"] == "v0.2"], "all": faults}
     s = dict(clean=dict(n=0, false_reject_system=[], false_reject_verifier=[], false_reject_deterministic=[]),
              contested=[], faults={})
     for c in cases:
@@ -255,6 +258,22 @@ def print_summary(label, res, cases):
     return s
 
 
+def stability(results):
+    """Per case: the verifier outcome and support level in each measurement that contains it (order = arguments)."""
+    cases = {}
+    for res in results:
+        expected = {c["case_id"]: c["expected"] for c in load_jsonl(ROOT / res["cases_file"])}
+        for r in res["records"]:
+            ver = layers(r)[1]
+            row = cases.setdefault(r["case_id"], dict(case_id=r["case_id"], expected=expected[r["case_id"]], verifier=[], support=[]))
+            row["verifier"].append(None if ver is None else ("fail" if ver else "pass"))
+            row["support"].append((r["verdict"] or {}).get("support"))
+    rows = [r for r in cases.values() if len(r["verifier"]) > 1]
+    for r in rows:
+        r["stable"] = len(set(r["verifier"])) == 1
+    return rows
+
+
 # ------------------------------------------------------------------ replay
 
 def _strip(rec):
@@ -266,6 +285,8 @@ def check_here(out: Path, code_root: Path = ROOT) -> list[str]:
     rt = Runtime(code_root)
     expected = json.loads((out / "results.json").read_text(encoding="utf-8"))
     cases = load_jsonl(ROOT / expected["cases_file"])
+    if expected.get("case_ids"):
+        cases = [c for c in cases if c["case_id"] in expected["case_ids"]]
     client = rt.client_cls(rt.counter, key_supplier=va.no_key, cache_dir=out / "cache", offline=True)
     groups_def = load_jsonl(ROOT / expected["groups_file"]) if expected.get("groups_file") else None
     pipe = None
@@ -312,11 +333,15 @@ def main() -> int:
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     p.add_argument("--cases", default=DEFAULT_CASES)
     p.add_argument("--groups", default=DEFAULT_GROUPS)
+    p.add_argument("--no-groups", action="store_true", help="single cases only")
+    p.add_argument("--only", help="comma-separated case ids (e.g. a stability repetition)")
     p.add_argument("--out", help="new measurement folder (cache/ and results.json)")
     p.add_argument("--nvidia-key-file")
     p.add_argument("--seed-cache", metavar="OUT", help="copy the cache of an earlier measurement first (identical requests are not re-sent)")
     p.add_argument("--check", nargs="*", metavar="OUT", help="cache-only replay of recorded measurements")
     p.add_argument("--compare", nargs="*", metavar="OUT", help="print layer tables for recorded measurements")
+    p.add_argument("--stability", nargs="+", metavar="OUT",
+                   help="per-case verifier outcome across measurements of the same cases (repeated runs)")
     p.add_argument("--child-code-root", help=argparse.SUPPRESS)
     args = p.parse_args()
     if args.child_code_root:
@@ -330,6 +355,11 @@ def main() -> int:
             print(f"VERIFIER MEASUREMENT {m} ({mode}) " + ("verified" if not diffs else "FAILED: " + ", ".join(diffs)))
         print(json.dumps(dict(status="failed" if failed else "verified")))
         return 1 if failed else 0
+    if args.stability:
+        for row in stability([json.loads((ROOT / m / "results.json").read_text(encoding="utf-8")) for m in args.stability]):
+            flag = "" if row["stable"] else "  <- UNSTABLE"
+            print(f"{row['case_id']} ({row['expected']}): verifier {row['verifier']} support {row['support']}{flag}")
+        return 0
     if args.compare is not None:
         for m in args.compare or DEFAULT_MEASUREMENTS:
             res = json.loads((ROOT / m / "results.json").read_text(encoding="utf-8"))
@@ -346,7 +376,13 @@ def main() -> int:
             shutil.copy2(f, out / "cache" / f.name)
     rt = Runtime()
     cases = load_jsonl(ROOT / args.cases)
-    groups_def = load_jsonl(ROOT / args.groups)
+    only = args.only.split(",") if args.only else None
+    if only:
+        unknown = set(only) - {c["case_id"] for c in cases}
+        if unknown:
+            raise SystemExit(f"unknown case ids: {sorted(unknown)}")
+        cases = [c for c in cases if c["case_id"] in only]
+    groups_def = [] if args.no_groups else load_jsonl(ROOT / args.groups)
     client = rt.client_cls(rt.counter, key_file=args.nvidia_key_file, cache_dir=out / "cache")
     records = []
     for c in cases:
@@ -368,7 +404,10 @@ def main() -> int:
         for f in (out / "cache").glob("*.json"):
             if json.loads(f.read_text(encoding="utf-8")).get("request_id") not in hits:
                 f.unlink()
-    result = rt.result(args.cases, records, args.groups, groups, seeded_from=args.seed_cache, pipeline_groups=pipe)
+    result = rt.result(args.cases, records, None if args.no_groups else args.groups, None if args.no_groups else groups,
+                       seeded_from=args.seed_cache, pipeline_groups=None if args.no_groups else pipe)
+    if only:
+        result["case_ids"] = [c["case_id"] for c in cases]
     rt.atomic_json(out / "results.json", result)
     print_summary(args.out, result, cases)
     return 0

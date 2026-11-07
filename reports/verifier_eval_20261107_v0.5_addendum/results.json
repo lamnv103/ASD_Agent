@@ -1,0 +1,532 @@
+{
+  "schema": "verifier_measurement_v2",
+  "contract_version": "answer_contract_v0.5",
+  "check_version": "answer_check_v0.5",
+  "verifier_model": "nvidia/nemotron-3-ultra-550b-a55b",
+  "verify_system_sha256": "fd7c14777fe5ca053b8ffbed6d812d0287bcec51cb187e956395c75c804f1f20",
+  "pharm_gate_version": "pharm_gate_v0.1",
+  "cases_file": "evaluation/answer_verifier_faults_v1_addendum/cases.jsonl",
+  "cases_sha256": "500a9e3fb6a2d609fb59e67c0df608fc2f6980eed53bc9c5eb661fab96291e62",
+  "code_fingerprint": {
+    "rag/answer_layer.py": "4d06d2184f296fa412830df4edff5f7c21318b3fc20ea17d212142322f067eae",
+    "rag/answer_render.py": "7e0d9d0594e446023a1574b364baccc394704f5098a5f7163295024d542f7f8d",
+    "rag/answer_policy.py": "fc66753f426b3e4f04488cde5a8ffc0f3e781e127dc67a8ed13d43f3df46e49c",
+    "rag/answer_sources.py": "b17db693d4f1e4b8c74af918cf3a25cf80edd74fbe255350c16b896a23f6189b",
+    "rag/answer_client.py": "0d713183a694fa93bce01e6a2c37e2bc4fb462d80b3ddf4b1b1982ddf46475a6",
+    "rag/retriever.py": "887ee3b963f4f0fc93a8b815a753d0a95d593a2eeacde373e66b920b4b9566f8",
+    "rag/tokenization.py": "563498f8256e0f6c529e08b71ec7dfe18e0f8bd5439aaa8c7e2fe84f1fde5acb",
+    "rag/answer_pharm.py": "1d2d77972d574579487740d7e6d5ebc6b053105db66768ed03d085e4b1579335"
+  },
+  "pinned_files": {
+    "deployments/answer_layer.json": "cf85d4d5388c6474348f2fdb8c0fe06c0f671940265457194b3655db412ddb62",
+    "deployments/retriever.json": "5ccd6ed225f67bf417d287dc8c83667aad80ea1be90b43204840a390891cd599",
+    "knowledge/rag/source_library/documents.json": "26eb017efca593ed18aa4044c9b8185d871bd0f512cda0cb4b9edf82658c5331",
+    "deployments/evidence_context.json": "270f350c74751aade971dc8b204a3a7e677c9dc6b381a704197e8d0a09385b60",
+    "deployments/answer_pharm_gate.json": "447c8c18a82c836cbc8949b6f7ae9f120ea472ab4f70d58af497ddea9f34a054"
+  },
+  "review_status": "chua_duyet",
+  "cache_seeded_from": null,
+  "note": "Team-draft labels; not clinical adjudication. Single cases: one claim per verifier call.",
+  "records": [
+    {
+      "case_id": "A01",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "support": "supported",
+        "flags": [],
+        "evidence_span": "past reviews typically included studies in which the “sensory integration” intervention described in the study was not consistent with the principles of ASI and was instead a sensory‐based intervention",
+        "explanation": "The claim accurately reflects the source: past systematic reviews conflated sensory-based interventions (SBIs) with Ayres Sensory Integration (ASI), including studies that did not follow ASI principles, which leads to misleading conclusions about ASI efficacy."
+      },
+      "reasons": [],
+      "call": {
+        "request_id": "chatcmpl-33dca919-2197-47cf-8f78-ae5d0edf0c37",
+        "cache_hit": false,
+        "elapsed_seconds": 4.549,
+        "usage": {
+          "prompt_tokens": 1110,
+          "completion_tokens": 173,
+          "total_tokens": 1283,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "pass"
+    },
+    {
+      "case_id": "A02",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "support": "supported",
+        "flags": [],
+        "evidence_span": "Inclusion of these studies in systematic reviews and meta‐analyses makes it impossible to draw conclusions regarding efficacy of ASI intervention.",
+        "explanation": "The cited quote explicitly states that including studies with poor participant characterization makes it impossible to draw conclusions about ASI efficacy, which directly supports the claim."
+      },
+      "reasons": [],
+      "call": {
+        "request_id": "chatcmpl-1ad6a0c3-297e-4ef5-bb48-1a11bca36fc5",
+        "cache_hit": false,
+        "elapsed_seconds": 2.534,
+        "usage": {
+          "prompt_tokens": 790,
+          "completion_tokens": 202,
+          "total_tokens": 992,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "pass"
+    },
+    {
+      "case_id": "A03",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "support": "not_supported",
+        "flags": [
+          "added_content"
+        ],
+        "evidence_span": "",
+        "explanation": "The cited quote discusses how past reviews included studies with poor participant characterization and lack of sensory-motor difficulty assessment, making it impossible to draw conclusions about ASI efficacy. It does not state that this led to 'incorrect conclusions' (kết luận sai lệch) about ASI effectiveness, only that conclusions cannot be drawn. The claim adds content not present in the source."
+      },
+      "reasons": [
+        "support_not_supported",
+        "flag_added_content",
+        "span_not_in_cited_evidence"
+      ],
+      "call": {
+        "request_id": "chatcmpl-95542ee3-820d-4f37-b1b6-666dce006540",
+        "cache_hit": false,
+        "elapsed_seconds": 3.89,
+        "usage": {
+          "prompt_tokens": 788,
+          "completion_tokens": 239,
+          "total_tokens": 1027,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "fail"
+    },
+    {
+      "case_id": "A04",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "support": "supported",
+        "flags": [],
+        "evidence_span": "These relationships have been fairly well investigated in cross-sectional studies using objective measures with individuals with mixed groups of ASD samples and individuals with high-functioning autism.",
+        "explanation": "The quote explicitly states that the relationships have been investigated in cross-sectional studies with mixed ASD samples and high-functioning autism individuals, matching the claim."
+      },
+      "reasons": [],
+      "call": {
+        "request_id": "chatcmpl-6904c9c9-546c-4f9a-8104-2f77670fa09d",
+        "cache_hit": false,
+        "elapsed_seconds": 6.047,
+        "usage": {
+          "prompt_tokens": 1032,
+          "completion_tokens": 190,
+          "total_tokens": 1222,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "pass"
+    },
+    {
+      "case_id": "A05",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "support": "not_supported",
+        "flags": [
+          "certainty_changed",
+          "condition_dropped"
+        ],
+        "evidence_span": "The current research highlights clear uni-directional relationships between sleep and behavior in individuals with an ASD.",
+        "explanation": "The claim states the relationship has been thoroughly studied in 'every group of autistic children' (mọi nhóm trẻ tự kỷ). The cited quote explicitly states 'uni-directional relationships' and specifies research has been done in 'mixed groups of ASD samples and individuals with high-functioning autism', not all groups. The claim also drops the condition that evidence is limited to certain subgroups and changes the certainty from 'uni-directional' and 'modest evidence' to a broad, definitive statement."
+      },
+      "reasons": [
+        "support_not_supported",
+        "flag_certainty_changed",
+        "flag_condition_dropped"
+      ],
+      "call": {
+        "request_id": "chatcmpl-c7901ba5-5569-4938-98b6-9ed2d289992a",
+        "cache_hit": false,
+        "elapsed_seconds": 8.356,
+        "usage": {
+          "prompt_tokens": 1013,
+          "completion_tokens": 265,
+          "total_tokens": 1278,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "fail"
+    },
+    {
+      "case_id": "A06",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "support": "supported",
+        "flags": [],
+        "evidence_span": "Given the bi-directional relationship between challenging behaviors and sleep disturbance in ASD, preliminary evidence suggests that treating sleep disturbances and challenging behavior in isolation may not lead to successful outcomes [50].",
+        "explanation": "The cited quote explicitly states a bi-directional relationship between challenging behaviors and sleep disturbance in ASD, supporting the claim."
+      },
+      "reasons": [],
+      "call": {
+        "request_id": "chatcmpl-4f182555-d1ae-430b-b9af-c6b019fa5a56",
+        "cache_hit": false,
+        "elapsed_seconds": 2.103,
+        "usage": {
+          "prompt_tokens": 1022,
+          "completion_tokens": 190,
+          "total_tokens": 1212,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "pass"
+    },
+    {
+      "case_id": "A07",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "support": "supported",
+        "flags": [],
+        "evidence_span": "Given the bi-directional relationship between challenging behaviors and sleep disturbance in ASD, preliminary evidence suggests that treating sleep disturbances and challenging behavior in isolation may not lead to successful outcomes [50].",
+        "explanation": "The quote explicitly states there is a bi-directional relationship and that preliminary evidence suggests isolated treatment may not succeed, matching the claim."
+      },
+      "reasons": [],
+      "call": {
+        "request_id": "chatcmpl-5956946d-ad0b-40e8-8b92-cfb8b3728f24",
+        "cache_hit": false,
+        "elapsed_seconds": 3.688,
+        "usage": {
+          "prompt_tokens": 1028,
+          "completion_tokens": 198,
+          "total_tokens": 1226,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "pass"
+    },
+    {
+      "case_id": "A08",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "support": "supported",
+        "flags": [],
+        "evidence_span": "Although there is reason to believe that serious sleep problems are common in children with ASD and that poor sleep exacerbates problematic daytime behavior, these conclusions are still premature and require further investigation.",
+        "explanation": "The claim directly matches the source text stating conclusions are premature and require further investigation."
+      },
+      "reasons": [],
+      "call": {
+        "request_id": "chatcmpl-4414fc11-3c63-4036-8410-12ff426aa92d",
+        "cache_hit": false,
+        "elapsed_seconds": 4.172,
+        "usage": {
+          "prompt_tokens": 735,
+          "completion_tokens": 140,
+          "total_tokens": 875,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "pass"
+    },
+    {
+      "case_id": "A09",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "support": "supported",
+        "flags": [],
+        "evidence_span": "To date, however, studies have failed to provide conclusive evidence about the relationship between sleep and behaviors seen in low-functioning individuals (of all ages) with autism.",
+        "explanation": "The claim accurately reflects the source statement that studies have not provided conclusive evidence about the sleep-behavior relationship in low-functioning individuals with autism across all ages."
+      },
+      "reasons": [],
+      "call": {
+        "request_id": "chatcmpl-2ceb8a9a-c834-4b20-af2a-4c2b4020f8c3",
+        "cache_hit": false,
+        "elapsed_seconds": 5.021,
+        "usage": {
+          "prompt_tokens": 761,
+          "completion_tokens": 154,
+          "total_tokens": 915,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "pass"
+    }
+  ],
+  "groups_file": "evaluation/answer_verifier_faults_v1_addendum/groups.jsonl",
+  "groups_sha256": "e9e8c156760a95a1e2a60e12ce2a931e6a2bcdedf208f34b5b4318b02b99847f",
+  "groups": [
+    {
+      "group_id": "GA1",
+      "call": {
+        "request_id": "chatcmpl-44cf7db9-977d-436a-a84c-f6b9b4a818fe",
+        "cache_hit": false,
+        "elapsed_seconds": 4.81,
+        "usage": {
+          "prompt_tokens": 1764,
+          "completion_tokens": 368,
+          "total_tokens": 2132,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "records": [
+        {
+          "case_id": "A02",
+          "claim_id": "c1",
+          "verdict": {
+            "claim_id": "c1",
+            "support": "supported",
+            "flags": [],
+            "evidence_span": "Inclusion of these studies in systematic reviews and meta‐analyses makes it impossible to draw conclusions regarding efficacy of ASI intervention.",
+            "explanation": "The quote directly states that including studies with inadequate participant descriptions makes it impossible to draw conclusions about ASI efficacy."
+          },
+          "verifier_reasons": [],
+          "verifier_outcome": "pass"
+        },
+        {
+          "case_id": "A01",
+          "claim_id": "c2",
+          "verdict": {
+            "claim_id": "c2",
+            "support": "supported",
+            "flags": [],
+            "evidence_span": "past reviews typically included studies in which the “sensory integration” intervention described in the study was not consistent with the principles of ASI and was instead a sensory‐based intervention",
+            "explanation": "The quote confirms past reviews included sensory-based interventions (SBIs) that were not consistent with ASI principles, leading to flawed conclusions."
+          },
+          "verifier_reasons": [],
+          "verifier_outcome": "pass"
+        },
+        {
+          "case_id": "A03",
+          "claim_id": "c3",
+          "verdict": {
+            "claim_id": "c3",
+            "support": "supported",
+            "flags": [],
+            "evidence_span": "Inclusion of these studies in systematic reviews and meta‐analyses makes it impossible to draw conclusions regarding efficacy of ASI intervention.",
+            "explanation": "The quote states that including studies with poor participant characterization makes it impossible to draw conclusions about ASI efficacy."
+          },
+          "verifier_reasons": [],
+          "verifier_outcome": "pass"
+        }
+      ],
+      "sent": [
+        "c1",
+        "c2",
+        "c3"
+      ]
+    },
+    {
+      "group_id": "GA2",
+      "call": {
+        "request_id": "chatcmpl-836fbf0c-463e-4529-890a-35c7b6a14239",
+        "cache_hit": false,
+        "elapsed_seconds": 10.089,
+        "usage": {
+          "prompt_tokens": 3246,
+          "completion_tokens": 625,
+          "total_tokens": 3871,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "records": [
+        {
+          "case_id": "A04",
+          "claim_id": "c1",
+          "verdict": {
+            "claim_id": "c1",
+            "support": "supported",
+            "flags": [],
+            "evidence_span": "These relationships have been fairly well investigated in cross-sectional studies using objective measures with individuals with mixed groups of ASD samples and individuals with high-functioning autism.",
+            "explanation": "The quote explicitly states that the relationships have been investigated in cross-sectional studies with mixed ASD samples and high-functioning autism individuals, matching the claim."
+          },
+          "verifier_reasons": [],
+          "verifier_outcome": "pass"
+        },
+        {
+          "case_id": "A05",
+          "claim_id": "c2",
+          "verdict": {
+            "claim_id": "c2",
+            "support": "not_supported",
+            "flags": [
+              "added_content"
+            ],
+            "evidence_span": "These relationships have been fairly well investigated in cross-sectional studies using objective measures with individuals with mixed groups of ASD samples and individuals with high-functioning autism.",
+            "explanation": "The quote specifies research on mixed ASD samples and high-functioning autism only, not 'every group of autistic children' (mọi nhóm trẻ tự kỷ). The claim overgeneralizes beyond the cited evidence."
+          },
+          "verifier_reasons": [
+            "support_not_supported",
+            "flag_added_content"
+          ],
+          "verifier_outcome": "fail"
+        },
+        {
+          "case_id": "A06",
+          "claim_id": "c3",
+          "verdict": {
+            "claim_id": "c3",
+            "support": "supported",
+            "flags": [],
+            "evidence_span": "Given the bi-directional relationship between challenging behaviors and sleep disturbance in ASD, preliminary evidence suggests that treating sleep disturbances and challenging behavior in isolation may not lead to successful outcomes [50].",
+            "explanation": "The quote directly describes a bi-directional relationship between challenging behaviors and sleep disturbance in ASD, supporting the claim."
+          },
+          "verifier_reasons": [],
+          "verifier_outcome": "pass"
+        },
+        {
+          "case_id": "A07",
+          "claim_id": "c4",
+          "verdict": {
+            "claim_id": "c4",
+            "support": "supported",
+            "flags": [],
+            "evidence_span": "Given the bi-directional relationship between challenging behaviors and sleep disturbance in ASD, preliminary evidence suggests that treating sleep disturbances and challenging behavior in isolation may not lead to successful outcomes [50].",
+            "explanation": "The quote states preliminary evidence suggests isolated treatment may not lead to successful outcomes, matching the claim."
+          },
+          "verifier_reasons": [],
+          "verifier_outcome": "pass"
+        },
+        {
+          "case_id": "A08",
+          "claim_id": "c5",
+          "verdict": {
+            "claim_id": "c5",
+            "support": "supported",
+            "flags": [],
+            "evidence_span": "Although there is reason to believe that serious sleep problems are common in children with ASD and that poor sleep exacerbates problematic daytime behavior, these conclusions are still premature and require further investigation.",
+            "explanation": "The quote explicitly says conclusions are premature and require further investigation, supporting the claim."
+          },
+          "verifier_reasons": [],
+          "verifier_outcome": "pass"
+        },
+        {
+          "case_id": "A09",
+          "claim_id": "c6",
+          "verdict": {
+            "claim_id": "c6",
+            "support": "supported",
+            "flags": [],
+            "evidence_span": "To date, however, studies have failed to provide conclusive evidence about the relationship between sleep and behaviors seen in low-functioning individuals (of all ages) with autism.",
+            "explanation": "The quote directly states studies have failed to provide conclusive evidence for low-functioning individuals of all ages with autism, supporting the claim."
+          },
+          "verifier_reasons": [],
+          "verifier_outcome": "pass"
+        }
+      ],
+      "sent": [
+        "c1",
+        "c2",
+        "c3",
+        "c4",
+        "c5",
+        "c6"
+      ]
+    }
+  ],
+  "pipeline_groups": []
+}

@@ -24,6 +24,7 @@ S08 đổi như sau:
 - c2 và c3 bị chặn ở **cả hai vòng** vì lỗi thuật ngữ đã biết. Lượt sửa không sửa được thuật ngữ, vì bước sinh không được cho biết cách dịch đúng.
 - c4 vòng 1 lần này có đoạn trích nguyên văn hợp lệ, nên qua kiểm tra.
 - Không nhận định nào bị bỏ do trạng thái.
+- *(Bổ sung sau rà soát)* Lượt `verify_repair` của S08 trùng hệt request `verify` vòng 1 trong cùng lần chạy, vì sau K1 vẫn còn đúng c1 và c4 với cùng câu chữ. Phản hồi vì vậy được lấy từ cache (cùng `request_id`). Đây là **lặp lại verdict vòng 1, không phải một lần kiểm chứng độc lập** sau lượt sửa.
 
 ## 2. Đánh giá nháp của nhóm trên 7 nhận định hiển thị
 

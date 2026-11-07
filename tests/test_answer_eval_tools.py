@@ -56,6 +56,28 @@ class FaultSetTests(unittest.TestCase):
         self.assertEqual(terms, ["F04", "F05"])  # the two observed mistranslations; corrected P04/P05 pass
 
 
+class AddendumTests(unittest.TestCase):
+    """answer_verifier_faults_v1_addendum: paired cases, reported separately from v1 (never pooled)."""
+
+    def test_pairs_have_a_clean_and_a_faulty_case_and_resolve(self):
+        path = ROOT / "evaluation/answer_verifier_faults_v1_addendum/cases.jsonl"
+        cases = mv.load_jsonl(path)
+        self.assertFalse({c["case_id"] for c in cases} & {c["case_id"] for c in CASES})
+        pairs = {}
+        for c in cases:
+            pairs.setdefault(c["pair"], set()).add(c["expected"])
+        for pair, kinds in pairs.items():
+            self.assertEqual(kinds, {"pass", "fail"}, pair)
+        cfg, corpus, gate = load_config(), load_trusted_corpus(), load_pharm_gate()
+        for c in cases:
+            trace = json.loads((ROOT / c["trace"]).read_text(encoding="utf-8"))
+            catalog, sources = build_catalog(trace, cfg, corpus)
+            scope = gate.scope(trace["question"])
+            claim = dict(claim_id="c1", role="chi_tiet", **c["claim"])
+            self.assertEqual(check_claims_k1([claim], catalog, sources, {"n1"}, cfg, lambda t: gate.check(t, scope))["c1"], [],
+                             c["case_id"])
+
+
 def _case(cid, expected, mf="v0.2", flags=()):
     return dict(case_id=cid, expected=expected, measurable_from=mf, expected_flags_any=list(flags), expected_support_any=[])
 
@@ -80,7 +102,7 @@ class ScoringTests(unittest.TestCase):
                    _rec("X", v("partially_supported"), ["support_partially_supported"])]
         s = mv.score(cases, records)
         self.assertEqual(s["clean"]["false_reject_system"], [])
-        core, all_ = s["faults"]["core16"], s["faults"]["all18"]
+        core, all_ = s["faults"]["core"], s["faults"]["all"]
         self.assertEqual((core["n"], all_["n"]), (2, 3))
         self.assertEqual(core["caught_system"], ["F1", "F2"])
         self.assertEqual(core["blocked_deterministic"], ["F2"])
@@ -108,6 +130,16 @@ class PipelineGroupTests(unittest.TestCase):
         self.assertEqual(g["compared"], 1)  # F2 was removed before the verifier (not sent)
         self.assertEqual([(x["case_id"], x["verifier_full_group"], x["verifier_pipeline_group"]) for x in g["changed"]],
                          [("F1", "fail", "pass")])
+
+
+class StabilityTests(unittest.TestCase):
+    def test_repeated_measurements_flag_flipping_cases(self):
+        v = dict(support="supported", flags=[])
+        res = lambda outs: dict(cases_file=mv.DEFAULT_CASES, records=[  # noqa: E731
+            _rec(cid, v, [] if o == "pass" else ["support_partially_supported"]) for cid, o in outs])
+        rows = mv.stability([res([("P01", "pass"), ("F01", "pass")]), res([("P01", "fail"), ("F01", "pass")])])
+        self.assertEqual({r["case_id"]: (r["verifier"], r["stable"]) for r in rows},
+                         {"P01": (["pass", "fail"], False), "F01": (["pass", "pass"], True)})
 
 
 class ReplayModeTests(unittest.TestCase):
