@@ -37,9 +37,9 @@ class FaultSetTests(unittest.TestCase):
             self.assertEqual(len(traces), 1, g["group_id"])
             self.assertEqual(by_id[g["case_ids"][0]]["question_id"], g["question_id"])
 
-    def test_cases_resolve_k1_passes_and_gate_blocks_exactly_f11(self):
+    def test_cases_resolve_and_deterministic_blocks_are_exactly_known(self):
         cfg, corpus, gate = load_config(), load_trusted_corpus(), load_pharm_gate()
-        blocked = []
+        blocked, terms = [], []
         for c in CASES:
             trace = json.loads((ROOT / c["trace"]).read_text(encoding="utf-8"))
             catalog, sources = build_catalog(trace, cfg, corpus)
@@ -47,10 +47,13 @@ class FaultSetTests(unittest.TestCase):
             claim = dict(claim_id="c1", role="chi_tiet", **c["claim"])
             scope = gate.scope(trace["question"])
             reasons = check_claims_k1([claim], catalog, sources, needs, cfg, lambda t: gate.check(t, scope))["c1"]
-            self.assertTrue(all(r.startswith("pharm_unrequested:") for r in reasons), (c["case_id"], reasons))
-            if reasons:
+            self.assertTrue(all(r.startswith(("pharm_unrequested:", "known_term_error:")) for r in reasons), (c["case_id"], reasons))
+            if any(r.startswith("pharm_unrequested:") for r in reasons):
                 blocked.append(c["case_id"])
+            if any(r.startswith("known_term_error:") for r in reasons):
+                terms.append(c["case_id"])
         self.assertEqual(blocked, ["F11"])  # H03 medication content (P01, P10, F07, F08, F18) is requested
+        self.assertEqual(terms, ["F04", "F05"])  # the two observed mistranslations; corrected P04/P05 pass
 
 
 def _case(cid, expected, mf="v0.2", flags=()):

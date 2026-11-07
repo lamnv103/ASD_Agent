@@ -71,13 +71,15 @@ For each claim, judge ONLY against the quotes it cites (not memory, not other qu
 - support: supported (every part is stated in the cited quotes with the same certainty and conditions) | partially_supported | not_supported | contradicted
 - flags, all that apply: added_content, certainty_changed, condition_dropped, negation_flipped, unrequested_medical_content, recommendation_added
   (unrequested_medical_content = medication or treatment content the question did not ask about)
-- evidence_span: copy VERBATIM one contiguous span (a sentence) from a cited quote that best supports the claim; "" if none
+- evidence_spans: 1 to 3 items {"evidence_id":"E1","span":"..."}. Each span is copied VERBATIM as ONE contiguous piece
+  (a sentence or clause) of the quote with that evidence_id, which the claim cites. If the support comes from two places,
+  give two items. Never join pieces with "..." or "…". [] if nothing in the cited quotes supports the claim
 - explanation: short English
 For each gap: contains_claim=true if topic_vi asserts any fact instead of restating part of the question.
 For each need: fully_addressed=true only if the supported claims in by_claims together fully answer that need as asked
 in the ORIGINAL question; missing = short English note.
 question_parts_uncovered: parts of the ORIGINAL question that no need covers, as short exact Vietnamese phrases; [] if none.
-Shape: {"claims":[{"claim_id":"c1","support":"supported","flags":[],"evidence_span":"...","explanation":"..."}],
+Shape: {"claims":[{"claim_id":"c1","support":"supported","flags":[],"evidence_spans":[{"evidence_id":"E1","span":"..."}],"explanation":"..."}],
 "gaps":[{"need_id":"n2","contains_claim":false}],
 "needs":[{"need_id":"n1","fully_addressed":true,"by_claims":["c1"],"missing":""}],
 "question_parts_uncovered":[]}"""
@@ -252,6 +254,9 @@ def check_claims_k1(claims, catalog, sources, need_ids, cfg, pharm=None):
         low = text.casefold()
         if any(low.startswith(w) for w in cfg["banned_leading_connectives"]):
             r.append("leading_connective")
+        for term in cfg["known_term_errors"]["terms"]:
+            if re.search(r"(?<![\w])" + re.escape(term) + r"(?![\w])", low):
+                r.append("known_term_error:" + term)
         if pharm is not None:
             r += pharm(text)
         out[c["claim_id"]] = r
@@ -274,8 +279,10 @@ def parse_verification(content, sent_claims, sent_gaps, needs, catalog, cfg):
     """Validate verifier JSON deterministically.
 
     Schema errors / unknown IDs -> AnswerError('verifier_output_invalid') (system error).
-    Missing verdict for a claim -> that claim fails. evidence_span must be a verbatim substring of a
-    cited quote, otherwise the claim fails.
+    Missing verdict for a claim -> that claim fails. Change B (v0.4): evidence_spans holds 1..3 items
+    {evidence_id, span}; each evidence_id must be cited by the claim and each span must be a verbatim
+    substring (>= min chars) of THAT quote. A span joining pieces with an ellipsis fails like any other
+    non-verbatim span. Any span problem fails the claim.
     """
     try:
         data = json.loads(content)
@@ -290,11 +297,13 @@ def parse_verification(content, sent_claims, sent_gaps, needs, catalog, cfg):
     verdicts = {}
     need(isinstance(data["claims"], list), "claims")
     for v in data["claims"]:
-        need(isinstance(v, dict) and set(v) == {"claim_id", "support", "flags", "evidence_span", "explanation"}, "claim verdict keys")
+        need(isinstance(v, dict) and set(v) == {"claim_id", "support", "flags", "evidence_spans", "explanation"}, "claim verdict keys")
         need(v["claim_id"] in claim_map and v["claim_id"] not in verdicts, "unknown or duplicate claim_id")
         need(v["support"] in SUPPORT, "support")
         need(isinstance(v["flags"], list) and all(f in FLAGS for f in v["flags"]), "flags")
-        need(isinstance(v["evidence_span"], str) and isinstance(v["explanation"], str), "span/explanation")
+        need(isinstance(v["evidence_spans"], list) and isinstance(v["explanation"], str)
+             and all(isinstance(x, dict) and set(x) == {"evidence_id", "span"} and isinstance(x["evidence_id"], str)
+                     and isinstance(x["span"], str) for x in v["evidence_spans"]), "spans/explanation")
         verdicts[v["claim_id"]] = v
     results = {}
     for cid, c in claim_map.items():
@@ -306,10 +315,7 @@ def parse_verification(content, sent_claims, sent_gaps, needs, catalog, cfg):
             if v["support"] != "supported":
                 reasons.append("support_" + v["support"])
             reasons += ["flag_" + f for f in v["flags"]]
-            span = _span_norm(v["evidence_span"])
-            quotes = [_span_norm(catalog[e]["quote"]) for e in c["evidence_ids"]]
-            if len(span) < cfg["limits"]["min_evidence_span_chars"] or not any(span in q for q in quotes):
-                reasons.append("span_not_in_cited_evidence")
+            reasons += span_problems(v["evidence_spans"], c["evidence_ids"], catalog, cfg)
         results[cid] = dict(reasons=reasons, verdict=v)
     gap_ids = {g["need_id"] for g in sent_gaps}
     need(isinstance(data["gaps"], list), "gaps")
@@ -332,6 +338,24 @@ def parse_verification(content, sent_claims, sent_gaps, needs, catalog, cfg):
                 uncovered=[p.strip() for p in parts if p.strip()][: cfg["limits"]["max_uncovered_parts"]])
 
 
+def span_problems(spans, cited, catalog, cfg):
+    """Deterministic checks of the verifier's evidence spans (change B)."""
+    if not 1 <= len(spans) <= cfg["limits"]["max_evidence_spans"]:
+        return ["span_count_invalid"]
+    out = []
+    for x in spans:
+        span = _span_norm(x["span"])
+        if x["evidence_id"] not in cited:
+            out.append("span_evidence_not_cited")
+        elif len(span) < cfg["limits"]["min_evidence_span_chars"] or span not in _span_norm(catalog[x["evidence_id"]]["quote"]):
+            out.append("span_not_in_cited_evidence")
+    return sorted(set(out))
+
+
+def _joined(v):
+    return any("..." in x["span"] or "…" in x["span"] for x in v.get("evidence_spans", []))
+
+
 def verifier_observations(verification, reasons, stage):
     """Diagnostics about the verifier output itself (no effect on the result). Used to measure the verifier:
     * supported_with_flags: support == supported while flags are set (inconsistent verdict);
@@ -344,7 +368,7 @@ def verifier_observations(verification, reasons, stage):
             continue
         if v["support"] == "supported" and v["flags"]:
             obs.append(dict(round=stage, kind="supported_with_flags", claim_id=cid))
-        if "span_not_in_cited_evidence" in res["reasons"] and ("..." in v["evidence_span"] or "…" in v["evidence_span"]):
+        if "span_not_in_cited_evidence" in res["reasons"] and _joined(v):
             obs.append(dict(round=stage, kind="span_joined_with_ellipsis", claim_id=cid))
     for nid, n in sorted(verification["needs"].items()):
         failed = [c for c in n["by_claims"] if reasons.get(c)]

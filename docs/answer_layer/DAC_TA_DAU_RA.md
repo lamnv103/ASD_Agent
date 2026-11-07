@@ -1,10 +1,17 @@
-# Đặc tả đầu ra tầng trả lời: `answer_contract_v0.3`
+# Đặc tả đầu ra tầng trả lời: `answer_contract_v0.4`
 
 **Trạng thái:** bản nháp để phát triển nguyên mẫu nội bộ, soạn 07/11/2026. **Không phải MVP đã duyệt.** Phạm vi người dùng, nhóm câu hỏi và ngưỡng nghiệm thu vẫn chờ [MVP_SCOPE_DRAFT.md](../MVP_SCOPE_DRAFT.md). Đặc tả kiểm tra: [DAC_TA_KIEM_TRA.md](DAC_TA_KIEM_TRA.md). Rubric chấm: [RUBRIC_CHAM.md](RUBRIC_CHAM.md).
 
 **Đã cài đặt:** `rag/answer_layer.py`, `rag/answer_render.py`, `rag/answer_policy.py`, `rag/answer_sources.py`, `rag/answer_client.py`, `rag/answer_pharm.py`, `rag/answer.py`. **Câu chữ của mọi mẫu lấy theo `deployments/answer_layer.json`**; các câu trích trong tài liệu này chỉ để minh họa. Cấu hình: `deployments/answer_layer.json`. Kiểm thử: `tests/test_answer_layer.py`.
 
 **Thẩm định chuyên môn để sau.** Mọi mẫu câu, bảng ghi chú, danh sách cụm khẩn cấp và mọi đầu ra đều mang `review_status: "chua_duyet"`. Mọi bản hiển thị ở chế độ phát triển đều bắt đầu bằng dòng "NGUYÊN MẪU NỘI BỘ…". Cấu hình bị từ chối nếu nhãn này bị đổi. **Không dùng làm căn cứ mở pilot.**
+
+### Thay đổi v0.3 → v0.4 (07/11/2026)
+
+| Điểm | v0.4 |
+|---|---|
+| B: nhiều đoạn nguyên văn | Verifier trả `evidence_spans`: 1–3 mục `{evidence_id, span}`. Mỗi `evidence_id` phải nằm trong các bằng chứng mà nhận định trích; mỗi `span` phải là chuỗi con nguyên văn (≥ 20 ký tự) của **đúng** quote đó. Ghép bằng "..." vẫn trượt như mọi đoạn không nguyên văn. Prompt **kiểm tra** đổi; prompt **sinh** giữ nguyên |
+| Thuật ngữ đã biết sai (K1) | `known_term_errors` (`known_terms_v0.1`, `chua_duyet`) trong `deployments/answer_layer.json`: "du lượn", "nguyên tắc trung thực". Thêm vào vì A làm hai lỗi này hiển thị ở S08 (bundle offline v0.3) |
 
 ### Thay đổi v0.2 → v0.3 (sau lượt chạy NIM 1 và phép đo verifier, 07/11/2026)
 

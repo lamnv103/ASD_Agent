@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "contract_version": "answer_contract_v0.3",
-  "check_version": "answer_check_v0.3",
+  "contract_version": "answer_contract_v0.4",
+  "check_version": "answer_check_v0.4",
   "pharm_gate": "deployments/answer_pharm_gate.json",
   "purpose": "internal_prototype_only",
   "review_status": "chua_duyet",
@@ -24,6 +24,7 @@
     "max_gap_words": 20,
     "max_repairs": 1,
     "min_evidence_span_chars": 20,
+    "max_evidence_spans": 3,
     "max_uncovered_parts": 5
   },
   "dev_banner": "NGUYÊN MẪU NỘI BỘ — nội dung và mẫu câu chưa được thẩm định chuyên môn; không dùng cho người dùng thật.",
@@ -104,5 +105,14 @@
   },
   "banned_leading_connectives": [
     "điều này", "do đó", "vì vậy", "vì thế", "tuy nhiên", "ngoài ra", "bên cạnh đó", "hơn nữa", "từ đó", "như vậy", "nó ", "chúng "
-  ]
+  ],
+  "known_term_errors": {
+    "version": "known_terms_v0.1",
+    "review_status": "chua_duyet",
+    "note": "Mistranslations observed in NIM run 1 (S08). Lower-case, matched on word boundaries in claims (K1). Correct rendering for reviewers only; the generator prompt is unchanged in v0.4.",
+    "terms": {
+      "du lượn": "đu đưa (passive swinging = đu đưa thụ động)",
+      "nguyên tắc trung thực": "fidelity principles = nguyên tắc bảo đảm thực hiện đúng phương pháp"
+    }
+  }
 }

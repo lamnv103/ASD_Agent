@@ -37,7 +37,7 @@ import verify_answer_layer as va  # noqa: E402  (imports no rag module at load t
 DEFAULT_CASES = "evaluation/answer_verifier_faults_v1/cases.jsonl"
 DEFAULT_GROUPS = "evaluation/answer_verifier_faults_v1/groups.jsonl"
 DEFAULT_MEASUREMENTS = ["reports/verifier_eval_20261107_v0.2"]
-GATE_PREFIX = "pharm_unrequested:"
+GATE_PREFIX = ("pharm_unrequested:", "known_term_error:")  # deterministic content gates; the verifier is still measured on these
 
 
 def load_jsonl(path: Path):
