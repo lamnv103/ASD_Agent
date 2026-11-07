@@ -220,7 +220,7 @@ Outputs go to reports/verification_runs/<name>_<time>/ (git-ignored). Historical
     }
     'verify' {
         Test-Python
-        foreach ($v in 'verify_evidence_context', 'verify_semantic_reader', 'verify_reader_v3', 'verify_guarded_pipeline') {
+        foreach ($v in 'verify_evidence_context', 'verify_semantic_reader', 'verify_reader_v3', 'verify_guarded_pipeline', 'verify_answer_layer') {
             Invoke-Checked $v { & $Py -B (Join-Path $Root "scripts\evaluation\$v.py") | Select-String -Pattern 'AUDIT_DIR|VERIFIED|"status"' }
         }
         Write-Host 'All verifiers passed (cache-only, no provider calls).' -ForegroundColor Green
