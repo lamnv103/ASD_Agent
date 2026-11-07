@@ -1,0 +1,200 @@
+{
+  "schema": "answer_result_v0.2",
+  "contract_version": "answer_contract_v0.3",
+  "check_version": "answer_check_v0.3",
+  "purpose": "internal_prototype_only",
+  "review_status": "chua_duyet",
+  "review_note": "Templates, country map, thresholds and emergency phrases are engineering drafts; no clinical review. Not a basis for opening a pilot.",
+  "question_sha256": "c32e19491d796e56e9292f603a40a86b6913464c47f835ecebe6cac7b56908e8",
+  "trace_question_sha256": "c32e19491d796e56e9292f603a40a86b6913464c47f835ecebe6cac7b56908e8",
+  "route": "answer",
+  "status": "khong_du",
+  "reader_status": "partially_sufficient",
+  "proposed_status": "mot_phan",
+  "repairs": 1,
+  "claims_final": [],
+  "claims_removed": [
+    {
+      "claim_id": "c1",
+      "text": "Các bài xem xét cho thấy không có bằng chứng mất kỹ năng nói khi dùng AAC, nhưng hiệu quả tăng lời nói thường nhỏ hoặc không đáng kể.",
+      "reasons": [
+        "support_partially_supported",
+        "flag_condition_dropped"
+      ],
+      "round": "generate",
+      "disposition": "failed_verification"
+    },
+    {
+      "claim_id": "c1",
+      "text": "Các bài xem xét cho thấy không có bằng chứng mất kỹ năng nói khi dùng AAC đối với người tự kỷ, nhưng hiệu quả tăng lời nói thường nhỏ hoặc không đáng kể.",
+      "reasons": [
+        "support_partially_supported",
+        "flag_condition_dropped"
+      ],
+      "round": "repair",
+      "disposition": "failed_verification"
+    }
+  ],
+  "verifier_observations": [
+    {
+      "round": "repair",
+      "kind": "need_credited_to_failed_claim",
+      "need_id": "n2",
+      "claim_ids": [
+        "c1"
+      ]
+    }
+  ],
+  "needs_addressed": [],
+  "needs_missing": [
+    "n1",
+    "n2"
+  ],
+  "uncovered": [
+    "Gia đình có thể tiếp tục nói chuyện khi dùng bảng tranh cho con không"
+  ],
+  "calls": [
+    {
+      "stage": "generate",
+      "content_sha256": "2f6d2a153d0317c7ee93c94534fab799e40e634b19a093ca5f7c35b1b7f6afdd",
+      "request_id": "chatcmpl-fe450ee3-d9bd-40b1-becc-2c4a27c6a579",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "usage": {
+        "prompt_tokens": 768,
+        "completion_tokens": 157,
+        "total_tokens": 925,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": null
+        }
+      },
+      "local_prompt_tokens": 768,
+      "provider_prompt_tokens": 768,
+      "elapsed_seconds": 3.607,
+      "cache_hit": true,
+      "recorded_at": "2026-11-07T12:53:45.337020+00:00"
+    },
+    {
+      "stage": "verify",
+      "content_sha256": "dd94615e8ebbad99c2920ba74d451f30c5aca2ae664690d61a2fd2db421849fc",
+      "request_id": "chatcmpl-b93b39b5-8c58-4ca1-9fdd-34361a03daf8",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "usage": {
+        "prompt_tokens": 732,
+        "completion_tokens": 328,
+        "total_tokens": 1060,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": null
+        }
+      },
+      "local_prompt_tokens": 732,
+      "provider_prompt_tokens": 732,
+      "elapsed_seconds": 6.207,
+      "cache_hit": true,
+      "recorded_at": "2026-11-07T12:53:51.558722+00:00"
+    },
+    {
+      "stage": "repair",
+      "content_sha256": "6d338d1271f5c1aba5b9690af394316c3b1c66b799d88fa333faf8f2340b15e8",
+      "request_id": "chatcmpl-3a6f232a-ea60-42b5-903a-4c733d41807d",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "usage": {
+        "prompt_tokens": 1115,
+        "completion_tokens": 131,
+        "total_tokens": 1246,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": null
+        }
+      },
+      "local_prompt_tokens": 1115,
+      "provider_prompt_tokens": 1115,
+      "elapsed_seconds": 3.677,
+      "cache_hit": true,
+      "recorded_at": "2026-11-07T12:53:55.250561+00:00"
+    },
+    {
+      "stage": "verify_repair",
+      "content_sha256": "e123b82397a0cc28f0a505d432f2339eb13ec435842cc52cf932b3ccbdb98e62",
+      "request_id": "chatcmpl-1ab82ea2-ebe6-4115-8b04-ef9f56a0c74a",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "usage": {
+        "prompt_tokens": 710,
+        "completion_tokens": 304,
+        "total_tokens": 1014,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": null
+        }
+      },
+      "local_prompt_tokens": 710,
+      "provider_prompt_tokens": 710,
+      "elapsed_seconds": 32.869,
+      "cache_hit": true,
+      "recorded_at": "2026-11-07T12:54:28.132740+00:00"
+    }
+  ],
+  "timings": {
+    "generate": 0.002,
+    "verify": 0.001,
+    "repair": 0.002,
+    "verify_repair": 0.001,
+    "total": 0.008
+  },
+  "error": null,
+  "models": {
+    "generator": "nvidia/nemotron-3-ultra-550b-a55b",
+    "verifier": "nvidia/nemotron-3-ultra-550b-a55b"
+  },
+  "limitations": [
+    "The verifier uses the same model as the generator; errors may be correlated."
+  ],
+  "as_of": "2026-11-07",
+  "pharm_gate": {
+    "gate_version": "pharm_gate_v0.1",
+    "drug_names": [],
+    "supplement": false,
+    "medication": false,
+    "negated_mentions": []
+  },
+  "catalog": [
+    {
+      "id": "E1",
+      "evidence_id": "ev-3e5af1201fd8625ae2b0d7c2",
+      "source_id": "ASD-CSV-084",
+      "start": 16533,
+      "end": 17191
+    }
+  ],
+  "render": {
+    "text": "NGUYÊN MẪU NỘI BỘ — nội dung và mẫu câu chưa được thẩm định chuyên môn; không dùng cho người dùng thật.\nTrong các đoạn tài liệu đã truy xuất và kiểm tra ở lượt này, hệ thống chưa có đủ căn cứ để trả lời câu hỏi, nên không đưa ra câu trả lời để tránh suy đoán. Điều này không có nghĩa là toàn bộ kho tài liệu không có thông tin liên quan.\nHệ thống chỉ cung cấp thông tin giáo dục chung, không thay thế việc khám và tư vấn của chuyên gia.\n",
+    "sources": [],
+    "notes": [],
+    "review_status": "chua_duyet"
+  }
+}

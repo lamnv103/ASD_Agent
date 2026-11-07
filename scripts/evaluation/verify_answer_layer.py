@@ -39,7 +39,7 @@ from unittest import mock
 
 ROOT = Path(__file__).resolve().parents[2]
 
-DEFAULT_BUNDLES = ["reports/answer_eval_20261107"]
+DEFAULT_BUNDLES = ["reports/answer_eval_20261107", "reports/answer_eval_20261107_v0.3_offline"]
 COMPARED = ("route", "status", "reader_status", "proposed_status", "repairs", "as_of", "catalog", "claims_final",
             "claims_removed", "verifier_observations", "needs_addressed", "needs_missing", "uncovered", "error",
             "contract_version", "check_version")

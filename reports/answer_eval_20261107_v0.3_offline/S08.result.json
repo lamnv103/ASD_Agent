@@ -1,0 +1,345 @@
+{
+  "schema": "answer_result_v0.2",
+  "contract_version": "answer_contract_v0.3",
+  "check_version": "answer_check_v0.3",
+  "purpose": "internal_prototype_only",
+  "review_status": "chua_duyet",
+  "review_note": "Templates, country map, thresholds and emergency phrases are engineering drafts; no clinical review. Not a basis for opening a pilot.",
+  "question_sha256": "4ee70a2cb1757ba1a00e01e19bb8e04ee53aefce880e71f94729c47043d69f9c",
+  "trace_question_sha256": "4ee70a2cb1757ba1a00e01e19bb8e04ee53aefce880e71f94729c47043d69f9c",
+  "route": "answer",
+  "status": "mot_phan",
+  "reader_status": "sufficient",
+  "proposed_status": "du",
+  "repairs": 1,
+  "claims_final": [
+    {
+      "claim_id": "c1",
+      "role": "tra_loi_truc_tiep",
+      "text": "Không, các hoạt động kích thích cảm giác (SBIs) khác biệt rõ rệt với phương pháp Tích hợp cảm giác Ayres (ASI) đã được nghiên cứu cho trẻ tự kỷ.",
+      "evidence_ids": [
+        "E4"
+      ],
+      "need_ids": [
+        "n1"
+      ],
+      "verdict": {
+        "claim_id": "c1",
+        "support": "supported",
+        "flags": [],
+        "evidence_span": "SBIs are informed by sensory integration theory, but they have clearly delineated differences from direct, one-on-one occupational therapy intervention using Ayres Sensory Integration® intervention, termed ASI (10, 11).",
+        "explanation": "The quote explicitly states that SBIs have clearly delineated differences from ASI, supporting the claim that they are distinctly different."
+      }
+    },
+    {
+      "claim_id": "c2",
+      "role": "chi_tiet",
+      "text": "ASI yêu cầu đào tạo chuyên sâu cho trị liệu, tuân thủ các nguyên tắc trung thực như cá nhân hóa hoạt động, trẻ tham gia chủ động trong bối cảnh chơi, và thách thức vừa phải để thúc đẩy phản ứng thích ứng.",
+      "evidence_ids": [
+        "E4"
+      ],
+      "need_ids": [
+        "n1"
+      ],
+      "verdict": {
+        "claim_id": "c2",
+        "support": "supported",
+        "flags": [],
+        "evidence_span": "Key features of ASI include advanced therapist training and mentorship and adherence to fidelity principles, including active engagement of the child, individually tailored activities, and play opportunities presented at the just-right challenge to facilitate adaptive responses (12, 13).",
+        "explanation": "The quote lists the exact features claimed: advanced therapist training, fidelity principles, active engagement, individually tailored activities, and just-right challenge for adaptive responses."
+      }
+    },
+    {
+      "claim_id": "c3",
+      "role": "chi_tiet",
+      "text": "Ngược lại, SBIs thường do người lớn dẫn dắt, cung cấp đầu vào cảm giác thụ động cho trẻ (như massage, đeo tai nghe chống ồn, du lượn thụ động) và có thể được thực hiện bởi người chăm sóc tại môi trường tự nhiên.",
+      "evidence_ids": [
+        "E4",
+        "E5"
+      ],
+      "need_ids": [
+        "n1"
+      ],
+      "verdict": {
+        "claim_id": "c3",
+        "support": "supported",
+        "flags": [],
+        "evidence_span": "In contrast, SBIs tend to be practitioner or adult-led interventions, involving passive sensory input applied to the child, and can include sensory techniques, such as massage, wearing earmuffs, passive swinging, caregiver sensory training, and sensory environmental modifications (10, 11).",
+        "explanation": "The quote directly states SBIs are adult-led, involve passive sensory input, and lists the exact examples (massage, earmuffs, passive swinging) and notes implementation by caregivers in natural environments."
+      }
+    }
+  ],
+  "claims_removed": [
+    {
+      "claim_id": "c4",
+      "text": "Các bài đánh giá hệ thống trước đây thường nhầm lẫn SBIs với ASI, dẫn đến việc đưa ra kết luận sai lệch về hiệu quả của ASI do bao gồm các nghiên cứu không tuân thủ nguyên tắc ASI.",
+      "reasons": [
+        "span_not_in_cited_evidence"
+      ],
+      "round": "generate",
+      "disposition": "failed_verification"
+    },
+    {
+      "claim_id": "c1",
+      "text": "Không, các hoạt động kích thích cảm giác (SBIs) khác biệt rõ rệt với phương pháp Tích hợp cảm giác Ayres (ASI) đã được nghiên cứu cho trẻ tự kỷ.",
+      "reasons": [],
+      "round": "generate",
+      "disposition": "replaced_in_repair"
+    },
+    {
+      "claim_id": "c2",
+      "text": "ASI yêu cầu đào tạo chuyên sâu cho trị liệu, tuân thủ các nguyên tắc trung thực như cá nhân hóa hoạt động, trẻ tham gia chủ động trong bối cảnh chơi, và thách thức vừa phải để thúc đẩy phản ứng thích ứng.",
+      "reasons": [],
+      "round": "generate",
+      "disposition": "replaced_in_repair"
+    },
+    {
+      "claim_id": "c3",
+      "text": "Ngược lại, SBIs thường do người lớn dẫn dắt, cung cấp đầu vào cảm giác thụ động cho trẻ (như massage, đeo tai nghe chống ồn, du lượn thụ động) và có thể được thực hiện bởi người chăm sóc tại môi trường tự nhiên.",
+      "reasons": [],
+      "round": "generate",
+      "disposition": "replaced_in_repair"
+    },
+    {
+      "claim_id": "c4",
+      "text": "Các bài đánh giá hệ thống trước đây thường nhầm lẫn SBIs với ASI, bao gồm các nghiên cứu không tuân thủ nguyên tắc ASI, làm khó khăn việc rút ra kết luận về hiệu quả của ASI.",
+      "reasons": [
+        "span_not_in_cited_evidence"
+      ],
+      "round": "repair",
+      "disposition": "failed_verification"
+    }
+  ],
+  "verifier_observations": [
+    {
+      "round": "generate",
+      "kind": "span_joined_with_ellipsis",
+      "claim_id": "c4"
+    },
+    {
+      "round": "generate",
+      "kind": "need_credited_to_failed_claim",
+      "need_id": "n1",
+      "claim_ids": [
+        "c4"
+      ]
+    },
+    {
+      "round": "repair",
+      "kind": "span_joined_with_ellipsis",
+      "claim_id": "c4"
+    },
+    {
+      "round": "repair",
+      "kind": "need_credited_to_failed_claim",
+      "need_id": "n1",
+      "claim_ids": [
+        "c4"
+      ]
+    }
+  ],
+  "needs_addressed": [],
+  "needs_missing": [
+    "n1"
+  ],
+  "uncovered": [],
+  "calls": [
+    {
+      "stage": "generate",
+      "content_sha256": "828206815cb089d44c64af2e966168a156ec0a7f9675b520b32def55b2ebedf6",
+      "request_id": "chatcmpl-e1072e3a-4b30-4a04-b30b-90fc2257d38b",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "usage": {
+        "prompt_tokens": 1920,
+        "completion_tokens": 399,
+        "total_tokens": 2319,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": null
+        }
+      },
+      "local_prompt_tokens": 1920,
+      "provider_prompt_tokens": 1920,
+      "elapsed_seconds": 9.15,
+      "cache_hit": true,
+      "recorded_at": "2026-11-07T12:53:24.801408+00:00"
+    },
+    {
+      "stage": "verify",
+      "content_sha256": "6e325ab709e61343185c7134ba86277f729a2a730e9dfb66374dbd932746ed57",
+      "request_id": "chatcmpl-1f27738d-b22a-449d-8853-a87322fdce46",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "usage": {
+        "prompt_tokens": 2118,
+        "completion_tokens": 549,
+        "total_tokens": 2667,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": null
+        }
+      },
+      "local_prompt_tokens": 2118,
+      "provider_prompt_tokens": 2118,
+      "elapsed_seconds": 5.278,
+      "cache_hit": true,
+      "recorded_at": "2026-11-07T12:53:30.099924+00:00"
+    },
+    {
+      "stage": "repair",
+      "content_sha256": "4268666e14ce5a19be6fe39efe6dc7da5c1a23061199173c98658d2d62d6d577",
+      "request_id": "chatcmpl-5d740eac-3f1e-4db9-82f6-275967b8bc95",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "usage": {
+        "prompt_tokens": 2485,
+        "completion_tokens": 398,
+        "total_tokens": 2883,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": null
+        }
+      },
+      "local_prompt_tokens": 2485,
+      "provider_prompt_tokens": 2485,
+      "elapsed_seconds": 4.116,
+      "cache_hit": true,
+      "recorded_at": "2026-11-07T12:53:34.249677+00:00"
+    },
+    {
+      "stage": "verify_repair",
+      "content_sha256": "7c4a7ff389cbce1267acc674b9b6f41568a553c963a85c427d22c8e46657ca12",
+      "request_id": "chatcmpl-5897043b-513c-4bbd-a929-a07afc1df9f7",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "usage": {
+        "prompt_tokens": 2117,
+        "completion_tokens": 546,
+        "total_tokens": 2663,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": null
+        }
+      },
+      "local_prompt_tokens": 2117,
+      "provider_prompt_tokens": 2117,
+      "elapsed_seconds": 5.249,
+      "cache_hit": true,
+      "recorded_at": "2026-11-07T12:53:39.523287+00:00"
+    }
+  ],
+  "timings": {
+    "generate": 0.003,
+    "verify": 0.003,
+    "repair": 0.003,
+    "verify_repair": 0.003,
+    "total": 0.017
+  },
+  "error": null,
+  "models": {
+    "generator": "nvidia/nemotron-3-ultra-550b-a55b",
+    "verifier": "nvidia/nemotron-3-ultra-550b-a55b"
+  },
+  "limitations": [
+    "The verifier uses the same model as the generator; errors may be correlated."
+  ],
+  "as_of": "2026-11-07",
+  "pharm_gate": {
+    "gate_version": "pharm_gate_v0.1",
+    "drug_names": [],
+    "supplement": false,
+    "medication": false,
+    "negated_mentions": []
+  },
+  "catalog": [
+    {
+      "id": "E1",
+      "evidence_id": "ev-393921ca621a73ca274f1798",
+      "source_id": "ASD-SUP-PMC6590432",
+      "start": 8225,
+      "end": 9825
+    },
+    {
+      "id": "E2",
+      "evidence_id": "ev-9458f1cbdc623390cc9179f9",
+      "source_id": "ASD-SUP-PMC6590432",
+      "start": 9827,
+      "end": 11275
+    },
+    {
+      "id": "E3",
+      "evidence_id": "ev-3832a4c0b42626352974963a",
+      "source_id": "ASD-SUP-PMC6590432",
+      "start": 11277,
+      "end": 12506
+    },
+    {
+      "id": "E4",
+      "evidence_id": "ev-7961e35edddd76cd4ea7269e",
+      "source_id": "ASD-SUP-PMC12658592",
+      "start": 5670,
+      "end": 6888
+    },
+    {
+      "id": "E5",
+      "evidence_id": "ev-5aeb1c840d3bfe89cf9ad98d",
+      "source_id": "ASD-SUP-PMC12658592",
+      "start": 12053,
+      "end": 12300
+    }
+  ],
+  "render": {
+    "text": "NGUYÊN MẪU NỘI BỘ — nội dung và mẫu câu chưa được thẩm định chuyên môn; không dùng cho người dùng thật.\nCác đoạn tài liệu đã truy xuất và kiểm tra ở lượt này chỉ trả lời được một phần câu hỏi.\nKhông, các hoạt động kích thích cảm giác (SBIs) khác biệt rõ rệt với phương pháp Tích hợp cảm giác Ayres (ASI) đã được nghiên cứu cho trẻ tự kỷ. [1]\nASI yêu cầu đào tạo chuyên sâu cho trị liệu, tuân thủ các nguyên tắc trung thực như cá nhân hóa hoạt động, trẻ tham gia chủ động trong bối cảnh chơi, và thách thức vừa phải để thúc đẩy phản ứng thích ứng. [1] Ngược lại, SBIs thường do người lớn dẫn dắt, cung cấp đầu vào cảm giác thụ động cho trẻ (như massage, đeo tai nghe chống ồn, du lượn thụ động) và có thể được thực hiện bởi người chăm sóc tại môi trường tự nhiên. [1]\nMột phần câu hỏi chưa có căn cứ trong các đoạn đã truy xuất và kiểm tra ở lượt này.\nCâu trả lời dựa trên 1 tài liệu.\nĐây là thông tin giáo dục chung dựa trên các đoạn tài liệu được trích dẫn, không thay thế việc khám và tư vấn của chuyên gia.\n\nNguồn:\n[1] Systematic review of sensory-based interventions for children and youth (2015–2024) — Aimee Piller và cộng sự (2025). https://pmc.ncbi.nlm.nih.gov/articles/PMC12658592/\n    Đoạn được dùng: \"The aim of SBIs is to temporarily modify a child's physiological arousal level, creating a better match between the person and task, with the goal to improve behavior and participation in tasks (11). SBIs are informed by sensory integration theory, but they have clearly delineated differences from direct, one-on-one occupational therapy intervention using Ayres Sensory Integration® intervention, termed ASI (10, 11). Key features of ASI include advanced therapist training and mentorship and adherence to fidelity principles, including active engagement of the child, individually tailored activities, and play opportunities presented at the just-right challenge to facilitate adaptive responses (12, 13). In contrast, SBIs tend to be practitioner or adult-led interventions, involving passive sensory input applied to the child, and can include sensory techniques, such as massage, wearing earmuffs, passive swinging, caregiver sensory training, and sensory environmental modifications (10, 11). SBIs may be implemented by caregivers and other team members or accessed independently by the child as part of an occupational therapy intervention plan in natural environments such as the home, community, and schools.\"\n    Đoạn được dùng: \"- Sensory technique: application of sensory stimuli through materials, tools, and activities applied directly to the child or through positioning a child on or in a device (e.g., weighted items, passive swinging) or accessed directly by the child.\"\n",
+    "sources": [
+      {
+        "number": 1,
+        "source_id": "ASD-SUP-PMC12658592",
+        "title": "Systematic review of sensory-based interventions for children and youth (2015–2024)",
+        "by": "Aimee Piller và cộng sự",
+        "year": 2025,
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12658592/",
+        "type_vi": "nghiên cứu",
+        "country": null,
+        "evidence": [
+          {
+            "id": "E4",
+            "evidence_id": "ev-7961e35edddd76cd4ea7269e",
+            "start": 5670,
+            "end": 6888
+          },
+          {
+            "id": "E5",
+            "evidence_id": "ev-5aeb1c840d3bfe89cf9ad98d",
+            "start": 12053,
+            "end": 12300
+          }
+        ]
+      }
+    ],
+    "notes": [
+      "Câu trả lời dựa trên 1 tài liệu."
+    ],
+    "review_status": "chua_duyet"
+  }
+}
