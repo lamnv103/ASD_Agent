@@ -51,7 +51,17 @@ DEFAULT_MEASUREMENTS = ["reports/verifier_eval_20261107_v0.2", "reports/verifier
                         "reports/verifier_stability_20261107_v0.6/addendum_rep1", "reports/verifier_stability_20261107_v0.6/addendum_rep2",
                         "reports/verifier_stability_20261107_v0.6/groups_v1_rep1", "reports/verifier_stability_20261107_v0.6/groups_v1_rep2",
                         "reports/verifier_stability_20261107_v0.6/groups_addendum_rep1",
-                        "reports/verifier_stability_20261107_v0.6/groups_addendum_rep2"]
+                        "reports/verifier_stability_20261107_v0.6/groups_addendum_rep2",
+                        "reports/verifier_trial_20261108_v0.7/singles_v1_rep1",
+                        "reports/verifier_trial_20261108_v0.7/singles_v1_rep2",
+                        "reports/verifier_trial_20261108_v0.7/singles_v1_rep3",
+                        "reports/verifier_trial_20261108_v0.7/singles_addendum_rep1",
+                        "reports/verifier_trial_20261108_v0.7/singles_addendum_rep2",
+                        "reports/verifier_trial_20261108_v0.7/singles_addendum_rep3",
+                        "reports/verifier_trial_20261108_v0.7/groups_v1_rep1",
+                        "reports/verifier_trial_20261108_v0.7/groups_v1_rep2",
+                        "reports/verifier_trial_20261108_v0.7/groups_addendum_rep1",
+                        "reports/verifier_trial_20261108_v0.7/groups_addendum_rep2"]
 CONTENT_PREFIXES = ("support_", "flag_", "check:")  # verifier reasons about the claim's content (vs schema/wording)
 FLAG_TO_ASPECT = {"condition_dropped": "population_scope", "certainty_changed": "certainty",
                   "added_content": "conclusion_topic", "unrequested_medical_content": "question_fit"}
