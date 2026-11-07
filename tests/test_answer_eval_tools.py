@@ -98,6 +98,18 @@ class ScoringTests(unittest.TestCase):
                          [("F1", "fail", "pass")])
 
 
+class PipelineGroupTests(unittest.TestCase):
+    def test_pipeline_group_rows_compare_with_the_full_group(self):
+        cases = [_case("F1", "fail"), _case("F2", "fail")]
+        records = [_rec("F1", dict(support="supported", flags=[]), []), _rec("F2", dict(support="supported", flags=[]), [])]
+        full = [dict(group_id="G", records=[dict(case_id="F1", verifier_outcome="fail"), dict(case_id="F2", verifier_outcome="pass")])]
+        pipe = [dict(group_id="G", records=[dict(case_id="F1", verifier_outcome="pass"), dict(case_id="F2", verifier_outcome=None)])]
+        g = mv.score(cases, records, full, pipe)["pipeline_groups"]
+        self.assertEqual(g["compared"], 1)  # F2 was removed before the verifier (not sent)
+        self.assertEqual([(x["case_id"], x["verifier_full_group"], x["verifier_pipeline_group"]) for x in g["changed"]],
+                         [("F1", "fail", "pass")])
+
+
 class ReplayModeTests(unittest.TestCase):
     def test_v02_bundle_replays_with_its_own_commit(self):
         manifest = json.loads((ROOT / "reports/answer_eval_20261107/manifest.json").read_text(encoding="utf-8"))

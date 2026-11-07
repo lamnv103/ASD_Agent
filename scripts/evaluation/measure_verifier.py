@@ -110,12 +110,17 @@ class Runtime:
         rec["outcome"] = "pass" if not rec["reasons"] else "fail"
         return rec
 
-    def check_group(self, group, cases_by_id, client):
+    def check_group(self, group, cases_by_id, client, pipeline=False):
+        """pipeline=False: every structurally valid claim is sent (measures the verifier, incl. gate-blocked claims).
+        pipeline=True: only claims passing ALL of K1 (incl. the deterministic gates) are sent, as the pipeline does."""
         members = [cases_by_id[c] for c in group["case_ids"]]
         trace, catalog, sources, needs, pharm = self._setup(members[0]["trace"])
         claims = [dict(claim_id=f"c{i}", role="chi_tiet", **m["claim"]) for i, m in enumerate(members, 1)]
         k1 = self._k1(claims, catalog, sources, needs, pharm)
-        sent = [c for c in claims if not [r for r in k1[c["claim_id"]] if not r.startswith(GATE_PREFIX)]]
+        if pipeline:
+            sent = [c for c in claims if not k1[c["claim_id"]]]
+        else:
+            sent = [c for c in claims if not [r for r in k1[c["claim_id"]] if not r.startswith(GATE_PREFIX)]]
         res, call = self._verify(client, trace, needs, sent, catalog) if sent else ({}, None)
         recs = []
         for m, c in zip(members, claims):
@@ -123,9 +128,21 @@ class Runtime:
             recs.append(dict(case_id=m["case_id"], claim_id=c["claim_id"], verdict=(v or {}).get("verdict"),
                              verifier_reasons=(v or {}).get("reasons"),
                              verifier_outcome=None if v is None else ("pass" if not v["reasons"] else "fail")))
-        return dict(group_id=group["group_id"], call=call, records=recs)
+        return dict(group_id=group["group_id"], call=call, records=recs, sent=[c["claim_id"] for c in sent])
 
-    def result(self, cases_file, records, groups_file=None, groups=None, seeded_from=None, pinned_keys=None, code_keys=None):
+    def blocked_in(self, group, cases_by_id):
+        members = [cases_by_id[c] for c in group["case_ids"]]
+        trace, catalog, sources, needs, pharm = self._setup(members[0]["trace"])
+        claims = [dict(claim_id=f"c{i}", role="chi_tiet", **m["claim"]) for i, m in enumerate(members, 1)]
+        k1 = self._k1(claims, catalog, sources, needs, pharm)
+        return [m["case_id"] for m, c in zip(members, claims) if k1[c["claim_id"]]]
+
+    def pipeline_groups(self, groups_def, cases_by_id, client):
+        """Groups re-sent without the claims the deterministic layer removes (only where that changes the group)."""
+        return [self.check_group(g, cases_by_id, client, pipeline=True) for g in groups_def if self.blocked_in(g, cases_by_id)]
+
+    def result(self, cases_file, records, groups_file=None, groups=None, seeded_from=None, pinned_keys=None, code_keys=None,
+               pipeline_groups=None):
         cfg = self.cfg
         pins = tuple(pinned_keys) if pinned_keys else tuple(p for p in va.PINNED_FILES if (self.code_root / p).exists())
         code = tuple(code_keys) if code_keys else tuple(p for p in va.CODE_FILES if (self.code_root / p).exists())
@@ -140,6 +157,8 @@ class Runtime:
         if groups is not None:
             out.update(groups_file=groups_file, groups_sha256=self.sha((ROOT / groups_file).read_text(encoding="utf-8")),
                        groups=groups)
+        if pipeline_groups is not None:
+            out["pipeline_groups"] = pipeline_groups
         return out
 
 
@@ -155,7 +174,7 @@ def layers(rec):
     return det, ver, rec["outcome"] == "fail"
 
 
-def score(cases, records, groups=None):
+def score(cases, records, groups=None, pipeline_groups=None):
     by_id = {r["case_id"]: r for r in records}
     faults = [c for c in cases if c["expected"] == "fail"]
     sets = {"core16": [c for c in faults if c["measurable_from"] == "v0.2"], "all18": faults}
@@ -198,11 +217,18 @@ def score(cases, records, groups=None):
                                  verifier_single=single_o, verifier_group=r["verifier_outcome"]))
         s["groups"] = dict(compared=len(rows), disagree=[x for x in rows if x["verifier_single"] != x["verifier_group"]],
                            rows=rows)
+    if pipeline_groups:
+        full = {(g["group_id"], r["case_id"]): r["verifier_outcome"] for g in groups or [] for r in g["records"]}
+        rows = [dict(group_id=g["group_id"], case_id=r["case_id"], expected=expected[r["case_id"]],
+                     verifier_full_group=full.get((g["group_id"], r["case_id"])), verifier_pipeline_group=r["verifier_outcome"])
+                for g in pipeline_groups for r in g["records"] if r["verifier_outcome"] is not None]
+        s["pipeline_groups"] = dict(compared=len(rows), rows=rows,
+                                    changed=[x for x in rows if x["verifier_full_group"] != x["verifier_pipeline_group"]])
     return s
 
 
 def print_summary(label, res, cases):
-    s = score(cases, res["records"], res.get("groups"))
+    s = score(cases, res["records"], res.get("groups"), res.get("pipeline_groups"))
     c = s["clean"]
     print(f"== {label}: {res['contract_version']} / verifier prompt {res['verify_system_sha256'][:8]} / gate {res.get('pharm_gate_version')}")
     print(f"  clean {c['n']}: false rejects system {len(c['false_reject_system'])} {c['false_reject_system']} | "
@@ -218,6 +244,13 @@ def print_summary(label, res, cases):
         print(f"  single vs group (verifier): {g['compared']} compared, {len(g['disagree'])} disagree")
         for x in g["disagree"]:
             print(f"    {x['group_id']} {x['case_id']} ({x['expected']}): single={x['verifier_single']} group={x['verifier_group']}")
+    if "pipeline_groups" in s:
+        g = s["pipeline_groups"]
+        print(f"  groups as the pipeline sends them (deterministic blocks removed): {g['compared']} verdicts, "
+              f"{len(g['changed'])} differ from the full group")
+        for x in g["rows"]:
+            mark = " <- changed" if x in g["changed"] else ""
+            print(f"    {x['group_id']} {x['case_id']} ({x['expected']}): full={x['verifier_full_group']} pipeline={x['verifier_pipeline_group']}{mark}")
     return s
 
 
@@ -234,11 +267,13 @@ def check_here(out: Path, code_root: Path = ROOT) -> list[str]:
     cases = load_jsonl(ROOT / expected["cases_file"])
     client = rt.client_cls(rt.counter, key_supplier=va.no_key, cache_dir=out / "cache", offline=True)
     groups_def = load_jsonl(ROOT / expected["groups_file"]) if expected.get("groups_file") else None
+    pipe = None
     try:
         with va.NoNetwork():
             records = [rt.check_case(c, client) for c in cases]
             by_id = {c["case_id"]: c for c in cases}
             groups = [rt.check_group(g, by_id, client) for g in groups_def] if groups_def else None
+            pipe = rt.pipeline_groups(groups_def, by_id, client) if "pipeline_groups" in expected else None
     except Exception as exc:  # cache miss / tampering
         return [f"replay failed: {getattr(exc, 'code', type(exc).__name__)}"]
     got = rt.result(expected["cases_file"], records, expected.get("groups_file"), groups,
@@ -251,7 +286,9 @@ def check_here(out: Path, code_root: Path = ROOT) -> list[str]:
         diffs.append("records")
     if groups_def and [[_strip(r) for r in g["records"]] for g in expected["groups"]] != [[_strip(r) for r in g["records"]] for g in groups]:
         diffs.append("groups")
-    calls = [r["call"] for r in records] + ([g["call"] for g in groups] if groups else [])
+    if pipe is not None and [[_strip(r) for r in g["records"]] for g in expected["pipeline_groups"]] != [[_strip(r) for r in g["records"]] for g in pipe]:
+        diffs.append("pipeline_groups")
+    calls = [r["call"] for r in records] + ([g["call"] for g in groups] if groups else []) + ([g["call"] for g in pipe] if pipe else [])
     if not all(c is None or c["cache_hit"] for c in calls):
         diffs.append("a call was not served from the cache")
     return diffs
@@ -322,12 +359,15 @@ def main() -> int:
     for g in groups_def:
         groups.append(rt.check_group(g, by_id, client))
         print(f"{g['group_id']} " + " ".join(f"{r['case_id']}={r['verifier_outcome']}" for r in groups[-1]["records"]), flush=True)
+    pipe = rt.pipeline_groups(groups_def, by_id, client)
+    for g in pipe:
+        print(f"{g['group_id']} (pipeline) " + " ".join(f"{r['case_id']}={r['verifier_outcome']}" for r in g["records"]), flush=True)
     if args.seed_cache:  # keep only the cache entries this measurement used (each is identity-validated on read)
-        hits ={r["call"]["request_id"] for r in records if r["call"]} | {g["call"]["request_id"] for g in groups if g["call"]}
+        hits ={r["call"]["request_id"] for r in records if r["call"]} | {g["call"]["request_id"] for g in groups + pipe if g["call"]}
         for f in (out / "cache").glob("*.json"):
             if json.loads(f.read_text(encoding="utf-8")).get("request_id") not in hits:
                 f.unlink()
-    result = rt.result(args.cases, records, args.groups, groups, seeded_from=args.seed_cache)
+    result = rt.result(args.cases, records, args.groups, groups, seeded_from=args.seed_cache, pipeline_groups=pipe)
     rt.atomic_json(out / "results.json", result)
     print_summary(args.out, result, cases)
     return 0

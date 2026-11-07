@@ -69,14 +69,8 @@ def gen(claims, gaps=(), proposed="du"):
     return json.dumps(dict(proposed_status=proposed, claims=list(claims), gaps=list(gaps)), ensure_ascii=False)
 
 
-_EID = {S1: "E1", S2: "E2", T2: "E3"}
-
-
-def verdict(cid, span, support="supported", flags=(), eid=None, spans=None):
-    """Verifier verdict (contract v0.4: evidence_spans). The evidence id defaults to the quote the span comes from."""
-    if spans is None:
-        spans = [dict(evidence_id=eid or _EID.get(span, "E1"), span=span)]
-    return dict(claim_id=cid, support=support, flags=list(flags), evidence_spans=spans, explanation="")
+def verdict(cid, span, support="supported", flags=()):
+    return dict(claim_id=cid, support=support, flags=list(flags), evidence_span=span, explanation="")
 
 
 def ver(verdicts, needs, gaps=(), uncovered=()):
@@ -179,7 +173,7 @@ class K1Tests(unittest.TestCase):
         self.assertIn("leading_connective", r["c1"])
         self.assertIn("direct_answer_not_first_or_duplicate", r["c2"])
 
-    def test_known_term_errors(self):  # contract v0.4, observed in NIM run 1 (S08)
+    def test_known_term_errors(self):  # observed in NIM run 1 (S08); contract v0.5
         r = self.k1(claim("c1", "SBIs gồm du lượn thụ động.", ["E1"]), claim("c2", "Tuân thủ nguyên tắc trung thực của ASI.", ["E1"]),
                     claim("c3", "SBIs gồm đu đưa thụ động.", ["E1"]))
         self.assertIn("known_term_error:du lượn", r["c1"])
@@ -208,24 +202,7 @@ class VerifierOutputTests(unittest.TestCase):
 
     def test_span_from_uncited_quote_fails(self):
         res = self.parse(ver([verdict("c2", S2)], []), [C_ASSOC])  # S2 is E2, claim cites only E1
-        self.assertIn("span_evidence_not_cited", res["claims"]["c2"]["reasons"])
-        res = self.parse(ver([verdict("c2", S2, eid="E1")], []), [C_ASSOC])  # mislabelled as E1: not in E1's quote
         self.assertIn("span_not_in_cited_evidence", res["claims"]["c2"]["reasons"])
-
-    def test_change_b_several_verbatim_spans(self):
-        two = claim("c2", "Hai đoạn cùng hỗ trợ nhận định này về giấc ngủ và hành vi.", ["E1", "E2"])
-        ok = self.parse(ver([verdict("c2", None, spans=[dict(evidence_id="E1", span=S1), dict(evidence_id="E2", span=S2)])], []), [two])
-        self.assertEqual(ok["claims"]["c2"]["reasons"], [])
-        joined = S1[:40] + " ... " + S2[:40]
-        for spans, reason in (([], "span_count_invalid"),
-                              ([dict(evidence_id="E1", span=S1)] * 4, "span_count_invalid"),
-                              ([dict(evidence_id="E1", span=joined)], "span_not_in_cited_evidence"),
-                              ([dict(evidence_id="E1", span=S1), dict(evidence_id="E2", span=S1)], "span_not_in_cited_evidence"),
-                              ([dict(evidence_id="E1", span=S1[:15])], "span_not_in_cited_evidence")):
-            res = self.parse(ver([verdict("c2", None, spans=spans)], []), [two])
-            self.assertIn(reason, res["claims"]["c2"]["reasons"], spans)
-        with self.assertRaises(AnswerError):  # old single-span shape is a schema error
-            self.parse(ver([dict(claim_id="c2", support="supported", flags=[], evidence_span=S1, explanation="")], []), [two])
 
     def test_missing_verdict_fails_claim_unknown_id_is_error(self):
         res = self.parse(ver([], []), [C_ASSOC])

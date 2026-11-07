@@ -1,8 +1,10 @@
-# Đặc tả kiểm tra tầng trả lời: `answer_check_v0.4`
+# Đặc tả kiểm tra tầng trả lời: `answer_check_v0.5`
 
 **Trạng thái:** bản nháp để phát triển nguyên mẫu nội bộ, 07/11/2026, đã cài đặt trong `rag/answer_layer.py`. Đi kèm [DAC_TA_DAU_RA.md](DAC_TA_DAU_RA.md).
 
-**Thay đổi v0.3 → v0.4:** B, `evidence_spans` 1–3 đoạn nguyên văn gắn ID (mục 3.5 áp dụng cho từng đoạn); K1 thêm danh sách lỗi thuật ngữ đã biết (`known_term_error:<cụm>`).
+**Thay đổi v0.4 → v0.5:** bỏ B (verifier quay về một `evidence_span`, như v0.3); giữ danh sách lỗi thuật ngữ trong K1.
+
+**Thay đổi v0.3 → v0.4 (không được nhận):** B, `evidence_spans` 1–3 đoạn nguyên văn gắn ID (mục 3.5 áp dụng cho từng đoạn); K1 thêm danh sách lỗi thuật ngữ đã biết (`known_term_error:<cụm>`).
 
 **Thay đổi v0.2 → v0.3:** thêm chốt dược lý tất định trong K1 (mục 2.1); K4 theo thay đổi A (mục 5); đo verifier theo tầng (mục 7.1).
 

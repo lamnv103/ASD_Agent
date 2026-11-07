@@ -1,4 +1,4 @@
-# Đặc tả đầu ra tầng trả lời: `answer_contract_v0.4`
+# Đặc tả đầu ra tầng trả lời: `answer_contract_v0.5`
 
 **Trạng thái:** bản nháp để phát triển nguyên mẫu nội bộ, soạn 07/11/2026. **Không phải MVP đã duyệt.** Phạm vi người dùng, nhóm câu hỏi và ngưỡng nghiệm thu vẫn chờ [MVP_SCOPE_DRAFT.md](../MVP_SCOPE_DRAFT.md). Đặc tả kiểm tra: [DAC_TA_KIEM_TRA.md](DAC_TA_KIEM_TRA.md). Rubric chấm: [RUBRIC_CHAM.md](RUBRIC_CHAM.md).
 
@@ -6,7 +6,15 @@
 
 **Thẩm định chuyên môn để sau.** Mọi mẫu câu, bảng ghi chú, danh sách cụm khẩn cấp và mọi đầu ra đều mang `review_status: "chua_duyet"`. Mọi bản hiển thị ở chế độ phát triển đều bắt đầu bằng dòng "NGUYÊN MẪU NỘI BỘ…". Cấu hình bị từ chối nếu nhãn này bị đổi. **Không dùng làm căn cứ mở pilot.**
 
-### Thay đổi v0.3 → v0.4 (07/11/2026)
+### Thay đổi v0.4 → v0.5 (07/11/2026): bỏ B
+
+| Điểm | v0.5 |
+|---|---|
+| B | **Bỏ khỏi bản hiện hành.** Phép đo v0.4 cho thấy verifier bắt ít hơn (10/16 so với 11/16): nó chọn các mảnh ngắn nguyên văn và bỏ mất điều kiện (F06). Verifier quay về đúng prompt và định dạng `evidence_span` (một đoạn) của v0.3. Lịch sử B được giữ lại: tag `answer-g-v0.4-rejected-B`, phép đo `reports/verifier_eval_20261107_v0.4` |
+| Giữ lại | Chốt dược lý, A, danh sách lỗi thuật ngữ đã biết (`known_terms_v0.1`) |
+| Prompt | Prompt sinh và prompt kiểm tra **giống hệt** v0.3 |
+
+### Thay đổi v0.3 → v0.4 (07/11/2026; B **không được nhận**, xem v0.5)
 
 | Điểm | v0.4 |
 |---|---|
