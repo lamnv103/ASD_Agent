@@ -1,0 +1,70 @@
+{
+  "schema": "answer_replay_bundle_v2",
+  "as_of": "2026-11-07",
+  "code_commit_at_run": "b98486fa15a1131a2cd59d25f10f51585f5ccc3e",
+  "code_fingerprint": {
+    "rag/answer_layer.py": "4d06d2184f296fa412830df4edff5f7c21318b3fc20ea17d212142322f067eae",
+    "rag/answer_render.py": "7e0d9d0594e446023a1574b364baccc394704f5098a5f7163295024d542f7f8d",
+    "rag/answer_policy.py": "fc66753f426b3e4f04488cde5a8ffc0f3e781e127dc67a8ed13d43f3df46e49c",
+    "rag/answer_sources.py": "b17db693d4f1e4b8c74af918cf3a25cf80edd74fbe255350c16b896a23f6189b",
+    "rag/answer_client.py": "0d713183a694fa93bce01e6a2c37e2bc4fb462d80b3ddf4b1b1982ddf46475a6",
+    "rag/retriever.py": "887ee3b963f4f0fc93a8b815a753d0a95d593a2eeacde373e66b920b4b9566f8",
+    "rag/tokenization.py": "563498f8256e0f6c529e08b71ec7dfe18e0f8bd5439aaa8c7e2fe84f1fde5acb",
+    "rag/answer_pharm.py": "1d2d77972d574579487740d7e6d5ebc6b053105db66768ed03d085e4b1579335"
+  },
+  "contract_version": "answer_contract_v0.5",
+  "check_version": "answer_check_v0.5",
+  "note": "Internal prototype run (chua_duyet). Results are technical evidence, not clinical validation.",
+  "pinned_files": {
+    "deployments/answer_layer.json": "cf85d4d5388c6474348f2fdb8c0fe06c0f671940265457194b3655db412ddb62",
+    "deployments/retriever.json": "5ccd6ed225f67bf417d287dc8c83667aad80ea1be90b43204840a390891cd599",
+    "knowledge/rag/source_library/documents.json": "26eb017efca593ed18aa4044c9b8185d871bd0f512cda0cb4b9edf82658c5331",
+    "deployments/evidence_context.json": "270f350c74751aade971dc8b204a3a7e677c9dc6b381a704197e8d0a09385b60",
+    "deployments/answer_pharm_gate.json": "447c8c18a82c836cbc8949b6f7ae9f120ea472ab4f70d58af497ddea9f34a054"
+  },
+  "cache": {
+    "1f046c7fb5466e156bdf08d8ea744a146510937f7cc9189650cfb25339c84172.json": "6016a8250cd2cffa9000862bb8a8057cd3f547a6033cd37ba7e2944ed2540eac",
+    "332d74eeb2e8440623874dc38c50f61809f7790abf4a38061bcf7c767398c7b6.json": "c5c4da795a32f1328ffe7baf631e5a43db2d4f3247ee820abdb7bf30b0834c44",
+    "35b755384b38e34da88ee5e90c2d3e08f3b99f1623894bd0744f414e7a37acbf.json": "9f48f69239bfa2633cba9c42327b8d7a3db81e47015559ae5829fbaf764f23b3",
+    "6fbb93eb07c09a5f4029d76b0037e2fc86f401944ac26748e8ea849c50c82bce.json": "728a499e316312f4798130f9793c708e2c97bb7ed145eb1348793ffd1160f194",
+    "8c71b413c0a7d4e44f8868aaf997a73d899bd3dfd35fdf16889a4543d74eafe3.json": "9dec40f127945b1955f81fa39e5171ec7bd99a89c6164effd4b3a281c71c5c7f",
+    "a2c9c2aaab732a0575de09f4280ed78fb21c3bc4ce7f6f45b4512918c5055ded.json": "117176b53c1629cadafc352b9751b6ba7124fe159d9ea808af8a01c96fd55bab",
+    "a678a0322db6b92486276bfaeb2d958f045ff063a1e2e8b5c01a4e64188b9a6b.json": "c76c671f9a2db4f4641815cebdfff1103aecd40e7a2952d2a1a6c2219f7c7a4e",
+    "af70e89f64d05c7caa76c096c489dae3dcefefe532e19731a0f5ed1be560d6d5.json": "17c6a046786088b5389fe78148e98e95b372df64bd271965a8268216b959bc36",
+    "b4350325d71de76717fa7545023247696b2e15fd8ae4c60efb891daeb69e0278.json": "71a3f9ba08bd632a2f1e7234d4bad19b157553a66cc648e84f0de36a6956a623",
+    "bcbd992ba275c3c94964fa6b56a6b96bea2c4661b7f35f16f5e8cd24eab3e8f7.json": "2b146a30935d5a5084f56cb14e3b599b824395dbb4eec01e5590e233df5741ef",
+    "c316445f411b90e8040cc7b65443be89ac44b8d6709a49bc8efe11c45285e8ce.json": "7177c416fc3d0bbe6f392964347777c816c3049546db1a9f92b557945a6748f2",
+    "d5fb2d05d8ed16604f4e609f2e7b24d9382211ae5ea147ef8a1dd8ec96827043.json": "604aaddb17c5cf851f02b9daff4e94f1ced1c37238400057ca88f80ede00ffd6",
+    "ea8dffcf83c7507728c2208c47d99d47eb0b763e012bfc14976f95c2c6d25a34.json": "493326660349fecb273fc2045683f5908f0eb53787498b804b622f3f9c052797"
+  },
+  "cases": [
+    {
+      "question_id": "S05",
+      "trace": "reports/reader_refinement_20261101_232742/run_20261102_004612_154953/traces/S05.json",
+      "trace_sha256": "cb3c7f093738c633d4adf0d3b3f15ccf4d25a75819e50c3c15b4da9c2cc1d156",
+      "result": "reports/answer_eval_20261107_v0.5/S05.result.json",
+      "result_sha256": "016c174b42fbd70b35828b0241fb31c813963540635166888f05709e7f462a7e"
+    },
+    {
+      "question_id": "S08",
+      "trace": "reports/reader_refinement_20261101_232742/run_20261102_004612_154953/traces/S08.json",
+      "trace_sha256": "8b6677e6b363e9b2fa0639ad0139e600c9b5da0c6d0a7f8823fb2d1d3426161c",
+      "result": "reports/answer_eval_20261107_v0.5/S08.result.json",
+      "result_sha256": "6f1cae5d5f67dfc4e50dd49eaab128c6a9b0a61b57a1d068cff9ec9e0bc76ca4"
+    },
+    {
+      "question_id": "S07",
+      "trace": "reports/reader_refinement_20261101_232742/run_20261102_004612_154953/traces/S07.json",
+      "trace_sha256": "9f2c6e50b3706aebf92827f2ac25bc87472d85904fc9a52fa367bdd1a98e692e",
+      "result": "reports/answer_eval_20261107_v0.5/S07.result.json",
+      "result_sha256": "e2e8f08245ceb82995a8573f8f4c7a199d14734124fb59ece4c54d599ce04c72"
+    },
+    {
+      "question_id": "H03",
+      "trace": "reports/reader_refinement_20261101_232742/run_20261102_004612_154953/traces/H03.json",
+      "trace_sha256": "7b14e6d7a31473be08a0f9a86a27292f9f2f341ad5f4354c04218fcfe523aa42",
+      "result": "reports/answer_eval_20261107_v0.5/H03.result.json",
+      "result_sha256": "823f6dbada45619103601f5b670b3b226d0ede64815a891ad05e29785ed52dc7"
+    }
+  ]
+}

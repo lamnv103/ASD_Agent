@@ -1,0 +1,154 @@
+{
+  "schema": "answer_result_v0.2",
+  "contract_version": "answer_contract_v0.5",
+  "check_version": "answer_check_v0.5",
+  "purpose": "internal_prototype_only",
+  "review_status": "chua_duyet",
+  "review_note": "Templates, country map, thresholds and emergency phrases are engineering drafts; no clinical review. Not a basis for opening a pilot.",
+  "question_sha256": "acac62d0201383b46930c2b08d84a6cfaf4f2de48d3ffae749f37e66bf088733",
+  "trace_question_sha256": "acac62d0201383b46930c2b08d84a6cfaf4f2de48d3ffae749f37e66bf088733",
+  "route": "answer",
+  "status": "du",
+  "reader_status": "sufficient",
+  "proposed_status": "du",
+  "repairs": 0,
+  "claims_final": [
+    {
+      "claim_id": "c1",
+      "role": "tra_loi_truc_tiep",
+      "text": "Người bệnh không nên tự ngừng thuốc được kê đơn ngay cả khi cảm thấy đỡ, nếu không có sự hỗ trợ của người cung cấp dịch vụ y tế.",
+      "evidence_ids": [
+        "E1"
+      ],
+      "need_ids": [
+        "n1"
+      ],
+      "verdict": {
+        "claim_id": "c1",
+        "support": "supported",
+        "flags": [],
+        "evidence_span": "People should not stop taking a prescribed medication, even if they are feeling better, without the help of a health care provider.",
+        "explanation": "The claim matches the source quote: patients should not stop prescribed medication even when feeling better without a healthcare provider's help."
+      }
+    }
+  ],
+  "claims_removed": [],
+  "verifier_observations": [],
+  "needs_addressed": [
+    "n1"
+  ],
+  "needs_missing": [],
+  "uncovered": [],
+  "calls": [
+    {
+      "stage": "generate",
+      "content_sha256": "2a8794966b4bdba029ec6840cc98a66cf35a40cdc17a92fb99b574c5ca774aa9",
+      "request_id": "chatcmpl-f52dc711-c2d0-4d94-be26-dd3f913c0274",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "usage": {
+        "prompt_tokens": 684,
+        "completion_tokens": 100,
+        "total_tokens": 784,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": null
+        }
+      },
+      "local_prompt_tokens": 684,
+      "provider_prompt_tokens": 684,
+      "elapsed_seconds": 3.061,
+      "cache_hit": true,
+      "recorded_at": "2026-11-07T12:54:33.302466+00:00"
+    },
+    {
+      "stage": "verify",
+      "content_sha256": "168cda69550a1a3e0906b534ffca32b32f40abb8a314f8187c379485dcab1400",
+      "request_id": "chatcmpl-62e8a33e-12da-4ee5-bf5f-28f5cd654064",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "usage": {
+        "prompt_tokens": 594,
+        "completion_tokens": 137,
+        "total_tokens": 731,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": null
+        }
+      },
+      "local_prompt_tokens": 594,
+      "provider_prompt_tokens": 594,
+      "elapsed_seconds": 3.31,
+      "cache_hit": true,
+      "recorded_at": "2026-11-07T12:54:36.626890+00:00"
+    }
+  ],
+  "timings": {
+    "generate": 0.003,
+    "verify": 0.002,
+    "total": 0.005
+  },
+  "error": null,
+  "models": {
+    "generator": "nvidia/nemotron-3-ultra-550b-a55b",
+    "verifier": "nvidia/nemotron-3-ultra-550b-a55b"
+  },
+  "limitations": [
+    "The verifier uses the same model as the generator; errors may be correlated."
+  ],
+  "as_of": "2026-11-07",
+  "pharm_gate": {
+    "gate_version": "pharm_gate_v0.1",
+    "drug_names": [],
+    "supplement": false,
+    "medication": true,
+    "negated_mentions": []
+  },
+  "catalog": [
+    {
+      "id": "E1",
+      "evidence_id": "ev-c5698bd1f21e05a484db5171",
+      "source_id": "NIH-NIMH-MEDICATIONS",
+      "start": 13762,
+      "end": 14124
+    }
+  ],
+  "render": {
+    "text": "NGUYÊN MẪU NỘI BỘ — nội dung và mẫu câu chưa được thẩm định chuyên môn; không dùng cho người dùng thật.\nNgười bệnh không nên tự ngừng thuốc được kê đơn ngay cả khi cảm thấy đỡ, nếu không có sự hỗ trợ của người cung cấp dịch vụ y tế. [1]\nNguồn [1] được soạn cho bối cảnh Hoa Kỳ. Câu trả lời dựa trên 1 tài liệu.\nĐây là thông tin giáo dục chung dựa trên các đoạn tài liệu được trích dẫn, không thay thế việc khám và tư vấn của chuyên gia.\n\nNguồn:\n[1] Mental Health Medications — National Institute of Mental Health (NIMH), NIH (không ghi năm). https://www.nimh.nih.gov/health/topics/mental-health-medications\n    Đoạn được dùng: \"People should not stop taking a prescribed medication, even if they are feeling better, without the help of a health care provider. A provider can adjust the treatment plan to slowly and safely decrease the medication dose. It’s important to give the body time to adjust to the change. Stopping a medication too soon may cause unpleasant or harmful side effects.\"\n",
+    "sources": [
+      {
+        "number": 1,
+        "source_id": "NIH-NIMH-MEDICATIONS",
+        "title": "Mental Health Medications",
+        "by": "National Institute of Mental Health (NIMH), NIH",
+        "year": null,
+        "url": "https://www.nimh.nih.gov/health/topics/mental-health-medications",
+        "type_vi": "thông tin chính thức cho người bệnh",
+        "country": "Hoa Kỳ",
+        "evidence": [
+          {
+            "id": "E1",
+            "evidence_id": "ev-c5698bd1f21e05a484db5171",
+            "start": 13762,
+            "end": 14124
+          }
+        ]
+      }
+    ],
+    "notes": [
+      "Nguồn [1] được soạn cho bối cảnh Hoa Kỳ.",
+      "Câu trả lời dựa trên 1 tài liệu."
+    ],
+    "review_status": "chua_duyet"
+  }
+}

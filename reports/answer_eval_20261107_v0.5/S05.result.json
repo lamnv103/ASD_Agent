@@ -1,0 +1,321 @@
+{
+  "schema": "answer_result_v0.2",
+  "contract_version": "answer_contract_v0.5",
+  "check_version": "answer_check_v0.5",
+  "purpose": "internal_prototype_only",
+  "review_status": "chua_duyet",
+  "review_note": "Templates, country map, thresholds and emergency phrases are engineering drafts; no clinical review. Not a basis for opening a pilot.",
+  "question_sha256": "647dda5ff6612fa18713ec61be0861e6dd4f6ae70e97ec08d893bf914d3f2e7f",
+  "trace_question_sha256": "647dda5ff6612fa18713ec61be0861e6dd4f6ae70e97ec08d893bf914d3f2e7f",
+  "route": "answer",
+  "status": "du",
+  "reader_status": "sufficient",
+  "proposed_status": "mot_phan",
+  "repairs": 1,
+  "claims_final": [
+    {
+      "claim_id": "c1",
+      "role": "tra_loi_truc_tiep",
+      "text": "Hiện chưa đủ bằng chứng chắc chắn để kết luận quan hệ nhân quả hai chiều giữa khó ngủ và hành vi ở trẻ tự kỷ.",
+      "evidence_ids": [
+        "E1",
+        "E2"
+      ],
+      "need_ids": [
+        "n1"
+      ],
+      "verdict": {
+        "claim_id": "c1",
+        "support": "supported",
+        "flags": [],
+        "evidence_span": "To date, however, studies have failed to provide conclusive evidence about the relationship between sleep and behaviors seen in low-functioning individuals (of all ages) with autism.",
+        "explanation": "E2 explicitly states conclusions are premature and require further investigation, and that studies have failed to provide conclusive evidence for low-functioning individuals, supporting the claim that evidence is insufficient for a definitive bidirectional causal relationship."
+      }
+    },
+    {
+      "claim_id": "c2",
+      "role": "chi_tiet",
+      "text": "Nghiên cứu nêu rõ mối quan hệ một chiều: rối loạn ngủ làm trầm trọng thêm triệu chứng cốt lõi và hành vi thách thức của tự kỷ.",
+      "evidence_ids": [
+        "E1"
+      ],
+      "need_ids": [
+        "n1"
+      ],
+      "verdict": {
+        "claim_id": "c2",
+        "support": "supported",
+        "flags": [],
+        "evidence_span": "The current research highlights clear uni-directional relationships between sleep and behavior in individuals with an ASD. It is well researched that sleep problems worsen ASD symptomatology across most core domains, as well as exacerbate pre-existing behavioral problems.",
+        "explanation": "E1 explicitly states clear uni-directional relationships and that sleep problems worsen ASD symptomatology and exacerbate behavioral problems."
+      }
+    },
+    {
+      "claim_id": "c3",
+      "role": "chi_tiet",
+      "text": "Bằng chứng về quan hệ hai chiều vẫn còn sơ bộ và cần điều tra thêm.",
+      "evidence_ids": [
+        "E1",
+        "E2"
+      ],
+      "need_ids": [
+        "n1"
+      ],
+      "verdict": {
+        "claim_id": "c3",
+        "support": "supported",
+        "flags": [],
+        "evidence_span": "Given the bi-directional relationship between challenging behaviors and sleep disturbance in ASD, preliminary evidence suggests that treating sleep disturbances and challenging behavior in isolation may not lead to successful outcomes [50].",
+        "explanation": "E1 describes the bidirectional relationship as having only preliminary evidence, and E2 states conclusions are premature and require further investigation."
+      }
+    },
+    {
+      "claim_id": "c4",
+      "role": "chi_tiet",
+      "text": "Chưa có bằng chứng kết luận cho trẻ tự kỷ chức năng thấp mọi lứa tuổi.",
+      "evidence_ids": [
+        "E2"
+      ],
+      "need_ids": [
+        "n1"
+      ],
+      "verdict": {
+        "claim_id": "c4",
+        "support": "supported",
+        "flags": [],
+        "evidence_span": "To date, however, studies have failed to provide conclusive evidence about the relationship between sleep and behaviors seen in low-functioning individuals (of all ages) with autism.",
+        "explanation": "E2 directly states that studies have failed to provide conclusive evidence for low-functioning individuals of all ages with autism."
+      }
+    }
+  ],
+  "claims_removed": [
+    {
+      "claim_id": "c2",
+      "text": "Nghiên cứu chỉ cho thấy mối liên quan một chiều: rối loạn ngủ làm trầm trọng thêm triệu chứng cốt lõi và hành vi thách thức của tự kỷ.",
+      "reasons": [
+        "support_partially_supported",
+        "flag_certainty_changed"
+      ],
+      "round": "generate",
+      "disposition": "failed_verification"
+    },
+    {
+      "claim_id": "c3",
+      "text": "Các kết luận về quan hệ hai chiều vẫn còn sơ bộ và cần điều tra thêm.",
+      "reasons": [
+        "span_not_in_cited_evidence"
+      ],
+      "round": "generate",
+      "disposition": "failed_verification"
+    },
+    {
+      "claim_id": "c1",
+      "text": "Hiện chưa đủ bằng chứng chắc chắn để kết luận quan hệ nhân quả hai chiều giữa khó ngủ và hành vi ở trẻ tự kỷ.",
+      "reasons": [],
+      "round": "generate",
+      "disposition": "replaced_in_repair"
+    },
+    {
+      "claim_id": "c4",
+      "text": "Chưa có bằng chứng kết luận cho trẻ tự kỷ chức năng thấp mọi lứa tuổi.",
+      "reasons": [],
+      "round": "generate",
+      "disposition": "replaced_in_repair"
+    }
+  ],
+  "verifier_observations": [
+    {
+      "round": "generate",
+      "kind": "need_credited_to_failed_claim",
+      "need_id": "n1",
+      "claim_ids": [
+        "c2",
+        "c3"
+      ]
+    }
+  ],
+  "needs_addressed": [
+    "n1"
+  ],
+  "needs_missing": [],
+  "uncovered": [],
+  "calls": [
+    {
+      "stage": "generate",
+      "content_sha256": "277ea74b334cf5705b24a2e68bda428403eef3f9fbd254b864b0c81460ea271b",
+      "request_id": "chatcmpl-8f660f56-77ae-4267-8298-835ad5d7f52f",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "usage": {
+        "prompt_tokens": 1345,
+        "completion_tokens": 292,
+        "total_tokens": 1637,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": null
+        }
+      },
+      "local_prompt_tokens": 1345,
+      "provider_prompt_tokens": 1345,
+      "elapsed_seconds": 4.361,
+      "cache_hit": true,
+      "recorded_at": "2026-11-07T12:51:48.211765+00:00"
+    },
+    {
+      "stage": "verify",
+      "content_sha256": "a2ad50bf9233731d3409c158dd38b0e8cc32e5795e0b998651e353c1258f78c6",
+      "request_id": "chatcmpl-97de1fd7-7ec0-4255-806c-b822e8373394",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "usage": {
+        "prompt_tokens": 2342,
+        "completion_tokens": 493,
+        "total_tokens": 2835,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": null
+        }
+      },
+      "local_prompt_tokens": 2342,
+      "provider_prompt_tokens": 2342,
+      "elapsed_seconds": 4.483,
+      "cache_hit": true,
+      "recorded_at": "2026-11-07T12:51:52.718907+00:00"
+    },
+    {
+      "stage": "repair",
+      "content_sha256": "a9bb5cbc29f6c9bd55724e1334764c09dc0fb913953f708a7712e0e395b0af89",
+      "request_id": "chatcmpl-9ef1cacc-d554-44e8-be13-0c66a39f4087",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "usage": {
+        "prompt_tokens": 1879,
+        "completion_tokens": 296,
+        "total_tokens": 2175,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": null
+        }
+      },
+      "local_prompt_tokens": 1879,
+      "provider_prompt_tokens": 1879,
+      "elapsed_seconds": 5.664,
+      "cache_hit": true,
+      "recorded_at": "2026-11-07T12:51:58.412978+00:00"
+    },
+    {
+      "stage": "verify_repair",
+      "content_sha256": "6a9584726ccdaa95c8f2f91199fcd6e0321e37582839f6a1b024d1355ad52720",
+      "request_id": "chatcmpl-ebb2fb24-b7f2-41f9-a539-652104f9d47c",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "usage": {
+        "prompt_tokens": 2838,
+        "completion_tokens": 461,
+        "total_tokens": 3299,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": null
+        }
+      },
+      "local_prompt_tokens": 2838,
+      "provider_prompt_tokens": 2838,
+      "elapsed_seconds": 4.545,
+      "cache_hit": true,
+      "recorded_at": "2026-11-07T12:52:02.984855+00:00"
+    }
+  ],
+  "timings": {
+    "generate": 0.036,
+    "verify": 0.004,
+    "repair": 0.004,
+    "verify_repair": 0.005,
+    "total": 0.064
+  },
+  "error": null,
+  "models": {
+    "generator": "nvidia/nemotron-3-ultra-550b-a55b",
+    "verifier": "nvidia/nemotron-3-ultra-550b-a55b"
+  },
+  "limitations": [
+    "The verifier uses the same model as the generator; errors may be correlated."
+  ],
+  "as_of": "2026-11-07",
+  "pharm_gate": {
+    "gate_version": "pharm_gate_v0.1",
+    "drug_names": [],
+    "supplement": false,
+    "medication": false,
+    "negated_mentions": []
+  },
+  "catalog": [
+    {
+      "id": "E1",
+      "evidence_id": "ev-d04a51f57d53abbfc066323f",
+      "source_id": "ASD-OA-PMC4271434",
+      "start": 38221,
+      "end": 40936
+    },
+    {
+      "id": "E2",
+      "evidence_id": "ev-0f3796b3914d6d2e63b4a7f6",
+      "source_id": "ASD-OA-PMC4271434",
+      "start": 45616,
+      "end": 46864
+    }
+  ],
+  "render": {
+    "text": "NGUYÊN MẪU NỘI BỘ — nội dung và mẫu câu chưa được thẩm định chuyên môn; không dùng cho người dùng thật.\nHiện chưa đủ bằng chứng chắc chắn để kết luận quan hệ nhân quả hai chiều giữa khó ngủ và hành vi ở trẻ tự kỷ. [1]\nNghiên cứu nêu rõ mối quan hệ một chiều: rối loạn ngủ làm trầm trọng thêm triệu chứng cốt lõi và hành vi thách thức của tự kỷ. [1] Bằng chứng về quan hệ hai chiều vẫn còn sơ bộ và cần điều tra thêm. [1] Chưa có bằng chứng kết luận cho trẻ tự kỷ chức năng thấp mọi lứa tuổi. [1]\nNguồn [1] có năm tài liệu là 2014; một số thông tin có thể đã được cập nhật. Câu trả lời dựa trên 1 tài liệu.\nĐây là thông tin giáo dục chung dựa trên các đoạn tài liệu được trích dẫn, không thay thế việc khám và tư vấn của chuyên gia.\n\nNguồn:\n[1] The relationship between sleep and behavior in autism spectrum disorder (ASD): a review — Simonne Cohen và cộng sự (2014). https://pmc.ncbi.nlm.nih.gov/articles/PMC4271434/\n    Đoạn được dùng: \"The current research highlights clear uni-directional relationships between sleep and behavior in individuals with an ASD. It is well researched that sleep problems worsen ASD symptomatology across most core domains, as well as exacerbate pre-existing behavioral problems. These relationships have been fairly well investigated in cross-sectional studies using objective measures with individuals with mixed groups of ASD samples and individuals with high-functioning autism. Objective tools such as polysomnography (a tool that monitors physiological parameters during sleep such as electroencephalogram) and wrist actigraphy (a tool that uses an accelerometer to detect and record muscle activity) have been used successfully to validate relationships between poor sleep and daytime behaviors in a mixed sample of ASD children [51, 65, 71]. There is also modest evidence to suggest that holistic parent report measures such as the CSHQ is a superior single-item response measure which helps gage overall quality of ASD children’s sleep [76]. In light of knowledge about the severity of sleep disorders in ASD, there is evidence to suggest that sleep is amendable to treatment in certain populations with ASD. Studies have shown that parent-based education (behavioral therapy) improves sleep-onset delay in children with high-functioning autism [59] and that pharmacological treatments such as melatonin is an effective sleep treatment for children with autism [77]. Moreover, treating sleep in a subgroup of individuals with ASD has been shown to improve core ASD symptoms (e.g., communication and socialization impairments) as well as reduce the severity of challenging behaviors in ASD [38, 68]. Applied behavior analysis (ABA) treatment approach is known to be efficacious for the treatment of challenging behavior in a minority of children with ASD [62]; however, its outcomes are influenced by learning rate and cognitive performance. Given that sleep is implicated in behaviors that affect learning, such as compliance, irritability, hyperactivity, and aggression, there is now more evidence to suggest that sleep is a possible obstacle to ABA treatment success in ASD [62]. Given the bi-directional relationship between challenging behaviors and sleep disturbance in ASD, preliminary evidence suggests that treating sleep disturbances and challenging behavior in isolation may not lead to successful outcomes [50]. The foregoing relationship between sleep problems for children with ASD and daytime inappropriate behavior suggests additional research is required to delineate direct connections among specific sleep problems and the specific daytime behavior patterns that may affect individuals with ASD.\"\n    Đoạn được dùng: \"Although there is reason to believe that serious sleep problems are common in children with ASD and that poor sleep exacerbates problematic daytime behavior, these conclusions are still premature and require further investigation. Gaining more specific insight into the individual nature of sleep difficulties in ASD opens up a novel avenue for designing interventions, as sleep is an area with a potential for remediation. Since sleep is a central mechanism for adaptive functioning (e.g., learning, memory, neuroplasticity), it is highly plausible that sleep deficits play a leading role in the symptoms seen in ASD including the exacerbation of challenging behaviors. To date, however, studies have failed to provide conclusive evidence about the relationship between sleep and behaviors seen in low-functioning individuals (of all ages) with autism. This review highlights the value of defining sleep profiles for children with ASD and integrating different aspects of their symptom profile to their sleep deficits (and vice versa). In turn, this knowledge will result in novel therapeutic targets and interventions that will hopefully improve long-term outcomes of nearly 1 in 68 individuals affected by this pervasive, developmental disorder.\"\n",
+    "sources": [
+      {
+        "number": 1,
+        "source_id": "ASD-OA-PMC4271434",
+        "title": "The relationship between sleep and behavior in autism spectrum disorder (ASD): a review",
+        "by": "Simonne Cohen và cộng sự",
+        "year": 2014,
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4271434/",
+        "type_vi": "nghiên cứu",
+        "country": null,
+        "evidence": [
+          {
+            "id": "E1",
+            "evidence_id": "ev-d04a51f57d53abbfc066323f",
+            "start": 38221,
+            "end": 40936
+          },
+          {
+            "id": "E2",
+            "evidence_id": "ev-0f3796b3914d6d2e63b4a7f6",
+            "start": 45616,
+            "end": 46864
+          }
+        ]
+      }
+    ],
+    "notes": [
+      "Nguồn [1] có năm tài liệu là 2014; một số thông tin có thể đã được cập nhật.",
+      "Câu trả lời dựa trên 1 tài liệu."
+    ],
+    "review_status": "chua_duyet"
+  }
+}
