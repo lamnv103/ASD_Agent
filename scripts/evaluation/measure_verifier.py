@@ -40,7 +40,12 @@ DEFAULT_GROUPS = "evaluation/answer_verifier_faults_v1/groups.jsonl"
 DEFAULT_MEASUREMENTS = ["reports/verifier_eval_20261107_v0.2", "reports/verifier_eval_20261107_v0.3", "reports/verifier_eval_20261107_v0.4",
                         "reports/verifier_eval_20261107_v0.5", "reports/verifier_eval_20261107_v0.5_addendum",
                         "reports/verifier_stability_20261107_v0.5/v1_rep1", "reports/verifier_stability_20261107_v0.5/v1_rep2",
-                        "reports/verifier_stability_20261107_v0.5/addendum_rep1", "reports/verifier_stability_20261107_v0.5/addendum_rep2"]
+                        "reports/verifier_stability_20261107_v0.5/addendum_rep1", "reports/verifier_stability_20261107_v0.5/addendum_rep2",
+                        "reports/verifier_controls_20261107_v0.5/rep1", "reports/verifier_controls_20261107_v0.5/rep2",
+                        "reports/verifier_controls_20261107_v0.5/rep3"]
+CONTENT_PREFIXES = ("support_", "flag_", "check:")  # verifier reasons about the claim's content (vs schema/wording)
+FLAG_TO_ASPECT = {"condition_dropped": "population_scope", "certainty_changed": "certainty",
+                  "added_content": "conclusion_topic", "unrequested_medical_content": "question_fit"}
 GATE_PREFIX = ("pharm_unrequested:", "known_term_error:")  # deterministic content gates; the verifier is still measured on these
 
 
@@ -195,7 +200,7 @@ def score(cases, records, groups=None, pipeline_groups=None):
             s["contested"].append(dict(case_id=c["case_id"], outcome=by_id[c["case_id"]]["outcome"]))
     for name, fs in sets.items():
         row = dict(n=len(fs), blocked_deterministic=[], caught_verifier=[], caught_system=[], missed_system=[],
-                   missed_verifier=[], right_reason_verifier=[])
+                   missed_verifier=[], right_reason_verifier=[], caught_verifier_mechanical_only=[])
         for c in fs:
             r = by_id[c["case_id"]]
             det, ver, sysf = layers(r)
@@ -204,7 +209,13 @@ def score(cases, records, groups=None, pipeline_groups=None):
             if ver:
                 row["caught_verifier"].append(c["case_id"])
                 v = r["verdict"] or {}
-                if set(v.get("flags", [])) & set(c["expected_flags_any"]) or v.get("support") in c["expected_support_any"]:
+                vreasons = r.get("verifier_reasons", r["reasons"])
+                if not any(x.startswith(CONTENT_PREFIXES) for x in vreasons):
+                    row["caught_verifier_mechanical_only"].append(c["case_id"])  # schema / broken wording, not the fault
+                aspects = {FLAG_TO_ASPECT[f] for f in c["expected_flags_any"] if f in FLAG_TO_ASPECT}
+                failed_aspects = {x.split(":")[1] for x in vreasons if x.startswith("check:")}
+                if (set(v.get("flags", [])) & set(c["expected_flags_any"]) or v.get("support") in c["expected_support_any"]
+                        or aspects & failed_aspects):
                     row["right_reason_verifier"].append(c["case_id"])
             elif ver is False:
                 row["missed_verifier"].append(c["case_id"])
@@ -240,7 +251,8 @@ def print_summary(label, res, cases):
     for name, row in s["faults"].items():
         print(f"  faults {name} (n={row['n']}): system caught {len(row['caught_system'])}/{row['n']} | "
               f"deterministic blocked {len(row['blocked_deterministic'])} {row['blocked_deterministic']} | "
-              f"verifier caught {len(row['caught_verifier'])}/{row['n']} (right reason {len(row['right_reason_verifier'])}) | "
+              f"verifier caught {len(row['caught_verifier'])}/{row['n']} (right reason {len(row['right_reason_verifier'])}, "
+              f"mechanical only {row['caught_verifier_mechanical_only']}) | "
               f"system missed {row['missed_system']} | verifier missed {row['missed_verifier']}")
     print(f"  contested: {s['contested']}")
     if "groups" in s:

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "contract_version": "answer_contract_v0.5",
-  "check_version": "answer_check_v0.5",
+  "contract_version": "answer_contract_v0.6",
+  "check_version": "answer_check_v0.6",
   "pharm_gate": "deployments/answer_pharm_gate.json",
   "purpose": "internal_prototype_only",
   "review_status": "chua_duyet",

@@ -69,8 +69,15 @@ def gen(claims, gaps=(), proposed="du"):
     return json.dumps(dict(proposed_status=proposed, claims=list(claims), gaps=list(gaps)), ensure_ascii=False)
 
 
-def verdict(cid, span, support="supported", flags=()):
-    return dict(claim_id=cid, support=support, flags=list(flags), evidence_span=span, explanation="")
+def checks(**relations):
+    """Comparison table (contract v0.6). Default: every aspect 'same' with empty wordings."""
+    return [dict(aspect=a, source_wording="", claim_wording="", relation=relations.get(a, "same"))
+            for a in ("population_scope", "certainty", "conclusion_topic", "question_fit")]
+
+
+def verdict(cid, span, support="supported", flags=(), table=None):
+    return dict(claim_id=cid, checks=table if table is not None else checks(), support=support, flags=list(flags),
+                evidence_span=span, explanation="")
 
 
 def ver(verdicts, needs, gaps=(), uncovered=()):
@@ -203,6 +210,29 @@ class VerifierOutputTests(unittest.TestCase):
     def test_span_from_uncited_quote_fails(self):
         res = self.parse(ver([verdict("c2", S2)], []), [C_ASSOC])  # S2 is E2, claim cites only E1
         self.assertIn("span_not_in_cited_evidence", res["claims"]["c2"]["reasons"])
+
+    def test_v06_comparison_table(self):
+        ok = self.parse(ver([verdict("c2", S1, table=[
+            dict(aspect="population_scope", source_wording="in the reviewed studies", claim_wording="Các nghiên cứu được tổng quan", relation="same"),
+            dict(aspect="certainty", source_wording="were associated with", claim_wording="có liên quan", relation="same"),
+            dict(aspect="conclusion_topic", source_wording="", claim_wording="", relation="same"),
+            dict(aspect="question_fit", source_wording="", claim_wording="", relation="same")])], []), [C_ASSOC])
+        self.assertEqual(ok["claims"]["c2"]["reasons"], [])
+        # a differing aspect fails the claim even when support says "supported" (content reason)
+        bad = self.parse(ver([verdict("c2", S1, table=checks(certainty="stronger"))], []), [C_ASSOC])
+        self.assertEqual(bad["claims"]["c2"]["reasons"], ["check:certainty:stronger"])
+        # mechanical reasons: wording not verbatim in the cited quote / in the claim; missing or repeated aspects
+        t = checks()
+        t[0] = dict(t[0], source_wording="in all autistic children")
+        t[1] = dict(t[1], claim_wording="chắc chắn gây ra")
+        res = self.parse(ver([verdict("c2", S1, table=t)], []), [C_ASSOC])["claims"]["c2"]["reasons"]
+        self.assertEqual(res, ["check_source_not_verbatim:population_scope", "check_claim_not_verbatim:certainty"])
+        res = self.parse(ver([verdict("c2", S1, table=checks()[:3])], []), [C_ASSOC])["claims"]["c2"]["reasons"]
+        self.assertEqual(res, ["check_missing:question_fit"])
+        res = self.parse(ver([verdict("c2", S1, table=checks() + checks()[:1])], []), [C_ASSOC])["claims"]["c2"]["reasons"]
+        self.assertEqual(res, ["check_missing:extra_or_repeated"])
+        with self.assertRaises(AnswerError):  # unknown relation value is a schema error
+            self.parse(ver([verdict("c2", S1, table=[dict(t[0], relation="similar")] + checks()[1:])], []), [C_ASSOC])
 
     def test_missing_verdict_fails_claim_unknown_id_is_error(self):
         res = self.parse(ver([], []), [C_ASSOC])

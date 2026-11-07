@@ -132,6 +132,18 @@ class PipelineGroupTests(unittest.TestCase):
                          [("F1", "fail", "pass")])
 
 
+class ContentReasonTests(unittest.TestCase):
+    def test_mechanical_rejections_are_not_counted_as_the_right_reason(self):
+        v = dict(support="supported", flags=[])
+        cases = [_case("F1", "fail", flags=["condition_dropped"]), _case("F2", "fail", flags=["condition_dropped"])]
+        records = [_rec("F1", v, ["check:population_scope:dropped"]),               # the right content reason via the table
+                   _rec("F2", v, ["check_source_not_verbatim:population_scope"])]  # rejected only for broken wording
+        row = mv.score(cases, records)["faults"]["core"]
+        self.assertEqual(row["caught_verifier"], ["F1", "F2"])
+        self.assertEqual(row["right_reason_verifier"], ["F1"])
+        self.assertEqual(row["caught_verifier_mechanical_only"], ["F2"])
+
+
 class StabilityTests(unittest.TestCase):
     def test_repeated_measurements_flag_flipping_cases(self):
         v = dict(support="supported", flags=[])

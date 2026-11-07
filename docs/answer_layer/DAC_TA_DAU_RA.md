@@ -1,10 +1,18 @@
-# Đặc tả đầu ra tầng trả lời: `answer_contract_v0.5`
+# Đặc tả đầu ra tầng trả lời: `answer_contract_v0.6`
 
 **Trạng thái:** bản nháp để phát triển nguyên mẫu nội bộ, soạn 07/11/2026. **Không phải MVP đã duyệt.** Phạm vi người dùng, nhóm câu hỏi và ngưỡng nghiệm thu vẫn chờ [MVP_SCOPE_DRAFT.md](../MVP_SCOPE_DRAFT.md). Đặc tả kiểm tra: [DAC_TA_KIEM_TRA.md](DAC_TA_KIEM_TRA.md). Rubric chấm: [RUBRIC_CHAM.md](RUBRIC_CHAM.md).
 
 **Đã cài đặt:** `rag/answer_layer.py`, `rag/answer_render.py`, `rag/answer_policy.py`, `rag/answer_sources.py`, `rag/answer_client.py`, `rag/answer_pharm.py`, `rag/answer.py`. **Câu chữ của mọi mẫu lấy theo `deployments/answer_layer.json`**; các câu trích trong tài liệu này chỉ để minh họa. Cấu hình: `deployments/answer_layer.json`. Kiểm thử: `tests/test_answer_layer.py`.
 
 **Thẩm định chuyên môn để sau.** Mọi mẫu câu, bảng ghi chú, danh sách cụm khẩn cấp và mọi đầu ra đều mang `review_status: "chua_duyet"`. Mọi bản hiển thị ở chế độ phát triển đều bắt đầu bằng dòng "NGUYÊN MẪU NỘI BỘ…". Cấu hình bị từ chối nếu nhãn này bị đổi. **Không dùng làm căn cứ mở pilot.**
+
+### Thay đổi v0.5 → v0.6 (07/11/2026): verifier đối chiếu điều kiện (thử nghiệm, chưa nhận)
+
+| Điểm | v0.6 |
+|---|---|
+| Verifier | Mỗi verdict có thêm `checks`: đúng 4 khía cạnh (`population_scope`, `certainty`, `conclusion_topic`, `question_fit`), mỗi khía cạnh có `source_wording` (nguyên văn trong quote được trích), `claim_wording` (nguyên văn trong nhận định) và `relation` (`same` / `dropped` / `broadened` / `narrowed` / `stronger` / `weaker` / `changed`). Prompt nói rõ: đoạn trích liên quan nhưng không tự nói ý của nhận định thì không phải căn cứ |
+| Kiểm tra tất định | Khía cạnh nào có `relation` khác `same` thì nhận định trượt, kể cả khi `support = supported` (lý do nội dung `check:<khía cạnh>:<quan hệ>`). Thiếu khía cạnh hoặc câu chữ không nguyên văn thì trượt với lý do kỹ thuật (`check_missing:…`, `check_source_not_verbatim:…`, `check_claim_not_verbatim:…`) và được báo cáo tách riêng |
+| Không đổi | Generator, chốt dược lý, thuật ngữ, A, ngân sách sửa. Chưa có C |
 
 ### Thay đổi v0.4 → v0.5 (07/11/2026): bỏ B
 
