@@ -259,6 +259,13 @@ Lần đo nền (v0.2, Nemotron, 07/11/2026; `reports/verifier_eval_20261107_v0.
 | Chưa đo được ở v0.2 | F02 (mâu thuẫn với đoạn khác, cần C), F03 (không tự đứng được) |
 | Tranh cãi | X01 bị loại, X02 qua (chờ phân xử) |
 
+Các lần đo sau (báo cáo theo tầng, mẫu số cố định; chi tiết: `reports/BAO_CAO_BUOC_2_20261107.md`):
+
+| Lần đo | Hệ thống bắt core16 / all18 | Chặn tất định | Verifier bắt core16 / all18 | Ca sạch bị từ chối nhầm | Quyết định |
+|---|---|---|---|---|---|
+| v0.3 (chốt dược lý) | 12/16 · 13/18 | F11 | 11/16 · 12/18 | 0/10 | Nhận |
+| v0.4 (B + thuật ngữ) | 13/16 · 14/18 | F04, F05, F11 | **10/16 · 11/18** | 0/10 | **Không nhận B**: verifier bắt ít hơn (F06 lọt vì chọn mảnh ngắn bỏ điều kiện) |
+
 ## 8. Điều kiện trước lượt gọi API đầu tiên
 
 1. Kiểm thử ở mục 6 đạt (đã đạt 30/30).
