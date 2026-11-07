@@ -29,22 +29,35 @@ SUITES = [
 ]
 
 
-def db_reachable() -> bool:
-    sys.path.insert(0, str(ROOT))
-    try:
-        from rag.retriever import PostgresRetriever
-        PostgresRetriever().health()
-        return True
-    except Exception:
-        return False
+def preflight() -> int:
+    """0 = ready. Otherwise print the real cause (dependency / config / network / auth / integrity)."""
+    sys.path.insert(0, str(ROOT / "scripts/dev"))
+    import check_env
+    import env_diagnose
+    missing, mismatch, extra = check_env.compare(check_env.read_lock(), check_env.installed())
+    if missing or mismatch:
+        print("Environment differs from requirements.lock.txt; tests were not run.")
+        for n in missing:
+            print(f"  MISSING {n}")
+        for n, want, have in mismatch:
+            print(f"  VERSION {n}: lock {want}, installed {have}")
+        print("Rebuild: rename the venv, then .\tasks.ps1 setup; check with scripts/dev/check_env.py")
+        return 3
+    result = env_diagnose.diagnose()
+    if not result["ok"]:
+        print("Database check failed; tests were not run: " + env_diagnose.describe(result))
+        return 2
+    if extra:
+        print("Note: packages not in the lockfile are installed: " + ", ".join(extra))
+    return 0
 
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     expected = tomllib.loads((ROOT / "pyproject.toml").read_text(encoding="utf-8"))["tool"]["asd_agent"]["expected_tests"]
-    if not db_reachable():
-        print("PostgreSQL is not reachable (tasks.ps1 db-up). Live read-only tests would fail; stopping.")
-        return 2
+    status = preflight()
+    if status:
+        return status
     out = ROOT / "reports/verification_runs" / ("tests_" + datetime.now(timezone(timedelta(hours=7))).strftime("%Y%m%d_%H%M%S_%f"))
     out.mkdir(parents=True)
     total = failed = errors = skipped = 0

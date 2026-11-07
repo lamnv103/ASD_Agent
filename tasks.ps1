@@ -99,6 +99,7 @@ Tasks:
   setup             Create .venv-embedding (Python 3.13) and install requirements.lock.txt
   db-up             Start the DB container; on a new machine create the volume + container (empty DB)
   db-bootstrap F    New machine: restore backup F (.dump + .sha256) into the EMPTY asd_rag; refuses if data exists
+  env               Venv matches requirements.lock.txt (names normalized) + DB diagnosis by layer
   db-health         Check collection pins: 33 documents / 33 vectors / 1536 dims, read-only
   db-backup         pg_dump -Fc to backups/asd_rag_<time>.dump (+ .sha256)
   db-restore-check  Restore the newest backup into a new uniquely named DB, compare row hashes, drop only that DB
@@ -109,7 +110,7 @@ DB instance: ASD_DB_PROJECT (deployments), ASD_DB_VOLUME (deployments_carobud_ra
   secrets           Scan git-tracked files for credentials
   pins              Fast check (no DB) that no hash-pinned file was edited; run before every commit
   hooks             Install a git pre-commit hook: staged secret scan + pins (blocks the commit on failure)
-  all               pins, db-health, test, verify, secrets
+  all               env, pins, db-health, test, verify, secrets
 Outputs go to reports/verification_runs/<name>_<time>/ (git-ignored). Historical reports are never modified.
 '@ | Write-Host
     }
@@ -169,6 +170,11 @@ Outputs go to reports/verification_runs/<name>_<time>/ (git-ignored). Historical
         }
         Write-Host (Get-RowHashes 'asd_rag')
         Write-Host "Restored. Next: create deployments\database.env for port $DbPort, then .\tasks.ps1 all" -ForegroundColor Green
+    }
+    'env' {
+        Test-Python
+        Invoke-Checked 'environment vs lockfile' { & $Py -B (Join-Path $Root 'scripts\dev\check_env.py') }
+        Invoke-Checked 'database diagnosis' { & $Py -B (Join-Path $Root 'scripts\dev\env_diagnose.py') }
     }
     'db-health' {
         Test-Python
@@ -245,7 +251,7 @@ PY=".venv-embedding/Scripts/python.exe"
         Write-Host "Installed $hook" -ForegroundColor Green
     }
     'all' {
-        foreach ($t in 'pins', 'db-health', 'test', 'verify', 'secrets') {
+        foreach ($t in 'env', 'pins', 'db-health', 'test', 'verify', 'secrets') {
             & $PSCommandPath $t
             if (-not $?) { throw "Task $t failed" }
         }
