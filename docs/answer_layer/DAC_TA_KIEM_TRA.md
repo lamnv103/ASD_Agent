@@ -269,6 +269,7 @@ Các lần đo sau (báo cáo theo tầng, mẫu số cố định; chi tiết: 
 |---|---|---|---|---|---|
 | v0.3 (chốt dược lý) | 12/16 · 13/18 | F11 | 11/16 · 12/18 | 0/10 | Nhận |
 | v0.4 (B + thuật ngữ) | 13/16 · 14/18 | F04, F05, F11 | **10/16 · 11/18** | 0/10 | **Không nhận B**: verifier bắt ít hơn (F06 lọt vì chọn mảnh ngắn bỏ điều kiện) |
+| v0.6 (bảng đối chiếu) | 15/16 · 16/18 | F04, F05, F11 | 15/16 (2 chỉ do lỗi kỹ thuật) | **7/10** | **Không nhận**: từ chối nhầm hàng loạt, đầu ra không hợp lệ 7/75 (xem `reports/BAO_CAO_BUOC_2B_20261107.md`) |
 
 ## 8. Điều kiện trước lượt gọi API đầu tiên
 

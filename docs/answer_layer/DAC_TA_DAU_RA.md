@@ -6,7 +6,7 @@
 
 **Thẩm định chuyên môn để sau.** Mọi mẫu câu, bảng ghi chú, danh sách cụm khẩn cấp và mọi đầu ra đều mang `review_status: "chua_duyet"`. Mọi bản hiển thị ở chế độ phát triển đều bắt đầu bằng dòng "NGUYÊN MẪU NỘI BỘ…". Cấu hình bị từ chối nếu nhãn này bị đổi. **Không dùng làm căn cứ mở pilot.**
 
-### Thay đổi v0.5 → v0.6 (07/11/2026): verifier đối chiếu điều kiện (thử nghiệm, chưa nhận)
+### Thay đổi v0.5 → v0.6 (07/11/2026): verifier đối chiếu điều kiện (thử nghiệm, **không được nhận**; xem `reports/BAO_CAO_BUOC_2B_20261107.md`)
 
 | Điểm | v0.6 |
 |---|---|

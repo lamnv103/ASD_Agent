@@ -1,0 +1,3218 @@
+{
+  "schema": "verifier_measurement_v2",
+  "contract_version": "answer_contract_v0.6",
+  "check_version": "answer_check_v0.6",
+  "verifier_model": "nvidia/nemotron-3-ultra-550b-a55b",
+  "verify_system_sha256": "135b833f02093dc3de0059acaebcb176bbc55647b286df1782208b20a285858e",
+  "pharm_gate_version": "pharm_gate_v0.1",
+  "cases_file": "evaluation/answer_verifier_faults_v1/cases.jsonl",
+  "cases_sha256": "07397efac1087e548891da48393003ac009bdaceef58adc7edebc4fc5e524519",
+  "code_fingerprint": {
+    "rag/answer_layer.py": "5fb0af47349cdf7be7891abdb31151891f75bed78fc3edf77b75dda6735e779d",
+    "rag/answer_render.py": "7e0d9d0594e446023a1574b364baccc394704f5098a5f7163295024d542f7f8d",
+    "rag/answer_policy.py": "fc66753f426b3e4f04488cde5a8ffc0f3e781e127dc67a8ed13d43f3df46e49c",
+    "rag/answer_sources.py": "b17db693d4f1e4b8c74af918cf3a25cf80edd74fbe255350c16b896a23f6189b",
+    "rag/answer_client.py": "0d713183a694fa93bce01e6a2c37e2bc4fb462d80b3ddf4b1b1982ddf46475a6",
+    "rag/retriever.py": "887ee3b963f4f0fc93a8b815a753d0a95d593a2eeacde373e66b920b4b9566f8",
+    "rag/tokenization.py": "563498f8256e0f6c529e08b71ec7dfe18e0f8bd5439aaa8c7e2fe84f1fde5acb",
+    "rag/answer_pharm.py": "1d2d77972d574579487740d7e6d5ebc6b053105db66768ed03d085e4b1579335"
+  },
+  "pinned_files": {
+    "deployments/answer_layer.json": "5c9bf716cf5cbf55f4e612575f7a519b93d488f33e4ad47fcdaae3ecab043338",
+    "deployments/retriever.json": "5ccd6ed225f67bf417d287dc8c83667aad80ea1be90b43204840a390891cd599",
+    "knowledge/rag/source_library/documents.json": "26eb017efca593ed18aa4044c9b8185d871bd0f512cda0cb4b9edf82658c5331",
+    "deployments/evidence_context.json": "270f350c74751aade971dc8b204a3a7e677c9dc6b381a704197e8d0a09385b60",
+    "deployments/answer_pharm_gate.json": "447c8c18a82c836cbc8949b6f7ae9f120ea472ab4f70d58af497ddea9f34a054"
+  },
+  "review_status": "chua_duyet",
+  "cache_seeded_from": null,
+  "note": "Team-draft labels; not clinical adjudication. Single cases: one claim per verifier call.",
+  "records": [
+    {
+      "case_id": "P01",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "checks": [
+          {
+            "aspect": "population_scope",
+            "source_wording": "People should not stop taking a prescribed medication",
+            "claim_wording": "Người bệnh không nên tự ngừng thuốc được kê đơn",
+            "relation": "broadened"
+          },
+          {
+            "aspect": "certainty",
+            "source_wording": "People should not stop taking a prescribed medication",
+            "claim_wording": "không nên",
+            "relation": "same"
+          },
+          {
+            "aspect": "conclusion_topic",
+            "source_wording": "People should not stop taking a prescribed medication, even if they are feeling better, without the help of a health care provider",
+            "claim_wording": "không nên tự ngừng thuốc được kê đơn ngay cả khi cảm thấy đỡ, nếu không có sự hỗ trợ của người cung cấp dịch vụ y tế",
+            "relation": "same"
+          },
+          {
+            "aspect": "question_fit",
+            "source_wording": "People should not stop taking a prescribed medication, even if they are feeling better, without the help of a health care provider",
+            "claim_wording": "Người bệnh không nên tự ngừng thuốc được kê đơn ngay cả khi cảm thấy đỡ, nếu không có sự hỗ trợ của người cung cấp dịch vụ y tế",
+            "relation": "changed"
+          }
+        ],
+        "support": "partially_supported",
+        "flags": [
+          "condition_dropped"
+        ],
+        "evidence_span": "People should not stop taking a prescribed medication, even if they are feeling better, without the help of a health care provider.",
+        "explanation": "The claim broadens the population from 'People' (general) to 'Người bệnh' (patients) and changes question_fit because the original question specifically asks about children ('trẻ'), while the source and claim address the general population without specifying children."
+      },
+      "reasons": [
+        "support_partially_supported",
+        "flag_condition_dropped",
+        "check:population_scope:broadened",
+        "check:question_fit:changed"
+      ],
+      "call": {
+        "request_id": "chatcmpl-3cc058fe-b964-4f72-a257-f0c530af55c5",
+        "cache_hit": true,
+        "elapsed_seconds": 5.673,
+        "usage": {
+          "prompt_tokens": 995,
+          "completion_tokens": 468,
+          "total_tokens": 1463,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "fail"
+    },
+    {
+      "case_id": "P02",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "checks": [
+          {
+            "aspect": "population_scope",
+            "source_wording": "",
+            "claim_wording": "trẻ tự kỷ",
+            "relation": "dropped"
+          },
+          {
+            "aspect": "certainty",
+            "source_wording": "they have clearly delineated differences",
+            "claim_wording": "khác biệt rõ rệt",
+            "relation": "same"
+          },
+          {
+            "aspect": "conclusion_topic",
+            "source_wording": "SBIs ... have clearly delineated differences from ... ASI",
+            "claim_wording": "các hoạt động kích thích cảm giác (SBIs) khác biệt rõ rệt với phương pháp Tích hợp cảm giác Ayres (ASI)",
+            "relation": "same"
+          },
+          {
+            "aspect": "question_fit",
+            "source_wording": "SBIs ... have clearly delineated differences from ... ASI",
+            "claim_wording": "các hoạt động kích thích cảm giác (SBIs) khác biệt rõ rệt với phương pháp Tích hợp cảm giác Ayres (ASI) đã được nghiên cứu cho trẻ tự kỷ",
+            "relation": "same"
+          }
+        ],
+        "support": "supported",
+        "flags": [],
+        "evidence_span": "SBIs are informed by sensory integration theory, but they have clearly delineated differences from direct, one-on-one occupational therapy intervention using Ayres Sensory Integration® intervention, termed ASI (10, 11).",
+        "explanation": "The source explicitly states that SBIs have clearly delineated differences from ASI, supporting the claim that they are not identical. The claim adds 'đã được nghiên cứu cho trẻ tự kỷ' which is not in the cited quote, so population_scope is dropped."
+      },
+      "reasons": [
+        "check:population_scope:dropped",
+        "check_source_not_verbatim:conclusion_topic",
+        "check_source_not_verbatim:question_fit"
+      ],
+      "call": {
+        "request_id": "chatcmpl-8df91505-e313-4065-af35-638950cbf121",
+        "cache_hit": true,
+        "elapsed_seconds": 4.319,
+        "usage": {
+          "prompt_tokens": 1170,
+          "completion_tokens": 419,
+          "total_tokens": 1589,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "fail"
+    },
+    {
+      "case_id": "P03",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "checks": [
+          {
+            "aspect": "population_scope",
+            "source_wording": "children with ASD",
+            "claim_wording": "trẻ tự kỷ",
+            "relation": "same"
+          },
+          {
+            "aspect": "certainty",
+            "source_wording": "these conclusions are still premature and require further investigation",
+            "claim_wording": "chưa đủ bằng chứng chắc chắn",
+            "relation": "same"
+          },
+          {
+            "aspect": "conclusion_topic",
+            "source_wording": "relationship between sleep and behaviors",
+            "claim_wording": "quan hệ nhân quả hai chiều giữa khó ngủ và hành vi",
+            "relation": "same"
+          },
+          {
+            "aspect": "question_fit",
+            "source_wording": "relationship between sleep and behaviors",
+            "claim_wording": "quan hệ nhân quả hai chiều giữa khó ngủ và hành vi",
+            "relation": "same"
+          }
+        ],
+        "support": "supported",
+        "flags": [],
+        "evidence_span": "Although there is reason to believe that serious sleep problems are common in children with ASD and that poor sleep exacerbates problematic daytime behavior, these conclusions are still premature and require further investigation.",
+        "explanation": "The claim accurately reflects the source's statement that conclusions about the sleep-behavior relationship in children with ASD are premature and need more investigation, indicating insufficient evidence for a definitive bidirectional causal conclusion."
+      },
+      "reasons": [],
+      "call": {
+        "request_id": "chatcmpl-de77f1b7-2b7f-415f-a1f9-f1dab23822c0",
+        "cache_hit": true,
+        "elapsed_seconds": 13.626,
+        "usage": {
+          "prompt_tokens": 1647,
+          "completion_tokens": 343,
+          "total_tokens": 1990,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "pass"
+    },
+    {
+      "case_id": "P04",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "checks": [
+          {
+            "aspect": "population_scope",
+            "source_wording": "Key features of ASI include advanced therapist training and mentorship and adherence to fidelity principles, including active engagement of the child, individually tailored activities, and play opportunities presented at the just-right challenge to facilitate adaptive responses",
+            "claim_wording": "ASI đòi hỏi nhà trị liệu được đào tạo chuyên sâu và tuân thủ các nguyên tắc bảo đảm thực hiện đúng phương pháp, gồm trẻ tham gia chủ động, hoạt động được điều chỉnh riêng cho từng trẻ và cơ hội chơi ở mức thử thách vừa sức.",
+            "relation": "same"
+          },
+          {
+            "aspect": "certainty",
+            "source_wording": "Key features of ASI include advanced therapist training and mentorship and adherence to fidelity principles, including active engagement of the child, individually tailored activities, and play opportunities presented at the just-right challenge to facilitate adaptive responses",
+            "claim_wording": "ASI đòi hỏi nhà trị liệu được đào tạo chuyên sâu và tuân thủ các nguyên tắc bảo đảm thực hiện đúng phương pháp, gồm trẻ tham gia chủ động, hoạt động được điều chỉnh riêng cho từng trẻ và cơ hội chơi ở mức thử thách vừa sức.",
+            "relation": "same"
+          },
+          {
+            "aspect": "conclusion_topic",
+            "source_wording": "Key features of ASI include advanced therapist training and mentorship and adherence to fidelity principles, including active engagement of the child, individually tailored activities, and play opportunities presented at the just-right challenge to facilitate adaptive responses",
+            "claim_wording": "ASI đòi hỏi nhà trị liệu được đào tạo chuyên sâu và tuân thủ các nguyên tắc bảo đảm thực hiện đúng phương pháp, gồm trẻ tham gia chủ động, hoạt động được điều chỉnh riêng cho từng trẻ và cơ hội chơi ở mức thử thách vừa sức.",
+            "relation": "same"
+          },
+          {
+            "aspect": "question_fit",
+            "source_wording": "In contrast, SBIs tend to be practitioner or adult-led interventions, involving passive sensory input applied to the child, and can include sensory techniques, such as massage, wearing earmuffs, passive swinging, caregiver sensory training, and sensory environmental modifications",
+            "claim_wording": "ASI đòi hỏi nhà trị liệu được đào tạo chuyên sâu và tuân thủ các nguyên tắc bảo đảm thực hiện đúng phương pháp, gồm trẻ tham gia chủ động, hoạt động được điều chỉnh riêng cho từng trẻ và cơ hội chơi ở mức thử thách vừa sức.",
+            "relation": "changed"
+          }
+        ],
+        "support": "supported",
+        "flags": [],
+        "evidence_span": "Key features of ASI include advanced therapist training and mentorship and adherence to fidelity principles, including active engagement of the child, individually tailored activities, and play opportunities presented at the just-right challenge to facilitate adaptive responses",
+        "explanation": "The claim accurately describes the key features of ASI as stated in the source. However, the claim does not address the original question about whether all sensory stimulation activities are identical to the researched sensory integration method (ASI) for autistic children. The source contrasts ASI with SBIs, showing they are different, but the claim only describes ASI features without answering the question."
+      },
+      "reasons": [
+        "check:question_fit:changed"
+      ],
+      "call": {
+        "request_id": "chatcmpl-0585ba37-6ed2-414e-8e8a-3e7c109049fc",
+        "cache_hit": true,
+        "elapsed_seconds": 6.745,
+        "usage": {
+          "prompt_tokens": 1184,
+          "completion_tokens": 796,
+          "total_tokens": 1980,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "fail"
+    },
+    {
+      "case_id": "P05",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "checks": [
+          {
+            "aspect": "population_scope",
+            "source_wording": "SBIs tend to be practitioner or adult-led interventions, involving passive sensory input applied to the child",
+            "claim_wording": "SBIs thường do người thực hành hoặc người lớn dẫn dắt, đưa kích thích cảm giác thụ động vào trẻ",
+            "relation": "same"
+          },
+          {
+            "aspect": "certainty",
+            "source_wording": "SBIs tend to be practitioner or adult-led interventions, involving passive sensory input applied to the child",
+            "claim_wording": "SBIs thường do người thực hành hoặc người lớn dẫn dắt, đưa kích thích cảm giác thụ động vào trẻ",
+            "relation": "same"
+          },
+          {
+            "aspect": "conclusion_topic",
+            "source_wording": "SBIs tend to be practitioner or adult-led interventions, involving passive sensory input applied to the child, and can include sensory techniques, such as massage, wearing earmuffs, passive swinging",
+            "claim_wording": "SBIs thường do người thực hành hoặc người lớn dẫn dắt, đưa kích thích cảm giác thụ động vào trẻ, và có thể gồm xoa bóp, đeo chụp tai hoặc đu đưa thụ động",
+            "relation": "same"
+          },
+          {
+            "aspect": "question_fit",
+            "source_wording": "In contrast, SBIs tend to be practitioner or adult-led interventions, involving passive sensory input applied to the child, and can include sensory techniques, such as massage, wearing earmuffs, passive swinging",
+            "claim_wording": "SBIs thường do người thực hành hoặc người lớn dẫn dắt, đưa kích thích cảm giác thụ động vào trẻ, và có thể gồm xoa bóp, đeo chụp tai hoặc đu đưa thụ động",
+            "relation": "changed"
+          }
+        ],
+        "support": "supported",
+        "flags": [],
+        "evidence_span": "In contrast, SBIs tend to be practitioner or adult-led interventions, involving passive sensory input applied to the child, and can include sensory techniques, such as massage, wearing earmuffs, passive swinging",
+        "explanation": "The claim accurately describes SBIs as practitioner-led with passive sensory input and lists examples (massage, earmuffs, passive swinging) that match the source. However, the claim only describes SBIs and does not address whether all sensory stimulation activities are identical to the researched sensory integration method (ASI), which is what the original question asks."
+      },
+      "reasons": [
+        "check:question_fit:changed"
+      ],
+      "call": {
+        "request_id": "chatcmpl-620106a2-bf1a-4833-9a29-857e27319507",
+        "cache_hit": true,
+        "elapsed_seconds": 8.627,
+        "usage": {
+          "prompt_tokens": 1174,
+          "completion_tokens": 668,
+          "total_tokens": 1842,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "fail"
+    },
+    {
+      "case_id": "P06",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "checks": [
+          {
+            "aspect": "population_scope",
+            "source_wording": "for individuals with autism",
+            "claim_wording": "người tự kỷ",
+            "relation": "same"
+          },
+          {
+            "aspect": "certainty",
+            "source_wording": "there was no evidence of loss of speech skills",
+            "claim_wording": "không có bằng chứng cho thấy ... làm mất kỹ năng nói",
+            "relation": "same"
+          },
+          {
+            "aspect": "conclusion_topic",
+            "source_wording": "no evidence of loss of speech skills",
+            "claim_wording": "không có bằng chứng cho thấy can thiệp ... làm mất kỹ năng nói",
+            "relation": "same"
+          },
+          {
+            "aspect": "question_fit",
+            "source_wording": "no evidence of loss of speech skills",
+            "claim_wording": "không có bằng chứng cho thấy can thiệp ... làm mất kỹ năng nói",
+            "relation": "changed"
+          }
+        ],
+        "support": "supported",
+        "flags": [],
+        "evidence_span": "for individuals with autism, although modest gains in speech could not be attributable directly to AAC intervention, there was no evidence of loss of speech skills.",
+        "explanation": "The claim accurately reflects the cited quote regarding no evidence of speech loss in autism, but addresses a different topic than the original question which asks about family talking and guaranteed speech increase."
+      },
+      "reasons": [
+        "check_claim_not_verbatim:certainty",
+        "check_claim_not_verbatim:conclusion_topic",
+        "check_claim_not_verbatim:question_fit",
+        "check:question_fit:changed"
+      ],
+      "call": {
+        "request_id": "chatcmpl-bd7b4355-e47d-4890-a5c9-7808184db58e",
+        "cache_hit": true,
+        "elapsed_seconds": 6.718,
+        "usage": {
+          "prompt_tokens": 1084,
+          "completion_tokens": 438,
+          "total_tokens": 1522,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "fail"
+    },
+    {
+      "case_id": "P07",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "checks": [
+          {
+            "aspect": "population_scope",
+            "source_wording": "In many reviews, speech as an outcome, but usually not as a primary target of intervention, was examined.",
+            "claim_wording": "Trong nhiều bài tổng quan có xem xét lời nói như một kết quả",
+            "relation": "same"
+          },
+          {
+            "aspect": "certainty",
+            "source_wording": "Results point mostly to negligible or small effects.",
+            "claim_wording": "tác động lên lời nói chủ yếu là không đáng kể hoặc nhỏ",
+            "relation": "same"
+          },
+          {
+            "aspect": "conclusion_topic",
+            "source_wording": "Results point mostly to negligible or small effects.",
+            "claim_wording": "tác động lên lời nói chủ yếu là không đáng kể hoặc nhỏ",
+            "relation": "same"
+          },
+          {
+            "aspect": "question_fit",
+            "source_wording": "Results point mostly to negligible or small effects.",
+            "claim_wording": "tác động lên lời nói chủ yếu là không đáng kể hoặc nhỏ",
+            "relation": "same"
+          }
+        ],
+        "support": "supported",
+        "flags": [],
+        "evidence_span": "Results point mostly to negligible or small effects.",
+        "explanation": "The claim accurately reflects the source quote's finding that across many reviews examining speech as an outcome, effects were mostly negligible or small."
+      },
+      "reasons": [],
+      "call": {
+        "request_id": "chatcmpl-26ed91f7-4892-43d9-b9fc-23df55f52d28",
+        "cache_hit": true,
+        "elapsed_seconds": 3.377,
+        "usage": {
+          "prompt_tokens": 1078,
+          "completion_tokens": 403,
+          "total_tokens": 1481,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "pass"
+    },
+    {
+      "case_id": "P08",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "checks": [
+          {
+            "aspect": "population_scope",
+            "source_wording": "children with ASD",
+            "claim_wording": "trẻ tự kỷ",
+            "relation": "same"
+          },
+          {
+            "aspect": "certainty",
+            "source_wording": "these conclusions are still premature and require further investigation",
+            "claim_wording": "hiện vẫn còn quá sớm và cần nghiên cứu thêm",
+            "relation": "same"
+          },
+          {
+            "aspect": "conclusion_topic",
+            "source_wording": "the relationship between sleep and behaviors",
+            "claim_wording": "giấc ngủ kém làm hành vi ban ngày có vấn đề ở trẻ tự kỷ nặng thêm",
+            "relation": "same"
+          },
+          {
+            "aspect": "question_fit",
+            "source_wording": "studies have failed to provide conclusive evidence about the relationship between sleep and behaviors",
+            "claim_wording": "kết luận giấc ngủ kém làm hành vi ban ngày có vấn đề ở trẻ tự kỷ nặng thêm hiện vẫn còn quá sớm",
+            "relation": "same"
+          }
+        ],
+        "support": "supported",
+        "flags": [],
+        "evidence_span": "Although there is reason to believe that serious sleep problems are common in children with ASD and that poor sleep exacerbates problematic daytime behavior, these conclusions are still premature and require further investigation.",
+        "explanation": "The claim accurately reflects the source's statement that conclusions about poor sleep exacerbating daytime behavior in children with ASD are premature and need further study."
+      },
+      "reasons": [],
+      "call": {
+        "request_id": "chatcmpl-ef18b88c-892b-433c-8072-1506a739c028",
+        "cache_hit": true,
+        "elapsed_seconds": 5.18,
+        "usage": {
+          "prompt_tokens": 1161,
+          "completion_tokens": 374,
+          "total_tokens": 1535,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "pass"
+    },
+    {
+      "case_id": "P09",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "checks": [
+          {
+            "aspect": "population_scope",
+            "source_wording": "Barton et al. [2015] indicate that only 20 of the 30 studies they included in their review measured sensory processing behaviors",
+            "claim_wording": "Barton và cộng sự cho biết chỉ 20 trong 30 nghiên cứu họ đưa vào tổng quan có đo hành vi xử lý cảm giác",
+            "relation": "same"
+          },
+          {
+            "aspect": "certainty",
+            "source_wording": "Barton et al. [2015] indicate that only 20 of the 30 studies they included in their review measured sensory processing behaviors",
+            "claim_wording": "Barton và cộng sự cho biết chỉ 20 trong 30 nghiên cứu họ đưa vào tổng quan có đo hành vi xử lý cảm giác",
+            "relation": "same"
+          },
+          {
+            "aspect": "conclusion_topic",
+            "source_wording": "Barton et al. [2015] indicate that only 20 of the 30 studies they included in their review measured sensory processing behaviors",
+            "claim_wording": "Barton và cộng sự cho biết chỉ 20 trong 30 nghiên cứu họ đưa vào tổng quan có đo hành vi xử lý cảm giác",
+            "relation": "same"
+          },
+          {
+            "aspect": "question_fit",
+            "source_wording": "Barton et al. [2015] indicate that only 20 of the 30 studies they included in their review measured sensory processing behaviors",
+            "claim_wording": "Barton và cộng sự cho biết chỉ 20 trong 30 nghiên cứu họ đưa vào tổng quan có đo hành vi xử lý cảm giác",
+            "relation": "changed"
+          }
+        ],
+        "support": "supported",
+        "flags": [],
+        "evidence_span": "Barton et al. [2015] indicate that only 20 of the 30 studies they included in their review measured sensory processing behaviors",
+        "explanation": "The claim accurately reports the statistic from Barton et al. (2015) as cited in the source. However, the claim is about measurement of sensory processing behaviors in reviewed studies, while the original question asks whether sensory stimulation activities are identical to the researched sensory integration method for autistic children. These are different topics."
+      },
+      "reasons": [
+        "check:question_fit:changed"
+      ],
+      "call": {
+        "request_id": "chatcmpl-cea55ffb-d4d8-45da-a9b8-7e4cfce50c02",
+        "cache_hit": true,
+        "elapsed_seconds": 7.583,
+        "usage": {
+          "prompt_tokens": 1181,
+          "completion_tokens": 622,
+          "total_tokens": 1803,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "fail"
+    },
+    {
+      "case_id": "P10",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "checks": [
+          {
+            "aspect": "population_scope",
+            "source_wording": "People should not stop taking a prescribed medication, even if they are feeling better, without the help of a health care provider.",
+            "claim_wording": "Người cung cấp dịch vụ y tế có thể điều chỉnh kế hoạch điều trị để giảm liều thuốc từ từ và an toàn.",
+            "relation": "broadened"
+          },
+          {
+            "aspect": "certainty",
+            "source_wording": "A provider can adjust the treatment plan to slowly and safely decrease the medication dose.",
+            "claim_wording": "Người cung cấp dịch vụ y tế có thể điều chỉnh kế hoạch điều trị để giảm liều thuốc từ từ và an toàn.",
+            "relation": "same"
+          },
+          {
+            "aspect": "conclusion_topic",
+            "source_wording": "A provider can adjust the treatment plan to slowly and safely decrease the medication dose.",
+            "claim_wording": "Người cung cấp dịch vụ y tế có thể điều chỉnh kế hoạch điều trị để giảm liều thuốc từ từ và an toàn.",
+            "relation": "same"
+          },
+          {
+            "aspect": "question_fit",
+            "source_wording": "People should not stop taking a prescribed medication, even if they are feeling better, without the help of a health care provider.",
+            "claim_wording": "Người cung cấp dịch vụ y tế có thể điều chỉnh kế hoạch điều trị để giảm liều thuốc từ từ và an toàn.",
+            "relation": "changed"
+          }
+        ],
+        "support": "supported",
+        "flags": [
+          "unrequested_medical_content"
+        ],
+        "evidence_span": "A provider can adjust the treatment plan to slowly and safely decrease the medication dose.",
+        "explanation": "The claim accurately reflects the source's statement that a provider can adjust the treatment plan to slowly and safely decrease the medication dose. However, the source is about people in general, not specifically children, and the claim does not address the question's core ask about whether families should stop medication on their own when a child's symptoms improve."
+      },
+      "reasons": [
+        "flag_unrequested_medical_content",
+        "check:population_scope:broadened",
+        "check:question_fit:changed"
+      ],
+      "call": {
+        "request_id": "chatcmpl-9794b51e-24ed-4d15-8b16-cd642013a09a",
+        "cache_hit": true,
+        "elapsed_seconds": 8.238,
+        "usage": {
+          "prompt_tokens": 987,
+          "completion_tokens": 535,
+          "total_tokens": 1522,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "fail"
+    },
+    {
+      "case_id": "X01",
+      "k1_reasons": [],
+      "verdict": null,
+      "reasons": [
+        "verifier_output_invalid:gap verdict"
+      ],
+      "call": {
+        "request_id": "chatcmpl-28bba340-2c2b-4b6f-b756-670df9697e00",
+        "cache_hit": true,
+        "elapsed_seconds": 5.868,
+        "usage": {
+          "prompt_tokens": 1086,
+          "completion_tokens": 432,
+          "total_tokens": 1518,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "verifier_error": true,
+      "outcome": "fail"
+    },
+    {
+      "case_id": "X02",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "checks": [
+          {
+            "aspect": "population_scope",
+            "source_wording": "past reviews typically included studies in which the “sensory integration” intervention described in the study was not consistent with the principles of ASI and was instead a sensory‐based intervention",
+            "claim_wording": "Các bài đánh giá hệ thống trước đây thường nhầm lẫn SBIs với ASI, bao gồm các nghiên cứu không tuân thủ nguyên tắc ASI",
+            "relation": "same"
+          },
+          {
+            "aspect": "certainty",
+            "source_wording": "makes it impossible to draw conclusions regarding efficacy of ASI intervention",
+            "claim_wording": "làm khó khăn việc rút ra kết luận về hiệu quả của ASI",
+            "relation": "same"
+          },
+          {
+            "aspect": "conclusion_topic",
+            "source_wording": "past reviews and meta‐analyses include studies that failed to provide an adequate description of the phenotypic characteristics of participants... makes it impossible to draw conclusions regarding efficacy of ASI intervention",
+            "claim_wording": "nhầm lẫn SBIs với ASI, bao gồm các nghiên cứu không tuân thủ nguyên tắc ASI, làm khó khăn việc rút ra kết luận về hiệu quả của ASI",
+            "relation": "same"
+          },
+          {
+            "aspect": "question_fit",
+            "source_wording": "past reviews typically included studies in which the “sensory integration” intervention described in the study was not consistent with the principles of ASI and was instead a sensory‐based intervention",
+            "claim_wording": "Các bài đánh giá hệ thống trước đây thường nhầm lẫn SBIs với ASI, bao gồm các nghiên cứu không tuân thủ nguyên tắc ASI",
+            "relation": "changed"
+          }
+        ],
+        "support": "supported",
+        "flags": [],
+        "evidence_span": "First, as noted above, past reviews typically included studies in which the “sensory integration” intervention described in the study was not consistent with the principles of ASI and was instead a sensory‐based intervention",
+        "explanation": "Claim accurately reflects the source's finding that past systematic reviews conflated sensory-based interventions (SBIs) with Ayres Sensory Integration (ASI), including studies not adhering to ASI principles, which confounds efficacy conclusions. However, the claim addresses research methodology/review limitations, while the original question asks whether all sensory stimulation activities are identical to the researched sensory integration method for autistic children — a different question about intervention equivalence, not review methodology."
+      },
+      "reasons": [
+        "check_source_not_verbatim:conclusion_topic",
+        "check:question_fit:changed"
+      ],
+      "call": {
+        "request_id": "chatcmpl-c92c4652-fb10-43a6-b72d-fa90e3b534e6",
+        "cache_hit": true,
+        "elapsed_seconds": 8.17,
+        "usage": {
+          "prompt_tokens": 1510,
+          "completion_tokens": 662,
+          "total_tokens": 2172,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "fail"
+    },
+    {
+      "case_id": "F01",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "checks": [
+          {
+            "aspect": "population_scope",
+            "source_wording": "children with ASD",
+            "claim_wording": "",
+            "relation": "same"
+          },
+          {
+            "aspect": "certainty",
+            "source_wording": "preliminary evidence suggests",
+            "claim_wording": "vẫn còn sơ bộ",
+            "relation": "same"
+          },
+          {
+            "aspect": "conclusion_topic",
+            "source_wording": "treating sleep disturbances and challenging behavior in isolation may not lead to successful outcomes",
+            "claim_wording": "quan hệ hai chiều",
+            "relation": "same"
+          },
+          {
+            "aspect": "question_fit",
+            "source_wording": "bi-directional relationship between challenging behaviors and sleep disturbance in ASD",
+            "claim_wording": "quan hệ hai chiều",
+            "relation": "same"
+          }
+        ],
+        "support": "supported",
+        "flags": [],
+        "evidence_span": "Given the bi-directional relationship between challenging behaviors and sleep disturbance in ASD, preliminary evidence suggests that treating sleep disturbances and challenging behavior in isolation may not lead to successful outcomes [50].",
+        "explanation": "The claim accurately reflects the source's statement that evidence for the bidirectional relationship is preliminary and that further investigation is needed, as also noted in E2 where conclusions are described as premature."
+      },
+      "reasons": [],
+      "call": {
+        "request_id": "chatcmpl-536b6d19-3744-45d8-a501-ce76b441b1df",
+        "cache_hit": true,
+        "elapsed_seconds": 4.449,
+        "usage": {
+          "prompt_tokens": 1634,
+          "completion_tokens": 330,
+          "total_tokens": 1964,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "pass"
+    },
+    {
+      "case_id": "F02",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "checks": [
+          {
+            "aspect": "population_scope",
+            "source_wording": "individuals with an ASD",
+            "claim_wording": "trẻ tự kỷ",
+            "relation": "narrowed"
+          },
+          {
+            "aspect": "certainty",
+            "source_wording": "clear uni-directional relationships",
+            "claim_wording": "mối quan hệ một chiều",
+            "relation": "same"
+          },
+          {
+            "aspect": "conclusion_topic",
+            "source_wording": "sleep problems worsen ASD symptomatology across most core domains, as well as exacerbate pre-existing behavioral problems",
+            "claim_wording": "rối loạn ngủ làm trầm trọng thêm triệu chứng cốt lõi và hành vi thách thức của tự kỷ",
+            "relation": "same"
+          },
+          {
+            "aspect": "question_fit",
+            "source_wording": "The current research highlights clear uni-directional relationships between sleep and behavior in individuals with an ASD",
+            "claim_wording": "Nghiên cứu nêu rõ mối quan hệ một chiều: rối loạn ngủ làm trầm trọng thêm triệu chứng cốt lõi và hành vi thách thức của tự kỷ",
+            "relation": "changed"
+          }
+        ],
+        "support": "supported",
+        "flags": [],
+        "evidence_span": "The current research highlights clear uni-directional relationships between sleep and behavior in individuals with an ASD. It is well researched that sleep problems worsen ASD symptomatology across most core domains, as well as exacerbate pre-existing behavioral problems.",
+        "explanation": "The claim accurately reflects the source's statement about a clear uni-directional relationship where sleep problems worsen ASD symptoms and behaviors. However, the question asks about bidirectional causal relationship, while the claim only addresses the uni-directional finding from sleep to behavior."
+      },
+      "reasons": [
+        "check_claim_not_verbatim:population_scope",
+        "check:population_scope:narrowed",
+        "check:question_fit:changed"
+      ],
+      "call": {
+        "request_id": "chatcmpl-5af078b5-9246-4353-8a61-fae8df8f48fe",
+        "cache_hit": true,
+        "elapsed_seconds": 6.312,
+        "usage": {
+          "prompt_tokens": 1429,
+          "completion_tokens": 480,
+          "total_tokens": 1909,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "fail"
+    },
+    {
+      "case_id": "F03",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "checks": [
+          {
+            "aspect": "population_scope",
+            "source_wording": "low-functioning individuals (of all ages) with autism",
+            "claim_wording": "trẻ tự kỷ chức năng thấp mọi lứa tuổi",
+            "relation": "same"
+          },
+          {
+            "aspect": "certainty",
+            "source_wording": "studies have failed to provide conclusive evidence",
+            "claim_wording": "Chưa có bằng chứng kết luận",
+            "relation": "same"
+          },
+          {
+            "aspect": "conclusion_topic",
+            "source_wording": "relationship between sleep and behaviors",
+            "claim_wording": "bằng chứng kết luận",
+            "relation": "same"
+          },
+          {
+            "aspect": "question_fit",
+            "source_wording": "relationship between sleep and behaviors",
+            "claim_wording": "bằng chứng kết luận",
+            "relation": "same"
+          }
+        ],
+        "support": "supported",
+        "flags": [],
+        "evidence_span": "To date, however, studies have failed to provide conclusive evidence about the relationship between sleep and behaviors seen in low-functioning individuals (of all ages) with autism.",
+        "explanation": "The claim accurately reflects the source's statement that conclusive evidence is lacking for the sleep-behavior relationship in low-functioning autistic individuals of all ages."
+      },
+      "reasons": [],
+      "call": {
+        "request_id": "chatcmpl-aa3bd3ec-3e07-497e-aef5-cd22574482cd",
+        "cache_hit": true,
+        "elapsed_seconds": 6.223,
+        "usage": {
+          "prompt_tokens": 1139,
+          "completion_tokens": 369,
+          "total_tokens": 1508,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "pass"
+    },
+    {
+      "case_id": "F04",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "checks": [
+          {
+            "aspect": "population_scope",
+            "source_wording": "Key features of ASI include advanced therapist training and mentorship and adherence to fidelity principles, including active engagement of the child, individually tailored activities, and play opportunities presented at the just-right challenge to facilitate adaptive responses",
+            "claim_wording": "ASI yêu cầu đào tạo chuyên sâu cho trị liệu, tuân thủ các nguyên tắc trung thực như cá nhân hóa hoạt động, trẻ tham gia chủ động trong bối cảnh chơi, và thách thức vừa phải để thúc đẩy phản ứng thích ứng",
+            "relation": "same"
+          },
+          {
+            "aspect": "certainty",
+            "source_wording": "Key features of ASI include advanced therapist training and mentorship and adherence to fidelity principles, including active engagement of the child, individually tailored activities, and play opportunities presented at the just-right challenge to facilitate adaptive responses",
+            "claim_wording": "ASI yêu cầu đào tạo chuyên sâu cho trị liệu, tuân thủ các nguyên tắc trung thực như cá nhân hóa hoạt động, trẻ tham gia chủ động trong bối cảnh chơi, và thách thức vừa phải để thúc đẩy phản ứng thích ứng",
+            "relation": "same"
+          },
+          {
+            "aspect": "conclusion_topic",
+            "source_wording": "Key features of ASI include advanced therapist training and mentorship and adherence to fidelity principles, including active engagement of the child, individually tailored activities, and play opportunities presented at the just-right challenge to facilitate adaptive responses",
+            "claim_wording": "ASI yêu cầu đào tạo chuyên sâu cho trị liệu, tuân thủ các nguyên tắc trung thực như cá nhân hóa hoạt động, trẻ tham gia chủ động trong bối cảnh chơi, và thách thức vừa phải để thúc đẩy phản ứng thích ứng",
+            "relation": "same"
+          },
+          {
+            "aspect": "question_fit",
+            "source_wording": "In contrast, SBIs tend to be practitioner or adult-led interventions, involving passive sensory input applied to the child, and can include sensory techniques, such as massage, wearing earmuffs, passive swinging, caregiver sensory training, and sensory environmental modifications",
+            "claim_wording": "ASI yêu cầu đào tạo chuyên sâu cho trị liệu, tuân thủ các nguyên tắc trung thực như cá nhân hóa hoạt động, trẻ tham gia chủ động trong bối cảnh chơi, và thách thức vừa phải để thúc đẩy phản ứng thích ứng",
+            "relation": "changed"
+          }
+        ],
+        "support": "supported",
+        "flags": [],
+        "evidence_span": "Key features of ASI include advanced therapist training and mentorship and adherence to fidelity principles, including active engagement of the child, individually tailored activities, and play opportunities presented at the just-right challenge to facilitate adaptive responses",
+        "explanation": "The claim accurately describes the key features of ASI as stated in the source quote. However, the claim only describes ASI and does not address the question about whether all sensory stimulation activities are identical to the researched sensory integration method (ASI) for autistic children. The source contrasts ASI with SBIs, showing they are different, but the claim itself does not make this comparison or answer the question."
+      },
+      "reasons": [
+        "known_term_error:nguyên tắc trung thực",
+        "check:question_fit:changed"
+      ],
+      "call": {
+        "request_id": "chatcmpl-96b2b7aa-d7da-41df-9c65-27a9b7595a79",
+        "cache_hit": true,
+        "elapsed_seconds": 9.068,
+        "usage": {
+          "prompt_tokens": 1179,
+          "completion_tokens": 783,
+          "total_tokens": 1962,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "gate_reasons": [
+        "known_term_error:nguyên tắc trung thực"
+      ],
+      "verifier_reasons": [
+        "check:question_fit:changed"
+      ],
+      "outcome": "fail"
+    },
+    {
+      "case_id": "F05",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "checks": [
+          {
+            "aspect": "population_scope",
+            "source_wording": "SBIs tend to be practitioner or adult-led interventions, involving passive sensory input applied to the child, and can include sensory techniques, such as massage, wearing earmuffs, passive swinging, caregiver sensory training, and sensory environmental modifications (10, 11). SBIs may be implemented by caregivers and other team members or accessed independently by the child as part of an occupational therapy intervention plan in natural environments such as the home, community, and schools.",
+            "claim_wording": "SBIs thường do người lớn dẫn dắt, cung cấp đầu vào cảm giác thụ động cho trẻ (như massage, đeo tai nghe chống ồn, du lượn thụ động) và có thể được thực hiện bởi người chăm sóc tại môi trường tự nhiên.",
+            "relation": "same"
+          },
+          {
+            "aspect": "certainty",
+            "source_wording": "SBIs tend to be practitioner or adult-led interventions, involving passive sensory input applied to the child, and can include sensory techniques, such as massage, wearing earmuffs, passive swinging, caregiver sensory training, and sensory environmental modifications (10, 11). SBIs may be implemented by caregivers and other team members or accessed independently by the child as part of an occupational therapy intervention plan in natural environments such as the home, community, and schools.",
+            "claim_wording": "SBIs thường do người lớn dẫn dắt, cung cấp đầu vào cảm giác thụ động cho trẻ (như massage, đeo tai nghe chống ồn, du lượn thụ động) và có thể được thực hiện bởi người chăm sóc tại môi trường tự nhiên.",
+            "relation": "same"
+          },
+          {
+            "aspect": "conclusion_topic",
+            "source_wording": "In contrast, SBIs tend to be practitioner or adult-led interventions, involving passive sensory input applied to the child, and can include sensory techniques, such as massage, wearing earmuffs, passive swinging, caregiver sensory training, and sensory environmental modifications (10, 11). SBIs may be implemented by caregivers and other team members or accessed independently by the child as part of an occupational therapy intervention plan in natural environments such as the home, community, and schools.",
+            "claim_wording": "Ngược lại, SBIs thường do người lớn dẫn dắt, cung cấp đầu vào cảm giác thụ động cho trẻ (như massage, đeo tai nghe chống ồn, du lượn thụ động) và có thể được thực hiện bởi người chăm sóc tại môi trường tự nhiên.",
+            "relation": "same"
+          },
+          {
+            "aspect": "question_fit",
+            "source_wording": "In contrast, SBIs tend to be practitioner or adult-led interventions, involving passive sensory input applied to the child, and can include sensory techniques, such as massage, wearing earmuffs, passive swinging, caregiver sensory training, and sensory environmental modifications (10, 11). SBIs may be implemented by caregivers and other team members or accessed independently by the child as part of an occupational therapy intervention plan in natural environments such as the home, community, and schools.",
+            "claim_wording": "Ngược lại, SBIs thường do người lớn dẫn dắt, cung cấp đầu vào cảm giác thụ động cho trẻ (như massage, đeo tai nghe chống ồn, du lượn thụ động) và có thể được thực hiện bởi người chăm sóc tại môi trường tự nhiên.",
+            "relation": "changed"
+          }
+        ],
+        "support": "supported",
+        "flags": [],
+        "evidence_span": "In contrast, SBIs tend to be practitioner or adult-led interventions, involving passive sensory input applied to the child, and can include sensory techniques, such as massage, wearing earmuffs, passive swinging, caregiver sensory training, and sensory environmental modifications (10, 11). SBIs may be implemented by caregivers and other team members or accessed independently by the child as part of an occupational therapy intervention plan in natural environments such as the home, community, and schools.",
+        "explanation": "The claim accurately describes SBIs as adult-led, passive sensory input interventions implementable by caregivers in natural environments, per the cited quotes. However, the claim only describes SBIs and does not address whether all sensory stimulation activities are identical to the researched sensory integration method (ASI) for autistic children, which is the original question."
+      },
+      "reasons": [
+        "known_term_error:du lượn",
+        "check:question_fit:changed"
+      ],
+      "call": {
+        "request_id": "chatcmpl-082bdb5b-f59a-44f0-97bb-94826a92f9b6",
+        "cache_hit": true,
+        "elapsed_seconds": 19.87,
+        "usage": {
+          "prompt_tokens": 1248,
+          "completion_tokens": 1071,
+          "total_tokens": 2319,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "gate_reasons": [
+        "known_term_error:du lượn"
+      ],
+      "verifier_reasons": [
+        "check:question_fit:changed"
+      ],
+      "outcome": "fail"
+    },
+    {
+      "case_id": "F06",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "checks": [
+          {
+            "aspect": "population_scope",
+            "source_wording": "individuals with autism",
+            "claim_wording": "",
+            "relation": "dropped"
+          },
+          {
+            "aspect": "certainty",
+            "source_wording": "there was no evidence of loss of speech skills",
+            "claim_wording": "không có bằng chứng mất kỹ năng nói",
+            "relation": "same"
+          },
+          {
+            "aspect": "conclusion_topic",
+            "source_wording": "no evidence of loss of speech skills",
+            "claim_wording": "không có bằng chứng mất kỹ năng nói khi dùng AAC",
+            "relation": "same"
+          },
+          {
+            "aspect": "question_fit",
+            "source_wording": "Results point mostly to negligible or small effects",
+            "claim_wording": "hiệu quả tăng lời nói thường nhỏ hoặc không đáng kể",
+            "relation": "same"
+          }
+        ],
+        "support": "partially_supported",
+        "flags": [
+          "condition_dropped"
+        ],
+        "evidence_span": "Results point mostly to negligible or small effects. These reviews indicate variable outcomes, with Schlosser and Wendt finding that, for individuals with autism, although modest gains in speech could not be attributable directly to AAC intervention, there was no evidence of loss of speech skills.",
+        "explanation": "The claim correctly reports no evidence of speech loss and small/negligible effects on speech gains, but drops the population condition 'individuals with autism' from the source."
+      },
+      "reasons": [
+        "support_partially_supported",
+        "flag_condition_dropped",
+        "span_not_in_cited_evidence",
+        "check:population_scope:dropped"
+      ],
+      "call": {
+        "request_id": "chatcmpl-4efa41e2-5a4d-4922-9d41-caca60e11cbd",
+        "cache_hit": true,
+        "elapsed_seconds": 5.683,
+        "usage": {
+          "prompt_tokens": 1081,
+          "completion_tokens": 424,
+          "total_tokens": 1505,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "fail"
+    },
+    {
+      "case_id": "F07",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "checks": [
+          {
+            "aspect": "population_scope",
+            "source_wording": "People should not stop taking a prescribed medication, even if they are feeling better, without the help of a health care provider.",
+            "claim_wording": "Người bệnh có thể tự ngừng thuốc được kê đơn khi cảm thấy đỡ mà không cần người cung cấp dịch vụ y tế hỗ trợ.",
+            "relation": "changed"
+          },
+          {
+            "aspect": "certainty",
+            "source_wording": "People should not stop taking a prescribed medication, even if they are feeling better, without the help of a health care provider.",
+            "claim_wording": "Người bệnh có thể tự ngừng thuốc được kê đơn khi cảm thấy đỡ mà không cần người cung cấp dịch vụ y tế hỗ trợ.",
+            "relation": "changed"
+          },
+          {
+            "aspect": "conclusion_topic",
+            "source_wording": "People should not stop taking a prescribed medication, even if they are feeling better, without the help of a health care provider.",
+            "claim_wording": "Người bệnh có thể tự ngừng thuốc được kê đơn khi cảm thấy đỡ mà không cần người cung cấp dịch vụ y tế hỗ trợ.",
+            "relation": "changed"
+          },
+          {
+            "aspect": "question_fit",
+            "source_wording": "People should not stop taking a prescribed medication, even if they are feeling better, without the help of a health care provider.",
+            "claim_wording": "Người bệnh có thể tự ngừng thuốc được kê đơn khi cảm thấy đỡ mà không cần người cung cấp dịch vụ y tế hỗ trợ.",
+            "relation": "same"
+          }
+        ],
+        "support": "contradicted",
+        "flags": [
+          "negation_flipped"
+        ],
+        "evidence_span": "People should not stop taking a prescribed medication, even if they are feeling better, without the help of a health care provider.",
+        "explanation": "The claim states patients can stop medication on their own when feeling better, but the source explicitly says people should NOT stop prescribed medication even if feeling better without a healthcare provider's help."
+      },
+      "reasons": [
+        "support_contradicted",
+        "flag_negation_flipped",
+        "check:population_scope:changed",
+        "check:certainty:changed",
+        "check:conclusion_topic:changed"
+      ],
+      "call": {
+        "request_id": "chatcmpl-9e0e7fdf-e04c-4417-bae6-df156bb680c1",
+        "cache_hit": true,
+        "elapsed_seconds": 3.782,
+        "usage": {
+          "prompt_tokens": 990,
+          "completion_tokens": 523,
+          "total_tokens": 1513,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "fail"
+    },
+    {
+      "case_id": "F08",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "checks": [
+          {
+            "aspect": "population_scope",
+            "source_wording": "People should not stop taking a prescribed medication",
+            "claim_wording": "Khi trẻ đã đỡ, gia đình nên tự giảm dần liều thuốc trong khoảng một tuần rồi ngừng hẳn.",
+            "relation": "narrowed"
+          },
+          {
+            "aspect": "certainty",
+            "source_wording": "People should not stop taking a prescribed medication, even if they are feeling better, without the help of a health care provider.",
+            "claim_wording": "gia đình nên tự giảm dần liều thuốc trong khoảng một tuần rồi ngừng hẳn.",
+            "relation": "changed"
+          },
+          {
+            "aspect": "conclusion_topic",
+            "source_wording": "People should not stop taking a prescribed medication, even if they are feeling better, without the help of a health care provider.",
+            "claim_wording": "gia đình nên tự giảm dần liều thuốc trong khoảng một tuần rồi ngừng hẳn.",
+            "relation": "changed"
+          },
+          {
+            "aspect": "question_fit",
+            "source_wording": "People should not stop taking a prescribed medication, even if they are feeling better, without the help of a health care provider.",
+            "claim_wording": "Khi trẻ đã đỡ, gia đình nên tự giảm dần liều thuốc trong khoảng một tuần rồi ngừng hẳn.",
+            "relation": "changed"
+          }
+        ],
+        "support": "contradicted",
+        "flags": [
+          "certainty_changed",
+          "condition_dropped",
+          "negation_flipped"
+        ],
+        "evidence_span": "People should not stop taking a prescribed medication, even if they are feeling better, without the help of a health care provider.",
+        "explanation": "The source explicitly advises against stopping medication without a healthcare provider's help, even when feeling better. The claim recommends families taper and stop medication on their own within a week, which directly contradicts the source."
+      },
+      "reasons": [
+        "support_contradicted",
+        "flag_certainty_changed",
+        "flag_condition_dropped",
+        "flag_negation_flipped",
+        "check:population_scope:narrowed",
+        "check:certainty:changed",
+        "check:conclusion_topic:changed",
+        "check:question_fit:changed"
+      ],
+      "call": {
+        "request_id": "chatcmpl-9aadc7d3-0a4b-4d14-b0f9-4a88ee874142",
+        "cache_hit": true,
+        "elapsed_seconds": 10.424,
+        "usage": {
+          "prompt_tokens": 987,
+          "completion_tokens": 490,
+          "total_tokens": 1477,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "fail"
+    },
+    {
+      "case_id": "F09",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "checks": [
+          {
+            "aspect": "population_scope",
+            "source_wording": "for individuals with autism",
+            "claim_wording": "người tự kỷ",
+            "relation": "same"
+          },
+          {
+            "aspect": "certainty",
+            "source_wording": "there was no evidence of loss of speech skills",
+            "claim_wording": "chắc chắn không làm ... mất kỹ năng nói",
+            "relation": "stronger"
+          },
+          {
+            "aspect": "conclusion_topic",
+            "source_wording": "there was no evidence of loss of speech skills",
+            "claim_wording": "không làm người tự kỷ mất kỹ năng nói",
+            "relation": "same"
+          },
+          {
+            "aspect": "question_fit",
+            "source_wording": "there was no evidence of loss of speech skills",
+            "claim_wording": "chắc chắn không làm người tự kỷ mất kỹ năng nói",
+            "relation": "changed"
+          }
+        ],
+        "support": "partially_supported",
+        "flags": [
+          "certainty_changed"
+        ],
+        "evidence_span": "for individuals with autism, although modest gains in speech could not be attributable directly to AAC intervention, there was no evidence of loss of speech skills.",
+        "explanation": "The source states there was 'no evidence of loss of speech skills' for individuals with autism, which is a lack of evidence for harm, not definitive proof of no harm ('chắc chắn không làm ... mất'). The claim overstates the certainty."
+      },
+      "reasons": [
+        "support_partially_supported",
+        "flag_certainty_changed",
+        "check_claim_not_verbatim:certainty",
+        "check:certainty:stronger",
+        "check:question_fit:changed"
+      ],
+      "call": {
+        "request_id": "chatcmpl-ab76aa1c-cc73-433c-815f-ee744da3146c",
+        "cache_hit": true,
+        "elapsed_seconds": 14.512,
+        "usage": {
+          "prompt_tokens": 1076,
+          "completion_tokens": 476,
+          "total_tokens": 1552,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "fail"
+    },
+    {
+      "case_id": "F10",
+      "k1_reasons": [],
+      "verdict": null,
+      "reasons": [
+        "verifier_output_invalid:top-level keys"
+      ],
+      "call": {
+        "request_id": "chatcmpl-0f745f85-f96e-4c44-a2c4-067b4b90cc3f",
+        "cache_hit": true,
+        "elapsed_seconds": 8.866,
+        "usage": {
+          "prompt_tokens": 1411,
+          "completion_tokens": 401,
+          "total_tokens": 1812,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "verifier_error": true,
+      "outcome": "fail"
+    },
+    {
+      "case_id": "F11",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "checks": [
+          {
+            "aspect": "population_scope",
+            "source_wording": "children with autism",
+            "claim_wording": "trẻ tự kỷ",
+            "relation": "same"
+          },
+          {
+            "aspect": "certainty",
+            "source_wording": "is an effective sleep treatment",
+            "claim_wording": "là một phương pháp điều trị giấc ngủ hiệu quả",
+            "relation": "same"
+          },
+          {
+            "aspect": "conclusion_topic",
+            "source_wording": "pharmacological treatments such as melatonin is an effective sleep treatment for children with autism",
+            "claim_wording": "Melatonin là một phương pháp điều trị giấc ngủ hiệu quả cho trẻ tự kỷ",
+            "relation": "same"
+          },
+          {
+            "aspect": "question_fit",
+            "source_wording": "pharmacological treatments such as melatonin is an effective sleep treatment for children with autism",
+            "claim_wording": "Melatonin là một phương pháp điều trị giấc ngủ hiệu quả cho trẻ tự kỷ",
+            "relation": "changed"
+          }
+        ],
+        "support": "supported",
+        "flags": [
+          "unrequested_medical_content"
+        ],
+        "evidence_span": "pharmacological treatments such as melatonin is an effective sleep treatment for children with autism [77].",
+        "explanation": "The claim accurately reflects the source statement about melatonin's effectiveness for sleep in children with autism. However, the original question asks about the sufficiency of evidence for a bidirectional causal relationship between sleep problems and behavior, not about treatment efficacy. Therefore, the claim introduces unrequested medical content (treatment information) that does not address the question."
+      },
+      "reasons": [
+        "pharm_unrequested:drug_name:melatonin",
+        "flag_unrequested_medical_content",
+        "check:question_fit:changed"
+      ],
+      "call": {
+        "request_id": "chatcmpl-f20b7be3-140e-4917-acb0-dfcae3b4977d",
+        "cache_hit": true,
+        "elapsed_seconds": 5.697,
+        "usage": {
+          "prompt_tokens": 1409,
+          "completion_tokens": 456,
+          "total_tokens": 1865,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "gate_reasons": [
+        "pharm_unrequested:drug_name:melatonin"
+      ],
+      "verifier_reasons": [
+        "flag_unrequested_medical_content",
+        "check:question_fit:changed"
+      ],
+      "outcome": "fail"
+    },
+    {
+      "case_id": "F12",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "checks": [
+          {
+            "aspect": "population_scope",
+            "source_wording": "SBIs may be implemented by caregivers and other team members or accessed independently by the child as part of an occupational therapy intervention plan in natural environments such as the home, community, and schools.",
+            "claim_wording": "trẻ tự kỷ",
+            "relation": "broadened"
+          },
+          {
+            "aspect": "certainty",
+            "source_wording": "SBIs are informed by sensory integration theory, but they have clearly delineated differences from direct, one-on-one occupational therapy intervention using Ayres Sensory Integration® intervention, termed ASI",
+            "claim_wording": "đã được chứng minh là không có hiệu quả",
+            "relation": "changed"
+          },
+          {
+            "aspect": "conclusion_topic",
+            "source_wording": "SBIs are informed by sensory integration theory, but they have clearly delineated differences from direct, one-on-one occupational therapy intervention using Ayres Sensory Integration® intervention, termed ASI",
+            "claim_wording": "khác biệt rõ rệt với ASI và đã được chứng minh là không có hiệu quả",
+            "relation": "changed"
+          },
+          {
+            "aspect": "question_fit",
+            "source_wording": "SBIs are informed by sensory integration theory, but they have clearly delineated differences from direct, one-on-one occupational therapy intervention using Ayres Sensory Integration® intervention, termed ASI",
+            "claim_wording": "SBIs khác biệt rõ rệt với ASI và đã được chứng minh là không có hiệu quả cho trẻ tự kỷ.",
+            "relation": "changed"
+          }
+        ],
+        "support": "not_supported",
+        "flags": [
+          "added_content",
+          "certainty_changed",
+          "condition_dropped"
+        ],
+        "evidence_span": "SBIs are informed by sensory integration theory, but they have clearly delineated differences from direct, one-on-one occupational therapy intervention using Ayres Sensory Integration® intervention, termed ASI",
+        "explanation": "The source quote only states that SBIs have clearly delineated differences from ASI (e.g., practitioner-led vs. child-led, passive vs. active engagement). It does not state that SBIs have been proven ineffective for autistic children. The claim adds an efficacy conclusion not present in the source."
+      },
+      "reasons": [
+        "support_not_supported",
+        "flag_added_content",
+        "flag_certainty_changed",
+        "flag_condition_dropped",
+        "check:population_scope:broadened",
+        "check:certainty:changed",
+        "check:conclusion_topic:changed",
+        "check:question_fit:changed"
+      ],
+      "call": {
+        "request_id": "chatcmpl-a06fe8e6-9c2c-44c9-b896-8210a1cc0fad",
+        "cache_hit": true,
+        "elapsed_seconds": 6.67,
+        "usage": {
+          "prompt_tokens": 1151,
+          "completion_tokens": 580,
+          "total_tokens": 1731,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "fail"
+    },
+    {
+      "case_id": "F13",
+      "k1_reasons": [],
+      "verdict": null,
+      "reasons": [
+        "verifier_output_invalid:checks"
+      ],
+      "call": {
+        "request_id": "chatcmpl-ac866e1e-585a-4ce0-b25f-9efc433a4fba",
+        "cache_hit": true,
+        "elapsed_seconds": 8.42,
+        "usage": {
+          "prompt_tokens": 1306,
+          "completion_tokens": 496,
+          "total_tokens": 1802,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "verifier_error": true,
+      "outcome": "fail"
+    },
+    {
+      "case_id": "F14",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "checks": [
+          {
+            "aspect": "population_scope",
+            "source_wording": "Barton et al. [2015] indicate that only 20 of the 30 studies they included in their review measured sensory processing behaviors",
+            "claim_wording": "Barton và cộng sự cho biết chỉ 7 trong 30 nghiên cứu họ đưa vào tổng quan có đo hành vi xử lý cảm giác.",
+            "relation": "changed"
+          },
+          {
+            "aspect": "certainty",
+            "source_wording": "Barton et al. [2015] indicate that only 20 of the 30 studies they included in their review measured sensory processing behaviors",
+            "claim_wording": "Barton và cộng sự cho biết chỉ 7 trong 30 nghiên cứu họ đưa vào tổng quan có đo hành vi xử lý cảm giác.",
+            "relation": "changed"
+          },
+          {
+            "aspect": "conclusion_topic",
+            "source_wording": "Barton et al. [2015] indicate that only 20 of the 30 studies they included in their review measured sensory processing behaviors",
+            "claim_wording": "Barton và cộng sự cho biết chỉ 7 trong 30 nghiên cứu họ đưa vào tổng quan có đo hành vi xử lý cảm giác.",
+            "relation": "changed"
+          },
+          {
+            "aspect": "question_fit",
+            "source_wording": "Barton et al. [2015] indicate that only 20 of the 30 studies they included in their review measured sensory processing behaviors",
+            "claim_wording": "Barton và cộng sự cho biết chỉ 7 trong 30 nghiên cứu họ đưa vào tổng quan có đo hành vi xử lý cảm giác.",
+            "relation": "changed"
+          }
+        ],
+        "support": "not_supported",
+        "flags": [
+          "added_content"
+        ],
+        "evidence_span": "Barton et al. [2015] indicate that only 20 of the 30 studies they included in their review measured sensory processing behaviors",
+        "explanation": "The claim misattributes Lang et al.'s finding (7 of 25 studies) to Barton et al. (who found 20 of 30 studies). The cited quote explicitly states Barton et al. found 20 of 30 studies measured sensory processing behaviors, not 7 of 30."
+      },
+      "reasons": [
+        "support_not_supported",
+        "flag_added_content",
+        "check:population_scope:changed",
+        "check:certainty:changed",
+        "check:conclusion_topic:changed",
+        "check:question_fit:changed"
+      ],
+      "call": {
+        "request_id": "chatcmpl-975ed8ea-d203-42be-aaa1-59d8b92cb7a5",
+        "cache_hit": true,
+        "elapsed_seconds": 8.509,
+        "usage": {
+          "prompt_tokens": 1180,
+          "completion_tokens": 620,
+          "total_tokens": 1800,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "fail"
+    },
+    {
+      "case_id": "F15",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "checks": [
+          {
+            "aspect": "population_scope",
+            "source_wording": "for individuals with autism",
+            "claim_wording": "Ở trẻ tự kỷ dưới 3 tuổi",
+            "relation": "narrowed"
+          },
+          {
+            "aspect": "certainty",
+            "source_wording": "there was no evidence of loss of speech skills",
+            "claim_wording": "việc dùng AAC không làm mất kỹ năng nói",
+            "relation": "stronger"
+          },
+          {
+            "aspect": "conclusion_topic",
+            "source_wording": "no evidence of loss of speech skills",
+            "claim_wording": "không làm mất kỹ năng nói",
+            "relation": "same"
+          },
+          {
+            "aspect": "question_fit",
+            "source_wording": "no evidence of loss of speech skills",
+            "claim_wording": "việc dùng AAC không làm mất kỹ năng nói",
+            "relation": "changed"
+          }
+        ],
+        "support": "partially_supported",
+        "flags": [
+          "condition_dropped",
+          "certainty_changed"
+        ],
+        "evidence_span": "for individuals with autism, although modest gains in speech could not be attributable directly to AAC intervention, there was no evidence of loss of speech skills.",
+        "explanation": "The claim narrows the population from 'individuals with autism' to 'children with autism under 3 years old' and strengthens the certainty from 'no evidence of loss' to a definitive 'does not cause loss'. The claim addresses speech loss, while the original question asks about guaranteed increase in spoken language."
+      },
+      "reasons": [
+        "support_partially_supported",
+        "flag_condition_dropped",
+        "flag_certainty_changed",
+        "check:population_scope:narrowed",
+        "check:certainty:stronger",
+        "check:question_fit:changed"
+      ],
+      "call": {
+        "request_id": "chatcmpl-0786d8bc-1d96-4b12-b0fb-3abf253f7cc2",
+        "cache_hit": true,
+        "elapsed_seconds": 9.6,
+        "usage": {
+          "prompt_tokens": 1070,
+          "completion_tokens": 490,
+          "total_tokens": 1560,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "fail"
+    },
+    {
+      "case_id": "F16",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "checks": [
+          {
+            "aspect": "population_scope",
+            "source_wording": "individuals with an ASD",
+            "claim_wording": "trẻ tự kỷ",
+            "relation": "same"
+          },
+          {
+            "aspect": "certainty",
+            "source_wording": "preliminary evidence suggests that treating sleep disturbances and challenging behavior in isolation may not lead to successful outcomes",
+            "claim_wording": "là nguyên nhân chính gây ra",
+            "relation": "stronger"
+          },
+          {
+            "aspect": "conclusion_topic",
+            "source_wording": "bi-directional relationship between challenging behaviors and sleep disturbance in ASD",
+            "claim_wording": "Các vấn đề hành vi ban ngày là nguyên nhân chính gây ra rối loạn giấc ngủ",
+            "relation": "changed"
+          },
+          {
+            "aspect": "question_fit",
+            "source_wording": "bi-directional relationship between challenging behaviors and sleep disturbance in ASD",
+            "claim_wording": "Các vấn đề hành vi ban ngày là nguyên nhân chính gây ra rối loạn giấc ngủ",
+            "relation": "changed"
+          }
+        ],
+        "support": "contradicted",
+        "flags": [
+          "certainty_changed",
+          "condition_dropped",
+          "negation_flipped"
+        ],
+        "evidence_span": "Given the bi-directional relationship between challenging behaviors and sleep disturbance in ASD, preliminary evidence suggests that treating sleep disturbances and challenging behavior in isolation may not lead to successful outcomes.",
+        "explanation": "The claim asserts a unidirectional, primary causal direction (daytime behavior causes sleep problems) with high certainty ('nguyên nhân chính'). The source describes a bi-directional relationship and explicitly labels the evidence as 'preliminary', not definitive. The claim reverses the bidirectional nature and upgrades preliminary evidence to a definitive primary cause."
+      },
+      "reasons": [
+        "support_contradicted",
+        "flag_certainty_changed",
+        "flag_condition_dropped",
+        "flag_negation_flipped",
+        "span_not_in_cited_evidence",
+        "check:certainty:stronger",
+        "check:conclusion_topic:changed",
+        "check:question_fit:changed"
+      ],
+      "call": {
+        "request_id": "chatcmpl-bb6e24b9-41eb-406b-b75c-f9c186547f66",
+        "cache_hit": true,
+        "elapsed_seconds": 10.987,
+        "usage": {
+          "prompt_tokens": 1416,
+          "completion_tokens": 478,
+          "total_tokens": 1894,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "fail"
+    },
+    {
+      "case_id": "F17",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "checks": [
+          {
+            "aspect": "population_scope",
+            "source_wording": "children with ASD",
+            "claim_wording": "trẻ tự kỷ",
+            "relation": "same"
+          },
+          {
+            "aspect": "certainty",
+            "source_wording": "these conclusions are still premature and require further investigation",
+            "claim_wording": "chứng minh chắc chắn",
+            "relation": "stronger"
+          },
+          {
+            "aspect": "conclusion_topic",
+            "source_wording": "relationship between sleep and behaviors",
+            "claim_wording": "giấc ngủ kém làm hành vi ban ngày ở trẻ tự kỷ trầm trọng hơn",
+            "relation": "same"
+          },
+          {
+            "aspect": "question_fit",
+            "source_wording": "Assess whether current evidence is sufficient to establish a definitive bidirectional causal relationship between sleep problems and behavior in autism",
+            "claim_wording": "giấc ngủ kém làm hành vi ban ngày ở trẻ tự kỷ trầm trọng hơn",
+            "relation": "changed"
+          }
+        ],
+        "support": "contradicted",
+        "flags": [
+          "certainty_changed"
+        ],
+        "evidence_span": "Although there is reason to believe that serious sleep problems are common in children with ASD and that poor sleep exacerbates problematic daytime behavior, these conclusions are still premature and require further investigation.",
+        "explanation": "The source explicitly states conclusions about sleep exacerbating behavior are premature and require further investigation, while the claim asserts they have been definitively proven."
+      },
+      "reasons": [
+        "support_contradicted",
+        "flag_certainty_changed",
+        "check:certainty:stronger",
+        "check_source_not_verbatim:question_fit",
+        "check:question_fit:changed"
+      ],
+      "call": {
+        "request_id": "chatcmpl-0095a620-b3a8-4ee6-be65-9f157949ca4b",
+        "cache_hit": true,
+        "elapsed_seconds": 5.333,
+        "usage": {
+          "prompt_tokens": 1152,
+          "completion_tokens": 385,
+          "total_tokens": 1537,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "fail"
+    },
+    {
+      "case_id": "F18",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "checks": [
+          {
+            "aspect": "population_scope",
+            "source_wording": "People should not stop taking a prescribed medication",
+            "claim_wording": "Ngừng thuốc quá sớm",
+            "relation": "same"
+          },
+          {
+            "aspect": "certainty",
+            "source_wording": "Stopping a medication too soon may cause unpleasant or harmful side effects.",
+            "claim_wording": "chắc chắn sẽ gây tác dụng phụ có hại",
+            "relation": "stronger"
+          },
+          {
+            "aspect": "conclusion_topic",
+            "source_wording": "Stopping a medication too soon may cause unpleasant or harmful side effects.",
+            "claim_wording": "gây tác dụng phụ có hại",
+            "relation": "same"
+          },
+          {
+            "aspect": "question_fit",
+            "source_wording": "People should not stop taking a prescribed medication, even if they are feeling better, without the help of a health care provider.",
+            "claim_wording": "Ngừng thuốc quá sớm chắc chắn sẽ gây tác dụng phụ có hại.",
+            "relation": "changed"
+          }
+        ],
+        "support": "not_supported",
+        "flags": [
+          "certainty_changed"
+        ],
+        "evidence_span": "Stopping a medication too soon may cause unpleasant or harmful side effects.",
+        "explanation": "The source states that stopping medication too soon 'may cause' harmful side effects (possibility), while the claim asserts it 'chắc chắn sẽ gây' (certainty). The claim overstates the certainty."
+      },
+      "reasons": [
+        "support_not_supported",
+        "flag_certainty_changed",
+        "check:certainty:stronger",
+        "check:question_fit:changed"
+      ],
+      "call": {
+        "request_id": "chatcmpl-8b577872-75f9-4a40-9cc2-edb81b58124c",
+        "cache_hit": true,
+        "elapsed_seconds": 5.136,
+        "usage": {
+          "prompt_tokens": 979,
+          "completion_tokens": 426,
+          "total_tokens": 1405,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "fail"
+    }
+  ],
+  "groups_file": "evaluation/answer_verifier_faults_v1/groups.jsonl",
+  "groups_sha256": "402f5226ff78a54994a6b844d4de25430c634cd870d2aab78d15102704531865",
+  "groups": [
+    {
+      "group_id": "G1",
+      "call": {
+        "request_id": "chatcmpl-f28991ac-88d1-4f5d-828c-9dbdd7e2acb7",
+        "cache_hit": true,
+        "elapsed_seconds": 20.358,
+        "usage": {
+          "prompt_tokens": 3239,
+          "completion_tokens": 1167,
+          "total_tokens": 4406,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "records": [
+        {
+          "case_id": "P03",
+          "claim_id": "c1",
+          "verdict": {
+            "claim_id": "c1",
+            "checks": [
+              {
+                "aspect": "population_scope",
+                "source_wording": "children with ASD",
+                "claim_wording": "trẻ tự kỷ",
+                "relation": "same"
+              },
+              {
+                "aspect": "certainty",
+                "source_wording": "these conclusions are still premature and require further investigation",
+                "claim_wording": "chưa đủ bằng chứng chắc chắn",
+                "relation": "same"
+              },
+              {
+                "aspect": "conclusion_topic",
+                "source_wording": "relationship between sleep and behaviors",
+                "claim_wording": "quan hệ nhân quả hai chiều giữa khó ngủ và hành vi",
+                "relation": "same"
+              },
+              {
+                "aspect": "question_fit",
+                "source_wording": "relationship between sleep and behaviors",
+                "claim_wording": "quan hệ nhân quả hai chiều giữa khó ngủ và hành vi",
+                "relation": "same"
+              }
+            ],
+            "support": "supported",
+            "flags": [],
+            "evidence_span": "Although there is reason to believe that serious sleep problems are common in children with ASD and that poor sleep exacerbates problematic daytime behavior, these conclusions are still premature and require further investigation.",
+            "explanation": "The claim accurately reflects the source's statement that conclusions about the sleep-behavior relationship in children with ASD are premature and need further investigation."
+          },
+          "verifier_reasons": [],
+          "verifier_outcome": "pass"
+        },
+        {
+          "case_id": "F02",
+          "claim_id": "c2",
+          "verdict": {
+            "claim_id": "c2",
+            "checks": [
+              {
+                "aspect": "population_scope",
+                "source_wording": "individuals with an ASD",
+                "claim_wording": "tự kỷ",
+                "relation": "same"
+              },
+              {
+                "aspect": "certainty",
+                "source_wording": "clear uni-directional relationships",
+                "claim_wording": "mối quan hệ một chiều",
+                "relation": "same"
+              },
+              {
+                "aspect": "conclusion_topic",
+                "source_wording": "sleep problems worsen ASD symptomatology across most core domains, as well as exacerbate pre-existing behavioral problems",
+                "claim_wording": "rối loạn ngủ làm trầm trọng thêm triệu chứng cốt lõi và hành vi thách thức của tự kỷ",
+                "relation": "same"
+              },
+              {
+                "aspect": "question_fit",
+                "source_wording": "uni-directional relationships between sleep and behavior",
+                "claim_wording": "mối quan hệ một chiều",
+                "relation": "same"
+              }
+            ],
+            "support": "supported",
+            "flags": [],
+            "evidence_span": "The current research highlights clear uni-directional relationships between sleep and behavior in individuals with an ASD. It is well researched that sleep problems worsen ASD symptomatology across most core domains, as well as exacerbate pre-existing behavioral problems.",
+            "explanation": "The claim correctly states the source's finding of a clear uni-directional relationship where sleep problems worsen ASD core symptoms and challenging behaviors."
+          },
+          "verifier_reasons": [],
+          "verifier_outcome": "pass"
+        },
+        {
+          "case_id": "F01",
+          "claim_id": "c3",
+          "verdict": {
+            "claim_id": "c3",
+            "checks": [
+              {
+                "aspect": "population_scope",
+                "source_wording": "individuals with an ASD",
+                "claim_wording": "",
+                "relation": "dropped"
+              },
+              {
+                "aspect": "certainty",
+                "source_wording": "preliminary evidence suggests",
+                "claim_wording": "vẫn còn sơ bộ",
+                "relation": "same"
+              },
+              {
+                "aspect": "conclusion_topic",
+                "source_wording": "bi-directional relationship between challenging behaviors and sleep disturbance in ASD",
+                "claim_wording": "quan hệ hai chiều",
+                "relation": "same"
+              },
+              {
+                "aspect": "question_fit",
+                "source_wording": "bi-directional relationship between challenging behaviors and sleep disturbance in ASD",
+                "claim_wording": "quan hệ hai chiều",
+                "relation": "same"
+              }
+            ],
+            "support": "supported",
+            "flags": [],
+            "evidence_span": "Given the bi-directional relationship between challenging behaviors and sleep disturbance in ASD, preliminary evidence suggests that treating sleep disturbances and challenging behavior in isolation may not lead to successful outcomes [50].",
+            "explanation": "The claim accurately captures the source's statement that evidence for a bi-directional relationship is preliminary."
+          },
+          "verifier_reasons": [
+            "check:population_scope:dropped"
+          ],
+          "verifier_outcome": "fail"
+        },
+        {
+          "case_id": "F03",
+          "claim_id": "c4",
+          "verdict": {
+            "claim_id": "c4",
+            "checks": [
+              {
+                "aspect": "population_scope",
+                "source_wording": "low-functioning individuals (of all ages) with autism",
+                "claim_wording": "trẻ tự kỷ chức năng thấp mọi lứa tuổi",
+                "relation": "same"
+              },
+              {
+                "aspect": "certainty",
+                "source_wording": "failed to provide conclusive evidence",
+                "claim_wording": "chưa có bằng chứng kết luận",
+                "relation": "same"
+              },
+              {
+                "aspect": "conclusion_topic",
+                "source_wording": "relationship between sleep and behaviors",
+                "claim_wording": "",
+                "relation": "dropped"
+              },
+              {
+                "aspect": "question_fit",
+                "source_wording": "relationship between sleep and behaviors seen in low-functioning individuals",
+                "claim_wording": "",
+                "relation": "dropped"
+              }
+            ],
+            "support": "supported",
+            "flags": [],
+            "evidence_span": "To date, however, studies have failed to provide conclusive evidence about the relationship between sleep and behaviors seen in low-functioning individuals (of all ages) with autism.",
+            "explanation": "The claim correctly reflects the source's statement that there is no conclusive evidence for low-functioning individuals with autism of all ages."
+          },
+          "verifier_reasons": [
+            "check:conclusion_topic:dropped",
+            "check:question_fit:dropped"
+          ],
+          "verifier_outcome": "fail"
+        }
+      ],
+      "sent": [
+        "c1",
+        "c2",
+        "c3",
+        "c4"
+      ]
+    },
+    {
+      "group_id": "G2",
+      "call": {
+        "request_id": "chatcmpl-f7bbf271-3bd0-4294-b059-df5ed68df0b1",
+        "cache_hit": true,
+        "elapsed_seconds": 24.414,
+        "usage": {
+          "prompt_tokens": 2518,
+          "completion_tokens": 2134,
+          "total_tokens": 4652,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "records": [
+        {
+          "case_id": "P02",
+          "claim_id": "c1",
+          "verdict": {
+            "claim_id": "c1",
+            "checks": [
+              {
+                "aspect": "population_scope",
+                "source_wording": "SBIs are informed by sensory integration theory, but they have clearly delineated differences from direct, one-on-one occupational therapy intervention using Ayres Sensory Integration® intervention, termed ASI",
+                "claim_wording": "các hoạt động kích thích cảm giác (SBIs) khác biệt rõ rệt với phương pháp Tích hợp cảm giác Ayres (ASI) đã được nghiên cứu cho trẻ tự kỷ",
+                "relation": "broadened"
+              },
+              {
+                "aspect": "certainty",
+                "source_wording": "they have clearly delineated differences",
+                "claim_wording": "khác biệt rõ rệt",
+                "relation": "same"
+              },
+              {
+                "aspect": "conclusion_topic",
+                "source_wording": "SBIs are informed by sensory integration theory, but they have clearly delineated differences from direct, one-on-one occupational therapy intervention using Ayres Sensory Integration® intervention, termed ASI",
+                "claim_wording": "các hoạt động kích thích cảm giác (SBIs) khác biệt rõ rệt với phương pháp Tích hợp cảm giác Ayres (ASI) đã được nghiên cứu cho trẻ tự kỷ",
+                "relation": "same"
+              },
+              {
+                "aspect": "question_fit",
+                "source_wording": "SBIs are informed by sensory integration theory, but they have clearly delineated differences from direct, one-on-one occupational therapy intervention using Ayres Sensory Integration® intervention, termed ASI",
+                "claim_wording": "các hoạt động kích thích cảm giác (SBIs) khác biệt rõ rệt với phương pháp Tích hợp cảm giác Ayres (ASI) đã được nghiên cứu cho trẻ tự kỷ",
+                "relation": "same"
+              }
+            ],
+            "support": "supported",
+            "flags": [],
+            "evidence_span": "SBIs are informed by sensory integration theory, but they have clearly delineated differences from direct, one-on-one occupational therapy intervention using Ayres Sensory Integration® intervention, termed ASI (10, 11).",
+            "explanation": "The quote explicitly states SBIs have clearly delineated differences from ASI. The claim broadens population_scope by adding \"for autistic children\" which is not in the cited quote."
+          },
+          "verifier_reasons": [
+            "check:population_scope:broadened"
+          ],
+          "verifier_outcome": "fail"
+        },
+        {
+          "case_id": "F04",
+          "claim_id": "c2",
+          "verdict": {
+            "claim_id": "c2",
+            "checks": [
+              {
+                "aspect": "population_scope",
+                "source_wording": "Key features of ASI include advanced therapist training and mentorship and adherence to fidelity principles, including active engagement of the child, individually tailored activities, and play opportunities presented at the just-right challenge to facilitate adaptive responses",
+                "claim_wording": "ASI yêu cầu đào tạo chuyên sâu cho trị liệu, tuân thủ các nguyên tắc trung thực như cá nhân hóa hoạt động, trẻ tham gia chủ động trong bối cảnh chơi, và thách thức vừa phải để thúc đẩy phản ứng thích ứng",
+                "relation": "same"
+              },
+              {
+                "aspect": "certainty",
+                "source_wording": "Key features of ASI include",
+                "claim_wording": "ASI yêu cầu",
+                "relation": "same"
+              },
+              {
+                "aspect": "conclusion_topic",
+                "source_wording": "Key features of ASI include advanced therapist training and mentorship and adherence to fidelity principles, including active engagement of the child, individually tailored activities, and play opportunities presented at the just-right challenge to facilitate adaptive responses",
+                "claim_wording": "ASI yêu cầu đào tạo chuyên sâu cho trị liệu, tuân thủ các nguyên tắc trung thực như cá nhân hóa hoạt động, trẻ tham gia chủ động trong bối cảnh chơi, và thách thức vừa phải để thúc đẩy phản ứng thích ứng",
+                "relation": "same"
+              },
+              {
+                "aspect": "question_fit",
+                "source_wording": "Key features of ASI include advanced therapist training and mentorship and adherence to fidelity principles, including active engagement of the child, individually tailored activities, and play opportunities presented at the just-right challenge to facilitate adaptive responses",
+                "claim_wording": "ASI yêu cầu đào tạo chuyên sâu cho trị liệu, tuân thủ các nguyên tắc trung thực như cá nhân hóa hoạt động, trẻ tham gia chủ động trong bối cảnh chơi, và thách thức vừa phải để thúc đẩy phản ứng thích ứng",
+                "relation": "same"
+              }
+            ],
+            "support": "supported",
+            "flags": [],
+            "evidence_span": "Key features of ASI include advanced therapist training and mentorship and adherence to fidelity principles, including active engagement of the child, individually tailored activities, and play opportunities presented at the just-right challenge to facilitate adaptive responses (12, 13).",
+            "explanation": "The quote directly lists the key features of ASI that match the claim's description."
+          },
+          "verifier_reasons": [],
+          "verifier_outcome": "pass"
+        },
+        {
+          "case_id": "F05",
+          "claim_id": "c3",
+          "verdict": {
+            "claim_id": "c3",
+            "checks": [
+              {
+                "aspect": "population_scope",
+                "source_wording": "In contrast, SBIs tend to be practitioner or adult-led interventions, involving passive sensory input applied to the child, and can include sensory techniques, such as massage, wearing earmuffs, passive swinging, caregiver sensory training, and sensory environmental modifications",
+                "claim_wording": "SBIs thường do người lớn dẫn dắt, cung cấp đầu vào cảm giác thụ động cho trẻ (như massage, đeo tai nghe chống ồn, du lượn thụ động) và có thể được thực hiện bởi người chăm sóc tại môi trường tự nhiên",
+                "relation": "same"
+              },
+              {
+                "aspect": "certainty",
+                "source_wording": "SBIs tend to be practitioner or adult-led interventions, involving passive sensory input applied to the child",
+                "claim_wording": "SBIs thường do người lớn dẫn dắt, cung cấp đầu vào cảm giác thụ động cho trẻ",
+                "relation": "same"
+              },
+              {
+                "aspect": "conclusion_topic",
+                "source_wording": "In contrast, SBIs tend to be practitioner or adult-led interventions, involving passive sensory input applied to the child, and can include sensory techniques, such as massage, wearing earmuffs, passive swinging, caregiver sensory training, and sensory environmental modifications",
+                "claim_wording": "SBIs thường do người lớn dẫn dắt, cung cấp đầu vào cảm giác thụ động cho trẻ (như massage, đeo tai nghe chống ồn, du lượn thụ động) và có thể được thực hiện bởi người chăm sóc tại môi trường tự nhiên",
+                "relation": "same"
+              },
+              {
+                "aspect": "question_fit",
+                "source_wording": "In contrast, SBIs tend to be practitioner or adult-led interventions, involving passive sensory input applied to the child, and can include sensory techniques, such as massage, wearing earmuffs, passive swinging, caregiver sensory training, and sensory environmental modifications",
+                "claim_wording": "SBIs thường do người lớn dẫn dắt, cung cấp đầu vào cảm giác thụ động cho trẻ (như massage, đeo tai nghe chống ồn, du lượn thụ động) và có thể được thực hiện bởi người chăm sóc tại môi trường tự nhiên",
+                "relation": "same"
+              }
+            ],
+            "support": "supported",
+            "flags": [],
+            "evidence_span": "In contrast, SBIs tend to be practitioner or adult-led interventions, involving passive sensory input applied to the child, and can include sensory techniques, such as massage, wearing earmuffs, passive swinging, caregiver sensory training, and sensory environmental modifications (10, 11).",
+            "explanation": "The quote directly describes SBIs as adult-led, passive sensory input interventions with examples matching the claim."
+          },
+          "verifier_reasons": [],
+          "verifier_outcome": "pass"
+        },
+        {
+          "case_id": "X02",
+          "claim_id": "c4",
+          "verdict": {
+            "claim_id": "c4",
+            "checks": [
+              {
+                "aspect": "population_scope",
+                "source_wording": "past reviews typically included studies in which the “sensory integration” intervention described in the study was not consistent with the principles of ASI and was instead a sensory‐based intervention",
+                "claim_wording": "Các bài đánh giá hệ thống trước đây thường nhầm lẫn SBIs với ASI, bao gồm các nghiên cứu không tuân thủ nguyên tắc ASI",
+                "relation": "same"
+              },
+              {
+                "aspect": "certainty",
+                "source_wording": "past reviews typically included studies in which the “sensory integration” intervention described in the study was not consistent with the principles of ASI",
+                "claim_wording": "thường nhầm lẫn SBIs với ASI, bao gồm các nghiên cứu không tuân thủ nguyên tắc ASI",
+                "relation": "same"
+              },
+              {
+                "aspect": "conclusion_topic",
+                "source_wording": "Inclusion of these studies in systematic reviews and meta‐analyses makes it impossible to draw conclusions regarding efficacy of ASI intervention",
+                "claim_wording": "làm khó khăn việc rút ra kết luận về hiệu quả của ASI",
+                "relation": "same"
+              },
+              {
+                "aspect": "question_fit",
+                "source_wording": "past reviews typically included studies in which the “sensory integration” intervention described in the study was not consistent with the principles of ASI and was instead a sensory‐based intervention",
+                "claim_wording": "Các bài đánh giá hệ thống trước đây thường nhầm lẫn SBIs với ASI, bao gồm các nghiên cứu không tuân thủ nguyên tắc ASI, làm khó khăn việc rút ra kết luận về hiệu quả của ASI",
+                "relation": "same"
+              }
+            ],
+            "support": "supported",
+            "flags": [],
+            "evidence_span": "past reviews typically included studies in which the “sensory integration” intervention described in the study was not consistent with the principles of ASI and was instead a sensory‐based intervention [Case‐Smith et al., 2015].",
+            "explanation": "The quote confirms past reviews conflated SBIs with ASI, included non-ASI studies, and this confounds conclusions about ASI efficacy."
+          },
+          "verifier_reasons": [
+            "span_not_in_cited_evidence"
+          ],
+          "verifier_outcome": "fail"
+        }
+      ],
+      "sent": [
+        "c1",
+        "c2",
+        "c3",
+        "c4"
+      ]
+    },
+    {
+      "group_id": "G3",
+      "call": {
+        "request_id": "chatcmpl-ca80e8dc-0ca5-4a8d-886d-842004f174fa",
+        "cache_hit": true,
+        "elapsed_seconds": 25.962,
+        "usage": {
+          "prompt_tokens": 1665,
+          "completion_tokens": 1430,
+          "total_tokens": 3095,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "records": [
+        {
+          "case_id": "P06",
+          "claim_id": "c1",
+          "verdict": null,
+          "verifier_reasons": [
+            "verifier_output_invalid:gap verdict"
+          ],
+          "verifier_outcome": "error"
+        },
+        {
+          "case_id": "P07",
+          "claim_id": "c2",
+          "verdict": null,
+          "verifier_reasons": [
+            "verifier_output_invalid:gap verdict"
+          ],
+          "verifier_outcome": "error"
+        },
+        {
+          "case_id": "F09",
+          "claim_id": "c3",
+          "verdict": null,
+          "verifier_reasons": [
+            "verifier_output_invalid:gap verdict"
+          ],
+          "verifier_outcome": "error"
+        },
+        {
+          "case_id": "F15",
+          "claim_id": "c4",
+          "verdict": null,
+          "verifier_reasons": [
+            "verifier_output_invalid:gap verdict"
+          ],
+          "verifier_outcome": "error"
+        }
+      ],
+      "sent": [
+        "c1",
+        "c2",
+        "c3",
+        "c4"
+      ]
+    },
+    {
+      "group_id": "G4",
+      "call": {
+        "request_id": "chatcmpl-59df1518-600c-4f11-aae4-85892cf8c92d",
+        "cache_hit": true,
+        "elapsed_seconds": 15.666,
+        "usage": {
+          "prompt_tokens": 1377,
+          "completion_tokens": 1380,
+          "total_tokens": 2757,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "records": [
+        {
+          "case_id": "P01",
+          "claim_id": "c1",
+          "verdict": {
+            "claim_id": "c1",
+            "checks": [
+              {
+                "aspect": "population_scope",
+                "source_wording": "People should not stop taking a prescribed medication",
+                "claim_wording": "Người bệnh không nên tự ngừng thuốc được kê đơn",
+                "relation": "same"
+              },
+              {
+                "aspect": "certainty",
+                "source_wording": "People should not stop taking a prescribed medication",
+                "claim_wording": "không nên",
+                "relation": "same"
+              },
+              {
+                "aspect": "conclusion_topic",
+                "source_wording": "People should not stop taking a prescribed medication, even if they are feeling better, without the help of a health care provider",
+                "claim_wording": "Người bệnh không nên tự ngừng thuốc được kê đơn ngay cả khi cảm thấy đỡ, nếu không có sự hỗ trợ của người cung cấp dịch vụ y tế",
+                "relation": "same"
+              },
+              {
+                "aspect": "question_fit",
+                "source_wording": "People should not stop taking a prescribed medication, even if they are feeling better, without the help of a health care provider",
+                "claim_wording": "Người bệnh không nên tự ngừng thuốc được kê đơn ngay cả khi cảm thấy đỡ, nếu không có sự hỗ trợ của người cung cấp dịch vụ y tế",
+                "relation": "same"
+              }
+            ],
+            "support": "supported",
+            "flags": [],
+            "evidence_span": "People should not stop taking a prescribed medication, even if they are feeling better, without the help of a health care provider.",
+            "explanation": "Claim matches source wording and intent exactly."
+          },
+          "verifier_reasons": [],
+          "verifier_outcome": "pass"
+        },
+        {
+          "case_id": "P10",
+          "claim_id": "c2",
+          "verdict": {
+            "claim_id": "c2",
+            "checks": [
+              {
+                "aspect": "population_scope",
+                "source_wording": "A provider can adjust the treatment plan to slowly and safely decrease the medication dose",
+                "claim_wording": "Người cung cấp dịch vụ y tế có thể điều chỉnh kế hoạch điều trị",
+                "relation": "same"
+              },
+              {
+                "aspect": "certainty",
+                "source_wording": "A provider can adjust the treatment plan to slowly and safely decrease the medication dose",
+                "claim_wording": "có thể",
+                "relation": "same"
+              },
+              {
+                "aspect": "conclusion_topic",
+                "source_wording": "A provider can adjust the treatment plan to slowly and safely decrease the medication dose",
+                "claim_wording": "Người cung cấp dịch vụ y tế có thể điều chỉnh kế hoạch điều trị để giảm liều thuốc từ từ và an toàn",
+                "relation": "same"
+              },
+              {
+                "aspect": "question_fit",
+                "source_wording": "A provider can adjust the treatment plan to slowly and safely decrease the medication dose",
+                "claim_wording": "Người cung cấp dịch vụ y tế có thể điều chỉnh kế hoạch điều trị để giảm liều thuốc từ từ và an toàn",
+                "relation": "same"
+              }
+            ],
+            "support": "supported",
+            "flags": [],
+            "evidence_span": "A provider can adjust the treatment plan to slowly and safely decrease the medication dose.",
+            "explanation": "Claim accurately reflects the provider's role described in the source."
+          },
+          "verifier_reasons": [],
+          "verifier_outcome": "pass"
+        },
+        {
+          "case_id": "F07",
+          "claim_id": "c3",
+          "verdict": {
+            "claim_id": "c3",
+            "checks": [
+              {
+                "aspect": "population_scope",
+                "source_wording": "People should not stop taking a prescribed medication, even if they are feeling better, without the help of a health care provider",
+                "claim_wording": "Người bệnh có thể tự ngừng thuốc được kê đơn khi cảm thấy đỡ mà không cần người cung cấp dịch vụ y tế hỗ trợ",
+                "relation": "changed"
+              },
+              {
+                "aspect": "certainty",
+                "source_wording": "People should not stop taking a prescribed medication",
+                "claim_wording": "có thể tự ngừng",
+                "relation": "changed"
+              },
+              {
+                "aspect": "conclusion_topic",
+                "source_wording": "People should not stop taking a prescribed medication, even if they are feeling better, without the help of a health care provider",
+                "claim_wording": "Người bệnh có thể tự ngừng thuốc được kê đơn khi cảm thấy đỡ mà không cần người cung cấp dịch vụ y tế hỗ trợ",
+                "relation": "changed"
+              },
+              {
+                "aspect": "question_fit",
+                "source_wording": "People should not stop taking a prescribed medication, even if they are feeling better, without the help of a health care provider",
+                "claim_wording": "Người bệnh có thể tự ngừng thuốc được kê đơn khi cảm thấy đỡ mà không cần người cung cấp dịch vụ y tế hỗ trợ",
+                "relation": "changed"
+              }
+            ],
+            "support": "contradicted",
+            "flags": [
+              "negation_flipped"
+            ],
+            "evidence_span": "People should not stop taking a prescribed medication, even if they are feeling better, without the help of a health care provider.",
+            "explanation": "Claim directly contradicts the source by asserting the opposite action is permissible."
+          },
+          "verifier_reasons": [
+            "support_contradicted",
+            "flag_negation_flipped",
+            "check:population_scope:changed",
+            "check:certainty:changed",
+            "check:conclusion_topic:changed",
+            "check:question_fit:changed"
+          ],
+          "verifier_outcome": "fail"
+        },
+        {
+          "case_id": "F18",
+          "claim_id": "c4",
+          "verdict": {
+            "claim_id": "c4",
+            "checks": [
+              {
+                "aspect": "population_scope",
+                "source_wording": "Stopping a medication too soon may cause unpleasant or harmful side effects",
+                "claim_wording": "Ngừng thuốc quá sớm chắc chắn sẽ gây tác dụng phụ có hại",
+                "relation": "same"
+              },
+              {
+                "aspect": "certainty",
+                "source_wording": "may cause unpleasant or harmful side effects",
+                "claim_wording": "chắc chắn sẽ gây tác dụng phụ có hại",
+                "relation": "stronger"
+              },
+              {
+                "aspect": "conclusion_topic",
+                "source_wording": "Stopping a medication too soon may cause unpleasant or harmful side effects",
+                "claim_wording": "Ngừng thuốc quá sớm chắc chắn sẽ gây tác dụng phụ có hại",
+                "relation": "same"
+              },
+              {
+                "aspect": "question_fit",
+                "source_wording": "Stopping a medication too soon may cause unpleasant or harmful side effects",
+                "claim_wording": "Ngừng thuốc quá sớm chắc chắn sẽ gây tác dụng phụ có hại",
+                "relation": "same"
+              }
+            ],
+            "support": "partially_supported",
+            "flags": [
+              "certainty_changed"
+            ],
+            "evidence_span": "Stopping a medication too soon may cause unpleasant or harmful side effects.",
+            "explanation": "Source states possibility ('may cause'), claim asserts certainty ('chắc chắn sẽ')."
+          },
+          "verifier_reasons": [
+            "support_partially_supported",
+            "flag_certainty_changed",
+            "check:certainty:stronger"
+          ],
+          "verifier_outcome": "fail"
+        }
+      ],
+      "sent": [
+        "c1",
+        "c2",
+        "c3",
+        "c4"
+      ]
+    },
+    {
+      "group_id": "G5",
+      "call": {
+        "request_id": "chatcmpl-f14141f8-1d7b-41a8-ad6b-7605432b5eaf",
+        "cache_hit": true,
+        "elapsed_seconds": 24.023,
+        "usage": {
+          "prompt_tokens": 3069,
+          "completion_tokens": 1733,
+          "total_tokens": 4802,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "records": [
+        {
+          "case_id": "P08",
+          "claim_id": "c1",
+          "verdict": {
+            "claim_id": "c1",
+            "checks": [
+              {
+                "aspect": "population_scope",
+                "source_wording": "children with ASD",
+                "claim_wording": "trẻ tự kỷ",
+                "relation": "same"
+              },
+              {
+                "aspect": "certainty",
+                "source_wording": "these conclusions are still premature and require further investigation",
+                "claim_wording": "hiện vẫn còn quá sớm và cần nghiên cứu thêm",
+                "relation": "same"
+              },
+              {
+                "aspect": "conclusion_topic",
+                "source_wording": "poor sleep exacerbates problematic daytime behavior",
+                "claim_wording": "giấc ngủ kém làm hành vi ban ngày có vấn đề ở trẻ tự kỷ nặng thêm",
+                "relation": "same"
+              },
+              {
+                "aspect": "question_fit",
+                "source_wording": "these conclusions are still premature and require further investigation",
+                "claim_wording": "hiện vẫn còn quá sớm và cần nghiên cứu thêm",
+                "relation": "same"
+              }
+            ],
+            "support": "supported",
+            "flags": [],
+            "evidence_span": "Although there is reason to believe that serious sleep problems are common in children with ASD and that poor sleep exacerbates problematic daytime behavior, these conclusions are still premature and require further investigation.",
+            "explanation": "The claim accurately reflects the source's statement that conclusions about poor sleep exacerbating daytime behavior in children with ASD are premature and need further investigation."
+          },
+          "verifier_reasons": [],
+          "verifier_outcome": "pass"
+        },
+        {
+          "case_id": "F11",
+          "claim_id": "c2",
+          "verdict": {
+            "claim_id": "c2",
+            "checks": [
+              {
+                "aspect": "population_scope",
+                "source_wording": "children with autism",
+                "claim_wording": "trẻ tự kỷ",
+                "relation": "same"
+              },
+              {
+                "aspect": "certainty",
+                "source_wording": "is an effective sleep treatment",
+                "claim_wording": "là một phương pháp điều trị giấc ngủ hiệu quả",
+                "relation": "same"
+              },
+              {
+                "aspect": "conclusion_topic",
+                "source_wording": "pharmacological treatments such as melatonin is an effective sleep treatment for children with autism",
+                "claim_wording": "Melatonin là một phương pháp điều trị giấc ngủ hiệu quả cho trẻ tự kỷ",
+                "relation": "same"
+              },
+              {
+                "aspect": "question_fit",
+                "source_wording": "pharmacological treatments such as melatonin is an effective sleep treatment for children with autism",
+                "claim_wording": "Melatonin là một phương pháp điều trị giấc ngủ hiệu quả cho trẻ tự kỷ",
+                "relation": "changed"
+              }
+            ],
+            "support": "supported",
+            "flags": [
+              "unrequested_medical_content"
+            ],
+            "evidence_span": "Studies have shown that parent-based education (behavioral therapy) improves sleep-onset delay in children with high-functioning autism [59] and that pharmacological treatments such as melatonin is an effective sleep treatment for children with autism [77].",
+            "explanation": "The claim is supported by the cited quote regarding melatonin's effectiveness as a sleep treatment, but it introduces treatment content not asked in the original question about causal relationships."
+          },
+          "verifier_reasons": [
+            "flag_unrequested_medical_content",
+            "check:question_fit:changed"
+          ],
+          "verifier_outcome": "fail"
+        },
+        {
+          "case_id": "F16",
+          "claim_id": "c3",
+          "verdict": {
+            "claim_id": "c3",
+            "checks": [
+              {
+                "aspect": "population_scope",
+                "source_wording": "individuals with an ASD",
+                "claim_wording": "trẻ tự kỷ",
+                "relation": "narrowed"
+              },
+              {
+                "aspect": "certainty",
+                "source_wording": "bi-directional relationship between challenging behaviors and sleep disturbance",
+                "claim_wording": "là nguyên nhân chính gây ra",
+                "relation": "stronger"
+              },
+              {
+                "aspect": "conclusion_topic",
+                "source_wording": "bi-directional relationship between challenging behaviors and sleep disturbance in ASD",
+                "claim_wording": "Các vấn đề hành vi ban ngày là nguyên nhân chính gây ra rối loạn giấc ngủ",
+                "relation": "changed"
+              },
+              {
+                "aspect": "question_fit",
+                "source_wording": "bi-directional relationship between challenging behaviors and sleep disturbance in ASD",
+                "claim_wording": "Các vấn đề hành vi ban ngày là nguyên nhân chính gây ra rối loạn giấc ngủ",
+                "relation": "same"
+              }
+            ],
+            "support": "not_supported",
+            "flags": [
+              "certainty_changed",
+              "condition_dropped"
+            ],
+            "evidence_span": "Given the bi-directional relationship between challenging behaviors and sleep disturbance in ASD, preliminary evidence suggests that treating sleep disturbances and challenging behavior in isolation may not lead to successful outcomes [50].",
+            "explanation": "The source describes a bi-directional relationship, not that daytime behavior problems are the main cause of sleep disturbances. The claim overstates and misrepresents the directionality."
+          },
+          "verifier_reasons": [
+            "support_not_supported",
+            "flag_certainty_changed",
+            "flag_condition_dropped",
+            "check:population_scope:narrowed",
+            "check:certainty:stronger",
+            "check:conclusion_topic:changed"
+          ],
+          "verifier_outcome": "fail"
+        },
+        {
+          "case_id": "F17",
+          "claim_id": "c4",
+          "verdict": {
+            "claim_id": "c4",
+            "checks": [
+              {
+                "aspect": "population_scope",
+                "source_wording": "individuals with an ASD",
+                "claim_wording": "trẻ tự kỷ",
+                "relation": "narrowed"
+              },
+              {
+                "aspect": "certainty",
+                "source_wording": "It is well researched that sleep problems worsen ASD symptomatology",
+                "claim_wording": "đã chứng minh chắc chắn rằng",
+                "relation": "stronger"
+              },
+              {
+                "aspect": "conclusion_topic",
+                "source_wording": "sleep problems worsen ASD symptomatology across most core domains, as well as exacerbate pre-existing behavioral problems",
+                "claim_wording": "giấc ngủ kém làm hành vi ban ngày ở trẻ tự kỷ trầm trọng hơn",
+                "relation": "same"
+              },
+              {
+                "aspect": "question_fit",
+                "source_wording": "sleep problems worsen ASD symptomatology",
+                "claim_wording": "giấc ngủ kém làm hành vi ban ngày ở trẻ tự kỷ trầm trọng hơn",
+                "relation": "same"
+              }
+            ],
+            "support": "partially_supported",
+            "flags": [
+              "certainty_changed"
+            ],
+            "evidence_span": "It is well researched that sleep problems worsen ASD symptomatology across most core domains, as well as exacerbate pre-existing behavioral problems.",
+            "explanation": "The source states it is 'well researched' that sleep problems worsen symptoms and exacerbate behavioral problems, but the claim uses 'chứng minh chắc chắn' (proven definitively), which overstates the certainty."
+          },
+          "verifier_reasons": [
+            "support_partially_supported",
+            "flag_certainty_changed",
+            "span_not_in_cited_evidence",
+            "check_source_not_verbatim:population_scope",
+            "check:population_scope:narrowed",
+            "check_source_not_verbatim:certainty",
+            "check:certainty:stronger",
+            "check_source_not_verbatim:conclusion_topic",
+            "check_source_not_verbatim:question_fit"
+          ],
+          "verifier_outcome": "fail"
+        },
+        {
+          "case_id": "F10",
+          "claim_id": "c5",
+          "verdict": {
+            "claim_id": "c5",
+            "checks": [
+              {
+                "aspect": "population_scope",
+                "source_wording": "children with high-functioning autism",
+                "claim_wording": "trẻ tự kỷ",
+                "relation": "broadened"
+              },
+              {
+                "aspect": "certainty",
+                "source_wording": "improves sleep-onset delay",
+                "claim_wording": "giúp trẻ tự kỷ vào giấc nhanh hơn",
+                "relation": "same"
+              },
+              {
+                "aspect": "conclusion_topic",
+                "source_wording": "parent-based education (behavioral therapy) improves sleep-onset delay in children with high-functioning autism",
+                "claim_wording": "Giáo dục cho cha mẹ về liệu pháp hành vi giúp trẻ tự kỷ vào giấc nhanh hơn",
+                "relation": "broadened"
+              },
+              {
+                "aspect": "question_fit",
+                "source_wording": "parent-based education (behavioral therapy) improves sleep-onset delay",
+                "claim_wording": "Giáo dục cho cha mẹ về liệu pháp hành vi giúp trẻ tự kỷ vào giấc nhanh hơn",
+                "relation": "changed"
+              }
+            ],
+            "support": "partially_supported",
+            "flags": [
+              "condition_dropped",
+              "unrequested_medical_content"
+            ],
+            "evidence_span": "Studies have shown that parent-based education (behavioral therapy) improves sleep-onset delay in children with high-functioning autism [59].",
+            "explanation": "The claim broadens the population from 'high-functioning autism' to all autism and introduces treatment content not asked in the original question."
+          },
+          "verifier_reasons": [
+            "support_partially_supported",
+            "flag_condition_dropped",
+            "flag_unrequested_medical_content",
+            "span_not_in_cited_evidence",
+            "check:population_scope:broadened",
+            "check:conclusion_topic:broadened",
+            "check:question_fit:changed"
+          ],
+          "verifier_outcome": "fail"
+        }
+      ],
+      "sent": [
+        "c1",
+        "c2",
+        "c3",
+        "c4",
+        "c5"
+      ]
+    },
+    {
+      "group_id": "G6",
+      "call": null,
+      "records": [
+        {
+          "case_id": "P04",
+          "claim_id": "c1",
+          "verdict": null,
+          "verifier_reasons": [
+            "verifier_output_incomplete"
+          ],
+          "verifier_outcome": "error"
+        },
+        {
+          "case_id": "P05",
+          "claim_id": "c2",
+          "verdict": null,
+          "verifier_reasons": [
+            "verifier_output_incomplete"
+          ],
+          "verifier_outcome": "error"
+        },
+        {
+          "case_id": "P09",
+          "claim_id": "c3",
+          "verdict": null,
+          "verifier_reasons": [
+            "verifier_output_incomplete"
+          ],
+          "verifier_outcome": "error"
+        },
+        {
+          "case_id": "F13",
+          "claim_id": "c4",
+          "verdict": null,
+          "verifier_reasons": [
+            "verifier_output_incomplete"
+          ],
+          "verifier_outcome": "error"
+        },
+        {
+          "case_id": "F14",
+          "claim_id": "c5",
+          "verdict": null,
+          "verifier_reasons": [
+            "verifier_output_incomplete"
+          ],
+          "verifier_outcome": "error"
+        },
+        {
+          "case_id": "F12",
+          "claim_id": "c6",
+          "verdict": null,
+          "verifier_reasons": [
+            "verifier_output_incomplete"
+          ],
+          "verifier_outcome": "error"
+        }
+      ],
+      "sent": [
+        "c1",
+        "c2",
+        "c3",
+        "c4",
+        "c5",
+        "c6"
+      ]
+    }
+  ],
+  "pipeline_groups": [
+    {
+      "group_id": "G2",
+      "call": {
+        "request_id": "chatcmpl-537c849c-d7dd-4e27-a9e5-ca11d020cf4d",
+        "cache_hit": false,
+        "elapsed_seconds": 12.438,
+        "usage": {
+          "prompt_tokens": 1817,
+          "completion_tokens": 951,
+          "total_tokens": 2768,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "records": [
+        {
+          "case_id": "P02",
+          "claim_id": "c1",
+          "verdict": {
+            "claim_id": "c1",
+            "checks": [
+              {
+                "aspect": "population_scope",
+                "source_wording": "SBIs are informed by sensory integration theory, but they have clearly delineated differences from direct, one-on-one occupational therapy intervention using Ayres Sensory Integration® intervention, termed ASI",
+                "claim_wording": "các hoạt động kích thích cảm giác (SBIs) khác biệt rõ rệt với phương pháp Tích hợp cảm giác Ayres (ASI) đã được nghiên cứu cho trẻ tự kỷ",
+                "relation": "broadened"
+              },
+              {
+                "aspect": "certainty",
+                "source_wording": "they have clearly delineated differences",
+                "claim_wording": "khác biệt rõ rệt",
+                "relation": "same"
+              },
+              {
+                "aspect": "conclusion_topic",
+                "source_wording": "SBIs are informed by sensory integration theory, but they have clearly delineated differences from direct, one-on-one occupational therapy intervention using Ayres Sensory Integration® intervention, termed ASI",
+                "claim_wording": "các hoạt động kích thích cảm giác (SBIs) khác biệt rõ rệt với phương pháp Tích hợp cảm giác Ayres (ASI) đã được nghiên cứu cho trẻ tự kỷ",
+                "relation": "same"
+              },
+              {
+                "aspect": "question_fit",
+                "source_wording": "SBIs are informed by sensory integration theory, but they have clearly delineated differences from direct, one-on-one occupational therapy intervention using Ayres Sensory Integration® intervention, termed ASI",
+                "claim_wording": "các hoạt động kích thích cảm giác (SBIs) khác biệt rõ rệt với phương pháp Tích hợp cảm giác Ayres (ASI) đã được nghiên cứu cho trẻ tự kỷ",
+                "relation": "same"
+              }
+            ],
+            "support": "supported",
+            "flags": [],
+            "evidence_span": "SBIs are informed by sensory integration theory, but they have clearly delineated differences from direct, one-on-one occupational therapy intervention using Ayres Sensory Integration® intervention, termed ASI",
+            "explanation": "The source explicitly states SBIs have clearly delineated differences from ASI, supporting the claim that they are not identical. The claim broadens population scope by specifying 'for autistic children' while the source describes the general distinction."
+          },
+          "verifier_reasons": [
+            "check:population_scope:broadened"
+          ],
+          "verifier_outcome": "fail"
+        },
+        {
+          "case_id": "F04",
+          "claim_id": "c2",
+          "verdict": null,
+          "verifier_reasons": null,
+          "verifier_outcome": null
+        },
+        {
+          "case_id": "F05",
+          "claim_id": "c3",
+          "verdict": null,
+          "verifier_reasons": null,
+          "verifier_outcome": null
+        },
+        {
+          "case_id": "X02",
+          "claim_id": "c4",
+          "verdict": {
+            "claim_id": "c4",
+            "checks": [
+              {
+                "aspect": "population_scope",
+                "source_wording": "past reviews typically included studies in which the “sensory integration” intervention described in the study was not consistent with the principles of ASI and was instead a sensory‐based intervention",
+                "claim_wording": "Các bài đánh giá hệ thống trước đây thường nhầm lẫn SBIs với ASI",
+                "relation": "same"
+              },
+              {
+                "aspect": "certainty",
+                "source_wording": "past reviews typically included studies in which the “sensory integration” intervention described in the study was not consistent with the principles of ASI",
+                "claim_wording": "thường nhầm lẫn SBIs với ASI",
+                "relation": "same"
+              },
+              {
+                "aspect": "conclusion_topic",
+                "source_wording": "Inclusion of these studies in systematic reviews and meta‐analyses makes it impossible to draw conclusions regarding efficacy of ASI intervention",
+                "claim_wording": "làm khó khăn việc rút ra kết luận về hiệu quả của ASI",
+                "relation": "same"
+              },
+              {
+                "aspect": "question_fit",
+                "source_wording": "past reviews typically included studies in which the “sensory integration” intervention described in the study was not consistent with the principles of ASI and was instead a sensory‐based intervention",
+                "claim_wording": "Các bài đánh giá hệ thống trước đây thường nhầm lẫn SBIs với ASI",
+                "relation": "same"
+              }
+            ],
+            "support": "supported",
+            "flags": [],
+            "evidence_span": "past reviews typically included studies in which the “sensory integration” intervention described in the study was not consistent with the principles of ASI and was instead a sensory‐based intervention",
+            "explanation": "The source confirms past reviews conflated SBIs with ASI by including non-ASI-consistent studies, making it impossible to draw conclusions about ASI efficacy, directly supporting the claim."
+          },
+          "verifier_reasons": [],
+          "verifier_outcome": "pass"
+        }
+      ],
+      "sent": [
+        "c1",
+        "c4"
+      ]
+    },
+    {
+      "group_id": "G5",
+      "call": {
+        "request_id": "chatcmpl-417105fa-462e-4e53-b071-33f15837e286",
+        "cache_hit": false,
+        "elapsed_seconds": 28.853,
+        "usage": {
+          "prompt_tokens": 2530,
+          "completion_tokens": 1353,
+          "total_tokens": 3883,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "records": [
+        {
+          "case_id": "P08",
+          "claim_id": "c1",
+          "verdict": {
+            "claim_id": "c1",
+            "checks": [
+              {
+                "aspect": "population_scope",
+                "source_wording": "children with ASD",
+                "claim_wording": "trẻ tự kỷ",
+                "relation": "same"
+              },
+              {
+                "aspect": "certainty",
+                "source_wording": "these conclusions are still premature and require further investigation",
+                "claim_wording": "hiện vẫn còn quá sớm và cần nghiên cứu thêm",
+                "relation": "same"
+              },
+              {
+                "aspect": "conclusion_topic",
+                "source_wording": "poor sleep exacerbates problematic daytime behavior",
+                "claim_wording": "giấc ngủ kém làm hành vi ban ngày có vấn đề ở trẻ tự kỷ nặng thêm",
+                "relation": "same"
+              },
+              {
+                "aspect": "question_fit",
+                "source_wording": "these conclusions are still premature and require further investigation",
+                "claim_wording": "hiện vẫn còn quá sớm và cần nghiên cứu thêm",
+                "relation": "same"
+              }
+            ],
+            "support": "supported",
+            "flags": [],
+            "evidence_span": "Although there is reason to believe that serious sleep problems are common in children with ASD and that poor sleep exacerbates problematic daytime behavior, these conclusions are still premature and require further investigation.",
+            "explanation": "The claim accurately reflects the source's statement that conclusions about poor sleep exacerbating daytime behavior in children with ASD are premature and need further investigation."
+          },
+          "verifier_reasons": [],
+          "verifier_outcome": "pass"
+        },
+        {
+          "case_id": "F11",
+          "claim_id": "c2",
+          "verdict": null,
+          "verifier_reasons": null,
+          "verifier_outcome": null
+        },
+        {
+          "case_id": "F16",
+          "claim_id": "c3",
+          "verdict": {
+            "claim_id": "c3",
+            "checks": [
+              {
+                "aspect": "population_scope",
+                "source_wording": "individuals with an ASD",
+                "claim_wording": "trẻ tự kỷ",
+                "relation": "narrowed"
+              },
+              {
+                "aspect": "certainty",
+                "source_wording": "bi-directional relationship between challenging behaviors and sleep disturbance in ASD",
+                "claim_wording": "là nguyên nhân chính gây ra",
+                "relation": "stronger"
+              },
+              {
+                "aspect": "conclusion_topic",
+                "source_wording": "bi-directional relationship between challenging behaviors and sleep disturbance in ASD",
+                "claim_wording": "Các vấn đề hành vi ban ngày là nguyên nhân chính gây ra rối loạn giấc ngủ",
+                "relation": "changed"
+              },
+              {
+                "aspect": "question_fit",
+                "source_wording": "bi-directional relationship between challenging behaviors and sleep disturbance in ASD",
+                "claim_wording": "Các vấn đề hành vi ban ngày là nguyên nhân chính gây ra rối loạn giấc ngủ",
+                "relation": "changed"
+              }
+            ],
+            "support": "contradicted",
+            "flags": [
+              "certainty_changed",
+              "condition_dropped"
+            ],
+            "evidence_span": "Given the bi-directional relationship between challenging behaviors and sleep disturbance in ASD, preliminary evidence suggests that treating sleep disturbances and challenging behavior in isolation may not lead to successful outcomes [50].",
+            "explanation": "The source describes a bi-directional relationship, not a unidirectional causal claim that daytime behavior problems are the main cause of sleep disturbances. The claim overstates certainty and reverses the directional emphasis."
+          },
+          "verifier_reasons": [
+            "support_contradicted",
+            "flag_certainty_changed",
+            "flag_condition_dropped",
+            "check:population_scope:narrowed",
+            "check:certainty:stronger",
+            "check:conclusion_topic:changed",
+            "check:question_fit:changed"
+          ],
+          "verifier_outcome": "fail"
+        },
+        {
+          "case_id": "F17",
+          "claim_id": "c4",
+          "verdict": {
+            "claim_id": "c4",
+            "checks": [
+              {
+                "aspect": "population_scope",
+                "source_wording": "low-functioning individuals (of all ages) with autism",
+                "claim_wording": "trẻ tự kỷ",
+                "relation": "narrowed"
+              },
+              {
+                "aspect": "certainty",
+                "source_wording": "studies have failed to provide conclusive evidence",
+                "claim_wording": "đã chứng minh chắc chắn",
+                "relation": "stronger"
+              },
+              {
+                "aspect": "conclusion_topic",
+                "source_wording": "relationship between sleep and behaviors seen in low-functioning individuals",
+                "claim_wording": "giấc ngủ kém làm hành vi ban ngày ở trẻ tự kỷ trầm trọng hơn",
+                "relation": "changed"
+              },
+              {
+                "aspect": "question_fit",
+                "source_wording": "studies have failed to provide conclusive evidence",
+                "claim_wording": "đã chứng minh chắc chắn",
+                "relation": "changed"
+              }
+            ],
+            "support": "contradicted",
+            "flags": [
+              "certainty_changed",
+              "negation_flipped"
+            ],
+            "evidence_span": "To date, however, studies have failed to provide conclusive evidence about the relationship between sleep and behaviors seen in low-functioning individuals (of all ages) with autism.",
+            "explanation": "The source explicitly states that studies have failed to provide conclusive evidence for low-functioning individuals, while the claim asserts the opposite with certainty."
+          },
+          "verifier_reasons": [
+            "support_contradicted",
+            "flag_certainty_changed",
+            "flag_negation_flipped",
+            "check:population_scope:narrowed",
+            "check:certainty:stronger",
+            "check:conclusion_topic:changed",
+            "check:question_fit:changed"
+          ],
+          "verifier_outcome": "fail"
+        },
+        {
+          "case_id": "F10",
+          "claim_id": "c5",
+          "verdict": {
+            "claim_id": "c5",
+            "checks": [
+              {
+                "aspect": "population_scope",
+                "source_wording": "children with high-functioning autism",
+                "claim_wording": "trẻ tự kỷ",
+                "relation": "broadened"
+              },
+              {
+                "aspect": "certainty",
+                "source_wording": "Studies have shown that parent-based education (behavioral therapy) improves sleep-onset delay",
+                "claim_wording": "giúp trẻ tự kỷ vào giấc nhanh hơn",
+                "relation": "same"
+              },
+              {
+                "aspect": "conclusion_topic",
+                "source_wording": "parent-based education (behavioral therapy) improves sleep-onset delay in children with high-functioning autism",
+                "claim_wording": "Giáo dục cho cha mẹ về liệu pháp hành vi giúp trẻ tự kỷ vào giấc nhanh hơn",
+                "relation": "broadened"
+              },
+              {
+                "aspect": "question_fit",
+                "source_wording": "parent-based education (behavioral therapy) improves sleep-onset delay in children with high-functioning autism",
+                "claim_wording": "Giáo dục cho cha mẹ về liệu pháp hành vi giúp trẻ tự kỷ vào giấc nhanh hơn",
+                "relation": "changed"
+              }
+            ],
+            "support": "partially_supported",
+            "flags": [
+              "condition_dropped",
+              "unrequested_medical_content"
+            ],
+            "evidence_span": "Studies have shown that parent-based education (behavioral therapy) improves sleep-onset delay in children with high-functioning autism [59].",
+            "explanation": "The source specifies high-functioning autism, but the claim generalizes to all autism. The treatment content is unrequested by the original question about causal evidence sufficiency."
+          },
+          "verifier_reasons": [
+            "support_partially_supported",
+            "flag_condition_dropped",
+            "flag_unrequested_medical_content",
+            "span_not_in_cited_evidence",
+            "check:population_scope:broadened",
+            "check:conclusion_topic:broadened",
+            "check:question_fit:changed"
+          ],
+          "verifier_outcome": "fail"
+        }
+      ],
+      "sent": [
+        "c1",
+        "c3",
+        "c4",
+        "c5"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,418 @@
+{
+  "schema": "verifier_measurement_v2",
+  "contract_version": "answer_contract_v0.6",
+  "check_version": "answer_check_v0.6",
+  "verifier_model": "nvidia/nemotron-3-ultra-550b-a55b",
+  "verify_system_sha256": "135b833f02093dc3de0059acaebcb176bbc55647b286df1782208b20a285858e",
+  "pharm_gate_version": "pharm_gate_v0.1",
+  "cases_file": "evaluation/answer_verifier_faults_v1/cases.jsonl",
+  "cases_sha256": "07397efac1087e548891da48393003ac009bdaceef58adc7edebc4fc5e524519",
+  "code_fingerprint": {
+    "rag/answer_layer.py": "5fb0af47349cdf7be7891abdb31151891f75bed78fc3edf77b75dda6735e779d",
+    "rag/answer_render.py": "7e0d9d0594e446023a1574b364baccc394704f5098a5f7163295024d542f7f8d",
+    "rag/answer_policy.py": "fc66753f426b3e4f04488cde5a8ffc0f3e781e127dc67a8ed13d43f3df46e49c",
+    "rag/answer_sources.py": "b17db693d4f1e4b8c74af918cf3a25cf80edd74fbe255350c16b896a23f6189b",
+    "rag/answer_client.py": "0d713183a694fa93bce01e6a2c37e2bc4fb462d80b3ddf4b1b1982ddf46475a6",
+    "rag/retriever.py": "887ee3b963f4f0fc93a8b815a753d0a95d593a2eeacde373e66b920b4b9566f8",
+    "rag/tokenization.py": "563498f8256e0f6c529e08b71ec7dfe18e0f8bd5439aaa8c7e2fe84f1fde5acb",
+    "rag/answer_pharm.py": "1d2d77972d574579487740d7e6d5ebc6b053105db66768ed03d085e4b1579335"
+  },
+  "pinned_files": {
+    "deployments/answer_layer.json": "5c9bf716cf5cbf55f4e612575f7a519b93d488f33e4ad47fcdaae3ecab043338",
+    "deployments/retriever.json": "5ccd6ed225f67bf417d287dc8c83667aad80ea1be90b43204840a390891cd599",
+    "knowledge/rag/source_library/documents.json": "26eb017efca593ed18aa4044c9b8185d871bd0f512cda0cb4b9edf82658c5331",
+    "deployments/evidence_context.json": "270f350c74751aade971dc8b204a3a7e677c9dc6b381a704197e8d0a09385b60",
+    "deployments/answer_pharm_gate.json": "447c8c18a82c836cbc8949b6f7ae9f120ea472ab4f70d58af497ddea9f34a054"
+  },
+  "review_status": "chua_duyet",
+  "cache_seeded_from": null,
+  "note": "Team-draft labels; not clinical adjudication. Single cases: one claim per verifier call.",
+  "records": [
+    {
+      "case_id": "P03",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "checks": [
+          {
+            "aspect": "population_scope",
+            "source_wording": "children with ASD",
+            "claim_wording": "trẻ tự kỷ",
+            "relation": "same"
+          },
+          {
+            "aspect": "certainty",
+            "source_wording": "these conclusions are still premature and require further investigation",
+            "claim_wording": "chưa đủ bằng chứng chắc chắn",
+            "relation": "same"
+          },
+          {
+            "aspect": "conclusion_topic",
+            "source_wording": "relationship between sleep and behaviors",
+            "claim_wording": "quan hệ nhân quả hai chiều giữa khó ngủ và hành vi",
+            "relation": "same"
+          },
+          {
+            "aspect": "question_fit",
+            "source_wording": "relationship between sleep and behaviors",
+            "claim_wording": "quan hệ nhân quả hai chiều giữa khó ngủ và hành vi",
+            "relation": "same"
+          }
+        ],
+        "support": "supported",
+        "flags": [],
+        "evidence_span": "Although there is reason to believe that serious sleep problems are common in children with ASD and that poor sleep exacerbates problematic daytime behavior, these conclusions are still premature and require further investigation.",
+        "explanation": "The claim accurately reflects the source's statement that conclusions about the sleep-behavior relationship in children with ASD are premature and need more investigation, indicating insufficient evidence for a definitive bidirectional causal conclusion."
+      },
+      "reasons": [],
+      "call": {
+        "request_id": "chatcmpl-8a328fa3-8527-47d4-bf25-eea7de112a80",
+        "cache_hit": false,
+        "elapsed_seconds": 6.833,
+        "usage": {
+          "prompt_tokens": 1647,
+          "completion_tokens": 343,
+          "total_tokens": 1990,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "pass"
+    },
+    {
+      "case_id": "P06",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "checks": [
+          {
+            "aspect": "population_scope",
+            "source_wording": "for individuals with autism",
+            "claim_wording": "người tự kỷ",
+            "relation": "same"
+          },
+          {
+            "aspect": "certainty",
+            "source_wording": "there was no evidence of loss of speech skills",
+            "claim_wording": "không có bằng chứng cho thấy ... làm mất kỹ năng nói",
+            "relation": "same"
+          },
+          {
+            "aspect": "conclusion_topic",
+            "source_wording": "no evidence of loss of speech skills",
+            "claim_wording": "không có bằng chứng cho thấy can thiệp ... làm mất kỹ năng nói",
+            "relation": "same"
+          },
+          {
+            "aspect": "question_fit",
+            "source_wording": "no evidence of loss of speech skills",
+            "claim_wording": "không có bằng chứng cho thấy can thiệp ... làm mất kỹ năng nói",
+            "relation": "changed"
+          }
+        ],
+        "support": "supported",
+        "flags": [],
+        "evidence_span": "Schlosser and Wendt34 finding that, for individuals with autism, although modest gains in speech could not be attributable directly to AAC intervention, there was no evidence of loss of speech skills.",
+        "explanation": "The claim accurately reflects the cited review's finding regarding no evidence of speech loss in autistic individuals, but addresses a different topic than the original question's focus on guaranteed speech increase."
+      },
+      "reasons": [
+        "check_claim_not_verbatim:certainty",
+        "check_claim_not_verbatim:conclusion_topic",
+        "check_claim_not_verbatim:question_fit",
+        "check:question_fit:changed"
+      ],
+      "call": {
+        "request_id": "chatcmpl-d15fd4ed-8a7f-43f0-b183-49939eb5fb94",
+        "cache_hit": false,
+        "elapsed_seconds": 9.847,
+        "usage": {
+          "prompt_tokens": 1084,
+          "completion_tokens": 448,
+          "total_tokens": 1532,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "fail"
+    },
+    {
+      "case_id": "F01",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "checks": [
+          {
+            "aspect": "population_scope",
+            "source_wording": "children with ASD",
+            "claim_wording": "",
+            "relation": "dropped"
+          },
+          {
+            "aspect": "certainty",
+            "source_wording": "preliminary evidence suggests",
+            "claim_wording": "vẫn còn sơ bộ",
+            "relation": "same"
+          },
+          {
+            "aspect": "conclusion_topic",
+            "source_wording": "treating sleep disturbances and challenging behavior in isolation may not lead to successful outcomes",
+            "claim_wording": "quan hệ hai chiều",
+            "relation": "narrowed"
+          },
+          {
+            "aspect": "question_fit",
+            "source_wording": "bi-directional relationship between challenging behaviors and sleep disturbance in ASD",
+            "claim_wording": "quan hệ hai chiều",
+            "relation": "same"
+          }
+        ],
+        "support": "supported",
+        "flags": [],
+        "evidence_span": "Given the bi-directional relationship between challenging behaviors and sleep disturbance in ASD, preliminary evidence suggests that treating sleep disturbances and challenging behavior in isolation may not lead to successful outcomes [50].",
+        "explanation": "The claim accurately reflects the source's statement that evidence for the bidirectional relationship is preliminary. The source explicitly uses 'preliminary evidence suggests' regarding the bidirectional relationship between sleep disturbances and challenging behaviors in ASD."
+      },
+      "reasons": [
+        "check:population_scope:dropped",
+        "check:conclusion_topic:narrowed"
+      ],
+      "call": {
+        "request_id": "chatcmpl-27af7006-a03e-4b75-ab4b-4767e336b332",
+        "cache_hit": false,
+        "elapsed_seconds": 3.458,
+        "usage": {
+          "prompt_tokens": 1634,
+          "completion_tokens": 338,
+          "total_tokens": 1972,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "fail"
+    },
+    {
+      "case_id": "F02",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "checks": [
+          {
+            "aspect": "population_scope",
+            "source_wording": "individuals with an ASD",
+            "claim_wording": "trẻ tự kỷ",
+            "relation": "narrowed"
+          },
+          {
+            "aspect": "certainty",
+            "source_wording": "clear uni-directional relationships",
+            "claim_wording": "mối quan hệ một chiều",
+            "relation": "same"
+          },
+          {
+            "aspect": "conclusion_topic",
+            "source_wording": "sleep problems worsen ASD symptomatology across most core domains, as well as exacerbate pre-existing behavioral problems",
+            "claim_wording": "rối loạn ngủ làm trầm trọng thêm triệu chứng cốt lõi và hành vi thách thức của tự kỷ",
+            "relation": "same"
+          },
+          {
+            "aspect": "question_fit",
+            "source_wording": "The foregoing relationship between sleep problems for children with ASD and daytime inappropriate behavior suggests additional research is required to delineate direct connections among specific sleep problems and the specific daytime behavior patterns that may affect individuals with ASD.",
+            "claim_wording": "Nghiên cứu nêu rõ mối quan hệ một chiều: rối loạn ngủ làm trầm trọng thêm triệu chứng cốt lõi và hành vi thách thức của tự kỷ.",
+            "relation": "changed"
+          }
+        ],
+        "support": "supported",
+        "flags": [],
+        "evidence_span": "The current research highlights clear uni-directional relationships between sleep and behavior in individuals with an ASD. It is well researched that sleep problems worsen ASD symptomatology across most core domains, as well as exacerbate pre-existing behavioral problems.",
+        "explanation": "The claim accurately reflects the source's statement about a clear uni-directional relationship where sleep problems worsen core ASD symptoms and behavioral problems. However, the question asks about bidirectional causal relationship, while the claim only describes the uni-directional finding."
+      },
+      "reasons": [
+        "check_claim_not_verbatim:population_scope",
+        "check:population_scope:narrowed",
+        "check:question_fit:changed"
+      ],
+      "call": {
+        "request_id": "chatcmpl-ebad887b-4c00-48f4-9d80-d91f25df9408",
+        "cache_hit": false,
+        "elapsed_seconds": 4.625,
+        "usage": {
+          "prompt_tokens": 1429,
+          "completion_tokens": 506,
+          "total_tokens": 1935,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "fail"
+    },
+    {
+      "case_id": "F06",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "checks": [
+          {
+            "aspect": "population_scope",
+            "source_wording": "for individuals with autism",
+            "claim_wording": "",
+            "relation": "dropped"
+          },
+          {
+            "aspect": "certainty",
+            "source_wording": "there was no evidence of loss of speech skills",
+            "claim_wording": "không có bằng chứng mất kỹ năng nói",
+            "relation": "same"
+          },
+          {
+            "aspect": "conclusion_topic",
+            "source_wording": "no evidence of loss of speech skills",
+            "claim_wording": "không có bằng chứng mất kỹ năng nói khi dùng AAC",
+            "relation": "same"
+          },
+          {
+            "aspect": "question_fit",
+            "source_wording": "Results point mostly to negligible or small effects",
+            "claim_wording": "hiệu quả tăng lời nói thường nhỏ hoặc không đáng kể",
+            "relation": "same"
+          }
+        ],
+        "support": "partially_supported",
+        "flags": [
+          "condition_dropped"
+        ],
+        "evidence_span": "These reviews indicate variable outcomes, with Schlosser and Wendt34 finding that, for individuals with autism, although modest gains in speech could not be attributable directly to AAC intervention, there was no evidence of loss of speech skills.",
+        "explanation": "The claim correctly reports no evidence of speech loss and small/negligible effects on speech gains, but drops the population condition 'for individuals with autism' stated in the source."
+      },
+      "reasons": [
+        "support_partially_supported",
+        "flag_condition_dropped",
+        "check:population_scope:dropped"
+      ],
+      "call": {
+        "request_id": "chatcmpl-b4741729-e0d2-44aa-8ca6-c3ca08899f6d",
+        "cache_hit": false,
+        "elapsed_seconds": 6.36,
+        "usage": {
+          "prompt_tokens": 1081,
+          "completion_tokens": 418,
+          "total_tokens": 1499,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "fail"
+    },
+    {
+      "case_id": "F10",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "checks": [
+          {
+            "aspect": "population_scope",
+            "source_wording": "children with high-functioning autism",
+            "claim_wording": "trẻ tự kỷ",
+            "relation": "narrowed"
+          },
+          {
+            "aspect": "certainty",
+            "source_wording": "Studies have shown that parent-based education (behavioral therapy) improves sleep-onset delay in children with high-functioning autism [59]",
+            "claim_wording": "giúp trẻ tự kỷ vào giấc nhanh hơn",
+            "relation": "same"
+          },
+          {
+            "aspect": "conclusion_topic",
+            "source_wording": "parent-based education (behavioral therapy) improves sleep-onset delay",
+            "claim_wording": "Giáo dục cho cha mẹ về liệu pháp hành vi giúp trẻ tự kỷ vào giấc nhanh hơn",
+            "relation": "same"
+          },
+          {
+            "aspect": "question_fit",
+            "source_wording": "Studies have shown that parent-based education (behavioral therapy) improves sleep-onset delay in children with high-functioning autism [59]",
+            "claim_wording": "Giáo dục cho cha mẹ về liệu pháp hành vi giúp trẻ tự kỷ vào giấc nhanh hơn",
+            "relation": "changed"
+          }
+        ],
+        "support": "supported",
+        "flags": [
+          "unrequested_medical_content"
+        ],
+        "evidence_span": "Studies have shown that parent-based education (behavioral therapy) improves sleep-onset delay in children with high-functioning autism [59]",
+        "explanation": "The claim is supported by the cited quote regarding parent-based education improving sleep-onset delay, but it narrows the population from 'children with high-functioning autism' to 'trẻ tự kỷ' (children with autism generally). The claim addresses treatment efficacy, which is not what the original question asks about (bidirectional causal relationship)."
+      },
+      "reasons": [
+        "flag_unrequested_medical_content",
+        "check:population_scope:narrowed",
+        "check:question_fit:changed"
+      ],
+      "call": {
+        "request_id": "chatcmpl-605b0d4b-2011-47bf-ab67-55f76a93f467",
+        "cache_hit": false,
+        "elapsed_seconds": 9.097,
+        "usage": {
+          "prompt_tokens": 1411,
+          "completion_tokens": 478,
+          "total_tokens": 1889,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "fail"
+    }
+  ],
+  "case_ids": [
+    "P03",
+    "P06",
+    "F01",
+    "F02",
+    "F06",
+    "F10"
+  ]
+}

@@ -1,0 +1,712 @@
+{
+  "schema": "verifier_measurement_v2",
+  "contract_version": "answer_contract_v0.6",
+  "check_version": "answer_check_v0.6",
+  "verifier_model": "nvidia/nemotron-3-ultra-550b-a55b",
+  "verify_system_sha256": "135b833f02093dc3de0059acaebcb176bbc55647b286df1782208b20a285858e",
+  "pharm_gate_version": "pharm_gate_v0.1",
+  "cases_file": "evaluation/answer_verifier_faults_v1/cases.jsonl",
+  "cases_sha256": "07397efac1087e548891da48393003ac009bdaceef58adc7edebc4fc5e524519",
+  "code_fingerprint": {
+    "rag/answer_layer.py": "5fb0af47349cdf7be7891abdb31151891f75bed78fc3edf77b75dda6735e779d",
+    "rag/answer_render.py": "7e0d9d0594e446023a1574b364baccc394704f5098a5f7163295024d542f7f8d",
+    "rag/answer_policy.py": "fc66753f426b3e4f04488cde5a8ffc0f3e781e127dc67a8ed13d43f3df46e49c",
+    "rag/answer_sources.py": "b17db693d4f1e4b8c74af918cf3a25cf80edd74fbe255350c16b896a23f6189b",
+    "rag/answer_client.py": "0d713183a694fa93bce01e6a2c37e2bc4fb462d80b3ddf4b1b1982ddf46475a6",
+    "rag/retriever.py": "887ee3b963f4f0fc93a8b815a753d0a95d593a2eeacde373e66b920b4b9566f8",
+    "rag/tokenization.py": "563498f8256e0f6c529e08b71ec7dfe18e0f8bd5439aaa8c7e2fe84f1fde5acb",
+    "rag/answer_pharm.py": "1d2d77972d574579487740d7e6d5ebc6b053105db66768ed03d085e4b1579335"
+  },
+  "pinned_files": {
+    "deployments/answer_layer.json": "5c9bf716cf5cbf55f4e612575f7a519b93d488f33e4ad47fcdaae3ecab043338",
+    "deployments/retriever.json": "5ccd6ed225f67bf417d287dc8c83667aad80ea1be90b43204840a390891cd599",
+    "knowledge/rag/source_library/documents.json": "26eb017efca593ed18aa4044c9b8185d871bd0f512cda0cb4b9edf82658c5331",
+    "deployments/evidence_context.json": "270f350c74751aade971dc8b204a3a7e677c9dc6b381a704197e8d0a09385b60",
+    "deployments/answer_pharm_gate.json": "447c8c18a82c836cbc8949b6f7ae9f120ea472ab4f70d58af497ddea9f34a054"
+  },
+  "review_status": "chua_duyet",
+  "cache_seeded_from": null,
+  "note": "Team-draft labels; not clinical adjudication. Single cases: one claim per verifier call.",
+  "records": [],
+  "groups_file": "evaluation/answer_verifier_faults_v1/groups_focal.jsonl",
+  "groups_sha256": "494c01c08db98b1b088071d6a0246365871acfa57452a48bb18bbb486e393ed3",
+  "groups": [
+    {
+      "group_id": "G1",
+      "call": {
+        "request_id": "chatcmpl-6b107d14-6830-44ca-ac0b-2cbd03a78594",
+        "cache_hit": false,
+        "elapsed_seconds": 14.631,
+        "usage": {
+          "prompt_tokens": 3239,
+          "completion_tokens": 1191,
+          "total_tokens": 4430,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "records": [
+        {
+          "case_id": "P03",
+          "claim_id": "c1",
+          "verdict": {
+            "claim_id": "c1",
+            "checks": [
+              {
+                "aspect": "population_scope",
+                "source_wording": "children with ASD",
+                "claim_wording": "trẻ tự kỷ",
+                "relation": "same"
+              },
+              {
+                "aspect": "certainty",
+                "source_wording": "these conclusions are still premature and require further investigation",
+                "claim_wording": "chưa đủ bằng chứng chắc chắn",
+                "relation": "same"
+              },
+              {
+                "aspect": "conclusion_topic",
+                "source_wording": "relationship between sleep and behaviors",
+                "claim_wording": "quan hệ nhân quả hai chiều giữa khó ngủ và hành vi",
+                "relation": "same"
+              },
+              {
+                "aspect": "question_fit",
+                "source_wording": "relationship between sleep and behaviors",
+                "claim_wording": "quan hệ nhân quả hai chiều giữa khó ngủ và hành vi",
+                "relation": "same"
+              }
+            ],
+            "support": "supported",
+            "flags": [],
+            "evidence_span": "Although there is reason to believe that serious sleep problems are common in children with ASD and that poor sleep exacerbates problematic daytime behavior, these conclusions are still premature and require further investigation.",
+            "explanation": "E2 explicitly states conclusions about the sleep-behavior relationship in children with ASD are premature and need further investigation, matching the claim."
+          },
+          "verifier_reasons": [],
+          "verifier_outcome": "pass"
+        },
+        {
+          "case_id": "F02",
+          "claim_id": "c2",
+          "verdict": {
+            "claim_id": "c2",
+            "checks": [
+              {
+                "aspect": "population_scope",
+                "source_wording": "individuals with an ASD",
+                "claim_wording": "tự kỷ",
+                "relation": "same"
+              },
+              {
+                "aspect": "certainty",
+                "source_wording": "clear uni-directional relationships",
+                "claim_wording": "mối quan hệ một chiều",
+                "relation": "same"
+              },
+              {
+                "aspect": "conclusion_topic",
+                "source_wording": "sleep problems worsen ASD symptomatology across most core domains, as well as exacerbate pre-existing behavioral problems",
+                "claim_wording": "rối loạn ngủ làm trầm trọng thêm triệu chứng cốt lõi và hành vi thách thức của tự kỷ",
+                "relation": "same"
+              },
+              {
+                "aspect": "question_fit",
+                "source_wording": "uni-directional relationships between sleep and behavior",
+                "claim_wording": "mối quan hệ một chiều: rối loạn ngủ làm trầm trọng thêm triệu chứng cốt lõi và hành vi thách thức của tự kỷ",
+                "relation": "same"
+              }
+            ],
+            "support": "supported",
+            "flags": [],
+            "evidence_span": "The current research highlights clear uni-directional relationships between sleep and behavior in individuals with an ASD. It is well researched that sleep problems worsen ASD symptomatology across most core domains, as well as exacerbate pre-existing behavioral problems.",
+            "explanation": "E1 clearly states uni-directional relationships where sleep problems worsen ASD symptoms and exacerbate behavioral problems, matching the claim."
+          },
+          "verifier_reasons": [],
+          "verifier_outcome": "pass"
+        },
+        {
+          "case_id": "F01",
+          "claim_id": "c3",
+          "verdict": {
+            "claim_id": "c3",
+            "checks": [
+              {
+                "aspect": "population_scope",
+                "source_wording": "individuals with an ASD",
+                "claim_wording": "",
+                "relation": "same"
+              },
+              {
+                "aspect": "certainty",
+                "source_wording": "preliminary evidence suggests",
+                "claim_wording": "vẫn còn sơ bộ",
+                "relation": "same"
+              },
+              {
+                "aspect": "conclusion_topic",
+                "source_wording": "bi-directional relationship between challenging behaviors and sleep disturbance in ASD",
+                "claim_wording": "quan hệ hai chiều",
+                "relation": "same"
+              },
+              {
+                "aspect": "question_fit",
+                "source_wording": "bi-directional relationship between challenging behaviors and sleep disturbance in ASD",
+                "claim_wording": "quan hệ hai chiều",
+                "relation": "same"
+              }
+            ],
+            "support": "supported",
+            "flags": [],
+            "evidence_span": "Given the bi-directional relationship between challenging behaviors and sleep disturbance in ASD, preliminary evidence suggests that treating sleep disturbances and challenging behavior in isolation may not lead to successful outcomes [50].",
+            "explanation": "E1 states preliminary evidence suggests a bi-directional relationship, matching the claim that evidence is still preliminary."
+          },
+          "verifier_reasons": [],
+          "verifier_outcome": "pass"
+        },
+        {
+          "case_id": "F03",
+          "claim_id": "c4",
+          "verdict": {
+            "claim_id": "c4",
+            "checks": [
+              {
+                "aspect": "population_scope",
+                "source_wording": "low-functioning individuals (of all ages) with autism",
+                "claim_wording": "trẻ tự kỷ chức năng thấp mọi lứa tuổi",
+                "relation": "same"
+              },
+              {
+                "aspect": "certainty",
+                "source_wording": "failed to provide conclusive evidence",
+                "claim_wording": "chưa có bằng chứng kết luận",
+                "relation": "same"
+              },
+              {
+                "aspect": "conclusion_topic",
+                "source_wording": "relationship between sleep and behaviors",
+                "claim_wording": "",
+                "relation": "same"
+              },
+              {
+                "aspect": "question_fit",
+                "source_wording": "relationship between sleep and behaviors seen in low-functioning individuals",
+                "claim_wording": "",
+                "relation": "same"
+              }
+            ],
+            "support": "supported",
+            "flags": [],
+            "evidence_span": "To date, however, studies have failed to provide conclusive evidence about the relationship between sleep and behaviors seen in low-functioning individuals (of all ages) with autism.",
+            "explanation": "E2 explicitly states studies have failed to provide conclusive evidence for low-functioning individuals of all ages with autism, matching the claim."
+          },
+          "verifier_reasons": [],
+          "verifier_outcome": "pass"
+        }
+      ],
+      "sent": [
+        "c1",
+        "c2",
+        "c3",
+        "c4"
+      ]
+    },
+    {
+      "group_id": "G5",
+      "call": {
+        "request_id": "chatcmpl-0b02c0ee-eb95-4491-8952-ae49d960dce8",
+        "cache_hit": false,
+        "elapsed_seconds": 28.016,
+        "usage": {
+          "prompt_tokens": 3069,
+          "completion_tokens": 1827,
+          "total_tokens": 4896,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "records": [
+        {
+          "case_id": "P08",
+          "claim_id": "c1",
+          "verdict": {
+            "claim_id": "c1",
+            "checks": [
+              {
+                "aspect": "population_scope",
+                "source_wording": "children with ASD",
+                "claim_wording": "trẻ tự kỷ",
+                "relation": "same"
+              },
+              {
+                "aspect": "certainty",
+                "source_wording": "these conclusions are still premature and require further investigation",
+                "claim_wording": "hiện vẫn còn quá sớm và cần nghiên cứu thêm",
+                "relation": "same"
+              },
+              {
+                "aspect": "conclusion_topic",
+                "source_wording": "poor sleep exacerbates problematic daytime behavior",
+                "claim_wording": "giấc ngủ kém làm hành vi ban ngày có vấn đề ở trẻ tự kỷ nặng thêm",
+                "relation": "same"
+              },
+              {
+                "aspect": "question_fit",
+                "source_wording": "these conclusions are still premature and require further investigation",
+                "claim_wording": "hiện vẫn còn quá sớm và cần nghiên cứu thêm",
+                "relation": "same"
+              }
+            ],
+            "support": "supported",
+            "flags": [],
+            "evidence_span": "Although there is reason to believe that serious sleep problems are common in children with ASD and that poor sleep exacerbates problematic daytime behavior, these conclusions are still premature and require further investigation.",
+            "explanation": "The claim accurately reflects the source's statement that conclusions about poor sleep exacerbating daytime behavior in children with ASD are premature and need further investigation."
+          },
+          "verifier_reasons": [],
+          "verifier_outcome": "pass"
+        },
+        {
+          "case_id": "F11",
+          "claim_id": "c2",
+          "verdict": {
+            "claim_id": "c2",
+            "checks": [
+              {
+                "aspect": "population_scope",
+                "source_wording": "children with autism",
+                "claim_wording": "trẻ tự kỷ",
+                "relation": "same"
+              },
+              {
+                "aspect": "certainty",
+                "source_wording": "is an effective sleep treatment",
+                "claim_wording": "là một phương pháp điều trị giấc ngủ hiệu quả",
+                "relation": "same"
+              },
+              {
+                "aspect": "conclusion_topic",
+                "source_wording": "pharmacological treatments such as melatonin is an effective sleep treatment for children with autism",
+                "claim_wording": "Melatonin là một phương pháp điều trị giấc ngủ hiệu quả cho trẻ tự kỷ",
+                "relation": "same"
+              },
+              {
+                "aspect": "question_fit",
+                "source_wording": "pharmacological treatments such as melatonin is an effective sleep treatment for children with autism",
+                "claim_wording": "Melatonin là một phương pháp điều trị giấc ngủ hiệu quả cho trẻ tự kỷ",
+                "relation": "changed"
+              }
+            ],
+            "support": "supported",
+            "flags": [
+              "unrequested_medical_content"
+            ],
+            "evidence_span": "Studies have shown that parent-based education (behavioral therapy) improves sleep-onset delay in children with high-functioning autism [59] and that pharmacological treatments such as melatonin is an effective sleep treatment for children with autism [77].",
+            "explanation": "The claim is supported by the cited quote regarding melatonin's effectiveness as a sleep treatment, but this treatment content was not asked about in the original question about causal relationships."
+          },
+          "verifier_reasons": [
+            "flag_unrequested_medical_content",
+            "check:question_fit:changed"
+          ],
+          "verifier_outcome": "fail"
+        },
+        {
+          "case_id": "F16",
+          "claim_id": "c3",
+          "verdict": {
+            "claim_id": "c3",
+            "checks": [
+              {
+                "aspect": "population_scope",
+                "source_wording": "individuals with an ASD",
+                "claim_wording": "trẻ tự kỷ",
+                "relation": "narrowed"
+              },
+              {
+                "aspect": "certainty",
+                "source_wording": "bi-directional relationship between challenging behaviors and sleep disturbance",
+                "claim_wording": "là nguyên nhân chính gây ra",
+                "relation": "stronger"
+              },
+              {
+                "aspect": "conclusion_topic",
+                "source_wording": "bi-directional relationship between challenging behaviors and sleep disturbance in ASD",
+                "claim_wording": "Các vấn đề hành vi ban ngày là nguyên nhân chính gây ra rối loạn giấc ngủ",
+                "relation": "changed"
+              },
+              {
+                "aspect": "question_fit",
+                "source_wording": "bi-directional relationship between challenging behaviors and sleep disturbance in ASD",
+                "claim_wording": "Các vấn đề hành vi ban ngày là nguyên nhân chính gây ra rối loạn giấc ngủ",
+                "relation": "same"
+              }
+            ],
+            "support": "not_supported",
+            "flags": [
+              "certainty_changed",
+              "condition_dropped"
+            ],
+            "evidence_span": "Given the bi-directional relationship between challenging behaviors and sleep disturbance in ASD, preliminary evidence suggests that treating sleep disturbances and challenging behavior in isolation may not lead to successful outcomes [50].",
+            "explanation": "The source describes a bi-directional relationship (both directions), but the claim states daytime behavior problems are the main cause of sleep disorders (one direction, stronger causal claim). The source also calls this 'preliminary evidence' not definitive causation."
+          },
+          "verifier_reasons": [
+            "support_not_supported",
+            "flag_certainty_changed",
+            "flag_condition_dropped",
+            "check:population_scope:narrowed",
+            "check:certainty:stronger",
+            "check:conclusion_topic:changed"
+          ],
+          "verifier_outcome": "fail"
+        },
+        {
+          "case_id": "F17",
+          "claim_id": "c4",
+          "verdict": {
+            "claim_id": "c4",
+            "checks": [
+              {
+                "aspect": "population_scope",
+                "source_wording": "low-functioning individuals (of all ages) with autism",
+                "claim_wording": "trẻ tự kỷ",
+                "relation": "broadened"
+              },
+              {
+                "aspect": "certainty",
+                "source_wording": "studies have failed to provide conclusive evidence",
+                "claim_wording": "đã chứng minh chắc chắn",
+                "relation": "stronger"
+              },
+              {
+                "aspect": "conclusion_topic",
+                "source_wording": "relationship between sleep and behaviors seen in low-functioning individuals",
+                "claim_wording": "giấc ngủ kém làm hành vi ban ngày ở trẻ tự kỷ trầm trọng hơn",
+                "relation": "changed"
+              },
+              {
+                "aspect": "question_fit",
+                "source_wording": "studies have failed to provide conclusive evidence about the relationship between sleep and behaviors seen in low-functioning individuals",
+                "claim_wording": "Các nghiên cứu đã chứng minh chắc chắn rằng giấc ngủ kém làm hành vi ban ngày ở trẻ tự kỷ trầm trọng hơn",
+                "relation": "same"
+              }
+            ],
+            "support": "contradicted",
+            "flags": [
+              "certainty_changed",
+              "condition_dropped",
+              "negation_flipped"
+            ],
+            "evidence_span": "To date, however, studies have failed to provide conclusive evidence about the relationship between sleep and behaviors seen in low-functioning individuals (of all ages) with autism.",
+            "explanation": "The source explicitly states studies have FAILED to provide conclusive evidence for low-functioning individuals, while the claim says studies HAVE proven it conclusively for autistic children generally - a direct contradiction with flipped negation and strengthened certainty."
+          },
+          "verifier_reasons": [
+            "support_contradicted",
+            "flag_certainty_changed",
+            "flag_condition_dropped",
+            "flag_negation_flipped",
+            "check:population_scope:broadened",
+            "check:certainty:stronger",
+            "check:conclusion_topic:changed"
+          ],
+          "verifier_outcome": "fail"
+        },
+        {
+          "case_id": "F10",
+          "claim_id": "c5",
+          "verdict": {
+            "claim_id": "c5",
+            "checks": [
+              {
+                "aspect": "population_scope",
+                "source_wording": "children with high-functioning autism",
+                "claim_wording": "trẻ tự kỷ",
+                "relation": "broadened"
+              },
+              {
+                "aspect": "certainty",
+                "source_wording": "improves sleep-onset delay",
+                "claim_wording": "giúp trẻ tự kỷ vào giấc nhanh hơn",
+                "relation": "same"
+              },
+              {
+                "aspect": "conclusion_topic",
+                "source_wording": "parent-based education (behavioral therapy) improves sleep-onset delay in children with high-functioning autism",
+                "claim_wording": "Giáo dục cho cha mẹ về liệu pháp hành vi giúp trẻ tự kỷ vào giấc nhanh hơn",
+                "relation": "same"
+              },
+              {
+                "aspect": "question_fit",
+                "source_wording": "parent-based education (behavioral therapy) improves sleep-onset delay in children with high-functioning autism",
+                "claim_wording": "Giáo dục cho cha mẹ về liệu pháp hành vi giúp trẻ tự kỷ vào giấc nhanh hơn",
+                "relation": "changed"
+              }
+            ],
+            "support": "supported",
+            "flags": [
+              "unrequested_medical_content"
+            ],
+            "evidence_span": "Studies have shown that parent-based education (behavioral therapy) improves sleep-onset delay in children with high-functioning autism [59] and that pharmacological treatments such as melatonin is an effective sleep treatment for children with autism [77].",
+            "explanation": "The claim is supported by the cited quote regarding parent-based education improving sleep-onset delay in high-functioning autism, but this treatment content was not asked about in the original question."
+          },
+          "verifier_reasons": [
+            "flag_unrequested_medical_content",
+            "check:population_scope:broadened",
+            "check:question_fit:changed"
+          ],
+          "verifier_outcome": "fail"
+        }
+      ],
+      "sent": [
+        "c1",
+        "c2",
+        "c3",
+        "c4",
+        "c5"
+      ]
+    }
+  ],
+  "pipeline_groups": [
+    {
+      "group_id": "G5",
+      "call": {
+        "request_id": "chatcmpl-4adb54eb-4c09-46a8-9e00-ce947d94aabe",
+        "cache_hit": false,
+        "elapsed_seconds": 28.806,
+        "usage": {
+          "prompt_tokens": 2530,
+          "completion_tokens": 1330,
+          "total_tokens": 3860,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "records": [
+        {
+          "case_id": "P08",
+          "claim_id": "c1",
+          "verdict": {
+            "claim_id": "c1",
+            "checks": [
+              {
+                "aspect": "population_scope",
+                "source_wording": "children with ASD",
+                "claim_wording": "trẻ tự kỷ",
+                "relation": "same"
+              },
+              {
+                "aspect": "certainty",
+                "source_wording": "these conclusions are still premature and require further investigation",
+                "claim_wording": "hiện vẫn còn quá sớm và cần nghiên cứu thêm",
+                "relation": "same"
+              },
+              {
+                "aspect": "conclusion_topic",
+                "source_wording": "poor sleep exacerbates problematic daytime behavior",
+                "claim_wording": "giấc ngủ kém làm hành vi ban ngày có vấn đề ở trẻ tự kỷ nặng thêm",
+                "relation": "same"
+              },
+              {
+                "aspect": "question_fit",
+                "source_wording": "these conclusions are still premature and require further investigation",
+                "claim_wording": "hiện vẫn còn quá sớm và cần nghiên cứu thêm",
+                "relation": "same"
+              }
+            ],
+            "support": "supported",
+            "flags": [],
+            "evidence_span": "Although there is reason to believe that serious sleep problems are common in children with ASD and that poor sleep exacerbates problematic daytime behavior, these conclusions are still premature and require further investigation.",
+            "explanation": "The claim accurately reflects the source's statement that conclusions about poor sleep exacerbating daytime behavior in children with ASD are premature and need further investigation."
+          },
+          "verifier_reasons": [],
+          "verifier_outcome": "pass"
+        },
+        {
+          "case_id": "F11",
+          "claim_id": "c2",
+          "verdict": null,
+          "verifier_reasons": null,
+          "verifier_outcome": null
+        },
+        {
+          "case_id": "F16",
+          "claim_id": "c3",
+          "verdict": {
+            "claim_id": "c3",
+            "checks": [
+              {
+                "aspect": "population_scope",
+                "source_wording": "individuals with an ASD",
+                "claim_wording": "trẻ tự kỷ",
+                "relation": "narrowed"
+              },
+              {
+                "aspect": "certainty",
+                "source_wording": "bi-directional relationship between challenging behaviors and sleep disturbance in ASD",
+                "claim_wording": "là nguyên nhân chính gây ra",
+                "relation": "stronger"
+              },
+              {
+                "aspect": "conclusion_topic",
+                "source_wording": "bi-directional relationship between challenging behaviors and sleep disturbance in ASD",
+                "claim_wording": "Các vấn đề hành vi ban ngày là nguyên nhân chính gây ra rối loạn giấc ngủ",
+                "relation": "changed"
+              },
+              {
+                "aspect": "question_fit",
+                "source_wording": "bi-directional relationship between challenging behaviors and sleep disturbance in ASD",
+                "claim_wording": "Các vấn đề hành vi ban ngày là nguyên nhân chính gây ra rối loạn giấc ngủ",
+                "relation": "changed"
+              }
+            ],
+            "support": "not_supported",
+            "flags": [
+              "certainty_changed",
+              "condition_dropped"
+            ],
+            "evidence_span": "Given the bi-directional relationship between challenging behaviors and sleep disturbance in ASD, preliminary evidence suggests that treating sleep disturbances and challenging behavior in isolation may not lead to successful outcomes [50].",
+            "explanation": "The source describes a bi-directional relationship, not that daytime behavior problems are the main cause of sleep disturbances. The claim overstates certainty and reverses the directional emphasis."
+          },
+          "verifier_reasons": [
+            "support_not_supported",
+            "flag_certainty_changed",
+            "flag_condition_dropped",
+            "check:population_scope:narrowed",
+            "check:certainty:stronger",
+            "check:conclusion_topic:changed",
+            "check:question_fit:changed"
+          ],
+          "verifier_outcome": "fail"
+        },
+        {
+          "case_id": "F17",
+          "claim_id": "c4",
+          "verdict": {
+            "claim_id": "c4",
+            "checks": [
+              {
+                "aspect": "population_scope",
+                "source_wording": "low-functioning individuals (of all ages) with autism",
+                "claim_wording": "trẻ tự kỷ",
+                "relation": "narrowed"
+              },
+              {
+                "aspect": "certainty",
+                "source_wording": "studies have failed to provide conclusive evidence",
+                "claim_wording": "đã chứng minh chắc chắn",
+                "relation": "stronger"
+              },
+              {
+                "aspect": "conclusion_topic",
+                "source_wording": "relationship between sleep and behaviors seen in low-functioning individuals",
+                "claim_wording": "giấc ngủ kém làm hành vi ban ngày ở trẻ tự kỷ trầm trọng hơn",
+                "relation": "changed"
+              },
+              {
+                "aspect": "question_fit",
+                "source_wording": "studies have failed to provide conclusive evidence",
+                "claim_wording": "đã chứng minh chắc chắn",
+                "relation": "changed"
+              }
+            ],
+            "support": "contradicted",
+            "flags": [
+              "certainty_changed",
+              "negation_flipped"
+            ],
+            "evidence_span": "To date, however, studies have failed to provide conclusive evidence about the relationship between sleep and behaviors seen in low-functioning individuals (of all ages) with autism.",
+            "explanation": "The source explicitly states studies have failed to provide conclusive evidence for low-functioning individuals, while the claim asserts the opposite."
+          },
+          "verifier_reasons": [
+            "support_contradicted",
+            "flag_certainty_changed",
+            "flag_negation_flipped",
+            "check:population_scope:narrowed",
+            "check:certainty:stronger",
+            "check:conclusion_topic:changed",
+            "check:question_fit:changed"
+          ],
+          "verifier_outcome": "fail"
+        },
+        {
+          "case_id": "F10",
+          "claim_id": "c5",
+          "verdict": {
+            "claim_id": "c5",
+            "checks": [
+              {
+                "aspect": "population_scope",
+                "source_wording": "children with high-functioning autism",
+                "claim_wording": "trẻ tự kỷ",
+                "relation": "broadened"
+              },
+              {
+                "aspect": "certainty",
+                "source_wording": "Studies have shown that parent-based education (behavioral therapy) improves sleep-onset delay",
+                "claim_wording": "giúp trẻ tự kỷ vào giấc nhanh hơn",
+                "relation": "same"
+              },
+              {
+                "aspect": "conclusion_topic",
+                "source_wording": "parent-based education (behavioral therapy) improves sleep-onset delay in children with high-functioning autism",
+                "claim_wording": "Giáo dục cho cha mẹ về liệu pháp hành vi giúp trẻ tự kỷ vào giấc nhanh hơn",
+                "relation": "broadened"
+              },
+              {
+                "aspect": "question_fit",
+                "source_wording": "parent-based education (behavioral therapy) improves sleep-onset delay",
+                "claim_wording": "Giáo dục cho cha mẹ về liệu pháp hành vi giúp trẻ tự kỷ vào giấc nhanh hơn",
+                "relation": "changed"
+              }
+            ],
+            "support": "partially_supported",
+            "flags": [
+              "condition_dropped",
+              "unrequested_medical_content"
+            ],
+            "evidence_span": "Studies have shown that parent-based education (behavioral therapy) improves sleep-onset delay in children with high-functioning autism [59].",
+            "explanation": "The claim broadens the population from high-functioning autism to all autism and introduces treatment content not asked in the original question about causal evidence."
+          },
+          "verifier_reasons": [
+            "support_partially_supported",
+            "flag_condition_dropped",
+            "flag_unrequested_medical_content",
+            "span_not_in_cited_evidence",
+            "check:population_scope:broadened",
+            "check:conclusion_topic:broadened",
+            "check:question_fit:changed"
+          ],
+          "verifier_outcome": "fail"
+        }
+      ],
+      "sent": [
+        "c1",
+        "c3",
+        "c4",
+        "c5"
+      ]
+    }
+  ],
+  "groups_only": true
+}

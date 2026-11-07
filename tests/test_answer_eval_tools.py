@@ -144,6 +144,15 @@ class ContentReasonTests(unittest.TestCase):
         self.assertEqual(row["caught_verifier_mechanical_only"], ["F2"])
 
 
+class VerifierErrorTests(unittest.TestCase):
+    def test_invalid_verifier_output_is_a_mechanical_rejection(self):
+        rec = dict(case_id="P1", k1_reasons=[], verdict=None, reasons=["verifier_output_invalid:gap verdict"],
+                   verifier_error=True, outcome="fail", call=None)
+        self.assertEqual(mv.layers(rec), (False, True, True))
+        s = mv.score([_case("P1", "pass")], [rec])
+        self.assertEqual(s["clean"]["false_reject_verifier_mechanical"], ["P1"])
+
+
 class StabilityTests(unittest.TestCase):
     def test_repeated_measurements_flag_flipping_cases(self):
         v = dict(support="supported", flags=[])

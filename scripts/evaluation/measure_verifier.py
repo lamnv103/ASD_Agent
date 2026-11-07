@@ -42,7 +42,16 @@ DEFAULT_MEASUREMENTS = ["reports/verifier_eval_20261107_v0.2", "reports/verifier
                         "reports/verifier_stability_20261107_v0.5/v1_rep1", "reports/verifier_stability_20261107_v0.5/v1_rep2",
                         "reports/verifier_stability_20261107_v0.5/addendum_rep1", "reports/verifier_stability_20261107_v0.5/addendum_rep2",
                         "reports/verifier_controls_20261107_v0.5/rep1", "reports/verifier_controls_20261107_v0.5/rep2",
-                        "reports/verifier_controls_20261107_v0.5/rep3"]
+                        "reports/verifier_controls_20261107_v0.5/rep3",
+                        # v0.6 trial (not accepted)
+                        "reports/verifier_eval_20261107_v0.6", "reports/verifier_eval_20261107_v0.6_addendum",
+                        "reports/verifier_controls_20261107_v0.6/rep1", "reports/verifier_controls_20261107_v0.6/rep2",
+                        "reports/verifier_controls_20261107_v0.6/rep3",
+                        "reports/verifier_stability_20261107_v0.6/v1_rep1", "reports/verifier_stability_20261107_v0.6/v1_rep2",
+                        "reports/verifier_stability_20261107_v0.6/addendum_rep1", "reports/verifier_stability_20261107_v0.6/addendum_rep2",
+                        "reports/verifier_stability_20261107_v0.6/groups_v1_rep1", "reports/verifier_stability_20261107_v0.6/groups_v1_rep2",
+                        "reports/verifier_stability_20261107_v0.6/groups_addendum_rep1",
+                        "reports/verifier_stability_20261107_v0.6/groups_addendum_rep2"]
 CONTENT_PREFIXES = ("support_", "flag_", "check:")  # verifier reasons about the claim's content (vs schema/wording)
 FLAG_TO_ASPECT = {"condition_dropped": "population_scope", "certainty_changed": "certainty",
                   "added_content": "conclusion_topic", "unrequested_medical_content": "question_fit"}
@@ -71,6 +80,7 @@ class Runtime:
         self.corpus = answer_sources.load_trusted_corpus()
         self.counter = load_counter(json.loads((code_root / "deployments/evidence_context.json").read_text(encoding="utf-8")))
         self.code_root = code_root
+        self.replay_incomplete_ok = False
         self.gate = None
         if "pharm_gate" in self.cfg:  # contract v0.3+
             from rag.answer_pharm import load_pharm_gate
@@ -94,12 +104,27 @@ class Runtime:
         return self.al.check_claims_k1(claims, catalog, sources, need_ids, self.cfg, pharm)
 
     def _verify(self, client, trace, needs, claims, catalog):
+        """Invalid verifier output is a RESULT (the pipeline would show a system error), recorded per claim with the
+        mechanical reason "verifier_output_invalid:<check>"; provider/cache errors still propagate."""
         payload = self.al.build_verify_payload(trace["question"], needs, claims, [], catalog)
         msgs = [dict(role="system", content=self.al.VERIFY_SYSTEM), dict(role="user", content=self.canonical(payload))]
-        out = client.complete(msgs)
-        res = self.al.parse_verification(out["content"], claims, [], needs, catalog, self.cfg)["claims"]
-        return res, dict(request_id=out.get("request_id"), cache_hit=out.get("cache_hit"),
-                         elapsed_seconds=out.get("elapsed_seconds"), usage=out.get("usage"))
+        try:
+            out = client.complete(msgs)
+        except Exception as exc:  # a truncated completion is a result (pipeline: system_error); other errors propagate
+            ok = {"nim_incomplete"} | ({"offline_cache_miss"} if self.replay_incomplete_ok else set())
+            if getattr(exc, "code", None) not in ok:  # replay: truncated completions were never cached
+                raise
+            return {c["claim_id"]: dict(reasons=["verifier_output_incomplete"], verdict=None) for c in claims}, None
+        call = dict(request_id=out.get("request_id"), cache_hit=out.get("cache_hit"),
+                    elapsed_seconds=out.get("elapsed_seconds"), usage=out.get("usage"))
+        try:
+            res = self.al.parse_verification(out["content"], claims, [], needs, catalog, self.cfg)["claims"]
+        except self.al.AnswerError as exc:
+            if exc.code != "verifier_output_invalid":
+                raise
+            reason = "verifier_output_invalid:" + str(exc).split(": ", 1)[-1]
+            res = {c["claim_id"]: dict(reasons=[reason], verdict=None) for c in claims}
+        return res, call
 
     def check_case(self, case, client):
         trace, catalog, sources, needs, pharm = self._setup(case["trace"])
@@ -113,6 +138,8 @@ class Runtime:
         if not k1:  # the verifier is measured even when only the gate blocked the claim
             res, call = self._verify(client, trace, needs, [claim], catalog)
             rec.update(verdict=res["c1"]["verdict"], reasons=res["c1"]["reasons"], call=call)
+            if res["c1"]["verdict"] is None:
+                rec["verifier_error"] = True
             if gate:
                 rec["verifier_reasons"] = res["c1"]["reasons"]
                 rec["reasons"] = gate + res["c1"]["reasons"]
@@ -134,6 +161,10 @@ class Runtime:
         recs = []
         for m, c in zip(members, claims):
             v = res.get(c["claim_id"])
+            if v is not None and v["verdict"] is None:  # invalid verifier output for the whole group
+                recs.append(dict(case_id=m["case_id"], claim_id=c["claim_id"], verdict=None, verifier_reasons=v["reasons"],
+                                 verifier_outcome="error"))
+                continue
             recs.append(dict(case_id=m["case_id"], claim_id=c["claim_id"], verdict=(v or {}).get("verdict"),
                              verifier_reasons=(v or {}).get("reasons"),
                              verifier_outcome=None if v is None else ("pass" if not v["reasons"] else "fail")))
@@ -174,9 +205,12 @@ class Runtime:
 # ------------------------------------------------------------------ scoring (derived from records)
 
 def layers(rec):
-    """(deterministic_fail, verifier_fail or None if not called, system_fail) for one single-case record."""
+    """(deterministic_fail, verifier_fail or None if not called, system_fail) for one single-case record.
+    Invalid verifier output counts as a verifier rejection with a mechanical (non-content) reason."""
     det = bool(rec["k1_reasons"] or rec.get("gate_reasons"))
-    if rec["verdict"] is None:
+    if rec.get("verifier_error"):
+        ver = True
+    elif rec["verdict"] is None:
         ver = None
     else:
         ver = bool(rec.get("verifier_reasons", rec["reasons"]))
@@ -187,7 +221,8 @@ def score(cases, records, groups=None, pipeline_groups=None):
     by_id = {r["case_id"]: r for r in records}
     faults = [c for c in cases if c["expected"] == "fail"]
     sets = {"core": [c for c in faults if c["measurable_from"] == "v0.2"], "all": faults}
-    s = dict(clean=dict(n=0, false_reject_system=[], false_reject_verifier=[], false_reject_deterministic=[]),
+    s = dict(clean=dict(n=0, false_reject_system=[], false_reject_verifier=[], false_reject_deterministic=[],
+                        false_reject_verifier_mechanical=[]),
              contested=[], faults={})
     for c in cases:
         if c["expected"] == "pass":
@@ -196,6 +231,9 @@ def score(cases, records, groups=None, pipeline_groups=None):
             for name, flag in (("system", sysf), ("verifier", ver), ("deterministic", det)):
                 if flag:
                     s["clean"][f"false_reject_{name}"].append(c["case_id"])
+            r = by_id[c["case_id"]]
+            if ver and not any(x.startswith(CONTENT_PREFIXES) for x in r.get("verifier_reasons", r["reasons"])):
+                s["clean"]["false_reject_verifier_mechanical"].append(c["case_id"])
         elif c["expected"] == "contested":
             s["contested"].append(dict(case_id=c["case_id"], outcome=by_id[c["case_id"]]["outcome"]))
     for name, fs in sets.items():
@@ -247,7 +285,8 @@ def print_summary(label, res, cases):
     c = s["clean"]
     print(f"== {label}: {res['contract_version']} / verifier prompt {res['verify_system_sha256'][:8]} / gate {res.get('pharm_gate_version')}")
     print(f"  clean {c['n']}: false rejects system {len(c['false_reject_system'])} {c['false_reject_system']} | "
-          f"verifier {len(c['false_reject_verifier'])} | deterministic {len(c['false_reject_deterministic'])}")
+          f"verifier {len(c['false_reject_verifier'])} (mechanical only {c['false_reject_verifier_mechanical']}) | "
+          f"deterministic {len(c['false_reject_deterministic'])}")
     for name, row in s["faults"].items():
         print(f"  faults {name} (n={row['n']}): system caught {len(row['caught_system'])}/{row['n']} | "
               f"deterministic blocked {len(row['blocked_deterministic'])} {row['blocked_deterministic']} | "
@@ -296,6 +335,8 @@ def check_here(out: Path, code_root: Path = ROOT) -> list[str]:
     """Cache-only replay of one measurement with the rag package under code_root. Returns the differences."""
     rt = Runtime(code_root)
     expected = json.loads((out / "results.json").read_text(encoding="utf-8"))
+    # truncated completions are not cached; their records must then match exactly (compared below)
+    rt.replay_incomplete_ok = "verifier_output_incomplete" in json.dumps(expected)
     cases = load_jsonl(ROOT / expected["cases_file"])
     if expected.get("case_ids"):
         cases = [c for c in cases if c["case_id"] in expected["case_ids"]]
@@ -304,7 +345,7 @@ def check_here(out: Path, code_root: Path = ROOT) -> list[str]:
     pipe = None
     try:
         with va.NoNetwork():
-            records = [rt.check_case(c, client) for c in cases]
+            records = [] if expected.get("groups_only") else [rt.check_case(c, client) for c in cases]
             by_id = {c["case_id"]: c for c in cases}
             groups = [rt.check_group(g, by_id, client) for g in groups_def] if groups_def else None
             pipe = rt.pipeline_groups(groups_def, by_id, client) if "pipeline_groups" in expected else None
@@ -346,6 +387,7 @@ def main() -> int:
     p.add_argument("--cases", default=DEFAULT_CASES)
     p.add_argument("--groups", default=DEFAULT_GROUPS)
     p.add_argument("--no-groups", action="store_true", help="single cases only")
+    p.add_argument("--groups-only", action="store_true", help="groups (and pipeline groups) only, no single cases")
     p.add_argument("--only", help="comma-separated case ids (e.g. a stability repetition)")
     p.add_argument("--out", help="new measurement folder (cache/ and results.json)")
     p.add_argument("--nvidia-key-file")
@@ -397,7 +439,7 @@ def main() -> int:
     groups_def = [] if args.no_groups else load_jsonl(ROOT / args.groups)
     client = rt.client_cls(rt.counter, key_file=args.nvidia_key_file, cache_dir=out / "cache")
     records = []
-    for c in cases:
+    for c in ([] if args.groups_only else cases):
         r = rt.check_case(c, client)
         records.append(r)
         v = r["verdict"] or {}
@@ -420,8 +462,11 @@ def main() -> int:
                        seeded_from=args.seed_cache, pipeline_groups=None if args.no_groups else pipe)
     if only:
         result["case_ids"] = [c["case_id"] for c in cases]
+    if args.groups_only:
+        result["groups_only"] = True
     rt.atomic_json(out / "results.json", result)
-    print_summary(args.out, result, cases)
+    if not args.groups_only:
+        print_summary(args.out, result, cases)
     return 0
 
 

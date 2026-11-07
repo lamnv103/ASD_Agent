@@ -1,0 +1,614 @@
+{
+  "schema": "verifier_measurement_v2",
+  "contract_version": "answer_contract_v0.6",
+  "check_version": "answer_check_v0.6",
+  "verifier_model": "nvidia/nemotron-3-ultra-550b-a55b",
+  "verify_system_sha256": "135b833f02093dc3de0059acaebcb176bbc55647b286df1782208b20a285858e",
+  "pharm_gate_version": "pharm_gate_v0.1",
+  "cases_file": "evaluation/answer_verifier_faults_v1_addendum/cases.jsonl",
+  "cases_sha256": "500a9e3fb6a2d609fb59e67c0df608fc2f6980eed53bc9c5eb661fab96291e62",
+  "code_fingerprint": {
+    "rag/answer_layer.py": "5fb0af47349cdf7be7891abdb31151891f75bed78fc3edf77b75dda6735e779d",
+    "rag/answer_render.py": "7e0d9d0594e446023a1574b364baccc394704f5098a5f7163295024d542f7f8d",
+    "rag/answer_policy.py": "fc66753f426b3e4f04488cde5a8ffc0f3e781e127dc67a8ed13d43f3df46e49c",
+    "rag/answer_sources.py": "b17db693d4f1e4b8c74af918cf3a25cf80edd74fbe255350c16b896a23f6189b",
+    "rag/answer_client.py": "0d713183a694fa93bce01e6a2c37e2bc4fb462d80b3ddf4b1b1982ddf46475a6",
+    "rag/retriever.py": "887ee3b963f4f0fc93a8b815a753d0a95d593a2eeacde373e66b920b4b9566f8",
+    "rag/tokenization.py": "563498f8256e0f6c529e08b71ec7dfe18e0f8bd5439aaa8c7e2fe84f1fde5acb",
+    "rag/answer_pharm.py": "1d2d77972d574579487740d7e6d5ebc6b053105db66768ed03d085e4b1579335"
+  },
+  "pinned_files": {
+    "deployments/answer_layer.json": "5c9bf716cf5cbf55f4e612575f7a519b93d488f33e4ad47fcdaae3ecab043338",
+    "deployments/retriever.json": "5ccd6ed225f67bf417d287dc8c83667aad80ea1be90b43204840a390891cd599",
+    "knowledge/rag/source_library/documents.json": "26eb017efca593ed18aa4044c9b8185d871bd0f512cda0cb4b9edf82658c5331",
+    "deployments/evidence_context.json": "270f350c74751aade971dc8b204a3a7e677c9dc6b381a704197e8d0a09385b60",
+    "deployments/answer_pharm_gate.json": "447c8c18a82c836cbc8949b6f7ae9f120ea472ab4f70d58af497ddea9f34a054"
+  },
+  "review_status": "chua_duyet",
+  "cache_seeded_from": null,
+  "note": "Team-draft labels; not clinical adjudication. Single cases: one claim per verifier call.",
+  "records": [
+    {
+      "case_id": "A01",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "checks": [
+          {
+            "aspect": "population_scope",
+            "source_wording": "past reviews typically included studies in which the “sensory integration” intervention described in the study was not consistent with the principles of ASI and was instead a sensory‐based intervention",
+            "claim_wording": "Các bài đánh giá hệ thống trước đây thường nhầm lẫn SBIs với ASI",
+            "relation": "same"
+          },
+          {
+            "aspect": "certainty",
+            "source_wording": "makes it impossible to draw conclusions regarding efficacy of ASI intervention",
+            "claim_wording": "dẫn đến việc đưa ra kết luận sai lệch về hiệu quả của ASI",
+            "relation": "stronger"
+          },
+          {
+            "aspect": "conclusion_topic",
+            "source_wording": "past reviews and meta‐analyses include studies that failed to provide an adequate description of the phenotypic characteristics of participants ... makes it impossible to draw conclusions regarding efficacy of ASI intervention",
+            "claim_wording": "dẫn đến việc đưa ra kết luận sai lệch về hiệu quả của ASI do bao gồm các nghiên cứu không tuân thủ nguyên tắc ASI",
+            "relation": "same"
+          },
+          {
+            "aspect": "question_fit",
+            "source_wording": "past reviews typically included studies in which the “sensory integration” intervention described in the study was not consistent with the principles of ASI and was instead a sensory‐based intervention",
+            "claim_wording": "Các bài đánh giá hệ thống trước đây thường nhầm lẫn SBIs với ASI",
+            "relation": "changed"
+          }
+        ],
+        "support": "partially_supported",
+        "flags": [
+          "certainty_changed",
+          "condition_dropped"
+        ],
+        "evidence_span": "past reviews typically included studies in which the “sensory integration” intervention described in the study was not consistent with the principles of ASI and was instead a sensory‐based intervention",
+        "explanation": "The claim correctly states that past systematic reviews conflated sensory-based interventions (SBIs) with Ayres Sensory Integration (ASI) and included studies not adhering to ASI principles. However, the source says this makes it impossible to draw conclusions about ASI efficacy, whereas the claim says it leads to 'wrong conclusions' (kết luận sai lệch), which is a stronger certainty. The claim also drops the condition that the problem stems from inadequate participant characterization and lack of fidelity to ASI individualization. The claim addresses systematic reviews, while the original question asks whether all sensory stimulation activities are identical to the researched ASI method for autistic children, so question_fit is changed."
+      },
+      "reasons": [
+        "support_partially_supported",
+        "flag_certainty_changed",
+        "flag_condition_dropped",
+        "check:certainty:stronger",
+        "check_source_not_verbatim:conclusion_topic",
+        "check:question_fit:changed"
+      ],
+      "call": {
+        "request_id": "chatcmpl-31d0857c-e2aa-4619-93c1-03d27366f5e3",
+        "cache_hit": false,
+        "elapsed_seconds": 11.471,
+        "usage": {
+          "prompt_tokens": 1511,
+          "completion_tokens": 706,
+          "total_tokens": 2217,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "fail"
+    },
+    {
+      "case_id": "A02",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "checks": [
+          {
+            "aspect": "population_scope",
+            "source_wording": "children without the specific sensory‐motor difficulties that are appropriate for ASI intervention",
+            "claim_wording": "",
+            "relation": "dropped"
+          },
+          {
+            "aspect": "certainty",
+            "source_wording": "impossible to draw conclusions regarding efficacy of ASI intervention",
+            "claim_wording": "không thể rút ra kết luận về hiệu quả của can thiệp ASI",
+            "relation": "same"
+          },
+          {
+            "aspect": "conclusion_topic",
+            "source_wording": "efficacy of ASI intervention",
+            "claim_wording": "hiệu quả của can thiệp ASI",
+            "relation": "same"
+          },
+          {
+            "aspect": "question_fit",
+            "source_wording": "impossible to draw conclusions regarding efficacy of ASI intervention",
+            "claim_wording": "không thể rút ra kết luận về hiệu quả của can thiệp ASI",
+            "relation": "changed"
+          }
+        ],
+        "support": "supported",
+        "flags": [],
+        "evidence_span": "Inclusion of these studies in systematic reviews and meta‐analyses makes it impossible to draw conclusions regarding efficacy of ASI intervention.",
+        "explanation": "The claim accurately reflects the source's statement that inclusion of poorly characterized studies makes it impossible to draw conclusions about ASI efficacy. However, the claim does not address the original question, which asks whether all sensory stimulation activities are identical to the researched sensory integration method for autistic children."
+      },
+      "reasons": [
+        "check:population_scope:dropped",
+        "check:question_fit:changed"
+      ],
+      "call": {
+        "request_id": "chatcmpl-0fb58f76-bce8-48a3-89cc-ae3207a9ce42",
+        "cache_hit": false,
+        "elapsed_seconds": 7.289,
+        "usage": {
+          "prompt_tokens": 1191,
+          "completion_tokens": 435,
+          "total_tokens": 1626,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "fail"
+    },
+    {
+      "case_id": "A03",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "checks": [
+          {
+            "aspect": "population_scope",
+            "source_wording": "past reviews and meta‐analyses include studies that failed to provide an adequate description of the phenotypic characteristics of participants",
+            "claim_wording": "các tổng quan trước đây đưa vào những nghiên cứu không mô tả đầy đủ đặc điểm người tham gia",
+            "relation": "same"
+          },
+          {
+            "aspect": "certainty",
+            "source_wording": "makes it impossible to draw conclusions regarding efficacy of ASI intervention",
+            "claim_wording": "đã dẫn đến kết luận sai lệch về hiệu quả của can thiệp ASI",
+            "relation": "changed"
+          },
+          {
+            "aspect": "conclusion_topic",
+            "source_wording": "impossible to draw conclusions regarding efficacy of ASI intervention",
+            "claim_wording": "kết luận sai lệch về hiệu quả của can thiệp ASI",
+            "relation": "changed"
+          },
+          {
+            "aspect": "question_fit",
+            "source_wording": "Inclusion of these studies in systematic reviews and meta‐analyses makes it impossible to draw conclusions regarding efficacy of ASI intervention",
+            "claim_wording": "Việc các tổng quan trước đây đưa vào những nghiên cứu không mô tả đầy đủ đặc điểm người tham gia đã dẫn đến kết luận sai lệch về hiệu quả của can thiệp ASI",
+            "relation": "changed"
+          }
+        ],
+        "support": "not_supported",
+        "flags": [
+          "certainty_changed",
+          "condition_dropped"
+        ],
+        "evidence_span": "Inclusion of these studies in systematic reviews and meta‐analyses makes it impossible to draw conclusions regarding efficacy of ASI intervention.",
+        "explanation": "The source states that inclusion of poorly characterized studies makes it impossible to draw conclusions about ASI efficacy, not that it leads to wrong/biased conclusions. The claim changes 'impossible to draw conclusions' to 'wrong conclusions' (certainty_changed) and drops the specific context about systematic reviews/meta-analyses and sample characterization issues (condition_dropped). The claim also does not address the original question about whether sensory stimulation activities are identical to the researched sensory integration method."
+      },
+      "reasons": [
+        "support_not_supported",
+        "flag_certainty_changed",
+        "flag_condition_dropped",
+        "check:certainty:changed",
+        "check:conclusion_topic:changed",
+        "check:question_fit:changed"
+      ],
+      "call": {
+        "request_id": "chatcmpl-b26b6fe2-feb2-44f4-a875-f4cfee7f6325",
+        "cache_hit": false,
+        "elapsed_seconds": 6.375,
+        "usage": {
+          "prompt_tokens": 1189,
+          "completion_tokens": 567,
+          "total_tokens": 1756,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "fail"
+    },
+    {
+      "case_id": "A04",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "checks": [
+          {
+            "aspect": "population_scope",
+            "source_wording": "individuals with mixed groups of ASD samples and individuals with high-functioning autism",
+            "claim_wording": "các nhóm mẫu tự kỷ hỗn hợp và người tự kỷ chức năng cao",
+            "relation": "same"
+          },
+          {
+            "aspect": "certainty",
+            "source_wording": "These relationships have been fairly well investigated in cross-sectional studies",
+            "claim_wording": "chủ yếu được nghiên cứu bằng các nghiên cứu cắt ngang",
+            "relation": "same"
+          },
+          {
+            "aspect": "conclusion_topic",
+            "source_wording": "relationships between sleep and behavior",
+            "claim_wording": "Mối liên quan giữa giấc ngủ và hành vi",
+            "relation": "same"
+          },
+          {
+            "aspect": "question_fit",
+            "source_wording": "The current research highlights clear uni-directional relationships between sleep and behavior in individuals with an ASD",
+            "claim_wording": "Mối liên quan giữa giấc ngủ và hành vi chủ yếu được nghiên cứu bằng các nghiên cứu cắt ngang, trên các nhóm mẫu tự kỷ hỗn hợp và người tự kỷ chức năng cao.",
+            "relation": "changed"
+          }
+        ],
+        "support": "supported",
+        "flags": [],
+        "evidence_span": "These relationships have been fairly well investigated in cross-sectional studies using objective measures with individuals with mixed groups of ASD samples and individuals with high-functioning autism.",
+        "explanation": "The claim accurately reflects the source's description of the study designs (cross-sectional) and populations (mixed ASD samples and high-functioning autism) used to investigate sleep-behavior relationships. However, the claim describes the research methodology rather than addressing the original question about whether evidence is sufficient to establish a definitive bidirectional causal relationship."
+      },
+      "reasons": [
+        "check:question_fit:changed"
+      ],
+      "call": {
+        "request_id": "chatcmpl-2d500e38-6f5c-42f7-8e4b-cf8c1373f94a",
+        "cache_hit": false,
+        "elapsed_seconds": 8.616,
+        "usage": {
+          "prompt_tokens": 1433,
+          "completion_tokens": 519,
+          "total_tokens": 1952,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "fail"
+    },
+    {
+      "case_id": "A05",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "checks": [
+          {
+            "aspect": "population_scope",
+            "source_wording": "individuals with an ASD",
+            "claim_wording": "mọi nhóm trẻ tự kỷ",
+            "relation": "broadened"
+          },
+          {
+            "aspect": "certainty",
+            "source_wording": "well researched that sleep problems worsen ASD symptomatology",
+            "claim_wording": "đã được nghiên cứu kỹ",
+            "relation": "same"
+          },
+          {
+            "aspect": "conclusion_topic",
+            "source_wording": "clear uni-directional relationships between sleep and behavior",
+            "claim_wording": "Mối liên quan giữa giấc ngủ và hành vi",
+            "relation": "changed"
+          },
+          {
+            "aspect": "question_fit",
+            "source_wording": "clear uni-directional relationships between sleep and behavior",
+            "claim_wording": "Mối liên quan giữa giấc ngủ và hành vi",
+            "relation": "changed"
+          }
+        ],
+        "support": "not_supported",
+        "flags": [
+          "condition_dropped"
+        ],
+        "evidence_span": "The current research highlights clear uni-directional relationships between sleep and behavior in individuals with an ASD.",
+        "explanation": "The claim broadens the population from 'individuals with an ASD' to 'every group of autistic children' and misstates the conclusion topic: the source emphasizes uni-directional relationships (sleep → behavior), not a general bidirectional relationship, which is what the original question asks about."
+      },
+      "reasons": [
+        "support_not_supported",
+        "flag_condition_dropped",
+        "check:population_scope:broadened",
+        "check:conclusion_topic:changed",
+        "check:question_fit:changed"
+      ],
+      "call": {
+        "request_id": "chatcmpl-ec1ecf35-8d8a-4d0e-8375-a0c982a6d438",
+        "cache_hit": false,
+        "elapsed_seconds": 7.468,
+        "usage": {
+          "prompt_tokens": 1414,
+          "completion_tokens": 409,
+          "total_tokens": 1823,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "fail"
+    },
+    {
+      "case_id": "A06",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "checks": [
+          {
+            "aspect": "population_scope",
+            "source_wording": "individuals with an ASD",
+            "claim_wording": "trẻ tự kỷ",
+            "relation": "narrowed"
+          },
+          {
+            "aspect": "certainty",
+            "source_wording": "preliminary evidence suggests",
+            "claim_wording": "là quan hệ hai chiều",
+            "relation": "stronger"
+          },
+          {
+            "aspect": "conclusion_topic",
+            "source_wording": "bi-directional relationship between challenging behaviors and sleep disturbance in ASD",
+            "claim_wording": "quan hệ giữa hành vi thách thức và rối loạn giấc ngủ ở trẻ tự kỷ là quan hệ hai chiều",
+            "relation": "same"
+          },
+          {
+            "aspect": "question_fit",
+            "source_wording": "preliminary evidence suggests that treating sleep disturbances and challenging behavior in isolation may not lead to successful outcomes",
+            "claim_wording": "Tài liệu này mô tả quan hệ giữa hành vi thách thức và rối loạn giấc ngủ ở trẻ tự kỷ là quan hệ hai chiều.",
+            "relation": "changed"
+          }
+        ],
+        "support": "partially_supported",
+        "flags": [
+          "certainty_changed"
+        ],
+        "evidence_span": "Given the bi-directional relationship between challenging behaviors and sleep disturbance in ASD, preliminary evidence suggests that treating sleep disturbances and challenging behavior in isolation may not lead to successful outcomes [50].",
+        "explanation": "The source states there is a bi-directional relationship but explicitly qualifies it as 'preliminary evidence', whereas the claim presents it as an established fact without the uncertainty qualifier."
+      },
+      "reasons": [
+        "support_partially_supported",
+        "flag_certainty_changed",
+        "check:population_scope:narrowed",
+        "check:certainty:stronger",
+        "check:question_fit:changed"
+      ],
+      "call": {
+        "request_id": "chatcmpl-3daaa5be-80ef-4533-a2d8-cf76681086dd",
+        "cache_hit": false,
+        "elapsed_seconds": 5.652,
+        "usage": {
+          "prompt_tokens": 1423,
+          "completion_tokens": 460,
+          "total_tokens": 1883,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "fail"
+    },
+    {
+      "case_id": "A07",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "checks": [
+          {
+            "aspect": "population_scope",
+            "source_wording": "children with ASD",
+            "claim_wording": "trẻ tự kỷ",
+            "relation": "same"
+          },
+          {
+            "aspect": "certainty",
+            "source_wording": "preliminary evidence suggests",
+            "claim_wording": "Bằng chứng sơ bộ cho thấy",
+            "relation": "same"
+          },
+          {
+            "aspect": "conclusion_topic",
+            "source_wording": "treating sleep disturbances and challenging behavior in isolation may not lead to successful outcomes",
+            "claim_wording": "điều trị riêng rẽ rối loạn giấc ngủ và hành vi thách thức ở trẻ tự kỷ có thể không mang lại kết quả tốt",
+            "relation": "same"
+          },
+          {
+            "aspect": "question_fit",
+            "source_wording": "preliminary evidence suggests that treating sleep disturbances and challenging behavior in isolation may not lead to successful outcomes",
+            "claim_wording": "Bằng chứng sơ bộ cho thấy điều trị riêng rẽ rối loạn giấc ngủ và hành vi thách thức ở trẻ tự kỷ có thể không mang lại kết quả tốt",
+            "relation": "changed"
+          }
+        ],
+        "support": "supported",
+        "flags": [
+          "unrequested_medical_content"
+        ],
+        "evidence_span": "Given the bi-directional relationship between challenging behaviors and sleep disturbance in ASD, preliminary evidence suggests that treating sleep disturbances and challenging behavior in isolation may not lead to successful outcomes [50].",
+        "explanation": "The claim accurately reflects the source's statement about preliminary evidence regarding isolated treatment of sleep and behavior in ASD children. However, the claim addresses treatment implications rather than the original question about whether evidence is sufficient to establish a definitive bidirectional causal relationship."
+      },
+      "reasons": [
+        "flag_unrequested_medical_content",
+        "check:question_fit:changed"
+      ],
+      "call": {
+        "request_id": "chatcmpl-2aec5e45-f31d-4bb1-8f15-7c526f53862d",
+        "cache_hit": false,
+        "elapsed_seconds": 8.645,
+        "usage": {
+          "prompt_tokens": 1429,
+          "completion_tokens": 478,
+          "total_tokens": 1907,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "fail"
+    },
+    {
+      "case_id": "A08",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "checks": [
+          {
+            "aspect": "population_scope",
+            "source_wording": "children with ASD",
+            "claim_wording": "",
+            "relation": "dropped"
+          },
+          {
+            "aspect": "certainty",
+            "source_wording": "these conclusions are still premature and require further investigation",
+            "claim_wording": "Kết luận này vẫn còn quá sớm và cần nghiên cứu thêm",
+            "relation": "same"
+          },
+          {
+            "aspect": "conclusion_topic",
+            "source_wording": "the relationship between sleep and behaviors seen in low-functioning individuals (of all ages) with autism",
+            "claim_wording": "Kết luận này",
+            "relation": "narrowed"
+          },
+          {
+            "aspect": "question_fit",
+            "source_wording": "studies have failed to provide conclusive evidence about the relationship between sleep and behaviors seen in low-functioning individuals (of all ages) with autism",
+            "claim_wording": "Kết luận này vẫn còn quá sớm và cần nghiên cứu thêm",
+            "relation": "same"
+          }
+        ],
+        "support": "supported",
+        "flags": [],
+        "evidence_span": "Although there is reason to believe that serious sleep problems are common in children with ASD and that poor sleep exacerbates problematic daytime behavior, these conclusions are still premature and require further investigation.",
+        "explanation": "The claim accurately reflects the source's statement that conclusions about the sleep-behavior relationship in ASD are premature and need further investigation, though it omits the specific population (children with ASD) and narrows the conclusion topic to a general reference."
+      },
+      "reasons": [
+        "check:population_scope:dropped",
+        "check:conclusion_topic:narrowed"
+      ],
+      "call": {
+        "request_id": "chatcmpl-998e12ee-eeeb-4768-a39e-a8758bb7f17a",
+        "cache_hit": false,
+        "elapsed_seconds": 6.23,
+        "usage": {
+          "prompt_tokens": 1136,
+          "completion_tokens": 387,
+          "total_tokens": 1523,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "fail"
+    },
+    {
+      "case_id": "A09",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "checks": [
+          {
+            "aspect": "population_scope",
+            "source_wording": "low-functioning individuals (of all ages) with autism",
+            "claim_wording": "người tự kỷ chức năng thấp thuộc mọi lứa tuổi",
+            "relation": "same"
+          },
+          {
+            "aspect": "certainty",
+            "source_wording": "failed to provide conclusive evidence",
+            "claim_wording": "chưa đưa ra bằng chứng kết luận",
+            "relation": "same"
+          },
+          {
+            "aspect": "conclusion_topic",
+            "source_wording": "relationship between sleep and behaviors",
+            "claim_wording": "mối liên quan giữa giấc ngủ và hành vi",
+            "relation": "same"
+          },
+          {
+            "aspect": "question_fit",
+            "source_wording": "relationship between sleep and behaviors",
+            "claim_wording": "mối liên quan giữa giấc ngủ và hành vi",
+            "relation": "changed"
+          }
+        ],
+        "support": "supported",
+        "flags": [],
+        "evidence_span": "To date, however, studies have failed to provide conclusive evidence about the relationship between sleep and behaviors seen in low-functioning individuals (of all ages) with autism.",
+        "explanation": "The claim accurately reflects the source statement that studies have failed to provide conclusive evidence about the sleep-behavior relationship in low-functioning individuals with autism of all ages. However, the claim only addresses the existence of a relationship (association), while the original question asks about establishing a definitive bidirectional causal relationship, making the question_fit 'changed'."
+      },
+      "reasons": [
+        "check:question_fit:changed"
+      ],
+      "call": {
+        "request_id": "chatcmpl-2dc1c237-49e7-4fc8-8109-a461a016dcb7",
+        "cache_hit": false,
+        "elapsed_seconds": 8.635,
+        "usage": {
+          "prompt_tokens": 1162,
+          "completion_tokens": 437,
+          "total_tokens": 1599,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "fail"
+    }
+  ]
+}
