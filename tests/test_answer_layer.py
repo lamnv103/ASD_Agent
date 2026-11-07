@@ -205,12 +205,24 @@ class VerifierOutputTests(unittest.TestCase):
         with self.assertRaises(AnswerError):
             self.parse(ver([verdict("c2", S1, flags=["made_up_flag"])], []), [C_ASSOC])
 
-    def test_need_credited_to_failed_claim_is_not_addressed(self):  # conservative coverage
+    def test_need_credited_to_failed_claim_is_not_addressed(self):  # conservative coverage + change A
         claims = [C_DIRECT, C_ASSOC]
-        status, addressed, missing = compute_status(reader_status="sufficient", claims=claims, passing={"c1"},
-                                                    need_verdicts={"n1": need_v("n1", True, ["c1", "c2"])},
-                                                    needs=self.needs, uncovered=[])
-        self.assertEqual((status, addressed, missing), ("khong_du", [], ["n1"]))
+        status, addressed, missing, credited = compute_status(reader_status="sufficient", claims=claims, passing={"c1"},
+                                                              need_verdicts={"n1": need_v("n1", True, ["c1", "c2"])},
+                                                              needs=self.needs, uncovered=[])
+        # the need stays unaddressed; the passing, credited c1 is kept and the answer is at most mot_phan
+        self.assertEqual((status, addressed, missing, credited), ("mot_phan", [], ["n1"], {"c1"}))
+
+    def test_change_a_never_raises_the_reader_ceiling_and_needs_credit(self):
+        args = dict(claims=[C_DIRECT, C_ASSOC], need_verdicts={"n1": need_v("n1", True, ["c1", "c2"])},
+                    needs=self.needs, uncovered=[])
+        self.assertEqual(compute_status(reader_status="insufficient", passing={"c1"}, **args)[0], "khong_du")
+        none = dict(args, need_verdicts={"n1": need_v("n1", False, [])})
+        self.assertEqual(compute_status(reader_status="sufficient", passing={"c1", "c2"}, **none)[:2], ("khong_du", []))
+        # credit only counts for a need the claim itself carries
+        wrong = dict(args, claims=[C_DIRECT, claim("c2", C_ASSOC["text"], ["E1"], needs=("n2",))],
+                     need_verdicts={"n1": need_v("n1", False, ["c2"])})
+        self.assertEqual(compute_status(reader_status="sufficient", passing={"c2"}, **wrong)[3], set())
 
 
 class FlowTests(unittest.TestCase):
@@ -316,12 +328,12 @@ class FlowTests(unittest.TestCase):
 
     def test_gap_topic_with_assertion_is_replaced_by_generic_sentence(self):
         t = make_trace(needs=(("n1", "a"), ("n2", "b")))
-        gaps = [dict(need_id="n2", topic_vi="melatonin giúp trẻ ngủ ngon hơn")]
+        gaps = [dict(need_id="n2", topic_vi="trẻ sẽ ngủ ngon hơn sau ba tuần")]
         r, _ = run(t, gen([C_DIRECT], gaps, "mot_phan"),
                    ver([verdict("c1", S2)], [need_v("n1", True, ["c1"]), need_v("n2", False, [])],
                        gaps=[dict(need_id="n2", contains_claim=True)]))
         self.assertEqual(r["status"], "mot_phan")
-        self.assertNotIn("melatonin", r["render"]["text"])
+        self.assertNotIn("ba tuần", r["render"]["text"])
         self.assertIn(CFG["gap_sentence_generic"], r["render"]["text"])
 
     def test_valid_gap_topic_is_listed(self):
@@ -341,18 +353,27 @@ class RemovalLogTests(unittest.TestCase):
                     [need_v("n1", True, ["c1", "c2"])])
         return run(make_trace(), gen([C_DIRECT, C_BAD]), bad_v, gen([C_DIRECT, C_BAD]), bad_v)
 
-    def test_dispositions_failed_replaced_and_dropped_by_status(self):
+    def test_cascade_keeps_passing_claim_as_partial_answer(self):  # change A (S08 pattern)
         r, _ = self.cascade()
-        self.assertEqual(r["status"], "khong_du")  # conservative coverage: n1 is credited to the failed c2
+        self.assertEqual((r["status"], r["needs_addressed"], r["needs_missing"]), ("mot_phan", [], ["n1"]))
+        self.assertEqual([c["claim_id"] for c in r["claims_final"]], ["c1"])
+        self.assertIn(C_DIRECT["text"], r["render"]["text"])
+        self.assertNotIn(C_BAD["text"], r["render"]["text"])
+        self.assertIn(CFG["status_openers"]["mot_phan"], r["render"]["text"])
         got = [(x["round"], x["disposition"], x["claim_id"]) for x in r["claims_removed"]]
         self.assertEqual(got, [("generate", "failed_verification", "c2"), ("generate", "replaced_in_repair", "c1"),
-                               ("repair", "failed_verification", "c2"), ("repair", "dropped_by_status", "c1")])
-        dropped = r["claims_removed"][-1]
-        self.assertEqual((dropped["text"], dropped["reasons"]), (C_DIRECT["text"], ["status_khong_du"]))
-        self.assertNotIn(C_DIRECT["text"], r["render"]["text"])
+                               ("repair", "failed_verification", "c2")])
         kinds = [(o["round"], o["kind"], o.get("need_id")) for o in r["verifier_observations"]]
         self.assertEqual(kinds, [("generate", "need_credited_to_failed_claim", "n1"),
                                  ("repair", "need_credited_to_failed_claim", "n1")])
+
+    def test_passing_claim_not_credited_to_any_need_is_not_shown(self):
+        r, _ = run(make_trace(), gen([C_DIRECT, C_ASSOC]),
+                   ver([verdict("c1", S2), verdict("c2", S1)], [need_v("n1", True, ["c1"])]))
+        self.assertEqual((r["status"], [c["claim_id"] for c in r["claims_final"]]), ("du", ["c1"]))
+        self.assertEqual([(x["disposition"], x["claim_id"], x["reasons"]) for x in r["claims_removed"]],
+                         [("dropped_not_credited", "c2", ["not_credited_to_a_need"])])
+        self.assertNotIn(C_ASSOC["text"], r["render"]["text"])
 
     def test_every_generated_claim_is_shown_or_removed(self):
         for r, _ in (self.cascade(),

@@ -19,13 +19,20 @@ import time
 import unicodedata
 from datetime import date
 
+from .answer_pharm import is_gate_reason, load_pharm_gate
 from .answer_policy import POLICY_INTENTS, detect_emergency, load_config, policy_template
 from .answer_render import render_answer, render_fixed
 from .answer_sources import load_trusted_corpus
 from .retriever import canonical, sha
 
 RESULT_SCHEMA = "answer_result_v0.2"
-REMOVED_DISPOSITIONS = ("failed_verification", "replaced_in_repair", "dropped_by_status")
+REMOVED_DISPOSITIONS = ("blocked_pharm_gate", "failed_verification", "replaced_in_repair", "dropped_by_status",
+                        "dropped_not_credited")
+
+
+def disposition_for(reasons):
+    """Failure disposition: the deterministic pharmacological gate is reported separately from other checks."""
+    return "blocked_pharm_gate" if any(is_gate_reason(r) for r in reasons) else "failed_verification"
 READER_CEILING = {"sufficient": "du", "partially_sufficient": "mot_phan", "insufficient": "khong_du"}
 STATUSES = ("du", "mot_phan", "khong_du")
 ROLES = ("tra_loi_truc_tiep", "chi_tiet")
@@ -211,8 +218,9 @@ def parse_generation(content, cfg):
     return data
 
 
-def check_claims_k1(claims, catalog, sources, need_ids, cfg):
-    """K1 deterministic checks. Returns {claim_id: [reason, ...]} (empty list = pass)."""
+def check_claims_k1(claims, catalog, sources, need_ids, cfg, pharm=None):
+    """K1 deterministic checks. Returns {claim_id: [reason, ...]} (empty list = pass).
+    pharm: optional callable text -> gate reasons (rag.answer_pharm, bound to the question scope)."""
     lim = cfg["limits"]
     out = {}
     directs = [i for i, c in enumerate(claims) if c["role"] == "tra_loi_truc_tiep"]
@@ -244,15 +252,18 @@ def check_claims_k1(claims, catalog, sources, need_ids, cfg):
         low = text.casefold()
         if any(low.startswith(w) for w in cfg["banned_leading_connectives"]):
             r.append("leading_connective")
+        if pharm is not None:
+            r += pharm(text)
         out[c["claim_id"]] = r
     return out
 
 
-def check_gaps_k1(gaps, need_ids, cfg):
+def check_gaps_k1(gaps, need_ids, cfg, pharm=None):
     ok = []
     for g in gaps:
         t = g["topic_vi"]
-        if g["need_id"] in need_ids and t and len(t.split()) <= cfg["limits"]["max_gap_words"] and not any(rx.search(t) for rx in _FORBIDDEN.values()):
+        if (g["need_id"] in need_ids and t and len(t.split()) <= cfg["limits"]["max_gap_words"]
+                and not any(rx.search(t) for rx in _FORBIDDEN.values()) and not (pharm is not None and pharm(t))):
             ok.append(g)
     return ok
 
@@ -344,8 +355,18 @@ def verifier_observations(verification, reasons, stage):
 
 # ---------------------------------------------------------------- K4
 
+def credited_claims(claims, passing, need_verdicts):
+    """Passing claims the verifier credits (by_claims) for a need that the claim itself carries."""
+    by_id = {c["claim_id"]: c for c in claims}
+    return {cid for nid, v in need_verdicts.items() for cid in v["by_claims"]
+            if cid in passing and nid in by_id[cid]["need_ids"]}
+
+
 def compute_status(*, reader_status, claims, passing, need_verdicts, needs, uncovered):
-    """Conservative: a need counts only if every claim the verifier credits for it passed and carries that need."""
+    """Coverage stays conservative: a need counts only if every claim the verifier credits for it passed and
+    carries that need. Change A (contract v0.3): claims that passed EVERY check (K1 incl. the pharmacological
+    gate, K2/K3) and are credited to a need are kept even when a co-credited claim failed; such an answer is at
+    most mot_phan. Only credited passing claims are displayed. The reader ceiling is never raised."""
     by_id = {c["claim_id"]: c for c in claims}
     addressed, missing = [], []
     for n in needs:
@@ -355,17 +376,17 @@ def compute_status(*, reader_status, claims, passing, need_verdicts, needs, unco
         ok = bool(v and v["fully_addressed"] and v["by_claims"]
                   and all(cid in passing and n["claim_id"] in by_id[cid]["need_ids"] for cid in v["by_claims"]))
         (addressed if ok else missing).append(n["claim_id"])
-    useful = [c for c in claims if c["claim_id"] in passing]
-    if not useful or not addressed:
+    credited = credited_claims(claims, passing, need_verdicts)
+    if not credited:
         status = "khong_du"
-    elif not missing and not uncovered and reader_status == "sufficient":
+    elif addressed and not missing and not uncovered and reader_status == "sufficient":
         status = "du"
     else:
         status = "mot_phan"
     ceiling = READER_CEILING[reader_status]
     if STATUSES.index(status) < STATUSES.index(ceiling):
         status = ceiling
-    return status, addressed, missing
+    return status, addressed, missing, credited
 
 
 # ---------------------------------------------------------------- orchestration
@@ -416,9 +437,12 @@ def answer_from_trace(trace, *, client=None, config=None, as_of=None, dev=True, 
         return emergency_result(question, cfg, hits, dev=dev)
     out = _base(cfg, trace, question)
     out["as_of"] = as_of.isoformat()
+    gate = load_pharm_gate(cfg["pharm_gate"])
+    out["pharm_gate"] = gate.scope(question)
     total = time.monotonic()
     try:
-        _answer(trace, question, client, cfg, out, as_of_year, dev, corpus)
+        _answer(trace, question, client, cfg, out, as_of_year, dev, corpus,
+                lambda text: gate.check(text, out["pharm_gate"]))
     except AnswerError as exc:
         _system_error(out, cfg, exc.code, dev)
     except Exception as exc:  # provider/network/cache failures: fail closed, keep only the class name and code
@@ -432,7 +456,7 @@ def _system_error(out, cfg, code, dev):
                render=render_fixed(cfg, cfg["system_error_text"], disclaimer=False, dev=dev))
 
 
-def _answer(trace, question, client, cfg, out, as_of_year, dev, corpus):
+def _answer(trace, question, client, cfg, out, as_of_year, dev, corpus, pharm):
     policy = trace.get("medical_policy_after_selection") or {}
     intent = policy.get("intent")
     guard = trace.get("input_guard") or {}
@@ -465,11 +489,11 @@ def _answer(trace, question, client, cfg, out, as_of_year, dev, corpus):
                        needs=[dict(need_id=n["claim_id"], text=n["text"], required=n["required"]) for n in needs],
                        catalog=[dict(id=k, source_label=source_label(sources[v["source_id"]]), quote=v["quote"]) for k, v in catalog.items()])
     try:
-        state = _round(run, "generate", GEN_SYSTEM, gen_payload, question, needs, need_ids, catalog, sources, cfg)
+        state = _round(run, "generate", GEN_SYSTEM, gen_payload, question, needs, need_ids, catalog, sources, cfg, pharm)
         if state["needs_repair"]:
             out["repairs"] = 1
             # every first-round claim is accounted for: failed ones, and passing ones the complete repair output replaces
-            removed_first = [dict(r, round="generate", disposition="failed_verification") for r in state["removed"]]
+            removed_first = [dict(r, round="generate", disposition=disposition_for(r["reasons"])) for r in state["removed"]]
             removed_first += [dict(claim_id=c["claim_id"], text=c["text"], reasons=[], round="generate",
                                    disposition="replaced_in_repair")
                               for c in state.get("claims", []) if c["claim_id"] in state.get("passing", ())]
@@ -478,27 +502,30 @@ def _answer(trace, question, client, cfg, out, as_of_year, dev, corpus):
             repair_payload = dict(gen_payload, previous_output=state["raw"], problems=problems,
                                   unaddressed_needs=state["unaddressed"])
             state = _round(run, "repair", REPAIR_SYSTEM, repair_payload, question, needs, need_ids, catalog, sources, cfg,
-                           final=True)
+                           pharm, final=True)
             out["claims_removed"] = removed_first
         out["calls"], out["timings"] = run.calls, dict(run.timings)
     except Exception:
         out["calls"], out["timings"] = run.calls, dict(run.timings)
         raise
     claims, passing, verification = state["claims"], state["passing"], state["verification"]
-    status, addressed, missing = compute_status(reader_status=reader_status, claims=claims, passing=passing,
-                                                need_verdicts=verification["needs"], needs=needs,
-                                                uncovered=verification["uncovered"])
-    final = [c for c in claims if c["claim_id"] in passing] if status != "khong_du" else []
+    status, addressed, missing, credited = compute_status(reader_status=reader_status, claims=claims, passing=passing,
+                                                          need_verdicts=verification["needs"], needs=needs,
+                                                          uncovered=verification["uncovered"])
+    final = [c for c in claims if c["claim_id"] in credited] if status != "khong_du" else []
     out["verifier_observations"] += state["observations"]
     for c in claims:
         if c["claim_id"] not in passing:
             out["claims_removed"].append(dict(claim_id=c["claim_id"], text=c["text"], reasons=state["reasons"][c["claim_id"]],
-                                              round=state["round"], disposition="failed_verification"))
+                                              round=state["round"], disposition=disposition_for(state["reasons"][c["claim_id"]])))
     shown = {c["claim_id"] for c in final}
     for c in claims:
         if c["claim_id"] in passing and c["claim_id"] not in shown:
-            out["claims_removed"].append(dict(claim_id=c["claim_id"], text=c["text"], reasons=["status_" + status],
-                                              round=state["round"], disposition="dropped_by_status"))
+            not_credited = c["claim_id"] not in credited
+            out["claims_removed"].append(dict(claim_id=c["claim_id"], text=c["text"],
+                                              reasons=["not_credited_to_a_need"] if not_credited else ["status_" + status],
+                                              round=state["round"],
+                                              disposition="dropped_not_credited" if not_credited else "dropped_by_status"))
     gap_topics, generic = [], bool(verification["uncovered"])
     valid_gaps = {g["need_id"]: g for g in state["gaps_ok"] if not verification["gap_contains_claim"].get(g["need_id"], True)}
     for nid in missing:
@@ -523,7 +550,7 @@ def build_verify_payload(question, needs, claims, gaps, catalog):
         gaps=[dict(need_id=g["need_id"], topic_vi=g["topic_vi"]) for g in gaps])
 
 
-def _round(run, stage, system, payload, question, needs, need_ids, catalog, sources, cfg, *, final=False):
+def _round(run, stage, system, payload, question, needs, need_ids, catalog, sources, cfg, pharm=None, *, final=False):
     raw = run.call(stage, system, payload)
     try:
         gen = parse_generation(raw, cfg)
@@ -533,8 +560,8 @@ def _round(run, stage, system, payload, question, needs, need_ids, catalog, sour
         return dict(needs_repair=True, raw=raw, removed=[], unaddressed=sorted(need_ids),
                     problems=[dict(claim_id=None, reasons=["output_not_valid_json_schema"], explanation="")])
     claims = gen["claims"]
-    k1 = check_claims_k1(claims, catalog, sources, need_ids, cfg)
-    gaps_ok = check_gaps_k1(gen["gaps"], need_ids, cfg)
+    k1 = check_claims_k1(claims, catalog, sources, need_ids, cfg, pharm)
+    gaps_ok = check_gaps_k1(gen["gaps"], need_ids, cfg, pharm)
     sent = [c for c in claims if not k1[c["claim_id"]]]
     verify_payload = build_verify_payload(question, needs, sent, gaps_ok, catalog)
     if sent:
@@ -547,8 +574,8 @@ def _round(run, stage, system, payload, question, needs, need_ids, catalog, sour
         reasons[cid] += res["reasons"]
     passing = {cid for cid, r in reasons.items() if not r}
     observations = verifier_observations(verification, reasons, stage)
-    _, addressed, missing = compute_status(reader_status="sufficient", claims=claims, passing=passing,
-                                           need_verdicts=verification["needs"], needs=needs, uncovered=[])
+    _, addressed, missing, _ = compute_status(reader_status="sufficient", claims=claims, passing=passing,
+                                              need_verdicts=verification["needs"], needs=needs, uncovered=[])
     declared_gaps = {g["need_id"] for g in gaps_ok}
     unaddressed = [n for n in missing if n not in declared_gaps]
     failed = [c for c in claims if reasons[c["claim_id"]]]

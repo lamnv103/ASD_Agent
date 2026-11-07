@@ -1,10 +1,18 @@
-# Đặc tả đầu ra tầng trả lời: `answer_contract_v0.2`
+# Đặc tả đầu ra tầng trả lời: `answer_contract_v0.3`
 
 **Trạng thái:** bản nháp để phát triển nguyên mẫu nội bộ, soạn 07/11/2026. **Không phải MVP đã duyệt.** Phạm vi người dùng, nhóm câu hỏi và ngưỡng nghiệm thu vẫn chờ [MVP_SCOPE_DRAFT.md](../MVP_SCOPE_DRAFT.md). Đặc tả kiểm tra: [DAC_TA_KIEM_TRA.md](DAC_TA_KIEM_TRA.md). Rubric chấm: [RUBRIC_CHAM.md](RUBRIC_CHAM.md).
 
-**Đã cài đặt:** `rag/answer_layer.py`, `rag/answer_render.py`, `rag/answer_policy.py`, `rag/answer_sources.py`, `rag/answer_client.py`, `rag/answer.py`. **Câu chữ của mọi mẫu lấy theo `deployments/answer_layer.json`**; các câu trích trong tài liệu này chỉ để minh họa. Cấu hình: `deployments/answer_layer.json`. Kiểm thử: `tests/test_answer_layer.py`.
+**Đã cài đặt:** `rag/answer_layer.py`, `rag/answer_render.py`, `rag/answer_policy.py`, `rag/answer_sources.py`, `rag/answer_client.py`, `rag/answer_pharm.py`, `rag/answer.py`. **Câu chữ của mọi mẫu lấy theo `deployments/answer_layer.json`**; các câu trích trong tài liệu này chỉ để minh họa. Cấu hình: `deployments/answer_layer.json`. Kiểm thử: `tests/test_answer_layer.py`.
 
 **Thẩm định chuyên môn để sau.** Mọi mẫu câu, bảng ghi chú, danh sách cụm khẩn cấp và mọi đầu ra đều mang `review_status: "chua_duyet"`. Mọi bản hiển thị ở chế độ phát triển đều bắt đầu bằng dòng "NGUYÊN MẪU NỘI BỘ…". Cấu hình bị từ chối nếu nhãn này bị đổi. **Không dùng làm căn cứ mở pilot.**
+
+### Thay đổi v0.2 → v0.3 (sau lượt chạy NIM 1 và phép đo verifier, 07/11/2026)
+
+| Điểm | v0.3 |
+|---|---|
+| Chốt dược lý (K1) | Chặn tất định nội dung dược lý **không được hỏi** trong nhận định và câu thiếu ý, ở mọi vòng (đặc tả kiểm tra, mục 2.1). Làm **trước** A vì phép đo cho thấy verifier để lọt nội dung thuốc ngoài yêu cầu (F11) |
+| A: giữ phần đã qua | Nhận định qua **mọi** kiểm tra (gồm chốt dược lý) và được verifier ghi công cho một nhu cầu mà chính nó mang thì được giữ, kể cả khi một nhận định cùng được ghi công bị loại; khi đó trạng thái tối đa `mot_phan`. Nhận định qua kiểm tra nhưng không được ghi công cho nhu cầu nào thì **không** hiển thị (`dropped_not_credited`). Không bao giờ vượt trần của reader |
+| Prompt sinh / kiểm tra | **Không đổi** so với v0.2, nên A và chốt dược lý đánh giá được trên cache v0.2 |
 
 ### Thay đổi v0.1 → v0.2 (theo review ngày 07/11/2026)
 
@@ -117,8 +125,8 @@ Chương trình tạo danh mục trước khi gọi model:
 |---|---|
 | `du` | Mọi nhu cầu bắt buộc đều **được đáp ứng đủ**, không có phần câu hỏi nào bị bỏ sót, và trạng thái của reader là `sufficient` |
 | *(trần theo reader)* | `sufficient` → tối đa `du`; `partially_sufficient` → tối đa `mot_phan`; `insufficient` → `khong_du`, **không gọi model**; trạng thái khác → lỗi hệ thống |
-| `mot_phan` | Có ít nhất một nhu cầu bắt buộc được đáp ứng đủ, và còn ít nhất một nhu cầu hoặc phần câu hỏi chưa được đáp ứng |
-| `khong_du` | Không còn nhận định hữu ích nào sau kiểm tra, hoặc danh mục bằng chứng rỗng |
+| `mot_phan` | Có ít nhất một nhận định hiển thị được (qua mọi kiểm tra và được ghi công cho một nhu cầu), và còn ít nhất một nhu cầu hoặc phần câu hỏi chưa được đáp ứng đủ |
+| `khong_du` | Không còn nhận định nào qua mọi kiểm tra **và** được ghi công cho một nhu cầu, hoặc danh mục bằng chứng rỗng |
 
 - "Được đáp ứng đủ" là do bước kiểm tra đánh giá dựa trên **nội dung** các nhận định đã qua (xem đặc tả kiểm tra, mục 3.3). Chỉ gắn cùng ID nhu cầu thì chưa đủ.
 - Danh sách nhu cầu của reader có thể thiếu. Bước kiểm tra đối chiếu thêm câu hỏi gốc. Phần câu hỏi không được nhu cầu nào bao phủ được ghi thành nhu cầu bổ sung chưa đáp ứng.
@@ -179,7 +187,9 @@ Nguồn:
 - *(Kết quả `answer_result_v0.2`, thay đổi E)* **Mọi nhận định được sinh ra đều có mặt trong kết quả**: hoặc trong `claims_final`, hoặc trong `claims_removed` kèm `round` và `disposition`:
   - `failed_verification`: trượt K1 hoặc K2/K3, có `reasons`;
   - `replaced_in_repair`: đạt ở vòng 1 nhưng bị thay vì lượt sửa trả về toàn bộ đầu ra mới;
-  - `dropped_by_status`: đạt kiểm tra nhưng không hiển thị vì trạng thái (`reasons: ["status_khong_du"]`).
+  - `dropped_by_status`: đạt kiểm tra nhưng không hiển thị vì trạng thái (`reasons: ["status_khong_du"]`). Từ v0.3, chỉ còn xảy ra khi trần của reader là `khong_du`;
+  - `dropped_not_credited` (v0.3): đạt kiểm tra nhưng verifier không ghi công cho nhu cầu nào;
+  - `blocked_pharm_gate` (v0.3): bị chốt dược lý chặn. Lý do có dạng `pharm_unrequested:<nhóm>:<thuật ngữ>`, báo cáo riêng với lỗi verifier.
 - `verifier_observations` ghi các dấu hiệu bất thường của verifier mà không làm đổi kết quả: `supported_with_flags`, `span_joined_with_ellipsis`, `need_credited_to_failed_claim`. Đây là dữ liệu cho phép đo verifier (`evaluation/answer_verifier_faults_v1`).
 - Cache sinh và kiểm tra dùng để phát lại offline như các tầng trước, **chỉ cho câu hỏi tổng hợp không có thông tin cá nhân thật**. Khả năng phát lại không phải lý do lưu dữ liệu người dùng: chế độ phục vụ mặc định không cache, thời hạn lưu theo quyết định 9 của bản nháp MVP.
 - Cache của tầng này nằm ở `reports/answer_cache/` và được git bỏ qua. `--no-cache` tắt hoàn toàn việc đọc/ghi cache.

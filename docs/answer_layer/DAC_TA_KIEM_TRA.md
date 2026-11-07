@@ -1,6 +1,8 @@
-# Đặc tả kiểm tra tầng trả lời: `answer_check_v0.2`
+# Đặc tả kiểm tra tầng trả lời: `answer_check_v0.3`
 
 **Trạng thái:** bản nháp để phát triển nguyên mẫu nội bộ, 07/11/2026, đã cài đặt trong `rag/answer_layer.py`. Đi kèm [DAC_TA_DAU_RA.md](DAC_TA_DAU_RA.md).
+
+**Thay đổi v0.2 → v0.3:** thêm chốt dược lý tất định trong K1 (mục 2.1); K4 theo thay đổi A (mục 5); đo verifier theo tầng (mục 7.1).
 
 **Thay đổi v0.1 → v0.2:**
 
@@ -43,6 +45,23 @@ Một nhận định **trượt K1** nếu vi phạm bất kỳ điều nào sau
 8. `gaps[].topic_vi` dài hơn 20 từ. Việc topic có chứa nhận định hay không được kiểm ở K2.
 
 Kết quả K1 được báo cáo riêng: **tỷ lệ nhận định có trích dẫn hợp lệ về ID**.
+
+### 2.1 Chốt nội dung dược lý ngoài yêu cầu (`pharm_gate_v0.1`, từ v0.3)
+
+Lớp bảo vệ **bổ sung**, **không phải** bộ nhận diện thuốc đầy đủ. Danh sách thuật ngữ có phiên bản, mang nhãn `chua_duyet`: `deployments/answer_pharm_gate.json`. Code: `rag/answer_pharm.py`.
+
+| Nhóm trong nhận định | Chỉ được phép khi câu hỏi… |
+|---|---|
+| Tên thuốc (`drug_names`, gồm các tên khác) | nêu **đúng thuốc đó**. Câu hỏi có nhắc thuốc nói chung **không** mở quyền cho tên thuốc khác |
+| Thực phẩm bổ sung (`supplement`) | nhắc đến thực phẩm bổ sung |
+| Nhóm thuốc, liều, từ chung về thuốc (`drug_class`, `dosing`, `medication_generic`) | có nhắc thuốc (tên, nhóm, liều hoặc từ chung) |
+
+- Lần nhắc trong câu hỏi đứng sau dấu hiệu phủ định ("không hỏi về", "không dùng", "ngoài", "thay vì"…) **không** mở quyền.
+- "Điều trị", "can thiệp", "liệu pháp" **không** phải thuật ngữ dược lý ở đây, vì đó là nội dung cốt lõi của dự án.
+- Các cụm loại trừ ("thuốc lá"…) được bỏ qua.
+- Câu hỏi gõ không dấu không mở quyền (để thận trọng, vì "thuoc" có thể là "thuộc").
+- Chốt chạy trong K1 ở **cả vòng sinh và vòng sửa**, trên nhận định và câu thiếu ý. Nhận định bị chặn không được gửi verifier, không được tính vào coverage, có lý do riêng (`pharm_unrequested:…`, disposition `blocked_pharm_gate`), và không hiển thị qua bất kỳ nhánh nào.
+- Không bắt: tên thuốc chưa có trong danh sách, và lời khuyên dùng thuốc sai khi câu hỏi **có** hỏi về thuốc (F08). Hai loại này vẫn phụ thuộc verifier.
 
 ## 3. K2–K3: kiểm tra bằng model
 
@@ -138,10 +157,15 @@ hữu ích  = nhận định đạt K1 và K2
 đáp ứng  = nhu cầu bắt buộc có fully_addressed=true, chỉ tính từ các nhận định hữu ích
 thiếu    = nhu cầu bắt buộc chưa đáp ứng + question_parts_uncovered
 
-nếu hữu ích rỗng hoặc đáp ứng rỗng           → khong_du
-nếu thiếu rỗng và reader = sufficient         → du
-ngược lại                                     → mot_phan (gaps chỉ gồm topic_vi đã qua kiểm tra; thiếu topic thì dùng câu chung)
+ghi công  = nhận định hữu ích được verifier ghi công (by_claims) cho một nhu cầu mà chính nó mang   [v0.3]
+
+nếu ghi công rỗng                              → khong_du
+nếu đáp ứng không rỗng, thiếu rỗng, reader = sufficient → du
+ngược lại                                      → mot_phan (gaps chỉ gồm topic_vi đã qua kiểm tra; thiếu topic thì dùng câu chung)
+cuối cùng: không vượt trần của reader
 ```
+
+- *(A, v0.3)* Coverage vẫn thận trọng: một nhu cầu chỉ là "đáp ứng" khi mọi nhận định được ghi công đều đạt. Nhưng các nhận định **đã đạt mọi kiểm tra** và được ghi công không bị bỏ theo nhận định trượt. Câu trả lời khi đó tối đa là `mot_phan`. Chỉ nhận định được ghi công mới được hiển thị.
 
 - **Không bao giờ** giữ nhận định trượt rồi chỉ đổi nhãn thành `mot_phan`.
 - Nếu loại nhận định làm mất `tra_loi_truc_tiep`, câu trả lời không có câu mở trực tiếp. Chương trình **không** tự đẩy một nhận định `chi_tiet` lên thay.

@@ -44,9 +44,11 @@ COMPARED = ("route", "status", "reader_status", "proposed_status", "repairs", "a
             "claims_removed", "verifier_observations", "needs_addressed", "needs_missing", "uncovered", "error",
             "contract_version", "check_version")
 PINNED_FILES = ("deployments/answer_layer.json", "deployments/retriever.json", "knowledge/rag/source_library/documents.json",
-                "deployments/evidence_context.json")
+                "deployments/evidence_context.json", "deployments/answer_pharm_gate.json")
 CODE_FILES = ("rag/answer_layer.py", "rag/answer_render.py", "rag/answer_policy.py", "rag/answer_sources.py",
-              "rag/answer_client.py", "rag/retriever.py", "rag/tokenization.py")
+              "rag/answer_client.py", "rag/retriever.py", "rag/tokenization.py", "rag/answer_pharm.py")
+# A fingerprint is a {path: sha256 or None (file absent)} map. Comparisons always use the paths a manifest or
+# measurement RECORDED, so files added to these lists later do not invalidate older evidence.
 ARCHIVE_PATHS = ("rag", "deployments", "knowledge/rag/source_library")
 
 
@@ -68,11 +70,15 @@ def git(*args, binary=False):
 
 
 def fingerprint(root: Path, files=CODE_FILES) -> dict:
-    return {p: file_sha(root / p) for p in files}
+    return {p: file_sha(root / p) if (root / p).exists() else None for p in files}
 
 
 def fingerprint_at(commit: str, files=CODE_FILES) -> dict:
-    return {p: sha_bytes(git("show", f"{commit}:{p}", binary=True)) for p in files}
+    out = {}
+    for p in files:
+        proc = subprocess.run(["git", "show", f"{commit}:{p}"], cwd=ROOT, capture_output=True)
+        out[p] = sha_bytes(proc.stdout) if proc.returncode == 0 else None
+    return out
 
 
 def create_manifest(bundle: Path, cases: dict[str, str], as_of: str) -> Path:
@@ -121,8 +127,8 @@ def no_key():
 def replay_mode(manifest: dict) -> str:
     """'current' when this checkout holds the run's code and pinned files; otherwise 'legacy'."""
     commit = manifest["code_commit_at_run"]
-    expected = manifest.get("code_fingerprint") or fingerprint_at(commit)
-    same_code = fingerprint(ROOT) == expected
+    expected = manifest.get("code_fingerprint") or {p: v for p, v in fingerprint_at(commit).items() if v is not None}
+    same_code = fingerprint(ROOT, tuple(expected)) == expected
     same_pins = fingerprint(ROOT, tuple(manifest["pinned_files"])) == manifest["pinned_files"]
     return "current" if same_code and same_pins else "legacy"
 
@@ -139,7 +145,7 @@ def verify_bundle(bundle: Path, code_root: Path = ROOT) -> dict:
     for p, h in manifest["pinned_files"].items():
         if file_sha(code_root / p) != h:
             problems.append(f"pinned file differs from the run: {p}")
-    if manifest.get("code_fingerprint") and manifest["code_fingerprint"] != fingerprint(code_root):
+    if manifest.get("code_fingerprint") and manifest["code_fingerprint"] != fingerprint(code_root, tuple(manifest["code_fingerprint"])):
         problems.append("answer-layer code differs from the manifest fingerprint")
     cache_dir = bundle / "cache"
     actual = {p.name: file_sha(p) for p in sorted(cache_dir.glob("*.json"))}
@@ -181,8 +187,8 @@ def verify_bundle(bundle: Path, code_root: Path = ROOT) -> dict:
 
 def find_commit(code_fp: dict, pins: dict) -> str | None:
     """Newest commit whose answer-layer code and pinned files match the given hashes (None if never committed)."""
-    for commit in git("rev-list", "HEAD", "--", *CODE_FILES, *pins).split():
-        if fingerprint_at(commit) == code_fp and fingerprint_at(commit, tuple(pins)) == pins:
+    for commit in git("rev-list", "HEAD", "--", *code_fp, *pins).split():
+        if fingerprint_at(commit, tuple(code_fp)) == code_fp and fingerprint_at(commit, tuple(pins)) == pins:
             return commit
     return None
 

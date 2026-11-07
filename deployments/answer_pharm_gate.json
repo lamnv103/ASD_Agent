@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "gate_version": "pharm_gate_v0.1",
+  "review_status": "chua_duyet",
+  "review_note": "Engineering draft term list; no clinical or pharmacist review. Supplementary deterministic guard, NOT a complete drug recognizer: an unlisted drug name is not caught here and still depends on the model verifier.",
+  "purpose": "Block pharmacological content (drug names, drug classes, supplements, dosing, generic medication wording) in answer claims and gap topics when the question did not ask for it.",
+  "exclusions": ["thuốc lá", "thuốc nhuộm", "thuốc nổ", "liều lĩnh", "liều mạng"],
+  "drug_names": {
+    "melatonin": ["melatonin"],
+    "risperidone": ["risperidone", "risperidon", "risperdal"],
+    "aripiprazole": ["aripiprazole", "aripiprazol", "abilify"],
+    "haloperidol": ["haloperidol"],
+    "methylphenidate": ["methylphenidate", "methylphenidat", "ritalin", "concerta"],
+    "atomoxetine": ["atomoxetine", "atomoxetin", "strattera"],
+    "guanfacine": ["guanfacine", "guanfacin"],
+    "clonidine": ["clonidine", "clonidin"],
+    "fluoxetine": ["fluoxetine", "fluoxetin", "prozac"],
+    "sertraline": ["sertraline", "sertralin", "zoloft"],
+    "valproate": ["valproate", "valproat", "acid valproic", "axit valproic", "depakine"],
+    "oxytocin": ["oxytocin"],
+    "bumetanide": ["bumetanide", "bumetanid"],
+    "secretin": ["secretin"]
+  },
+  "groups": {
+    "supplement": {
+      "allowed_if": "question_mentions_supplement",
+      "terms": ["thực phẩm chức năng", "thực phẩm bổ sung", "chất bổ sung", "vitamin", "omega-3", "omega 3", "men vi sinh", "probiotic"]
+    },
+    "drug_class": {
+      "allowed_if": "question_mentions_medication",
+      "terms": ["thuốc an thần", "thuốc chống loạn thần", "thuốc chống trầm cảm", "thuốc kích thích", "thuốc ngủ", "thuốc chống co giật",
+                "dược phẩm", "dược lý", "điều trị bằng thuốc", "SSRI", "antipsychotic", "antidepressant", "stimulant medication"]
+    },
+    "dosing": {
+      "allowed_if": "question_mentions_medication",
+      "terms": ["liều", "liều lượng", "giảm liều", "tăng liều", "cách dùng thuốc", "uống thuốc"]
+    },
+    "medication_generic": {
+      "allowed_if": "question_mentions_medication",
+      "terms": ["thuốc", "kê đơn", "đơn thuốc", "tác dụng phụ", "medication", "pharmacological"]
+    }
+  },
+  "question_negation_cues": [
+    "(?:không|chẳng|chưa|đừng)\\s+(?:hỏi|muốn|cần|dùng|sử dụng|phải|nhắc|liên quan|quan tâm)(?:\\s+(?:đến|tới|về|là|cho))?(?:\\s+\\S+)?\\s*$",
+    "(?:ngoài|trừ|ngoại trừ|thay vì)(?:\\s+\\S+){0,2}\\s*$"
+  ]
+}

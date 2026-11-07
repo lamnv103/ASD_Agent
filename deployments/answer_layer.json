@@ -1,7 +1,8 @@
 {
   "schema_version": 1,
-  "contract_version": "answer_contract_v0.2",
-  "check_version": "answer_check_v0.2",
+  "contract_version": "answer_contract_v0.3",
+  "check_version": "answer_check_v0.3",
+  "pharm_gate": "deployments/answer_pharm_gate.json",
   "purpose": "internal_prototype_only",
   "review_status": "chua_duyet",
   "review_note": "Templates, country map, thresholds and emergency phrases are engineering drafts; no clinical review. Not a basis for opening a pilot.",

@@ -1,0 +1,6 @@
+{"group_id": "G1", "question_id": "S05", "case_ids": ["P03", "F02", "F01", "F03"], "note": "Exactly the S05 repair-round claim set of NIM run 1 (c1..c4)."}
+{"group_id": "G2", "question_id": "S08", "case_ids": ["P02", "F04", "F05", "X02"], "note": "Exactly the S08 repair-round claim set of NIM run 1 (c1..c4)."}
+{"group_id": "G3", "question_id": "S07", "case_ids": ["P06", "P07", "F09", "F15"], "note": "S07 split claims with two injected faults."}
+{"group_id": "G4", "question_id": "H03", "case_ids": ["P01", "P10", "F07", "F18"], "note": "H03 clean claims with negation and certainty faults."}
+{"group_id": "G5", "question_id": "S05", "case_ids": ["P08", "F11", "F16", "F17", "F10"], "note": "S05 clean claim with unrequested medication, reversed direction, certainty and dropped-condition faults."}
+{"group_id": "G6", "question_id": "S08", "case_ids": ["P04", "P05", "P09", "F13", "F14", "F12"], "note": "S08 corrected-term claims with contradiction, wrong number and added content."}
