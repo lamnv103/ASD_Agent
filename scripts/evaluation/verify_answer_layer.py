@@ -44,10 +44,11 @@ COMPARED = ("route", "status", "reader_status", "proposed_status", "repairs", "a
             "claims_removed", "verifier_observations", "needs_addressed", "needs_missing", "uncovered", "error",
             "contract_version", "check_version")
 PINNED_FILES = ("deployments/answer_layer.json", "deployments/retriever.json", "knowledge/rag/source_library/documents.json",
-                "deployments/evidence_context.json", "deployments/answer_pharm_gate.json")
+                "deployments/evidence_context.json", "deployments/answer_pharm_gate.json",
+                "deployments/answer_term_guidance.json")
 CODE_FILES = ("rag/answer_layer.py", "rag/answer_render.py", "rag/answer_policy.py", "rag/answer_sources.py",
               "rag/answer_client.py", "rag/retriever.py", "rag/tokenization.py", "rag/answer_pharm.py",
-              "rag/answer_verify_context.py")
+              "rag/answer_verify_context.py", "rag/answer_repair_terms.py")
 # A fingerprint is a {path: sha256 or None (file absent)} map. Comparisons always use the paths a manifest or
 # measurement RECORDED, so files added to these lists later do not invalidate older evidence.
 ARCHIVE_PATHS = ("rag", "deployments", "knowledge/rag/source_library")

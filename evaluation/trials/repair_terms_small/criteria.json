@@ -1,0 +1,238 @@
+{
+  "trial_id": "repair_terms_small",
+  "status": "draft",
+  "status_note": "DRAFT for review. run_trial.py refuses to run until status is 'registered' (own commit, before the first provider call, never edited after results).",
+  "review_status": "chua_duyet",
+  "contract_version": "answer_contract_v0.5",
+  "question_id": "S08",
+  "question": "Does specific term guidance in the repair problems help the repair round fix known mistranslations while keeping the evidence right?",
+  "change_under_test": "Arm B adds term_guidance [{wrong, source_term, use}] (deployments/answer_term_guidance.json, term_guidance_v0.1, fixed before any call) to repair problems that carry known_term_error:<wrong>; reason codes kept. Arm A = v0.5 problems. Nothing else differs: same recorded first round (replayed from reports/answer_eval_20261107_v0.5), catalog, check results, one repair, all v0.5 checks on the new wording (rag/answer_layer.py unchanged).",
+  "unchanged": [
+    "rag/answer_layer.py (pipeline, prompts, checks, status)",
+    "models",
+    "pharm gate",
+    "known terms",
+    "repair budget (1)",
+    "verifier (v0.5)"
+  ],
+  "offline_preconditions": [
+    "S05, S07, H03 (run 2): arm B reproduces run 2 byte for byte (no term problem -> identical repair request; H03 has no repair round)",
+    "S08 arm A reproduces run 2; arm B differs only in the repair request",
+    "U3 (correct terms): no known_term_error, arm B request identical to arm A"
+  ],
+  "state_file": "reports/repair_terms_small/trial_state.json",
+  "calls_planned": {
+    "trial": 24
+  },
+  "runs": [
+    {
+      "tool": "repair",
+      "stage": "trial",
+      "out": "reports/repair_terms_small/U1_A_rep1",
+      "units": "evaluation/answer_repair_terms_v1/units.jsonl",
+      "unit": "U1",
+      "arm": "A"
+    },
+    {
+      "tool": "repair",
+      "stage": "trial",
+      "out": "reports/repair_terms_small/U1_B_rep1",
+      "units": "evaluation/answer_repair_terms_v1/units.jsonl",
+      "unit": "U1",
+      "arm": "B"
+    },
+    {
+      "tool": "repair",
+      "stage": "trial",
+      "out": "reports/repair_terms_small/U1_A_rep2",
+      "units": "evaluation/answer_repair_terms_v1/units.jsonl",
+      "unit": "U1",
+      "arm": "A"
+    },
+    {
+      "tool": "repair",
+      "stage": "trial",
+      "out": "reports/repair_terms_small/U1_B_rep2",
+      "units": "evaluation/answer_repair_terms_v1/units.jsonl",
+      "unit": "U1",
+      "arm": "B"
+    },
+    {
+      "tool": "repair",
+      "stage": "trial",
+      "out": "reports/repair_terms_small/U1_A_rep3",
+      "units": "evaluation/answer_repair_terms_v1/units.jsonl",
+      "unit": "U1",
+      "arm": "A"
+    },
+    {
+      "tool": "repair",
+      "stage": "trial",
+      "out": "reports/repair_terms_small/U1_B_rep3",
+      "units": "evaluation/answer_repair_terms_v1/units.jsonl",
+      "unit": "U1",
+      "arm": "B"
+    },
+    {
+      "tool": "repair",
+      "stage": "trial",
+      "out": "reports/repair_terms_small/U2_A_rep1",
+      "units": "evaluation/answer_repair_terms_v1/units.jsonl",
+      "unit": "U2",
+      "arm": "A"
+    },
+    {
+      "tool": "repair",
+      "stage": "trial",
+      "out": "reports/repair_terms_small/U2_B_rep1",
+      "units": "evaluation/answer_repair_terms_v1/units.jsonl",
+      "unit": "U2",
+      "arm": "B"
+    },
+    {
+      "tool": "repair",
+      "stage": "trial",
+      "out": "reports/repair_terms_small/U2_A_rep2",
+      "units": "evaluation/answer_repair_terms_v1/units.jsonl",
+      "unit": "U2",
+      "arm": "A"
+    },
+    {
+      "tool": "repair",
+      "stage": "trial",
+      "out": "reports/repair_terms_small/U2_B_rep2",
+      "units": "evaluation/answer_repair_terms_v1/units.jsonl",
+      "unit": "U2",
+      "arm": "B"
+    },
+    {
+      "tool": "repair",
+      "stage": "trial",
+      "out": "reports/repair_terms_small/U2_A_rep3",
+      "units": "evaluation/answer_repair_terms_v1/units.jsonl",
+      "unit": "U2",
+      "arm": "A"
+    },
+    {
+      "tool": "repair",
+      "stage": "trial",
+      "out": "reports/repair_terms_small/U2_B_rep3",
+      "units": "evaluation/answer_repair_terms_v1/units.jsonl",
+      "unit": "U2",
+      "arm": "B"
+    }
+  ],
+  "review": {
+    "seed": 20261108,
+    "concepts": [
+      {
+        "id": "K_ANSWER",
+        "text": "Trả lời: SBI khác rõ rệt với ASI đã được nghiên cứu (E4)"
+      },
+      {
+        "id": "K_FIDELITY",
+        "text": "ASI đòi hỏi đào tạo chuyên sâu và tuân thủ fidelity principles: cá nhân hóa, trẻ chủ động, chơi, thử thách vừa sức (E4). Thuật ngữ đúng: 'nguyên tắc bảo đảm thực hiện đúng phương pháp' hoặc cách nói cùng nghĩa (tuân thủ đúng phương pháp); 'nguyên tắc trung thực' là sai"
+      },
+      {
+        "id": "K_SWING",
+        "text": "SBI thường do người lớn dẫn dắt, đầu vào cảm giác thụ động, ví dụ xoa bóp, đeo chụp tai, đu đưa thụ động (E4/E5). Thuật ngữ đúng: 'đu đưa thụ động'; 'du lượn' là sai"
+      },
+      {
+        "id": "K_REVIEWS",
+        "text": "Các tổng quan trước đây gộp SBI với ASI (E2/E3) - chỉ để báo cáo"
+      }
+    ],
+    "sheet": "reports/repair_terms_small/review_sheet.json",
+    "key": "reports/repair_terms_small/review_key.json",
+    "filled": "reports/repair_terms_small/review_filled.json",
+    "procedure": "Blind: claims shuffled (seed fixed), arm and unit hidden. Each displayed claim is compared by hand with the verbatim cited quotes: concepts it expresses, term_correct (y/n/na), faithful (meaning, scope, certainty kept, nothing added: y/n), contains_known_wrong_content (y/n). First pass is a draft technical review by Claude, labelled as such; the team confirms or overrides every row before judging. Verifier 'supported' or status 'du' is never used as the quality judgment."
+  },
+  "rules": [
+    {
+      "id": "R1_terms_fixed",
+      "type": "covers_all",
+      "unit": "U1",
+      "arms": [
+        "B"
+      ],
+      "reps": 3,
+      "concepts": [
+        "K_SWING",
+        "K_FIDELITY"
+      ],
+      "note": "every arm-B repetition displays each of the two term concepts in a claim with the correct term AND faithful to the cited quotes (dropping the claim is not a fix)"
+    },
+    {
+      "id": "R2_no_loss",
+      "type": "covers_all",
+      "unit": "U1",
+      "arms": [
+        "B"
+      ],
+      "reps": 3,
+      "concepts": [
+        "K_ANSWER"
+      ],
+      "note": "the correct direct answer (first-round c1) is still displayed and faithful"
+    },
+    {
+      "id": "R3_no_new_error",
+      "type": "no_bad_on_concepts",
+      "unit": "U1",
+      "arms": [
+        "B"
+      ],
+      "reps": 3,
+      "concepts": [
+        "K_SWING",
+        "K_FIDELITY"
+      ],
+      "note": "no displayed arm-B claim on the repaired concepts is unfaithful or keeps a wrong term"
+    },
+    {
+      "id": "R4_content_error_not_rescued",
+      "type": "no_known_wrong_content",
+      "unit": "U2",
+      "arms": [
+        "B"
+      ],
+      "reps": 3,
+      "note": "U2: the wrong efficacy content is never displayed in arm B (a fixed word on wrong content is a failure)"
+    },
+    {
+      "id": "R5_U2_concept_clean",
+      "type": "no_bad_on_concepts",
+      "unit": "U2",
+      "arms": [
+        "B"
+      ],
+      "reps": 3,
+      "concepts": [
+        "K_SWING"
+      ],
+      "note": "U2: any displayed arm-B claim on the SBI concept is faithful with the correct term"
+    }
+  ],
+  "attribution": {
+    "unit": "U1",
+    "concepts": [
+      "K_SWING",
+      "K_FIDELITY"
+    ],
+    "reps": 3,
+    "rule": "benefit is shown only if arm B fixes both term concepts in 3/3 repetitions AND arm A in fewer than 3/3; if arm A also fixes 3/3, the guidance shows no measurable benefit and is not accepted"
+  },
+  "report_only": [
+    "arm A on every rule",
+    "displayed and acceptable claims per run",
+    "K_REVIEWS (first-round c4 is the known A01 wording the v0.5 verifier passes)",
+    "ledger per run: started / saved / errors / cost unknown",
+    "verifier results on the NEW wording (never reused from the first round)"
+  ],
+  "completeness": "judge refuses (exit 2) if a run is missing or any review row is incomplete; a run that ends in system_error stops the batch (results.partial.json)",
+  "conclusion_scope": "Answers one narrow question on one question (S08) and two known mistranslations; not a general repair-quality result.",
+  "decision": {
+    "all_rules_pass": "propose wiring term guidance into the pipeline as its own approved change, then a 4-question run on a fixed version",
+    "any_rule_fails": "stop this form of repair feedback; no rewording of the guidance on these units; next candidate (scope splitting or self-contained claims) as its own trial"
+  }
+}

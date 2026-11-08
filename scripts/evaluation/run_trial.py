@@ -24,9 +24,13 @@ sys.path.insert(0, str(ROOT / "scripts/evaluation"))
 import measure_verifier as mv  # noqa: E402
 
 SCRIPT = ROOT / "scripts/evaluation/measure_verifier.py"
+REPAIR_SCRIPT = ROOT / "scripts/evaluation/measure_repair.py"
 
 
 def argv_for(run, key_file):
+    if run.get("tool") == "repair":
+        a = [sys.executable, "-B", str(REPAIR_SCRIPT), "--units", run["units"], "--unit", run["unit"], "--arm", run["arm"]]
+        return a + ["--out", run["out"]] + (["--nvidia-key-file", key_file] if key_file else [])
     a = [sys.executable, "-B", str(SCRIPT), "--cases", run["cases"]]
     a += ["--groups", run["groups"], "--groups-only"] if "groups" in run else ["--only", run["only"], "--no-groups"]
     return a + ["--out", run["out"]] + (["--nvidia-key-file", key_file] if key_file else [])
@@ -63,7 +67,7 @@ def plan(crit, resume=False, contract=None, stage=None):
             continue
         if out.exists() and any(out.iterdir()):
             raise mv.RunAbort(f"{run['out']} is not empty")
-        for f in (run["cases"], run.get("groups")):
+        for f in (run.get("cases"), run.get("groups"), run.get("units")):
             if f and not (ROOT / f).exists():
                 raise mv.RunAbort(f"missing {f}")
         todo.append(run)
