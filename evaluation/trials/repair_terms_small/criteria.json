@@ -1,7 +1,7 @@
 {
   "trial_id": "repair_terms_small",
-  "status": "draft",
-  "status_note": "DRAFT for review. run_trial.py refuses to run until status is 'registered' (own commit, before the first provider call, never edited after results).",
+  "status": "registered",
+  "status_note": "Registered 2026-11-08 after team review (fidelity rendering kept as the project's translation choice; U2 accepted; team reviews independently first; at most 24 calls). Committed before the first provider call of this trial; never edited after results.",
   "review_status": "chua_duyet",
   "contract_version": "answer_contract_v0.5",
   "question_id": "S08",
