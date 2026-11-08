@@ -55,9 +55,10 @@ class LedgerTests(unittest.TestCase):
             lost.n = 1
             with self.assertRaises(OSError):
                 lost.complete([])
+            led.append(dict(event="start", n=3))  # process killed mid-call: neither response nor error recorded
             s = led.summary()
-            self.assertEqual((s["attempted"], s["completed"], s["provider_calls"], s["errors"], s["completion_tokens"]),
-                             (2, 1, 1, ["OSError"], 12))
+            self.assertEqual(s, dict(started=3, saved_responses=1, cache_hits=0, errors=1, error_codes=["OSError"],
+                                     unresolved=1, cost_unknown=2, completion_tokens_saved=12))
 
     def test_no_call_when_the_ledger_cannot_be_written(self):
         fake = FakeClient()
@@ -72,7 +73,7 @@ class PreflightTests(TmpReports):
         out = ROOT / TMP / "m1"
         mv.preflight(out, atomic_json)
         self.assertEqual([p.name for p in (out / "cache").iterdir()], [])  # probe removed
-        self.assertEqual(mv.Ledger(out / "calls.jsonl").summary()["attempted"], 0)
+        self.assertEqual(mv.Ledger(out / "calls.jsonl").summary()["started"], 0)
 
     def test_interrupted_folder_is_never_reused(self):
         out = ROOT / TMP / "m2"
@@ -107,7 +108,8 @@ class PreflightTests(TmpReports):
                 mv.main()
         self.assertEqual(fake.calls, 1)  # stopped at the first failure; P08 never sent
         partial = json.loads((ROOT / TMP / "m3/results.partial.json").read_text(encoding="utf-8"))
-        self.assertEqual((partial["ledger"]["attempted"], partial["ledger"]["completed"]), (1, 0))
+        led = partial["ledger"]  # the lost response is visible: started, not saved, cost unknown
+        self.assertEqual((led["started"], led["saved_responses"], led["errors"], led["cost_unknown"]), (1, 0, 1, 1))
         self.assertIn("disk full", partial["error"])
         self.assertFalse((ROOT / TMP / "m3/results.json").exists())
 
@@ -143,27 +145,41 @@ class RunTrialTests(TmpReports):
 
 
 class JudgeTests(unittest.TestCase):
+    S = "These conclusions are still premature."
     CRIT = dict(contract_version="v", decision={}, runs=[dict(out="o", only="F02,P08", stage="trial")], rules=[
-        dict(id="R1", type="rejected_for", reasons_any=["context_limit:E2"], reps={"single": 1},
+        dict(id="R1", type="detected_limit", passage_id="E2", accepted_sentences=[S], reps={"single": 1},
              select=[dict(where="single", cases=["F02"])]),
-        dict(id="R2", type="never_rejected", reps={"single": 1}, select=[dict(where="single", cases=["P08"])])])
+        dict(id="R2", type="never_rejected", reps={"single": 1}, select=[dict(where="single", cases=["P08"])]),
+        dict(id="R5", type="no_reason", prefixes=["verifier_output_", "context_span_not_whole_sentence"])])
 
-    def judge(self, records):
-        res = dict(contract_version="v", records=[dict(case_id=c, outcome="fail" if r else "pass", reasons=r, call=None)
-                                                   for c, r in records])
+    def judge(self, f02_reasons, span=S, pid="E2", p08=()):
+        issue = dict(id=pid, span=span)
+        res = dict(contract_version="v", records=[
+            dict(case_id="F02", outcome="fail" if f02_reasons else "pass", reasons=f02_reasons, call=None,
+                 verdict=dict(support="supported", other_passage_issue=issue)),
+            dict(case_id="P08", outcome="fail" if p08 else "pass", reasons=list(p08), call=None, verdict=None)])
         with mock.patch.object(ct, "load", lambda run: res):
             return ct.judge(json.loads(json.dumps(self.CRIT)))
 
-    def test_mechanical_reasons_are_not_a_catch(self):
-        out, rep, problems = self.judge([("F02", ["context_span_not_verbatim", "support_contradicted"]), ("P08", [])])
-        self.assertFalse(out["R1"]["ok"])
-        self.assertTrue(out["R2"]["ok"])
-        self.assertEqual(rep["mechanical"], [("trial", "single", "F02", "context_span_not_verbatim")])
-        out, _, _ = self.judge([("F02", ["context_limit:E2"]), ("P08", [])])
+    def test_right_passage_and_right_sentence_only(self):
+        out, _, _ = self.judge(["context_limit:E2"])
         self.assertTrue(all(r["ok"] for r in out.values()))
+        out, _, _ = self.judge(["context_limit:E2"], span="Another true sentence of E2.")  # right id, wrong sentence
+        self.assertFalse(out["R1"]["ok"])
+        out, _, _ = self.judge(["context_limit:E20"], pid="E20")  # no prefix matching
+        self.assertFalse(out["R1"]["ok"])
+
+    def test_content_plus_mechanical_is_not_a_clean_detection(self):
+        out, rep, _ = self.judge(["span_not_in_cited_evidence", "context_limit:E2"])
+        self.assertFalse(out["R1"]["ok"])
+        self.assertEqual(rep["mechanical"], [("trial", "single", "F02", "span_not_in_cited_evidence")])
+        out, _, _ = self.judge(["context_span_not_whole_sentence"])  # new quote errors are covered by R5
+        self.assertFalse(out["R5"]["ok"])
 
     def test_missing_case_or_repetition_blocks_judging(self):
-        _, _, problems = self.judge([("F02", ["context_limit:E2"])])
+        res = dict(contract_version="v", records=[dict(case_id="F02", outcome="fail", reasons=["context_limit:E2"], call=None)])
+        with mock.patch.object(ct, "load", lambda run: res):
+            _, _, problems = ct.judge(json.loads(json.dumps(self.CRIT)))
         self.assertEqual(problems, ["o: single/P08"])
 
 
@@ -184,6 +200,15 @@ class CriteriaFileTests(unittest.TestCase):
                     self.assertIn(c, singles if where == "single" else groups[where], (rule["id"], s["where"], c))
                     want = "pass" if rule["type"] == "never_rejected" else "fail"
                     self.assertEqual(cases[c]["expected"], want, (rule["id"], c))  # rules never contradict labels
+        r1 = next(r for r in crit["rules"] if r["type"] == "detected_limit")  # registered sentences exist, whole, in the source
+        from rag.answer_layer import _span_norm, build_catalog
+        from rag.answer_policy import load_config
+        from rag.answer_sources import load_trusted_corpus
+        from rag.answer_verify_context import whole_sentences
+        trace = json.loads((ROOT / cases["F02"]["trace"]).read_text(encoding="utf-8"))
+        quote = _span_norm(build_catalog(trace, load_config(), load_trusted_corpus())[0][r1["passage_id"]]["quote"])
+        for s in r1["accepted_sentences"]:
+            self.assertTrue(whole_sentences(_span_norm(s), quote), s)
         calls = {st: sum(len(r["only"].split(",")) if "only" in r else len(mv.load_jsonl(ROOT / r["groups"])) + len(r.get("pipeline", {}))
                          for r in crit["runs"] if r["stage"] == st) for st in ("baseline", "trial")}
         self.assertEqual(calls, crit["calls_planned"])

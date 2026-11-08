@@ -1,23 +1,31 @@
 """Change C (trial; used only when deployments/answer_layer.json has "verifier_context": {"enabled": true}).
 
 The verifier ALSO sees the catalog passages a claim does not cite, ONLY to report a limitation, condition or
-contradiction the claim leaves out. Guarantees (enforced in code, not only in the prompt):
-* support, flags and evidence_span are still judged and checked by the unchanged v0.5 parser
-  (rag.answer_layer.parse_verification) against the CITED quotes only; evidence_span must lie in a cited quote;
-* the extra field can only ADD a rejection reason, never remove one, so an uncited passage can never rescue a claim;
-* a reported issue must name a passage the claim does NOT cite and quote it verbatim; otherwise the claim fails with a
-  separate mechanical reason (context_id_invalid / context_span_not_verbatim), never counted as a content catch;
+contradiction the claim leaves out.
+
+What the CODE guarantees:
+* the v0.5 parser (rag.answer_layer.parse_verification) runs unchanged; evidence_span must lie verbatim in a CITED quote;
+* the extra field can only ADD a rejection reason; it can never remove a reason the v0.5 parser produced;
+* a reported issue must name a passage the claim does NOT cite and quote one or more WHOLE consecutive sentences of it
+  verbatim (sentence boundaries checked, so a fragment that cuts off a condition is refused); otherwise the claim fails
+  with a separate mechanical reason (context_id_invalid / context_span_not_verbatim / context_span_not_whole_sentence),
+  never counted as a content catch;
 * the generator, repair prompt, gates, terms and repair budget are untouched (reasons reach repair as before).
+
+What the code does NOT guarantee: the model sees the whole catalog, so it may still judge a claim "supported" because
+of an UNCITED passage and then pick a real but insufficient sentence from a cited quote as evidence_span. The parser
+cannot detect that semantic misuse; it is measured with the no-rescue cases (CR1, CR2), not prevented.
 Not wired into rag.answer_layer's pipeline yet: measured through scripts/evaluation/measure_verifier.py first.
 """
 import json
+import re
 
 from rag import answer_layer as al
 
 VERSION = "verifier_context_v0.1"
 ISSUE_KEY = "other_passage_issue"
 CONTENT_REASON = "context_limit:"          # + passage id; a content reason
-MECHANICAL_REASONS = ("context_id_invalid", "context_span_not_verbatim")
+MECHANICAL_REASONS = ("context_id_invalid", "context_span_not_verbatim", "context_span_not_whole_sentence")
 
 _ANCHOR_RULE = "- explanation: short English\n"
 _ANCHOR_SHAPE = '"evidence_span":"...","explanation":"..."}]'
@@ -27,12 +35,29 @@ _RULE = """- other_passage_issue: context_passages are all catalog passages. For
   uncertain, restricts it, or states the opposite. A passage about a different population, outcome or topic is NOT an
   issue; a passage that merely adds other information is NOT an issue. Never use context passages as support: support,
   flags and evidence_span still use only the cited quotes. Value: null, or
-  {"id":"<id of an uncited passage>","span":"<copy VERBATIM one sentence of that passage that states the limitation>"}
+  {"id":"<id of an uncited passage>","span":"<copy VERBATIM the WHOLE sentence of that passage that states the limitation>"}
 """
 
 assert al.VERIFY_SYSTEM.count(_ANCHOR_RULE) == 1 and al.VERIFY_SYSTEM.count(_ANCHOR_SHAPE) == 1
 VERIFY_SYSTEM = (al.VERIFY_SYSTEM.replace(_ANCHOR_RULE, _ANCHOR_RULE + _RULE)
                  .replace(_ANCHOR_SHAPE, '"evidence_span":"...","explanation":"...","other_passage_issue":null}]'))
+
+
+_END = r"[.!?][\"')\]]*"  # sentence-final punctuation, optionally followed by closing quotes/brackets (normalized text)
+
+
+def whole_sentences(span, passage):
+    """True if span (normalized) occurs in passage (normalized) starting at a sentence start and ending at a sentence end.
+    A missing final full stop is tolerated when the passage has it right after the span."""
+    i = passage.find(span)
+    while i != -1:
+        end = i + len(span)
+        starts = i == 0 or re.search(_END + r" $", passage[:i]) is not None
+        ends = (end == len(passage) and re.search(_END + "$", span) is not None)             or (re.search(_END + "$", span) is not None and passage[end] == " ")             or re.match(_END + r"( |$)", passage[end:]) is not None
+        if starts and ends:
+            return True
+        i = passage.find(span, i + 1)
+    return False
 
 
 def build_verify_payload(question, needs, claims, gaps, catalog):
@@ -72,9 +97,12 @@ def parse_verification(content, sent_claims, sent_gaps, needs, catalog, cfg):
         if pid not in catalog or pid in claim_map[cid]["evidence_ids"]:
             r["reasons"].append("context_id_invalid")
             continue
-        span = al._span_norm(issue["span"])
-        if len(span) < cfg["limits"]["min_evidence_span_chars"] or span not in al._span_norm(catalog[pid]["quote"]):
+        span, passage = al._span_norm(issue["span"]), al._span_norm(catalog[pid]["quote"])
+        if len(span) < cfg["limits"]["min_evidence_span_chars"] or span not in passage:
             r["reasons"].append("context_span_not_verbatim")
+            continue
+        if not whole_sentences(span, passage):
+            r["reasons"].append("context_span_not_whole_sentence")
             continue
         r["reasons"].append(CONTENT_REASON + pid)
     return res

@@ -115,12 +115,23 @@ class Ledger:
 
     def summary(self):
         rows = [json.loads(x) for x in self.path.read_text(encoding="utf-8").splitlines() if x.strip()] if self.path.exists() else []
+        """Counts kept apart on purpose. A "start" is not proof of a charge, and an error is not proof of no charge
+        (e.g. the provider answered but the cache write failed, or the completion was truncated):
+        started            calls the measurement began (ledger written before sending)
+        saved_responses    fresh provider responses that were saved (certainly billed; tokens known)
+        cache_hits         answered from the local cache (no provider call)
+        errors             calls that raised; error_codes lists why
+        unresolved         started with neither a saved response nor an error row (process killed mid-call)
+        cost_unknown       errors + unresolved: may or may not have been billed; reported, never assumed free"""
         starts = {r["n"] for r in rows if r["event"] == "start"}
         done = {r["n"]: r for r in rows if r["event"] == "done"}
         errors = {r["n"]: r for r in rows if r["event"] == "error"}
-        return dict(attempted=len(starts), completed=len(done), provider_calls=sum(not r.get("cache_hit") for r in done.values()),
-                    errors=sorted({r["code"] for r in errors.values()}), unaccounted=len(starts - set(done) - set(errors)),
-                    completion_tokens=sum(r.get("completion_tokens") or 0 for r in done.values() if not r.get("cache_hit")))
+        unresolved = starts - set(done) - set(errors)
+        fresh = [r for r in done.values() if not r.get("cache_hit")]
+        return dict(started=len(starts), saved_responses=len(fresh), cache_hits=len(done) - len(fresh), errors=len(errors),
+                    error_codes=sorted({r["code"] for r in errors.values()}), unresolved=len(unresolved),
+                    cost_unknown=len(errors) + len(unresolved),
+                    completion_tokens_saved=sum(r.get("completion_tokens") or 0 for r in fresh))
 
 
 class LedgerClient:

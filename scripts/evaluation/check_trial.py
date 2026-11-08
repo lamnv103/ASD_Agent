@@ -10,7 +10,11 @@ Exit code 0 = every rule passed, 1 = at least one rule failed,
 Two criteria formats:
 * "rules" as an object: the v0.7 small stage (kept so its recorded verdict stays reproducible);
 * "rules" as a list of typed rules (v0.8 / C onward), applied to runs of stage "trial" only:
-  rejected_for   every selected row rejected AND carrying a reason that starts with one of reasons_any
+  detected_limit every selected row rejected with EXACTLY the reason context_limit:<id>, with NO mechanical reason, and
+                 the recorded other_passage_issue span containing one of the pre-registered accepted_sentences
+                 (right id is not enough: the right sentence is required)
+  rejected_for   every selected row rejected AND carrying a reason equal to one of reasons_exact (or starting with one of
+                 reasons_prefix); with "clean": true a row that also has a mechanical reason does not count
   never_rejected no selected row rejected, for any reason
   no_reason      no row of any trial run carries a reason starting with one of prefixes
   max_tokens     every fresh call at most `limit` completion tokens
@@ -24,9 +28,11 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT))
+from rag.answer_layer import _span_norm  # noqa: E402  (same normalization as the verbatim checks)
 ERROR_PREFIX = "verifier_output_"
 MECHANICAL = ("verifier_output_", "span_not_in_cited_evidence", "context_id_invalid", "context_span_not_verbatim",
-              "verdict_missing")
+              "context_span_not_whole_sentence", "verdict_missing")
 
 
 def load(run):
@@ -57,7 +63,8 @@ def collect(crit):
         for r in res.get("records", []):
             reasons = r.get("verifier_reasons", r["reasons"])
             rows.append(dict(run=run["out"], stage=stage, group=None, where="single", case_id=r["case_id"],
-                             rejected=r["outcome"] == "fail", reasons=list(r["reasons"]), verifier_reasons=list(reasons or [])))
+                             rejected=r["outcome"] == "fail", reasons=list(r["reasons"]), verifier_reasons=list(reasons or []),
+                             verdict=r.get("verdict")))
             toks.append((run["out"], stage, r["case_id"], tokens(r.get("call"))))
         for kind, gs in (("", res.get("groups", [])), ("/pipeline", res.get("pipeline_groups", []))):
             for g in gs:
@@ -68,7 +75,7 @@ def collect(crit):
                     reasons = r.get("verifier_reasons") or []
                     rows.append(dict(run=run["out"], stage=stage, group=g["group_id"], where=g["group_id"] + kind,
                                      case_id=r["case_id"], rejected=r["verifier_outcome"] in ("fail", "error"),
-                                     reasons=list(reasons), verifier_reasons=list(reasons)))
+                                     reasons=list(reasons), verifier_reasons=list(reasons), verdict=r.get("verdict")))
     return rows, toks, problems
 
 
@@ -96,6 +103,26 @@ def completeness(crit, rows):
     return missing
 
 
+def _mechanical(row):
+    return [x for x in row["reasons"] + row["verifier_reasons"] if x.startswith(MECHANICAL)]
+
+
+def _rejected_for(row, rule):
+    if not row["rejected"] or (rule.get("clean") and _mechanical(row)):
+        return False
+    return any(x in rule.get("reasons_exact", []) or x.startswith(tuple(rule.get("reasons_prefix", [])))
+               for x in row["verifier_reasons"])
+
+
+def _detected(row, rule):
+    """Right passage AND right sentence, and nothing mechanical alongside."""
+    if not row["rejected"] or _mechanical(row) or ("context_limit:" + rule["passage_id"]) not in row["verifier_reasons"]:
+        return False
+    issue = (row.get("verdict") or {}).get("other_passage_issue") or {}
+    span = _span_norm(issue.get("span") or "")
+    return issue.get("id") == rule["passage_id"] and any(_span_norm(s) in span for s in rule["accepted_sentences"])
+
+
 def _selected(rows, select):
     keys = {(s["where"], c) for s in select for c in s["cases"]}
     return [r for r in rows if (r["where"], r["case_id"]) in keys]
@@ -108,17 +135,19 @@ def judge_list(crit):
     out = {}
     for rule in crit["rules"]:
         t, rid = rule["type"], rule["id"]
-        if t in ("rejected_for", "never_rejected"):
+        if t in ("detected_limit", "rejected_for", "never_rejected"):
             sel = _selected(trial, rule["select"])
             expected = sum(len(s["cases"]) * rule.get("reps", {}).get(s["where"], 1) for s in rule["select"])
-            if t == "rejected_for":
-                hit = lambda r: r["rejected"] and any(x.startswith(tuple(rule["reasons_any"])) for x in r["verifier_reasons"])  # noqa: E731
-                bad = [r for r in sel if not hit(r)]
+            if t == "detected_limit":
+                bad = [r for r in sel if not _detected(r, rule)]
+            elif t == "rejected_for":
+                bad = [r for r in sel if not _rejected_for(r, rule)]
             else:
                 bad = [r for r in sel if r["rejected"]]
             ok = bool(sel) and not bad and len(sel) == expected
             out[rid] = dict(ok=ok, n=len(sel), expected=expected,
-                            detail=[(r["where"], r["case_id"], r["verifier_reasons"] or r["reasons"]) for r in bad])
+                            detail=[(r["where"], r["case_id"], r["verifier_reasons"] or r["reasons"],
+                                     ((r.get("verdict") or {}).get("other_passage_issue") or {}).get("span")) for r in bad])
         elif t == "no_reason":
             bad = [(r["where"], r["case_id"], x) for r in trial for x in r["reasons"] if x.startswith(tuple(rule["prefixes"]))]
             out[rid] = dict(ok=not bad, detail=bad)

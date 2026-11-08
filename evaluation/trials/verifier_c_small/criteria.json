@@ -4,7 +4,7 @@
   "status_note": "DRAFT for review. run_trial.py refuses to run until status is 'registered', set in its own commit before the first provider call and never edited after results.",
   "review_status": "chua_duyet",
   "contract_version": "answer_contract_v0.8",
-  "change_under_test": "C (rag/answer_verify_context.py, verifier_context_v0.1): the verifier also sees every catalog passage under context_passages and may report other_passage_issue = null | {id of an UNCITED passage, verbatim span}. A valid report adds the content reason context_limit:<id>; a cited/unknown id or a non-verbatim span adds a mechanical reason (context_id_invalid / context_span_not_verbatim). The v0.5 parser runs unchanged on the cited quotes only, so an uncited passage can never rescue a claim.",
+  "change_under_test": "C (rag/answer_verify_context.py, verifier_context_v0.1): the verifier also sees every catalog passage under context_passages and may report other_passage_issue = null | {id of an UNCITED passage, verbatim WHOLE sentence(s)}. A valid report adds the content reason context_limit:<id>; a cited/unknown id or a non-verbatim span adds a mechanical reason (context_id_invalid / context_span_not_verbatim / context_span_not_whole_sentence). The v0.5 parser runs unchanged and the extra field cannot remove its reasons. NOT guaranteed: the model sees the whole catalog and may still judge 'supported' from an uncited passage; that risk is measured by CR1/CR2 (R3), not prevented.",
   "unchanged": [
     "generator and repair prompts",
     "repair budget",
@@ -155,10 +155,7 @@
   "rules": [
     {
       "id": "R1_detection",
-      "type": "rejected_for",
-      "reasons_any": [
-        "context_limit:E2"
-      ],
+      "type": "detected_limit",
       "reps": {
         "single": 3,
         "G1": 2,
@@ -167,7 +164,7 @@
         "G6": 2,
         "GC1": 2
       },
-      "note": "the omitted limitation is found for the RIGHT reason (uncited E2, verbatim); v0.5 support/flag reasons or mechanical reasons do not count",
+      "note": "right passage AND right sentence, nothing mechanical alongside. Accepted sentences registered before any call: [0] (primary) the authors call this very conclusion premature; [1] (also a genuine limitation of a claim about autistic children in general) no conclusive evidence for low-functioning individuals. Any other E2 sentence does not count.",
       "select": [
         {
           "where": "single",
@@ -188,6 +185,11 @@
             "CD1"
           ]
         }
+      ],
+      "passage_id": "E2",
+      "accepted_sentences": [
+        "Although there is reason to believe that serious sleep problems are common in children with ASD and that poor sleep exacerbates problematic daytime behavior, these conclusions are still premature and require further investigation.",
+        "To date, however, studies have failed to provide conclusive evidence about the relationship between sleep and behaviors seen in low-functioning individuals (of all ages) with autism."
       ]
     },
     {
@@ -250,11 +252,6 @@
     {
       "id": "R3_no_rescue",
       "type": "rejected_for",
-      "reasons_any": [
-        "support_not_supported",
-        "support_partially_supported",
-        "support_contradicted"
-      ],
       "reps": {
         "single": 3,
         "G1": 2,
@@ -263,7 +260,7 @@
         "G6": 2,
         "GC1": 2
       },
-      "note": "support only in an uncited passage: still rejected on the cited quotes",
+      "note": "support only in an uncited passage: still rejected on the cited quotes (exact reason; a v0.5 span_not_in_cited_evidence alongside is expected for unsupported claims and does not disqualify)",
       "select": [
         {
           "where": "single",
@@ -278,16 +275,16 @@
             "CR1"
           ]
         }
+      ],
+      "reasons_exact": [
+        "support_not_supported",
+        "support_partially_supported",
+        "support_contradicted"
       ]
     },
     {
       "id": "R4_regression",
       "type": "rejected_for",
-      "reasons_any": [
-        "support_",
-        "flag_",
-        "context_limit:"
-      ],
       "reps": {
         "single": 3,
         "G1": 2,
@@ -320,15 +317,23 @@
             "F14"
           ]
         }
+      ],
+      "reasons_prefix": [
+        "support_",
+        "flag_",
+        "context_limit:"
       ]
     },
     {
       "id": "R5_format",
       "type": "no_reason",
       "prefixes": [
-        "verifier_output_"
+        "verifier_output_",
+        "context_id_invalid",
+        "context_span_not_verbatim",
+        "context_span_not_whole_sentence"
       ],
-      "note": "no invalid or truncated verifier output in any trial call"
+      "note": "no invalid or truncated verifier output, and no invalid passage id or non-verbatim / partial-sentence context quote, in any trial call. v0.5 span_not_in_cited_evidence is listed separately."
     },
     {
       "id": "R6_length",
@@ -347,5 +352,6 @@
   "decision": {
     "all_rules_pass": "full measurement on contract v0.8: v1, addendum, citation controls, C set; single + full group + pipeline group; repeated focal combinations; must keep every case v0.5 caught for the right reason",
     "any_rule_fails": "stop C as designed; report; no prompt rounds on these cases. Next candidate: generation/repair improvements, each its own approved trial"
-  }
+  },
+  "conclusion_scope": "If every rule passes, the conclusion is a narrow improvement on dropped-caution faults in S05 (2 detection cases), not general verifier quality."
 }

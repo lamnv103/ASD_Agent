@@ -73,7 +73,8 @@ def plan(crit, resume=False, contract=None, stage=None):
 def write_state(crit, rows):
     st = dict(trial_id=crit["trial_id"], updated=datetime.now(timezone.utc).isoformat(), runs=rows,
               totals={k: sum((r.get("ledger") or {}).get(k, 0) for r in rows)
-                      for k in ("attempted", "completed", "provider_calls", "unaccounted", "completion_tokens")})
+                      for k in ("started", "saved_responses", "cache_hits", "errors", "unresolved", "cost_unknown",
+                        "completion_tokens_saved")})
     path = state_path(crit)
     path.parent.mkdir(parents=True, exist_ok=True)
     tmp = path.with_suffix(".tmp")

@@ -24,4 +24,4 @@ dependencies = [
 [tool.asd_agent]
 # Expected number of test methods across the three suites; tasks.ps1 test fails if it differs.
 # tests/ = 133 (115 + 13 input-guard + 5 release-config), scripts/embedding = 17, scripts/source_library = 17
-expected_tests = 279
+expected_tests = 282

@@ -35,6 +35,15 @@ def v05(content):
     return al.parse_verification(json.dumps(data), [CLAIM], [], NEEDS, CAT, CFG)["claims"]["c1"]["reasons"]
 
 
+class WholeSentenceTests(unittest.TestCase):
+    def test_sentence_boundaries(self):
+        p = al._span_norm("First one [51, 65]. Although A, these are premature. To date, studies (e.g., ASI) failed.")
+        for span, ok in (("First one [51, 65].", True), ("Although A, these are premature.", True),
+                         ("First one [51, 65]. Although A, these are premature.", True), ("To date, studies (e.g., ASI) failed", True),
+                         ("these are premature.", False), ("Although A", False), ("e.g., ASI) failed.", False)):
+            self.assertEqual(ctx.whole_sentences(al._span_norm(span), p), ok, span)
+
+
 class DisabledIsV05Tests(unittest.TestCase):
     def test_v05_prompt_untouched_and_c_prompt_only_adds(self):
         self.assertTrue(sha(al.VERIFY_SYSTEM).startswith("fd7c1477"))  # the accepted v0.5 verifier prompt
@@ -56,13 +65,20 @@ class ContextIssueTests(unittest.TestCase):
             self.assertEqual(parse(content), v05(content), kw)
 
     def test_valid_issue_on_an_uncited_passage_adds_a_content_reason(self):
-        span = "these conclusions are still premature and require further investigation."
-        self.assertEqual(parse(out(dict(id="E2", span=span))), ["context_limit:E2"])
+        self.assertEqual(parse(out(dict(id="E2", span=E2))), ["context_limit:E2"])
+        self.assertEqual(parse(out(dict(id="E2", span=E2.rstrip(".")))), ["context_limit:E2"])  # final stop may be omitted
+
+    def test_a_fragment_that_cuts_off_a_condition_is_refused(self):
+        # verbatim, long enough, but drops "Although ..." / keeps only the claim-like half: never a content catch
+        for frag in ("these conclusions are still premature and require further investigation.",
+                     "Although poor sleep exacerbates problematic daytime behavior"):
+            self.assertEqual(parse(out(dict(id="E2", span=frag))), ["context_span_not_whole_sentence"], frag)
 
     def test_bad_issue_is_a_separate_mechanical_reason(self):
         self.assertEqual(parse(out(dict(id="E1", span=E1))), ["context_id_invalid"])        # cited passage named
         self.assertEqual(parse(out(dict(id="E9", span=E2))), ["context_id_invalid"])        # unknown passage
-        self.assertEqual(parse(out(dict(id="E2", span="conclusions are premature"))), ["context_span_not_verbatim"])
+        self.assertEqual(parse(out(dict(id="E2", span="these conclusions are premature and need work."))),
+                         ["context_span_not_verbatim"])
         self.assertEqual(parse(out(dict(id="E2", span="premature."))), ["context_span_not_verbatim"])  # too short
 
     def test_an_uncited_passage_never_rescues_a_claim(self):
@@ -72,8 +88,7 @@ class ContextIssueTests(unittest.TestCase):
         # an evidence_span copied from an UNCITED passage still fails the v0.5 verbatim-in-cited check
         self.assertIn("span_not_in_cited_evidence", parse(out(None, span=E3)))
         # a context issue only adds: the v0.5 reasons stay
-        span = "these conclusions are still premature and require further investigation."
-        self.assertEqual(parse(out(dict(id="E2", span=span), support="partially_supported")),
+        self.assertEqual(parse(out(dict(id="E2", span=E2), support="partially_supported")),
                          ["support_partially_supported", "context_limit:E2"])
 
     def test_schema(self):
