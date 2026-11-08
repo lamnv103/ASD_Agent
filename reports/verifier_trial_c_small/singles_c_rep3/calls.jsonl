@@ -1,0 +1,9 @@
+{"event": "preflight_ok", "at": "2026-11-08T02:41:30.975268+00:00"}
+{"event": "start", "n": 1, "at": "2026-11-08T02:41:30.983021+00:00"}
+{"event": "done", "n": 1, "cache_hit": false, "request_id": "chatcmpl-938ac4f8-c70b-4a58-ae64-89aa3879e27e", "completion_tokens": 259, "at": "2026-11-08T02:41:37.672969+00:00"}
+{"event": "start", "n": 2, "at": "2026-11-08T02:41:37.679692+00:00"}
+{"event": "done", "n": 2, "cache_hit": false, "request_id": "chatcmpl-63f10047-c6f2-4f54-b35f-7170a79bd17f", "completion_tokens": 166, "at": "2026-11-08T02:41:39.973247+00:00"}
+{"event": "start", "n": 3, "at": "2026-11-08T02:41:39.978118+00:00"}
+{"event": "done", "n": 3, "cache_hit": false, "request_id": "chatcmpl-814eddaf-13d4-4c8a-9d61-7e1290ff682a", "completion_tokens": 221, "at": "2026-11-08T02:41:45.836433+00:00"}
+{"event": "start", "n": 4, "at": "2026-11-08T02:41:45.841241+00:00"}
+{"event": "error", "n": 4, "code": "nim_rate_limit", "at": "2026-11-08T02:41:46.249881+00:00"}

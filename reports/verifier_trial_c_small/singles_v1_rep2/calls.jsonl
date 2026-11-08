@@ -1,0 +1,5 @@
+{"event": "preflight_ok", "at": "2026-11-08T02:40:25.844414+00:00"}
+{"event": "start", "n": 1, "at": "2026-11-08T02:40:25.852798+00:00"}
+{"event": "done", "n": 1, "cache_hit": false, "request_id": "chatcmpl-7012a85d-c7f6-4127-946f-f0c756407a15", "completion_tokens": 189, "at": "2026-11-08T02:40:28.318104+00:00"}
+{"event": "start", "n": 2, "at": "2026-11-08T02:40:28.325270+00:00"}
+{"event": "done", "n": 2, "cache_hit": false, "request_id": "chatcmpl-95a7c24f-6395-40a9-98ad-cbde368b5d8c", "completion_tokens": 252, "at": "2026-11-08T02:40:37.050737+00:00"}

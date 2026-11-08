@@ -1,0 +1,138 @@
+{
+  "schema": "verifier_measurement_partial_v1",
+  "error": "AnswerClientError: nim_rate_limit: NVIDIA HTTP 429; body omitted; no automatic retry.",
+  "argv": [
+    "--cases",
+    "evaluation/answer_verifier_faults_c/cases.jsonl",
+    "--only",
+    "CD1,CC1,CC2,CC3,CR1,CR2",
+    "--no-groups",
+    "--out",
+    "reports/verifier_trial_c_small/singles_c_rep3",
+    "--nvidia-key-file",
+    "secrets/nvidia.env"
+  ],
+  "records": [
+    {
+      "case_id": "CD1",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "support": "supported",
+        "flags": [],
+        "evidence_span": "It is well researched that sleep problems worsen ASD symptomatology across most core domains, as well as exacerbate pre-existing behavioral problems.",
+        "explanation": "The cited quote explicitly states that sleep problems exacerbate pre-existing behavioral problems and that this relationship is well researched, matching the claim.",
+        "other_passage_issue": {
+          "id": "E2",
+          "span": "Although there is reason to believe that serious sleep problems are common in children with ASD and that poor sleep exacerbates problematic daytime behavior, these conclusions are still premature and require further investigation."
+        }
+      },
+      "reasons": [
+        "context_limit:E2"
+      ],
+      "call": {
+        "request_id": "chatcmpl-938ac4f8-c70b-4a58-ae64-89aa3879e27e",
+        "cache_hit": false,
+        "elapsed_seconds": 6.601,
+        "usage": {
+          "prompt_tokens": 1943,
+          "completion_tokens": 259,
+          "total_tokens": 2202,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "fail"
+    },
+    {
+      "case_id": "CC1",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "support": "supported",
+        "flags": [],
+        "evidence_span": "Although there is reason to believe that serious sleep problems are common in children with ASD and that poor sleep exacerbates problematic daytime behavior, these conclusions are still premature and require further investigation.",
+        "explanation": "The claim accurately reflects both parts of the cited passage: that sleep problems worsen daytime behavior, and that the authors themselves state these conclusions are premature and need further investigation.",
+        "other_passage_issue": null
+      },
+      "reasons": [],
+      "call": {
+        "request_id": "chatcmpl-63f10047-c6f2-4f54-b35f-7170a79bd17f",
+        "cache_hit": false,
+        "elapsed_seconds": 2.278,
+        "usage": {
+          "prompt_tokens": 2183,
+          "completion_tokens": 166,
+          "total_tokens": 2349,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "pass"
+    },
+    {
+      "case_id": "CC2",
+      "k1_reasons": [],
+      "verdict": {
+        "claim_id": "c1",
+        "support": "supported",
+        "flags": [],
+        "evidence_span": "There is also modest evidence to suggest that holistic parent report measures such as the CSHQ is a superior single-item response measure which helps gage overall quality of ASD children’s sleep [76].",
+        "explanation": "The claim accurately reflects the source text's statement about 'modest evidence' for CSHQ as a parent-report measure for overall sleep quality in ASD children.",
+        "other_passage_issue": null
+      },
+      "reasons": [],
+      "call": {
+        "request_id": "chatcmpl-814eddaf-13d4-4c8a-9d61-7e1290ff682a",
+        "cache_hit": false,
+        "elapsed_seconds": 5.838,
+        "usage": {
+          "prompt_tokens": 1946,
+          "completion_tokens": 221,
+          "total_tokens": 2167,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null
+          }
+        }
+      },
+      "outcome": "pass"
+    }
+  ],
+  "groups": [],
+  "pipeline_groups": [],
+  "ledger": {
+    "started": 4,
+    "saved_responses": 3,
+    "cache_hits": 0,
+    "errors": 1,
+    "error_codes": [
+      "nim_rate_limit"
+    ],
+    "unresolved": 0,
+    "cost_unknown": 1,
+    "completion_tokens_saved": 646
+  }
+}
