@@ -202,9 +202,9 @@ class PlanTests(unittest.TestCase):
         with self.assertRaises(mv.RunAbort) as cm:  # a draft copy is refused for its status, whatever the contract
             rtr.plan(dict(CRIT, status="draft"), contract=CRIT["contract_version"])
         self.assertIn("not 'registered'", str(cm.exception))
-        todo, _ = rtr.plan(CRIT, contract=CRIT["contract_version"], resume=True)
-        self.assertEqual(len(todo) * 2, CRIT["calls_max"]["trial"])  # upper bound; never topped up
-        argv = rtr.argv_for(todo[0], "secrets/nvidia.env")
+        # the plan itself (independent of which runs already exist in the working tree)
+        self.assertEqual(len(CRIT["runs"]) * 2, CRIT["calls_max"]["trial"])  # upper bound; never topped up
+        argv = rtr.argv_for(CRIT["runs"][0], "secrets/nvidia.env")
         self.assertIsInstance(argv, list)
         self.assertEqual(argv[argv.index("--unit") + 1], "U1")
         self.assertTrue(argv[2].endswith("measure_repair.py"))

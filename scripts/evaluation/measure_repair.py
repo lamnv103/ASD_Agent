@@ -162,6 +162,15 @@ def live_run(args):
     return 0
 
 
+DEFAULT_TRIALS = ("reports/repair_terms_small",)
+
+
+def default_measurements():
+    """Every recorded repetition of the registered repair trials (replayed by tasks.ps1 verify)."""
+    return [str(p.parent.relative_to(ROOT)).replace("\\", "/") for t in DEFAULT_TRIALS
+            for p in sorted((ROOT / t).glob("*/results.json"))]
+
+
 def check_here(out: Path, code_root: Path = ROOT):
     exp = json.loads((out / "results.json").read_text(encoding="utf-8"))
     rt = Runtime(code_root)
@@ -356,7 +365,7 @@ def main():
         return 0
     if a.check is not None:
         failed = False
-        for o in a.check:
+        for o in a.check or default_measurements():
             mode, diffs = check(ROOT / o)
             failed |= bool(diffs)
             print(f"REPAIR MEASUREMENT {o} ({mode}) " + ("verified" if not diffs else "FAILED: " + ", ".join(diffs)))

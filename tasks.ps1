@@ -224,6 +224,7 @@ Outputs go to reports/verification_runs/<name>_<time>/ (git-ignored). Historical
             Invoke-Checked $v { & $Py -B (Join-Path $Root "scripts\evaluation\$v.py") | Select-String -Pattern 'AUDIT_DIR|VERIFIED|"status"' }
         }
         Invoke-Checked 'measure_verifier --check' { & $Py -B (Join-Path $Root 'scripts\evaluation\measure_verifier.py') --check | Select-String -Pattern 'VERIFIER MEASUREMENT|"status"' }
+        Invoke-Checked 'measure_repair --check' { & $Py -B (Join-Path $Root 'scripts\evaluation\measure_repair.py') --check | Select-String -Pattern 'REPAIR MEASUREMENT|"status"' }
         Write-Host 'All verifiers passed (cache-only, no provider calls).' -ForegroundColor Green
     }
     'diag' {
