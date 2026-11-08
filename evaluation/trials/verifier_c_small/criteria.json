@@ -1,7 +1,7 @@
 {
   "trial_id": "verifier_c_small",
-  "status": "draft",
-  "status_note": "DRAFT for review. run_trial.py refuses to run until status is 'registered', set in its own commit before the first provider call and never edited after results.",
+  "status": "registered",
+  "status_note": "Registered 2026-11-08 after team review (labels checked against the sources; R1 = primary caution sentence only). Committed before the first provider call of this trial; never edited after results.",
   "review_status": "chua_duyet",
   "contract_version": "answer_contract_v0.8",
   "change_under_test": "C (rag/answer_verify_context.py, verifier_context_v0.1): the verifier also sees every catalog passage under context_passages and may report other_passage_issue = null | {id of an UNCITED passage, verbatim WHOLE sentence(s)}. A valid report adds the content reason context_limit:<id>; a cited/unknown id or a non-verbatim span adds a mechanical reason (context_id_invalid / context_span_not_verbatim / context_span_not_whole_sentence). The v0.5 parser runs unchanged and the extra field cannot remove its reasons. NOT guaranteed: the model sees the whole catalog and may still judge 'supported' from an uncited passage; that risk is measured by CR1/CR2 (R3), not prevented.",
