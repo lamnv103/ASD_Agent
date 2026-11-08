@@ -18,7 +18,7 @@
    - `faithful`: `"y"` / `"n"`, tức giữ nghĩa, phạm vi, mức chắc chắn và không thêm thông tin so với đoạn trích;
    - `contains_known_wrong_content`: `"y"` / `"n"`, tức có khẳng định hiệu quả vượt quá bằng chứng ("đã được chứng minh hiệu quả hơn ASI") hay không;
    - `note`: tự do.
-2. **Đánh giá nháp bằng model** (Claude) được làm riêng, không đọc bản của nhóm. Bản này được niêm phong bằng sha256 ghi trong lịch sử commit.
+2. **Đánh giá nháp bằng model** (Claude) đã làm xong ngày 08/11/2026 trên phiếu mù, không mở khóa. Bản này được niêm phong: file `_sealed/review_model.json` nằm ngoài git (`.git/info/exclude`), sha256 `6816e0abac051134bb88d68e552c9b11567f25e5bcccf46cfb488099975953f5`. **Nhóm không mở file này trước khi `review_team.json` được commit.** Sau đó chép nó thành `review_model.json` và kiểm tra lại sha256.
 3. **Phân xử:** nhóm phân xử các bất đồng khi nhánh vẫn ẩn, ghi vào `review_adjudicated.json`.
 4. **Chấm:** `measure_repair.py --judge evaluation/trials/repair_terms_small/criteria.json`. Bộ chấm từ chối nếu bất kỳ bản nào trong ba bản thiếu, trùng hoặc có giá trị không hợp lệ.
 
