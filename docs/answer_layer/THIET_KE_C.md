@@ -1,4 +1,6 @@
-# Thiết kế C: verifier xem các đoạn không trích để tìm giới hạn (bản nháp chờ duyệt)
+# Thiết kế C: verifier xem các đoạn không trích để tìm giới hạn (**không được nhận**)
+
+**Kết quả (08/11/2026):** thử nhỏ đã đăng ký dừng ở lượt 25 (HTTP 429), nhưng R2 (P08 3/3, A04 3/3, CC3 1/3 bị báo nhầm) và R5 (đầu ra thiếu trường) đã trượt, không thể đảo ngược. C tổng thể **không được nhận**. Kết quả hữu ích được ghi lại: CD1, ca v0.5 lọt 5/5, bị C bắt 3/3 đúng câu chính. Không chạy thêm lượt nào và không sửa prompt C thêm vòng nào trên các ca này. HEAD đã về hành vi v0.5 (cấu hình giống `f8bbd35`); module C vẫn còn nhưng không bật. Bằng chứng ở tag `answer-g-c-rejected-trial` và `reports/BAO_CAO_THU_C_20261108.md`.
 
 **Ngày:** 08/11/2026. **Trạng thái:** `chua_duyet`, chưa gọi API.
 

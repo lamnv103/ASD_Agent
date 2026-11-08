@@ -47,3 +47,5 @@
 ## 4. Theo tiêu chí đăng ký
 
 Một quy tắc trượt là đủ để kích hoạt quyết định "dừng C theo thiết kế này". Ở đây đã có hai: R2 và R5. Hai kết quả này đã chắc chắn, chạy nốt 12 lượt còn lại không thể biến chúng thành "đạt". Bộ chấm vẫn ghi "chưa chấm" vì dữ liệu chưa đủ.
+
+**Quyết định của nhóm (08/11/2026):** dừng C theo tiêu chí đã đăng ký và không chạy thêm 12 lượt. Bằng chứng được giữ ở tag `answer-g-c-rejected-trial`; HEAD về hành vi v0.5 bằng một commit mới. Kết quả CD1 được ghi nhận là hữu ích, nhưng C tổng thể không được nhận. Bước kế tiếp là thiết kế thử nghiệm riêng cho cải thiện sinh và sửa, có tiêu chí trình duyệt trước khi chạy.
