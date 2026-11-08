@@ -198,10 +198,11 @@ class ReviewSheetTests(unittest.TestCase):
 
 class PlanTests(unittest.TestCase):
     def test_draft_refused_and_argument_list(self):
-        with self.assertRaises(mv.RunAbort):
-            rtr.plan(CRIT, contract=CRIT["contract_version"])
-        reg = dict(CRIT, status="registered")
-        todo, _ = rtr.plan(reg, contract=CRIT["contract_version"])
+        self.assertEqual(CRIT["status"], "registered")
+        with self.assertRaises(mv.RunAbort) as cm:  # a draft copy is refused for its status, whatever the contract
+            rtr.plan(dict(CRIT, status="draft"), contract=CRIT["contract_version"])
+        self.assertIn("not 'registered'", str(cm.exception))
+        todo, _ = rtr.plan(CRIT, contract=CRIT["contract_version"], resume=True)
         self.assertEqual(len(todo) * 2, CRIT["calls_max"]["trial"])  # upper bound; never topped up
         argv = rtr.argv_for(todo[0], "secrets/nvidia.env")
         self.assertIsInstance(argv, list)
