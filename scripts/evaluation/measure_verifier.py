@@ -63,7 +63,12 @@ DEFAULT_MEASUREMENTS = ["reports/verifier_eval_20261107_v0.2", "reports/verifier
                         "reports/verifier_trial_20261108_v0.7/groups_v1_rep1",
                         "reports/verifier_trial_20261108_v0.7/groups_v1_rep2",
                         "reports/verifier_trial_20261108_v0.7/groups_addendum_rep1",
-                        "reports/verifier_trial_20261108_v0.7/groups_addendum_rep2"]
+                        "reports/verifier_trial_20261108_v0.7/groups_addendum_rep2",
+                        "reports/verifier_trial_c_small/baseline_singles_c_rep1",
+                        "reports/verifier_trial_c_small/baseline_singles_c_rep2",
+                        "reports/verifier_trial_c_small/baseline_singles_c_rep3",
+                        "reports/verifier_trial_c_small/baseline_groups_c_rep1",
+                        "reports/verifier_trial_c_small/baseline_groups_c_rep2"]
 CONTENT_PREFIXES = ("support_", "flag_", "check:", "context_limit:")  # verifier reasons about the claim's content (vs schema/wording)
 FLAG_TO_ASPECT = {"condition_dropped": "population_scope", "certainty_changed": "certainty",
                   "added_content": "conclusion_topic", "unrequested_medical_content": "question_fit"}

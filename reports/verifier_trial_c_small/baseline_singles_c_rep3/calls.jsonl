@@ -1,0 +1,13 @@
+{"event": "preflight_ok", "at": "2026-11-08T02:29:50.102428+00:00"}
+{"event": "start", "n": 1, "at": "2026-11-08T02:29:50.110152+00:00"}
+{"event": "done", "n": 1, "cache_hit": false, "request_id": "chatcmpl-fef8fe37-8466-4cbd-8fdb-4cdc0560826e", "completion_tokens": 196, "at": "2026-11-08T02:29:52.132293+00:00"}
+{"event": "start", "n": 2, "at": "2026-11-08T02:29:52.140618+00:00"}
+{"event": "done", "n": 2, "cache_hit": false, "request_id": "chatcmpl-ee4c3605-021b-453e-984a-d9393288fee2", "completion_tokens": 155, "at": "2026-11-08T02:29:55.273880+00:00"}
+{"event": "start", "n": 3, "at": "2026-11-08T02:29:55.282072+00:00"}
+{"event": "done", "n": 3, "cache_hit": false, "request_id": "chatcmpl-a397a44f-c2e0-400e-b91a-c1a292410c0f", "completion_tokens": 242, "at": "2026-11-08T02:29:58.850185+00:00"}
+{"event": "start", "n": 4, "at": "2026-11-08T02:29:58.854754+00:00"}
+{"event": "done", "n": 4, "cache_hit": false, "request_id": "chatcmpl-4ee2b026-161b-4e80-b145-07206f92342e", "completion_tokens": 185, "at": "2026-11-08T02:30:01.461245+00:00"}
+{"event": "start", "n": 5, "at": "2026-11-08T02:30:01.466135+00:00"}
+{"event": "done", "n": 5, "cache_hit": false, "request_id": "chatcmpl-df556a74-e787-4986-97cb-e5a4525f4f71", "completion_tokens": 206, "at": "2026-11-08T02:30:07.591292+00:00"}
+{"event": "start", "n": 6, "at": "2026-11-08T02:30:07.595993+00:00"}
+{"event": "done", "n": 6, "cache_hit": false, "request_id": "chatcmpl-2fa99f32-2d1b-4b20-a471-549d1ca42735", "completion_tokens": 182, "at": "2026-11-08T02:30:09.497879+00:00"}

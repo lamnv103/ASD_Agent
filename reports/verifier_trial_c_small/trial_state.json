@@ -1,0 +1,90 @@
+{
+  "trial_id": "verifier_c_small",
+  "updated": "2026-11-08T02:30:22.149146+00:00",
+  "runs": [
+    {
+      "out": "reports/verifier_trial_c_small/baseline_singles_c_rep1",
+      "status": "done",
+      "exit_code": 0,
+      "ledger": {
+        "started": 6,
+        "saved_responses": 6,
+        "cache_hits": 0,
+        "errors": 0,
+        "error_codes": [],
+        "unresolved": 0,
+        "cost_unknown": 0,
+        "completion_tokens_saved": 1194
+      }
+    },
+    {
+      "out": "reports/verifier_trial_c_small/baseline_singles_c_rep2",
+      "status": "done",
+      "exit_code": 0,
+      "ledger": {
+        "started": 6,
+        "saved_responses": 6,
+        "cache_hits": 0,
+        "errors": 0,
+        "error_codes": [],
+        "unresolved": 0,
+        "cost_unknown": 0,
+        "completion_tokens_saved": 1215
+      }
+    },
+    {
+      "out": "reports/verifier_trial_c_small/baseline_singles_c_rep3",
+      "status": "done",
+      "exit_code": 0,
+      "ledger": {
+        "started": 6,
+        "saved_responses": 6,
+        "cache_hits": 0,
+        "errors": 0,
+        "error_codes": [],
+        "unresolved": 0,
+        "cost_unknown": 0,
+        "completion_tokens_saved": 1166
+      }
+    },
+    {
+      "out": "reports/verifier_trial_c_small/baseline_groups_c_rep1",
+      "status": "done",
+      "exit_code": 0,
+      "ledger": {
+        "started": 1,
+        "saved_responses": 1,
+        "cache_hits": 0,
+        "errors": 0,
+        "error_codes": [],
+        "unresolved": 0,
+        "cost_unknown": 0,
+        "completion_tokens_saved": 448
+      }
+    },
+    {
+      "out": "reports/verifier_trial_c_small/baseline_groups_c_rep2",
+      "status": "done",
+      "exit_code": 0,
+      "ledger": {
+        "started": 1,
+        "saved_responses": 1,
+        "cache_hits": 0,
+        "errors": 0,
+        "error_codes": [],
+        "unresolved": 0,
+        "cost_unknown": 0,
+        "completion_tokens_saved": 419
+      }
+    }
+  ],
+  "totals": {
+    "started": 20,
+    "saved_responses": 20,
+    "cache_hits": 0,
+    "errors": 0,
+    "unresolved": 0,
+    "cost_unknown": 0,
+    "completion_tokens_saved": 4442
+  }
+}
