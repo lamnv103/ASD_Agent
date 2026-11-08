@@ -4,7 +4,14 @@
   "purpose": "internal_prototype_only",
   "note": "Trial only: correct renderings added to repair-round problems that carry known_term_error:<wrong>. Keys must equal deployments/answer_layer.json known_term_errors.terms keys. Not used by the answer pipeline unless a later, approved change wires it in.",
   "terms": {
-    "du lượn": {"source_term": "passive swinging", "use": "đu đưa thụ động"},
-    "nguyên tắc trung thực": {"source_term": "fidelity principles", "use": "nguyên tắc bảo đảm thực hiện đúng phương pháp"}
-  }
+    "du lượn": {
+      "source_term": "passive swinging",
+      "use": "đu đưa thụ động"
+    },
+    "nguyên tắc trung thực": {
+      "source_term": "fidelity principles",
+      "use": "nguyên tắc bảo đảm thực hiện đúng phương pháp"
+    }
+  },
+  "translation_note": "'nguyên tắc bảo đảm thực hiện đúng phương pháp' (fidelity principles: delivering the intervention according to the method's principles) is the project's translation choice for this parent-facing prototype, not an expert-approved Vietnamese term."
 }

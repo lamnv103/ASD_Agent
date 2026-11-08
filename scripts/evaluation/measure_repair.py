@@ -15,6 +15,7 @@ Every rewritten claim goes through all v0.5 checks again (K1, gates, known terms
 Run safety: measure_verifier.validate_out / preflight / Ledger / results.partial.json.
 """
 import argparse
+import hashlib
 import json
 import random
 import sys
@@ -28,6 +29,7 @@ import verify_answer_layer as va  # noqa: E402
 
 COMPARED = va.COMPARED + ("route",)
 REVIEW_FIELDS = ("concepts", "term_correct", "faithful", "contains_known_wrong_content", "note")
+VALUES = {"term_correct": ("y", "n", "na"), "faithful": ("y", "n"), "contains_known_wrong_content": ("y", "n")}
 
 
 class FirstRoundMismatch(Exception):
@@ -202,6 +204,10 @@ def displayed(crit):
     return rows, missing
 
 
+def _text_sha(text):
+    return hashlib.sha256(text.encode("utf-8")).hexdigest()
+
+
 def review_sheet(crit):
     rows, missing = displayed(crit)
     if missing:
@@ -215,51 +221,120 @@ def review_sheet(crit):
         r = rows[k]
         sheet.append(dict(review_id=rid, question_id=crit["question_id"], text=r["text"], cited=r["cited"],
                           concept_choices=crit["review"]["concepts"], **{f: None for f in REVIEW_FIELDS}))
-        key[rid] = {x: r[x] for x in ("out", "unit_id", "arm", "claim_id")}
+        key[rid] = dict({x: r[x] for x in ("out", "unit_id", "arm", "claim_id")}, text_sha256=_text_sha(r["text"]))
     return sheet, key
 
 
-def judge(crit, reviews, key):
-    """Rules on the blind review (unblinded with the key). Returns (rules, report, problems)."""
-    rows, missing = displayed(crit)
-    problems = [f"missing run {m}" for m in missing]
-    by_run = {}
-    for rid, k in key.items():
-        rv = reviews.get(rid)
-        if rv is None or any(rv.get(f) is None for f in ("concepts", "term_correct", "faithful", "contains_known_wrong_content")):
-            problems.append(f"review incomplete: {rid}")
-            continue
-        by_run.setdefault(k["out"], []).append(dict(k, **rv))
-    for run in crit["runs"]:
-        if run["out"] not in missing:
-            by_run.setdefault(run["out"], [])  # a run that displays nothing still counts (as a failure where content is required)
+def validate_review(crit, rows, key, reviews):
+    """Exactly one valid review row per displayed claim, mapped to the right run, arm and wording. Returns problems."""
+    problems = []
     runs = {r["out"]: r for r in crit["runs"]}
-    good = lambda c: c["faithful"] == "y" and c["term_correct"] in ("y", "na")  # noqa: E731
+    shown = {}
+    for r in rows:
+        if (r["out"], r["claim_id"]) in shown:
+            problems.append(f"duplicate displayed claim {r['out']}/{r['claim_id']}")
+        shown[(r["out"], r["claim_id"])] = r
+    keyed = {}
+    for rid, k in key.items():
+        pair = (k.get("out"), k.get("claim_id"))
+        if pair in keyed:
+            problems.append(f"key maps two review rows to {pair}")
+        keyed[pair] = rid
+        r = shown.get(pair)
+        if r is None:
+            problems.append(f"key row {rid} matches no displayed claim")
+            continue
+        run = runs.get(k["out"], {})
+        if (k.get("unit_id"), k.get("arm")) != (run.get("unit"), run.get("arm")) or (k["unit_id"], k["arm"]) != (r["unit_id"], r["arm"]):
+            problems.append(f"key row {rid} has the wrong unit/arm")
+        if k.get("text_sha256") != _text_sha(r["text"]):
+            problems.append(f"key row {rid} does not match the displayed wording")
+    for pair in shown:
+        if pair not in keyed:
+            problems.append(f"displayed claim {pair[0]}/{pair[1]} has no review row")
+    ids = [x.get("review_id") for x in reviews]
+    for rid in sorted({x for x in ids if ids.count(x) > 1}):
+        problems.append(f"review {rid} appears more than once")
+    for rid in sorted(set(ids) - set(key)):
+        problems.append(f"review {rid} is not in the key")
+    for rid in sorted(set(key) - set(ids)):
+        problems.append(f"review incomplete: {rid}")
+    concepts = {c["id"] for c in crit["review"]["concepts"]}
+    for x in reviews:
+        rid = x.get("review_id")
+        if not (isinstance(x.get("concepts"), list) and set(x["concepts"]) <= concepts):
+            problems.append(f"review {rid}: concepts must be a list of {sorted(concepts)}")
+        for f, allowed in VALUES.items():
+            if x.get(f) not in allowed:
+                problems.append(f"review {rid}: {f} must be one of {list(allowed)}")
+    return problems
+
+
+def agreement(team, model):
+    """Row-level agreement between the two independent reviews (reported; disagreements go to blind adjudication)."""
+    m = {x["review_id"]: x for x in model}
+    fields = ("concepts", "term_correct", "faithful", "contains_known_wrong_content")
+    diff = [(x["review_id"], f) for x in team for f in fields
+            if (sorted(x[f]) if f == "concepts" else x[f]) != (sorted(m[x["review_id"]][f]) if f == "concepts" else m[x["review_id"]][f])]
+    return dict(rows=len(team), disagreements=diff)
+
+
+def judge(crit, reviews, key, rows=None):
+    """Rules on the adjudicated blind review (unblinded with the key). reviews is the LIST of review rows.
+    Returns (rules, report, problems); any problem means the trial is not judged."""
+    if rows is None:
+        rows, missing = displayed(crit)
+    else:
+        missing = []
+    problems = [f"missing run {m}" for m in missing]
+    problems += validate_review(crit, rows, key, reviews)
+    if problems:
+        return {}, {}, problems
+    runs = {r["out"]: r for r in crit["runs"]}
+    by_rid = {x["review_id"]: x for x in reviews}
+    by_run = {o: [] for o in runs}
+    for rid, k in key.items():
+        by_run[k["out"]].append(dict(k, **by_rid[rid]))
+    term = set(crit["review"]["term_concepts"])
+
+    def good_for(c, concept):  # repaired term concepts need the correct term: "na" is not a fix
+        return c["faithful"] == "y" and (c["term_correct"] == "y" if concept in term else c["term_correct"] in ("y", "na"))
 
     def covers(claims, concept):
-        return any(concept in c["concepts"] and good(c) for c in claims)
+        return any(concept in c["concepts"] and good_for(c, concept) for c in claims)
 
     out, rep = {}, {}
-    rules = {r["id"]: r for r in crit["rules"]}
-    for rid, rule in rules.items():
+    for rule in crit["rules"]:
         sel = [o for o in by_run if runs[o]["unit"] == rule["unit"] and runs[o]["arm"] in rule["arms"]]
         if rule["type"] == "covers_all":
             bad = [(o, cn) for o in sel for cn in rule["concepts"] if not covers(by_run[o], cn)]
         elif rule["type"] == "no_bad_on_concepts":
-            bad = [(o, c["claim_id"]) for o in sel for c in by_run[o] if set(c["concepts"]) & set(rule["concepts"]) and not good(c)]
+            bad = [(o, c["claim_id"], cn) for o in sel for c in by_run[o] for cn in rule["concepts"]
+                   if cn in c["concepts"] and not good_for(c, cn)]
         elif rule["type"] == "no_known_wrong_content":
             bad = [(o, c["claim_id"]) for o in sel for c in by_run[o] if c["contains_known_wrong_content"] == "y"]
         else:
             raise ValueError(rule["type"])
-        out[rid] = dict(ok=bool(sel) and len(sel) == rule["reps"] and not bad, n=len(sel), expected=rule["reps"], detail=bad)
-    # attribution: arm B covers the term concepts in every repetition AND arm A does not
+        out[rule["id"]] = dict(ok=len(sel) == rule["reps"] and not bad, n=len(sel), expected=rule["reps"], detail=bad)
     att = crit["attribution"]
     fixed = {arm: sum(all(covers(by_run[o], cn) for cn in att["concepts"]) for o in by_run
                       if runs[o]["unit"] == att["unit"] and runs[o]["arm"] == arm) for arm in ("A", "B")}
-    out["attribution"] = dict(ok=fixed["B"] == att["reps"] and fixed["A"] < att["reps"], fixed_reps=fixed)
+    out["attribution"] = dict(ok=fixed["B"] == att["reps"] and fixed["A"] < att["reps"], fixed_reps=fixed, scope=att["scope"])
     for o, claims in by_run.items():
-        rep[o] = dict(arm=runs[o]["arm"], unit=runs[o]["unit"], displayed=len(claims), acceptable=sum(good(c) for c in claims),
-                      term_fixed_concepts=[cn for cn in att["concepts"] if covers(claims, cn)])
+        row = dict(arm=runs[o]["arm"], unit=runs[o]["unit"], displayed=len(claims),
+                   acceptable=sum(c["faithful"] == "y" and all(good_for(c, cn) for cn in c["concepts"]) for c in claims),
+                   term_fixed_concepts=[cn for cn in att["concepts"] if covers(claims, cn)])
+        if runs[o]["unit"] == crit["review"].get("u2_unit"):
+            swing = [c for c in claims if "K_SWING" in c["concepts"]]
+            if any(c["contains_known_wrong_content"] == "y" for c in claims):
+                row["u2_handling"] = "wrong_content_shown"
+            elif any(good_for(c, "K_SWING") for c in swing):
+                row["u2_handling"] = "comparison_removed_claim_kept"
+            elif not swing:
+                row["u2_handling"] = "claim_dropped"
+            else:
+                row["u2_handling"] = "claim_kept_not_acceptable"
+        rep[o] = row
     return out, rep, problems
 
 
@@ -297,9 +372,22 @@ def main():
         return 0
     if a.judge:
         crit = json.loads((ROOT / a.judge).read_text(encoding="utf-8"))
-        reviews = {r["review_id"]: r for r in json.loads((ROOT / crit["review"]["filled"]).read_text(encoding="utf-8"))}
         key = json.loads((ROOT / crit["review"]["key"]).read_text(encoding="utf-8"))
-        out, rep, problems = judge(crit, reviews, key)
+        rows, _ = displayed(crit)
+        loaded = {}
+        for name in ("team", "model", "adjudicated"):  # two independent reviews, then the blind adjudication
+            path = ROOT / crit["review"][name]
+            if not path.exists():
+                print(f"INCOMPLETE (not judged): {crit['review'][name]} missing")
+                return 2
+            loaded[name] = json.loads(path.read_text(encoding="utf-8"))
+            bad = validate_review(crit, rows, key, loaded[name])
+            if bad:
+                print(f"INCOMPLETE (not judged): {name} review")
+                print("  " + "\n  ".join(bad))
+                return 2
+        print("team vs model review:", agreement(loaded["team"], loaded["model"]))
+        out, rep, problems = judge(crit, loaded["adjudicated"], key)
         if problems:
             print("INCOMPLETE (not judged):\n  " + "\n  ".join(problems))
             return 2

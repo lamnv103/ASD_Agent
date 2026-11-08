@@ -21,9 +21,6 @@
     "U3 (correct terms): no known_term_error, arm B request identical to arm A"
   ],
   "state_file": "reports/repair_terms_small/trial_state.json",
-  "calls_planned": {
-    "trial": 24
-  },
   "runs": [
     {
       "tool": "repair",
@@ -131,7 +128,7 @@
       },
       {
         "id": "K_FIDELITY",
-        "text": "ASI đòi hỏi đào tạo chuyên sâu và tuân thủ fidelity principles: cá nhân hóa, trẻ chủ động, chơi, thử thách vừa sức (E4). Thuật ngữ đúng: 'nguyên tắc bảo đảm thực hiện đúng phương pháp' hoặc cách nói cùng nghĩa (tuân thủ đúng phương pháp); 'nguyên tắc trung thực' là sai"
+        "text": "ASI đòi hỏi đào tạo chuyên sâu và tuân thủ fidelity principles: cá nhân hóa, trẻ chủ động, chơi, thử thách vừa sức (E4). Thuật ngữ đúng: 'nguyên tắc bảo đảm thực hiện đúng phương pháp' hoặc cách nói cùng nghĩa (tuân thủ đúng phương pháp); 'nguyên tắc trung thực' là sai. 'nguyên tắc bảo đảm thực hiện đúng phương pháp' là lựa chọn dịch của dự án, chưa phải thuật ngữ tiếng Việt đã được chuyên gia duyệt"
       },
       {
         "id": "K_SWING",
@@ -144,8 +141,32 @@
     ],
     "sheet": "reports/repair_terms_small/review_sheet.json",
     "key": "reports/repair_terms_small/review_key.json",
-    "filled": "reports/repair_terms_small/review_filled.json",
-    "procedure": "Blind: claims shuffled (seed fixed), arm and unit hidden. Each displayed claim is compared by hand with the verbatim cited quotes: concepts it expresses, term_correct (y/n/na), faithful (meaning, scope, certainty kept, nothing added: y/n), contains_known_wrong_content (y/n). First pass is a draft technical review by Claude, labelled as such; the team confirms or overrides every row before judging. Verifier 'supported' or status 'du' is never used as the quality judgment."
+    "procedure": "1) Blind sheet: displayed claims shuffled (seed fixed), arm and unit hidden. 2) The TEAM reviews first and independently: a person reads the verbatim cited quotes for every row (the only source-based manual check). 3) Separately, a model draft review (Claude), labelled 'đánh giá nháp bằng model', written without reading the team review. 4) Both reviews are kept; disagreements are adjudicated by the team while arms stay hidden (review_adjudicated.json). The judge uses the adjudicated review only, and refuses unless the team, model and adjudicated reviews each have exactly one valid row per displayed claim. Blinding is limited: whoever designed the trial may recognise an arm from the wording. Verifier 'supported' or status 'du' is never the quality judgment.",
+    "team": "reports/repair_terms_small/review_team.json",
+    "model": "reports/repair_terms_small/review_model.json",
+    "adjudicated": "reports/repair_terms_small/review_adjudicated.json",
+    "term_concepts": [
+      "K_FIDELITY",
+      "K_SWING"
+    ],
+    "u2_unit": "U2",
+    "values": {
+      "concepts": "list of concept ids",
+      "term_correct": [
+        "y",
+        "n",
+        "na"
+      ],
+      "faithful": [
+        "y",
+        "n"
+      ],
+      "contains_known_wrong_content": [
+        "y",
+        "n"
+      ],
+      "rule": "for K_FIDELITY and K_SWING a fix requires term_correct = y ('na' is not a fix)"
+    }
   },
   "rules": [
     {
@@ -160,7 +181,7 @@
         "K_SWING",
         "K_FIDELITY"
       ],
-      "note": "every arm-B repetition displays each of the two term concepts in a claim with the correct term AND faithful to the cited quotes (dropping the claim is not a fix)"
+      "note": "every arm-B repetition displays each of the two term concepts in a claim with the correct term AND faithful to the cited quotes (dropping the claim is not a fix); term_correct must be 'y'"
     },
     {
       "id": "R2_no_loss",
@@ -197,7 +218,7 @@
         "B"
       ],
       "reps": 3,
-      "note": "U2: the wrong efficacy content is never displayed in arm B (a fixed word on wrong content is a failure)"
+      "note": "U2: the efficacy claim that goes beyond the provided evidence ('đã được chứng minh hiệu quả hơn ASI') is never displayed in arm B. A fixed word on that content is a failure. Removing only the wrong comparison or dropping the whole claim are both acceptable; the report lists the two separately (u2_handling)."
     },
     {
       "id": "R5_U2_concept_clean",
@@ -220,19 +241,26 @@
       "K_FIDELITY"
     ],
     "reps": 3,
-    "rule": "benefit is shown only if arm B fixes both term concepts in 3/3 repetitions AND arm A in fewer than 3/3; if arm A also fixes 3/3, the guidance shows no measurable benefit and is not accepted"
+    "rule": "benefit is shown only if arm B fixes both term concepts in 3/3 repetitions AND arm A in fewer than 3/3; if arm A also fixes 3/3, the guidance shows no measurable benefit and is not accepted",
+    "scope": "B 3/3 with A below 3/3 only records a benefit in this small trial (one question, two known mistranslations, 3 repetitions per arm); it does not show a stable improvement in general. A 2/3 vs B 3/3 is reported at exactly that level."
   },
   "report_only": [
     "arm A on every rule",
     "displayed and acceptable claims per run",
     "K_REVIEWS (first-round c4 is the known A01 wording the v0.5 verifier passes)",
     "ledger per run: started / saved / errors / cost unknown",
-    "verifier results on the NEW wording (never reused from the first round)"
+    "verifier results on the NEW wording (never reused from the first round)",
+    "u2_handling per arm-B U2 run: comparison_removed_claim_kept / claim_dropped / wrong_content_shown / claim_kept_not_acceptable",
+    "team vs model review agreement and every disagreement"
   ],
   "completeness": "judge refuses (exit 2) if a run is missing or any review row is incomplete; a run that ends in system_error stops the batch (results.partial.json)",
   "conclusion_scope": "Answers one narrow question on one question (S08) and two known mistranslations; not a general repair-quality result.",
   "decision": {
     "all_rules_pass": "propose wiring term guidance into the pipeline as its own approved change, then a 4-question run on a fixed version",
     "any_rule_fails": "stop this form of repair feedback; no rewording of the guidance on these units; next candidate (scope splitting or self-contained claims) as its own trial"
+  },
+  "calls_max": {
+    "trial": 24,
+    "note": "Upper bound, not a target: a run whose repaired claims all fail the deterministic checks makes no verify_repair call. Never top up to reach 24; a valid completed run with fewer calls counts."
   }
 }

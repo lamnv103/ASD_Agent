@@ -89,59 +89,99 @@ class OfflinePreconditionTests(unittest.TestCase):
         self.assertIn("hiệu quả hơn ASI", raw)
 
 
-def _fake_rows(spec):
-    """spec: {(unit, arm, rep): [(concepts, term_correct, faithful, wrong_content)]} -> displayed rows + key + reviews."""
-    key, reviews, n = {}, {}, 0
+def _fake(spec):
+    """spec: {(unit, arm, rep): [(concepts, term_correct, faithful, wrong_content)]} -> displayed rows, key, review list."""
+    rows, key, reviews, n = [], {}, [], 0
     for (unit, arm, rep), claims in spec.items():
         out = f"reports/repair_terms_small/{unit}_{arm}_rep{rep}"
         for i, (concepts, term, faithful, wrong) in enumerate(claims):
             n += 1
-            rid = f"R{n:03d}"
-            key[rid] = dict(out=out, unit_id=unit, arm=arm, claim_id=f"c{i + 1}")
-            reviews[rid] = dict(concepts=list(concepts), term_correct=term, faithful=faithful, contains_known_wrong_content=wrong)
-    return key, reviews
+            rid, text = f"R{n:03d}", f"claim {n}"
+            rows.append(dict(out=out, unit_id=unit, arm=arm, claim_id=f"c{i + 1}", text=text, cited=[]))
+            key[rid] = dict(out=out, unit_id=unit, arm=arm, claim_id=f"c{i + 1}", text_sha256=mr._text_sha(text))
+            reviews.append(dict(review_id=rid, concepts=list(concepts), term_correct=term, faithful=faithful,
+                                contains_known_wrong_content=wrong, note=""))
+    return rows, key, reviews
 
 
 class JudgeTests(unittest.TestCase):
     GOOD = [(["K_ANSWER"], "na", "y", "n"), (["K_FIDELITY"], "y", "y", "n"), (["K_SWING"], "y", "y", "n")]
 
-    def judge(self, override=None):
+    def spec(self, override=None):
         spec = {}
         for unit in ("U1", "U2"):
             for rep in (1, 2, 3):
-                spec[(unit, "A", rep)] = [(["K_ANSWER"], "na", "y", "n")]           # control keeps failing the terms
+                spec[(unit, "A", rep)] = [(["K_ANSWER"], "na", "y", "n")]  # control keeps failing the terms
                 spec[(unit, "B", rep)] = list(self.GOOD)
         spec.update(override or {})
-        key, reviews = _fake_rows(spec)
-        with mock.patch.object(mr, "displayed", lambda crit: ([], [])):
-            return mr.judge(CRIT, reviews, key)
+        return spec
+
+    def judge(self, override=None):
+        rows, key, reviews = _fake(self.spec(override))
+        return mr.judge(CRIT, reviews, key, rows)
 
     def test_all_pass_and_attribution(self):
         out, rep, problems = self.judge()
         self.assertEqual(problems, [])
         self.assertTrue(all(r["ok"] for r in out.values()), out)
         self.assertEqual(out["attribution"]["fixed_reps"], dict(A=0, B=3))
+        self.assertIn("does not show a stable improvement", out["attribution"]["scope"])
+        self.assertEqual(rep["reports/repair_terms_small/U2_B_rep1"]["u2_handling"], "comparison_removed_claim_kept")
 
     def test_dropping_the_claim_is_not_a_fix(self):
-        out, _, _ = self.judge({("U1", "B", 2): [(["K_ANSWER"], "na", "y", "n"), (["K_FIDELITY"], "y", "y", "n")]})
+        out, rep, _ = self.judge({("U1", "B", 2): [(["K_ANSWER"], "na", "y", "n"), (["K_FIDELITY"], "y", "y", "n")]})
         self.assertFalse(out["R1_terms_fixed"]["ok"])
+        out, rep, _ = self.judge({("U2", "B", 1): [(["K_ANSWER"], "na", "y", "n")]})
+        self.assertTrue(out["R4_content_error_not_rescued"]["ok"])  # U2: dropping the whole claim is acceptable ...
+        self.assertEqual(rep["reports/repair_terms_small/U2_B_rep1"]["u2_handling"], "claim_dropped")  # ... and reported apart
+
+    def test_na_is_not_a_term_fix(self):
+        out, _, _ = self.judge({("U1", "B", 1): [(["K_ANSWER"], "na", "y", "n"), (["K_FIDELITY"], "na", "y", "n"),
+                                                 (["K_SWING"], "y", "y", "n")]})
+        self.assertFalse(out["R1_terms_fixed"]["ok"])
+        self.assertFalse(out["R3_no_new_error"]["ok"])
 
     def test_fixed_word_on_wrong_content_is_a_failure(self):
-        out, _, _ = self.judge({("U2", "B", 1): [(["K_SWING"], "y", "n", "y")]})
+        out, rep, _ = self.judge({("U2", "B", 1): [(["K_SWING"], "y", "n", "y")]})
         self.assertFalse(out["R4_content_error_not_rescued"]["ok"])
         self.assertFalse(out["R5_U2_concept_clean"]["ok"])
+        self.assertEqual(rep["reports/repair_terms_small/U2_B_rep1"]["u2_handling"], "wrong_content_shown")
 
     def test_no_benefit_when_control_also_fixes(self):
         out, _, _ = self.judge({("U1", "A", r): list(self.GOOD) for r in (1, 2, 3)})
         self.assertFalse(out["attribution"]["ok"])
 
-    def test_incomplete_review_blocks_judging(self):
-        spec = {("U1", "B", 1): [(["K_SWING"], "y", "y", "n")]}
-        key, reviews = _fake_rows(spec)
-        reviews["R001"]["faithful"] = None
-        with mock.patch.object(mr, "displayed", lambda crit: ([], [])):
-            _, _, problems = mr.judge(CRIT, reviews, key)
-        self.assertEqual(problems, ["review incomplete: R001"])
+    def test_every_displayed_claim_needs_exactly_one_valid_review(self):
+        rows, key, reviews = _fake(self.spec({("U2", "B", 1): [(["K_SWING"], "y", "n", "y")]}))
+        bad_rid = next(r for r, k in key.items() if k["out"].endswith("U2_B_rep1"))
+        # the wrong-content claim is missing from BOTH the key and the review: must not pass silently
+        k2 = {r: k for r, k in key.items() if r != bad_rid}
+        v2 = [x for x in reviews if x["review_id"] != bad_rid]
+        _, _, problems = mr.judge(CRIT, v2, k2, rows)
+        self.assertIn("displayed claim reports/repair_terms_small/U2_B_rep1/c1 has no review row", problems)
+        _, _, problems = mr.judge(CRIT, reviews + [dict(reviews[0])], key, rows)  # duplicate review row
+        self.assertIn(f"review {reviews[0]['review_id']} appears more than once", problems)
+        wrong = dict(key, **{bad_rid: dict(key[bad_rid], text_sha256="0" * 64)})  # mapped to another wording
+        self.assertIn(f"key row {bad_rid} does not match the displayed wording", mr.judge(CRIT, reviews, wrong, rows)[2])
+        moved = dict(key, **{bad_rid: dict(key[bad_rid], arm="A")})  # assigned to the wrong arm
+        self.assertIn(f"key row {bad_rid} has the wrong unit/arm", mr.judge(CRIT, reviews, moved, rows)[2])
+        extra = reviews + [dict(reviews[0], review_id="R999")]
+        self.assertIn("review R999 is not in the key", mr.judge(CRIT, extra, key, rows)[2])
+
+    def test_field_values_are_validated(self):
+        rows, key, reviews = _fake(self.spec())
+        for field, value in (("faithful", "yes"), ("term_correct", None), ("contains_known_wrong_content", "maybe"),
+                             ("concepts", ["K_OTHER"]), ("concepts", "K_SWING")):
+            bad = [dict(x) for x in reviews]
+            bad[0][field] = value
+            _, _, problems = mr.judge(CRIT, bad, key, rows)
+            self.assertTrue(any(p.startswith(f"review {bad[0]['review_id']}: {field}") for p in problems), (field, value))
+
+    def test_agreement_lists_disagreements(self):
+        _, _, reviews = _fake(self.spec())
+        model = [dict(x) for x in reviews]
+        model[1]["faithful"] = "n"
+        self.assertEqual(mr.agreement(reviews, model)["disagreements"], [(reviews[1]["review_id"], "faithful")])
 
 
 class ReviewSheetTests(unittest.TestCase):
@@ -152,6 +192,7 @@ class ReviewSheetTests(unittest.TestCase):
             s2, _ = mr.review_sheet(CRIT)
         self.assertEqual(s1, s2)
         self.assertTrue(all("arm" not in x and "unit_id" not in x and "out" not in x for x in s1))
+        self.assertTrue(all(len(k["text_sha256"]) == 64 for k in k1.values()))  # key pins the wording
         self.assertEqual(sorted(k["out"] for k in k1.values()), sorted(r["out"] for r in rows))
 
 
@@ -161,7 +202,7 @@ class PlanTests(unittest.TestCase):
             rtr.plan(CRIT, contract=CRIT["contract_version"])
         reg = dict(CRIT, status="registered")
         todo, _ = rtr.plan(reg, contract=CRIT["contract_version"])
-        self.assertEqual(len(todo) * 2, CRIT["calls_planned"]["trial"])
+        self.assertEqual(len(todo) * 2, CRIT["calls_max"]["trial"])  # upper bound; never topped up
         argv = rtr.argv_for(todo[0], "secrets/nvidia.env")
         self.assertIsInstance(argv, list)
         self.assertEqual(argv[argv.index("--unit") + 1], "U1")
