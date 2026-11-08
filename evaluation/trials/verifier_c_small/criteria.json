@@ -164,7 +164,7 @@
         "G6": 2,
         "GC1": 2
       },
-      "note": "right passage AND right sentence, nothing mechanical alongside. Accepted sentences registered before any call: [0] (primary) the authors call this very conclusion premature; [1] (also a genuine limitation of a claim about autistic children in general) no conclusive evidence for low-functioning individuals. Any other E2 sentence does not count.",
+      "note": "right passage AND right sentence, nothing mechanical alongside. Accepted (registered before any call): ONLY the whole E2 sentence 'Although there is reason to believe ... require further investigation.' (the authors call this very conclusion premature: the dropped-caution fault under test). A span of several consecutive E2 sentences counts if it contains that whole sentence. A span with only the low-functioning sentence (other_limit_sentences) is a genuine but DIFFERENT limitation (population): reported as other_limit for analysis, never an R1 pass.",
       "select": [
         {
           "where": "single",
@@ -188,7 +188,9 @@
       ],
       "passage_id": "E2",
       "accepted_sentences": [
-        "Although there is reason to believe that serious sleep problems are common in children with ASD and that poor sleep exacerbates problematic daytime behavior, these conclusions are still premature and require further investigation.",
+        "Although there is reason to believe that serious sleep problems are common in children with ASD and that poor sleep exacerbates problematic daytime behavior, these conclusions are still premature and require further investigation."
+      ],
+      "other_limit_sentences": [
         "To date, however, studies have failed to provide conclusive evidence about the relationship between sleep and behaviors seen in low-functioning individuals (of all ages) with autism."
       ]
     },

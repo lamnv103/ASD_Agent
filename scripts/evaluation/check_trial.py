@@ -123,6 +123,13 @@ def _detected(row, rule):
     return issue.get("id") == rule["passage_id"] and any(_span_norm(s) in span for s in rule["accepted_sentences"])
 
 
+def _names_other_limit(row, rule):
+    """Analysis only: the issue quotes a registered OTHER limitation (e.g. a population limit), not the target one."""
+    issue = (row.get("verdict") or {}).get("other_passage_issue") or {}
+    span = _span_norm(issue.get("span") or "")
+    return bool(span) and any(_span_norm(s) in span for s in rule.get("other_limit_sentences", []))
+
+
 def _selected(rows, select):
     keys = {(s["where"], c) for s in select for c in s["cases"]}
     return [r for r in rows if (r["where"], r["case_id"]) in keys]
@@ -147,7 +154,9 @@ def judge_list(crit):
             ok = bool(sel) and not bad and len(sel) == expected
             out[rid] = dict(ok=ok, n=len(sel), expected=expected,
                             detail=[(r["where"], r["case_id"], r["verifier_reasons"] or r["reasons"],
-                                     ((r.get("verdict") or {}).get("other_passage_issue") or {}).get("span")) for r in bad])
+                                     ((r.get("verdict") or {}).get("other_passage_issue") or {}).get("span"))
+                                    + ((("other_limit",) if _names_other_limit(r, rule) else ()) if t == "detected_limit" else ())
+                                    for r in bad])
         elif t == "no_reason":
             bad = [(r["where"], r["case_id"], x) for r in trial for x in r["reasons"] if x.startswith(tuple(rule["prefixes"]))]
             out[rid] = dict(ok=not bad, detail=bad)

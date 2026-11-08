@@ -183,6 +183,40 @@ class JudgeTests(unittest.TestCase):
         self.assertEqual(problems, ["o: single/P08"])
 
 
+class RegisteredR1Tests(unittest.TestCase):
+    """The C criteria's own R1 rule on the real S05 E2 sentences: only the primary (caution) sentence passes."""
+
+    def setUp(self):
+        from rag.answer_layer import build_catalog
+        from rag.answer_policy import load_config
+        from rag.answer_sources import load_trusted_corpus
+        crit = json.loads((ROOT / "evaluation/trials/verifier_c_small/criteria.json").read_text(encoding="utf-8"))
+        self.rule = next(r for r in crit["rules"] if r["id"] == "R1_detection")
+        trace = json.loads((ROOT / "reports/reader_refinement_20261101_232742/run_20261102_004612_154953/traces/S05.json")
+                           .read_text(encoding="utf-8"))
+        quote = build_catalog(trace, load_config(), load_trusted_corpus())[0]["E2"]["quote"]
+        import re
+        from rag.answer_layer import _span_norm
+        self.sent = re.split(r"(?<=[.!?]) ", _span_norm(quote))
+
+    def row(self, span):
+        return dict(rejected=True, reasons=["context_limit:E2"], verifier_reasons=["context_limit:E2"],
+                    verdict=dict(other_passage_issue=dict(id="E2", span=span)))
+
+    def test_primary_only_secondary_only_both(self):
+        primary, secondary = self.sent[0], self.sent[3]
+        self.assertTrue(primary.startswith("Although there is reason to believe") and primary.endswith("require further investigation."))
+        self.assertEqual(self.rule["accepted_sentences"], [primary])        # exactly one whole sentence registered
+        self.assertTrue(ct._detected(self.row(primary), self.rule))           # only the primary sentence: R1 pass
+        self.assertFalse(ct._detected(self.row(secondary), self.rule))        # only the population limit: not R1 ...
+        self.assertTrue(ct._names_other_limit(self.row(secondary), self.rule))  # ... reported as other_limit
+        both = " ".join(self.sent[0:4])                                        # consecutive sentences incl. the whole primary
+        self.assertTrue(ct._detected(self.row(both), self.rule))
+        self.assertFalse(ct._detected(self.row("these conclusions are still premature and require further investigation."), self.rule))
+        wrong = dict(self.row(primary), verifier_reasons=["context_limit:E2", "span_not_in_cited_evidence"])
+        self.assertFalse(ct._detected(wrong, self.rule))                       # content + mechanical is not clean
+
+
 class CriteriaFileTests(unittest.TestCase):
     def test_c_draft_is_consistent_and_not_runnable(self):
         crit = json.loads((ROOT / "evaluation/trials/verifier_c_small/criteria.json").read_text(encoding="utf-8"))
