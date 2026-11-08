@@ -218,10 +218,13 @@ class RegisteredR1Tests(unittest.TestCase):
 
 
 class CriteriaFileTests(unittest.TestCase):
-    def test_c_draft_is_consistent_and_not_runnable(self):
+    def test_c_criteria_are_consistent_and_drafts_never_run(self):
         crit = json.loads((ROOT / "evaluation/trials/verifier_c_small/criteria.json").read_text(encoding="utf-8"))
-        with self.assertRaises(mv.RunAbort):  # a draft can never start provider calls
-            rtr.plan(crit, contract=crit["contract_version"], stage="trial")
+        self.assertEqual(crit["status"], "registered")
+        draft = dict(crit, status="draft")
+        with self.assertRaises(mv.RunAbort) as cm:  # a draft can never start provider calls, whatever the contract
+            rtr.plan(draft, contract=crit["contract_version"], stage="trial")
+        self.assertIn("not 'registered'", str(cm.exception))
         cases = {}
         for f in {r["cases"] for r in crit["runs"]}:
             cases.update({c["case_id"]: c for c in mv.load_jsonl(ROOT / f)})
