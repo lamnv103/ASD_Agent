@@ -231,6 +231,10 @@ Outputs go to reports/verification_runs/<name>_<time>/ (git-ignored). Historical
         Test-Python
         Invoke-Checked 'retrieval diagnostics' { & $Py -B (Join-Path $Root 'scripts\evaluation\diagnose_retrieval_offline.py') }
     }
+    'chat' {
+        Test-Python
+        & $Py -B (Join-Path $Root 'scripts\dev\chat_thu.py')
+    }
     'secrets' {
         Test-Python
         Invoke-Checked 'secret scan' { & $Py -B (Join-Path $Root 'scripts\dev\secret_scan.py') }

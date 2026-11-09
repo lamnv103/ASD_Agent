@@ -28,3 +28,5 @@ reports/verification_runs/
 # --- Answer-layer prototype (synthetic questions only; retention policy = MVP decision 9, not decided) ---
 reports/answer_cache/
 reports/answer_runs/
+# Internal test chat sessions (questions typed by the team; never committed)
+reports/chat_thu/
