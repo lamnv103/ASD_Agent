@@ -39,7 +39,8 @@ BANNER = """==================================================================
  - Mỗi câu hỏi độc lập: chat KHÔNG nhớ câu trước.
  - Mỗi câu tốn khoảng 1 lượt Cohere + 3-6 lượt NVIDIA, mất vài chục giây.
  Lệnh: /mau = danh sách câu mẫu | /mau H04 = hỏi câu mẫu (chỉ cần khóa NVIDIA)
-       /chitiet = nhận định bị loại của câu vừa rồi | /thoat = kết thúc
+       /chitiet = nhận định bị loại của câu vừa rồi | /thulai = hỏi lại câu vừa lỗi (lượt gọi mới)
+       /thoat = kết thúc
 =================================================================="""
 
 
@@ -78,6 +79,23 @@ def build():
     return pipe
 
 
+HINTS = {
+    "v3_selection_schema": "bộ đọc chọn sai mã đoạn tài liệu (ví dụ chép nhầm mã); hệ thống từ chối thay vì đoán gần đúng. "
+                           "Gõ /thulai để hỏi lại với lượt gọi mới.",
+    "v3_plan_schema": "bộ đọc phân tích câu hỏi sai cấu trúc. Gõ /thulai để thử lại, hoặc diễn đạt câu hỏi rõ hơn.",
+    "reader_no_context": "không có đoạn tài liệu phù hợp để đọc cho câu hỏi này.",
+    "nim_rate_limit": "NVIDIA đang giới hạn tốc độ (HTTP 429). Đợi một lúc rồi /thulai.",
+    "nim_network": "lỗi mạng hoặc hết thời gian chờ. Kiểm tra mạng rồi /thulai.",
+    "database_error": "mất kết nối database: kiểm tra Docker Desktop và deployments-rag-db-1.",
+}
+
+
+def error_text(exc):
+    code = getattr(exc, "code", None) or type(exc).__name__
+    detail = str(exc).split(": ", 1)[-1] if ": " in str(exc) else ""
+    return f"{code}" + (f" ({detail})" if detail and detail != code else "") + (f"\n  -> {HINTS[code]}" if code in HINTS else "")
+
+
 def removed_text(result):
     lines = []
     for c in result.get("claims_removed", []):
@@ -85,13 +103,27 @@ def removed_text(result):
     return "\n".join(lines) or "  (không có nhận định nào bị loại)"
 
 
-def ask(pipe, cfg, question, n, folder, trace=None):
+def fresh_reader_client(pipe, folder, n):
+    """A reader client whose cache is new for this one attempt: the shared reader cache would replay the same
+    rejected output forever. The reader itself (pinned) is unchanged."""
+    from rag.semantic_reader import NimClient
+    return NimClient(pipe.semantic_reader.config, pipe.counter, key_supplier=lambda: read_answer_key(str(NVIDIA_KEY_FILE)),
+                     cache_dir=folder / f"reader_retry_q{n:02d}")
+
+
+def ask(pipe, cfg, question, n, folder, trace=None, fresh=False):
     hits = detect_emergency(question, cfg)
     if hits:  # before any provider call, as in rag.answer
         return emergency_result(question, cfg, hits), 0
     sample = trace is not None
     if not sample:
-        trace = pipe.prepare(question, trace_path=str(folder / f"q{n:02d}.trace.json"))
+        old = pipe.semantic_reader.client
+        if fresh:
+            pipe.semantic_reader.client = fresh_reader_client(pipe, folder, n)
+        try:
+            trace = pipe.prepare(question, trace_path=str(folder / f"q{n:02d}.trace.json"))
+        finally:
+            pipe.semantic_reader.client = old
         counter = pipe.counter
     else:  # prepared question: the answer layer only, as rag.answer --from-trace
         from rag.tokenization import load_counter
@@ -116,7 +148,7 @@ def main():
     folder = OUT_ROOT / datetime.now().strftime("%Y%m%d_%H%M%S")
     folder.mkdir(parents=True, exist_ok=True)
     print(f"Sẵn sàng. Lưu phiên tại {folder.relative_to(ROOT)}\n")
-    last, n = None, 0
+    last, n, failed = None, 0, None
     while True:
         try:
             q = input("Bạn: ").strip()
@@ -130,8 +162,14 @@ def main():
         if q in ("/chitiet", "/details"):
             print(removed_text(last) if last else "  (chưa có câu trả lời nào)")
             continue
-        trace = None
-        if q.startswith("/mau"):
+        trace, fresh = None, False
+        if q in ("/thulai", "/retry"):
+            if not failed:
+                print("  (không có câu nào vừa lỗi)")
+                continue
+            q, trace, fresh = failed
+            print(f"  Hỏi lại: {q}")
+        elif q.startswith("/mau"):
             code = q[4:].strip().upper()
             if code not in samples:
                 for k, t in samples.items():
@@ -144,18 +182,23 @@ def main():
         elif pipe is None:
             print("  Câu hỏi tự do cần khóa Cohere (secrets/cohere.env). Hiện chỉ dùng được /mau.")
             continue
+        if fresh is False and trace is None and q == (failed or (None,))[0]:
+            fresh = True  # the same question asked again right after a failure: do not replay the cached rejection
         n += 1
         print("  ... đang truy xuất tài liệu, đọc bằng chứng và kiểm tra câu trả lời ...", flush=True)
         try:
-            result, fresh = ask(pipe, cfg, q, n, folder, trace)
+            result, calls = ask(pipe, cfg, q, n, folder, trace, fresh=bool(fresh))
         except Exception as exc:
-            print(f"Lỗi hệ thống: {getattr(exc, 'code', None) or type(exc).__name__}. Câu hỏi không được trả lời.\n")
+            failed = (q, trace, True)
+            atomic_json(folder / f"q{n:02d}.error.json", dict(question=q, error=str(exc), code=getattr(exc, "code", None)))
+            print("Lỗi: " + error_text(exc) + "\n  Câu hỏi không được trả lời.\n")
             continue
+        failed = None
         atomic_json(folder / f"q{n:02d}.result.json", dict(question=q, **result))
         last = result
         print("\nTrợ lý:\n" + result["render"]["text"])
         print(f"\n  [trạng thái: {result.get('status')} | route: {result.get('route')} | sửa: {result.get('repairs')} "
-              f"| bị loại: {len(result.get('claims_removed', []))} | lượt gọi mới: {fresh}"
+              f"| bị loại: {len(result.get('claims_removed', []))} | lượt gọi mới: {calls}"
               + (f" | lỗi: {result.get('error')}" if result.get("error") else "") + "]\n")
     print(f"Kết thúc. {n} câu hỏi đã lưu tại {folder.relative_to(ROOT)}")
     return 0

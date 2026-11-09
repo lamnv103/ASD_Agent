@@ -1,0 +1,1070 @@
+[
+  {
+    "review_id": "R001",
+    "question_id": "S08",
+    "text": "ASI yêu cầu đào tạo chuyên sâu cho trị liệu, tuân thủ các nguyên tắc bảo đảm thực hiện đúng phương pháp như cá nhân hóa hoạt động, trẻ tham gia chủ động trong bối cảnh chơi, và thách thức vừa phải để thúc đẩy phản ứng thích ứng.",
+    "cited": [
+      {
+        "id": "E4",
+        "quote": "The aim of SBIs is to temporarily modify a child's physiological arousal level, creating a better match between the person and task, with the goal to improve behavior and participation in tasks (11). SBIs are informed by sensory integration theory, but they have clearly delineated differences from direct, one-on-one occupational therapy intervention using Ayres Sensory Integration® intervention, termed ASI (10, 11). Key features of ASI include advanced therapist training and mentorship and adherence to fidelity principles, including active engagement of the child, individually tailored activities, and play opportunities presented at the just-right challenge to facilitate adaptive responses (12, 13). In contrast, SBIs tend to be practitioner or adult-led interventions, involving passive sensory input applied to the child, and can include sensory techniques, such as massage, wearing earmuffs, passive swinging, caregiver sensory training, and sensory environmental modifications (10, 11). SBIs may be implemented by caregivers and other team members or accessed independently by the child as part of an occupational therapy intervention plan in natural environments such as the home, community, and schools."
+      }
+    ],
+    "concept_choices": [
+      {
+        "id": "K_ANSWER",
+        "text": "Trả lời: SBI khác rõ rệt với ASI đã được nghiên cứu (E4)"
+      },
+      {
+        "id": "K_FIDELITY",
+        "text": "ASI đòi hỏi đào tạo chuyên sâu và tuân thủ fidelity principles: cá nhân hóa, trẻ chủ động, chơi, thử thách vừa sức (E4). Thuật ngữ đúng: 'nguyên tắc bảo đảm thực hiện đúng phương pháp' hoặc cách nói cùng nghĩa (tuân thủ đúng phương pháp); 'nguyên tắc trung thực' là sai. 'nguyên tắc bảo đảm thực hiện đúng phương pháp' là lựa chọn dịch của dự án, chưa phải thuật ngữ tiếng Việt đã được chuyên gia duyệt"
+      },
+      {
+        "id": "K_SWING",
+        "text": "SBI thường do người lớn dẫn dắt, đầu vào cảm giác thụ động, ví dụ xoa bóp, đeo chụp tai, đu đưa thụ động (E4/E5). Thuật ngữ đúng: 'đu đưa thụ động'; 'du lượn' là sai"
+      },
+      {
+        "id": "K_REVIEWS",
+        "text": "Các tổng quan trước đây gộp SBI với ASI (E2/E3) - chỉ để báo cáo"
+      }
+    ],
+    "concepts": null,
+    "term_correct": null,
+    "faithful": null,
+    "contains_known_wrong_content": null,
+    "note": null
+  },
+  {
+    "review_id": "R002",
+    "question_id": "S08",
+    "text": "ASI yêu cầu đào tạo chuyên sâu cho trị liệu, tuân thủ các nguyên tắc bảo đảm thực hiện đúng phương pháp như cá nhân hóa hoạt động, trẻ tham gia chủ động trong bối cảnh chơi, và thách thức vừa phải để thúc đẩy phản ứng thích ứng.",
+    "cited": [
+      {
+        "id": "E4",
+        "quote": "The aim of SBIs is to temporarily modify a child's physiological arousal level, creating a better match between the person and task, with the goal to improve behavior and participation in tasks (11). SBIs are informed by sensory integration theory, but they have clearly delineated differences from direct, one-on-one occupational therapy intervention using Ayres Sensory Integration® intervention, termed ASI (10, 11). Key features of ASI include advanced therapist training and mentorship and adherence to fidelity principles, including active engagement of the child, individually tailored activities, and play opportunities presented at the just-right challenge to facilitate adaptive responses (12, 13). In contrast, SBIs tend to be practitioner or adult-led interventions, involving passive sensory input applied to the child, and can include sensory techniques, such as massage, wearing earmuffs, passive swinging, caregiver sensory training, and sensory environmental modifications (10, 11). SBIs may be implemented by caregivers and other team members or accessed independently by the child as part of an occupational therapy intervention plan in natural environments such as the home, community, and schools."
+      }
+    ],
+    "concept_choices": [
+      {
+        "id": "K_ANSWER",
+        "text": "Trả lời: SBI khác rõ rệt với ASI đã được nghiên cứu (E4)"
+      },
+      {
+        "id": "K_FIDELITY",
+        "text": "ASI đòi hỏi đào tạo chuyên sâu và tuân thủ fidelity principles: cá nhân hóa, trẻ chủ động, chơi, thử thách vừa sức (E4). Thuật ngữ đúng: 'nguyên tắc bảo đảm thực hiện đúng phương pháp' hoặc cách nói cùng nghĩa (tuân thủ đúng phương pháp); 'nguyên tắc trung thực' là sai. 'nguyên tắc bảo đảm thực hiện đúng phương pháp' là lựa chọn dịch của dự án, chưa phải thuật ngữ tiếng Việt đã được chuyên gia duyệt"
+      },
+      {
+        "id": "K_SWING",
+        "text": "SBI thường do người lớn dẫn dắt, đầu vào cảm giác thụ động, ví dụ xoa bóp, đeo chụp tai, đu đưa thụ động (E4/E5). Thuật ngữ đúng: 'đu đưa thụ động'; 'du lượn' là sai"
+      },
+      {
+        "id": "K_REVIEWS",
+        "text": "Các tổng quan trước đây gộp SBI với ASI (E2/E3) - chỉ để báo cáo"
+      }
+    ],
+    "concepts": null,
+    "term_correct": null,
+    "faithful": null,
+    "contains_known_wrong_content": null,
+    "note": null
+  },
+  {
+    "review_id": "R003",
+    "question_id": "S08",
+    "text": "Không, các hoạt động kích thích cảm giác (SBIs) khác biệt rõ rệt với phương pháp Tích hợp cảm giác Ayres (ASI) đã được nghiên cứu cho trẻ tự kỷ.",
+    "cited": [
+      {
+        "id": "E4",
+        "quote": "The aim of SBIs is to temporarily modify a child's physiological arousal level, creating a better match between the person and task, with the goal to improve behavior and participation in tasks (11). SBIs are informed by sensory integration theory, but they have clearly delineated differences from direct, one-on-one occupational therapy intervention using Ayres Sensory Integration® intervention, termed ASI (10, 11). Key features of ASI include advanced therapist training and mentorship and adherence to fidelity principles, including active engagement of the child, individually tailored activities, and play opportunities presented at the just-right challenge to facilitate adaptive responses (12, 13). In contrast, SBIs tend to be practitioner or adult-led interventions, involving passive sensory input applied to the child, and can include sensory techniques, such as massage, wearing earmuffs, passive swinging, caregiver sensory training, and sensory environmental modifications (10, 11). SBIs may be implemented by caregivers and other team members or accessed independently by the child as part of an occupational therapy intervention plan in natural environments such as the home, community, and schools."
+      }
+    ],
+    "concept_choices": [
+      {
+        "id": "K_ANSWER",
+        "text": "Trả lời: SBI khác rõ rệt với ASI đã được nghiên cứu (E4)"
+      },
+      {
+        "id": "K_FIDELITY",
+        "text": "ASI đòi hỏi đào tạo chuyên sâu và tuân thủ fidelity principles: cá nhân hóa, trẻ chủ động, chơi, thử thách vừa sức (E4). Thuật ngữ đúng: 'nguyên tắc bảo đảm thực hiện đúng phương pháp' hoặc cách nói cùng nghĩa (tuân thủ đúng phương pháp); 'nguyên tắc trung thực' là sai. 'nguyên tắc bảo đảm thực hiện đúng phương pháp' là lựa chọn dịch của dự án, chưa phải thuật ngữ tiếng Việt đã được chuyên gia duyệt"
+      },
+      {
+        "id": "K_SWING",
+        "text": "SBI thường do người lớn dẫn dắt, đầu vào cảm giác thụ động, ví dụ xoa bóp, đeo chụp tai, đu đưa thụ động (E4/E5). Thuật ngữ đúng: 'đu đưa thụ động'; 'du lượn' là sai"
+      },
+      {
+        "id": "K_REVIEWS",
+        "text": "Các tổng quan trước đây gộp SBI với ASI (E2/E3) - chỉ để báo cáo"
+      }
+    ],
+    "concepts": null,
+    "term_correct": null,
+    "faithful": null,
+    "contains_known_wrong_content": null,
+    "note": null
+  },
+  {
+    "review_id": "R004",
+    "question_id": "S08",
+    "text": "Ngược lại, SBIs thường do người lớn dẫn dắt, cung cấp đầu vào cảm giác thụ động cho trẻ (như massage, đeo tai nghe chống ồn, đu đưa thụ động) và có thể được thực hiện bởi người chăm sóc trong môi trường tự nhiên.",
+    "cited": [
+      {
+        "id": "E4",
+        "quote": "The aim of SBIs is to temporarily modify a child's physiological arousal level, creating a better match between the person and task, with the goal to improve behavior and participation in tasks (11). SBIs are informed by sensory integration theory, but they have clearly delineated differences from direct, one-on-one occupational therapy intervention using Ayres Sensory Integration® intervention, termed ASI (10, 11). Key features of ASI include advanced therapist training and mentorship and adherence to fidelity principles, including active engagement of the child, individually tailored activities, and play opportunities presented at the just-right challenge to facilitate adaptive responses (12, 13). In contrast, SBIs tend to be practitioner or adult-led interventions, involving passive sensory input applied to the child, and can include sensory techniques, such as massage, wearing earmuffs, passive swinging, caregiver sensory training, and sensory environmental modifications (10, 11). SBIs may be implemented by caregivers and other team members or accessed independently by the child as part of an occupational therapy intervention plan in natural environments such as the home, community, and schools."
+      },
+      {
+        "id": "E5",
+        "quote": "- Sensory technique: application of sensory stimuli through materials, tools, and activities applied directly to the child or through positioning a child on or in a device (e.g., weighted items, passive swinging) or accessed directly by the child."
+      }
+    ],
+    "concept_choices": [
+      {
+        "id": "K_ANSWER",
+        "text": "Trả lời: SBI khác rõ rệt với ASI đã được nghiên cứu (E4)"
+      },
+      {
+        "id": "K_FIDELITY",
+        "text": "ASI đòi hỏi đào tạo chuyên sâu và tuân thủ fidelity principles: cá nhân hóa, trẻ chủ động, chơi, thử thách vừa sức (E4). Thuật ngữ đúng: 'nguyên tắc bảo đảm thực hiện đúng phương pháp' hoặc cách nói cùng nghĩa (tuân thủ đúng phương pháp); 'nguyên tắc trung thực' là sai. 'nguyên tắc bảo đảm thực hiện đúng phương pháp' là lựa chọn dịch của dự án, chưa phải thuật ngữ tiếng Việt đã được chuyên gia duyệt"
+      },
+      {
+        "id": "K_SWING",
+        "text": "SBI thường do người lớn dẫn dắt, đầu vào cảm giác thụ động, ví dụ xoa bóp, đeo chụp tai, đu đưa thụ động (E4/E5). Thuật ngữ đúng: 'đu đưa thụ động'; 'du lượn' là sai"
+      },
+      {
+        "id": "K_REVIEWS",
+        "text": "Các tổng quan trước đây gộp SBI với ASI (E2/E3) - chỉ để báo cáo"
+      }
+    ],
+    "concepts": null,
+    "term_correct": null,
+    "faithful": null,
+    "contains_known_wrong_content": null,
+    "note": null
+  },
+  {
+    "review_id": "R005",
+    "question_id": "S08",
+    "text": "Các bài đánh giá hệ thống trước đây thường nhầm lẫn SBIs với ASI, dẫn đến việc đưa ra kết luận sai lệch về hiệu quả của ASI do bao gồm các nghiên cứu không tuân thủ nguyên tắc ASI.",
+    "cited": [
+      {
+        "id": "E2",
+        "quote": "We have identified four major concerns with many of the past systematic reviews and meta‐analyses of studies claiming to evaluate sensory integration intervention. First, as noted above, past reviews typically included studies in which the “sensory integration” intervention described in the study was not consistent with the principles of ASI and was instead a sensory‐based intervention, i.e., it involved adult‐controlled application of sensory stimuli within a protocol that is provided in a similar way to all participants [Case‐Smith et al., 2015]. Individualization of intervention based on the child's assessment findings is absent or very limited, and passive cooperation is required of the child, rather than active collaboration with the therapist. This is particularly evident in Lang et al., 2012 and Barton et al., 2015 whose reviews included studies of the effects of isolated sensory‐specific strategies along with studies of sensory integration. Examples of such sensory‐based interventions highlighted in previous systematic reviews [Barton et al., 2015; Lang et al., 2012] include directing the child to wear a weighted vest, to sit on a therapy ball during classroom work, to accept sensory stimuli applied by the therapist in a specific protocol (such as brushing the skin or spinning the child on a rotating board), or to perform specified sensory‐motor activities or exercises [Case‐Smith et al., 2015;. Schaaf et al., 2018]."
+      },
+      {
+        "id": "E3",
+        "quote": "A second factor confounding interpretation of the evidence on ASI intervention is that past reviews and meta‐analyses include studies that failed to provide an adequate description of the phenotypic characteristics of participants [Barton et al., 2015; Lang et al., 2012; Weitlauf, Sathe, McPheeters, &amp; Warren, 2017]. Of particular concern is failure to evaluate whether participants actually demonstrated specific sensory‐motor difficulties impacting performance and participation. For instance, Barton et al. [2015] indicate that only 20 of the 30 studies they included in their review measured sensory processing behaviors, and Lang et al. [2012] found that only 7 of the 25 papers included in this review had assessed sensory processing Consequently, characterization of the sample is poor, groups lack homogeneity, and individual tailoring of the intervention, a requisite of ASI, is missing. As a result, these studies may have evaluated interventions that were applied to children without the specific sensory‐motor difficulties that are appropriate for ASI intervention. Inclusion of these studies in systematic reviews and meta‐analyses makes it impossible to draw conclusions regarding efficacy of ASI intervention."
+      }
+    ],
+    "concept_choices": [
+      {
+        "id": "K_ANSWER",
+        "text": "Trả lời: SBI khác rõ rệt với ASI đã được nghiên cứu (E4)"
+      },
+      {
+        "id": "K_FIDELITY",
+        "text": "ASI đòi hỏi đào tạo chuyên sâu và tuân thủ fidelity principles: cá nhân hóa, trẻ chủ động, chơi, thử thách vừa sức (E4). Thuật ngữ đúng: 'nguyên tắc bảo đảm thực hiện đúng phương pháp' hoặc cách nói cùng nghĩa (tuân thủ đúng phương pháp); 'nguyên tắc trung thực' là sai. 'nguyên tắc bảo đảm thực hiện đúng phương pháp' là lựa chọn dịch của dự án, chưa phải thuật ngữ tiếng Việt đã được chuyên gia duyệt"
+      },
+      {
+        "id": "K_SWING",
+        "text": "SBI thường do người lớn dẫn dắt, đầu vào cảm giác thụ động, ví dụ xoa bóp, đeo chụp tai, đu đưa thụ động (E4/E5). Thuật ngữ đúng: 'đu đưa thụ động'; 'du lượn' là sai"
+      },
+      {
+        "id": "K_REVIEWS",
+        "text": "Các tổng quan trước đây gộp SBI với ASI (E2/E3) - chỉ để báo cáo"
+      }
+    ],
+    "concepts": null,
+    "term_correct": null,
+    "faithful": null,
+    "contains_known_wrong_content": null,
+    "note": null
+  },
+  {
+    "review_id": "R006",
+    "question_id": "S08",
+    "text": "Không, các hoạt động kích thích cảm giác (SBIs) khác biệt rõ rệt với phương pháp Tích hợp cảm giác Ayres (ASI) đã được nghiên cứu cho trẻ tự kỷ.",
+    "cited": [
+      {
+        "id": "E4",
+        "quote": "The aim of SBIs is to temporarily modify a child's physiological arousal level, creating a better match between the person and task, with the goal to improve behavior and participation in tasks (11). SBIs are informed by sensory integration theory, but they have clearly delineated differences from direct, one-on-one occupational therapy intervention using Ayres Sensory Integration® intervention, termed ASI (10, 11). Key features of ASI include advanced therapist training and mentorship and adherence to fidelity principles, including active engagement of the child, individually tailored activities, and play opportunities presented at the just-right challenge to facilitate adaptive responses (12, 13). In contrast, SBIs tend to be practitioner or adult-led interventions, involving passive sensory input applied to the child, and can include sensory techniques, such as massage, wearing earmuffs, passive swinging, caregiver sensory training, and sensory environmental modifications (10, 11). SBIs may be implemented by caregivers and other team members or accessed independently by the child as part of an occupational therapy intervention plan in natural environments such as the home, community, and schools."
+      }
+    ],
+    "concept_choices": [
+      {
+        "id": "K_ANSWER",
+        "text": "Trả lời: SBI khác rõ rệt với ASI đã được nghiên cứu (E4)"
+      },
+      {
+        "id": "K_FIDELITY",
+        "text": "ASI đòi hỏi đào tạo chuyên sâu và tuân thủ fidelity principles: cá nhân hóa, trẻ chủ động, chơi, thử thách vừa sức (E4). Thuật ngữ đúng: 'nguyên tắc bảo đảm thực hiện đúng phương pháp' hoặc cách nói cùng nghĩa (tuân thủ đúng phương pháp); 'nguyên tắc trung thực' là sai. 'nguyên tắc bảo đảm thực hiện đúng phương pháp' là lựa chọn dịch của dự án, chưa phải thuật ngữ tiếng Việt đã được chuyên gia duyệt"
+      },
+      {
+        "id": "K_SWING",
+        "text": "SBI thường do người lớn dẫn dắt, đầu vào cảm giác thụ động, ví dụ xoa bóp, đeo chụp tai, đu đưa thụ động (E4/E5). Thuật ngữ đúng: 'đu đưa thụ động'; 'du lượn' là sai"
+      },
+      {
+        "id": "K_REVIEWS",
+        "text": "Các tổng quan trước đây gộp SBI với ASI (E2/E3) - chỉ để báo cáo"
+      }
+    ],
+    "concepts": null,
+    "term_correct": null,
+    "faithful": null,
+    "contains_known_wrong_content": null,
+    "note": null
+  },
+  {
+    "review_id": "R007",
+    "question_id": "S08",
+    "text": "Các bài đánh giá hệ thống trước đây thường nhầm lẫn SBIs với ASI, dẫn đến việc đưa ra kết luận sai lệch về hiệu quả của ASI do bao gồm các nghiên cứu không tuân thủ nguyên tắc ASI.",
+    "cited": [
+      {
+        "id": "E2",
+        "quote": "We have identified four major concerns with many of the past systematic reviews and meta‐analyses of studies claiming to evaluate sensory integration intervention. First, as noted above, past reviews typically included studies in which the “sensory integration” intervention described in the study was not consistent with the principles of ASI and was instead a sensory‐based intervention, i.e., it involved adult‐controlled application of sensory stimuli within a protocol that is provided in a similar way to all participants [Case‐Smith et al., 2015]. Individualization of intervention based on the child's assessment findings is absent or very limited, and passive cooperation is required of the child, rather than active collaboration with the therapist. This is particularly evident in Lang et al., 2012 and Barton et al., 2015 whose reviews included studies of the effects of isolated sensory‐specific strategies along with studies of sensory integration. Examples of such sensory‐based interventions highlighted in previous systematic reviews [Barton et al., 2015; Lang et al., 2012] include directing the child to wear a weighted vest, to sit on a therapy ball during classroom work, to accept sensory stimuli applied by the therapist in a specific protocol (such as brushing the skin or spinning the child on a rotating board), or to perform specified sensory‐motor activities or exercises [Case‐Smith et al., 2015;. Schaaf et al., 2018]."
+      },
+      {
+        "id": "E3",
+        "quote": "A second factor confounding interpretation of the evidence on ASI intervention is that past reviews and meta‐analyses include studies that failed to provide an adequate description of the phenotypic characteristics of participants [Barton et al., 2015; Lang et al., 2012; Weitlauf, Sathe, McPheeters, &amp; Warren, 2017]. Of particular concern is failure to evaluate whether participants actually demonstrated specific sensory‐motor difficulties impacting performance and participation. For instance, Barton et al. [2015] indicate that only 20 of the 30 studies they included in their review measured sensory processing behaviors, and Lang et al. [2012] found that only 7 of the 25 papers included in this review had assessed sensory processing Consequently, characterization of the sample is poor, groups lack homogeneity, and individual tailoring of the intervention, a requisite of ASI, is missing. As a result, these studies may have evaluated interventions that were applied to children without the specific sensory‐motor difficulties that are appropriate for ASI intervention. Inclusion of these studies in systematic reviews and meta‐analyses makes it impossible to draw conclusions regarding efficacy of ASI intervention."
+      }
+    ],
+    "concept_choices": [
+      {
+        "id": "K_ANSWER",
+        "text": "Trả lời: SBI khác rõ rệt với ASI đã được nghiên cứu (E4)"
+      },
+      {
+        "id": "K_FIDELITY",
+        "text": "ASI đòi hỏi đào tạo chuyên sâu và tuân thủ fidelity principles: cá nhân hóa, trẻ chủ động, chơi, thử thách vừa sức (E4). Thuật ngữ đúng: 'nguyên tắc bảo đảm thực hiện đúng phương pháp' hoặc cách nói cùng nghĩa (tuân thủ đúng phương pháp); 'nguyên tắc trung thực' là sai. 'nguyên tắc bảo đảm thực hiện đúng phương pháp' là lựa chọn dịch của dự án, chưa phải thuật ngữ tiếng Việt đã được chuyên gia duyệt"
+      },
+      {
+        "id": "K_SWING",
+        "text": "SBI thường do người lớn dẫn dắt, đầu vào cảm giác thụ động, ví dụ xoa bóp, đeo chụp tai, đu đưa thụ động (E4/E5). Thuật ngữ đúng: 'đu đưa thụ động'; 'du lượn' là sai"
+      },
+      {
+        "id": "K_REVIEWS",
+        "text": "Các tổng quan trước đây gộp SBI với ASI (E2/E3) - chỉ để báo cáo"
+      }
+    ],
+    "concepts": null,
+    "term_correct": null,
+    "faithful": null,
+    "contains_known_wrong_content": null,
+    "note": null
+  },
+  {
+    "review_id": "R008",
+    "question_id": "S08",
+    "text": "Không, các hoạt động kích thích cảm giác (SBIs) khác biệt rõ rệt với phương pháp Tích hợp cảm giác Ayres (ASI) đã được nghiên cứu cho trẻ tự kỷ.",
+    "cited": [
+      {
+        "id": "E4",
+        "quote": "The aim of SBIs is to temporarily modify a child's physiological arousal level, creating a better match between the person and task, with the goal to improve behavior and participation in tasks (11). SBIs are informed by sensory integration theory, but they have clearly delineated differences from direct, one-on-one occupational therapy intervention using Ayres Sensory Integration® intervention, termed ASI (10, 11). Key features of ASI include advanced therapist training and mentorship and adherence to fidelity principles, including active engagement of the child, individually tailored activities, and play opportunities presented at the just-right challenge to facilitate adaptive responses (12, 13). In contrast, SBIs tend to be practitioner or adult-led interventions, involving passive sensory input applied to the child, and can include sensory techniques, such as massage, wearing earmuffs, passive swinging, caregiver sensory training, and sensory environmental modifications (10, 11). SBIs may be implemented by caregivers and other team members or accessed independently by the child as part of an occupational therapy intervention plan in natural environments such as the home, community, and schools."
+      }
+    ],
+    "concept_choices": [
+      {
+        "id": "K_ANSWER",
+        "text": "Trả lời: SBI khác rõ rệt với ASI đã được nghiên cứu (E4)"
+      },
+      {
+        "id": "K_FIDELITY",
+        "text": "ASI đòi hỏi đào tạo chuyên sâu và tuân thủ fidelity principles: cá nhân hóa, trẻ chủ động, chơi, thử thách vừa sức (E4). Thuật ngữ đúng: 'nguyên tắc bảo đảm thực hiện đúng phương pháp' hoặc cách nói cùng nghĩa (tuân thủ đúng phương pháp); 'nguyên tắc trung thực' là sai. 'nguyên tắc bảo đảm thực hiện đúng phương pháp' là lựa chọn dịch của dự án, chưa phải thuật ngữ tiếng Việt đã được chuyên gia duyệt"
+      },
+      {
+        "id": "K_SWING",
+        "text": "SBI thường do người lớn dẫn dắt, đầu vào cảm giác thụ động, ví dụ xoa bóp, đeo chụp tai, đu đưa thụ động (E4/E5). Thuật ngữ đúng: 'đu đưa thụ động'; 'du lượn' là sai"
+      },
+      {
+        "id": "K_REVIEWS",
+        "text": "Các tổng quan trước đây gộp SBI với ASI (E2/E3) - chỉ để báo cáo"
+      }
+    ],
+    "concepts": null,
+    "term_correct": null,
+    "faithful": null,
+    "contains_known_wrong_content": null,
+    "note": null
+  },
+  {
+    "review_id": "R009",
+    "question_id": "S08",
+    "text": "Không, các hoạt động kích thích cảm giác (SBIs) khác biệt rõ rệt với phương pháp Tích hợp cảm giác Ayres (ASI) đã được nghiên cứu cho trẻ tự kỷ.",
+    "cited": [
+      {
+        "id": "E4",
+        "quote": "The aim of SBIs is to temporarily modify a child's physiological arousal level, creating a better match between the person and task, with the goal to improve behavior and participation in tasks (11). SBIs are informed by sensory integration theory, but they have clearly delineated differences from direct, one-on-one occupational therapy intervention using Ayres Sensory Integration® intervention, termed ASI (10, 11). Key features of ASI include advanced therapist training and mentorship and adherence to fidelity principles, including active engagement of the child, individually tailored activities, and play opportunities presented at the just-right challenge to facilitate adaptive responses (12, 13). In contrast, SBIs tend to be practitioner or adult-led interventions, involving passive sensory input applied to the child, and can include sensory techniques, such as massage, wearing earmuffs, passive swinging, caregiver sensory training, and sensory environmental modifications (10, 11). SBIs may be implemented by caregivers and other team members or accessed independently by the child as part of an occupational therapy intervention plan in natural environments such as the home, community, and schools."
+      }
+    ],
+    "concept_choices": [
+      {
+        "id": "K_ANSWER",
+        "text": "Trả lời: SBI khác rõ rệt với ASI đã được nghiên cứu (E4)"
+      },
+      {
+        "id": "K_FIDELITY",
+        "text": "ASI đòi hỏi đào tạo chuyên sâu và tuân thủ fidelity principles: cá nhân hóa, trẻ chủ động, chơi, thử thách vừa sức (E4). Thuật ngữ đúng: 'nguyên tắc bảo đảm thực hiện đúng phương pháp' hoặc cách nói cùng nghĩa (tuân thủ đúng phương pháp); 'nguyên tắc trung thực' là sai. 'nguyên tắc bảo đảm thực hiện đúng phương pháp' là lựa chọn dịch của dự án, chưa phải thuật ngữ tiếng Việt đã được chuyên gia duyệt"
+      },
+      {
+        "id": "K_SWING",
+        "text": "SBI thường do người lớn dẫn dắt, đầu vào cảm giác thụ động, ví dụ xoa bóp, đeo chụp tai, đu đưa thụ động (E4/E5). Thuật ngữ đúng: 'đu đưa thụ động'; 'du lượn' là sai"
+      },
+      {
+        "id": "K_REVIEWS",
+        "text": "Các tổng quan trước đây gộp SBI với ASI (E2/E3) - chỉ để báo cáo"
+      }
+    ],
+    "concepts": null,
+    "term_correct": null,
+    "faithful": null,
+    "contains_known_wrong_content": null,
+    "note": null
+  },
+  {
+    "review_id": "R010",
+    "question_id": "S08",
+    "text": "ASI yêu cầu đào tạo chuyên sâu cho trị liệu, tuân thủ các nguyên tắc bảo đảm thực hiện đúng phương pháp như cá nhân hóa hoạt động, trẻ tham gia chủ động trong bối cảnh chơi, và thách thức vừa phải để thúc đẩy phản ứng thích ứng.",
+    "cited": [
+      {
+        "id": "E4",
+        "quote": "The aim of SBIs is to temporarily modify a child's physiological arousal level, creating a better match between the person and task, with the goal to improve behavior and participation in tasks (11). SBIs are informed by sensory integration theory, but they have clearly delineated differences from direct, one-on-one occupational therapy intervention using Ayres Sensory Integration® intervention, termed ASI (10, 11). Key features of ASI include advanced therapist training and mentorship and adherence to fidelity principles, including active engagement of the child, individually tailored activities, and play opportunities presented at the just-right challenge to facilitate adaptive responses (12, 13). In contrast, SBIs tend to be practitioner or adult-led interventions, involving passive sensory input applied to the child, and can include sensory techniques, such as massage, wearing earmuffs, passive swinging, caregiver sensory training, and sensory environmental modifications (10, 11). SBIs may be implemented by caregivers and other team members or accessed independently by the child as part of an occupational therapy intervention plan in natural environments such as the home, community, and schools."
+      }
+    ],
+    "concept_choices": [
+      {
+        "id": "K_ANSWER",
+        "text": "Trả lời: SBI khác rõ rệt với ASI đã được nghiên cứu (E4)"
+      },
+      {
+        "id": "K_FIDELITY",
+        "text": "ASI đòi hỏi đào tạo chuyên sâu và tuân thủ fidelity principles: cá nhân hóa, trẻ chủ động, chơi, thử thách vừa sức (E4). Thuật ngữ đúng: 'nguyên tắc bảo đảm thực hiện đúng phương pháp' hoặc cách nói cùng nghĩa (tuân thủ đúng phương pháp); 'nguyên tắc trung thực' là sai. 'nguyên tắc bảo đảm thực hiện đúng phương pháp' là lựa chọn dịch của dự án, chưa phải thuật ngữ tiếng Việt đã được chuyên gia duyệt"
+      },
+      {
+        "id": "K_SWING",
+        "text": "SBI thường do người lớn dẫn dắt, đầu vào cảm giác thụ động, ví dụ xoa bóp, đeo chụp tai, đu đưa thụ động (E4/E5). Thuật ngữ đúng: 'đu đưa thụ động'; 'du lượn' là sai"
+      },
+      {
+        "id": "K_REVIEWS",
+        "text": "Các tổng quan trước đây gộp SBI với ASI (E2/E3) - chỉ để báo cáo"
+      }
+    ],
+    "concepts": null,
+    "term_correct": null,
+    "faithful": null,
+    "contains_known_wrong_content": null,
+    "note": null
+  },
+  {
+    "review_id": "R011",
+    "question_id": "S08",
+    "text": "Các bài đánh giá hệ thống trước đây thường nhầm lẫn SBIs với ASI, dẫn đến việc đưa ra kết luận sai lệch về hiệu quả của ASI do bao gồm các nghiên cứu không tuân thủ nguyên tắc ASI.",
+    "cited": [
+      {
+        "id": "E2",
+        "quote": "We have identified four major concerns with many of the past systematic reviews and meta‐analyses of studies claiming to evaluate sensory integration intervention. First, as noted above, past reviews typically included studies in which the “sensory integration” intervention described in the study was not consistent with the principles of ASI and was instead a sensory‐based intervention, i.e., it involved adult‐controlled application of sensory stimuli within a protocol that is provided in a similar way to all participants [Case‐Smith et al., 2015]. Individualization of intervention based on the child's assessment findings is absent or very limited, and passive cooperation is required of the child, rather than active collaboration with the therapist. This is particularly evident in Lang et al., 2012 and Barton et al., 2015 whose reviews included studies of the effects of isolated sensory‐specific strategies along with studies of sensory integration. Examples of such sensory‐based interventions highlighted in previous systematic reviews [Barton et al., 2015; Lang et al., 2012] include directing the child to wear a weighted vest, to sit on a therapy ball during classroom work, to accept sensory stimuli applied by the therapist in a specific protocol (such as brushing the skin or spinning the child on a rotating board), or to perform specified sensory‐motor activities or exercises [Case‐Smith et al., 2015;. Schaaf et al., 2018]."
+      },
+      {
+        "id": "E3",
+        "quote": "A second factor confounding interpretation of the evidence on ASI intervention is that past reviews and meta‐analyses include studies that failed to provide an adequate description of the phenotypic characteristics of participants [Barton et al., 2015; Lang et al., 2012; Weitlauf, Sathe, McPheeters, &amp; Warren, 2017]. Of particular concern is failure to evaluate whether participants actually demonstrated specific sensory‐motor difficulties impacting performance and participation. For instance, Barton et al. [2015] indicate that only 20 of the 30 studies they included in their review measured sensory processing behaviors, and Lang et al. [2012] found that only 7 of the 25 papers included in this review had assessed sensory processing Consequently, characterization of the sample is poor, groups lack homogeneity, and individual tailoring of the intervention, a requisite of ASI, is missing. As a result, these studies may have evaluated interventions that were applied to children without the specific sensory‐motor difficulties that are appropriate for ASI intervention. Inclusion of these studies in systematic reviews and meta‐analyses makes it impossible to draw conclusions regarding efficacy of ASI intervention."
+      }
+    ],
+    "concept_choices": [
+      {
+        "id": "K_ANSWER",
+        "text": "Trả lời: SBI khác rõ rệt với ASI đã được nghiên cứu (E4)"
+      },
+      {
+        "id": "K_FIDELITY",
+        "text": "ASI đòi hỏi đào tạo chuyên sâu và tuân thủ fidelity principles: cá nhân hóa, trẻ chủ động, chơi, thử thách vừa sức (E4). Thuật ngữ đúng: 'nguyên tắc bảo đảm thực hiện đúng phương pháp' hoặc cách nói cùng nghĩa (tuân thủ đúng phương pháp); 'nguyên tắc trung thực' là sai. 'nguyên tắc bảo đảm thực hiện đúng phương pháp' là lựa chọn dịch của dự án, chưa phải thuật ngữ tiếng Việt đã được chuyên gia duyệt"
+      },
+      {
+        "id": "K_SWING",
+        "text": "SBI thường do người lớn dẫn dắt, đầu vào cảm giác thụ động, ví dụ xoa bóp, đeo chụp tai, đu đưa thụ động (E4/E5). Thuật ngữ đúng: 'đu đưa thụ động'; 'du lượn' là sai"
+      },
+      {
+        "id": "K_REVIEWS",
+        "text": "Các tổng quan trước đây gộp SBI với ASI (E2/E3) - chỉ để báo cáo"
+      }
+    ],
+    "concepts": null,
+    "term_correct": null,
+    "faithful": null,
+    "contains_known_wrong_content": null,
+    "note": null
+  },
+  {
+    "review_id": "R012",
+    "question_id": "S08",
+    "text": "Không, các hoạt động kích thích cảm giác (SBIs) khác biệt rõ rệt với phương pháp Tích hợp cảm giác Ayres (ASI) đã được nghiên cứu cho trẻ tự kỷ.",
+    "cited": [
+      {
+        "id": "E4",
+        "quote": "The aim of SBIs is to temporarily modify a child's physiological arousal level, creating a better match between the person and task, with the goal to improve behavior and participation in tasks (11). SBIs are informed by sensory integration theory, but they have clearly delineated differences from direct, one-on-one occupational therapy intervention using Ayres Sensory Integration® intervention, termed ASI (10, 11). Key features of ASI include advanced therapist training and mentorship and adherence to fidelity principles, including active engagement of the child, individually tailored activities, and play opportunities presented at the just-right challenge to facilitate adaptive responses (12, 13). In contrast, SBIs tend to be practitioner or adult-led interventions, involving passive sensory input applied to the child, and can include sensory techniques, such as massage, wearing earmuffs, passive swinging, caregiver sensory training, and sensory environmental modifications (10, 11). SBIs may be implemented by caregivers and other team members or accessed independently by the child as part of an occupational therapy intervention plan in natural environments such as the home, community, and schools."
+      }
+    ],
+    "concept_choices": [
+      {
+        "id": "K_ANSWER",
+        "text": "Trả lời: SBI khác rõ rệt với ASI đã được nghiên cứu (E4)"
+      },
+      {
+        "id": "K_FIDELITY",
+        "text": "ASI đòi hỏi đào tạo chuyên sâu và tuân thủ fidelity principles: cá nhân hóa, trẻ chủ động, chơi, thử thách vừa sức (E4). Thuật ngữ đúng: 'nguyên tắc bảo đảm thực hiện đúng phương pháp' hoặc cách nói cùng nghĩa (tuân thủ đúng phương pháp); 'nguyên tắc trung thực' là sai. 'nguyên tắc bảo đảm thực hiện đúng phương pháp' là lựa chọn dịch của dự án, chưa phải thuật ngữ tiếng Việt đã được chuyên gia duyệt"
+      },
+      {
+        "id": "K_SWING",
+        "text": "SBI thường do người lớn dẫn dắt, đầu vào cảm giác thụ động, ví dụ xoa bóp, đeo chụp tai, đu đưa thụ động (E4/E5). Thuật ngữ đúng: 'đu đưa thụ động'; 'du lượn' là sai"
+      },
+      {
+        "id": "K_REVIEWS",
+        "text": "Các tổng quan trước đây gộp SBI với ASI (E2/E3) - chỉ để báo cáo"
+      }
+    ],
+    "concepts": null,
+    "term_correct": null,
+    "faithful": null,
+    "contains_known_wrong_content": null,
+    "note": null
+  },
+  {
+    "review_id": "R013",
+    "question_id": "S08",
+    "text": "Các bài đánh giá hệ thống trước đây thường nhầm lẫn SBIs với ASI, dẫn đến việc đưa ra kết luận sai lệch về hiệu quả của ASI do bao gồm các nghiên cứu không tuân thủ nguyên tắc ASI.",
+    "cited": [
+      {
+        "id": "E2",
+        "quote": "We have identified four major concerns with many of the past systematic reviews and meta‐analyses of studies claiming to evaluate sensory integration intervention. First, as noted above, past reviews typically included studies in which the “sensory integration” intervention described in the study was not consistent with the principles of ASI and was instead a sensory‐based intervention, i.e., it involved adult‐controlled application of sensory stimuli within a protocol that is provided in a similar way to all participants [Case‐Smith et al., 2015]. Individualization of intervention based on the child's assessment findings is absent or very limited, and passive cooperation is required of the child, rather than active collaboration with the therapist. This is particularly evident in Lang et al., 2012 and Barton et al., 2015 whose reviews included studies of the effects of isolated sensory‐specific strategies along with studies of sensory integration. Examples of such sensory‐based interventions highlighted in previous systematic reviews [Barton et al., 2015; Lang et al., 2012] include directing the child to wear a weighted vest, to sit on a therapy ball during classroom work, to accept sensory stimuli applied by the therapist in a specific protocol (such as brushing the skin or spinning the child on a rotating board), or to perform specified sensory‐motor activities or exercises [Case‐Smith et al., 2015;. Schaaf et al., 2018]."
+      },
+      {
+        "id": "E3",
+        "quote": "A second factor confounding interpretation of the evidence on ASI intervention is that past reviews and meta‐analyses include studies that failed to provide an adequate description of the phenotypic characteristics of participants [Barton et al., 2015; Lang et al., 2012; Weitlauf, Sathe, McPheeters, &amp; Warren, 2017]. Of particular concern is failure to evaluate whether participants actually demonstrated specific sensory‐motor difficulties impacting performance and participation. For instance, Barton et al. [2015] indicate that only 20 of the 30 studies they included in their review measured sensory processing behaviors, and Lang et al. [2012] found that only 7 of the 25 papers included in this review had assessed sensory processing Consequently, characterization of the sample is poor, groups lack homogeneity, and individual tailoring of the intervention, a requisite of ASI, is missing. As a result, these studies may have evaluated interventions that were applied to children without the specific sensory‐motor difficulties that are appropriate for ASI intervention. Inclusion of these studies in systematic reviews and meta‐analyses makes it impossible to draw conclusions regarding efficacy of ASI intervention."
+      }
+    ],
+    "concept_choices": [
+      {
+        "id": "K_ANSWER",
+        "text": "Trả lời: SBI khác rõ rệt với ASI đã được nghiên cứu (E4)"
+      },
+      {
+        "id": "K_FIDELITY",
+        "text": "ASI đòi hỏi đào tạo chuyên sâu và tuân thủ fidelity principles: cá nhân hóa, trẻ chủ động, chơi, thử thách vừa sức (E4). Thuật ngữ đúng: 'nguyên tắc bảo đảm thực hiện đúng phương pháp' hoặc cách nói cùng nghĩa (tuân thủ đúng phương pháp); 'nguyên tắc trung thực' là sai. 'nguyên tắc bảo đảm thực hiện đúng phương pháp' là lựa chọn dịch của dự án, chưa phải thuật ngữ tiếng Việt đã được chuyên gia duyệt"
+      },
+      {
+        "id": "K_SWING",
+        "text": "SBI thường do người lớn dẫn dắt, đầu vào cảm giác thụ động, ví dụ xoa bóp, đeo chụp tai, đu đưa thụ động (E4/E5). Thuật ngữ đúng: 'đu đưa thụ động'; 'du lượn' là sai"
+      },
+      {
+        "id": "K_REVIEWS",
+        "text": "Các tổng quan trước đây gộp SBI với ASI (E2/E3) - chỉ để báo cáo"
+      }
+    ],
+    "concepts": null,
+    "term_correct": null,
+    "faithful": null,
+    "contains_known_wrong_content": null,
+    "note": null
+  },
+  {
+    "review_id": "R014",
+    "question_id": "S08",
+    "text": "Ngược lại, SBIs thường do người lớn dẫn dắt, cung cấp đầu vào cảm giác thụ động cho trẻ (như massage, đeo tai nghe chống ồn, đu đưa thụ động) và có thể được thực hiện bởi người chăm sóc trong môi trường tự nhiên.",
+    "cited": [
+      {
+        "id": "E4",
+        "quote": "The aim of SBIs is to temporarily modify a child's physiological arousal level, creating a better match between the person and task, with the goal to improve behavior and participation in tasks (11). SBIs are informed by sensory integration theory, but they have clearly delineated differences from direct, one-on-one occupational therapy intervention using Ayres Sensory Integration® intervention, termed ASI (10, 11). Key features of ASI include advanced therapist training and mentorship and adherence to fidelity principles, including active engagement of the child, individually tailored activities, and play opportunities presented at the just-right challenge to facilitate adaptive responses (12, 13). In contrast, SBIs tend to be practitioner or adult-led interventions, involving passive sensory input applied to the child, and can include sensory techniques, such as massage, wearing earmuffs, passive swinging, caregiver sensory training, and sensory environmental modifications (10, 11). SBIs may be implemented by caregivers and other team members or accessed independently by the child as part of an occupational therapy intervention plan in natural environments such as the home, community, and schools."
+      },
+      {
+        "id": "E5",
+        "quote": "- Sensory technique: application of sensory stimuli through materials, tools, and activities applied directly to the child or through positioning a child on or in a device (e.g., weighted items, passive swinging) or accessed directly by the child."
+      }
+    ],
+    "concept_choices": [
+      {
+        "id": "K_ANSWER",
+        "text": "Trả lời: SBI khác rõ rệt với ASI đã được nghiên cứu (E4)"
+      },
+      {
+        "id": "K_FIDELITY",
+        "text": "ASI đòi hỏi đào tạo chuyên sâu và tuân thủ fidelity principles: cá nhân hóa, trẻ chủ động, chơi, thử thách vừa sức (E4). Thuật ngữ đúng: 'nguyên tắc bảo đảm thực hiện đúng phương pháp' hoặc cách nói cùng nghĩa (tuân thủ đúng phương pháp); 'nguyên tắc trung thực' là sai. 'nguyên tắc bảo đảm thực hiện đúng phương pháp' là lựa chọn dịch của dự án, chưa phải thuật ngữ tiếng Việt đã được chuyên gia duyệt"
+      },
+      {
+        "id": "K_SWING",
+        "text": "SBI thường do người lớn dẫn dắt, đầu vào cảm giác thụ động, ví dụ xoa bóp, đeo chụp tai, đu đưa thụ động (E4/E5). Thuật ngữ đúng: 'đu đưa thụ động'; 'du lượn' là sai"
+      },
+      {
+        "id": "K_REVIEWS",
+        "text": "Các tổng quan trước đây gộp SBI với ASI (E2/E3) - chỉ để báo cáo"
+      }
+    ],
+    "concepts": null,
+    "term_correct": null,
+    "faithful": null,
+    "contains_known_wrong_content": null,
+    "note": null
+  },
+  {
+    "review_id": "R015",
+    "question_id": "S08",
+    "text": "Ngược lại, SBIs thường do người lớn dẫn dắt, cung cấp đầu vào cảm giác thụ động cho trẻ (như massage, đeo tai nghe chống ồn, đu đưa thụ động) và có thể được thực hiện bởi người chăm sóc tại môi trường tự nhiên.",
+    "cited": [
+      {
+        "id": "E4",
+        "quote": "The aim of SBIs is to temporarily modify a child's physiological arousal level, creating a better match between the person and task, with the goal to improve behavior and participation in tasks (11). SBIs are informed by sensory integration theory, but they have clearly delineated differences from direct, one-on-one occupational therapy intervention using Ayres Sensory Integration® intervention, termed ASI (10, 11). Key features of ASI include advanced therapist training and mentorship and adherence to fidelity principles, including active engagement of the child, individually tailored activities, and play opportunities presented at the just-right challenge to facilitate adaptive responses (12, 13). In contrast, SBIs tend to be practitioner or adult-led interventions, involving passive sensory input applied to the child, and can include sensory techniques, such as massage, wearing earmuffs, passive swinging, caregiver sensory training, and sensory environmental modifications (10, 11). SBIs may be implemented by caregivers and other team members or accessed independently by the child as part of an occupational therapy intervention plan in natural environments such as the home, community, and schools."
+      },
+      {
+        "id": "E5",
+        "quote": "- Sensory technique: application of sensory stimuli through materials, tools, and activities applied directly to the child or through positioning a child on or in a device (e.g., weighted items, passive swinging) or accessed directly by the child."
+      }
+    ],
+    "concept_choices": [
+      {
+        "id": "K_ANSWER",
+        "text": "Trả lời: SBI khác rõ rệt với ASI đã được nghiên cứu (E4)"
+      },
+      {
+        "id": "K_FIDELITY",
+        "text": "ASI đòi hỏi đào tạo chuyên sâu và tuân thủ fidelity principles: cá nhân hóa, trẻ chủ động, chơi, thử thách vừa sức (E4). Thuật ngữ đúng: 'nguyên tắc bảo đảm thực hiện đúng phương pháp' hoặc cách nói cùng nghĩa (tuân thủ đúng phương pháp); 'nguyên tắc trung thực' là sai. 'nguyên tắc bảo đảm thực hiện đúng phương pháp' là lựa chọn dịch của dự án, chưa phải thuật ngữ tiếng Việt đã được chuyên gia duyệt"
+      },
+      {
+        "id": "K_SWING",
+        "text": "SBI thường do người lớn dẫn dắt, đầu vào cảm giác thụ động, ví dụ xoa bóp, đeo chụp tai, đu đưa thụ động (E4/E5). Thuật ngữ đúng: 'đu đưa thụ động'; 'du lượn' là sai"
+      },
+      {
+        "id": "K_REVIEWS",
+        "text": "Các tổng quan trước đây gộp SBI với ASI (E2/E3) - chỉ để báo cáo"
+      }
+    ],
+    "concepts": null,
+    "term_correct": null,
+    "faithful": null,
+    "contains_known_wrong_content": null,
+    "note": null
+  },
+  {
+    "review_id": "R016",
+    "question_id": "S08",
+    "text": "Các bài đánh giá hệ thống trước đây thường nhầm lẫn SBIs với ASI, dẫn đến việc đưa ra kết luận sai lệch về hiệu quả của ASI do bao gồm các nghiên cứu không tuân thủ nguyên tắc ASI.",
+    "cited": [
+      {
+        "id": "E2",
+        "quote": "We have identified four major concerns with many of the past systematic reviews and meta‐analyses of studies claiming to evaluate sensory integration intervention. First, as noted above, past reviews typically included studies in which the “sensory integration” intervention described in the study was not consistent with the principles of ASI and was instead a sensory‐based intervention, i.e., it involved adult‐controlled application of sensory stimuli within a protocol that is provided in a similar way to all participants [Case‐Smith et al., 2015]. Individualization of intervention based on the child's assessment findings is absent or very limited, and passive cooperation is required of the child, rather than active collaboration with the therapist. This is particularly evident in Lang et al., 2012 and Barton et al., 2015 whose reviews included studies of the effects of isolated sensory‐specific strategies along with studies of sensory integration. Examples of such sensory‐based interventions highlighted in previous systematic reviews [Barton et al., 2015; Lang et al., 2012] include directing the child to wear a weighted vest, to sit on a therapy ball during classroom work, to accept sensory stimuli applied by the therapist in a specific protocol (such as brushing the skin or spinning the child on a rotating board), or to perform specified sensory‐motor activities or exercises [Case‐Smith et al., 2015;. Schaaf et al., 2018]."
+      },
+      {
+        "id": "E3",
+        "quote": "A second factor confounding interpretation of the evidence on ASI intervention is that past reviews and meta‐analyses include studies that failed to provide an adequate description of the phenotypic characteristics of participants [Barton et al., 2015; Lang et al., 2012; Weitlauf, Sathe, McPheeters, &amp; Warren, 2017]. Of particular concern is failure to evaluate whether participants actually demonstrated specific sensory‐motor difficulties impacting performance and participation. For instance, Barton et al. [2015] indicate that only 20 of the 30 studies they included in their review measured sensory processing behaviors, and Lang et al. [2012] found that only 7 of the 25 papers included in this review had assessed sensory processing Consequently, characterization of the sample is poor, groups lack homogeneity, and individual tailoring of the intervention, a requisite of ASI, is missing. As a result, these studies may have evaluated interventions that were applied to children without the specific sensory‐motor difficulties that are appropriate for ASI intervention. Inclusion of these studies in systematic reviews and meta‐analyses makes it impossible to draw conclusions regarding efficacy of ASI intervention."
+      }
+    ],
+    "concept_choices": [
+      {
+        "id": "K_ANSWER",
+        "text": "Trả lời: SBI khác rõ rệt với ASI đã được nghiên cứu (E4)"
+      },
+      {
+        "id": "K_FIDELITY",
+        "text": "ASI đòi hỏi đào tạo chuyên sâu và tuân thủ fidelity principles: cá nhân hóa, trẻ chủ động, chơi, thử thách vừa sức (E4). Thuật ngữ đúng: 'nguyên tắc bảo đảm thực hiện đúng phương pháp' hoặc cách nói cùng nghĩa (tuân thủ đúng phương pháp); 'nguyên tắc trung thực' là sai. 'nguyên tắc bảo đảm thực hiện đúng phương pháp' là lựa chọn dịch của dự án, chưa phải thuật ngữ tiếng Việt đã được chuyên gia duyệt"
+      },
+      {
+        "id": "K_SWING",
+        "text": "SBI thường do người lớn dẫn dắt, đầu vào cảm giác thụ động, ví dụ xoa bóp, đeo chụp tai, đu đưa thụ động (E4/E5). Thuật ngữ đúng: 'đu đưa thụ động'; 'du lượn' là sai"
+      },
+      {
+        "id": "K_REVIEWS",
+        "text": "Các tổng quan trước đây gộp SBI với ASI (E2/E3) - chỉ để báo cáo"
+      }
+    ],
+    "concepts": null,
+    "term_correct": null,
+    "faithful": null,
+    "contains_known_wrong_content": null,
+    "note": null
+  },
+  {
+    "review_id": "R017",
+    "question_id": "S08",
+    "text": "ASI yêu cầu đào tạo chuyên sâu cho trị liệu, tuân thủ các nguyên tắc bảo đảm thực hiện đúng phương pháp như cá nhân hóa hoạt động, trẻ tham gia chủ động trong bối cảnh chơi, và thách thức vừa phải để thúc đẩy phản ứng thích ứng.",
+    "cited": [
+      {
+        "id": "E4",
+        "quote": "The aim of SBIs is to temporarily modify a child's physiological arousal level, creating a better match between the person and task, with the goal to improve behavior and participation in tasks (11). SBIs are informed by sensory integration theory, but they have clearly delineated differences from direct, one-on-one occupational therapy intervention using Ayres Sensory Integration® intervention, termed ASI (10, 11). Key features of ASI include advanced therapist training and mentorship and adherence to fidelity principles, including active engagement of the child, individually tailored activities, and play opportunities presented at the just-right challenge to facilitate adaptive responses (12, 13). In contrast, SBIs tend to be practitioner or adult-led interventions, involving passive sensory input applied to the child, and can include sensory techniques, such as massage, wearing earmuffs, passive swinging, caregiver sensory training, and sensory environmental modifications (10, 11). SBIs may be implemented by caregivers and other team members or accessed independently by the child as part of an occupational therapy intervention plan in natural environments such as the home, community, and schools."
+      }
+    ],
+    "concept_choices": [
+      {
+        "id": "K_ANSWER",
+        "text": "Trả lời: SBI khác rõ rệt với ASI đã được nghiên cứu (E4)"
+      },
+      {
+        "id": "K_FIDELITY",
+        "text": "ASI đòi hỏi đào tạo chuyên sâu và tuân thủ fidelity principles: cá nhân hóa, trẻ chủ động, chơi, thử thách vừa sức (E4). Thuật ngữ đúng: 'nguyên tắc bảo đảm thực hiện đúng phương pháp' hoặc cách nói cùng nghĩa (tuân thủ đúng phương pháp); 'nguyên tắc trung thực' là sai. 'nguyên tắc bảo đảm thực hiện đúng phương pháp' là lựa chọn dịch của dự án, chưa phải thuật ngữ tiếng Việt đã được chuyên gia duyệt"
+      },
+      {
+        "id": "K_SWING",
+        "text": "SBI thường do người lớn dẫn dắt, đầu vào cảm giác thụ động, ví dụ xoa bóp, đeo chụp tai, đu đưa thụ động (E4/E5). Thuật ngữ đúng: 'đu đưa thụ động'; 'du lượn' là sai"
+      },
+      {
+        "id": "K_REVIEWS",
+        "text": "Các tổng quan trước đây gộp SBI với ASI (E2/E3) - chỉ để báo cáo"
+      }
+    ],
+    "concepts": null,
+    "term_correct": null,
+    "faithful": null,
+    "contains_known_wrong_content": null,
+    "note": null
+  },
+  {
+    "review_id": "R018",
+    "question_id": "S08",
+    "text": "ASI yêu cầu đào tạo chuyên sâu cho trị liệu, tuân thủ các nguyên tắc bảo đảm thực hiện đúng phương pháp như cá nhân hóa hoạt động, trẻ tham gia chủ động trong bối cảnh chơi, và thách thức vừa phải để thúc đẩy phản ứng thích ứng.",
+    "cited": [
+      {
+        "id": "E4",
+        "quote": "The aim of SBIs is to temporarily modify a child's physiological arousal level, creating a better match between the person and task, with the goal to improve behavior and participation in tasks (11). SBIs are informed by sensory integration theory, but they have clearly delineated differences from direct, one-on-one occupational therapy intervention using Ayres Sensory Integration® intervention, termed ASI (10, 11). Key features of ASI include advanced therapist training and mentorship and adherence to fidelity principles, including active engagement of the child, individually tailored activities, and play opportunities presented at the just-right challenge to facilitate adaptive responses (12, 13). In contrast, SBIs tend to be practitioner or adult-led interventions, involving passive sensory input applied to the child, and can include sensory techniques, such as massage, wearing earmuffs, passive swinging, caregiver sensory training, and sensory environmental modifications (10, 11). SBIs may be implemented by caregivers and other team members or accessed independently by the child as part of an occupational therapy intervention plan in natural environments such as the home, community, and schools."
+      }
+    ],
+    "concept_choices": [
+      {
+        "id": "K_ANSWER",
+        "text": "Trả lời: SBI khác rõ rệt với ASI đã được nghiên cứu (E4)"
+      },
+      {
+        "id": "K_FIDELITY",
+        "text": "ASI đòi hỏi đào tạo chuyên sâu và tuân thủ fidelity principles: cá nhân hóa, trẻ chủ động, chơi, thử thách vừa sức (E4). Thuật ngữ đúng: 'nguyên tắc bảo đảm thực hiện đúng phương pháp' hoặc cách nói cùng nghĩa (tuân thủ đúng phương pháp); 'nguyên tắc trung thực' là sai. 'nguyên tắc bảo đảm thực hiện đúng phương pháp' là lựa chọn dịch của dự án, chưa phải thuật ngữ tiếng Việt đã được chuyên gia duyệt"
+      },
+      {
+        "id": "K_SWING",
+        "text": "SBI thường do người lớn dẫn dắt, đầu vào cảm giác thụ động, ví dụ xoa bóp, đeo chụp tai, đu đưa thụ động (E4/E5). Thuật ngữ đúng: 'đu đưa thụ động'; 'du lượn' là sai"
+      },
+      {
+        "id": "K_REVIEWS",
+        "text": "Các tổng quan trước đây gộp SBI với ASI (E2/E3) - chỉ để báo cáo"
+      }
+    ],
+    "concepts": null,
+    "term_correct": null,
+    "faithful": null,
+    "contains_known_wrong_content": null,
+    "note": null
+  },
+  {
+    "review_id": "R019",
+    "question_id": "S08",
+    "text": "Không, các hoạt động kích thích cảm giác (SBIs) khác biệt rõ rệt với phương pháp Tích hợp cảm giác Ayres (ASI) đã được nghiên cứu cho trẻ tự kỷ.",
+    "cited": [
+      {
+        "id": "E4",
+        "quote": "The aim of SBIs is to temporarily modify a child's physiological arousal level, creating a better match between the person and task, with the goal to improve behavior and participation in tasks (11). SBIs are informed by sensory integration theory, but they have clearly delineated differences from direct, one-on-one occupational therapy intervention using Ayres Sensory Integration® intervention, termed ASI (10, 11). Key features of ASI include advanced therapist training and mentorship and adherence to fidelity principles, including active engagement of the child, individually tailored activities, and play opportunities presented at the just-right challenge to facilitate adaptive responses (12, 13). In contrast, SBIs tend to be practitioner or adult-led interventions, involving passive sensory input applied to the child, and can include sensory techniques, such as massage, wearing earmuffs, passive swinging, caregiver sensory training, and sensory environmental modifications (10, 11). SBIs may be implemented by caregivers and other team members or accessed independently by the child as part of an occupational therapy intervention plan in natural environments such as the home, community, and schools."
+      }
+    ],
+    "concept_choices": [
+      {
+        "id": "K_ANSWER",
+        "text": "Trả lời: SBI khác rõ rệt với ASI đã được nghiên cứu (E4)"
+      },
+      {
+        "id": "K_FIDELITY",
+        "text": "ASI đòi hỏi đào tạo chuyên sâu và tuân thủ fidelity principles: cá nhân hóa, trẻ chủ động, chơi, thử thách vừa sức (E4). Thuật ngữ đúng: 'nguyên tắc bảo đảm thực hiện đúng phương pháp' hoặc cách nói cùng nghĩa (tuân thủ đúng phương pháp); 'nguyên tắc trung thực' là sai. 'nguyên tắc bảo đảm thực hiện đúng phương pháp' là lựa chọn dịch của dự án, chưa phải thuật ngữ tiếng Việt đã được chuyên gia duyệt"
+      },
+      {
+        "id": "K_SWING",
+        "text": "SBI thường do người lớn dẫn dắt, đầu vào cảm giác thụ động, ví dụ xoa bóp, đeo chụp tai, đu đưa thụ động (E4/E5). Thuật ngữ đúng: 'đu đưa thụ động'; 'du lượn' là sai"
+      },
+      {
+        "id": "K_REVIEWS",
+        "text": "Các tổng quan trước đây gộp SBI với ASI (E2/E3) - chỉ để báo cáo"
+      }
+    ],
+    "concepts": null,
+    "term_correct": null,
+    "faithful": null,
+    "contains_known_wrong_content": null,
+    "note": null
+  },
+  {
+    "review_id": "R020",
+    "question_id": "S08",
+    "text": "Không, các hoạt động kích thích cảm giác (SBIs) khác biệt rõ rệt với phương pháp Tích hợp cảm giác Ayres (ASI) đã được nghiên cứu cho trẻ tự kỷ.",
+    "cited": [
+      {
+        "id": "E4",
+        "quote": "The aim of SBIs is to temporarily modify a child's physiological arousal level, creating a better match between the person and task, with the goal to improve behavior and participation in tasks (11). SBIs are informed by sensory integration theory, but they have clearly delineated differences from direct, one-on-one occupational therapy intervention using Ayres Sensory Integration® intervention, termed ASI (10, 11). Key features of ASI include advanced therapist training and mentorship and adherence to fidelity principles, including active engagement of the child, individually tailored activities, and play opportunities presented at the just-right challenge to facilitate adaptive responses (12, 13). In contrast, SBIs tend to be practitioner or adult-led interventions, involving passive sensory input applied to the child, and can include sensory techniques, such as massage, wearing earmuffs, passive swinging, caregiver sensory training, and sensory environmental modifications (10, 11). SBIs may be implemented by caregivers and other team members or accessed independently by the child as part of an occupational therapy intervention plan in natural environments such as the home, community, and schools."
+      }
+    ],
+    "concept_choices": [
+      {
+        "id": "K_ANSWER",
+        "text": "Trả lời: SBI khác rõ rệt với ASI đã được nghiên cứu (E4)"
+      },
+      {
+        "id": "K_FIDELITY",
+        "text": "ASI đòi hỏi đào tạo chuyên sâu và tuân thủ fidelity principles: cá nhân hóa, trẻ chủ động, chơi, thử thách vừa sức (E4). Thuật ngữ đúng: 'nguyên tắc bảo đảm thực hiện đúng phương pháp' hoặc cách nói cùng nghĩa (tuân thủ đúng phương pháp); 'nguyên tắc trung thực' là sai. 'nguyên tắc bảo đảm thực hiện đúng phương pháp' là lựa chọn dịch của dự án, chưa phải thuật ngữ tiếng Việt đã được chuyên gia duyệt"
+      },
+      {
+        "id": "K_SWING",
+        "text": "SBI thường do người lớn dẫn dắt, đầu vào cảm giác thụ động, ví dụ xoa bóp, đeo chụp tai, đu đưa thụ động (E4/E5). Thuật ngữ đúng: 'đu đưa thụ động'; 'du lượn' là sai"
+      },
+      {
+        "id": "K_REVIEWS",
+        "text": "Các tổng quan trước đây gộp SBI với ASI (E2/E3) - chỉ để báo cáo"
+      }
+    ],
+    "concepts": null,
+    "term_correct": null,
+    "faithful": null,
+    "contains_known_wrong_content": null,
+    "note": null
+  },
+  {
+    "review_id": "R021",
+    "question_id": "S08",
+    "text": "ASI yêu cầu đào tạo chuyên sâu cho trị liệu, tuân thủ các nguyên tắc bảo đảm thực hiện đúng phương pháp như cá nhân hóa hoạt động, trẻ tham gia chủ động trong bối cảnh chơi, và thách thức vừa phải để thúc đẩy phản ứng thích ứng.",
+    "cited": [
+      {
+        "id": "E4",
+        "quote": "The aim of SBIs is to temporarily modify a child's physiological arousal level, creating a better match between the person and task, with the goal to improve behavior and participation in tasks (11). SBIs are informed by sensory integration theory, but they have clearly delineated differences from direct, one-on-one occupational therapy intervention using Ayres Sensory Integration® intervention, termed ASI (10, 11). Key features of ASI include advanced therapist training and mentorship and adherence to fidelity principles, including active engagement of the child, individually tailored activities, and play opportunities presented at the just-right challenge to facilitate adaptive responses (12, 13). In contrast, SBIs tend to be practitioner or adult-led interventions, involving passive sensory input applied to the child, and can include sensory techniques, such as massage, wearing earmuffs, passive swinging, caregiver sensory training, and sensory environmental modifications (10, 11). SBIs may be implemented by caregivers and other team members or accessed independently by the child as part of an occupational therapy intervention plan in natural environments such as the home, community, and schools."
+      }
+    ],
+    "concept_choices": [
+      {
+        "id": "K_ANSWER",
+        "text": "Trả lời: SBI khác rõ rệt với ASI đã được nghiên cứu (E4)"
+      },
+      {
+        "id": "K_FIDELITY",
+        "text": "ASI đòi hỏi đào tạo chuyên sâu và tuân thủ fidelity principles: cá nhân hóa, trẻ chủ động, chơi, thử thách vừa sức (E4). Thuật ngữ đúng: 'nguyên tắc bảo đảm thực hiện đúng phương pháp' hoặc cách nói cùng nghĩa (tuân thủ đúng phương pháp); 'nguyên tắc trung thực' là sai. 'nguyên tắc bảo đảm thực hiện đúng phương pháp' là lựa chọn dịch của dự án, chưa phải thuật ngữ tiếng Việt đã được chuyên gia duyệt"
+      },
+      {
+        "id": "K_SWING",
+        "text": "SBI thường do người lớn dẫn dắt, đầu vào cảm giác thụ động, ví dụ xoa bóp, đeo chụp tai, đu đưa thụ động (E4/E5). Thuật ngữ đúng: 'đu đưa thụ động'; 'du lượn' là sai"
+      },
+      {
+        "id": "K_REVIEWS",
+        "text": "Các tổng quan trước đây gộp SBI với ASI (E2/E3) - chỉ để báo cáo"
+      }
+    ],
+    "concepts": null,
+    "term_correct": null,
+    "faithful": null,
+    "contains_known_wrong_content": null,
+    "note": null
+  },
+  {
+    "review_id": "R022",
+    "question_id": "S08",
+    "text": "Các bài đánh giá hệ thống trước đây thường nhầm lẫn SBIs với ASI, dẫn đến việc đưa ra kết luận sai lệch về hiệu quả của ASI do bao gồm các nghiên cứu không tuân thủ nguyên tắc ASI.",
+    "cited": [
+      {
+        "id": "E2",
+        "quote": "We have identified four major concerns with many of the past systematic reviews and meta‐analyses of studies claiming to evaluate sensory integration intervention. First, as noted above, past reviews typically included studies in which the “sensory integration” intervention described in the study was not consistent with the principles of ASI and was instead a sensory‐based intervention, i.e., it involved adult‐controlled application of sensory stimuli within a protocol that is provided in a similar way to all participants [Case‐Smith et al., 2015]. Individualization of intervention based on the child's assessment findings is absent or very limited, and passive cooperation is required of the child, rather than active collaboration with the therapist. This is particularly evident in Lang et al., 2012 and Barton et al., 2015 whose reviews included studies of the effects of isolated sensory‐specific strategies along with studies of sensory integration. Examples of such sensory‐based interventions highlighted in previous systematic reviews [Barton et al., 2015; Lang et al., 2012] include directing the child to wear a weighted vest, to sit on a therapy ball during classroom work, to accept sensory stimuli applied by the therapist in a specific protocol (such as brushing the skin or spinning the child on a rotating board), or to perform specified sensory‐motor activities or exercises [Case‐Smith et al., 2015;. Schaaf et al., 2018]."
+      },
+      {
+        "id": "E3",
+        "quote": "A second factor confounding interpretation of the evidence on ASI intervention is that past reviews and meta‐analyses include studies that failed to provide an adequate description of the phenotypic characteristics of participants [Barton et al., 2015; Lang et al., 2012; Weitlauf, Sathe, McPheeters, &amp; Warren, 2017]. Of particular concern is failure to evaluate whether participants actually demonstrated specific sensory‐motor difficulties impacting performance and participation. For instance, Barton et al. [2015] indicate that only 20 of the 30 studies they included in their review measured sensory processing behaviors, and Lang et al. [2012] found that only 7 of the 25 papers included in this review had assessed sensory processing Consequently, characterization of the sample is poor, groups lack homogeneity, and individual tailoring of the intervention, a requisite of ASI, is missing. As a result, these studies may have evaluated interventions that were applied to children without the specific sensory‐motor difficulties that are appropriate for ASI intervention. Inclusion of these studies in systematic reviews and meta‐analyses makes it impossible to draw conclusions regarding efficacy of ASI intervention."
+      }
+    ],
+    "concept_choices": [
+      {
+        "id": "K_ANSWER",
+        "text": "Trả lời: SBI khác rõ rệt với ASI đã được nghiên cứu (E4)"
+      },
+      {
+        "id": "K_FIDELITY",
+        "text": "ASI đòi hỏi đào tạo chuyên sâu và tuân thủ fidelity principles: cá nhân hóa, trẻ chủ động, chơi, thử thách vừa sức (E4). Thuật ngữ đúng: 'nguyên tắc bảo đảm thực hiện đúng phương pháp' hoặc cách nói cùng nghĩa (tuân thủ đúng phương pháp); 'nguyên tắc trung thực' là sai. 'nguyên tắc bảo đảm thực hiện đúng phương pháp' là lựa chọn dịch của dự án, chưa phải thuật ngữ tiếng Việt đã được chuyên gia duyệt"
+      },
+      {
+        "id": "K_SWING",
+        "text": "SBI thường do người lớn dẫn dắt, đầu vào cảm giác thụ động, ví dụ xoa bóp, đeo chụp tai, đu đưa thụ động (E4/E5). Thuật ngữ đúng: 'đu đưa thụ động'; 'du lượn' là sai"
+      },
+      {
+        "id": "K_REVIEWS",
+        "text": "Các tổng quan trước đây gộp SBI với ASI (E2/E3) - chỉ để báo cáo"
+      }
+    ],
+    "concepts": null,
+    "term_correct": null,
+    "faithful": null,
+    "contains_known_wrong_content": null,
+    "note": null
+  },
+  {
+    "review_id": "R023",
+    "question_id": "S08",
+    "text": "Ngược lại, SBIs thường do người lớn dẫn dắt, cung cấp đầu vào cảm giác thụ động cho trẻ (như massage, đeo tai nghe chống ồn, đu đưa thụ động) và có thể được thực hiện bởi người chăm sóc trong môi trường tự nhiên.",
+    "cited": [
+      {
+        "id": "E4",
+        "quote": "The aim of SBIs is to temporarily modify a child's physiological arousal level, creating a better match between the person and task, with the goal to improve behavior and participation in tasks (11). SBIs are informed by sensory integration theory, but they have clearly delineated differences from direct, one-on-one occupational therapy intervention using Ayres Sensory Integration® intervention, termed ASI (10, 11). Key features of ASI include advanced therapist training and mentorship and adherence to fidelity principles, including active engagement of the child, individually tailored activities, and play opportunities presented at the just-right challenge to facilitate adaptive responses (12, 13). In contrast, SBIs tend to be practitioner or adult-led interventions, involving passive sensory input applied to the child, and can include sensory techniques, such as massage, wearing earmuffs, passive swinging, caregiver sensory training, and sensory environmental modifications (10, 11). SBIs may be implemented by caregivers and other team members or accessed independently by the child as part of an occupational therapy intervention plan in natural environments such as the home, community, and schools."
+      },
+      {
+        "id": "E5",
+        "quote": "- Sensory technique: application of sensory stimuli through materials, tools, and activities applied directly to the child or through positioning a child on or in a device (e.g., weighted items, passive swinging) or accessed directly by the child."
+      }
+    ],
+    "concept_choices": [
+      {
+        "id": "K_ANSWER",
+        "text": "Trả lời: SBI khác rõ rệt với ASI đã được nghiên cứu (E4)"
+      },
+      {
+        "id": "K_FIDELITY",
+        "text": "ASI đòi hỏi đào tạo chuyên sâu và tuân thủ fidelity principles: cá nhân hóa, trẻ chủ động, chơi, thử thách vừa sức (E4). Thuật ngữ đúng: 'nguyên tắc bảo đảm thực hiện đúng phương pháp' hoặc cách nói cùng nghĩa (tuân thủ đúng phương pháp); 'nguyên tắc trung thực' là sai. 'nguyên tắc bảo đảm thực hiện đúng phương pháp' là lựa chọn dịch của dự án, chưa phải thuật ngữ tiếng Việt đã được chuyên gia duyệt"
+      },
+      {
+        "id": "K_SWING",
+        "text": "SBI thường do người lớn dẫn dắt, đầu vào cảm giác thụ động, ví dụ xoa bóp, đeo chụp tai, đu đưa thụ động (E4/E5). Thuật ngữ đúng: 'đu đưa thụ động'; 'du lượn' là sai"
+      },
+      {
+        "id": "K_REVIEWS",
+        "text": "Các tổng quan trước đây gộp SBI với ASI (E2/E3) - chỉ để báo cáo"
+      }
+    ],
+    "concepts": null,
+    "term_correct": null,
+    "faithful": null,
+    "contains_known_wrong_content": null,
+    "note": null
+  },
+  {
+    "review_id": "R024",
+    "question_id": "S08",
+    "text": "Không, các hoạt động kích thích cảm giác (SBIs) khác biệt rõ rệt với phương pháp Tích hợp cảm giác Ayres (ASI) đã được nghiên cứu cho trẻ tự kỷ.",
+    "cited": [
+      {
+        "id": "E4",
+        "quote": "The aim of SBIs is to temporarily modify a child's physiological arousal level, creating a better match between the person and task, with the goal to improve behavior and participation in tasks (11). SBIs are informed by sensory integration theory, but they have clearly delineated differences from direct, one-on-one occupational therapy intervention using Ayres Sensory Integration® intervention, termed ASI (10, 11). Key features of ASI include advanced therapist training and mentorship and adherence to fidelity principles, including active engagement of the child, individually tailored activities, and play opportunities presented at the just-right challenge to facilitate adaptive responses (12, 13). In contrast, SBIs tend to be practitioner or adult-led interventions, involving passive sensory input applied to the child, and can include sensory techniques, such as massage, wearing earmuffs, passive swinging, caregiver sensory training, and sensory environmental modifications (10, 11). SBIs may be implemented by caregivers and other team members or accessed independently by the child as part of an occupational therapy intervention plan in natural environments such as the home, community, and schools."
+      }
+    ],
+    "concept_choices": [
+      {
+        "id": "K_ANSWER",
+        "text": "Trả lời: SBI khác rõ rệt với ASI đã được nghiên cứu (E4)"
+      },
+      {
+        "id": "K_FIDELITY",
+        "text": "ASI đòi hỏi đào tạo chuyên sâu và tuân thủ fidelity principles: cá nhân hóa, trẻ chủ động, chơi, thử thách vừa sức (E4). Thuật ngữ đúng: 'nguyên tắc bảo đảm thực hiện đúng phương pháp' hoặc cách nói cùng nghĩa (tuân thủ đúng phương pháp); 'nguyên tắc trung thực' là sai. 'nguyên tắc bảo đảm thực hiện đúng phương pháp' là lựa chọn dịch của dự án, chưa phải thuật ngữ tiếng Việt đã được chuyên gia duyệt"
+      },
+      {
+        "id": "K_SWING",
+        "text": "SBI thường do người lớn dẫn dắt, đầu vào cảm giác thụ động, ví dụ xoa bóp, đeo chụp tai, đu đưa thụ động (E4/E5). Thuật ngữ đúng: 'đu đưa thụ động'; 'du lượn' là sai"
+      },
+      {
+        "id": "K_REVIEWS",
+        "text": "Các tổng quan trước đây gộp SBI với ASI (E2/E3) - chỉ để báo cáo"
+      }
+    ],
+    "concepts": null,
+    "term_correct": null,
+    "faithful": null,
+    "contains_known_wrong_content": null,
+    "note": null
+  },
+  {
+    "review_id": "R025",
+    "question_id": "S08",
+    "text": "Không, các hoạt động kích thích cảm giác (SBIs) khác biệt rõ rệt với phương pháp Tích hợp cảm giác Ayres (ASI) đã được nghiên cứu cho trẻ tự kỷ.",
+    "cited": [
+      {
+        "id": "E4",
+        "quote": "The aim of SBIs is to temporarily modify a child's physiological arousal level, creating a better match between the person and task, with the goal to improve behavior and participation in tasks (11). SBIs are informed by sensory integration theory, but they have clearly delineated differences from direct, one-on-one occupational therapy intervention using Ayres Sensory Integration® intervention, termed ASI (10, 11). Key features of ASI include advanced therapist training and mentorship and adherence to fidelity principles, including active engagement of the child, individually tailored activities, and play opportunities presented at the just-right challenge to facilitate adaptive responses (12, 13). In contrast, SBIs tend to be practitioner or adult-led interventions, involving passive sensory input applied to the child, and can include sensory techniques, such as massage, wearing earmuffs, passive swinging, caregiver sensory training, and sensory environmental modifications (10, 11). SBIs may be implemented by caregivers and other team members or accessed independently by the child as part of an occupational therapy intervention plan in natural environments such as the home, community, and schools."
+      }
+    ],
+    "concept_choices": [
+      {
+        "id": "K_ANSWER",
+        "text": "Trả lời: SBI khác rõ rệt với ASI đã được nghiên cứu (E4)"
+      },
+      {
+        "id": "K_FIDELITY",
+        "text": "ASI đòi hỏi đào tạo chuyên sâu và tuân thủ fidelity principles: cá nhân hóa, trẻ chủ động, chơi, thử thách vừa sức (E4). Thuật ngữ đúng: 'nguyên tắc bảo đảm thực hiện đúng phương pháp' hoặc cách nói cùng nghĩa (tuân thủ đúng phương pháp); 'nguyên tắc trung thực' là sai. 'nguyên tắc bảo đảm thực hiện đúng phương pháp' là lựa chọn dịch của dự án, chưa phải thuật ngữ tiếng Việt đã được chuyên gia duyệt"
+      },
+      {
+        "id": "K_SWING",
+        "text": "SBI thường do người lớn dẫn dắt, đầu vào cảm giác thụ động, ví dụ xoa bóp, đeo chụp tai, đu đưa thụ động (E4/E5). Thuật ngữ đúng: 'đu đưa thụ động'; 'du lượn' là sai"
+      },
+      {
+        "id": "K_REVIEWS",
+        "text": "Các tổng quan trước đây gộp SBI với ASI (E2/E3) - chỉ để báo cáo"
+      }
+    ],
+    "concepts": null,
+    "term_correct": null,
+    "faithful": null,
+    "contains_known_wrong_content": null,
+    "note": null
+  },
+  {
+    "review_id": "R026",
+    "question_id": "S08",
+    "text": "Không, các hoạt động kích thích cảm giác (SBIs) khác biệt rõ rệt với phương pháp Tích hợp cảm giác Ayres (ASI) đã được nghiên cứu cho trẻ tự kỷ.",
+    "cited": [
+      {
+        "id": "E4",
+        "quote": "The aim of SBIs is to temporarily modify a child's physiological arousal level, creating a better match between the person and task, with the goal to improve behavior and participation in tasks (11). SBIs are informed by sensory integration theory, but they have clearly delineated differences from direct, one-on-one occupational therapy intervention using Ayres Sensory Integration® intervention, termed ASI (10, 11). Key features of ASI include advanced therapist training and mentorship and adherence to fidelity principles, including active engagement of the child, individually tailored activities, and play opportunities presented at the just-right challenge to facilitate adaptive responses (12, 13). In contrast, SBIs tend to be practitioner or adult-led interventions, involving passive sensory input applied to the child, and can include sensory techniques, such as massage, wearing earmuffs, passive swinging, caregiver sensory training, and sensory environmental modifications (10, 11). SBIs may be implemented by caregivers and other team members or accessed independently by the child as part of an occupational therapy intervention plan in natural environments such as the home, community, and schools."
+      }
+    ],
+    "concept_choices": [
+      {
+        "id": "K_ANSWER",
+        "text": "Trả lời: SBI khác rõ rệt với ASI đã được nghiên cứu (E4)"
+      },
+      {
+        "id": "K_FIDELITY",
+        "text": "ASI đòi hỏi đào tạo chuyên sâu và tuân thủ fidelity principles: cá nhân hóa, trẻ chủ động, chơi, thử thách vừa sức (E4). Thuật ngữ đúng: 'nguyên tắc bảo đảm thực hiện đúng phương pháp' hoặc cách nói cùng nghĩa (tuân thủ đúng phương pháp); 'nguyên tắc trung thực' là sai. 'nguyên tắc bảo đảm thực hiện đúng phương pháp' là lựa chọn dịch của dự án, chưa phải thuật ngữ tiếng Việt đã được chuyên gia duyệt"
+      },
+      {
+        "id": "K_SWING",
+        "text": "SBI thường do người lớn dẫn dắt, đầu vào cảm giác thụ động, ví dụ xoa bóp, đeo chụp tai, đu đưa thụ động (E4/E5). Thuật ngữ đúng: 'đu đưa thụ động'; 'du lượn' là sai"
+      },
+      {
+        "id": "K_REVIEWS",
+        "text": "Các tổng quan trước đây gộp SBI với ASI (E2/E3) - chỉ để báo cáo"
+      }
+    ],
+    "concepts": null,
+    "term_correct": null,
+    "faithful": null,
+    "contains_known_wrong_content": null,
+    "note": null
+  },
+  {
+    "review_id": "R027",
+    "question_id": "S08",
+    "text": "Ngược lại, SBIs thường do người lớn dẫn dắt, cung cấp đầu vào cảm giác thụ động cho trẻ (như massage, đeo tai nghe chống ồn, đu đưa thụ động) và có thể được thực hiện bởi người chăm sóc tại môi trường tự nhiên.",
+    "cited": [
+      {
+        "id": "E4",
+        "quote": "The aim of SBIs is to temporarily modify a child's physiological arousal level, creating a better match between the person and task, with the goal to improve behavior and participation in tasks (11). SBIs are informed by sensory integration theory, but they have clearly delineated differences from direct, one-on-one occupational therapy intervention using Ayres Sensory Integration® intervention, termed ASI (10, 11). Key features of ASI include advanced therapist training and mentorship and adherence to fidelity principles, including active engagement of the child, individually tailored activities, and play opportunities presented at the just-right challenge to facilitate adaptive responses (12, 13). In contrast, SBIs tend to be practitioner or adult-led interventions, involving passive sensory input applied to the child, and can include sensory techniques, such as massage, wearing earmuffs, passive swinging, caregiver sensory training, and sensory environmental modifications (10, 11). SBIs may be implemented by caregivers and other team members or accessed independently by the child as part of an occupational therapy intervention plan in natural environments such as the home, community, and schools."
+      },
+      {
+        "id": "E5",
+        "quote": "- Sensory technique: application of sensory stimuli through materials, tools, and activities applied directly to the child or through positioning a child on or in a device (e.g., weighted items, passive swinging) or accessed directly by the child."
+      }
+    ],
+    "concept_choices": [
+      {
+        "id": "K_ANSWER",
+        "text": "Trả lời: SBI khác rõ rệt với ASI đã được nghiên cứu (E4)"
+      },
+      {
+        "id": "K_FIDELITY",
+        "text": "ASI đòi hỏi đào tạo chuyên sâu và tuân thủ fidelity principles: cá nhân hóa, trẻ chủ động, chơi, thử thách vừa sức (E4). Thuật ngữ đúng: 'nguyên tắc bảo đảm thực hiện đúng phương pháp' hoặc cách nói cùng nghĩa (tuân thủ đúng phương pháp); 'nguyên tắc trung thực' là sai. 'nguyên tắc bảo đảm thực hiện đúng phương pháp' là lựa chọn dịch của dự án, chưa phải thuật ngữ tiếng Việt đã được chuyên gia duyệt"
+      },
+      {
+        "id": "K_SWING",
+        "text": "SBI thường do người lớn dẫn dắt, đầu vào cảm giác thụ động, ví dụ xoa bóp, đeo chụp tai, đu đưa thụ động (E4/E5). Thuật ngữ đúng: 'đu đưa thụ động'; 'du lượn' là sai"
+      },
+      {
+        "id": "K_REVIEWS",
+        "text": "Các tổng quan trước đây gộp SBI với ASI (E2/E3) - chỉ để báo cáo"
+      }
+    ],
+    "concepts": null,
+    "term_correct": null,
+    "faithful": null,
+    "contains_known_wrong_content": null,
+    "note": null
+  },
+  {
+    "review_id": "R028",
+    "question_id": "S08",
+    "text": "Không, các hoạt động kích thích cảm giác (SBIs) khác biệt rõ rệt với phương pháp Tích hợp cảm giác Ayres (ASI) đã được nghiên cứu cho trẻ tự kỷ.",
+    "cited": [
+      {
+        "id": "E4",
+        "quote": "The aim of SBIs is to temporarily modify a child's physiological arousal level, creating a better match between the person and task, with the goal to improve behavior and participation in tasks (11). SBIs are informed by sensory integration theory, but they have clearly delineated differences from direct, one-on-one occupational therapy intervention using Ayres Sensory Integration® intervention, termed ASI (10, 11). Key features of ASI include advanced therapist training and mentorship and adherence to fidelity principles, including active engagement of the child, individually tailored activities, and play opportunities presented at the just-right challenge to facilitate adaptive responses (12, 13). In contrast, SBIs tend to be practitioner or adult-led interventions, involving passive sensory input applied to the child, and can include sensory techniques, such as massage, wearing earmuffs, passive swinging, caregiver sensory training, and sensory environmental modifications (10, 11). SBIs may be implemented by caregivers and other team members or accessed independently by the child as part of an occupational therapy intervention plan in natural environments such as the home, community, and schools."
+      }
+    ],
+    "concept_choices": [
+      {
+        "id": "K_ANSWER",
+        "text": "Trả lời: SBI khác rõ rệt với ASI đã được nghiên cứu (E4)"
+      },
+      {
+        "id": "K_FIDELITY",
+        "text": "ASI đòi hỏi đào tạo chuyên sâu và tuân thủ fidelity principles: cá nhân hóa, trẻ chủ động, chơi, thử thách vừa sức (E4). Thuật ngữ đúng: 'nguyên tắc bảo đảm thực hiện đúng phương pháp' hoặc cách nói cùng nghĩa (tuân thủ đúng phương pháp); 'nguyên tắc trung thực' là sai. 'nguyên tắc bảo đảm thực hiện đúng phương pháp' là lựa chọn dịch của dự án, chưa phải thuật ngữ tiếng Việt đã được chuyên gia duyệt"
+      },
+      {
+        "id": "K_SWING",
+        "text": "SBI thường do người lớn dẫn dắt, đầu vào cảm giác thụ động, ví dụ xoa bóp, đeo chụp tai, đu đưa thụ động (E4/E5). Thuật ngữ đúng: 'đu đưa thụ động'; 'du lượn' là sai"
+      },
+      {
+        "id": "K_REVIEWS",
+        "text": "Các tổng quan trước đây gộp SBI với ASI (E2/E3) - chỉ để báo cáo"
+      }
+    ],
+    "concepts": null,
+    "term_correct": null,
+    "faithful": null,
+    "contains_known_wrong_content": null,
+    "note": null
+  },
+  {
+    "review_id": "R029",
+    "question_id": "S08",
+    "text": "Ngược lại, SBIs thường do người lớn dẫn dắt, cung cấp đầu vào cảm giác thụ động cho trẻ (như massage, đeo tai nghe chống ồn, đu đưa thụ động) và có thể được thực hiện bởi người chăm sóc tại môi trường tự nhiên.",
+    "cited": [
+      {
+        "id": "E4",
+        "quote": "The aim of SBIs is to temporarily modify a child's physiological arousal level, creating a better match between the person and task, with the goal to improve behavior and participation in tasks (11). SBIs are informed by sensory integration theory, but they have clearly delineated differences from direct, one-on-one occupational therapy intervention using Ayres Sensory Integration® intervention, termed ASI (10, 11). Key features of ASI include advanced therapist training and mentorship and adherence to fidelity principles, including active engagement of the child, individually tailored activities, and play opportunities presented at the just-right challenge to facilitate adaptive responses (12, 13). In contrast, SBIs tend to be practitioner or adult-led interventions, involving passive sensory input applied to the child, and can include sensory techniques, such as massage, wearing earmuffs, passive swinging, caregiver sensory training, and sensory environmental modifications (10, 11). SBIs may be implemented by caregivers and other team members or accessed independently by the child as part of an occupational therapy intervention plan in natural environments such as the home, community, and schools."
+      },
+      {
+        "id": "E5",
+        "quote": "- Sensory technique: application of sensory stimuli through materials, tools, and activities applied directly to the child or through positioning a child on or in a device (e.g., weighted items, passive swinging) or accessed directly by the child."
+      }
+    ],
+    "concept_choices": [
+      {
+        "id": "K_ANSWER",
+        "text": "Trả lời: SBI khác rõ rệt với ASI đã được nghiên cứu (E4)"
+      },
+      {
+        "id": "K_FIDELITY",
+        "text": "ASI đòi hỏi đào tạo chuyên sâu và tuân thủ fidelity principles: cá nhân hóa, trẻ chủ động, chơi, thử thách vừa sức (E4). Thuật ngữ đúng: 'nguyên tắc bảo đảm thực hiện đúng phương pháp' hoặc cách nói cùng nghĩa (tuân thủ đúng phương pháp); 'nguyên tắc trung thực' là sai. 'nguyên tắc bảo đảm thực hiện đúng phương pháp' là lựa chọn dịch của dự án, chưa phải thuật ngữ tiếng Việt đã được chuyên gia duyệt"
+      },
+      {
+        "id": "K_SWING",
+        "text": "SBI thường do người lớn dẫn dắt, đầu vào cảm giác thụ động, ví dụ xoa bóp, đeo chụp tai, đu đưa thụ động (E4/E5). Thuật ngữ đúng: 'đu đưa thụ động'; 'du lượn' là sai"
+      },
+      {
+        "id": "K_REVIEWS",
+        "text": "Các tổng quan trước đây gộp SBI với ASI (E2/E3) - chỉ để báo cáo"
+      }
+    ],
+    "concepts": null,
+    "term_correct": null,
+    "faithful": null,
+    "contains_known_wrong_content": null,
+    "note": null
+  },
+  {
+    "review_id": "R030",
+    "question_id": "S08",
+    "text": "Không, các hoạt động kích thích cảm giác (SBIs) khác biệt rõ rệt với phương pháp Tích hợp cảm giác Ayres (ASI) đã được nghiên cứu cho trẻ tự kỷ.",
+    "cited": [
+      {
+        "id": "E4",
+        "quote": "The aim of SBIs is to temporarily modify a child's physiological arousal level, creating a better match between the person and task, with the goal to improve behavior and participation in tasks (11). SBIs are informed by sensory integration theory, but they have clearly delineated differences from direct, one-on-one occupational therapy intervention using Ayres Sensory Integration® intervention, termed ASI (10, 11). Key features of ASI include advanced therapist training and mentorship and adherence to fidelity principles, including active engagement of the child, individually tailored activities, and play opportunities presented at the just-right challenge to facilitate adaptive responses (12, 13). In contrast, SBIs tend to be practitioner or adult-led interventions, involving passive sensory input applied to the child, and can include sensory techniques, such as massage, wearing earmuffs, passive swinging, caregiver sensory training, and sensory environmental modifications (10, 11). SBIs may be implemented by caregivers and other team members or accessed independently by the child as part of an occupational therapy intervention plan in natural environments such as the home, community, and schools."
+      }
+    ],
+    "concept_choices": [
+      {
+        "id": "K_ANSWER",
+        "text": "Trả lời: SBI khác rõ rệt với ASI đã được nghiên cứu (E4)"
+      },
+      {
+        "id": "K_FIDELITY",
+        "text": "ASI đòi hỏi đào tạo chuyên sâu và tuân thủ fidelity principles: cá nhân hóa, trẻ chủ động, chơi, thử thách vừa sức (E4). Thuật ngữ đúng: 'nguyên tắc bảo đảm thực hiện đúng phương pháp' hoặc cách nói cùng nghĩa (tuân thủ đúng phương pháp); 'nguyên tắc trung thực' là sai. 'nguyên tắc bảo đảm thực hiện đúng phương pháp' là lựa chọn dịch của dự án, chưa phải thuật ngữ tiếng Việt đã được chuyên gia duyệt"
+      },
+      {
+        "id": "K_SWING",
+        "text": "SBI thường do người lớn dẫn dắt, đầu vào cảm giác thụ động, ví dụ xoa bóp, đeo chụp tai, đu đưa thụ động (E4/E5). Thuật ngữ đúng: 'đu đưa thụ động'; 'du lượn' là sai"
+      },
+      {
+        "id": "K_REVIEWS",
+        "text": "Các tổng quan trước đây gộp SBI với ASI (E2/E3) - chỉ để báo cáo"
+      }
+    ],
+    "concepts": null,
+    "term_correct": null,
+    "faithful": null,
+    "contains_known_wrong_content": null,
+    "note": null
+  }
+]

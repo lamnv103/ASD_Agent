@@ -35,3 +35,10 @@ class ChatThuTests(unittest.TestCase):
         samples = chat_thu.prepared()
         self.assertEqual(sorted(samples), ["H03", "H04", "H05", "S05", "S07", "S08"])
         self.assertTrue(all(t["question"].strip() for t in samples.values()))
+
+    def test_reader_rejection_is_explained_with_a_retry_hint(self):
+        from rag.evidence import EvidenceError
+        msg = chat_thu.error_text(EvidenceError("v3_selection_schema", "Unknown/duplicate passage or item."))
+        self.assertIn("v3_selection_schema", msg)
+        self.assertIn("/thulai", msg)
+        self.assertIn("RuntimeError", chat_thu.error_text(RuntimeError("x")))
