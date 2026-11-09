@@ -30,13 +30,16 @@ from rag.retriever import atomic_json  # noqa: E402
 NVIDIA_KEY_FILE = ROOT / "secrets/nvidia.env"
 COHERE_KEY_FILE = ROOT / "secrets/cohere.env"
 OUT_ROOT = ROOT / "reports/chat_thu"
+# Prepared questions: retrieval and evidence selection already done (trace), so only NVIDIA is needed.
+TRACE_DIR = ROOT / "reports/reader_refinement_20261101_232742/run_20261102_004612_154953/traces"
 
 BANNER = """==================================================================
  CHAT THỬ NỘI BỘ - ASD_AGENT (pipeline v0.5, chua_duyet)
  - Chỉ dùng câu hỏi GIẢ ĐỊNH, không nhập thông tin thật của trẻ/gia đình.
  - Mỗi câu hỏi độc lập: chat KHÔNG nhớ câu trước.
  - Mỗi câu tốn khoảng 1 lượt Cohere + 3-6 lượt NVIDIA, mất vài chục giây.
- Lệnh: /chitiet = xem nhận định bị loại của câu vừa rồi | /thoat = kết thúc
+ Lệnh: /mau = danh sách câu mẫu | /mau H04 = hỏi câu mẫu (chỉ cần khóa NVIDIA)
+       /chitiet = nhận định bị loại của câu vừa rồi | /thoat = kết thúc
 =================================================================="""
 
 
@@ -44,10 +47,14 @@ def has_value(path, name):
     return path.exists() and bool((dotenv_values(path, interpolate=False).get(name) or "").strip())
 
 
+def prepared():
+    import json as _json
+    return {f.stem: _json.loads(f.read_text(encoding="utf-8")) for f in sorted(TRACE_DIR.glob("*.json"))}
+
+
 def build():
-    """Retriever + reader + client, checked once. Returns (pipe, client_factory, cohere_secret_holder) or exits."""
-    if not has_value(NVIDIA_KEY_FILE, "NVIDIA_API_KEY"):
-        sys.exit(f"Thiếu khóa NVIDIA trong {NVIDIA_KEY_FILE.relative_to(ROOT)} (dòng NVIDIA_API_KEY=...).")
+    """Retriever + reader for FREE questions, or None when no Cohere key is given (prepared questions still work).
+    Query embeddings must come from the same Cohere model as the stored vectors: an NVIDIA key cannot replace it."""
     from rag.guarded_pipeline import GuardedEvidencePipeline
     from rag.retriever import PostgresRetriever
     from rag.semantic_reader_v3 import AtomicNeedsReader
@@ -55,14 +62,16 @@ def build():
     try:
         retriever.health()
     except Exception as exc:
-        sys.exit("Không kết nối được database (" + (getattr(exc, "code", None) or type(exc).__name__) + ").\n"
-                 "  1) Mở Docker Desktop, đợi 'Engine running'\n  2) docker start deployments-rag-db-1\n"
-                 "  3) .\\tasks.ps1 db-health  -> phải báo status ok, rồi chạy lại chat.")
+        print("Không kết nối được database (" + (getattr(exc, "code", None) or type(exc).__name__) + "): "
+              "chỉ dùng được câu mẫu (/mau).\n  Muốn hỏi tự do: mở Docker Desktop, chạy docker start deployments-rag-db-1, "
+              "rồi mở lại chat.")
+        return None
     if not has_value(COHERE_KEY_FILE, "COHERE_API_KEY"):
-        print(f"Chưa có khóa Cohere trong {COHERE_KEY_FILE.relative_to(ROOT)}. Nhập ẩn một lần cho phiên này.")
-        secret = getpass.getpass("Cohere API key (ẩn): ").strip()
+        print(f"Chưa có khóa Cohere trong {COHERE_KEY_FILE.relative_to(ROOT)}.")
+        secret = getpass.getpass("Nhập khóa Cohere (ẩn), hoặc Enter để chỉ dùng câu mẫu: ").strip()
         if not secret:
-            sys.exit("Không có khóa Cohere: không truy xuất được tài liệu.")
+            print("-> Chế độ câu mẫu: gõ /mau để xem 6 câu hỏi đã chuẩn bị. Câu hỏi tự do cần khóa Cohere.")
+            return None
         retriever.embedder.key_supplier = lambda: secret
     pipe = GuardedEvidencePipeline(retriever)
     pipe.semantic_reader = AtomicNeedsReader(counter=pipe.counter, key_supplier=lambda: read_answer_key(str(NVIDIA_KEY_FILE)))
@@ -76,14 +85,21 @@ def removed_text(result):
     return "\n".join(lines) or "  (không có nhận định nào bị loại)"
 
 
-def ask(pipe, cfg, question, n, folder):
+def ask(pipe, cfg, question, n, folder, trace=None):
     hits = detect_emergency(question, cfg)
     if hits:  # before any provider call, as in rag.answer
         return emergency_result(question, cfg, hits), 0
-    trace = pipe.prepare(question, trace_path=str(folder / f"q{n:02d}.trace.json"))
-    client = AnswerNimClient(pipe.counter, key_file=str(NVIDIA_KEY_FILE))
+    sample = trace is not None
+    if not sample:
+        trace = pipe.prepare(question, trace_path=str(folder / f"q{n:02d}.trace.json"))
+        counter = pipe.counter
+    else:  # prepared question: the answer layer only, as rag.answer --from-trace
+        from rag.tokenization import load_counter
+        counter = load_counter(json.loads((ROOT / "deployments/evidence_context.json").read_text(encoding="utf-8")))
+    client = AnswerNimClient(counter, key_file=str(NVIDIA_KEY_FILE))
     result = answer_from_trace(trace, client=client)
-    result["reader_calls"] = trace.get("semantic_reader", {}).get("calls", [])
+    # a prepared trace carries the reader calls of its original run: they are not new calls of this session
+    result["reader_calls"] = [] if sample else trace.get("semantic_reader", {}).get("calls", [])
     fresh = sum(not c.get("cache_hit") for c in result.get("calls", []) + result["reader_calls"])
     return result, fresh
 
@@ -93,7 +109,10 @@ def main():
     sys.stdin.reconfigure(encoding="utf-8")
     print(BANNER)
     cfg = load_config()
+    if not has_value(NVIDIA_KEY_FILE, "NVIDIA_API_KEY"):
+        sys.exit(f"Thiếu khóa NVIDIA trong {NVIDIA_KEY_FILE.relative_to(ROOT)} (dòng NVIDIA_API_KEY=...).")
     pipe = build()
+    samples = prepared()
     folder = OUT_ROOT / datetime.now().strftime("%Y%m%d_%H%M%S")
     folder.mkdir(parents=True, exist_ok=True)
     print(f"Sẵn sàng. Lưu phiên tại {folder.relative_to(ROOT)}\n")
@@ -111,10 +130,24 @@ def main():
         if q in ("/chitiet", "/details"):
             print(removed_text(last) if last else "  (chưa có câu trả lời nào)")
             continue
+        trace = None
+        if q.startswith("/mau"):
+            code = q[4:].strip().upper()
+            if code not in samples:
+                for k, t in samples.items():
+                    print(f"  {k}: {t['question']}")
+                print("  Gõ ví dụ: /mau H04")
+                continue
+            trace = samples[code]
+            q = trace["question"]
+            print(f"  Câu mẫu {code}: {q}")
+        elif pipe is None:
+            print("  Câu hỏi tự do cần khóa Cohere (secrets/cohere.env). Hiện chỉ dùng được /mau.")
+            continue
         n += 1
         print("  ... đang truy xuất tài liệu, đọc bằng chứng và kiểm tra câu trả lời ...", flush=True)
         try:
-            result, fresh = ask(pipe, cfg, q, n, folder)
+            result, fresh = ask(pipe, cfg, q, n, folder, trace)
         except Exception as exc:
             print(f"Lỗi hệ thống: {getattr(exc, 'code', None) or type(exc).__name__}. Câu hỏi không được trả lời.\n")
             continue

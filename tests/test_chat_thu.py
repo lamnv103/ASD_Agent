@@ -30,3 +30,8 @@ class ChatThuTests(unittest.TestCase):
 
     def test_sessions_are_git_ignored(self):
         self.assertIn("reports/chat_thu/", (ROOT / ".gitignore").read_text(encoding="utf-8"))
+
+    def test_prepared_questions_need_no_cohere_key(self):
+        samples = chat_thu.prepared()
+        self.assertEqual(sorted(samples), ["H03", "H04", "H05", "S05", "S07", "S08"])
+        self.assertTrue(all(t["question"].strip() for t in samples.values()))
